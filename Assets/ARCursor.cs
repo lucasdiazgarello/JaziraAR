@@ -2,55 +2,65 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class ARCursor : MonoBehaviour
 {
-    public GameObject cursorChildObject;
-    public GameObject objectToPlace;
+    public GameObject objectToPlace; // Este es el tablero
     public ARRaycastManager raycastManager;
+    public Button placeButton;
+    public Button confirmButton;
 
-    public bool useCursor = true;
+    private GameObject currentObject; // Guarda una referencia al objeto colocado actualmente
+
+    private bool isPlacementModeActive = false; // Para rastrear si el modo de colocación está activo o no
 
     void Start()
     {
-        cursorChildObject.SetActive(useCursor);
+        placeButton.onClick.AddListener(ActivatePlacementMode);
+        confirmButton.onClick.AddListener(ConfirmPlacement);
+        confirmButton.gameObject.SetActive(false); // Desactivar el botón de confirmación al inicio
     }
 
     void Update()
     {
-        if (useCursor)
+        if (isPlacementModeActive && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
-            UpdateCursor();
-        }
-
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            if (useCursor)
+            // Comprobar si el toque está sobre un elemento de la interfaz de usuario
+            if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
             {
-                GameObject.Instantiate(objectToPlace, transform.position, transform.rotation);
+                return; // No colocar el tablero si el toque está sobre un elemento de la interfaz de usuario
             }
-            else
+
+            List<ARRaycastHit> hits = new List<ARRaycastHit>();
+            raycastManager.Raycast(Input.GetTouch(0).position, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
+
+            if (hits.Count > 0)
             {
-                List<ARRaycastHit> hits = new List<ARRaycastHit>();
-                raycastManager.Raycast(Input.GetTouch(0).position, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
-                if (hits.Count > 0)
+                // Primero, eliminar el tablero actual si existe
+                if (currentObject != null)
                 {
-                    GameObject.Instantiate(objectToPlace, hits[0].pose.position, hits[0].pose.rotation);
+                    Destroy(currentObject);
                 }
+
+                // Luego, crear un nuevo tablero y guardarlo como currentObject
+                currentObject = GameObject.Instantiate(objectToPlace, hits[0].pose.position, hits[0].pose.rotation);
+
+                placeButton.gameObject.SetActive(false); // Desactivar el botón de colocación después de colocar el tablero
+                confirmButton.gameObject.SetActive(true); // Activar el botón de confirmación después de colocar el tablero
             }
         }
     }
 
-    void UpdateCursor()
+    public void ActivatePlacementMode()
     {
-        Vector2 screenPosition = Camera.main.ViewportToScreenPoint(new Vector2(0.5f, 0.5f));
-        List<ARRaycastHit> hits = new List<ARRaycastHit>();
-        raycastManager.Raycast(screenPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
+        isPlacementModeActive = true;
+    }
 
-        if (hits.Count > 0)
-        {
-            transform.position = hits[0].pose.position;
-            transform.rotation = hits[0].pose.rotation;
-        }
+    public void ConfirmPlacement()
+    {
+        isPlacementModeActive = false; // Desactivar el modo de colocación
+        confirmButton.gameObject.SetActive(false); // Desactivar el botón de confirmación después de confirmar la colocación
     }
 }
