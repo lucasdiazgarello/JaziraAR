@@ -106,6 +106,8 @@ struct AnimationTriggers_tA0DC06F89C5280C6DD972F6F4C8A56D7F4F79074;
 struct BaseEventData_tE03A848325C0AE8E76C6CA15FD86395EBF83364F;
 // UnityEngine.EventSystems.BaseInputModule
 struct BaseInputModule_tF3B7C22AF1419B2AC9ECE6589357DC1B88ED96B1;
+// BuscarPartidaController
+struct BuscarPartidaController_t324A3AD5BBF0BCB0EA9B0442D8DBB172B36BE5BF;
 // UnityEngine.UI.Button
 struct Button_t6786514A57F7AFDEE5431112FEA0CAB24F5AE098;
 // UnityEngine.Component
@@ -120,6 +122,8 @@ struct GameObject_t76FEDD663AB33C991A9C9A23129337651094216F;
 struct Graphic_tCBFCA4585A19E2B75465AECFEAC43F4016BF7931;
 // UnityEngine.Events.InvokableCallList
 struct InvokableCallList_t309E1C8C7CE885A0D2F98C84CEA77A8935688382;
+// MainMenuController
+struct MainMenuController_tC1AE80D8996B3AE38DACF2ABDAF9FC95E0293569;
 // UnityEngine.Material
 struct Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3;
 // UnityEngine.Mesh
@@ -130,6 +134,8 @@ struct MeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE;
 struct MethodInfo_t;
 // UnityEngine.MonoBehaviour
 struct MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71;
+// NuevaPartidacontroller
+struct NuevaPartidacontroller_t78F7A4EB540B45E3B5FE708F9765A30948646301;
 // UnityEngine.Object
 struct Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C;
 // UnityEngine.Events.PersistentCallGroup
@@ -171,9 +177,12 @@ IL2CPP_EXTERN_C RuntimeClass* List_1_t5C2EBF017989E44F3D1D11AF502E10F6F8D9AB53_i
 IL2CPP_EXTERN_C RuntimeClass* List_1_t77B94703E05C519A9010DD0614F757F974E1CD8B_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Math_tEB65DE7CA8B083C412C969C92981C030865486CE_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* SceneManager_tA0EF56A88ACA4A15731AF7FDC10A869FA4C698FA_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* UnityAction_t11A1F3B953B365C072A5DCC32677EE1796A962A7_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C String_t* _stringLiteral131018280018B48DB9FF86A96C7535E6FA339C24;
 IL2CPP_EXTERN_C String_t* _stringLiteral849043193B4849A97BE2F08CFC3CAC883A0F096C;
+IL2CPP_EXTERN_C String_t* _stringLiteral995F58348F9C250B2B3F430F347517EDA727936F;
+IL2CPP_EXTERN_C String_t* _stringLiteralDB4D83D6871102EE8099E4F8AF38EB3DFE88EB6B;
 IL2CPP_EXTERN_C const RuntimeMethod* ARCursor_ActivatePlacementMode_mFD7649EE74A21B0BFB81D4E0455DF4018DDDB2BF_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ARCursor_ConfirmPlacement_m7D703F07310542C0F8DDC231E159B637B30336AE_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ARFeatheredPlaneMeshVisualizer_ARPlane_boundaryUpdated_mB3D9BBD14EA1FE3ECDBACC2DB89C1B110B8B6B5F_RuntimeMethod_var;
@@ -1166,6 +1175,21 @@ struct AnchorCreator_tBBEE94135B5183E0A8EE52FB00513F69C7C980ED_StaticFields
 	List_1_t0754071572EFE7A5C92A59495D2524FC935364E3* ___s_Hits_5;
 };
 
+// BuscarPartidaController
+struct BuscarPartidaController_t324A3AD5BBF0BCB0EA9B0442D8DBB172B36BE5BF  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
+{
+};
+
+// MainMenuController
+struct MainMenuController_tC1AE80D8996B3AE38DACF2ABDAF9FC95E0293569  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
+{
+};
+
+// NuevaPartidacontroller
+struct NuevaPartidacontroller_t78F7A4EB540B45E3B5FE708F9765A30948646301  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
+{
+};
+
 // UnityEngine.EventSystems.UIBehaviour
 struct UIBehaviour_tB9D4295827BD2EEDEF0749200C6CA7090C742A9D  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
@@ -1575,6 +1599,8 @@ inline GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* Object_Instantiate_
 }
 // System.Void UnityEngine.MonoBehaviour::.ctor()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E (MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71* __this, const RuntimeMethod* method) ;
+// System.Void UnityEngine.SceneManagement.SceneManager::LoadScene(System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SceneManager_LoadScene_mBB3DBC1601A21F8F4E8A5D68FED30EA9412F218E (String_t* ___sceneName0, const RuntimeMethod* method) ;
 // System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<UnityEngine.XR.ARFoundation.ARAnchor>::GetEnumerator()
 inline Enumerator_t931CB0AD3EC6D604C0583DE600B7B530E43D9054 List_1_GetEnumerator_mEE1B2EFD76218372C2F754E07BFDE6CA16244502 (List_1_t5C2EBF017989E44F3D1D11AF502E10F6F8D9AB53* __this, const RuntimeMethod* method)
 {
@@ -1977,6 +2003,40 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ARCursor_ConfirmPlacement_m7D703F0731054
 }
 // System.Void ARCursor::.ctor()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ARCursor__ctor_m137F0AE7E4CBAB2E1D72B1ED04AEC5E1315980EB (ARCursor_t8AAA875642042CDB3704727B8397F2676759BF0C* __this, const RuntimeMethod* method) 
+{
+	{
+		MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E(__this, NULL);
+		return;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// System.Void BuscarPartidaController::LoadGameScene()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BuscarPartidaController_LoadGameScene_mAA22577F2D92EB1776F1C2D6D7C35AD1A5B44F7C (BuscarPartidaController_t324A3AD5BBF0BCB0EA9B0442D8DBB172B36BE5BF* __this, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&SceneManager_tA0EF56A88ACA4A15731AF7FDC10A869FA4C698FA_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralDB4D83D6871102EE8099E4F8AF38EB3DFE88EB6B);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// SceneManager.LoadScene("SampleScene");
+		il2cpp_codegen_runtime_class_init_inline(SceneManager_tA0EF56A88ACA4A15731AF7FDC10A869FA4C698FA_il2cpp_TypeInfo_var);
+		SceneManager_LoadScene_mBB3DBC1601A21F8F4E8A5D68FED30EA9412F218E(_stringLiteralDB4D83D6871102EE8099E4F8AF38EB3DFE88EB6B, NULL);
+		// }
+		return;
+	}
+}
+// System.Void BuscarPartidaController::.ctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BuscarPartidaController__ctor_mEA1A227751149C33E27F93FA4B05701AA115A323 (BuscarPartidaController_t324A3AD5BBF0BCB0EA9B0442D8DBB172B36BE5BF* __this, const RuntimeMethod* method) 
 {
 	{
 		MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E(__this, NULL);
@@ -2631,6 +2691,74 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ARFeatheredPlaneMeshVisualizer__cctor_m5
 		List_1__ctor_mC54E2BCBE43279A96FC082F5CDE2D76388BD8F9C(L_1, List_1__ctor_mC54E2BCBE43279A96FC082F5CDE2D76388BD8F9C_RuntimeMethod_var);
 		((ARFeatheredPlaneMeshVisualizer_t5B508CD2D37F908F4359D7DED031B3C357E34955_StaticFields*)il2cpp_codegen_static_fields_for(ARFeatheredPlaneMeshVisualizer_t5B508CD2D37F908F4359D7DED031B3C357E34955_il2cpp_TypeInfo_var))->___s_Vertices_6 = L_1;
 		Il2CppCodeGenWriteBarrier((void**)(&((ARFeatheredPlaneMeshVisualizer_t5B508CD2D37F908F4359D7DED031B3C357E34955_StaticFields*)il2cpp_codegen_static_fields_for(ARFeatheredPlaneMeshVisualizer_t5B508CD2D37F908F4359D7DED031B3C357E34955_il2cpp_TypeInfo_var))->___s_Vertices_6), (void*)L_1);
+		return;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// System.Void MainMenuController::LoadGameScene()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MainMenuController_LoadGameScene_mEC79210F978DB0CB2E26E2C9CE05A70B0601A85A (MainMenuController_tC1AE80D8996B3AE38DACF2ABDAF9FC95E0293569* __this, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&SceneManager_tA0EF56A88ACA4A15731AF7FDC10A869FA4C698FA_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral995F58348F9C250B2B3F430F347517EDA727936F);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// SceneManager.LoadScene("NuevaPartidaScene");
+		il2cpp_codegen_runtime_class_init_inline(SceneManager_tA0EF56A88ACA4A15731AF7FDC10A869FA4C698FA_il2cpp_TypeInfo_var);
+		SceneManager_LoadScene_mBB3DBC1601A21F8F4E8A5D68FED30EA9412F218E(_stringLiteral995F58348F9C250B2B3F430F347517EDA727936F, NULL);
+		// }
+		return;
+	}
+}
+// System.Void MainMenuController::.ctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MainMenuController__ctor_m9727FC638FDF6BDF302E10C6351846B395013EA4 (MainMenuController_tC1AE80D8996B3AE38DACF2ABDAF9FC95E0293569* __this, const RuntimeMethod* method) 
+{
+	{
+		MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E(__this, NULL);
+		return;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// System.Void NuevaPartidacontroller::LoadGameScene()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NuevaPartidacontroller_LoadGameScene_mC454AC265F691B4C403394E67E5CDF50A7FD822C (NuevaPartidacontroller_t78F7A4EB540B45E3B5FE708F9765A30948646301* __this, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&SceneManager_tA0EF56A88ACA4A15731AF7FDC10A869FA4C698FA_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralDB4D83D6871102EE8099E4F8AF38EB3DFE88EB6B);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// SceneManager.LoadScene("SampleScene");
+		il2cpp_codegen_runtime_class_init_inline(SceneManager_tA0EF56A88ACA4A15731AF7FDC10A869FA4C698FA_il2cpp_TypeInfo_var);
+		SceneManager_LoadScene_mBB3DBC1601A21F8F4E8A5D68FED30EA9412F218E(_stringLiteralDB4D83D6871102EE8099E4F8AF38EB3DFE88EB6B, NULL);
+		// }
+		return;
+	}
+}
+// System.Void NuevaPartidacontroller::.ctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NuevaPartidacontroller__ctor_mFC41115C7CA6278FF33BD72024BFABD3FFC909C0 (NuevaPartidacontroller_t78F7A4EB540B45E3B5FE708F9765A30948646301* __this, const RuntimeMethod* method) 
+{
+	{
+		MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E(__this, NULL);
 		return;
 	}
 }
