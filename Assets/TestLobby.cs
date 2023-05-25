@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 public class NewBehaviourScript : MonoBehaviour
 {
 
+
+    private Lobby hostLobby;
+    private float heartbeatTimer;
     private async void Start()
     {
         await UnityServices.InitializeAsync();
@@ -30,13 +33,72 @@ public class NewBehaviourScript : MonoBehaviour
             string lobbyName = "Lobby 1";
             int maxPlayers = 4;
             Lobby lobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers);
+            hostLobby = lobby;
             Debug.Log("Lobby creado!" + lobby.Name + " " + lobby.MaxPlayers);
         } catch (LobbyServiceException e)
         {
             Debug.Log(e);
         }
-        
 
     }
-    
+
+    private async void ListLobbies()
+    {
+        try 
+        { 
+           QueryResponse queryResponse = await Lobbies.Instance.QueryLobbiesAsync();
+
+            Debug.Log("Lobbies encontrados: " + queryResponse.Results.Count);
+            foreach (Lobby lobby in queryResponse.Results)
+            {
+                Debug.Log(lobby.Name + " " + lobby.MaxPlayers);
+            }
+        }
+        catch (LobbyServiceException e)
+        {
+            Debug.Log(e);
+        }
+    }
+
+    private void Update()
+    {
+        HandleLobbyHeartbeat();
+    }
+    private async void HandleLobbyHeartbeat()
+    {
+        if(hostLobby != null)
+        {
+            heartbeatTimer -= Time.deltaTime;
+            if (heartbeatTimer < 0f)
+            {
+                float heartbeatTimerMax = 15;
+                heartbeatTimer = heartbeatTimerMax;
+                await LobbyService.Instance.SendHeartbeatPingAsync(hostLobby.Id);
+            }
+        }
+    }
+
+    private async void JoinLobby()
+    {
+        try
+        {
+            QueryResponse queryResponse = await Lobbies.Instance.QueryLobbiesAsync();
+
+            await Lobbies.Instance.JoinLobbyByIdAsync(queryResponse.Results[0].Id);
+        } catch (LobbyServiceException e)
+        {
+            Debug.Log(e);
+        }
+    }
+
+    private async void QuickJoinLobby()
+    {
+        try 
+        {
+            await LobbyService.Instance.QuickJoinLobbyAsync();
+        } catch (LobbyServiceException e)
+        {
+            Debug.Log(e);
+        }
+    }
 }
