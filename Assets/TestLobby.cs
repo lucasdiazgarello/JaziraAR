@@ -13,6 +13,7 @@ public class NewBehaviourScript : MonoBehaviour
 
     private Lobby hostLobby;
     private float heartbeatTimer;
+    private string playerName;
     private async void Start()
     {
         await UnityServices.InitializeAsync();
@@ -24,6 +25,8 @@ public class NewBehaviourScript : MonoBehaviour
         };
 
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
+        playerName = "JaziraPlayer" + UnityEngine.Random.Range(1, 10);
+        Debug.Log(playerName);
     }
 
     private async void CreateLobby()
@@ -32,10 +35,27 @@ public class NewBehaviourScript : MonoBehaviour
         {
             string lobbyName = "Lobby 1";
             int maxPlayers = 4;
+            CreateLobbyOptions options = new CreateLobbyOptions
+            {
+                IsPrivate = false,
+                Player = new Player
+                {
+                    Data = new Dictionary<string, PlayerDataObject>
+                    {
+                        { "Nombre del Jugador", new PlayerDataObject (PlayerDataObject.VisibilityOptions.Member, playerName) }
+
+                    }
+                }
+            };
             Lobby lobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers);
             hostLobby = lobby;
+
             Debug.Log("Lobby creado!" + lobby.Name + " " + lobby.MaxPlayers);
-        } catch (LobbyServiceException e)
+
+            PrintPlayers(hostLobby);
+
+        }
+        catch (LobbyServiceException e)
         {
             Debug.Log(e);
         }
@@ -44,9 +64,9 @@ public class NewBehaviourScript : MonoBehaviour
 
     private async void ListLobbies()
     {
-        try 
-        { 
-           QueryResponse queryResponse = await Lobbies.Instance.QueryLobbiesAsync();
+        try
+        {
+            QueryResponse queryResponse = await Lobbies.Instance.QueryLobbiesAsync();
 
             Debug.Log("Lobbies encontrados: " + queryResponse.Results.Count);
             foreach (Lobby lobby in queryResponse.Results)
@@ -66,7 +86,7 @@ public class NewBehaviourScript : MonoBehaviour
     }
     private async void HandleLobbyHeartbeat()
     {
-        if(hostLobby != null)
+        if (hostLobby != null)
         {
             heartbeatTimer -= Time.deltaTime;
             if (heartbeatTimer < 0f)
@@ -85,7 +105,8 @@ public class NewBehaviourScript : MonoBehaviour
             QueryResponse queryResponse = await Lobbies.Instance.QueryLobbiesAsync();
 
             await Lobbies.Instance.JoinLobbyByIdAsync(queryResponse.Results[0].Id);
-        } catch (LobbyServiceException e)
+        }
+        catch (LobbyServiceException e)
         {
             Debug.Log(e);
         }
@@ -93,12 +114,21 @@ public class NewBehaviourScript : MonoBehaviour
 
     private async void QuickJoinLobby()
     {
-        try 
+        try
         {
             await LobbyService.Instance.QuickJoinLobbyAsync();
-        } catch (LobbyServiceException e)
+        }
+        catch (LobbyServiceException e)
         {
             Debug.Log(e);
+        }
+    }
+    private void PrintPlayers(Lobby lobby)
+    {
+        Debug.Log("Players in Lobby " + lobby.Name);
+        foreach (Player player in lobby.Players)
+        {
+            Debug.Log(player.Id + " " + player.Data["playerName"].Value);
         }
     }
 }
