@@ -429,6 +429,7 @@ IL2CPP_EXTERN_C RuntimeClass* SimulatorPipelineStage_t8716306836063338A91F9A1944
 IL2CPP_EXTERN_C RuntimeClass* Stopwatch_tA188A210449E22C07053A7D3014DD182C7369043_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Type_t_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* UInt16U5BU5D_tEB7C42D811D999D2AA815BADC3FCCDD9C67B3F83_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* UInt16_tF4C148C876015C212FD72652D0B6ED8CC247A455_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* UInt32U5BU5D_t02FBD658AD156A17574ECE6106CF1FBFCC9807FA_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* UInt32_t1833D51FFA667B18A5AA4B8D34DE284F8495D29B_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* UnityTransportProtocol_t0AF6BCA4232292A3E52C79905D3EB36F8E7D8F29_il2cpp_TypeInfo_var;
@@ -455,6 +456,7 @@ IL2CPP_EXTERN_C String_t* _stringLiteral74990F71EC8F2FC137E1E0231D0B6202245AA03A
 IL2CPP_EXTERN_C String_t* _stringLiteral7A5C10CF186758A5CC1D48000F1D7F3635C7EFF8;
 IL2CPP_EXTERN_C String_t* _stringLiteral7B3A295EFC39A27D9F6C679C00FC984DE6E479FC;
 IL2CPP_EXTERN_C String_t* _stringLiteral7BD9FD6F0CA094855382F77F4352B6BC065CCDD4;
+IL2CPP_EXTERN_C String_t* _stringLiteral83EF98157104E3EE9C0DC0A51BC4C0A5C66A8E1C;
 IL2CPP_EXTERN_C String_t* _stringLiteral875C837D083AEB5ECD70481023380CFC8D2BBF40;
 IL2CPP_EXTERN_C String_t* _stringLiteral876C4B39B6E4D0187090400768899C71D99DE90D;
 IL2CPP_EXTERN_C String_t* _stringLiteral8810B59E1AF6749D0BF9721DC32A7FCCE1DB7C5A;
@@ -466,9 +468,11 @@ IL2CPP_EXTERN_C String_t* _stringLiteral9ECCE1AC0FF63A952CF64BB5915BED8915328404
 IL2CPP_EXTERN_C String_t* _stringLiteralB2C456522CE163EDFCDF6A6B1D2925AB2D9BCBA0;
 IL2CPP_EXTERN_C String_t* _stringLiteralBBB84C89FC3E5DB547BA9BE09A67D1743162E9B4;
 IL2CPP_EXTERN_C String_t* _stringLiteralBDD891867AF16B6B86FA320FD290A63EC049188D;
+IL2CPP_EXTERN_C String_t* _stringLiteralC6A4368F9DC04E2CE76838164434CDEF9CA81482;
 IL2CPP_EXTERN_C String_t* _stringLiteralC7316ED5A1D9F44D8363175D1E58E0D69BD39DD0;
 IL2CPP_EXTERN_C String_t* _stringLiteralC8E440D0E5E14B2B56FF8B470E0C6EB8F553D34C;
 IL2CPP_EXTERN_C String_t* _stringLiteralD17551A6D17A0A0C2BF05432E35BE31D7A559E36;
+IL2CPP_EXTERN_C String_t* _stringLiteralD3987C8D7F7B7DE0C6FDF6045F5937448E50A78A;
 IL2CPP_EXTERN_C String_t* _stringLiteralD9691C4FD8A1F6B09DB1147CA32B442772FB46A1;
 IL2CPP_EXTERN_C String_t* _stringLiteralE166C9564FBDE461738077E3B1B506525EB6ACCC;
 IL2CPP_EXTERN_C String_t* _stringLiteralE577CDA21F1CE9B4BEB7D478D1304ABD3C88E170;
@@ -484,6 +488,7 @@ IL2CPP_EXTERN_C const RuntimeMethod* BaselibNetworkInterface_BeginSendMessage_mA
 IL2CPP_EXTERN_C const RuntimeMethod* BaselibNetworkInterface_Bind_m0BB373537B5B0B862204B125663F17E693CCFAC4_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* BaselibNetworkInterface_EndSendMessage_m8F4442A383ABE0C7351E099F4802369F27034230_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* BaselibNetworkInterface_ScheduleAllReceives_m777A1B1419C787AF83A81C2677EA30D0F6BC937B_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* BaselibNetworkInterface_WouldBindFailWithoutAddressReuse_m6EA02E3CC83BCC13716B646D47D40125912B8E4A_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* DataStreamReader_CheckBits_m1AE0E7F820B0DDB82AFD805DB1C533D2A680126D_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* DataStreamWriter_CheckAllocator_m43EAB3F4ACB5F896586BAF54716BCB03F8A57108_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* DataStreamWriter_CheckBits_mF70CF084E154E25CCBDB5CD087F3BC6C9FE3DD4C_RuntimeMethod_var;
@@ -10085,8 +10090,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NativeList_1_Add_m11204AEE42726C75260F7E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t NativeQueue_1_get_Count_m085E8DF542AA46E09B4ECF3CD80F8A89A84C73B7_gshared (NativeQueue_1_t3C5DFC28122633C8F672980038A79B3B7D26790A* __this, const RuntimeMethod* method) ;
 // System.Int32 Unity.Collections.NativeList`1<Unity.Networking.Transport.NetworkPipelineProcessor/UpdatePipeline>::get_Length()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t NativeList_1_get_Length_mDCC082BC46F829CA36862DE9FB4F95657DEB418A_gshared (NativeList_1_t1869FE735F5176A07019C960A26F7477BA6142B3* __this, const RuntimeMethod* method) ;
-// System.Void Unity.Collections.NativeArray`1<Unity.Networking.Transport.NetworkPipelineProcessor/UpdatePipeline>::.ctor(System.Int32,Unity.Collections.Allocator,Unity.Collections.NativeArrayOptions)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NativeArray_1__ctor_mF0F5570FB943262DABF4D6E9EC0A9217FA755C79_gshared (NativeArray_1_tF0A83538A02306EA7A8F22FEA945A6961365E8C8* __this, int32_t ___length0, int32_t ___allocator1, int32_t ___options2, const RuntimeMethod* method) ;
 // System.Boolean Unity.Collections.NativeQueue`1<Unity.Networking.Transport.NetworkPipelineProcessor/UpdatePipeline>::TryDequeue(T&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool NativeQueue_1_TryDequeue_m315CD2A654FF45274D7141A0BB8E7347CA8EFAD9_gshared (NativeQueue_1_t3C5DFC28122633C8F672980038A79B3B7D26790A* __this, UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2* ___item0, const RuntimeMethod* method) ;
 // T Unity.Collections.NativeList`1<Unity.Networking.Transport.NetworkPipelineProcessor/UpdatePipeline>::get_Item(System.Int32)
@@ -10095,6 +10098,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NativeQueue_1_Enqueue_m8C87C71D8CCC6A6E069FD3859CFFB2280E117779_gshared (NativeQueue_1_t3C5DFC28122633C8F672980038A79B3B7D26790A* __this, UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2 ___value0, const RuntimeMethod* method) ;
 // System.Void Unity.Collections.NativeList`1<Unity.Networking.Transport.NetworkPipelineProcessor/UpdatePipeline>::Add(T&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NativeList_1_Add_m0346C33754ECF03B7F88807BF501CFBC19EBBF40_gshared (NativeList_1_t1869FE735F5176A07019C960A26F7477BA6142B3* __this, UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2* ___value0, const RuntimeMethod* method) ;
+// System.Void Unity.Collections.NativeArray`1<Unity.Networking.Transport.NetworkPipelineProcessor/UpdatePipeline>::.ctor(System.Int32,Unity.Collections.Allocator,Unity.Collections.NativeArrayOptions)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NativeArray_1__ctor_mF0F5570FB943262DABF4D6E9EC0A9217FA755C79_gshared (NativeArray_1_tF0A83538A02306EA7A8F22FEA945A6961365E8C8* __this, int32_t ___length0, int32_t ___allocator1, int32_t ___options2, const RuntimeMethod* method) ;
 // System.Void Unity.Collections.NativeList`1<Unity.Networking.Transport.NetworkPipelineProcessor/UpdatePipeline>::Clear()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NativeList_1_Clear_mC67DE2A396DF8338B709EFA227FEF22BA7AB0765_gshared (NativeList_1_t1869FE735F5176A07019C960A26F7477BA6142B3* __this, const RuntimeMethod* method) ;
 
@@ -10265,10 +10270,18 @@ inline JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 IJobExtensions_Schedu
 }
 // Unity.Jobs.JobHandle Unity.Networking.Transport.BaselibNetworkInterface::ScheduleSend(Unity.Collections.NativeQueue`1<Unity.Networking.Transport.QueuedSendMessage>,Unity.Jobs.JobHandle)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 BaselibNetworkInterface_ScheduleSend_m0167555BFF3F8558A67C0F3946649924C3410FC5 (BaselibNetworkInterface_t2A3CC1DD1753790D44DA4C5F542B22ABDD82128B* __this, NativeQueue_1_t6F98B587B9BF83745B5D350CBDB27E86744FB2A1 ___sendQueue0, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 ___dep1, const RuntimeMethod* method) ;
+// System.Boolean Unity.Networking.Transport.BaselibNetworkInterface::WouldBindFailWithoutAddressReuse(Unity.Baselib.LowLevel.Binding/Baselib_NetworkAddress)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool BaselibNetworkInterface_WouldBindFailWithoutAddressReuse_m6EA02E3CC83BCC13716B646D47D40125912B8E4A (BaselibNetworkInterface_t2A3CC1DD1753790D44DA4C5F542B22ABDD82128B* __this, Baselib_NetworkAddress_t2F4AF92B4EEFE31182BADF512CA004AFF48128E0 ___address0, const RuntimeMethod* method) ;
 // Unity.Baselib.LowLevel.Binding/Baselib_RegisteredNetwork_Socket_UDP Unity.Baselib.LowLevel.Binding::Baselib_RegisteredNetwork_Socket_UDP_Create(Unity.Baselib.LowLevel.Binding/Baselib_NetworkAddress*,Unity.Baselib.LowLevel.Binding/Baselib_NetworkAddress_AddressReuse,System.UInt32,System.UInt32,Unity.Baselib.LowLevel.Binding/Baselib_ErrorState*)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Baselib_RegisteredNetwork_Socket_UDP_t56202AB2B03941A065A7D8382591DD253115192A Binding_Baselib_RegisteredNetwork_Socket_UDP_Create_m6484CB4F9312E484F50D2AC6878534BC1B33A7AA (Baselib_NetworkAddress_t2F4AF92B4EEFE31182BADF512CA004AFF48128E0* ___bindAddress0, int32_t ___endpointReuse1, uint32_t ___sendQueueSize2, uint32_t ___recvQueueSize3, Baselib_ErrorState_t9A3CC4D46155662AAC822300993DA278B19A1D1E* ___errorState4, const RuntimeMethod* method) ;
 // System.Int32 Unity.Networking.Transport.BaselibNetworkInterface::ScheduleAllReceives(Unity.Baselib.LowLevel.Binding/Baselib_RegisteredNetwork_Socket_UDP,Unity.Networking.Transport.BaselibNetworkInterface/Payloads&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t BaselibNetworkInterface_ScheduleAllReceives_m777A1B1419C787AF83A81C2677EA30D0F6BC937B (Baselib_RegisteredNetwork_Socket_UDP_t56202AB2B03941A065A7D8382591DD253115192A ___socket0, Payloads_t73B5E28F36472A64947A3A62029D9F6643CAC463* ___PayloadsRx1, const RuntimeMethod* method) ;
+// System.UInt16 Unity.Networking.Transport.NetworkEndPoint::get_Port()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR uint16_t NetworkEndPoint_get_Port_m92EFA89C28AE3EA5AF00CD0BC8DB7403897756EB (NetworkEndPoint_t40D02F3956B78E8C6115ED188912FBCE35437F63* __this, const RuntimeMethod* method) ;
+// System.String System.String::Format(System.String,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* String_Format_mA8DBB4C2516B9723C5A41E6CB1E2FAF4BBE96DD8 (String_t* ___format0, RuntimeObject* ___arg01, const RuntimeMethod* method) ;
+// System.String System.String::Concat(System.String,System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* String_Concat_m9E3155FB84015C823606188F53B47CB44C444991 (String_t* ___str00, String_t* ___str11, const RuntimeMethod* method) ;
 // System.Int32 Unity.Networking.Transport.BaselibNetworkInterface::Listen()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t BaselibNetworkInterface_Listen_mC31D9DD6782B4C19CBE6354DE775854068806A79 (BaselibNetworkInterface_t2A3CC1DD1753790D44DA4C5F542B22ABDD82128B* __this, const RuntimeMethod* method) ;
 // System.Void* Unity.Collections.LowLevel.Unsafe.NativeArrayUnsafeUtility::GetUnsafePtr<Unity.Networking.Transport.BaselibNetworkInterface/BaselibData>(Unity.Collections.NativeArray`1<T>)
@@ -10337,8 +10350,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t UnsafeAtomicFreeList_Pop_mD84373612AA
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UnsafeAtomicFreeList_Push_m44B366C036D6872928DE3AA26B488022F6D003A3 (UnsafeAtomicFreeList_tDAA2E28DFA321FDC0BB202ECAC92DFF2922A9B04* __this, int32_t ___item0, const RuntimeMethod* method) ;
 // Unity.Baselib.LowLevel.Binding/Baselib_RegisteredNetwork_ProcessStatus Unity.Baselib.LowLevel.Binding::Baselib_RegisteredNetwork_Socket_UDP_ProcessSend(Unity.Baselib.LowLevel.Binding/Baselib_RegisteredNetwork_Socket_UDP,Unity.Baselib.LowLevel.Binding/Baselib_ErrorState*)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Binding_Baselib_RegisteredNetwork_Socket_UDP_ProcessSend_m1F9B66691637D76FA0D3533104193E910E3657A3 (Baselib_RegisteredNetwork_Socket_UDP_t56202AB2B03941A065A7D8382591DD253115192A ___socket0, Baselib_ErrorState_t9A3CC4D46155662AAC822300993DA278B19A1D1E* ___errorState1, const RuntimeMethod* method) ;
-// System.String System.String::Format(System.String,System.Object)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* String_Format_mA8DBB4C2516B9723C5A41E6CB1E2FAF4BBE96DD8 (String_t* ___format0, RuntimeObject* ___arg01, const RuntimeMethod* method) ;
 // System.Void Unity.Networking.Transport.BaselibNetworkInterface::MarkSocketAsNeedingRecreate(Unity.Collections.NativeArray`1<Unity.Networking.Transport.BaselibNetworkInterface/BaselibData>)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BaselibNetworkInterface_MarkSocketAsNeedingRecreate_mD06D17025B98306DEBC61283AD2344CE48191EB1 (NativeArray_1_t3FE1B7CEA9C8DC1C4ABFA96828337854A86A59AD ___baselib0, const RuntimeMethod* method) ;
 // System.Int32 System.IntPtr::op_Explicit(System.IntPtr)
@@ -10763,8 +10774,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR NetworkInterfaceEndPoint_t19ADA9DC012F2BEFFD7
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool NetworkEndPoint_get_IsLoopback_mE76FF0B8CFEBFCE6E43AABA3DF7C9CF29F82476F (NetworkEndPoint_t40D02F3956B78E8C6115ED188912FBCE35437F63* __this, const RuntimeMethod* method) ;
 // System.Boolean Unity.Networking.Transport.NetworkEndPoint::get_IsAny()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool NetworkEndPoint_get_IsAny_mABB8DB5DABAA862EF3BA4ADD033BD949CBD1058E (NetworkEndPoint_t40D02F3956B78E8C6115ED188912FBCE35437F63* __this, const RuntimeMethod* method) ;
-// System.UInt16 Unity.Networking.Transport.NetworkEndPoint::get_Port()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR uint16_t NetworkEndPoint_get_Port_m92EFA89C28AE3EA5AF00CD0BC8DB7403897756EB (NetworkEndPoint_t40D02F3956B78E8C6115ED188912FBCE35437F63* __this, const RuntimeMethod* method) ;
 // System.Int32 Unity.Networking.Transport.IPCNetworkInterface::CreateInterfaceEndPoint(Unity.Networking.Transport.NetworkEndPoint,Unity.Networking.Transport.NetworkInterfaceEndPoint&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t IPCNetworkInterface_CreateInterfaceEndPoint_m9ABDB364C86959F3322ED577FBB86389E2F79A2E (IPCNetworkInterface_t1BB234D77DF8EE2C53817E1A38050E99BC391FC9* __this, NetworkEndPoint_t40D02F3956B78E8C6115ED188912FBCE35437F63 ___address0, NetworkInterfaceEndPoint_t19ADA9DC012F2BEFFD7234FF77DA83DB8C8B7686* ___endpoint1, const RuntimeMethod* method) ;
 // Unity.Networking.Transport.NetworkEndPoint Unity.Networking.Transport.NetworkEndPoint::get_LoopbackIpv4()
@@ -11117,6 +11126,8 @@ inline int32_t NativeQueue_1_get_Count_m9D98091BBA2C8C5834061BBEA450CE1FDFC8129A
 {
 	return ((  int32_t (*) (NativeQueue_1_tC1DEEC6300FED2BCDE96AFD346BEE6CF8E03412A*, const RuntimeMethod*))NativeQueue_1_get_Count_m9D98091BBA2C8C5834061BBEA450CE1FDFC8129A_gshared)(__this, method);
 }
+// System.Int32 Unity.Mathematics.math::max(System.Int32,System.Int32)
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t math_max_m9083201D37A8ED0157B127B5878D9B7F3A2A40BE_inline (int32_t ___x0, int32_t ___y1, const RuntimeMethod* method) ;
 // Unity.Collections.FixedString128Bytes Unity.Collections.FixedString128Bytes::op_Implicit(System.String)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 FixedString128Bytes_op_Implicit_mC1EF3D019A34577624853F21B956303E569C116E (String_t* ___b0, const RuntimeMethod* method) ;
 // Unity.Collections.FixedString128Bytes Unity.Collections.FixedString::Format(Unity.Collections.FixedString128Bytes,System.Int32)
@@ -11439,8 +11450,6 @@ inline int32_t UnsafeUtility_SizeOf_TisBaselib_NetworkAddress_t2F4AF92B4EEFE3118
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Encoding_t65CDEF28CF20A7B8C92E85A4E808920C2465F095* Encoding_get_UTF8_m9FA98A53CE96FD6D02982625C5246DD36C1235C9 (const RuntimeMethod* method) ;
 // System.String System.Char::ToString()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* Char_ToString_m2A308731F9577C06AF3C0901234E2EAC8327410C (Il2CppChar* __this, const RuntimeMethod* method) ;
-// System.String System.String::Concat(System.String,System.String)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* String_Concat_m9E3155FB84015C823606188F53B47CB44C444991 (String_t* ___str00, String_t* ___str11, const RuntimeMethod* method) ;
 // System.Void Unity.Baselib.LowLevel.Binding::Baselib_NetworkAddress_Encode(Unity.Baselib.LowLevel.Binding/Baselib_NetworkAddress*,Unity.Baselib.LowLevel.Binding/Baselib_NetworkAddress_Family,System.Byte*,System.UInt16,Unity.Baselib.LowLevel.Binding/Baselib_ErrorState*)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Binding_Baselib_NetworkAddress_Encode_m060DDA8C7CB92925D2F79C2B991F9E817CE53C44 (Baselib_NetworkAddress_t2F4AF92B4EEFE31182BADF512CA004AFF48128E0* ___dstAddress0, int32_t ___family1, uint8_t* ___ip2, uint16_t ___port3, Baselib_ErrorState_t9A3CC4D46155662AAC822300993DA278B19A1D1E* ___errorState4, const RuntimeMethod* method) ;
 // System.Boolean Unity.Networking.Transport.NetworkEndPoint::TryParse(System.String,System.UInt16,Unity.Networking.Transport.NetworkEndPoint&,Unity.Networking.Transport.NetworkFamily)
@@ -11823,11 +11832,8 @@ inline int32_t NativeList_1_get_Length_mDCC082BC46F829CA36862DE9FB4F95657DEB418A
 {
 	return ((  int32_t (*) (NativeList_1_t1869FE735F5176A07019C960A26F7477BA6142B3*, const RuntimeMethod*))NativeList_1_get_Length_mDCC082BC46F829CA36862DE9FB4F95657DEB418A_gshared)(__this, method);
 }
-// System.Void Unity.Collections.NativeArray`1<Unity.Networking.Transport.NetworkPipelineProcessor/UpdatePipeline>::.ctor(System.Int32,Unity.Collections.Allocator,Unity.Collections.NativeArrayOptions)
-inline void NativeArray_1__ctor_mF0F5570FB943262DABF4D6E9EC0A9217FA755C79 (NativeArray_1_tF0A83538A02306EA7A8F22FEA945A6961365E8C8* __this, int32_t ___length0, int32_t ___allocator1, int32_t ___options2, const RuntimeMethod* method)
-{
-	((  void (*) (NativeArray_1_tF0A83538A02306EA7A8F22FEA945A6961365E8C8*, int32_t, int32_t, int32_t, const RuntimeMethod*))NativeArray_1__ctor_mF0F5570FB943262DABF4D6E9EC0A9217FA755C79_gshared)(__this, ___length0, ___allocator1, ___options2, method);
-}
+// System.Void Unity.Networking.Transport.NetworkPipelineProcessor::AddSendUpdate(Unity.Networking.Transport.NetworkConnection,System.Int32,Unity.Networking.Transport.NetworkPipeline,Unity.Collections.NativeList`1<Unity.Networking.Transport.NetworkPipelineProcessor/UpdatePipeline>)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NetworkPipelineProcessor_AddSendUpdate_m311F020E6DE89B9A7A0EA72D4FA1D244DF53723E (NetworkConnection_t0A1170D9665C62249582E5DAABC2EAF2D01DEDF4 ___connection0, int32_t ___stageId1, NetworkPipeline_t83BB00B4CE9811A2B75D37E50EFB85FD60044A69 ___pipelineId2, NativeList_1_t1869FE735F5176A07019C960A26F7477BA6142B3 ___currentUpdates3, const RuntimeMethod* method) ;
 // System.Boolean Unity.Collections.NativeQueue`1<Unity.Networking.Transport.NetworkPipelineProcessor/UpdatePipeline>::TryDequeue(T&)
 inline bool NativeQueue_1_TryDequeue_m315CD2A654FF45274D7141A0BB8E7347CA8EFAD9 (NativeQueue_1_t3C5DFC28122633C8F672980038A79B3B7D26790A* __this, UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2* ___item0, const RuntimeMethod* method)
 {
@@ -11850,6 +11856,11 @@ inline void NativeList_1_Add_m0346C33754ECF03B7F88807BF501CFBC19EBBF40 (NativeLi
 {
 	((  void (*) (NativeList_1_t1869FE735F5176A07019C960A26F7477BA6142B3*, UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2*, const RuntimeMethod*))NativeList_1_Add_m0346C33754ECF03B7F88807BF501CFBC19EBBF40_gshared)(__this, ___value0, method);
 }
+// System.Void Unity.Collections.NativeArray`1<Unity.Networking.Transport.NetworkPipelineProcessor/UpdatePipeline>::.ctor(System.Int32,Unity.Collections.Allocator,Unity.Collections.NativeArrayOptions)
+inline void NativeArray_1__ctor_mF0F5570FB943262DABF4D6E9EC0A9217FA755C79 (NativeArray_1_tF0A83538A02306EA7A8F22FEA945A6961365E8C8* __this, int32_t ___length0, int32_t ___allocator1, int32_t ___options2, const RuntimeMethod* method)
+{
+	((  void (*) (NativeArray_1_tF0A83538A02306EA7A8F22FEA945A6961365E8C8*, int32_t, int32_t, int32_t, const RuntimeMethod*))NativeArray_1__ctor_mF0F5570FB943262DABF4D6E9EC0A9217FA755C79_gshared)(__this, ___length0, ___allocator1, ___options2, method);
+}
 // System.Void Unity.Collections.NativeList`1<Unity.Networking.Transport.NetworkPipelineProcessor/UpdatePipeline>::Clear()
 inline void NativeList_1_Clear_mC67DE2A396DF8338B709EFA227FEF22BA7AB0765 (NativeList_1_t1869FE735F5176A07019C960A26F7477BA6142B3* __this, const RuntimeMethod* method)
 {
@@ -11859,8 +11870,6 @@ inline void NativeList_1_Clear_mC67DE2A396DF8338B709EFA227FEF22BA7AB0765 (Native
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NetworkPipelineProcessor_ProcessReceiveStagesFrom_m2B70265FDFF71808EF171CF4B7DF671B72920A88 (NetworkPipelineProcessor_tB90104D304F7FE6A0E8BB5AD39C95B2441F6E59C* __this, NetworkDriver_t3E4A5DD4686388B9F25135C01E4DB57E79449036 ___driver0, int32_t ___startStage1, NetworkPipeline_t83BB00B4CE9811A2B75D37E50EFB85FD60044A69 ___pipeline2, NetworkConnection_t0A1170D9665C62249582E5DAABC2EAF2D01DEDF4 ___connection3, InboundRecvBuffer_t629D03E5A6660D506F09AFF9B44D37D7400448EB ___buffer4, const RuntimeMethod* method) ;
 // System.Void Unity.Networking.Transport.NetworkPipelineProcessor::ProcessReceiveStage(System.Int32,Unity.Networking.Transport.NetworkPipeline,System.Int32,System.Int32,Unity.Networking.Transport.NetworkPipelineContext&,Unity.Networking.Transport.InboundRecvBuffer&,Unity.Collections.NativeList`1<System.Int32>&,System.Boolean&,System.Boolean&,System.Int32)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NetworkPipelineProcessor_ProcessReceiveStage_m9BADF26C03A8ACFD4CF71B9F1BC7DE0B6A3D3B84 (NetworkPipelineProcessor_tB90104D304F7FE6A0E8BB5AD39C95B2441F6E59C* __this, int32_t ___stage0, NetworkPipeline_t83BB00B4CE9811A2B75D37E50EFB85FD60044A69 ___pipeline1, int32_t ___internalBufferOffset2, int32_t ___internalSharedBufferOffset3, NetworkPipelineContext_t8F3D91FC8F21E09B471629ACF6E92F903A1ED3DD* ___ctx4, InboundRecvBuffer_t629D03E5A6660D506F09AFF9B44D37D7400448EB* ___inboundBuffer5, NativeList_1_t0EA735A94E6EBF8FE7F3B79411C98BF692EA2213* ___resumeQ6, bool* ___needsUpdate7, bool* ___needsSendUpdate8, int32_t ___systemHeadersSize9, const RuntimeMethod* method) ;
-// System.Void Unity.Networking.Transport.NetworkPipelineProcessor::AddSendUpdate(Unity.Networking.Transport.NetworkConnection,System.Int32,Unity.Networking.Transport.NetworkPipeline,Unity.Collections.NativeList`1<Unity.Networking.Transport.NetworkPipelineProcessor/UpdatePipeline>)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NetworkPipelineProcessor_AddSendUpdate_m311F020E6DE89B9A7A0EA72D4FA1D244DF53723E (NetworkConnection_t0A1170D9665C62249582E5DAABC2EAF2D01DEDF4 ___connection0, int32_t ___stageId1, NetworkPipeline_t83BB00B4CE9811A2B75D37E50EFB85FD60044A69 ___pipelineId2, NativeList_1_t1869FE735F5176A07019C960A26F7477BA6142B3 ___currentUpdates3, const RuntimeMethod* method) ;
 // T Unity.Burst.FunctionPointer`1<Unity.Networking.Transport.NetworkPipelineStage/ReceiveDelegate>::get_Invoke()
 inline ReceiveDelegate_t6148B561E3659BB3D7023ADB346638F7CB2FC7D1* FunctionPointer_1_get_Invoke_m6A9579B2D17CC359DC3FAD9A1430490FFCE23B8B (FunctionPointer_1_t2E52B92952AC40879F3596DE2FD777EC8D1DD4E0* __this, const RuntimeMethod* method)
 {
@@ -11872,8 +11881,6 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void ReceiveDelegate_Invoke_m349B
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ArgumentException__ctor_m026938A67AF9D36BB7ED27F80425D7194B514465 (ArgumentException_tAD90411542A20A9C72D5CDA3A84181D8B947A263* __this, String_t* ___message0, const RuntimeMethod* method) ;
 // System.UInt32 Unity.Mathematics.Random::NextState()
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR uint32_t Random_NextState_m3C669E9C9DBB958FABE0879335C0732A91DA02F7_inline (Random_tF24B964D3D5DE57D52CCDBF2E91ACE60F01F5F37* __this, const RuntimeMethod* method) ;
-// System.Int32 Unity.Mathematics.math::max(System.Int32,System.Int32)
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t math_max_m9083201D37A8ED0157B127B5878D9B7F3A2A40BE_inline (int32_t ___x0, int32_t ___y1, const RuntimeMethod* method) ;
 #ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
@@ -12388,16 +12395,15 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UnsafeBaselibNetworkArray__ctor_m7E3AECA
 	}
 	int64_t V_0 = 0;
 	int32_t V_1 = 0;
-	int32_t V_2 = 0;
+	Baselib_Memory_PageSizeInfo_t7A62EFD296A6482C816453A7CC7D9E84D88C8240* V_2 = NULL;
 	uint64_t V_3 = 0;
-	uint64_t V_4 = 0;
-	Baselib_RegisteredNetwork_Buffer_t2D0BDFB0FC8B41F70E5AD38C481363BEDC54EB42* V_5 = NULL;
-	Baselib_ErrorState_t9A3CC4D46155662AAC822300993DA278B19A1D1E V_6;
-	memset((&V_6), 0, sizeof(V_6));
-	Baselib_Memory_PageAllocation_t2CB618461078D185B36114A1AEC2B62D127827A1 V_7;
+	int32_t V_4 = 0;
+	uint64_t V_5 = 0;
+	Baselib_RegisteredNetwork_Buffer_t2D0BDFB0FC8B41F70E5AD38C481363BEDC54EB42* V_6 = NULL;
+	Baselib_ErrorState_t9A3CC4D46155662AAC822300993DA278B19A1D1E V_7;
 	memset((&V_7), 0, sizeof(V_7));
-	int8_t* G_B3_0 = NULL;
-	int8_t* G_B2_0 = NULL;
+	Baselib_Memory_PageAllocation_t2CB618461078D185B36114A1AEC2B62D127827A1 V_8;
+	memset((&V_8), 0, sizeof(V_8));
 	{
 		// var totalSize = (long)typeSize;
 		int32_t L_0 = ___typeSize1;
@@ -12419,38 +12425,37 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UnsafeBaselibNetworkArray__ctor_m7E3AECA
 		memset((&L_6), 0, sizeof(L_6));
 		UnsafePtrList_1__ctor_mFDEECE03BCC0E6A8EAAC93D8EBC8A5BEC93628EC((&L_6), L_4, L_5, 0, /*hidden argument*/UnsafePtrList_1__ctor_mFDEECE03BCC0E6A8EAAC93D8EBC8A5BEC93628EC_RuntimeMethod_var);
 		__this->___m_BufferPool_0 = L_6;
-		// for (int i = 0; i < poolSize; i++)
-		V_2 = 0;
-		goto IL_00eb;
-	}
-
-IL_0026:
-	{
 		// var pageInfo = stackalloc Binding.Baselib_Memory_PageSizeInfo[1];
 		uint32_t L_7 = sizeof(Baselib_Memory_PageSizeInfo_t7A62EFD296A6482C816453A7CC7D9E84D88C8240);
 		if ((uintptr_t)((uintptr_t)1) * (uintptr_t)L_7 > (uintptr_t)kIl2CppUIntPtrMax)
 			IL2CPP_RAISE_MANAGED_EXCEPTION(il2cpp_codegen_get_overflow_exception(), UnsafeBaselibNetworkArray__ctor_m7E3AECA698D1115835801A07072058A6D3F42585_RuntimeMethod_var);
 		int8_t* L_8 = (int8_t*) alloca(((intptr_t)il2cpp_codegen_multiply((intptr_t)((uintptr_t)1), (int32_t)L_7)));
 		memset(L_8, 0, ((intptr_t)il2cpp_codegen_multiply((intptr_t)((uintptr_t)1), (int32_t)L_7)));
+		V_2 = (Baselib_Memory_PageSizeInfo_t7A62EFD296A6482C816453A7CC7D9E84D88C8240*)(L_8);
 		// Binding.Baselib_Memory_GetPageSizeInfo(pageInfo);
-		int8_t* L_9 = (L_8);
+		Baselib_Memory_PageSizeInfo_t7A62EFD296A6482C816453A7CC7D9E84D88C8240* L_9 = V_2;
 		il2cpp_codegen_runtime_class_init_inline(Binding_t9FFB66AA6F41683009CB6662F11182C9E77B139F_il2cpp_TypeInfo_var);
-		Binding_Baselib_Memory_GetPageSizeInfo_m3E4910B09AA91411CA865E6F0B93E66651B859B2((Baselib_Memory_PageSizeInfo_t7A62EFD296A6482C816453A7CC7D9E84D88C8240*)L_9, NULL);
+		Binding_Baselib_Memory_GetPageSizeInfo_m3E4910B09AA91411CA865E6F0B93E66651B859B2(L_9, NULL);
 		// var defaultPageSize = (ulong)pageInfo->defaultPageSize;
-		int8_t* L_10 = L_9;
+		Baselib_Memory_PageSizeInfo_t7A62EFD296A6482C816453A7CC7D9E84D88C8240* L_10 = V_2;
 		NullCheck(L_10);
-		uint64_t L_11 = ((Baselib_Memory_PageSizeInfo_t7A62EFD296A6482C816453A7CC7D9E84D88C8240*)L_10)->___defaultPageSize_0;
+		uint64_t L_11 = L_10->___defaultPageSize_0;
 		V_3 = L_11;
+		// for (int i = 0; i < poolSize; i++)
+		V_4 = 0;
+		goto IL_00f0;
+	}
+
+IL_0040:
+	{
 		// var pageCount = (ulong)1;
-		V_4 = ((int64_t)1);
+		V_5 = ((int64_t)1);
 		// if ((ulong)totalSize > defaultPageSize)
 		int64_t L_12 = V_0;
 		uint64_t L_13 = V_3;
-		G_B2_0 = L_10;
 		if ((!(((uint64_t)L_12) > ((uint64_t)L_13))))
 		{
-			G_B3_0 = L_10;
-			goto IL_0054;
+			goto IL_0056;
 		}
 	}
 	{
@@ -12459,11 +12464,10 @@ IL_0026:
 		uint64_t L_15 = V_3;
 		double L_16;
 		L_16 = math_ceil_mC879669549692BD4136602F9C3937B5D2B30981C_inline(((double)(((double)L_14)/((double)((double)(uint64_t)L_15)))), NULL);
-		V_4 = il2cpp_codegen_cast_floating_point<uint64_t, int64_t, double>(L_16);
-		G_B3_0 = G_B2_0;
+		V_5 = il2cpp_codegen_cast_floating_point<uint64_t, int64_t, double>(L_16);
 	}
 
-IL_0054:
+IL_0056:
 	{
 		// var buffer = (Binding.Baselib_RegisteredNetwork_Buffer*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<Binding.Baselib_RegisteredNetwork_Buffer>(), UnsafeUtility.AlignOf<Binding.Baselib_RegisteredNetwork_Buffer>(), Allocator.Persistent);
 		int32_t L_17;
@@ -12472,28 +12476,29 @@ IL_0054:
 		L_18 = UnsafeUtility_AlignOf_TisBaselib_RegisteredNetwork_Buffer_t2D0BDFB0FC8B41F70E5AD38C481363BEDC54EB42_m1BDB2DA5ED6062B7A7B125B7CAB6B6A30B2F4B24(UnsafeUtility_AlignOf_TisBaselib_RegisteredNetwork_Buffer_t2D0BDFB0FC8B41F70E5AD38C481363BEDC54EB42_m1BDB2DA5ED6062B7A7B125B7CAB6B6A30B2F4B24_RuntimeMethod_var);
 		void* L_19;
 		L_19 = UnsafeUtility_Malloc_mD7BD28D5AE7E4901B225B7DFFE2B568EE7BDC0C9(((int64_t)L_17), L_18, 4, NULL);
-		V_5 = (Baselib_RegisteredNetwork_Buffer_t2D0BDFB0FC8B41F70E5AD38C481363BEDC54EB42*)L_19;
+		V_6 = (Baselib_RegisteredNetwork_Buffer_t2D0BDFB0FC8B41F70E5AD38C481363BEDC54EB42*)L_19;
 		// var error = default(ErrorState);
-		il2cpp_codegen_initobj((&V_6), sizeof(Baselib_ErrorState_t9A3CC4D46155662AAC822300993DA278B19A1D1E));
+		il2cpp_codegen_initobj((&V_7), sizeof(Baselib_ErrorState_t9A3CC4D46155662AAC822300993DA278B19A1D1E));
 		// var pageAllocation = Binding.Baselib_Memory_AllocatePages(
 		//     pageInfo->defaultPageSize,
 		//     pageCount,
 		//     1,
 		//     Binding.Baselib_Memory_PageState.ReadWrite,
 		//     &error);
-		NullCheck(G_B3_0);
-		uint64_t L_20 = ((Baselib_Memory_PageSizeInfo_t7A62EFD296A6482C816453A7CC7D9E84D88C8240*)G_B3_0)->___defaultPageSize_0;
-		uint64_t L_21 = V_4;
+		Baselib_Memory_PageSizeInfo_t7A62EFD296A6482C816453A7CC7D9E84D88C8240* L_20 = V_2;
+		NullCheck(L_20);
+		uint64_t L_21 = L_20->___defaultPageSize_0;
+		uint64_t L_22 = V_5;
 		il2cpp_codegen_runtime_class_init_inline(Binding_t9FFB66AA6F41683009CB6662F11182C9E77B139F_il2cpp_TypeInfo_var);
-		Baselib_Memory_PageAllocation_t2CB618461078D185B36114A1AEC2B62D127827A1 L_22;
-		L_22 = Binding_Baselib_Memory_AllocatePages_m0CE5A4036551E8DEBF919667A21C426690DE9382(L_20, L_21, ((int64_t)1), 4, (Baselib_ErrorState_t9A3CC4D46155662AAC822300993DA278B19A1D1E*)((uintptr_t)(&V_6)), NULL);
-		V_7 = L_22;
+		Baselib_Memory_PageAllocation_t2CB618461078D185B36114A1AEC2B62D127827A1 L_23;
+		L_23 = Binding_Baselib_Memory_AllocatePages_m0CE5A4036551E8DEBF919667A21C426690DE9382(L_21, L_22, ((int64_t)1), 4, (Baselib_ErrorState_t9A3CC4D46155662AAC822300993DA278B19A1D1E*)((uintptr_t)(&V_7)), NULL);
+		V_8 = L_23;
 		// if (error.code != ErrorCode.Success)
-		Baselib_ErrorState_t9A3CC4D46155662AAC822300993DA278B19A1D1E L_23 = V_6;
-		int32_t L_24 = L_23.___code_3;
-		if (!L_24)
+		Baselib_ErrorState_t9A3CC4D46155662AAC822300993DA278B19A1D1E L_24 = V_7;
+		int32_t L_25 = L_24.___code_3;
+		if (!L_25)
 		{
-			goto IL_008d;
+			goto IL_0090;
 		}
 	}
 	{
@@ -12501,62 +12506,62 @@ IL_0054:
 		return;
 	}
 
-IL_008d:
+IL_0090:
 	{
 		// UnsafeUtility.MemSet((void*)pageAllocation.ptr, 0, (long)(pageAllocation.pageCount * pageAllocation.pageSize));
-		Baselib_Memory_PageAllocation_t2CB618461078D185B36114A1AEC2B62D127827A1 L_25 = V_7;
-		intptr_t L_26 = L_25.___ptr_0;
-		void* L_27;
-		L_27 = IntPtr_op_Explicit_m2728CBA081E79B97DDCF1D4FAD77B309CA1E94BF(L_26, NULL);
-		Baselib_Memory_PageAllocation_t2CB618461078D185B36114A1AEC2B62D127827A1 L_28 = V_7;
-		uint64_t L_29 = L_28.___pageCount_2;
-		Baselib_Memory_PageAllocation_t2CB618461078D185B36114A1AEC2B62D127827A1 L_30 = V_7;
-		uint64_t L_31 = L_30.___pageSize_1;
-		UnsafeUtility_MemSet_m4CD74CD43260EB2962A46F57E0D93DD5C332FC2B(L_27, (uint8_t)0, ((int64_t)il2cpp_codegen_multiply((int64_t)L_29, (int64_t)L_31)), NULL);
+		Baselib_Memory_PageAllocation_t2CB618461078D185B36114A1AEC2B62D127827A1 L_26 = V_8;
+		intptr_t L_27 = L_26.___ptr_0;
+		void* L_28;
+		L_28 = IntPtr_op_Explicit_m2728CBA081E79B97DDCF1D4FAD77B309CA1E94BF(L_27, NULL);
+		Baselib_Memory_PageAllocation_t2CB618461078D185B36114A1AEC2B62D127827A1 L_29 = V_8;
+		uint64_t L_30 = L_29.___pageCount_2;
+		Baselib_Memory_PageAllocation_t2CB618461078D185B36114A1AEC2B62D127827A1 L_31 = V_8;
+		uint64_t L_32 = L_31.___pageSize_1;
+		UnsafeUtility_MemSet_m4CD74CD43260EB2962A46F57E0D93DD5C332FC2B(L_28, (uint8_t)0, ((int64_t)il2cpp_codegen_multiply((int64_t)L_30, (int64_t)L_32)), NULL);
 		// *buffer = Binding.Baselib_RegisteredNetwork_Buffer_Register(pageAllocation, &error);
-		Baselib_RegisteredNetwork_Buffer_t2D0BDFB0FC8B41F70E5AD38C481363BEDC54EB42* L_32 = V_5;
-		Baselib_Memory_PageAllocation_t2CB618461078D185B36114A1AEC2B62D127827A1 L_33 = V_7;
+		Baselib_RegisteredNetwork_Buffer_t2D0BDFB0FC8B41F70E5AD38C481363BEDC54EB42* L_33 = V_6;
+		Baselib_Memory_PageAllocation_t2CB618461078D185B36114A1AEC2B62D127827A1 L_34 = V_8;
 		il2cpp_codegen_runtime_class_init_inline(Binding_t9FFB66AA6F41683009CB6662F11182C9E77B139F_il2cpp_TypeInfo_var);
-		Baselib_RegisteredNetwork_Buffer_t2D0BDFB0FC8B41F70E5AD38C481363BEDC54EB42 L_34;
-		L_34 = Binding_Baselib_RegisteredNetwork_Buffer_Register_m5577F0F429834C266547F11B856F009E5C6DBDC2(L_33, (Baselib_ErrorState_t9A3CC4D46155662AAC822300993DA278B19A1D1E*)((uintptr_t)(&V_6)), NULL);
-		*(Baselib_RegisteredNetwork_Buffer_t2D0BDFB0FC8B41F70E5AD38C481363BEDC54EB42*)L_32 = L_34;
+		Baselib_RegisteredNetwork_Buffer_t2D0BDFB0FC8B41F70E5AD38C481363BEDC54EB42 L_35;
+		L_35 = Binding_Baselib_RegisteredNetwork_Buffer_Register_m5577F0F429834C266547F11B856F009E5C6DBDC2(L_34, (Baselib_ErrorState_t9A3CC4D46155662AAC822300993DA278B19A1D1E*)((uintptr_t)(&V_7)), NULL);
+		*(Baselib_RegisteredNetwork_Buffer_t2D0BDFB0FC8B41F70E5AD38C481363BEDC54EB42*)L_33 = L_35;
 		// if (error.code != (int)ErrorCode.Success)
-		Baselib_ErrorState_t9A3CC4D46155662AAC822300993DA278B19A1D1E L_35 = V_6;
-		int32_t L_36 = L_35.___code_3;
-		if (!L_36)
+		Baselib_ErrorState_t9A3CC4D46155662AAC822300993DA278B19A1D1E L_36 = V_7;
+		int32_t L_37 = L_36.___code_3;
+		if (!L_37)
 		{
-			goto IL_00da;
+			goto IL_00dd;
 		}
 	}
 	{
 		// Binding.Baselib_Memory_ReleasePages(pageAllocation, &error);
-		Baselib_Memory_PageAllocation_t2CB618461078D185B36114A1AEC2B62D127827A1 L_37 = V_7;
+		Baselib_Memory_PageAllocation_t2CB618461078D185B36114A1AEC2B62D127827A1 L_38 = V_8;
 		il2cpp_codegen_runtime_class_init_inline(Binding_t9FFB66AA6F41683009CB6662F11182C9E77B139F_il2cpp_TypeInfo_var);
-		Binding_Baselib_Memory_ReleasePages_mB51F99E6B123223788C2584A01EE7F1A4B04BA05(L_37, (Baselib_ErrorState_t9A3CC4D46155662AAC822300993DA278B19A1D1E*)((uintptr_t)(&V_6)), NULL);
+		Binding_Baselib_Memory_ReleasePages_mB51F99E6B123223788C2584A01EE7F1A4B04BA05(L_38, (Baselib_ErrorState_t9A3CC4D46155662AAC822300993DA278B19A1D1E*)((uintptr_t)(&V_7)), NULL);
 		// *buffer = default;
-		Baselib_RegisteredNetwork_Buffer_t2D0BDFB0FC8B41F70E5AD38C481363BEDC54EB42* L_38 = V_5;
-		il2cpp_codegen_initobj(L_38, sizeof(Baselib_RegisteredNetwork_Buffer_t2D0BDFB0FC8B41F70E5AD38C481363BEDC54EB42));
+		Baselib_RegisteredNetwork_Buffer_t2D0BDFB0FC8B41F70E5AD38C481363BEDC54EB42* L_39 = V_6;
+		il2cpp_codegen_initobj(L_39, sizeof(Baselib_RegisteredNetwork_Buffer_t2D0BDFB0FC8B41F70E5AD38C481363BEDC54EB42));
 	}
 
-IL_00da:
+IL_00dd:
 	{
 		// m_BufferPool.Add(buffer);
-		UnsafePtrList_1_tAD86775FD13A7BFCCD3E9ACA2796FFE62044B970* L_39 = (&__this->___m_BufferPool_0);
-		Baselib_RegisteredNetwork_Buffer_t2D0BDFB0FC8B41F70E5AD38C481363BEDC54EB42* L_40 = V_5;
-		UnsafePtrList_1_Add_mA7762C0A1D0E45C65411B056C4A31E92D232C599(L_39, (void*)L_40, UnsafePtrList_1_Add_mA7762C0A1D0E45C65411B056C4A31E92D232C599_RuntimeMethod_var);
+		UnsafePtrList_1_tAD86775FD13A7BFCCD3E9ACA2796FFE62044B970* L_40 = (&__this->___m_BufferPool_0);
+		Baselib_RegisteredNetwork_Buffer_t2D0BDFB0FC8B41F70E5AD38C481363BEDC54EB42* L_41 = V_6;
+		UnsafePtrList_1_Add_mA7762C0A1D0E45C65411B056C4A31E92D232C599(L_40, (void*)L_41, UnsafePtrList_1_Add_mA7762C0A1D0E45C65411B056C4A31E92D232C599_RuntimeMethod_var);
 		// for (int i = 0; i < poolSize; i++)
-		int32_t L_41 = V_2;
-		V_2 = ((int32_t)il2cpp_codegen_add(L_41, 1));
+		int32_t L_42 = V_4;
+		V_4 = ((int32_t)il2cpp_codegen_add(L_42, 1));
 	}
 
-IL_00eb:
+IL_00f0:
 	{
 		// for (int i = 0; i < poolSize; i++)
-		int32_t L_42 = V_2;
-		int32_t L_43 = V_1;
-		if ((((int32_t)L_42) < ((int32_t)L_43)))
+		int32_t L_43 = V_4;
+		int32_t L_44 = V_1;
+		if ((((int32_t)L_43) < ((int32_t)L_44)))
 		{
-			goto IL_0026;
+			goto IL_0040;
 		}
 	}
 	{
@@ -13659,7 +13664,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t BaselibNetworkInterface_Bind_m0BB3735
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&BaselibNetworkInterface_Bind_m0BB373537B5B0B862204B125663F17E693CCFAC4_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&BaselibNetworkInterface_t2A3CC1DD1753790D44DA4C5F542B22ABDD82128B_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Binding_t9FFB66AA6F41683009CB6662F11182C9E77B139F_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&IntPtr_t_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&UInt16_tF4C148C876015C212FD72652D0B6ED8CC247A455_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral83EF98157104E3EE9C0DC0A51BC4C0A5C66A8E1C);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralC6A4368F9DC04E2CE76838164434CDEF9CA81482);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralD3987C8D7F7B7DE0C6FDF6045F5937448E50A78A);
 		s_Il2CppMethodInitialized = true;
 	}
 	BaselibData_t9DBF15F308D32D64DA4633540C58A5043B939128 V_0;
@@ -13672,9 +13682,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t BaselibNetworkInterface_Bind_m0BB3735
 	memset((&V_3), 0, sizeof(V_3));
 	Baselib_NetworkAddress_t2F4AF92B4EEFE31182BADF512CA004AFF48128E0 V_4;
 	memset((&V_4), 0, sizeof(V_4));
-	Baselib_RegisteredNetwork_Socket_UDP_t56202AB2B03941A065A7D8382591DD253115192A V_5;
-	memset((&V_5), 0, sizeof(V_5));
-	int32_t V_6 = 0;
+	bool V_5 = false;
+	Baselib_RegisteredNetwork_Socket_UDP_t56202AB2B03941A065A7D8382591DD253115192A V_6;
+	memset((&V_6), 0, sizeof(V_6));
+	int32_t V_7 = 0;
+	uint16_t V_8 = 0;
+	NetworkEndPoint_t40D02F3956B78E8C6115ED188912FBCE35437F63 V_9;
+	memset((&V_9), 0, sizeof(V_9));
 	{
 		// var baselib = m_Baselib[0];
 		NativeArray_1_t3FE1B7CEA9C8DC1C4ABFA96828337854A86A59AD* L_0 = (&__this->___m_Baselib_7);
@@ -13705,125 +13719,181 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t BaselibNetworkInterface_Bind_m0BB3735
 		Baselib_RegisteredNetwork_Endpoint_t9A38585FFD3425455A7E0AFC10F16BCD13B1F32C L_12 = V_3;
 		il2cpp_codegen_runtime_class_init_inline(Binding_t9FFB66AA6F41683009CB6662F11182C9E77B139F_il2cpp_TypeInfo_var);
 		Binding_Baselib_RegisteredNetwork_Endpoint_GetNetworkAddress_m66BD8B70DCA4C86F104FB228331EDCA87C96BEE7(L_12, (Baselib_NetworkAddress_t2F4AF92B4EEFE31182BADF512CA004AFF48128E0*)((uintptr_t)(&V_4)), (Baselib_ErrorState_t9A3CC4D46155662AAC822300993DA278B19A1D1E*)((uintptr_t)(&V_2)), NULL);
+		// var wouldFailWithoutAddressReuse = WouldBindFailWithoutAddressReuse(localAddress);
+		Baselib_NetworkAddress_t2F4AF92B4EEFE31182BADF512CA004AFF48128E0 L_13 = V_4;
+		bool L_14;
+		L_14 = BaselibNetworkInterface_WouldBindFailWithoutAddressReuse_m6EA02E3CC83BCC13716B646D47D40125912B8E4A(__this, L_13, NULL);
+		V_5 = L_14;
 		// var socket = Binding.Baselib_RegisteredNetwork_Socket_UDP_Create(
 		//     &localAddress,
 		//     Binding.Baselib_NetworkAddress_AddressReuse.Allow,
 		//     checked((uint)configuration.sendQueueCapacity),
 		//     checked((uint)configuration.receiveQueueCapacity),
 		//     &error);
-		BaselibNetworkParameter_tB97B06457095014AAB49DEDB087860231EDE57C6* L_13 = (&__this->___configuration_1);
-		int32_t L_14 = L_13->___sendQueueCapacity_1;
-		if ((int64_t)(L_14) > 4294967295LL) IL2CPP_RAISE_MANAGED_EXCEPTION(il2cpp_codegen_get_overflow_exception(), BaselibNetworkInterface_Bind_m0BB373537B5B0B862204B125663F17E693CCFAC4_RuntimeMethod_var);
 		BaselibNetworkParameter_tB97B06457095014AAB49DEDB087860231EDE57C6* L_15 = (&__this->___configuration_1);
-		int32_t L_16 = L_15->___receiveQueueCapacity_0;
+		int32_t L_16 = L_15->___sendQueueCapacity_1;
 		if ((int64_t)(L_16) > 4294967295LL) IL2CPP_RAISE_MANAGED_EXCEPTION(il2cpp_codegen_get_overflow_exception(), BaselibNetworkInterface_Bind_m0BB373537B5B0B862204B125663F17E693CCFAC4_RuntimeMethod_var);
-		Baselib_RegisteredNetwork_Socket_UDP_t56202AB2B03941A065A7D8382591DD253115192A L_17;
-		L_17 = Binding_Baselib_RegisteredNetwork_Socket_UDP_Create_m6484CB4F9312E484F50D2AC6878534BC1B33A7AA((Baselib_NetworkAddress_t2F4AF92B4EEFE31182BADF512CA004AFF48128E0*)((uintptr_t)(&V_4)), 1, ((uint32_t)L_14), ((uint32_t)L_16), (Baselib_ErrorState_t9A3CC4D46155662AAC822300993DA278B19A1D1E*)((uintptr_t)(&V_2)), NULL);
-		V_5 = L_17;
+		BaselibNetworkParameter_tB97B06457095014AAB49DEDB087860231EDE57C6* L_17 = (&__this->___configuration_1);
+		int32_t L_18 = L_17->___receiveQueueCapacity_0;
+		if ((int64_t)(L_18) > 4294967295LL) IL2CPP_RAISE_MANAGED_EXCEPTION(il2cpp_codegen_get_overflow_exception(), BaselibNetworkInterface_Bind_m0BB373537B5B0B862204B125663F17E693CCFAC4_RuntimeMethod_var);
+		Baselib_RegisteredNetwork_Socket_UDP_t56202AB2B03941A065A7D8382591DD253115192A L_19;
+		L_19 = Binding_Baselib_RegisteredNetwork_Socket_UDP_Create_m6484CB4F9312E484F50D2AC6878534BC1B33A7AA((Baselib_NetworkAddress_t2F4AF92B4EEFE31182BADF512CA004AFF48128E0*)((uintptr_t)(&V_4)), 1, ((uint32_t)L_16), ((uint32_t)L_18), (Baselib_ErrorState_t9A3CC4D46155662AAC822300993DA278B19A1D1E*)((uintptr_t)(&V_2)), NULL);
+		V_6 = L_19;
 		// if (error.code != ErrorCode.Success)
-		Baselib_ErrorState_t9A3CC4D46155662AAC822300993DA278B19A1D1E L_18 = V_2;
-		int32_t L_19 = L_18.___code_3;
-		if (!L_19)
-		{
-			goto IL_009e;
-		}
-	}
-	{
-		// return (int)error.code == -1 ? (int)Error.StatusCode.NetworkSocketError : -(int)error.code;
 		Baselib_ErrorState_t9A3CC4D46155662AAC822300993DA278B19A1D1E L_20 = V_2;
 		int32_t L_21 = L_20.___code_3;
-		if ((((int32_t)L_21) == ((int32_t)(-1))))
+		if (!L_21)
 		{
-			goto IL_009b;
+			goto IL_00bf;
 		}
 	}
 	{
+		// if (error.code == ErrorCode.AddressInUse)
 		Baselib_ErrorState_t9A3CC4D46155662AAC822300993DA278B19A1D1E L_22 = V_2;
 		int32_t L_23 = L_22.___code_3;
-		return ((-L_23));
+		if ((!(((uint32_t)L_23) == ((uint32_t)((int32_t)67108865)))))
+		{
+			goto IL_00ab;
+		}
+	}
+	{
+		// UnityEngine.Debug.LogError("Failed to bind the socket because address is already in use. " +
+		//     "It is likely that another process is already listening on the same port.");
+		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
+		Debug_LogError_mB00B2B4468EF3CAF041B038D840820FB84C924B2(_stringLiteralC6A4368F9DC04E2CE76838164434CDEF9CA81482, NULL);
 	}
 
-IL_009b:
+IL_00ab:
+	{
+		// return (int)error.code == -1 ? (int)Error.StatusCode.NetworkSocketError : -(int)error.code;
+		Baselib_ErrorState_t9A3CC4D46155662AAC822300993DA278B19A1D1E L_24 = V_2;
+		int32_t L_25 = L_24.___code_3;
+		if ((((int32_t)L_25) == ((int32_t)(-1))))
+		{
+			goto IL_00bc;
+		}
+	}
+	{
+		Baselib_ErrorState_t9A3CC4D46155662AAC822300993DA278B19A1D1E L_26 = V_2;
+		int32_t L_27 = L_26.___code_3;
+		return ((-L_27));
+	}
+
+IL_00bc:
 	{
 		return ((int32_t)-10);
 	}
 
-IL_009e:
+IL_00bf:
 	{
 		// if (m_Baselib[0].m_Socket.handle != IntPtr.Zero)
-		NativeArray_1_t3FE1B7CEA9C8DC1C4ABFA96828337854A86A59AD* L_24 = (&__this->___m_Baselib_7);
-		BaselibData_t9DBF15F308D32D64DA4633540C58A5043B939128 L_25;
-		L_25 = IL2CPP_NATIVEARRAY_GET_ITEM(BaselibData_t9DBF15F308D32D64DA4633540C58A5043B939128, (L_24)->___m_Buffer_0, 0);
-		Baselib_RegisteredNetwork_Socket_UDP_t56202AB2B03941A065A7D8382591DD253115192A L_26 = L_25.___m_Socket_0;
-		intptr_t L_27 = L_26.___handle_0;
-		intptr_t L_28 = ((IntPtr_t_StaticFields*)il2cpp_codegen_static_fields_for(IntPtr_t_il2cpp_TypeInfo_var))->___Zero_1;
-		bool L_29;
-		L_29 = IntPtr_op_Inequality_m90EFC9C4CAD9A33E309F2DDF98EE4E1DD253637B(L_27, L_28, NULL);
-		if (!L_29)
+		NativeArray_1_t3FE1B7CEA9C8DC1C4ABFA96828337854A86A59AD* L_28 = (&__this->___m_Baselib_7);
+		BaselibData_t9DBF15F308D32D64DA4633540C58A5043B939128 L_29;
+		L_29 = IL2CPP_NATIVEARRAY_GET_ITEM(BaselibData_t9DBF15F308D32D64DA4633540C58A5043B939128, (L_28)->___m_Buffer_0, 0);
+		Baselib_RegisteredNetwork_Socket_UDP_t56202AB2B03941A065A7D8382591DD253115192A L_30 = L_29.___m_Socket_0;
+		intptr_t L_31 = L_30.___handle_0;
+		intptr_t L_32 = ((IntPtr_t_StaticFields*)il2cpp_codegen_static_fields_for(IntPtr_t_il2cpp_TypeInfo_var))->___Zero_1;
+		bool L_33;
+		L_33 = IntPtr_op_Inequality_m90EFC9C4CAD9A33E309F2DDF98EE4E1DD253637B(L_31, L_32, NULL);
+		if (!L_33)
 		{
-			goto IL_0102;
+			goto IL_0123;
 		}
 	}
 	{
 		// Binding.Baselib_RegisteredNetwork_Socket_UDP_Close(m_Baselib[0].m_Socket);
-		NativeArray_1_t3FE1B7CEA9C8DC1C4ABFA96828337854A86A59AD* L_30 = (&__this->___m_Baselib_7);
-		BaselibData_t9DBF15F308D32D64DA4633540C58A5043B939128 L_31;
-		L_31 = IL2CPP_NATIVEARRAY_GET_ITEM(BaselibData_t9DBF15F308D32D64DA4633540C58A5043B939128, (L_30)->___m_Buffer_0, 0);
-		Baselib_RegisteredNetwork_Socket_UDP_t56202AB2B03941A065A7D8382591DD253115192A L_32 = L_31.___m_Socket_0;
+		NativeArray_1_t3FE1B7CEA9C8DC1C4ABFA96828337854A86A59AD* L_34 = (&__this->___m_Baselib_7);
+		BaselibData_t9DBF15F308D32D64DA4633540C58A5043B939128 L_35;
+		L_35 = IL2CPP_NATIVEARRAY_GET_ITEM(BaselibData_t9DBF15F308D32D64DA4633540C58A5043B939128, (L_34)->___m_Buffer_0, 0);
+		Baselib_RegisteredNetwork_Socket_UDP_t56202AB2B03941A065A7D8382591DD253115192A L_36 = L_35.___m_Socket_0;
 		il2cpp_codegen_runtime_class_init_inline(Binding_t9FFB66AA6F41683009CB6662F11182C9E77B139F_il2cpp_TypeInfo_var);
-		Binding_Baselib_RegisteredNetwork_Socket_UDP_Close_m448368C5B9D2FBCF846025A9EBBF3ED76634D30E(L_32, NULL);
+		Binding_Baselib_RegisteredNetwork_Socket_UDP_Close_m448368C5B9D2FBCF846025A9EBBF3ED76634D30E(L_36, NULL);
 		// m_PayloadsRx.Dispose();
-		Payloads_t73B5E28F36472A64947A3A62029D9F6643CAC463* L_33 = (&__this->___m_PayloadsRx_8);
-		Payloads_Dispose_mC163C38563ACC07652D90B282189F40E20E06E53(L_33, NULL);
+		Payloads_t73B5E28F36472A64947A3A62029D9F6643CAC463* L_37 = (&__this->___m_PayloadsRx_8);
+		Payloads_Dispose_mC163C38563ACC07652D90B282189F40E20E06E53(L_37, NULL);
 		// m_PayloadsRx = new Payloads(configuration.receiveQueueCapacity, configuration.maximumPayloadSize);
-		BaselibNetworkParameter_tB97B06457095014AAB49DEDB087860231EDE57C6* L_34 = (&__this->___configuration_1);
-		int32_t L_35 = L_34->___receiveQueueCapacity_0;
-		BaselibNetworkParameter_tB97B06457095014AAB49DEDB087860231EDE57C6* L_36 = (&__this->___configuration_1);
-		uint32_t L_37 = L_36->___maximumPayloadSize_2;
-		Payloads_t73B5E28F36472A64947A3A62029D9F6643CAC463 L_38;
-		memset((&L_38), 0, sizeof(L_38));
-		Payloads__ctor_m73C58FB88149D0BC4B2560C46FFB8074B1BC2885((&L_38), L_35, L_37, /*hidden argument*/NULL);
-		__this->___m_PayloadsRx_8 = L_38;
+		BaselibNetworkParameter_tB97B06457095014AAB49DEDB087860231EDE57C6* L_38 = (&__this->___configuration_1);
+		int32_t L_39 = L_38->___receiveQueueCapacity_0;
+		BaselibNetworkParameter_tB97B06457095014AAB49DEDB087860231EDE57C6* L_40 = (&__this->___configuration_1);
+		uint32_t L_41 = L_40->___maximumPayloadSize_2;
+		Payloads_t73B5E28F36472A64947A3A62029D9F6643CAC463 L_42;
+		memset((&L_42), 0, sizeof(L_42));
+		Payloads__ctor_m73C58FB88149D0BC4B2560C46FFB8074B1BC2885((&L_42), L_39, L_41, /*hidden argument*/NULL);
+		__this->___m_PayloadsRx_8 = L_42;
 	}
 
-IL_0102:
+IL_0123:
 	{
 		// var result = ScheduleAllReceives(socket, ref m_PayloadsRx);
-		Baselib_RegisteredNetwork_Socket_UDP_t56202AB2B03941A065A7D8382591DD253115192A L_39 = V_5;
-		Payloads_t73B5E28F36472A64947A3A62029D9F6643CAC463* L_40 = (&__this->___m_PayloadsRx_8);
+		Baselib_RegisteredNetwork_Socket_UDP_t56202AB2B03941A065A7D8382591DD253115192A L_43 = V_6;
+		Payloads_t73B5E28F36472A64947A3A62029D9F6643CAC463* L_44 = (&__this->___m_PayloadsRx_8);
 		il2cpp_codegen_runtime_class_init_inline(BaselibNetworkInterface_t2A3CC1DD1753790D44DA4C5F542B22ABDD82128B_il2cpp_TypeInfo_var);
-		int32_t L_41;
-		L_41 = BaselibNetworkInterface_ScheduleAllReceives_m777A1B1419C787AF83A81C2677EA30D0F6BC937B(L_39, L_40, NULL);
-		V_6 = L_41;
+		int32_t L_45;
+		L_45 = BaselibNetworkInterface_ScheduleAllReceives_m777A1B1419C787AF83A81C2677EA30D0F6BC937B(L_43, L_44, NULL);
+		V_7 = L_45;
 		// if (result < 0)
-		int32_t L_42 = V_6;
-		if ((((int32_t)L_42) >= ((int32_t)0)))
+		int32_t L_46 = V_7;
+		if ((((int32_t)L_46) >= ((int32_t)0)))
 		{
-			goto IL_0119;
+			goto IL_013a;
 		}
 	}
 	{
 		// return result;
-		int32_t L_43 = V_6;
-		return L_43;
+		int32_t L_47 = V_7;
+		return L_47;
 	}
 
-IL_0119:
+IL_013a:
+	{
+		// if (baselib.m_SocketStatus != SocketStatus.SocketNeedsRecreate && wouldFailWithoutAddressReuse)
+		BaselibData_t9DBF15F308D32D64DA4633540C58A5043B939128 L_48 = V_0;
+		int32_t L_49 = L_48.___m_SocketStatus_1;
+		bool L_50 = V_5;
+		if (!((int32_t)(((((int32_t)((((int32_t)L_49) == ((int32_t)1))? 1 : 0)) == ((int32_t)0))? 1 : 0)&(int32_t)L_50)))
+		{
+			goto IL_017d;
+		}
+	}
+	{
+		// var port = GetGenericEndPoint(endpoint).Port;
+		NetworkInterfaceEndPoint_t19ADA9DC012F2BEFFD7234FF77DA83DB8C8B7686 L_51 = ___endpoint0;
+		NetworkEndPoint_t40D02F3956B78E8C6115ED188912FBCE35437F63 L_52;
+		L_52 = BaselibNetworkInterface_GetGenericEndPoint_mB9088396429ED54227DBCBF0E459C6D2534D9A9C(__this, L_51, NULL);
+		V_9 = L_52;
+		uint16_t L_53;
+		L_53 = NetworkEndPoint_get_Port_m92EFA89C28AE3EA5AF00CD0BC8DB7403897756EB((&V_9), NULL);
+		V_8 = L_53;
+		// UnityEngine.Debug.LogWarning($"Port {port} is likely already in use by another application. " +
+		//     "Socket was still created, but expect erroneous behavior. This condition will become a " +
+		//     "failure starting in version 2.0 of Unity Transport.");
+		uint16_t L_54 = V_8;
+		uint16_t L_55 = L_54;
+		RuntimeObject* L_56 = Box(UInt16_tF4C148C876015C212FD72652D0B6ED8CC247A455_il2cpp_TypeInfo_var, &L_55);
+		String_t* L_57;
+		L_57 = String_Format_mA8DBB4C2516B9723C5A41E6CB1E2FAF4BBE96DD8(_stringLiteralD3987C8D7F7B7DE0C6FDF6045F5937448E50A78A, L_56, NULL);
+		String_t* L_58;
+		L_58 = String_Concat_m9E3155FB84015C823606188F53B47CB44C444991(L_57, _stringLiteral83EF98157104E3EE9C0DC0A51BC4C0A5C66A8E1C, NULL);
+		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
+		Debug_LogWarning_m33EF1B897E0C7C6FF538989610BFAFFEF4628CA9(L_58, NULL);
+	}
+
+IL_017d:
 	{
 		// baselib.m_Socket = socket;
-		Baselib_RegisteredNetwork_Socket_UDP_t56202AB2B03941A065A7D8382591DD253115192A L_44 = V_5;
-		(&V_0)->___m_Socket_0 = L_44;
+		Baselib_RegisteredNetwork_Socket_UDP_t56202AB2B03941A065A7D8382591DD253115192A L_59 = V_6;
+		(&V_0)->___m_Socket_0 = L_59;
 		// baselib.m_SocketStatus = SocketStatus.SocketNormal;
 		(&V_0)->___m_SocketStatus_1 = 0;
 		// baselib.m_LocalEndpoint = GetLocalEndPoint(socket);
-		Baselib_RegisteredNetwork_Socket_UDP_t56202AB2B03941A065A7D8382591DD253115192A L_45 = V_5;
-		NetworkInterfaceEndPoint_t19ADA9DC012F2BEFFD7234FF77DA83DB8C8B7686 L_46;
-		L_46 = BaselibNetworkInterface_GetLocalEndPoint_mF25B025BCCB7E20DD4FE14E9B03353D551E05887(__this, L_45, NULL);
-		(&V_0)->___m_LocalEndpoint_3 = L_46;
+		Baselib_RegisteredNetwork_Socket_UDP_t56202AB2B03941A065A7D8382591DD253115192A L_60 = V_6;
+		NetworkInterfaceEndPoint_t19ADA9DC012F2BEFFD7234FF77DA83DB8C8B7686 L_61;
+		L_61 = BaselibNetworkInterface_GetLocalEndPoint_mF25B025BCCB7E20DD4FE14E9B03353D551E05887(__this, L_60, NULL);
+		(&V_0)->___m_LocalEndpoint_3 = L_61;
 		// m_Baselib[0] = baselib;
-		NativeArray_1_t3FE1B7CEA9C8DC1C4ABFA96828337854A86A59AD* L_47 = (&__this->___m_Baselib_7);
-		BaselibData_t9DBF15F308D32D64DA4633540C58A5043B939128 L_48 = V_0;
-		IL2CPP_NATIVEARRAY_SET_ITEM(BaselibData_t9DBF15F308D32D64DA4633540C58A5043B939128, (L_47)->___m_Buffer_0, 0, (L_48));
+		NativeArray_1_t3FE1B7CEA9C8DC1C4ABFA96828337854A86A59AD* L_62 = (&__this->___m_Baselib_7);
+		BaselibData_t9DBF15F308D32D64DA4633540C58A5043B939128 L_63 = V_0;
+		IL2CPP_NATIVEARRAY_SET_ITEM(BaselibData_t9DBF15F308D32D64DA4633540C58A5043B939128, (L_62)->___m_Buffer_0, 0, (L_63));
 		// return 0;
 		return 0;
 	}
@@ -13835,6 +13905,71 @@ IL2CPP_EXTERN_C  int32_t BaselibNetworkInterface_Bind_m0BB373537B5B0B862204B1256
 	_thisAdjusted = reinterpret_cast<BaselibNetworkInterface_t2A3CC1DD1753790D44DA4C5F542B22ABDD82128B*>(__this + _offset);
 	int32_t _returnValue;
 	_returnValue = BaselibNetworkInterface_Bind_m0BB373537B5B0B862204B125663F17E693CCFAC4(_thisAdjusted, ___endpoint0, method);
+	return _returnValue;
+}
+// System.Boolean Unity.Networking.Transport.BaselibNetworkInterface::WouldBindFailWithoutAddressReuse(Unity.Baselib.LowLevel.Binding/Baselib_NetworkAddress)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool BaselibNetworkInterface_WouldBindFailWithoutAddressReuse_m6EA02E3CC83BCC13716B646D47D40125912B8E4A (BaselibNetworkInterface_t2A3CC1DD1753790D44DA4C5F542B22ABDD82128B* __this, Baselib_NetworkAddress_t2F4AF92B4EEFE31182BADF512CA004AFF48128E0 ___address0, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&BaselibNetworkInterface_WouldBindFailWithoutAddressReuse_m6EA02E3CC83BCC13716B646D47D40125912B8E4A_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Binding_t9FFB66AA6F41683009CB6662F11182C9E77B139F_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	Baselib_ErrorState_t9A3CC4D46155662AAC822300993DA278B19A1D1E V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	Baselib_RegisteredNetwork_Socket_UDP_t56202AB2B03941A065A7D8382591DD253115192A V_1;
+	memset((&V_1), 0, sizeof(V_1));
+	{
+		// var error = default(ErrorState);
+		il2cpp_codegen_initobj((&V_0), sizeof(Baselib_ErrorState_t9A3CC4D46155662AAC822300993DA278B19A1D1E));
+		// var socket = Binding.Baselib_RegisteredNetwork_Socket_UDP_Create(
+		//     &address,
+		//     Binding.Baselib_NetworkAddress_AddressReuse.DoNotAllow,
+		//     checked((uint)configuration.sendQueueCapacity),
+		//     checked((uint)configuration.receiveQueueCapacity),
+		//     &error);
+		BaselibNetworkParameter_tB97B06457095014AAB49DEDB087860231EDE57C6* L_0 = (&__this->___configuration_1);
+		int32_t L_1 = L_0->___sendQueueCapacity_1;
+		if ((int64_t)(L_1) > 4294967295LL) IL2CPP_RAISE_MANAGED_EXCEPTION(il2cpp_codegen_get_overflow_exception(), BaselibNetworkInterface_WouldBindFailWithoutAddressReuse_m6EA02E3CC83BCC13716B646D47D40125912B8E4A_RuntimeMethod_var);
+		BaselibNetworkParameter_tB97B06457095014AAB49DEDB087860231EDE57C6* L_2 = (&__this->___configuration_1);
+		int32_t L_3 = L_2->___receiveQueueCapacity_0;
+		if ((int64_t)(L_3) > 4294967295LL) IL2CPP_RAISE_MANAGED_EXCEPTION(il2cpp_codegen_get_overflow_exception(), BaselibNetworkInterface_WouldBindFailWithoutAddressReuse_m6EA02E3CC83BCC13716B646D47D40125912B8E4A_RuntimeMethod_var);
+		il2cpp_codegen_runtime_class_init_inline(Binding_t9FFB66AA6F41683009CB6662F11182C9E77B139F_il2cpp_TypeInfo_var);
+		Baselib_RegisteredNetwork_Socket_UDP_t56202AB2B03941A065A7D8382591DD253115192A L_4;
+		L_4 = Binding_Baselib_RegisteredNetwork_Socket_UDP_Create_m6484CB4F9312E484F50D2AC6878534BC1B33A7AA((Baselib_NetworkAddress_t2F4AF92B4EEFE31182BADF512CA004AFF48128E0*)((uintptr_t)(&___address0)), 0, ((uint32_t)L_1), ((uint32_t)L_3), (Baselib_ErrorState_t9A3CC4D46155662AAC822300993DA278B19A1D1E*)((uintptr_t)(&V_0)), NULL);
+		V_1 = L_4;
+		// if (error.code == ErrorCode.Success)
+		Baselib_ErrorState_t9A3CC4D46155662AAC822300993DA278B19A1D1E L_5 = V_0;
+		int32_t L_6 = L_5.___code_3;
+		if (L_6)
+		{
+			goto IL_003b;
+		}
+	}
+	{
+		// Binding.Baselib_RegisteredNetwork_Socket_UDP_Close(socket);
+		Baselib_RegisteredNetwork_Socket_UDP_t56202AB2B03941A065A7D8382591DD253115192A L_7 = V_1;
+		il2cpp_codegen_runtime_class_init_inline(Binding_t9FFB66AA6F41683009CB6662F11182C9E77B139F_il2cpp_TypeInfo_var);
+		Binding_Baselib_RegisteredNetwork_Socket_UDP_Close_m448368C5B9D2FBCF846025A9EBBF3ED76634D30E(L_7, NULL);
+	}
+
+IL_003b:
+	{
+		// return error.code == ErrorCode.AddressInUse;
+		Baselib_ErrorState_t9A3CC4D46155662AAC822300993DA278B19A1D1E L_8 = V_0;
+		int32_t L_9 = L_8.___code_3;
+		return (bool)((((int32_t)L_9) == ((int32_t)((int32_t)67108865)))? 1 : 0);
+	}
+}
+IL2CPP_EXTERN_C  bool BaselibNetworkInterface_WouldBindFailWithoutAddressReuse_m6EA02E3CC83BCC13716B646D47D40125912B8E4A_AdjustorThunk (RuntimeObject* __this, Baselib_NetworkAddress_t2F4AF92B4EEFE31182BADF512CA004AFF48128E0 ___address0, const RuntimeMethod* method)
+{
+	BaselibNetworkInterface_t2A3CC1DD1753790D44DA4C5F542B22ABDD82128B* _thisAdjusted;
+	int32_t _offset = 1;
+	_thisAdjusted = reinterpret_cast<BaselibNetworkInterface_t2A3CC1DD1753790D44DA4C5F542B22ABDD82128B*>(__this + _offset);
+	bool _returnValue;
+	_returnValue = BaselibNetworkInterface_WouldBindFailWithoutAddressReuse_m6EA02E3CC83BCC13716B646D47D40125912B8E4A(_thisAdjusted, ___address0, method);
 	return _returnValue;
 }
 // System.Int32 Unity.Networking.Transport.BaselibNetworkInterface::Listen()
@@ -21296,12 +21431,12 @@ IL_005b:
 
 IL_005c:
 	{
-		// var resultAppend = receiver.AppendPacket(ptr, ref endpoint, resultReceive);
+		// var resultAppend = receiver.AppendPacket(ptr, ref endpoint, resultReceive, NetworkPacketReceiver.AppendPacketMode.NoCopyNeeded);
 		NetworkPacketReceiver_t5D8C1E615769A841078B99C9FD239903A2E17C04* L_13 = (&__this->___receiver_0);
 		intptr_t L_14 = V_1;
 		int32_t L_15 = V_3;
 		bool L_16;
-		L_16 = NetworkPacketReceiver_AppendPacket_m3A620C1B924625CAF3753739DB0E145F1ED7309D(L_13, L_14, (&V_2), L_15, 0, NULL);
+		L_16 = NetworkPacketReceiver_AppendPacket_m3A620C1B924625CAF3753739DB0E145F1ED7309D(L_13, L_14, (&V_2), L_15, 1, NULL);
 		// if (resultAppend == false)
 		if (L_16)
 		{
@@ -24053,19 +24188,35 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE0
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// if (Bound)
+		bool L_0;
+		L_0 = NetworkDriver_get_Bound_m10013B48006AD0EDF3E9589881B3CCE757E12716(__this, NULL);
+		if (!L_0)
+		{
+			goto IL_0025;
+		}
+	}
+	{
 		// return s_NetworkInterfaces[m_NetworkInterfaceIndex].ScheduleSend(m_ParallelSendQueue, dep);
 		il2cpp_codegen_runtime_class_init_inline(NetworkDriver_t3E4A5DD4686388B9F25135C01E4DB57E79449036_il2cpp_TypeInfo_var);
-		List_1_tC673C156FBD962AEDC0C4957C82DD522010A9BC6* L_0 = ((NetworkDriver_t3E4A5DD4686388B9F25135C01E4DB57E79449036_StaticFields*)il2cpp_codegen_static_fields_for(NetworkDriver_t3E4A5DD4686388B9F25135C01E4DB57E79449036_il2cpp_TypeInfo_var))->___s_NetworkInterfaces_0;
-		int32_t L_1 = __this->___m_NetworkInterfaceIndex_2;
-		NullCheck(L_0);
-		RuntimeObject* L_2;
-		L_2 = List_1_get_Item_m3AF8BF67D88D8523902E8573062863714528F4CD(L_0, L_1, List_1_get_Item_m3AF8BF67D88D8523902E8573062863714528F4CD_RuntimeMethod_var);
-		NativeQueue_1_t6F98B587B9BF83745B5D350CBDB27E86744FB2A1 L_3 = __this->___m_ParallelSendQueue_6;
-		JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 L_4 = ___dep0;
-		NullCheck(L_2);
-		JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 L_5;
-		L_5 = InterfaceFuncInvoker2< JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08, NativeQueue_1_t6F98B587B9BF83745B5D350CBDB27E86744FB2A1, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 >::Invoke(3 /* Unity.Jobs.JobHandle Unity.Networking.Transport.INetworkInterface::ScheduleSend(Unity.Collections.NativeQueue`1<Unity.Networking.Transport.QueuedSendMessage>,Unity.Jobs.JobHandle) */, INetworkInterface_tF8AD6FEF3DE45849521F3435AE8E07CCFDCFFBB1_il2cpp_TypeInfo_var, L_2, L_3, L_4);
-		return L_5;
+		List_1_tC673C156FBD962AEDC0C4957C82DD522010A9BC6* L_1 = ((NetworkDriver_t3E4A5DD4686388B9F25135C01E4DB57E79449036_StaticFields*)il2cpp_codegen_static_fields_for(NetworkDriver_t3E4A5DD4686388B9F25135C01E4DB57E79449036_il2cpp_TypeInfo_var))->___s_NetworkInterfaces_0;
+		int32_t L_2 = __this->___m_NetworkInterfaceIndex_2;
+		NullCheck(L_1);
+		RuntimeObject* L_3;
+		L_3 = List_1_get_Item_m3AF8BF67D88D8523902E8573062863714528F4CD(L_1, L_2, List_1_get_Item_m3AF8BF67D88D8523902E8573062863714528F4CD_RuntimeMethod_var);
+		NativeQueue_1_t6F98B587B9BF83745B5D350CBDB27E86744FB2A1 L_4 = __this->___m_ParallelSendQueue_6;
+		JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 L_5 = ___dep0;
+		NullCheck(L_3);
+		JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 L_6;
+		L_6 = InterfaceFuncInvoker2< JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08, NativeQueue_1_t6F98B587B9BF83745B5D350CBDB27E86744FB2A1, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 >::Invoke(3 /* Unity.Jobs.JobHandle Unity.Networking.Transport.INetworkInterface::ScheduleSend(Unity.Collections.NativeQueue`1<Unity.Networking.Transport.QueuedSendMessage>,Unity.Jobs.JobHandle) */, INetworkInterface_tF8AD6FEF3DE45849521F3435AE8E07CCFDCFFBB1_il2cpp_TypeInfo_var, L_3, L_4, L_5);
+		return L_6;
+	}
+
+IL_0025:
+	{
+		// return dep;
+		JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 L_7 = ___dep0;
+		return L_7;
 	}
 }
 IL2CPP_EXTERN_C  JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 NetworkDriver_ScheduleFlushSend_mD70E667D237F0E074B7B41BB34458119043A0958_AdjustorThunk (RuntimeObject* __this, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 ___dep0, const RuntimeMethod* method)
@@ -24099,10 +24250,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NetworkDriver_InternalUpdate_m4862493308
 	int32_t V_0 = 0;
 	int32_t V_1 = 0;
 	int32_t V_2 = 0;
-	Connection_t57B7A8186502E304AD87933A0FFD76FDF0972D70 V_3;
-	memset((&V_3), 0, sizeof(V_3));
-	NetworkSendQueueHandle_t9F11BEB70EFEEE4BCD9CD241BB758B11F25D5090 V_4;
+	int32_t V_3 = 0;
+	Connection_t57B7A8186502E304AD87933A0FFD76FDF0972D70 V_4;
 	memset((&V_4), 0, sizeof(V_4));
+	NetworkSendQueueHandle_t9F11BEB70EFEEE4BCD9CD241BB758B11F25D5090 V_5;
+	memset((&V_5), 0, sizeof(V_5));
 	{
 		// m_PipelineProcessor.Timestamp = m_UpdateTime;
 		NetworkPipelineProcessor_tB90104D304F7FE6A0E8BB5AD39C95B2441F6E59C* L_0 = (&__this->___m_PipelineProcessor_19);
@@ -24115,22 +24267,22 @@ IL_0011:
 		// while (m_PendingFree.TryDequeue(out var free))
 		NativeQueue_1_tC1DEEC6300FED2BCDE96AFD346BEE6CF8E03412A* L_2 = (&__this->___m_PendingFree_14);
 		bool L_3;
-		L_3 = NativeQueue_1_TryDequeue_mA77197847A9716149DB086D27DC6993669D8EDBF(L_2, (&V_1), NativeQueue_1_TryDequeue_mA77197847A9716149DB086D27DC6993669D8EDBF_RuntimeMethod_var);
+		L_3 = NativeQueue_1_TryDequeue_mA77197847A9716149DB086D27DC6993669D8EDBF(L_2, (&V_2), NativeQueue_1_TryDequeue_mA77197847A9716149DB086D27DC6993669D8EDBF_RuntimeMethod_var);
 		if (!L_3)
 		{
-			goto IL_0074;
+			goto IL_0075;
 		}
 	}
 	{
 		// int ver = m_ConnectionList[free].Version + 1;
 		NativeList_1_tD3715B1226B4E157D6FC09924FDC7EDC5FC0E8C9* L_4 = (&__this->___m_ConnectionList_11);
-		int32_t L_5 = V_1;
+		int32_t L_5 = V_2;
 		Connection_t57B7A8186502E304AD87933A0FFD76FDF0972D70 L_6;
 		L_6 = NativeList_1_get_Item_m1003D98F3D8BBDE515D6C0F9F3D54E4F1B5B4D86(L_4, L_5, NativeList_1_get_Item_m1003D98F3D8BBDE515D6C0F9F3D54E4F1B5B4D86_RuntimeMethod_var);
 		int32_t L_7 = L_6.___Version_4;
-		V_2 = ((int32_t)il2cpp_codegen_add(L_7, 1));
+		V_3 = ((int32_t)il2cpp_codegen_add(L_7, 1));
 		// if (ver == 0)
-		int32_t L_8 = V_2;
+		int32_t L_8 = V_3;
 		if (L_8)
 		{
 			goto IL_0039;
@@ -24138,31 +24290,31 @@ IL_0011:
 	}
 	{
 		// ver = 1;
-		V_2 = 1;
+		V_3 = 1;
 	}
 
 IL_0039:
 	{
 		// m_ConnectionList[free] = new Connection {Id = free, Version = ver, IsAccepted = 0};
 		NativeList_1_tD3715B1226B4E157D6FC09924FDC7EDC5FC0E8C9* L_9 = (&__this->___m_ConnectionList_11);
-		int32_t L_10 = V_1;
-		il2cpp_codegen_initobj((&V_3), sizeof(Connection_t57B7A8186502E304AD87933A0FFD76FDF0972D70));
-		int32_t L_11 = V_1;
-		(&V_3)->___Id_3 = L_11;
-		int32_t L_12 = V_2;
-		(&V_3)->___Version_4 = L_12;
-		(&V_3)->___IsAccepted_10 = (uint8_t)0;
-		Connection_t57B7A8186502E304AD87933A0FFD76FDF0972D70 L_13 = V_3;
+		int32_t L_10 = V_2;
+		il2cpp_codegen_initobj((&V_4), sizeof(Connection_t57B7A8186502E304AD87933A0FFD76FDF0972D70));
+		int32_t L_11 = V_2;
+		(&V_4)->___Id_3 = L_11;
+		int32_t L_12 = V_3;
+		(&V_4)->___Version_4 = L_12;
+		(&V_4)->___IsAccepted_10 = (uint8_t)0;
+		Connection_t57B7A8186502E304AD87933A0FFD76FDF0972D70 L_13 = V_4;
 		NativeList_1_set_Item_mB51D4B6CE02A7FAA4119FF7499A67A0338A2CD38(L_9, L_10, L_13, NativeList_1_set_Item_mB51D4B6CE02A7FAA4119FF7499A67A0338A2CD38_RuntimeMethod_var);
 		// m_FreeList.Enqueue(free);
 		NativeQueue_1_tC1DEEC6300FED2BCDE96AFD346BEE6CF8E03412A* L_14 = (&__this->___m_FreeList_9);
-		int32_t L_15 = V_1;
+		int32_t L_15 = V_2;
 		NativeQueue_1_Enqueue_m3672014F59D6FC41583477CAB0864B90AEA72F01(L_14, L_15, NativeQueue_1_Enqueue_m3672014F59D6FC41583477CAB0864B90AEA72F01_RuntimeMethod_var);
 		// }
 		goto IL_0011;
 	}
 
-IL_0074:
+IL_0075:
 	{
 		// CheckTimeouts();
 		NetworkDriver_CheckTimeouts_m6DBB0C2943F2AC94E2D346E3C7D00E28C4E97FA2(__this, NULL);
@@ -24171,7 +24323,7 @@ IL_0074:
 		bool L_17 = L_16->___NeedsUpdate_12;
 		if (!L_17)
 		{
-			goto IL_00cc;
+			goto IL_00cd;
 		}
 	}
 	{
@@ -24181,7 +24333,7 @@ IL_0074:
 		L_19 = NativeQueue_1_AsParallelWriter_mEE63FF549022821BE1BBDD0EBB9AA540DDE11E43(L_18, NativeQueue_1_AsParallelWriter_mEE63FF549022821BE1BBDD0EBB9AA540DDE11E43_RuntimeMethod_var);
 		NetworkSendQueueHandle_t9F11BEB70EFEEE4BCD9CD241BB758B11F25D5090 L_20;
 		L_20 = NetworkSendQueueHandle_ToTempHandle_mBDD4BD4D4C27B08C6A0B8C91CE7F1B0897E71A55(L_19, NULL);
-		V_4 = L_20;
+		V_5 = L_20;
 		// m_NetworkProtocolInterface.Update.Ptr.Invoke(m_UpdateTime, ref m_NetworkSendInterface, ref queueHandle, m_NetworkProtocolInterface.UserData);
 		NetworkProtocol_t817E46E6CEE8782B0BB83A0A95DFFD7ADCB84BC9* L_21 = (&__this->___m_NetworkProtocolInterface_5);
 		TransportFunctionPointer_1_tBB4FC4ACEB955CF3ECDC5FB78DE9132C126522F2* L_22 = (&L_21->___Update_8);
@@ -24193,79 +24345,79 @@ IL_0074:
 		NetworkProtocol_t817E46E6CEE8782B0BB83A0A95DFFD7ADCB84BC9* L_27 = (&__this->___m_NetworkProtocolInterface_5);
 		intptr_t L_28 = L_27->___UserData_9;
 		NullCheck(L_24);
-		UpdateDelegate_Invoke_m208018998BE80F03AE32ABE1976643E04C12EFEC_inline(L_24, L_25, L_26, (&V_4), L_28, NULL);
+		UpdateDelegate_Invoke_m208018998BE80F03AE32ABE1976643E04C12EFEC_inline(L_24, L_25, L_26, (&V_5), L_28, NULL);
 	}
 
-IL_00cc:
+IL_00cd:
 	{
 		// m_PipelineProcessor.UpdateReceive(this, out var updateCount);
 		NetworkPipelineProcessor_tB90104D304F7FE6A0E8BB5AD39C95B2441F6E59C* L_29 = (&__this->___m_PipelineProcessor_19);
 		NetworkDriver_t3E4A5DD4686388B9F25135C01E4DB57E79449036 L_30 = (*(NetworkDriver_t3E4A5DD4686388B9F25135C01E4DB57E79449036*)__this);
 		NetworkPipelineProcessor_UpdateReceive_m69ED913417283BFAB9C4CA3A33231657B8F8721D(L_29, L_30, (&V_0), NULL);
-		// if (updateCount > (m_ConnectionList.Length - m_FreeList.Count) * 64)
-		int32_t L_31 = V_0;
-		NativeList_1_tD3715B1226B4E157D6FC09924FDC7EDC5FC0E8C9* L_32 = (&__this->___m_ConnectionList_11);
-		int32_t L_33;
-		L_33 = NativeList_1_get_Length_mE19634CDC9A0170F35F174BD7F5E03FDFE095419(L_32, NativeList_1_get_Length_mE19634CDC9A0170F35F174BD7F5E03FDFE095419_RuntimeMethod_var);
-		NativeQueue_1_tC1DEEC6300FED2BCDE96AFD346BEE6CF8E03412A* L_34 = (&__this->___m_FreeList_9);
+		// var updateLimit = math.max(0, (m_ConnectionList.Length - m_FreeList.Count) * 64);
+		NativeList_1_tD3715B1226B4E157D6FC09924FDC7EDC5FC0E8C9* L_31 = (&__this->___m_ConnectionList_11);
+		int32_t L_32;
+		L_32 = NativeList_1_get_Length_mE19634CDC9A0170F35F174BD7F5E03FDFE095419(L_31, NativeList_1_get_Length_mE19634CDC9A0170F35F174BD7F5E03FDFE095419_RuntimeMethod_var);
+		NativeQueue_1_tC1DEEC6300FED2BCDE96AFD346BEE6CF8E03412A* L_33 = (&__this->___m_FreeList_9);
+		int32_t L_34;
+		L_34 = NativeQueue_1_get_Count_m9D98091BBA2C8C5834061BBEA450CE1FDFC8129A(L_33, NativeQueue_1_get_Count_m9D98091BBA2C8C5834061BBEA450CE1FDFC8129A_RuntimeMethod_var);
 		int32_t L_35;
-		L_35 = NativeQueue_1_get_Count_m9D98091BBA2C8C5834061BBEA450CE1FDFC8129A(L_34, NativeQueue_1_get_Count_m9D98091BBA2C8C5834061BBEA450CE1FDFC8129A_RuntimeMethod_var);
-		if ((((int32_t)L_31) <= ((int32_t)((int32_t)il2cpp_codegen_multiply(((int32_t)il2cpp_codegen_subtract(L_33, L_35)), ((int32_t)64))))))
+		L_35 = math_max_m9083201D37A8ED0157B127B5878D9B7F3A2A40BE_inline(0, ((int32_t)il2cpp_codegen_multiply(((int32_t)il2cpp_codegen_subtract(L_32, L_34)), ((int32_t)64))), NULL);
+		V_1 = L_35;
+		// if (updateCount > updateLimit)
+		int32_t L_36 = V_0;
+		int32_t L_37 = V_1;
+		if ((((int32_t)L_36) <= ((int32_t)L_37)))
 		{
-			goto IL_0116;
+			goto IL_011f;
 		}
 	}
 	{
 		// UnityEngine.Debug.LogWarning(
 		//     FixedString.Format("A lot of pipeline updates have been queued, possibly too many being scheduled in pipeline logic, queue count: {0}", updateCount));
-		FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 L_36;
-		L_36 = FixedString128Bytes_op_Implicit_mC1EF3D019A34577624853F21B956303E569C116E(_stringLiteral42959185655B749AA3CB97BA5B1AC8D0588E2E48, NULL);
-		int32_t L_37 = V_0;
 		FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 L_38;
-		L_38 = FixedString_Format_m6F108E2AF8178697C27234FF8AA515F32B77F4AF(L_36, L_37, NULL);
-		FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 L_39 = L_38;
-		RuntimeObject* L_40 = Box(FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952_il2cpp_TypeInfo_var, &L_39);
+		L_38 = FixedString128Bytes_op_Implicit_mC1EF3D019A34577624853F21B956303E569C116E(_stringLiteral42959185655B749AA3CB97BA5B1AC8D0588E2E48, NULL);
+		int32_t L_39 = V_0;
+		FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 L_40;
+		L_40 = FixedString_Format_m6F108E2AF8178697C27234FF8AA515F32B77F4AF(L_38, L_39, NULL);
+		FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 L_41 = L_40;
+		RuntimeObject* L_42 = Box(FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952_il2cpp_TypeInfo_var, &L_41);
 		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
-		Debug_LogWarning_m33EF1B897E0C7C6FF538989610BFAFFEF4628CA9(L_40, NULL);
+		Debug_LogWarning_m33EF1B897E0C7C6FF538989610BFAFFEF4628CA9(L_42, NULL);
 	}
 
-IL_0116:
+IL_011f:
 	{
 		// m_DefaultHeaderFlags = UdpCHeader.HeaderFlags.HasPipeline;
 		__this->___m_DefaultHeaderFlags_20 = 2;
 		// m_PipelineProcessor.UpdateSend(ToConcurrentSendOnly(), out updateCount);
-		NetworkPipelineProcessor_tB90104D304F7FE6A0E8BB5AD39C95B2441F6E59C* L_41 = (&__this->___m_PipelineProcessor_19);
-		Concurrent_t864CA014F22D93A77EF7CF00CF48D46518DD1D14 L_42;
-		L_42 = NetworkDriver_ToConcurrentSendOnly_mDCAE6384E7D5D40CDCDE8B6FCFA6E40ADF8B64F4(__this, NULL);
-		NetworkPipelineProcessor_UpdateSend_mCFFF5D2F59E6484A3268268EE647C9014B5B31FE(L_41, L_42, (&V_0), NULL);
-		// if (updateCount > (m_ConnectionList.Length - m_FreeList.Count) * 64)
-		int32_t L_43 = V_0;
-		NativeList_1_tD3715B1226B4E157D6FC09924FDC7EDC5FC0E8C9* L_44 = (&__this->___m_ConnectionList_11);
-		int32_t L_45;
-		L_45 = NativeList_1_get_Length_mE19634CDC9A0170F35F174BD7F5E03FDFE095419(L_44, NativeList_1_get_Length_mE19634CDC9A0170F35F174BD7F5E03FDFE095419_RuntimeMethod_var);
-		NativeQueue_1_tC1DEEC6300FED2BCDE96AFD346BEE6CF8E03412A* L_46 = (&__this->___m_FreeList_9);
-		int32_t L_47;
-		L_47 = NativeQueue_1_get_Count_m9D98091BBA2C8C5834061BBEA450CE1FDFC8129A(L_46, NativeQueue_1_get_Count_m9D98091BBA2C8C5834061BBEA450CE1FDFC8129A_RuntimeMethod_var);
-		if ((((int32_t)L_43) <= ((int32_t)((int32_t)il2cpp_codegen_multiply(((int32_t)il2cpp_codegen_subtract(L_45, L_47)), ((int32_t)64))))))
+		NetworkPipelineProcessor_tB90104D304F7FE6A0E8BB5AD39C95B2441F6E59C* L_43 = (&__this->___m_PipelineProcessor_19);
+		Concurrent_t864CA014F22D93A77EF7CF00CF48D46518DD1D14 L_44;
+		L_44 = NetworkDriver_ToConcurrentSendOnly_mDCAE6384E7D5D40CDCDE8B6FCFA6E40ADF8B64F4(__this, NULL);
+		NetworkPipelineProcessor_UpdateSend_mCFFF5D2F59E6484A3268268EE647C9014B5B31FE(L_43, L_44, (&V_0), NULL);
+		// if (updateCount > updateLimit)
+		int32_t L_45 = V_0;
+		int32_t L_46 = V_1;
+		if ((((int32_t)L_45) <= ((int32_t)L_46)))
 		{
-			goto IL_0167;
+			goto IL_0157;
 		}
 	}
 	{
 		// UnityEngine.Debug.LogWarning(
 		//     FixedString.Format("A lot of pipeline updates have been queued, possibly too many being scheduled in pipeline logic, queue count: {0}", updateCount));
-		FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 L_48;
-		L_48 = FixedString128Bytes_op_Implicit_mC1EF3D019A34577624853F21B956303E569C116E(_stringLiteral42959185655B749AA3CB97BA5B1AC8D0588E2E48, NULL);
-		int32_t L_49 = V_0;
-		FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 L_50;
-		L_50 = FixedString_Format_m6F108E2AF8178697C27234FF8AA515F32B77F4AF(L_48, L_49, NULL);
-		FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 L_51 = L_50;
-		RuntimeObject* L_52 = Box(FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952_il2cpp_TypeInfo_var, &L_51);
+		FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 L_47;
+		L_47 = FixedString128Bytes_op_Implicit_mC1EF3D019A34577624853F21B956303E569C116E(_stringLiteral42959185655B749AA3CB97BA5B1AC8D0588E2E48, NULL);
+		int32_t L_48 = V_0;
+		FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 L_49;
+		L_49 = FixedString_Format_m6F108E2AF8178697C27234FF8AA515F32B77F4AF(L_47, L_48, NULL);
+		FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 L_50 = L_49;
+		RuntimeObject* L_51 = Box(FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952_il2cpp_TypeInfo_var, &L_50);
 		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
-		Debug_LogWarning_m33EF1B897E0C7C6FF538989610BFAFFEF4628CA9(L_52, NULL);
+		Debug_LogWarning_m33EF1B897E0C7C6FF538989610BFAFFEF4628CA9(L_51, NULL);
 	}
 
-IL_0167:
+IL_0157:
 	{
 		// m_DefaultHeaderFlags = 0;
 		__this->___m_DefaultHeaderFlags_20 = 0;
@@ -26283,7 +26435,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NetworkDriver_CheckTimeouts_m6DBB0C2943F
 	{
 		// for (int i = 0; i < m_ConnectionList.Length; ++i)
 		V_0 = 0;
-		goto IL_0205;
+		goto IL_0212;
 	}
 
 IL_0007:
@@ -26302,7 +26454,7 @@ IL_0007:
 		L_5 = Connection_op_Equality_mDFD8CDFA059E5BCE99B6F152309DA76860C29FB6(L_3, L_4, NULL);
 		if (L_5)
 		{
-			goto IL_0201;
+			goto IL_020e;
 		}
 	}
 	{
@@ -26362,7 +26514,7 @@ IL_0007:
 		int32_t L_28 = L_27.___Id_3;
 		NetworkDriver_AddDisconnectEvent_mF0B56E8DB2B5735CED760759123DA387B89D5937(__this, L_28, 2, NULL);
 		// continue;
-		goto IL_0201;
+		goto IL_020e;
 	}
 
 IL_00ac:
@@ -26411,7 +26563,7 @@ IL_0115:
 		int32_t L_47 = L_46.___State_6;
 		if ((!(((uint32_t)L_47) == ((uint32_t)2))))
 		{
-			goto IL_014e;
+			goto IL_015b;
 		}
 	}
 	{
@@ -26423,7 +26575,7 @@ IL_0115:
 		int32_t L_53 = L_52->___disconnectTimeoutMS_2;
 		if ((((int64_t)((int64_t)il2cpp_codegen_subtract(L_48, L_50))) <= ((int64_t)((int64_t)L_53))))
 		{
-			goto IL_014e;
+			goto IL_015b;
 		}
 	}
 	{
@@ -26435,105 +26587,111 @@ IL_0115:
 		Connection_t57B7A8186502E304AD87933A0FFD76FDF0972D70 L_56 = V_1;
 		int32_t L_57 = L_56.___Id_3;
 		NetworkDriver_AddDisconnectEvent_mF0B56E8DB2B5735CED760759123DA387B89D5937(__this, L_57, 1, NULL);
+		// connection = m_ConnectionList[i];
+		NativeList_1_tD3715B1226B4E157D6FC09924FDC7EDC5FC0E8C9* L_58 = (&__this->___m_ConnectionList_11);
+		int32_t L_59 = V_0;
+		Connection_t57B7A8186502E304AD87933A0FFD76FDF0972D70 L_60;
+		L_60 = NativeList_1_get_Item_m1003D98F3D8BBDE515D6C0F9F3D54E4F1B5B4D86(L_58, L_59, NativeList_1_get_Item_m1003D98F3D8BBDE515D6C0F9F3D54E4F1B5B4D86_RuntimeMethod_var);
+		V_1 = L_60;
 	}
 
-IL_014e:
+IL_015b:
 	{
 		// if (connection.State == NetworkConnection.State.Connected &&
 		//     connection.DidReceiveData != 0 &&
 		//     m_NetworkParams.config.heartbeatTimeoutMS > 0 &&
 		//     now - connection.LastReceive > m_NetworkParams.config.heartbeatTimeoutMS &&
 		//     now - connection.LastNonDataSend > m_NetworkParams.config.heartbeatTimeoutMS)
-		Connection_t57B7A8186502E304AD87933A0FFD76FDF0972D70 L_58 = V_1;
-		int32_t L_59 = L_58.___State_6;
-		if ((!(((uint32_t)L_59) == ((uint32_t)2))))
+		Connection_t57B7A8186502E304AD87933A0FFD76FDF0972D70 L_61 = V_1;
+		int32_t L_62 = L_61.___State_6;
+		if ((!(((uint32_t)L_62) == ((uint32_t)2))))
 		{
-			goto IL_0201;
+			goto IL_020e;
 		}
 	}
 	{
-		Connection_t57B7A8186502E304AD87933A0FFD76FDF0972D70 L_60 = V_1;
-		uint8_t L_61 = L_60.___DidReceiveData_9;
-		if (!L_61)
+		Connection_t57B7A8186502E304AD87933A0FFD76FDF0972D70 L_63 = V_1;
+		uint8_t L_64 = L_63.___DidReceiveData_9;
+		if (!L_64)
 		{
-			goto IL_0201;
+			goto IL_020e;
 		}
 	}
 	{
-		Parameters_t9967AF7588FE3273938F70B8335411748E0D2742* L_62 = (&__this->___m_NetworkParams_16);
-		NetworkConfigParameter_t2AA94683DFCAE075DB53029EE1C08A72B5E2C22D* L_63 = (&L_62->___config_1);
-		int32_t L_64 = L_63->___heartbeatTimeoutMS_3;
-		if ((((int32_t)L_64) <= ((int32_t)0)))
+		Parameters_t9967AF7588FE3273938F70B8335411748E0D2742* L_65 = (&__this->___m_NetworkParams_16);
+		NetworkConfigParameter_t2AA94683DFCAE075DB53029EE1C08A72B5E2C22D* L_66 = (&L_65->___config_1);
+		int32_t L_67 = L_66->___heartbeatTimeoutMS_3;
+		if ((((int32_t)L_67) <= ((int32_t)0)))
 		{
-			goto IL_0201;
+			goto IL_020e;
 		}
 	}
 	{
-		int64_t L_65 = V_2;
-		Connection_t57B7A8186502E304AD87933A0FFD76FDF0972D70 L_66 = V_1;
-		int64_t L_67 = L_66.___LastReceive_2;
-		Parameters_t9967AF7588FE3273938F70B8335411748E0D2742* L_68 = (&__this->___m_NetworkParams_16);
-		NetworkConfigParameter_t2AA94683DFCAE075DB53029EE1C08A72B5E2C22D* L_69 = (&L_68->___config_1);
-		int32_t L_70 = L_69->___heartbeatTimeoutMS_3;
-		if ((((int64_t)((int64_t)il2cpp_codegen_subtract(L_65, L_67))) <= ((int64_t)((int64_t)L_70))))
+		int64_t L_68 = V_2;
+		Connection_t57B7A8186502E304AD87933A0FFD76FDF0972D70 L_69 = V_1;
+		int64_t L_70 = L_69.___LastReceive_2;
+		Parameters_t9967AF7588FE3273938F70B8335411748E0D2742* L_71 = (&__this->___m_NetworkParams_16);
+		NetworkConfigParameter_t2AA94683DFCAE075DB53029EE1C08A72B5E2C22D* L_72 = (&L_71->___config_1);
+		int32_t L_73 = L_72->___heartbeatTimeoutMS_3;
+		if ((((int64_t)((int64_t)il2cpp_codegen_subtract(L_68, L_70))) <= ((int64_t)((int64_t)L_73))))
 		{
-			goto IL_0201;
+			goto IL_020e;
 		}
 	}
 	{
-		int64_t L_71 = V_2;
-		Connection_t57B7A8186502E304AD87933A0FFD76FDF0972D70 L_72 = V_1;
-		int64_t L_73 = L_72.___LastNonDataSend_1;
-		Parameters_t9967AF7588FE3273938F70B8335411748E0D2742* L_74 = (&__this->___m_NetworkParams_16);
-		NetworkConfigParameter_t2AA94683DFCAE075DB53029EE1C08A72B5E2C22D* L_75 = (&L_74->___config_1);
-		int32_t L_76 = L_75->___heartbeatTimeoutMS_3;
-		if ((((int64_t)((int64_t)il2cpp_codegen_subtract(L_71, L_73))) <= ((int64_t)((int64_t)L_76))))
+		int64_t L_74 = V_2;
+		Connection_t57B7A8186502E304AD87933A0FFD76FDF0972D70 L_75 = V_1;
+		int64_t L_76 = L_75.___LastNonDataSend_1;
+		Parameters_t9967AF7588FE3273938F70B8335411748E0D2742* L_77 = (&__this->___m_NetworkParams_16);
+		NetworkConfigParameter_t2AA94683DFCAE075DB53029EE1C08A72B5E2C22D* L_78 = (&L_77->___config_1);
+		int32_t L_79 = L_78->___heartbeatTimeoutMS_3;
+		if ((((int64_t)((int64_t)il2cpp_codegen_subtract(L_74, L_76))) <= ((int64_t)((int64_t)L_79))))
 		{
-			goto IL_0201;
+			goto IL_020e;
 		}
 	}
 	{
 		// connection.LastNonDataSend = now;
-		int64_t L_77 = V_2;
-		(&V_1)->___LastNonDataSend_1 = L_77;
+		int64_t L_80 = V_2;
+		(&V_1)->___LastNonDataSend_1 = L_80;
 		// SetConnection(connection);
-		Connection_t57B7A8186502E304AD87933A0FFD76FDF0972D70 L_78 = V_1;
-		NetworkDriver_SetConnection_m9762A23C055E1C5756CAC7C14E538517EF734D69(__this, L_78, NULL);
+		Connection_t57B7A8186502E304AD87933A0FFD76FDF0972D70 L_81 = V_1;
+		NetworkDriver_SetConnection_m9762A23C055E1C5756CAC7C14E538517EF734D69(__this, L_81, NULL);
 		// var queueHandle = NetworkSendQueueHandle.ToTempHandle(m_ParallelSendQueue.AsParallelWriter());
-		NativeQueue_1_t6F98B587B9BF83745B5D350CBDB27E86744FB2A1* L_79 = (&__this->___m_ParallelSendQueue_6);
-		ParallelWriter_tD2337D6A048735D05F7C0698B7FEEDAD7153DE97 L_80;
-		L_80 = NativeQueue_1_AsParallelWriter_mEE63FF549022821BE1BBDD0EBB9AA540DDE11E43(L_79, NativeQueue_1_AsParallelWriter_mEE63FF549022821BE1BBDD0EBB9AA540DDE11E43_RuntimeMethod_var);
-		NetworkSendQueueHandle_t9F11BEB70EFEEE4BCD9CD241BB758B11F25D5090 L_81;
-		L_81 = NetworkSendQueueHandle_ToTempHandle_mBDD4BD4D4C27B08C6A0B8C91CE7F1B0897E71A55(L_80, NULL);
-		V_7 = L_81;
+		NativeQueue_1_t6F98B587B9BF83745B5D350CBDB27E86744FB2A1* L_82 = (&__this->___m_ParallelSendQueue_6);
+		ParallelWriter_tD2337D6A048735D05F7C0698B7FEEDAD7153DE97 L_83;
+		L_83 = NativeQueue_1_AsParallelWriter_mEE63FF549022821BE1BBDD0EBB9AA540DDE11E43(L_82, NativeQueue_1_AsParallelWriter_mEE63FF549022821BE1BBDD0EBB9AA540DDE11E43_RuntimeMethod_var);
+		NetworkSendQueueHandle_t9F11BEB70EFEEE4BCD9CD241BB758B11F25D5090 L_84;
+		L_84 = NetworkSendQueueHandle_ToTempHandle_mBDD4BD4D4C27B08C6A0B8C91CE7F1B0897E71A55(L_83, NULL);
+		V_7 = L_84;
 		// m_NetworkProtocolInterface.ProcessSendPing.Ptr.Invoke(ref connection, ref m_NetworkSendInterface, ref queueHandle, m_NetworkProtocolInterface.UserData);
-		NetworkProtocol_t817E46E6CEE8782B0BB83A0A95DFFD7ADCB84BC9* L_82 = (&__this->___m_NetworkProtocolInterface_5);
-		TransportFunctionPointer_1_t97CB0A2F7C4082FD45ACA0AE4155845480AE8843* L_83 = (&L_82->___ProcessSendPing_6);
-		FunctionPointer_1_t87DC6AA7478438FC2A893CEFC30932DB880EECFE* L_84 = (&L_83->___Ptr_0);
-		ProcessSendPingDelegate_t152699432B5574DC4245F79AD09F4AAC5038FD2B* L_85;
-		L_85 = FunctionPointer_1_get_Invoke_m60FAF6C16F9D6DF6CA3A5CFF5B22B5F52A7ED1D4(L_84, FunctionPointer_1_get_Invoke_m60FAF6C16F9D6DF6CA3A5CFF5B22B5F52A7ED1D4_RuntimeMethod_var);
-		NetworkSendInterface_t3C39B6892E6E0D3587471F02F0A82F8252E55035* L_86 = (&__this->___m_NetworkSendInterface_3);
-		NetworkProtocol_t817E46E6CEE8782B0BB83A0A95DFFD7ADCB84BC9* L_87 = (&__this->___m_NetworkProtocolInterface_5);
-		intptr_t L_88 = L_87->___UserData_9;
-		NullCheck(L_85);
-		ProcessSendPingDelegate_Invoke_mA2A00FA149A47FB53A939EB7628C4DC09CA4051A_inline(L_85, (&V_1), L_86, (&V_7), L_88, NULL);
+		NetworkProtocol_t817E46E6CEE8782B0BB83A0A95DFFD7ADCB84BC9* L_85 = (&__this->___m_NetworkProtocolInterface_5);
+		TransportFunctionPointer_1_t97CB0A2F7C4082FD45ACA0AE4155845480AE8843* L_86 = (&L_85->___ProcessSendPing_6);
+		FunctionPointer_1_t87DC6AA7478438FC2A893CEFC30932DB880EECFE* L_87 = (&L_86->___Ptr_0);
+		ProcessSendPingDelegate_t152699432B5574DC4245F79AD09F4AAC5038FD2B* L_88;
+		L_88 = FunctionPointer_1_get_Invoke_m60FAF6C16F9D6DF6CA3A5CFF5B22B5F52A7ED1D4(L_87, FunctionPointer_1_get_Invoke_m60FAF6C16F9D6DF6CA3A5CFF5B22B5F52A7ED1D4_RuntimeMethod_var);
+		NetworkSendInterface_t3C39B6892E6E0D3587471F02F0A82F8252E55035* L_89 = (&__this->___m_NetworkSendInterface_3);
+		NetworkProtocol_t817E46E6CEE8782B0BB83A0A95DFFD7ADCB84BC9* L_90 = (&__this->___m_NetworkProtocolInterface_5);
+		intptr_t L_91 = L_90->___UserData_9;
+		NullCheck(L_88);
+		ProcessSendPingDelegate_Invoke_mA2A00FA149A47FB53A939EB7628C4DC09CA4051A_inline(L_88, (&V_1), L_89, (&V_7), L_91, NULL);
 	}
 
-IL_0201:
+IL_020e:
 	{
 		// for (int i = 0; i < m_ConnectionList.Length; ++i)
-		int32_t L_89 = V_0;
-		V_0 = ((int32_t)il2cpp_codegen_add(L_89, 1));
+		int32_t L_92 = V_0;
+		V_0 = ((int32_t)il2cpp_codegen_add(L_92, 1));
 	}
 
-IL_0205:
+IL_0212:
 	{
 		// for (int i = 0; i < m_ConnectionList.Length; ++i)
-		int32_t L_90 = V_0;
-		NativeList_1_tD3715B1226B4E157D6FC09924FDC7EDC5FC0E8C9* L_91 = (&__this->___m_ConnectionList_11);
-		int32_t L_92;
-		L_92 = NativeList_1_get_Length_mE19634CDC9A0170F35F174BD7F5E03FDFE095419(L_91, NativeList_1_get_Length_mE19634CDC9A0170F35F174BD7F5E03FDFE095419_RuntimeMethod_var);
-		if ((((int32_t)L_90) < ((int32_t)L_92)))
+		int32_t L_93 = V_0;
+		NativeList_1_tD3715B1226B4E157D6FC09924FDC7EDC5FC0E8C9* L_94 = (&__this->___m_ConnectionList_11);
+		int32_t L_95;
+		L_95 = NativeList_1_get_Length_mE19634CDC9A0170F35F174BD7F5E03FDFE095419(L_94, NativeList_1_get_Length_mE19634CDC9A0170F35F174BD7F5E03FDFE095419_RuntimeMethod_var);
+		if ((((int32_t)L_93) < ((int32_t)L_95)))
 		{
 			goto IL_0007;
 		}
@@ -28353,8 +28511,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Concurrent_BeginSend_m08F4DDE3E950345
 	NativeArray_1_t81F55263465517B73C455D3400CF67B4BADD85CF V_8;
 	memset((&V_8), 0, sizeof(V_8));
 	int32_t V_9 = 0;
-	PendingSend_t7A22053E3758CAA60B8CC515132FA5DCE47C37E6 V_10;
-	memset((&V_10), 0, sizeof(V_10));
+	int32_t V_10 = 0;
+	PendingSend_t7A22053E3758CAA60B8CC515132FA5DCE47C37E6 V_11;
+	memset((&V_11), 0, sizeof(V_11));
 	int32_t G_B10_0 = 0;
 	int32_t G_B13_0 = 0;
 	int32_t G_B16_0 = 0;
@@ -28567,51 +28726,72 @@ IL_00c6:
 
 IL_00e6:
 	{
-		// if ((result = m_NetworkSendInterface.BeginSendMessage.Ptr.Invoke(out var sendHandle, m_NetworkSendInterface.UserData, totalCapacity)) != 0)
-		NetworkSendInterface_t3C39B6892E6E0D3587471F02F0A82F8252E55035* L_49 = (&__this->___m_NetworkSendInterface_0);
-		TransportFunctionPointer_1_t9F2FD24758ADF9E597DCA02A01D7972B74AF6736* L_50 = (&L_49->___BeginSendMessage_0);
-		FunctionPointer_1_t5E2F5FC9CFE7FBBBECA6EB73BABFA0CD5F645155* L_51 = (&L_50->___Ptr_0);
-		BeginSendMessageDelegate_t55D0469152EC11CCF544924363F1C12F13CF2FE1* L_52;
-		L_52 = FunctionPointer_1_get_Invoke_mB99A6DFFF953B5843576414230D5153BAD08925B(L_51, FunctionPointer_1_get_Invoke_mB99A6DFFF953B5843576414230D5153BAD08925B_RuntimeMethod_var);
-		NetworkSendInterface_t3C39B6892E6E0D3587471F02F0A82F8252E55035* L_53 = (&__this->___m_NetworkSendInterface_0);
-		intptr_t L_54 = L_53->___UserData_3;
-		int32_t L_55 = V_6;
-		NullCheck(L_52);
-		int32_t L_56;
-		L_56 = BeginSendMessageDelegate_Invoke_m616D28C5DFFFB30E1F1392F14F6C6EB3B7EC99CD_inline(L_52, (&V_7), L_54, L_55, NULL);
-		if (!L_56)
+		// var sendHandle = default(NetworkInterfaceSendHandle);
+		il2cpp_codegen_initobj((&V_7), sizeof(NetworkInterfaceSendHandle_t0DDDEE6B24387948E786543B54C52A3F7B625CE3));
+		// if (totalCapacity > NetworkParameterConstants.MTU)
+		int32_t L_49 = V_6;
+		if ((((int32_t)L_49) <= ((int32_t)((int32_t)1400))))
 		{
-			goto IL_0148;
+			goto IL_0130;
 		}
 	}
 	{
 		// sendHandle.data = (IntPtr)UnsafeUtility.Malloc(totalCapacity, 8, Allocator.Temp);
-		int32_t L_57 = V_6;
-		void* L_58;
-		L_58 = UnsafeUtility_Malloc_mD7BD28D5AE7E4901B225B7DFFE2B568EE7BDC0C9(((int64_t)L_57), 8, 2, NULL);
-		intptr_t L_59;
-		L_59 = IntPtr_op_Explicit_mE2CEC14C61FD5E2159A03EA2AD97F5CDC5BB9F4D(L_58, NULL);
-		(&V_7)->___data_0 = L_59;
+		int32_t L_50 = V_6;
+		void* L_51;
+		L_51 = UnsafeUtility_Malloc_mD7BD28D5AE7E4901B225B7DFFE2B568EE7BDC0C9(((int64_t)L_50), 8, 2, NULL);
+		intptr_t L_52;
+		L_52 = IntPtr_op_Explicit_mE2CEC14C61FD5E2159A03EA2AD97F5CDC5BB9F4D(L_51, NULL);
+		(&V_7)->___data_0 = L_52;
 		// sendHandle.capacity = totalCapacity;
-		int32_t L_60 = V_6;
-		(&V_7)->___capacity_1 = L_60;
+		int32_t L_53 = V_6;
+		(&V_7)->___capacity_1 = L_53;
 		// sendHandle.id = 0;
 		(&V_7)->___id_3 = 0;
 		// sendHandle.size = 0;
 		(&V_7)->___size_2 = 0;
 		// sendHandle.flags = SendHandleFlags.AllocatedByDriver;
 		(&V_7)->___flags_4 = 1;
+		goto IL_0162;
 	}
 
-IL_0148:
+IL_0130:
+	{
+		// var result = m_NetworkSendInterface.BeginSendMessage.Ptr.Invoke(out sendHandle, m_NetworkSendInterface.UserData, totalCapacity);
+		NetworkSendInterface_t3C39B6892E6E0D3587471F02F0A82F8252E55035* L_54 = (&__this->___m_NetworkSendInterface_0);
+		TransportFunctionPointer_1_t9F2FD24758ADF9E597DCA02A01D7972B74AF6736* L_55 = (&L_54->___BeginSendMessage_0);
+		FunctionPointer_1_t5E2F5FC9CFE7FBBBECA6EB73BABFA0CD5F645155* L_56 = (&L_55->___Ptr_0);
+		BeginSendMessageDelegate_t55D0469152EC11CCF544924363F1C12F13CF2FE1* L_57;
+		L_57 = FunctionPointer_1_get_Invoke_mB99A6DFFF953B5843576414230D5153BAD08925B(L_56, FunctionPointer_1_get_Invoke_mB99A6DFFF953B5843576414230D5153BAD08925B_RuntimeMethod_var);
+		NetworkSendInterface_t3C39B6892E6E0D3587471F02F0A82F8252E55035* L_58 = (&__this->___m_NetworkSendInterface_0);
+		intptr_t L_59 = L_58->___UserData_3;
+		int32_t L_60 = V_6;
+		NullCheck(L_57);
+		int32_t L_61;
+		L_61 = BeginSendMessageDelegate_Invoke_m616D28C5DFFFB30E1F1392F14F6C6EB3B7EC99CD_inline(L_57, (&V_7), L_59, L_60, NULL);
+		V_10 = L_61;
+		// if (result != 0)
+		int32_t L_62 = V_10;
+		if (!L_62)
+		{
+			goto IL_0162;
+		}
+	}
+	{
+		// return result;
+		int32_t L_63 = V_10;
+		return L_63;
+	}
+
+IL_0162:
 	{
 		// if (sendHandle.capacity < totalCapacity)
-		NetworkInterfaceSendHandle_t0DDDEE6B24387948E786543B54C52A3F7B625CE3 L_61 = V_7;
-		int32_t L_62 = L_61.___capacity_1;
-		int32_t L_63 = V_6;
-		if ((((int32_t)L_62) >= ((int32_t)L_63)))
+		NetworkInterfaceSendHandle_t0DDDEE6B24387948E786543B54C52A3F7B625CE3 L_64 = V_7;
+		int32_t L_65 = L_64.___capacity_1;
+		int32_t L_66 = V_6;
+		if ((((int32_t)L_65) >= ((int32_t)L_66)))
 		{
-			goto IL_0156;
+			goto IL_0170;
 		}
 	}
 	{
@@ -28619,37 +28799,37 @@ IL_0148:
 		return ((int32_t)-4);
 	}
 
-IL_0156:
+IL_0170:
 	{
 		// var slice = NativeArrayUnsafeUtility.ConvertExistingDataToNativeArray<byte>((byte*)sendHandle.data + payloadOffset + pipelineHeader, payloadCapacity, Allocator.Invalid);
-		NetworkInterfaceSendHandle_t0DDDEE6B24387948E786543B54C52A3F7B625CE3 L_64 = V_7;
-		intptr_t L_65 = L_64.___data_0;
-		void* L_66;
-		L_66 = IntPtr_op_Explicit_m2728CBA081E79B97DDCF1D4FAD77B309CA1E94BF(L_65, NULL);
-		int32_t L_67 = V_4;
-		int32_t L_68 = V_1;
-		int32_t L_69 = V_5;
-		NativeArray_1_t81F55263465517B73C455D3400CF67B4BADD85CF L_70;
-		L_70 = NativeArrayUnsafeUtility_ConvertExistingDataToNativeArray_TisByte_t94D9231AC217BE4D2E004C4CD32DF6D099EA41A3_m181D7F12EB826B7D6B73742BFD85A667D533BABA(((void*)il2cpp_codegen_add((intptr_t)((void*)il2cpp_codegen_add((intptr_t)L_66, L_67)), L_68)), L_69, 0, NativeArrayUnsafeUtility_ConvertExistingDataToNativeArray_TisByte_t94D9231AC217BE4D2E004C4CD32DF6D099EA41A3_m181D7F12EB826B7D6B73742BFD85A667D533BABA_RuntimeMethod_var);
-		V_8 = L_70;
+		NetworkInterfaceSendHandle_t0DDDEE6B24387948E786543B54C52A3F7B625CE3 L_67 = V_7;
+		intptr_t L_68 = L_67.___data_0;
+		void* L_69;
+		L_69 = IntPtr_op_Explicit_m2728CBA081E79B97DDCF1D4FAD77B309CA1E94BF(L_68, NULL);
+		int32_t L_70 = V_4;
+		int32_t L_71 = V_1;
+		int32_t L_72 = V_5;
+		NativeArray_1_t81F55263465517B73C455D3400CF67B4BADD85CF L_73;
+		L_73 = NativeArrayUnsafeUtility_ConvertExistingDataToNativeArray_TisByte_t94D9231AC217BE4D2E004C4CD32DF6D099EA41A3_m181D7F12EB826B7D6B73742BFD85A667D533BABA(((void*)il2cpp_codegen_add((intptr_t)((void*)il2cpp_codegen_add((intptr_t)L_69, L_70)), L_71)), L_72, 0, NativeArrayUnsafeUtility_ConvertExistingDataToNativeArray_TisByte_t94D9231AC217BE4D2E004C4CD32DF6D099EA41A3_m181D7F12EB826B7D6B73742BFD85A667D533BABA_RuntimeMethod_var);
+		V_8 = L_73;
 		// writer = new DataStreamWriter(slice);
-		DataStreamWriter_t58BB6BA9D4C598E54C1B1E6D5B7511625C8EF6EA* L_71 = ___writer2;
-		NativeArray_1_t81F55263465517B73C455D3400CF67B4BADD85CF L_72 = V_8;
-		DataStreamWriter_t58BB6BA9D4C598E54C1B1E6D5B7511625C8EF6EA L_73;
-		memset((&L_73), 0, sizeof(L_73));
-		DataStreamWriter__ctor_m7F082E2DD39BC12DFDC452F6E15905294C7028D3((&L_73), L_72, /*hidden argument*/NULL);
-		*(DataStreamWriter_t58BB6BA9D4C598E54C1B1E6D5B7511625C8EF6EA*)L_71 = L_73;
-		// writer.m_SendHandleData = (IntPtr)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<PendingSend>(), UnsafeUtility.AlignOf<PendingSend>(), Allocator.Temp);
 		DataStreamWriter_t58BB6BA9D4C598E54C1B1E6D5B7511625C8EF6EA* L_74 = ___writer2;
-		int32_t L_75;
-		L_75 = UnsafeUtility_SizeOf_TisPendingSend_t7A22053E3758CAA60B8CC515132FA5DCE47C37E6_mA090B00F868299246CAC3A5755C4EE3F4C26325C(UnsafeUtility_SizeOf_TisPendingSend_t7A22053E3758CAA60B8CC515132FA5DCE47C37E6_mA090B00F868299246CAC3A5755C4EE3F4C26325C_RuntimeMethod_var);
-		int32_t L_76;
-		L_76 = UnsafeUtility_AlignOf_TisPendingSend_t7A22053E3758CAA60B8CC515132FA5DCE47C37E6_m36B229C624D010A4530B68F7CF04EEE83E4FC850(UnsafeUtility_AlignOf_TisPendingSend_t7A22053E3758CAA60B8CC515132FA5DCE47C37E6_m36B229C624D010A4530B68F7CF04EEE83E4FC850_RuntimeMethod_var);
-		void* L_77;
-		L_77 = UnsafeUtility_Malloc_mD7BD28D5AE7E4901B225B7DFFE2B568EE7BDC0C9(((int64_t)L_75), L_76, 2, NULL);
-		intptr_t L_78;
-		L_78 = IntPtr_op_Explicit_mE2CEC14C61FD5E2159A03EA2AD97F5CDC5BB9F4D(L_77, NULL);
-		L_74->___m_SendHandleData_1 = L_78;
+		NativeArray_1_t81F55263465517B73C455D3400CF67B4BADD85CF L_75 = V_8;
+		DataStreamWriter_t58BB6BA9D4C598E54C1B1E6D5B7511625C8EF6EA L_76;
+		memset((&L_76), 0, sizeof(L_76));
+		DataStreamWriter__ctor_m7F082E2DD39BC12DFDC452F6E15905294C7028D3((&L_76), L_75, /*hidden argument*/NULL);
+		*(DataStreamWriter_t58BB6BA9D4C598E54C1B1E6D5B7511625C8EF6EA*)L_74 = L_76;
+		// writer.m_SendHandleData = (IntPtr)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<PendingSend>(), UnsafeUtility.AlignOf<PendingSend>(), Allocator.Temp);
+		DataStreamWriter_t58BB6BA9D4C598E54C1B1E6D5B7511625C8EF6EA* L_77 = ___writer2;
+		int32_t L_78;
+		L_78 = UnsafeUtility_SizeOf_TisPendingSend_t7A22053E3758CAA60B8CC515132FA5DCE47C37E6_mA090B00F868299246CAC3A5755C4EE3F4C26325C(UnsafeUtility_SizeOf_TisPendingSend_t7A22053E3758CAA60B8CC515132FA5DCE47C37E6_mA090B00F868299246CAC3A5755C4EE3F4C26325C_RuntimeMethod_var);
+		int32_t L_79;
+		L_79 = UnsafeUtility_AlignOf_TisPendingSend_t7A22053E3758CAA60B8CC515132FA5DCE47C37E6_m36B229C624D010A4530B68F7CF04EEE83E4FC850(UnsafeUtility_AlignOf_TisPendingSend_t7A22053E3758CAA60B8CC515132FA5DCE47C37E6_m36B229C624D010A4530B68F7CF04EEE83E4FC850_RuntimeMethod_var);
+		void* L_80;
+		L_80 = UnsafeUtility_Malloc_mD7BD28D5AE7E4901B225B7DFFE2B568EE7BDC0C9(((int64_t)L_78), L_79, 2, NULL);
+		intptr_t L_81;
+		L_81 = IntPtr_op_Explicit_mE2CEC14C61FD5E2159A03EA2AD97F5CDC5BB9F4D(L_80, NULL);
+		L_77->___m_SendHandleData_1 = L_81;
 		// *(PendingSend*)writer.m_SendHandleData = new PendingSend
 		// {
 		//     Pipeline = pipe,
@@ -28657,21 +28837,21 @@ IL_0156:
 		//     SendHandle = sendHandle,
 		//     headerSize = payloadOffset,
 		// };
-		DataStreamWriter_t58BB6BA9D4C598E54C1B1E6D5B7511625C8EF6EA* L_79 = ___writer2;
-		intptr_t L_80 = L_79->___m_SendHandleData_1;
-		void* L_81;
-		L_81 = IntPtr_op_Explicit_m2728CBA081E79B97DDCF1D4FAD77B309CA1E94BF(L_80, NULL);
-		il2cpp_codegen_initobj((&V_10), sizeof(PendingSend_t7A22053E3758CAA60B8CC515132FA5DCE47C37E6));
-		NetworkPipeline_t83BB00B4CE9811A2B75D37E50EFB85FD60044A69 L_82 = ___pipe0;
-		(&V_10)->___Pipeline_0 = L_82;
-		NetworkConnection_t0A1170D9665C62249582E5DAABC2EAF2D01DEDF4 L_83 = ___id1;
-		(&V_10)->___Connection_1 = L_83;
-		NetworkInterfaceSendHandle_t0DDDEE6B24387948E786543B54C52A3F7B625CE3 L_84 = V_7;
-		(&V_10)->___SendHandle_2 = L_84;
-		int32_t L_85 = V_4;
-		(&V_10)->___headerSize_3 = L_85;
-		PendingSend_t7A22053E3758CAA60B8CC515132FA5DCE47C37E6 L_86 = V_10;
-		*(PendingSend_t7A22053E3758CAA60B8CC515132FA5DCE47C37E6*)L_81 = L_86;
+		DataStreamWriter_t58BB6BA9D4C598E54C1B1E6D5B7511625C8EF6EA* L_82 = ___writer2;
+		intptr_t L_83 = L_82->___m_SendHandleData_1;
+		void* L_84;
+		L_84 = IntPtr_op_Explicit_m2728CBA081E79B97DDCF1D4FAD77B309CA1E94BF(L_83, NULL);
+		il2cpp_codegen_initobj((&V_11), sizeof(PendingSend_t7A22053E3758CAA60B8CC515132FA5DCE47C37E6));
+		NetworkPipeline_t83BB00B4CE9811A2B75D37E50EFB85FD60044A69 L_85 = ___pipe0;
+		(&V_11)->___Pipeline_0 = L_85;
+		NetworkConnection_t0A1170D9665C62249582E5DAABC2EAF2D01DEDF4 L_86 = ___id1;
+		(&V_11)->___Connection_1 = L_86;
+		NetworkInterfaceSendHandle_t0DDDEE6B24387948E786543B54C52A3F7B625CE3 L_87 = V_7;
+		(&V_11)->___SendHandle_2 = L_87;
+		int32_t L_88 = V_4;
+		(&V_11)->___headerSize_3 = L_88;
+		PendingSend_t7A22053E3758CAA60B8CC515132FA5DCE47C37E6 L_89 = V_11;
+		*(PendingSend_t7A22053E3758CAA60B8CC515132FA5DCE47C37E6*)L_84 = L_89;
 		// return (int)Error.StatusCode.Success;
 		return 0;
 	}
@@ -28997,7 +29177,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Concurrent_CompleteSend_m7C111C959A5A
 		int32_t L_1 = L_0.___flags_4;
 		if (!((int32_t)((int32_t)L_1&1)))
 		{
-			goto IL_0070;
+			goto IL_006f;
 		}
 	}
 	{
@@ -29006,7 +29186,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Concurrent_CompleteSend_m7C111C959A5A
 		// NetworkInterfaceSendHandle originalHandle = sendHandle;
 		NetworkInterfaceSendHandle_t0DDDEE6B24387948E786543B54C52A3F7B625CE3 L_2 = ___sendHandle1;
 		V_3 = L_2;
-		// if ((ret = m_NetworkSendInterface.BeginSendMessage.Ptr.Invoke(out sendHandle, m_NetworkSendInterface.UserData, originalHandle.size)) != 0)
+		// if ((ret = m_NetworkSendInterface.BeginSendMessage.Ptr.Invoke(out sendHandle, m_NetworkSendInterface.UserData, NetworkParameterConstants.MTU)) != 0)
 		NetworkSendInterface_t3C39B6892E6E0D3587471F02F0A82F8252E55035* L_3 = (&__this->___m_NetworkSendInterface_0);
 		TransportFunctionPointer_1_t9F2FD24758ADF9E597DCA02A01D7972B74AF6736* L_4 = (&L_3->___BeginSendMessage_0);
 		FunctionPointer_1_t5E2F5FC9CFE7FBBBECA6EB73BABFA0CD5F645155* L_5 = (&L_4->___Ptr_0);
@@ -29014,72 +29194,70 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Concurrent_CompleteSend_m7C111C959A5A
 		L_6 = FunctionPointer_1_get_Invoke_mB99A6DFFF953B5843576414230D5153BAD08925B(L_5, FunctionPointer_1_get_Invoke_mB99A6DFFF953B5843576414230D5153BAD08925B_RuntimeMethod_var);
 		NetworkSendInterface_t3C39B6892E6E0D3587471F02F0A82F8252E55035* L_7 = (&__this->___m_NetworkSendInterface_0);
 		intptr_t L_8 = L_7->___UserData_3;
-		NetworkInterfaceSendHandle_t0DDDEE6B24387948E786543B54C52A3F7B625CE3 L_9 = V_3;
-		int32_t L_10 = L_9.___size_2;
 		NullCheck(L_6);
-		int32_t L_11;
-		L_11 = BeginSendMessageDelegate_Invoke_m616D28C5DFFFB30E1F1392F14F6C6EB3B7EC99CD_inline(L_6, (&___sendHandle1), L_8, L_10, NULL);
-		int32_t L_12 = L_11;
-		V_2 = L_12;
-		if (!L_12)
+		int32_t L_9;
+		L_9 = BeginSendMessageDelegate_Invoke_m616D28C5DFFFB30E1F1392F14F6C6EB3B7EC99CD_inline(L_6, (&___sendHandle1), L_8, ((int32_t)1400), NULL);
+		int32_t L_10 = L_9;
+		V_2 = L_10;
+		if (!L_10)
 		{
-			goto IL_0041;
+			goto IL_0040;
 		}
 	}
 	{
 		// return ret;
-		int32_t L_13 = V_2;
-		return L_13;
+		int32_t L_11 = V_2;
+		return L_11;
 	}
 
-IL_0041:
+IL_0040:
 	{
 		// UnsafeUtility.MemCpy((void*)sendHandle.data, (void*)originalHandle.data, originalHandle.size);
-		NetworkInterfaceSendHandle_t0DDDEE6B24387948E786543B54C52A3F7B625CE3 L_14 = ___sendHandle1;
-		intptr_t L_15 = L_14.___data_0;
-		void* L_16;
-		L_16 = IntPtr_op_Explicit_m2728CBA081E79B97DDCF1D4FAD77B309CA1E94BF(L_15, NULL);
-		NetworkInterfaceSendHandle_t0DDDEE6B24387948E786543B54C52A3F7B625CE3 L_17 = V_3;
-		intptr_t L_18 = L_17.___data_0;
-		void* L_19;
-		L_19 = IntPtr_op_Explicit_m2728CBA081E79B97DDCF1D4FAD77B309CA1E94BF(L_18, NULL);
+		NetworkInterfaceSendHandle_t0DDDEE6B24387948E786543B54C52A3F7B625CE3 L_12 = ___sendHandle1;
+		intptr_t L_13 = L_12.___data_0;
+		void* L_14;
+		L_14 = IntPtr_op_Explicit_m2728CBA081E79B97DDCF1D4FAD77B309CA1E94BF(L_13, NULL);
+		NetworkInterfaceSendHandle_t0DDDEE6B24387948E786543B54C52A3F7B625CE3 L_15 = V_3;
+		intptr_t L_16 = L_15.___data_0;
+		void* L_17;
+		L_17 = IntPtr_op_Explicit_m2728CBA081E79B97DDCF1D4FAD77B309CA1E94BF(L_16, NULL);
+		NetworkInterfaceSendHandle_t0DDDEE6B24387948E786543B54C52A3F7B625CE3 L_18 = V_3;
+		int32_t L_19 = L_18.___size_2;
+		UnsafeUtility_MemCpy_m5CEA91ACDADC522E584AE3A2AB2B0B74393A9177(L_14, L_17, ((int64_t)L_19), NULL);
+		// sendHandle.size = originalHandle.size;
 		NetworkInterfaceSendHandle_t0DDDEE6B24387948E786543B54C52A3F7B625CE3 L_20 = V_3;
 		int32_t L_21 = L_20.___size_2;
-		UnsafeUtility_MemCpy_m5CEA91ACDADC522E584AE3A2AB2B0B74393A9177(L_16, L_19, ((int64_t)L_21), NULL);
-		// sendHandle.size = originalHandle.size;
-		NetworkInterfaceSendHandle_t0DDDEE6B24387948E786543B54C52A3F7B625CE3 L_22 = V_3;
-		int32_t L_23 = L_22.___size_2;
-		(&___sendHandle1)->___size_2 = L_23;
+		(&___sendHandle1)->___size_2 = L_21;
 	}
 
-IL_0070:
+IL_006f:
 	{
 		// var connection = m_ConnectionList[sendConnection.m_NetworkId];
-		NativeList_1_tD3715B1226B4E157D6FC09924FDC7EDC5FC0E8C9* L_24 = (&__this->___m_ConnectionList_4);
-		NetworkConnection_t0A1170D9665C62249582E5DAABC2EAF2D01DEDF4 L_25 = ___sendConnection0;
-		int32_t L_26 = L_25.___m_NetworkId_0;
-		Connection_t57B7A8186502E304AD87933A0FFD76FDF0972D70 L_27;
-		L_27 = NativeList_1_get_Item_m1003D98F3D8BBDE515D6C0F9F3D54E4F1B5B4D86(L_24, L_26, NativeList_1_get_Item_m1003D98F3D8BBDE515D6C0F9F3D54E4F1B5B4D86_RuntimeMethod_var);
-		V_0 = L_27;
+		NativeList_1_tD3715B1226B4E157D6FC09924FDC7EDC5FC0E8C9* L_22 = (&__this->___m_ConnectionList_4);
+		NetworkConnection_t0A1170D9665C62249582E5DAABC2EAF2D01DEDF4 L_23 = ___sendConnection0;
+		int32_t L_24 = L_23.___m_NetworkId_0;
+		Connection_t57B7A8186502E304AD87933A0FFD76FDF0972D70 L_25;
+		L_25 = NativeList_1_get_Item_m1003D98F3D8BBDE515D6C0F9F3D54E4F1B5B4D86(L_22, L_24, NativeList_1_get_Item_m1003D98F3D8BBDE515D6C0F9F3D54E4F1B5B4D86_RuntimeMethod_var);
+		V_0 = L_25;
 		// var queueHandle = NetworkSendQueueHandle.ToTempHandle(m_ConcurrentParallelSendQueue);
-		ParallelWriter_tD2337D6A048735D05F7C0698B7FEEDAD7153DE97 L_28 = __this->___m_ConcurrentParallelSendQueue_8;
-		NetworkSendQueueHandle_t9F11BEB70EFEEE4BCD9CD241BB758B11F25D5090 L_29;
-		L_29 = NetworkSendQueueHandle_ToTempHandle_mBDD4BD4D4C27B08C6A0B8C91CE7F1B0897E71A55(L_28, NULL);
-		V_1 = L_29;
+		ParallelWriter_tD2337D6A048735D05F7C0698B7FEEDAD7153DE97 L_26 = __this->___m_ConcurrentParallelSendQueue_8;
+		NetworkSendQueueHandle_t9F11BEB70EFEEE4BCD9CD241BB758B11F25D5090 L_27;
+		L_27 = NetworkSendQueueHandle_ToTempHandle_mBDD4BD4D4C27B08C6A0B8C91CE7F1B0897E71A55(L_26, NULL);
+		V_1 = L_27;
 		// return m_NetworkProtocolInterface.ProcessSend.Ptr.Invoke(ref connection, hasPipeline, ref m_NetworkSendInterface, ref sendHandle, ref queueHandle, m_NetworkProtocolInterface.UserData);
-		NetworkProtocol_t817E46E6CEE8782B0BB83A0A95DFFD7ADCB84BC9* L_30 = (&__this->___m_NetworkProtocolInterface_1);
-		TransportFunctionPointer_1_t77C607A1DCF675C39F99E9EEE5AB36FB7CC494B1* L_31 = (&L_30->___ProcessSend_2);
-		FunctionPointer_1_t10B538976246CA89EE16B10A9A3F981194F98C59* L_32 = (&L_31->___Ptr_0);
-		ProcessSendDelegate_t13BEFEE10F53345833169A7C7AF11F3B3EB2DA11* L_33;
-		L_33 = FunctionPointer_1_get_Invoke_mA5DE7C23E49D1B773B0DE3BBFE565CD70079CB6B(L_32, FunctionPointer_1_get_Invoke_mA5DE7C23E49D1B773B0DE3BBFE565CD70079CB6B_RuntimeMethod_var);
-		bool L_34 = ___hasPipeline2;
-		NetworkSendInterface_t3C39B6892E6E0D3587471F02F0A82F8252E55035* L_35 = (&__this->___m_NetworkSendInterface_0);
-		NetworkProtocol_t817E46E6CEE8782B0BB83A0A95DFFD7ADCB84BC9* L_36 = (&__this->___m_NetworkProtocolInterface_1);
-		intptr_t L_37 = L_36->___UserData_9;
-		NullCheck(L_33);
-		int32_t L_38;
-		L_38 = ProcessSendDelegate_Invoke_mCDA6E1D9F9B1B127C77B01430160B0AE8A7A3F81_inline(L_33, (&V_0), L_34, L_35, (&___sendHandle1), (&V_1), L_37, NULL);
-		return L_38;
+		NetworkProtocol_t817E46E6CEE8782B0BB83A0A95DFFD7ADCB84BC9* L_28 = (&__this->___m_NetworkProtocolInterface_1);
+		TransportFunctionPointer_1_t77C607A1DCF675C39F99E9EEE5AB36FB7CC494B1* L_29 = (&L_28->___ProcessSend_2);
+		FunctionPointer_1_t10B538976246CA89EE16B10A9A3F981194F98C59* L_30 = (&L_29->___Ptr_0);
+		ProcessSendDelegate_t13BEFEE10F53345833169A7C7AF11F3B3EB2DA11* L_31;
+		L_31 = FunctionPointer_1_get_Invoke_mA5DE7C23E49D1B773B0DE3BBFE565CD70079CB6B(L_30, FunctionPointer_1_get_Invoke_mA5DE7C23E49D1B773B0DE3BBFE565CD70079CB6B_RuntimeMethod_var);
+		bool L_32 = ___hasPipeline2;
+		NetworkSendInterface_t3C39B6892E6E0D3587471F02F0A82F8252E55035* L_33 = (&__this->___m_NetworkSendInterface_0);
+		NetworkProtocol_t817E46E6CEE8782B0BB83A0A95DFFD7ADCB84BC9* L_34 = (&__this->___m_NetworkProtocolInterface_1);
+		intptr_t L_35 = L_34->___UserData_9;
+		NullCheck(L_31);
+		int32_t L_36;
+		L_36 = ProcessSendDelegate_Invoke_mCDA6E1D9F9B1B127C77B01430160B0AE8A7A3F81_inline(L_31, (&V_0), L_32, L_33, (&___sendHandle1), (&V_1), L_35, NULL);
+		return L_36;
 	}
 }
 IL2CPP_EXTERN_C  int32_t Concurrent_CompleteSend_m7C111C959A5A492858913BDFB358DE36CD014369_AdjustorThunk (RuntimeObject* __this, NetworkConnection_t0A1170D9665C62249582E5DAABC2EAF2D01DEDF4 ___sendConnection0, NetworkInterfaceSendHandle_t0DDDEE6B24387948E786543B54C52A3F7B625CE3 ___sendHandle1, bool ___hasPipeline2, const RuntimeMethod* method)
@@ -35338,7 +35516,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NetworkPipelineProcessor_UpdateSend_mCFF
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&NativeArrayUnsafeUtility_GetUnsafePtr_TisByte_t94D9231AC217BE4D2E004C4CD32DF6D099EA41A3_m8CFDB2DF56E810A2E2FB3686AF676FCAC65AFCC2_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&NativeArray_1__ctor_mF0F5570FB943262DABF4D6E9EC0A9217FA755C79_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&NativeList_1__ctor_mDAA2E94B71176E9C6621608FAA7FCDDEB7F38699_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&NativeList_1_get_Item_m5E60DA02913D85EE981579FD6033F84DA202BC42_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&NativeList_1_get_Length_mCCFB8F09EBEF5EA454CEA11FDB7B6100AF908D61_RuntimeMethod_var);
@@ -35351,7 +35528,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NetworkPipelineProcessor_UpdateSend_mCFF
 		s_Il2CppMethodInitialized = true;
 	}
 	int32_t* V_0 = NULL;
-	NativeArray_1_tF0A83538A02306EA7A8F22FEA945A6961365E8C8 V_1;
+	NativeList_1_t1869FE735F5176A07019C960A26F7477BA6142B3 V_1;
 	memset((&V_1), 0, sizeof(V_1));
 	UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2 V_2;
 	memset((&V_2), 0, sizeof(V_2));
@@ -35361,12 +35538,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NetworkPipelineProcessor_UpdateSend_mCFF
 	int32_t V_5 = 0;
 	int32_t V_6 = 0;
 	int32_t V_7 = 0;
-	int32_t V_8 = 0;
-	Concurrent_t76D9AE05BA23B3FBC0B4C7AADEAA81E828C46673 V_9;
+	Concurrent_t76D9AE05BA23B3FBC0B4C7AADEAA81E828C46673 V_8;
+	memset((&V_8), 0, sizeof(V_8));
+	NetworkInterfaceSendHandle_t0DDDEE6B24387948E786543B54C52A3F7B625CE3 V_9;
 	memset((&V_9), 0, sizeof(V_9));
-	NetworkInterfaceSendHandle_t0DDDEE6B24387948E786543B54C52A3F7B625CE3 V_10;
-	memset((&V_10), 0, sizeof(V_10));
-	int32_t V_11 = 0;
+	int32_t V_10 = 0;
 	{
 		// NativeArray<byte> tmpBuffer = m_SendBuffer;
 		NativeList_1_tEEE3A07B710DA14F96F06ECF1D5D8D7353698B94 L_0 = __this->___m_SendBuffer_8;
@@ -35408,21 +35584,20 @@ IL_0032:
 		}
 	}
 	{
-		// NativeArray<UpdatePipeline> sendUpdates = new NativeArray<UpdatePipeline>(m_SendStageNeedsUpdateRead.Count + m_SendStageNeedsUpdate.Length, Allocator.Temp);
+		// NativeList<UpdatePipeline> sendUpdates = new NativeList<UpdatePipeline>(m_SendStageNeedsUpdateRead.Count + m_SendStageNeedsUpdate.Length, Allocator.Temp);
 		NativeQueue_1_t3C5DFC28122633C8F672980038A79B3B7D26790A* L_11 = (&__this->___m_SendStageNeedsUpdateRead_12);
 		int32_t L_12;
 		L_12 = NativeQueue_1_get_Count_m085E8DF542AA46E09B4ECF3CD80F8A89A84C73B7(L_11, NativeQueue_1_get_Count_m085E8DF542AA46E09B4ECF3CD80F8A89A84C73B7_RuntimeMethod_var);
 		NativeList_1_t1869FE735F5176A07019C960A26F7477BA6142B3* L_13 = (&__this->___m_SendStageNeedsUpdate_11);
 		int32_t L_14;
 		L_14 = NativeList_1_get_Length_mDCC082BC46F829CA36862DE9FB4F95657DEB418A(L_13, NativeList_1_get_Length_mDCC082BC46F829CA36862DE9FB4F95657DEB418A_RuntimeMethod_var);
-		NativeArray_1__ctor_mF0F5570FB943262DABF4D6E9EC0A9217FA755C79((&V_1), ((int32_t)il2cpp_codegen_add(L_12, L_14)), 2, 1, NativeArray_1__ctor_mF0F5570FB943262DABF4D6E9EC0A9217FA755C79_RuntimeMethod_var);
-		// updateCount = 0;
-		int32_t* L_15 = ___updateCount1;
-		*((int32_t*)L_15) = (int32_t)0;
-		goto IL_008a;
+		AllocatorHandle_t3CA09720B1F89F91A8DDBA95E74C28A1EC3E3148 L_15;
+		L_15 = AllocatorHandle_op_Implicit_mDCF4431F31BB4A09438AE644785C4273F86B2B8D(2, NULL);
+		NativeList_1__ctor_mDAA2E94B71176E9C6621608FAA7FCDDEB7F38699((&V_1), ((int32_t)il2cpp_codegen_add(L_12, L_14)), L_15, NativeList_1__ctor_mDAA2E94B71176E9C6621608FAA7FCDDEB7F38699_RuntimeMethod_var);
+		goto IL_008f;
 	}
 
-IL_0066:
+IL_0067:
 	{
 		// if (driver.GetConnectionState(updateItem.connection) == NetworkConnection.State.Connected)
 		UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2 L_16 = V_2;
@@ -35431,189 +35606,195 @@ IL_0066:
 		L_18 = Concurrent_GetConnectionState_mD71FBBB5E148F6ABCC0FF4EF41EDC0CCFF1D3503((&___driver0), L_17, NULL);
 		if ((!(((uint32_t)L_18) == ((uint32_t)2))))
 		{
-			goto IL_008a;
+			goto IL_008f;
 		}
 	}
 	{
-		// sendUpdates[updateCount++] = updateItem;
-		int32_t* L_19 = ___updateCount1;
-		int32_t* L_20 = ___updateCount1;
-		int32_t L_21 = *((int32_t*)L_20);
-		V_5 = L_21;
-		int32_t L_22 = V_5;
-		*((int32_t*)L_19) = (int32_t)((int32_t)il2cpp_codegen_add(L_22, 1));
-		int32_t L_23 = V_5;
-		UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2 L_24 = V_2;
-		IL2CPP_NATIVEARRAY_SET_ITEM(UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2, ((&V_1))->___m_Buffer_0, L_23, (L_24));
+		// AddSendUpdate(updateItem.connection, updateItem.stage, updateItem.pipeline, sendUpdates);
+		UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2 L_19 = V_2;
+		NetworkConnection_t0A1170D9665C62249582E5DAABC2EAF2D01DEDF4 L_20 = L_19.___connection_2;
+		UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2 L_21 = V_2;
+		int32_t L_22 = L_21.___stage_1;
+		UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2 L_23 = V_2;
+		NetworkPipeline_t83BB00B4CE9811A2B75D37E50EFB85FD60044A69 L_24 = L_23.___pipeline_0;
+		NativeList_1_t1869FE735F5176A07019C960A26F7477BA6142B3 L_25 = V_1;
+		NetworkPipelineProcessor_AddSendUpdate_m311F020E6DE89B9A7A0EA72D4FA1D244DF53723E(L_20, L_22, L_24, L_25, NULL);
 	}
 
-IL_008a:
+IL_008f:
 	{
 		// while (m_SendStageNeedsUpdateRead.TryDequeue(out updateItem))
-		NativeQueue_1_t3C5DFC28122633C8F672980038A79B3B7D26790A* L_25 = (&__this->___m_SendStageNeedsUpdateRead_12);
-		bool L_26;
-		L_26 = NativeQueue_1_TryDequeue_m315CD2A654FF45274D7141A0BB8E7347CA8EFAD9(L_25, (&V_2), NativeQueue_1_TryDequeue_m315CD2A654FF45274D7141A0BB8E7347CA8EFAD9_RuntimeMethod_var);
-		if (L_26)
+		NativeQueue_1_t3C5DFC28122633C8F672980038A79B3B7D26790A* L_26 = (&__this->___m_SendStageNeedsUpdateRead_12);
+		bool L_27;
+		L_27 = NativeQueue_1_TryDequeue_m315CD2A654FF45274D7141A0BB8E7347CA8EFAD9(L_26, (&V_2), NativeQueue_1_TryDequeue_m315CD2A654FF45274D7141A0BB8E7347CA8EFAD9_RuntimeMethod_var);
+		if (L_27)
 		{
-			goto IL_0066;
+			goto IL_0067;
 		}
 	}
 	{
 		// for (int i = 0; i < m_SendStageNeedsUpdate.Length; i++)
-		V_6 = 0;
-		goto IL_00e0;
+		V_5 = 0;
+		goto IL_00eb;
 	}
 
-IL_009e:
+IL_00a3:
 	{
+		// updateItem = m_SendStageNeedsUpdate[i];
+		NativeList_1_t1869FE735F5176A07019C960A26F7477BA6142B3* L_28 = (&__this->___m_SendStageNeedsUpdate_11);
+		int32_t L_29 = V_5;
+		UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2 L_30;
+		L_30 = NativeList_1_get_Item_m5E60DA02913D85EE981579FD6033F84DA202BC42(L_28, L_29, NativeList_1_get_Item_m5E60DA02913D85EE981579FD6033F84DA202BC42_RuntimeMethod_var);
+		V_2 = L_30;
 		// if (driver.GetConnectionState(m_SendStageNeedsUpdate[i].connection) == NetworkConnection.State.Connected)
-		NativeList_1_t1869FE735F5176A07019C960A26F7477BA6142B3* L_27 = (&__this->___m_SendStageNeedsUpdate_11);
-		int32_t L_28 = V_6;
-		UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2 L_29;
-		L_29 = NativeList_1_get_Item_m5E60DA02913D85EE981579FD6033F84DA202BC42(L_27, L_28, NativeList_1_get_Item_m5E60DA02913D85EE981579FD6033F84DA202BC42_RuntimeMethod_var);
-		NetworkConnection_t0A1170D9665C62249582E5DAABC2EAF2D01DEDF4 L_30 = L_29.___connection_2;
-		int32_t L_31;
-		L_31 = Concurrent_GetConnectionState_mD71FBBB5E148F6ABCC0FF4EF41EDC0CCFF1D3503((&___driver0), L_30, NULL);
-		if ((!(((uint32_t)L_31) == ((uint32_t)2))))
+		NativeList_1_t1869FE735F5176A07019C960A26F7477BA6142B3* L_31 = (&__this->___m_SendStageNeedsUpdate_11);
+		int32_t L_32 = V_5;
+		UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2 L_33;
+		L_33 = NativeList_1_get_Item_m5E60DA02913D85EE981579FD6033F84DA202BC42(L_31, L_32, NativeList_1_get_Item_m5E60DA02913D85EE981579FD6033F84DA202BC42_RuntimeMethod_var);
+		NetworkConnection_t0A1170D9665C62249582E5DAABC2EAF2D01DEDF4 L_34 = L_33.___connection_2;
+		int32_t L_35;
+		L_35 = Concurrent_GetConnectionState_mD71FBBB5E148F6ABCC0FF4EF41EDC0CCFF1D3503((&___driver0), L_34, NULL);
+		if ((!(((uint32_t)L_35) == ((uint32_t)2))))
 		{
-			goto IL_00da;
+			goto IL_00e5;
 		}
 	}
 	{
-		// sendUpdates[updateCount++] = m_SendStageNeedsUpdate[i];
-		int32_t* L_32 = ___updateCount1;
-		int32_t* L_33 = ___updateCount1;
-		int32_t L_34 = *((int32_t*)L_33);
-		V_5 = L_34;
-		int32_t L_35 = V_5;
-		*((int32_t*)L_32) = (int32_t)((int32_t)il2cpp_codegen_add(L_35, 1));
-		int32_t L_36 = V_5;
-		NativeList_1_t1869FE735F5176A07019C960A26F7477BA6142B3* L_37 = (&__this->___m_SendStageNeedsUpdate_11);
-		int32_t L_38 = V_6;
-		UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2 L_39;
-		L_39 = NativeList_1_get_Item_m5E60DA02913D85EE981579FD6033F84DA202BC42(L_37, L_38, NativeList_1_get_Item_m5E60DA02913D85EE981579FD6033F84DA202BC42_RuntimeMethod_var);
-		IL2CPP_NATIVEARRAY_SET_ITEM(UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2, ((&V_1))->___m_Buffer_0, L_36, (L_39));
+		// AddSendUpdate(updateItem.connection, updateItem.stage, updateItem.pipeline, sendUpdates);
+		UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2 L_36 = V_2;
+		NetworkConnection_t0A1170D9665C62249582E5DAABC2EAF2D01DEDF4 L_37 = L_36.___connection_2;
+		UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2 L_38 = V_2;
+		int32_t L_39 = L_38.___stage_1;
+		UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2 L_40 = V_2;
+		NetworkPipeline_t83BB00B4CE9811A2B75D37E50EFB85FD60044A69 L_41 = L_40.___pipeline_0;
+		NativeList_1_t1869FE735F5176A07019C960A26F7477BA6142B3 L_42 = V_1;
+		NetworkPipelineProcessor_AddSendUpdate_m311F020E6DE89B9A7A0EA72D4FA1D244DF53723E(L_37, L_39, L_41, L_42, NULL);
 	}
 
-IL_00da:
+IL_00e5:
 	{
 		// for (int i = 0; i < m_SendStageNeedsUpdate.Length; i++)
-		int32_t L_40 = V_6;
-		V_6 = ((int32_t)il2cpp_codegen_add(L_40, 1));
+		int32_t L_43 = V_5;
+		V_5 = ((int32_t)il2cpp_codegen_add(L_43, 1));
 	}
 
-IL_00e0:
+IL_00eb:
 	{
 		// for (int i = 0; i < m_SendStageNeedsUpdate.Length; i++)
-		int32_t L_41 = V_6;
-		NativeList_1_t1869FE735F5176A07019C960A26F7477BA6142B3* L_42 = (&__this->___m_SendStageNeedsUpdate_11);
-		int32_t L_43;
-		L_43 = NativeList_1_get_Length_mDCC082BC46F829CA36862DE9FB4F95657DEB418A(L_42, NativeList_1_get_Length_mDCC082BC46F829CA36862DE9FB4F95657DEB418A_RuntimeMethod_var);
-		if ((((int32_t)L_41) < ((int32_t)L_43)))
+		int32_t L_44 = V_5;
+		NativeList_1_t1869FE735F5176A07019C960A26F7477BA6142B3* L_45 = (&__this->___m_SendStageNeedsUpdate_11);
+		int32_t L_46;
+		L_46 = NativeList_1_get_Length_mDCC082BC46F829CA36862DE9FB4F95657DEB418A(L_45, NativeList_1_get_Length_mDCC082BC46F829CA36862DE9FB4F95657DEB418A_RuntimeMethod_var);
+		if ((((int32_t)L_44) < ((int32_t)L_46)))
 		{
-			goto IL_009e;
+			goto IL_00a3;
 		}
 	}
 	{
+		// updateCount = sendUpdates.Length;
+		int32_t* L_47 = ___updateCount1;
+		int32_t L_48;
+		L_48 = NativeList_1_get_Length_mDCC082BC46F829CA36862DE9FB4F95657DEB418A((&V_1), NativeList_1_get_Length_mDCC082BC46F829CA36862DE9FB4F95657DEB418A_RuntimeMethod_var);
+		*((int32_t*)L_47) = (int32_t)L_48;
 		// NativeList<UpdatePipeline> currentUpdates = new NativeList<UpdatePipeline>(128, Allocator.Temp);
-		AllocatorHandle_t3CA09720B1F89F91A8DDBA95E74C28A1EC3E3148 L_44;
-		L_44 = AllocatorHandle_op_Implicit_mDCF4431F31BB4A09438AE644785C4273F86B2B8D(2, NULL);
-		NativeList_1__ctor_mDAA2E94B71176E9C6621608FAA7FCDDEB7F38699((&V_3), ((int32_t)128), L_44, NativeList_1__ctor_mDAA2E94B71176E9C6621608FAA7FCDDEB7F38699_RuntimeMethod_var);
+		AllocatorHandle_t3CA09720B1F89F91A8DDBA95E74C28A1EC3E3148 L_49;
+		L_49 = AllocatorHandle_op_Implicit_mDCF4431F31BB4A09438AE644785C4273F86B2B8D(2, NULL);
+		NativeList_1__ctor_mDAA2E94B71176E9C6621608FAA7FCDDEB7F38699((&V_3), ((int32_t)128), L_49, NativeList_1__ctor_mDAA2E94B71176E9C6621608FAA7FCDDEB7F38699_RuntimeMethod_var);
 		// for (int i = 0; i < updateCount; ++i)
-		V_7 = 0;
-		goto IL_0166;
+		V_6 = 0;
+		goto IL_017a;
 	}
 
-IL_0106:
+IL_011a:
 	{
 		// updateItem = sendUpdates[i];
-		int32_t L_45 = V_7;
-		UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2 L_46;
-		L_46 = IL2CPP_NATIVEARRAY_GET_ITEM(UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2, ((&V_1))->___m_Buffer_0, L_45);
-		V_2 = L_46;
+		int32_t L_50 = V_6;
+		UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2 L_51;
+		L_51 = NativeList_1_get_Item_m5E60DA02913D85EE981579FD6033F84DA202BC42((&V_1), L_50, NativeList_1_get_Item_m5E60DA02913D85EE981579FD6033F84DA202BC42_RuntimeMethod_var);
+		V_2 = L_51;
 		// var result = ToConcurrent().ProcessPipelineSend(driver, updateItem.stage, updateItem.pipeline, updateItem.connection, default, 0, currentUpdates);
-		Concurrent_t76D9AE05BA23B3FBC0B4C7AADEAA81E828C46673 L_47;
-		L_47 = NetworkPipelineProcessor_ToConcurrent_mE97B5374F804FB587F28FF262E0CF58DB2FAF326(__this, NULL);
-		V_9 = L_47;
-		Concurrent_t864CA014F22D93A77EF7CF00CF48D46518DD1D14 L_48 = ___driver0;
-		UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2 L_49 = V_2;
-		int32_t L_50 = L_49.___stage_1;
-		UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2 L_51 = V_2;
-		NetworkPipeline_t83BB00B4CE9811A2B75D37E50EFB85FD60044A69 L_52 = L_51.___pipeline_0;
-		UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2 L_53 = V_2;
-		NetworkConnection_t0A1170D9665C62249582E5DAABC2EAF2D01DEDF4 L_54 = L_53.___connection_2;
-		il2cpp_codegen_initobj((&V_10), sizeof(NetworkInterfaceSendHandle_t0DDDEE6B24387948E786543B54C52A3F7B625CE3));
-		NetworkInterfaceSendHandle_t0DDDEE6B24387948E786543B54C52A3F7B625CE3 L_55 = V_10;
-		NativeList_1_t1869FE735F5176A07019C960A26F7477BA6142B3 L_56 = V_3;
-		int32_t L_57;
-		L_57 = Concurrent_ProcessPipelineSend_m3C8F9F3FBBC1C54107A0F268011119D3E91215E2((&V_9), L_48, L_50, L_52, L_54, L_55, 0, L_56, NULL);
-		V_8 = L_57;
+		Concurrent_t76D9AE05BA23B3FBC0B4C7AADEAA81E828C46673 L_52;
+		L_52 = NetworkPipelineProcessor_ToConcurrent_mE97B5374F804FB587F28FF262E0CF58DB2FAF326(__this, NULL);
+		V_8 = L_52;
+		Concurrent_t864CA014F22D93A77EF7CF00CF48D46518DD1D14 L_53 = ___driver0;
+		UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2 L_54 = V_2;
+		int32_t L_55 = L_54.___stage_1;
+		UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2 L_56 = V_2;
+		NetworkPipeline_t83BB00B4CE9811A2B75D37E50EFB85FD60044A69 L_57 = L_56.___pipeline_0;
+		UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2 L_58 = V_2;
+		NetworkConnection_t0A1170D9665C62249582E5DAABC2EAF2D01DEDF4 L_59 = L_58.___connection_2;
+		il2cpp_codegen_initobj((&V_9), sizeof(NetworkInterfaceSendHandle_t0DDDEE6B24387948E786543B54C52A3F7B625CE3));
+		NetworkInterfaceSendHandle_t0DDDEE6B24387948E786543B54C52A3F7B625CE3 L_60 = V_9;
+		NativeList_1_t1869FE735F5176A07019C960A26F7477BA6142B3 L_61 = V_3;
+		int32_t L_62;
+		L_62 = Concurrent_ProcessPipelineSend_m3C8F9F3FBBC1C54107A0F268011119D3E91215E2((&V_8), L_53, L_55, L_57, L_59, L_60, 0, L_61, NULL);
+		V_7 = L_62;
 		// if (result < 0)
-		int32_t L_58 = V_8;
-		if ((((int32_t)L_58) >= ((int32_t)0)))
+		int32_t L_63 = V_7;
+		if ((((int32_t)L_63) >= ((int32_t)0)))
 		{
-			goto IL_0160;
+			goto IL_0174;
 		}
 	}
 	{
 		// UnityEngine.Debug.LogWarning(FixedString.Format("ProcessPipelineSend failed with the following error code {0}.", result));
-		FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 L_59;
-		L_59 = FixedString128Bytes_op_Implicit_mC1EF3D019A34577624853F21B956303E569C116E(_stringLiteralEE8436DC00A5C1EE3915B948EFB8F54AE3BDDB41, NULL);
-		int32_t L_60 = V_8;
-		FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 L_61;
-		L_61 = FixedString_Format_m6F108E2AF8178697C27234FF8AA515F32B77F4AF(L_59, L_60, NULL);
-		FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 L_62 = L_61;
-		RuntimeObject* L_63 = Box(FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952_il2cpp_TypeInfo_var, &L_62);
-		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
-		Debug_LogWarning_m33EF1B897E0C7C6FF538989610BFAFFEF4628CA9(L_63, NULL);
-	}
-
-IL_0160:
-	{
-		// for (int i = 0; i < updateCount; ++i)
-		int32_t L_64 = V_7;
-		V_7 = ((int32_t)il2cpp_codegen_add(L_64, 1));
-	}
-
-IL_0166:
-	{
-		// for (int i = 0; i < updateCount; ++i)
+		FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 L_64;
+		L_64 = FixedString128Bytes_op_Implicit_mC1EF3D019A34577624853F21B956303E569C116E(_stringLiteralEE8436DC00A5C1EE3915B948EFB8F54AE3BDDB41, NULL);
 		int32_t L_65 = V_7;
-		int32_t* L_66 = ___updateCount1;
-		int32_t L_67 = *((int32_t*)L_66);
-		if ((((int32_t)L_65) < ((int32_t)L_67)))
+		FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 L_66;
+		L_66 = FixedString_Format_m6F108E2AF8178697C27234FF8AA515F32B77F4AF(L_64, L_65, NULL);
+		FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 L_67 = L_66;
+		RuntimeObject* L_68 = Box(FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952_il2cpp_TypeInfo_var, &L_67);
+		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
+		Debug_LogWarning_m33EF1B897E0C7C6FF538989610BFAFFEF4628CA9(L_68, NULL);
+	}
+
+IL_0174:
+	{
+		// for (int i = 0; i < updateCount; ++i)
+		int32_t L_69 = V_6;
+		V_6 = ((int32_t)il2cpp_codegen_add(L_69, 1));
+	}
+
+IL_017a:
+	{
+		// for (int i = 0; i < updateCount; ++i)
+		int32_t L_70 = V_6;
+		int32_t* L_71 = ___updateCount1;
+		int32_t L_72 = *((int32_t*)L_71);
+		if ((((int32_t)L_70) < ((int32_t)L_72)))
 		{
-			goto IL_0106;
+			goto IL_011a;
 		}
 	}
 	{
 		// for (int i = 0; i < currentUpdates.Length; ++i)
-		V_11 = 0;
-		goto IL_018b;
+		V_10 = 0;
+		goto IL_019f;
 	}
 
-IL_0171:
+IL_0185:
 	{
 		// m_SendStageNeedsUpdateRead.Enqueue(currentUpdates[i]);
-		NativeQueue_1_t3C5DFC28122633C8F672980038A79B3B7D26790A* L_68 = (&__this->___m_SendStageNeedsUpdateRead_12);
-		int32_t L_69 = V_11;
-		UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2 L_70;
-		L_70 = NativeList_1_get_Item_m5E60DA02913D85EE981579FD6033F84DA202BC42((&V_3), L_69, NativeList_1_get_Item_m5E60DA02913D85EE981579FD6033F84DA202BC42_RuntimeMethod_var);
-		NativeQueue_1_Enqueue_m8C87C71D8CCC6A6E069FD3859CFFB2280E117779(L_68, L_70, NativeQueue_1_Enqueue_m8C87C71D8CCC6A6E069FD3859CFFB2280E117779_RuntimeMethod_var);
+		NativeQueue_1_t3C5DFC28122633C8F672980038A79B3B7D26790A* L_73 = (&__this->___m_SendStageNeedsUpdateRead_12);
+		int32_t L_74 = V_10;
+		UpdatePipeline_t8D511DB7DDEC2170FC3349B879D1E46CD18C35D2 L_75;
+		L_75 = NativeList_1_get_Item_m5E60DA02913D85EE981579FD6033F84DA202BC42((&V_3), L_74, NativeList_1_get_Item_m5E60DA02913D85EE981579FD6033F84DA202BC42_RuntimeMethod_var);
+		NativeQueue_1_Enqueue_m8C87C71D8CCC6A6E069FD3859CFFB2280E117779(L_73, L_75, NativeQueue_1_Enqueue_m8C87C71D8CCC6A6E069FD3859CFFB2280E117779_RuntimeMethod_var);
 		// for (int i = 0; i < currentUpdates.Length; ++i)
-		int32_t L_71 = V_11;
-		V_11 = ((int32_t)il2cpp_codegen_add(L_71, 1));
+		int32_t L_76 = V_10;
+		V_10 = ((int32_t)il2cpp_codegen_add(L_76, 1));
 	}
 
-IL_018b:
+IL_019f:
 	{
 		// for (int i = 0; i < currentUpdates.Length; ++i)
-		int32_t L_72 = V_11;
-		int32_t L_73;
-		L_73 = NativeList_1_get_Length_mDCC082BC46F829CA36862DE9FB4F95657DEB418A((&V_3), NativeList_1_get_Length_mDCC082BC46F829CA36862DE9FB4F95657DEB418A_RuntimeMethod_var);
-		if ((((int32_t)L_72) < ((int32_t)L_73)))
+		int32_t L_77 = V_10;
+		int32_t L_78;
+		L_78 = NativeList_1_get_Length_mDCC082BC46F829CA36862DE9FB4F95657DEB418A((&V_3), NativeList_1_get_Length_mDCC082BC46F829CA36862DE9FB4F95657DEB418A_RuntimeMethod_var);
+		if ((((int32_t)L_77) < ((int32_t)L_78)))
 		{
-			goto IL_0171;
+			goto IL_0185;
 		}
 	}
 	{
@@ -36716,6 +36897,28 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void UpdateDelegate_Invoke_m20801
 	typedef void (*FunctionPointerType) (RuntimeObject*, int64_t, NetworkSendInterface_t3C39B6892E6E0D3587471F02F0A82F8252E55035*, NetworkSendQueueHandle_t9F11BEB70EFEEE4BCD9CD241BB758B11F25D5090*, intptr_t, const RuntimeMethod*);
 	((FunctionPointerType)__this->___invoke_impl_1)((Il2CppObject*)__this->___method_code_6, ___updateTime0, ___sendInterface1, ___queueHandle2, ___userData3, reinterpret_cast<RuntimeMethod*>(__this->___method_3));
 }
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t math_max_m9083201D37A8ED0157B127B5878D9B7F3A2A40BE_inline (int32_t ___x0, int32_t ___y1, const RuntimeMethod* method) 
+{
+	{
+		// public static int max(int x, int y) { return x > y ? x : y; }
+		int32_t L_0 = ___x0;
+		int32_t L_1 = ___y1;
+		if ((((int32_t)L_0) > ((int32_t)L_1)))
+		{
+			goto IL_0006;
+		}
+	}
+	{
+		int32_t L_2 = ___y1;
+		return L_2;
+	}
+
+IL_0006:
+	{
+		int32_t L_3 = ___x0;
+		return L_3;
+	}
+}
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void ConnectDelegate_Invoke_mE286721C046C9A15B49DF6BD3B2004B110C566ED_inline (ConnectDelegate_tF0F993B09F4013E6F8765D173E20519526B78613* __this, Connection_t57B7A8186502E304AD87933A0FFD76FDF0972D70* ___connection0, NetworkSendInterface_t3C39B6892E6E0D3587471F02F0A82F8252E55035* ___sendInterface1, NetworkSendQueueHandle_t9F11BEB70EFEEE4BCD9CD241BB758B11F25D5090* ___queueHandle2, intptr_t ___userData3, const RuntimeMethod* method) 
 {
 	typedef void (*FunctionPointerType) (RuntimeObject*, Connection_t57B7A8186502E304AD87933A0FFD76FDF0972D70*, NetworkSendInterface_t3C39B6892E6E0D3587471F02F0A82F8252E55035*, NetworkSendQueueHandle_t9F11BEB70EFEEE4BCD9CD241BB758B11F25D5090*, intptr_t, const RuntimeMethod*);
@@ -36995,27 +37198,5 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR uint32_t Random_NextState_m3C669E
 		__this->___state_0 = ((int32_t)((int32_t)L_5^((int32_t)((int32_t)L_6<<5))));
 		// return t;
 		return L_0;
-	}
-}
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t math_max_m9083201D37A8ED0157B127B5878D9B7F3A2A40BE_inline (int32_t ___x0, int32_t ___y1, const RuntimeMethod* method) 
-{
-	{
-		// public static int max(int x, int y) { return x > y ? x : y; }
-		int32_t L_0 = ___x0;
-		int32_t L_1 = ___y1;
-		if ((((int32_t)L_0) > ((int32_t)L_1)))
-		{
-			goto IL_0006;
-		}
-	}
-	{
-		int32_t L_2 = ___y1;
-		return L_2;
-	}
-
-IL_0006:
-	{
-		int32_t L_3 = ___x0;
-		return L_3;
 	}
 }

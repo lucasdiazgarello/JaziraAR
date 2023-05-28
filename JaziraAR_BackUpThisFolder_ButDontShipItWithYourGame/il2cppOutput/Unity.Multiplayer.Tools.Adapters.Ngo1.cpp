@@ -12,6 +12,8 @@
 
 
 
+// System.Action`1<System.Boolean>
+struct Action_1_t10DCB0C07D0D3C565CEACADC80D1152B35A45F6C;
 // System.Action`1<Unity.Multiplayer.Tools.NetStats.MetricCollection>
 struct Action_1_t76E00A62308B4884D5FBE7973531637E07E7B079;
 // System.Action`1<System.Object>
@@ -24,6 +26,8 @@ struct Action_2_t5E7B4E17493B71D65B87865FA28E6CCE1C2ED68B;
 struct Dictionary_2_t535993A174BD2EEC9F9DB2BB1AA684D960BD89AD;
 // System.Collections.Generic.Dictionary`2<System.UInt64,System.Collections.Generic.Dictionary`2<System.UInt64,Unity.Netcode.NetworkObject>>
 struct Dictionary_2_t8BC1C80A24F4EEF2035E339BE780125813B138F2;
+// System.Collections.Generic.Dictionary`2<System.UInt64,System.Collections.Generic.List`1<Unity.Netcode.NetworkObject>>
+struct Dictionary_2_tEFAF073C90BF36DA59A8A6A357782DF7453A1D5C;
 // System.Collections.Generic.Dictionary`2<System.UInt64,Unity.Netcode.NetworkClient>
 struct Dictionary_2_t04CE97C57D2E25D600E03BF7F53BDCDDAC05C9DF;
 // System.Collections.Generic.Dictionary`2<System.UInt64,Unity.Netcode.NetworkObject>
@@ -106,6 +110,8 @@ struct IDictionary_t6D03155AF1FA9083817AA5B6AD7DEEACC26AB220;
 struct INetworkAdapter_t1B8B28814CB6D39490CB0434F38E297A75B46AF0;
 // Unity.Netcode.INetworkMetrics
 struct INetworkMetrics_tE2C13758A950A5C77D2682C15F47914B13AC1C41;
+// Unity.Netcode.IRealTimeProvider
+struct IRealTimeProvider_tC07CE9B2635CCAC97C12E223B7175A92BF89522D;
 // Unity.Netcode.MessagingSystem
 struct MessagingSystem_tE5E070D8EDEED13D4D0C9D518961289FB3EE1C5D;
 // System.Reflection.MethodInfo
@@ -688,68 +694,82 @@ struct NetworkManager_t3C1F76E0C1B39BB363D1C5C7667A5CC90A6CE468  : public MonoBe
 	NetworkPrefabHandler_tDAE80C95FD27B1749A8657944402C831679B0AAE* ___m_PrefabHandler_9;
 	// System.Collections.Generic.Dictionary`2<System.UInt64,Unity.Netcode.NetworkManager/ConnectionApprovalResponse> Unity.Netcode.NetworkManager::ClientsToApprove
 	Dictionary_2_t647F7F7CA786348F8808D433385C1B2D157E852A* ___ClientsToApprove_10;
+	// System.Collections.Generic.Dictionary`2<System.UInt64,System.Collections.Generic.List`1<Unity.Netcode.NetworkObject>> Unity.Netcode.NetworkManager::ObjectsToShowToClient
+	Dictionary_2_tEFAF073C90BF36DA59A8A6A357782DF7453A1D5C* ___ObjectsToShowToClient_11;
 	// System.Boolean Unity.Netcode.NetworkManager::m_ShuttingDown
-	bool ___m_ShuttingDown_11;
+	bool ___m_ShuttingDown_12;
 	// System.Boolean Unity.Netcode.NetworkManager::m_StopProcessingMessages
-	bool ___m_StopProcessingMessages_12;
+	bool ___m_StopProcessingMessages_13;
+	// System.String Unity.Netcode.NetworkManager::<DisconnectReason>k__BackingField
+	String_t* ___U3CDisconnectReasonU3Ek__BackingField_14;
 	// Unity.Netcode.NetworkTimeSystem Unity.Netcode.NetworkManager::<NetworkTimeSystem>k__BackingField
-	NetworkTimeSystem_t41941E913D45E10F4FAF8455F1CED3DD9432FFA2* ___U3CNetworkTimeSystemU3Ek__BackingField_13;
+	NetworkTimeSystem_t41941E913D45E10F4FAF8455F1CED3DD9432FFA2* ___U3CNetworkTimeSystemU3Ek__BackingField_15;
 	// Unity.Netcode.NetworkTickSystem Unity.Netcode.NetworkManager::<NetworkTickSystem>k__BackingField
-	NetworkTickSystem_t03E11F229B752CF97C7A1616D2CFF513D988780A* ___U3CNetworkTickSystemU3Ek__BackingField_14;
+	NetworkTickSystem_t03E11F229B752CF97C7A1616D2CFF513D988780A* ___U3CNetworkTickSystemU3Ek__BackingField_16;
 	// System.Boolean Unity.Netcode.NetworkManager::RunInBackground
-	bool ___RunInBackground_15;
+	bool ___RunInBackground_17;
 	// Unity.Netcode.LogLevel Unity.Netcode.NetworkManager::LogLevel
-	int32_t ___LogLevel_16;
+	int32_t ___LogLevel_18;
 	// Unity.Netcode.NetworkSpawnManager Unity.Netcode.NetworkManager::<SpawnManager>k__BackingField
-	NetworkSpawnManager_t3C69A0FCA3E0961ED401C35188393E80BF22294D* ___U3CSpawnManagerU3Ek__BackingField_18;
+	NetworkSpawnManager_t3C69A0FCA3E0961ED401C35188393E80BF22294D* ___U3CSpawnManagerU3Ek__BackingField_20;
 	// Unity.Netcode.IDeferredMessageManager Unity.Netcode.NetworkManager::<DeferredMessageManager>k__BackingField
-	RuntimeObject* ___U3CDeferredMessageManagerU3Ek__BackingField_19;
+	RuntimeObject* ___U3CDeferredMessageManagerU3Ek__BackingField_21;
+	// Unity.Netcode.IRealTimeProvider Unity.Netcode.NetworkManager::<RealTimeProvider>k__BackingField
+	RuntimeObject* ___U3CRealTimeProviderU3Ek__BackingField_22;
 	// Unity.Netcode.CustomMessagingManager Unity.Netcode.NetworkManager::<CustomMessagingManager>k__BackingField
-	CustomMessagingManager_t713DDF9DC30FAF5178913295556DD07C946A9746* ___U3CCustomMessagingManagerU3Ek__BackingField_20;
+	CustomMessagingManager_t713DDF9DC30FAF5178913295556DD07C946A9746* ___U3CCustomMessagingManagerU3Ek__BackingField_23;
 	// Unity.Netcode.NetworkSceneManager Unity.Netcode.NetworkManager::<SceneManager>k__BackingField
-	NetworkSceneManager_tC93DADE5972B29C0860CC236D9E11A74953C65BC* ___U3CSceneManagerU3Ek__BackingField_21;
+	NetworkSceneManager_tC93DADE5972B29C0860CC236D9E11A74953C65BC* ___U3CSceneManagerU3Ek__BackingField_24;
 	// System.UInt64 Unity.Netcode.NetworkManager::m_LocalClientId
-	uint64_t ___m_LocalClientId_23;
+	uint64_t ___m_LocalClientId_26;
 	// System.Collections.Generic.Dictionary`2<System.UInt64,Unity.Netcode.NetworkClient> Unity.Netcode.NetworkManager::m_ConnectedClients
-	Dictionary_2_t04CE97C57D2E25D600E03BF7F53BDCDDAC05C9DF* ___m_ConnectedClients_24;
+	Dictionary_2_t04CE97C57D2E25D600E03BF7F53BDCDDAC05C9DF* ___m_ConnectedClients_27;
 	// System.UInt64 Unity.Netcode.NetworkManager::m_NextClientId
-	uint64_t ___m_NextClientId_25;
+	uint64_t ___m_NextClientId_28;
 	// System.Collections.Generic.Dictionary`2<System.UInt64,System.UInt64> Unity.Netcode.NetworkManager::m_ClientIdToTransportIdMap
-	Dictionary_2_tE1184E8D53864B83C43E4E0E93F8388CEE760D42* ___m_ClientIdToTransportIdMap_26;
+	Dictionary_2_tE1184E8D53864B83C43E4E0E93F8388CEE760D42* ___m_ClientIdToTransportIdMap_29;
 	// System.Collections.Generic.Dictionary`2<System.UInt64,System.UInt64> Unity.Netcode.NetworkManager::m_TransportIdToClientIdMap
-	Dictionary_2_tE1184E8D53864B83C43E4E0E93F8388CEE760D42* ___m_TransportIdToClientIdMap_27;
+	Dictionary_2_tE1184E8D53864B83C43E4E0E93F8388CEE760D42* ___m_TransportIdToClientIdMap_30;
 	// System.Collections.Generic.List`1<Unity.Netcode.NetworkClient> Unity.Netcode.NetworkManager::m_ConnectedClientsList
-	List_1_t57C6C818F7D91A7154A4799FE6DEFD3ACD6F39A5* ___m_ConnectedClientsList_28;
+	List_1_t57C6C818F7D91A7154A4799FE6DEFD3ACD6F39A5* ___m_ConnectedClientsList_31;
 	// System.Collections.Generic.List`1<System.UInt64> Unity.Netcode.NetworkManager::m_ConnectedClientIds
-	List_1_tB88E7361EE76DFB3EBB7FCD60CC59ACC3E48C284* ___m_ConnectedClientIds_29;
+	List_1_tB88E7361EE76DFB3EBB7FCD60CC59ACC3E48C284* ___m_ConnectedClientIds_32;
 	// Unity.Netcode.NetworkClient Unity.Netcode.NetworkManager::<LocalClient>k__BackingField
-	NetworkClient_t4EB5B562D3C8D21DDD5749455CE80E5B12571F64* ___U3CLocalClientU3Ek__BackingField_30;
+	NetworkClient_t4EB5B562D3C8D21DDD5749455CE80E5B12571F64* ___U3CLocalClientU3Ek__BackingField_33;
 	// System.Collections.Generic.Dictionary`2<System.UInt64,Unity.Netcode.PendingClient> Unity.Netcode.NetworkManager::PendingClients
-	Dictionary_2_tD7776C25E1F5D1B8408431CA83EAAFFE3C4C9684* ___PendingClients_31;
+	Dictionary_2_tD7776C25E1F5D1B8408431CA83EAAFFE3C4C9684* ___PendingClients_34;
 	// System.Boolean Unity.Netcode.NetworkManager::<IsServer>k__BackingField
-	bool ___U3CIsServerU3Ek__BackingField_32;
+	bool ___U3CIsServerU3Ek__BackingField_35;
 	// System.Boolean Unity.Netcode.NetworkManager::<IsClient>k__BackingField
-	bool ___U3CIsClientU3Ek__BackingField_33;
+	bool ___U3CIsClientU3Ek__BackingField_36;
 	// System.Boolean Unity.Netcode.NetworkManager::<IsListening>k__BackingField
-	bool ___U3CIsListeningU3Ek__BackingField_34;
+	bool ___U3CIsListeningU3Ek__BackingField_37;
 	// System.Boolean Unity.Netcode.NetworkManager::<IsConnectedClient>k__BackingField
-	bool ___U3CIsConnectedClientU3Ek__BackingField_35;
+	bool ___U3CIsConnectedClientU3Ek__BackingField_38;
+	// System.Boolean Unity.Netcode.NetworkManager::<IsApproved>k__BackingField
+	bool ___U3CIsApprovedU3Ek__BackingField_39;
 	// System.Action`1<System.UInt64> Unity.Netcode.NetworkManager::OnClientConnectedCallback
-	Action_1_t2F07B42BD085A4AC03ECE5676157E93B9A344C1C* ___OnClientConnectedCallback_36;
+	Action_1_t2F07B42BD085A4AC03ECE5676157E93B9A344C1C* ___OnClientConnectedCallback_40;
 	// System.Action`1<System.UInt64> Unity.Netcode.NetworkManager::OnClientDisconnectCallback
-	Action_1_t2F07B42BD085A4AC03ECE5676157E93B9A344C1C* ___OnClientDisconnectCallback_37;
+	Action_1_t2F07B42BD085A4AC03ECE5676157E93B9A344C1C* ___OnClientDisconnectCallback_41;
 	// System.Action Unity.Netcode.NetworkManager::OnServerStarted
-	Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* ___OnServerStarted_38;
+	Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* ___OnServerStarted_42;
+	// System.Action Unity.Netcode.NetworkManager::OnClientStarted
+	Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* ___OnClientStarted_43;
+	// System.Action`1<System.Boolean> Unity.Netcode.NetworkManager::OnServerStopped
+	Action_1_t10DCB0C07D0D3C565CEACADC80D1152B35A45F6C* ___OnServerStopped_44;
+	// System.Action`1<System.Boolean> Unity.Netcode.NetworkManager::OnClientStopped
+	Action_1_t10DCB0C07D0D3C565CEACADC80D1152B35A45F6C* ___OnClientStopped_45;
 	// System.Action Unity.Netcode.NetworkManager::OnTransportFailure
-	Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* ___OnTransportFailure_39;
+	Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* ___OnTransportFailure_46;
 	// System.Action`2<Unity.Netcode.NetworkManager/ConnectionApprovalRequest,Unity.Netcode.NetworkManager/ConnectionApprovalResponse> Unity.Netcode.NetworkManager::m_ConnectionApprovalCallback
-	Action_2_t5E7B4E17493B71D65B87865FA28E6CCE1C2ED68B* ___m_ConnectionApprovalCallback_40;
+	Action_2_t5E7B4E17493B71D65B87865FA28E6CCE1C2ED68B* ___m_ConnectionApprovalCallback_47;
 	// Unity.Netcode.NetworkConfig Unity.Netcode.NetworkManager::NetworkConfig
-	NetworkConfig_tBDA76D459879B7025939BE0E2AF6D82B4A925113* ___NetworkConfig_41;
+	NetworkConfig_tBDA76D459879B7025939BE0E2AF6D82B4A925113* ___NetworkConfig_48;
 	// System.String Unity.Netcode.NetworkManager::<ConnectedHostname>k__BackingField
-	String_t* ___U3CConnectedHostnameU3Ek__BackingField_42;
+	String_t* ___U3CConnectedHostnameU3Ek__BackingField_49;
 	// Unity.Netcode.INetworkMetrics Unity.Netcode.NetworkManager::<NetworkMetrics>k__BackingField
-	RuntimeObject* ___U3CNetworkMetricsU3Ek__BackingField_43;
+	RuntimeObject* ___U3CNetworkMetricsU3Ek__BackingField_50;
 };
 
 struct NetworkManager_t3C1F76E0C1B39BB363D1C5C7667A5CC90A6CE468_StaticFields
@@ -757,9 +777,9 @@ struct NetworkManager_t3C1F76E0C1B39BB363D1C5C7667A5CC90A6CE468_StaticFields
 	// System.Collections.Generic.Dictionary`2<System.UInt32,Unity.Netcode.NetworkManager/RpcReceiveHandler> Unity.Netcode.NetworkManager::__rpc_func_table
 	Dictionary_2_t535993A174BD2EEC9F9DB2BB1AA684D960BD89AD* _____rpc_func_table_4;
 	// Unity.Netcode.NetworkManager Unity.Netcode.NetworkManager::<Singleton>k__BackingField
-	NetworkManager_t3C1F76E0C1B39BB363D1C5C7667A5CC90A6CE468* ___U3CSingletonU3Ek__BackingField_17;
+	NetworkManager_t3C1F76E0C1B39BB363D1C5C7667A5CC90A6CE468* ___U3CSingletonU3Ek__BackingField_19;
 	// System.Action Unity.Netcode.NetworkManager::OnSingletonReady
-	Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* ___OnSingletonReady_44;
+	Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* ___OnSingletonReady_51;
 };
 
 // Unity.Netcode.NetworkObject
@@ -767,54 +787,66 @@ struct NetworkObject_t8D6F76C7440A9E6176FC7F9268E5720C346A7366  : public MonoBeh
 {
 	// System.UInt32 Unity.Netcode.NetworkObject::GlobalObjectIdHash
 	uint32_t ___GlobalObjectIdHash_4;
+	// System.Boolean Unity.Netcode.NetworkObject::m_IsPrefab
+	bool ___m_IsPrefab_5;
 	// Unity.Netcode.NetworkManager Unity.Netcode.NetworkObject::NetworkManagerOwner
-	NetworkManager_t3C1F76E0C1B39BB363D1C5C7667A5CC90A6CE468* ___NetworkManagerOwner_5;
+	NetworkManager_t3C1F76E0C1B39BB363D1C5C7667A5CC90A6CE468* ___NetworkManagerOwner_6;
 	// System.UInt64 Unity.Netcode.NetworkObject::<NetworkObjectId>k__BackingField
-	uint64_t ___U3CNetworkObjectIdU3Ek__BackingField_6;
+	uint64_t ___U3CNetworkObjectIdU3Ek__BackingField_7;
 	// System.UInt64 Unity.Netcode.NetworkObject::<OwnerClientId>k__BackingField
-	uint64_t ___U3COwnerClientIdU3Ek__BackingField_7;
+	uint64_t ___U3COwnerClientIdU3Ek__BackingField_8;
 	// System.Boolean Unity.Netcode.NetworkObject::AlwaysReplicateAsRoot
-	bool ___AlwaysReplicateAsRoot_8;
+	bool ___AlwaysReplicateAsRoot_9;
 	// System.Boolean Unity.Netcode.NetworkObject::<IsPlayerObject>k__BackingField
-	bool ___U3CIsPlayerObjectU3Ek__BackingField_9;
+	bool ___U3CIsPlayerObjectU3Ek__BackingField_10;
+	// System.Boolean Unity.Netcode.NetworkObject::SynchronizeTransform
+	bool ___SynchronizeTransform_11;
 	// System.Boolean Unity.Netcode.NetworkObject::<IsSpawned>k__BackingField
-	bool ___U3CIsSpawnedU3Ek__BackingField_10;
+	bool ___U3CIsSpawnedU3Ek__BackingField_12;
 	// System.Nullable`1<System.Boolean> Unity.Netcode.NetworkObject::<IsSceneObject>k__BackingField
-	Nullable_1_t78F453FADB4A9F50F267A4E349019C34410D1A01 ___U3CIsSceneObjectU3Ek__BackingField_11;
+	Nullable_1_t78F453FADB4A9F50F267A4E349019C34410D1A01 ___U3CIsSceneObjectU3Ek__BackingField_13;
 	// System.Boolean Unity.Netcode.NetworkObject::<DestroyWithScene>k__BackingField
-	bool ___U3CDestroyWithSceneU3Ek__BackingField_12;
+	bool ___U3CDestroyWithSceneU3Ek__BackingField_14;
+	// System.Boolean Unity.Netcode.NetworkObject::ActiveSceneSynchronization
+	bool ___ActiveSceneSynchronization_15;
+	// System.Boolean Unity.Netcode.NetworkObject::SceneMigrationSynchronization
+	bool ___SceneMigrationSynchronization_16;
+	// System.Action Unity.Netcode.NetworkObject::OnMigratedToNewScene
+	Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* ___OnMigratedToNewScene_17;
 	// Unity.Netcode.NetworkObject/VisibilityDelegate Unity.Netcode.NetworkObject::CheckObjectVisibility
-	VisibilityDelegate_t43869941CF7C26CBA2B0FEBB3E7A33BA67D3216A* ___CheckObjectVisibility_13;
+	VisibilityDelegate_t43869941CF7C26CBA2B0FEBB3E7A33BA67D3216A* ___CheckObjectVisibility_18;
 	// Unity.Netcode.NetworkObject/SpawnDelegate Unity.Netcode.NetworkObject::IncludeTransformWhenSpawning
-	SpawnDelegate_t54493DE8F3E71A9E28528811BBD80E50C09BFF57* ___IncludeTransformWhenSpawning_14;
+	SpawnDelegate_t54493DE8F3E71A9E28528811BBD80E50C09BFF57* ___IncludeTransformWhenSpawning_19;
 	// System.Boolean Unity.Netcode.NetworkObject::DontDestroyWithOwner
-	bool ___DontDestroyWithOwner_15;
+	bool ___DontDestroyWithOwner_20;
 	// System.Boolean Unity.Netcode.NetworkObject::AutoObjectParentSync
-	bool ___AutoObjectParentSync_16;
+	bool ___AutoObjectParentSync_21;
 	// System.Collections.Generic.HashSet`1<System.UInt64> Unity.Netcode.NetworkObject::Observers
-	HashSet_1_t69B3138379C60F0B2D0D83966D6FF40BF4B4256C* ___Observers_17;
+	HashSet_1_t69B3138379C60F0B2D0D83966D6FF40BF4B4256C* ___Observers_22;
 	// System.String Unity.Netcode.NetworkObject::m_CachedNameForMetrics
-	String_t* ___m_CachedNameForMetrics_18;
+	String_t* ___m_CachedNameForMetrics_23;
 	// System.Collections.Generic.HashSet`1<System.UInt64> Unity.Netcode.NetworkObject::m_EmptyULongHashSet
-	HashSet_1_t69B3138379C60F0B2D0D83966D6FF40BF4B4256C* ___m_EmptyULongHashSet_19;
+	HashSet_1_t69B3138379C60F0B2D0D83966D6FF40BF4B4256C* ___m_EmptyULongHashSet_24;
 	// System.Int32 Unity.Netcode.NetworkObject::SceneOriginHandle
-	int32_t ___SceneOriginHandle_20;
+	int32_t ___SceneOriginHandle_25;
+	// System.Int32 Unity.Netcode.NetworkObject::NetworkSceneHandle
+	int32_t ___NetworkSceneHandle_26;
 	// UnityEngine.SceneManagement.Scene Unity.Netcode.NetworkObject::m_SceneOrigin
-	Scene_tA1DC762B79745EB5140F054C884855B922318356 ___m_SceneOrigin_21;
-	// System.Boolean Unity.Netcode.NetworkObject::m_IsReparented
-	bool ___m_IsReparented_22;
+	Scene_tA1DC762B79745EB5140F054C884855B922318356 ___m_SceneOrigin_27;
 	// System.Nullable`1<System.UInt64> Unity.Netcode.NetworkObject::m_LatestParent
-	Nullable_1_tF8BFF19FF240C9F0A45168187CD7106BAA146A99 ___m_LatestParent_23;
+	Nullable_1_tF8BFF19FF240C9F0A45168187CD7106BAA146A99 ___m_LatestParent_28;
 	// UnityEngine.Transform Unity.Netcode.NetworkObject::m_CachedParent
-	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___m_CachedParent_24;
+	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___m_CachedParent_29;
+	// System.Boolean Unity.Netcode.NetworkObject::m_CachedWorldPositionStays
+	bool ___m_CachedWorldPositionStays_30;
 	// System.Collections.Generic.List`1<Unity.Netcode.NetworkBehaviour> Unity.Netcode.NetworkObject::m_ChildNetworkBehaviours
-	List_1_t77285321F3B26D7A49CBB0F92E556C36504A91F5* ___m_ChildNetworkBehaviours_26;
+	List_1_t77285321F3B26D7A49CBB0F92E556C36504A91F5* ___m_ChildNetworkBehaviours_32;
 };
 
 struct NetworkObject_t8D6F76C7440A9E6176FC7F9268E5720C346A7366_StaticFields
 {
 	// System.Collections.Generic.HashSet`1<Unity.Netcode.NetworkObject> Unity.Netcode.NetworkObject::OrphanChildren
-	HashSet_1_t4CB93F2D8A0CA74AB045A363BEAA451C9E5C4337* ___OrphanChildren_25;
+	HashSet_1_t4CB93F2D8A0CA74AB045A363BEAA451C9E5C4337* ___OrphanChildren_31;
 };
 #ifdef __clang__
 #pragma clang diagnostic pop
@@ -852,7 +884,7 @@ inline void Action_1_Invoke_m4036EB3B05642DFF32D8DBE1F4AEB7A33205CD2E_inline (Ac
 // System.Void System.NotImplementedException::.ctor()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NotImplementedException__ctor_mDAB47BC6BD0E342E8F2171E5CABE3E67EA049F1C (NotImplementedException_t6366FE4DCF15094C51F4833B91A2AE68D4DA90E8* __this, const RuntimeMethod* method) ;
 // System.UInt64 Unity.Netcode.NetworkManager::get_LocalClientId()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR uint64_t NetworkManager_get_LocalClientId_m1B93454E7949ACBF20043DCDD884F63E119E6577 (NetworkManager_t3C1F76E0C1B39BB363D1C5C7667A5CC90A6CE468* __this, const RuntimeMethod* method) ;
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR uint64_t NetworkManager_get_LocalClientId_m1B93454E7949ACBF20043DCDD884F63E119E6577_inline (NetworkManager_t3C1F76E0C1B39BB363D1C5C7667A5CC90A6CE468* __this, const RuntimeMethod* method) ;
 // Unity.Netcode.NetworkSpawnManager Unity.Multiplayer.Tools.Adapters.Ngo1.Ngo1Adapter::get_SpawnManager()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR NetworkSpawnManager_t3C69A0FCA3E0961ED401C35188393E80BF22294D* Ngo1Adapter_get_SpawnManager_m0531D62E7761037A9460C9D47135544C45E57D9B (Ngo1Adapter_t17BF957315AB4FF0E0B5182B6158C0C305D47CC8* __this, const RuntimeMethod* method) ;
 // TValue System.Collections.Generic.Dictionary`2<System.UInt64,Unity.Netcode.NetworkObject>::get_Item(TKey)
@@ -913,6 +945,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NetworkAdapters_AddAdapter_mD1DE5DF18EAD
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
+// System.Void <Module>::.cctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CModuleU3E__cctor_mE49DB668BCC31BDC3DDF8931F3AAD6BD3FB20CC9 (const RuntimeMethod* method) 
+{
+	{
+		return;
+	}
+}
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
@@ -1095,7 +1134,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int64_t Ngo1Adapter_get_LocalClientId_m5120F3
 		L_0 = Ngo1Adapter_get_NetworkManager_m9771D512B9A8FE421C48CD3E725A38B21398463C(__this, NULL);
 		NullCheck(L_0);
 		uint64_t L_1;
-		L_1 = NetworkManager_get_LocalClientId_m1B93454E7949ACBF20043DCDD884F63E119E6577(L_0, NULL);
+		L_1 = NetworkManager_get_LocalClientId_m1B93454E7949ACBF20043DCDD884F63E119E6577_inline(L_0, NULL);
 		return (int64_t)(L_1);
 	}
 }
@@ -1373,7 +1412,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR NetworkManager_t3C1F76E0C1B39BB36
 	{
 		// public static NetworkManager Singleton { get; private set; }
 		il2cpp_codegen_runtime_class_init_inline(NetworkManager_t3C1F76E0C1B39BB363D1C5C7667A5CC90A6CE468_il2cpp_TypeInfo_var);
-		NetworkManager_t3C1F76E0C1B39BB363D1C5C7667A5CC90A6CE468* L_0 = ((NetworkManager_t3C1F76E0C1B39BB363D1C5C7667A5CC90A6CE468_StaticFields*)il2cpp_codegen_static_fields_for(NetworkManager_t3C1F76E0C1B39BB363D1C5C7667A5CC90A6CE468_il2cpp_TypeInfo_var))->___U3CSingletonU3Ek__BackingField_17;
+		NetworkManager_t3C1F76E0C1B39BB363D1C5C7667A5CC90A6CE468* L_0 = ((NetworkManager_t3C1F76E0C1B39BB363D1C5C7667A5CC90A6CE468_StaticFields*)il2cpp_codegen_static_fields_for(NetworkManager_t3C1F76E0C1B39BB363D1C5C7667A5CC90A6CE468_il2cpp_TypeInfo_var))->___U3CSingletonU3Ek__BackingField_19;
 		return L_0;
 	}
 }
@@ -1381,7 +1420,15 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR NetworkSpawnManager_t3C69A0FCA3E0
 {
 	{
 		// public NetworkSpawnManager SpawnManager { get; private set; }
-		NetworkSpawnManager_t3C69A0FCA3E0961ED401C35188393E80BF22294D* L_0 = __this->___U3CSpawnManagerU3Ek__BackingField_18;
+		NetworkSpawnManager_t3C69A0FCA3E0961ED401C35188393E80BF22294D* L_0 = __this->___U3CSpawnManagerU3Ek__BackingField_20;
+		return L_0;
+	}
+}
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR uint64_t NetworkManager_get_LocalClientId_m1B93454E7949ACBF20043DCDD884F63E119E6577_inline (NetworkManager_t3C1F76E0C1B39BB363D1C5C7667A5CC90A6CE468* __this, const RuntimeMethod* method) 
+{
+	{
+		// get => m_LocalClientId;
+		uint64_t L_0 = __this->___m_LocalClientId_26;
 		return L_0;
 	}
 }
@@ -1389,7 +1436,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR uint64_t NetworkObject_get_OwnerC
 {
 	{
 		// public ulong OwnerClientId { get; internal set; }
-		uint64_t L_0 = __this->___U3COwnerClientIdU3Ek__BackingField_7;
+		uint64_t L_0 = __this->___U3COwnerClientIdU3Ek__BackingField_8;
 		return L_0;
 	}
 }

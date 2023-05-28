@@ -67,6 +67,7 @@ IL2CPP_EXTERN_C_CONST Il2CppCodeGenModule g_Unity_Collections_CodeGenModule;
 IL2CPP_EXTERN_C_CONST Il2CppCodeGenModule g_Unity_Collections_LowLevel_ILSupport_CodeGenModule;
 IL2CPP_EXTERN_C_CONST Il2CppCodeGenModule g_Unity_InputSystem_CodeGenModule;
 IL2CPP_EXTERN_C_CONST Il2CppCodeGenModule g_Unity_Mathematics_CodeGenModule;
+IL2CPP_EXTERN_C_CONST Il2CppCodeGenModule g_Unity_Multiplayer_Samples_Utilities_ClientAuthority_CodeGenModule;
 IL2CPP_EXTERN_C_CONST Il2CppCodeGenModule g_Unity_Multiplayer_Tools_Adapters_CodeGenModule;
 IL2CPP_EXTERN_C_CONST Il2CppCodeGenModule g_Unity_Multiplayer_Tools_Adapters_Ngo1_CodeGenModule;
 IL2CPP_EXTERN_C_CONST Il2CppCodeGenModule g_Unity_Multiplayer_Tools_Common_CodeGenModule;
@@ -75,6 +76,7 @@ IL2CPP_EXTERN_C_CONST Il2CppCodeGenModule g_Unity_Multiplayer_Tools_MetricTypes_
 IL2CPP_EXTERN_C_CONST Il2CppCodeGenModule g_Unity_Multiplayer_Tools_NetStatsReporting_CodeGenModule;
 IL2CPP_EXTERN_C_CONST Il2CppCodeGenModule g_Unity_Multiplayer_Tools_NetStats_CodeGenModule;
 IL2CPP_EXTERN_C_CONST Il2CppCodeGenModule g_Unity_Multiplayer_Tools_NetworkSolutionInterface_CodeGenModule;
+IL2CPP_EXTERN_C_CONST Il2CppCodeGenModule g_Unity_Netcode_Components_CodeGenModule;
 IL2CPP_EXTERN_C_CONST Il2CppCodeGenModule g_Unity_Netcode_Runtime_CodeGenModule;
 IL2CPP_EXTERN_C_CONST Il2CppCodeGenModule g_Unity_Networking_Transport_CodeGenModule;
 IL2CPP_EXTERN_C_CONST Il2CppCodeGenModule g_Unity_ProBuilder_CodeGenModule;
@@ -91,6 +93,8 @@ IL2CPP_EXTERN_C_CONST Il2CppCodeGenModule g_Unity_Services_Core_Scheduler_CodeGe
 IL2CPP_EXTERN_C_CONST Il2CppCodeGenModule g_Unity_Services_Core_Telemetry_CodeGenModule;
 IL2CPP_EXTERN_C_CONST Il2CppCodeGenModule g_Unity_Services_Core_Threading_CodeGenModule;
 IL2CPP_EXTERN_C_CONST Il2CppCodeGenModule g_Unity_Services_Lobbies_CodeGenModule;
+IL2CPP_EXTERN_C_CONST Il2CppCodeGenModule g_Unity_Services_QoS_CodeGenModule;
+IL2CPP_EXTERN_C_CONST Il2CppCodeGenModule g_Unity_Services_Relay_CodeGenModule;
 IL2CPP_EXTERN_C_CONST Il2CppCodeGenModule g_Unity_TextMeshPro_CodeGenModule;
 IL2CPP_EXTERN_C_CONST Il2CppCodeGenModule g_Unity_XR_ARCore_CodeGenModule;
 IL2CPP_EXTERN_C_CONST Il2CppCodeGenModule g_Unity_XR_ARFoundation_CodeGenModule;
@@ -104,7 +108,7 @@ IL2CPP_EXTERN_C_CONST Il2CppCodeGenModule g_Unity_XR_OpenXR_Features_RuntimeDebu
 IL2CPP_EXTERN_C_CONST Il2CppCodeGenModule g___Generated_CodeGenModule;
 IL2CPP_EXTERN_C_CONST Il2CppCodeGenModule g_mscorlib_CodeGenModule;
 IL2CPP_EXTERN_C const Il2CppCodeGenModule* g_CodeGenModules[];
-const Il2CppCodeGenModule* g_CodeGenModules[85] = 
+const Il2CppCodeGenModule* g_CodeGenModules[89] = 
 {
 	(&g_AssemblyU2DCSharp_CodeGenModule),
 	(&g_Bootstrap_CodeGenModule),
@@ -155,6 +159,7 @@ const Il2CppCodeGenModule* g_CodeGenModules[85] =
 	(&g_Unity_Collections_LowLevel_ILSupport_CodeGenModule),
 	(&g_Unity_InputSystem_CodeGenModule),
 	(&g_Unity_Mathematics_CodeGenModule),
+	(&g_Unity_Multiplayer_Samples_Utilities_ClientAuthority_CodeGenModule),
 	(&g_Unity_Multiplayer_Tools_Adapters_CodeGenModule),
 	(&g_Unity_Multiplayer_Tools_Adapters_Ngo1_CodeGenModule),
 	(&g_Unity_Multiplayer_Tools_Common_CodeGenModule),
@@ -163,6 +168,7 @@ const Il2CppCodeGenModule* g_CodeGenModules[85] =
 	(&g_Unity_Multiplayer_Tools_NetStatsReporting_CodeGenModule),
 	(&g_Unity_Multiplayer_Tools_NetStats_CodeGenModule),
 	(&g_Unity_Multiplayer_Tools_NetworkSolutionInterface_CodeGenModule),
+	(&g_Unity_Netcode_Components_CodeGenModule),
 	(&g_Unity_Netcode_Runtime_CodeGenModule),
 	(&g_Unity_Networking_Transport_CodeGenModule),
 	(&g_Unity_ProBuilder_CodeGenModule),
@@ -179,6 +185,8 @@ const Il2CppCodeGenModule* g_CodeGenModules[85] =
 	(&g_Unity_Services_Core_Telemetry_CodeGenModule),
 	(&g_Unity_Services_Core_Threading_CodeGenModule),
 	(&g_Unity_Services_Lobbies_CodeGenModule),
+	(&g_Unity_Services_QoS_CodeGenModule),
+	(&g_Unity_Services_Relay_CodeGenModule),
 	(&g_Unity_TextMeshPro_CodeGenModule),
 	(&g_Unity_XR_ARCore_CodeGenModule),
 	(&g_Unity_XR_ARFoundation_CodeGenModule),
@@ -197,18 +205,18 @@ const Il2CppCodeRegistration g_CodeRegistration =
 {
 	84,
 	g_ReversePInvokeWrapperPointers,
-	66320,
+	70932,
 	g_Il2CppGenericMethodPointers,
 	g_Il2CppGenericAdjustorThunks,
-	16082,
+	16677,
 	g_Il2CppInvokerPointers,
-	2074,
+	2199,
 	g_UnresolvedVirtualMethodPointers,
-	721,
+	738,
 	g_Il2CppInteropData,
 	0,
 	NULL,
-	85,
+	89,
 	g_CodeGenModules,
 };
 IL2CPP_EXTERN_C_CONST Il2CppMetadataRegistration g_MetadataRegistration;

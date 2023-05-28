@@ -110,7 +110,19 @@ extern void RaycastHit2D_get_normal_m75F1EBDE347BACEB5A6A6AA72543C740806AB5F2 (v
 extern void RaycastHit2D_get_distance_mD0FE1482E2768CF587AFB65488459697EAB64613 (void);
 // 0x00000031 UnityEngine.Collider2D UnityEngine.RaycastHit2D::get_collider()
 extern void RaycastHit2D_get_collider_mB56DFCD16B708852EEBDBB490BC8665DBF7487FD (void);
-static Il2CppMethodPointer s_methodPointers[49] = 
+// 0x00000032 UnityEngine.RigidbodyType2D UnityEngine.Rigidbody2D::get_bodyType()
+extern void Rigidbody2D_get_bodyType_m20709275F3D8215592B2B89736AA8DDD2BF44ED1 (void);
+// 0x00000033 System.Void UnityEngine.Rigidbody2D::set_bodyType(UnityEngine.RigidbodyType2D)
+extern void Rigidbody2D_set_bodyType_mE2FAC2D78B06B445BD2AD58F87AC5B1865B23248 (void);
+// 0x00000034 System.Boolean UnityEngine.Rigidbody2D::get_isKinematic()
+extern void Rigidbody2D_get_isKinematic_m41BBC60A072047F850097C0391A002935DD277CB (void);
+// 0x00000035 System.Void UnityEngine.Rigidbody2D::set_isKinematic(System.Boolean)
+extern void Rigidbody2D_set_isKinematic_m7C68AB4CFB6D301F0EDF0BFF66FB121ED3CC7853 (void);
+// 0x00000036 UnityEngine.RigidbodyInterpolation2D UnityEngine.Rigidbody2D::get_interpolation()
+extern void Rigidbody2D_get_interpolation_m3A85873C44DB8123E68DB38B1CC3DCF3FD2CD083 (void);
+// 0x00000037 System.Void UnityEngine.Rigidbody2D::set_interpolation(UnityEngine.RigidbodyInterpolation2D)
+extern void Rigidbody2D_set_interpolation_m4914262B161A76DD061969667C0D412A8C93A994 (void);
+static Il2CppMethodPointer s_methodPointers[55] = 
 {
 	PhysicsScene2D_ToString_mACA22EF575F7544176360B16D431F2BB1DEBB307,
 	PhysicsScene2D_GetHashCode_mD45B3437D088C66A35AE20066AD632D1D0858B1E,
@@ -161,6 +173,12 @@ static Il2CppMethodPointer s_methodPointers[49] =
 	RaycastHit2D_get_normal_m75F1EBDE347BACEB5A6A6AA72543C740806AB5F2,
 	RaycastHit2D_get_distance_mD0FE1482E2768CF587AFB65488459697EAB64613,
 	RaycastHit2D_get_collider_mB56DFCD16B708852EEBDBB490BC8665DBF7487FD,
+	Rigidbody2D_get_bodyType_m20709275F3D8215592B2B89736AA8DDD2BF44ED1,
+	Rigidbody2D_set_bodyType_mE2FAC2D78B06B445BD2AD58F87AC5B1865B23248,
+	Rigidbody2D_get_isKinematic_m41BBC60A072047F850097C0391A002935DD277CB,
+	Rigidbody2D_set_isKinematic_m7C68AB4CFB6D301F0EDF0BFF66FB121ED3CC7853,
+	Rigidbody2D_get_interpolation_m3A85873C44DB8123E68DB38B1CC3DCF3FD2CD083,
+	Rigidbody2D_set_interpolation_m4914262B161A76DD061969667C0D412A8C93A994,
 };
 extern void PhysicsScene2D_ToString_mACA22EF575F7544176360B16D431F2BB1DEBB307_AdjustorThunk (void);
 extern void PhysicsScene2D_GetHashCode_mD45B3437D088C66A35AE20066AD632D1D0858B1E_AdjustorThunk (void);
@@ -199,63 +217,69 @@ static Il2CppTokenAdjustorThunkPair s_adjustorThunks[17] =
 	{ 0x06000030, RaycastHit2D_get_distance_mD0FE1482E2768CF587AFB65488459697EAB64613_AdjustorThunk },
 	{ 0x06000031, RaycastHit2D_get_collider_mB56DFCD16B708852EEBDBB490BC8665DBF7487FD_AdjustorThunk },
 };
-static const int32_t s_InvokerIndices[49] = 
+static const int32_t s_InvokerIndices[55] = 
 {
-	8977,
-	8930,
-	5009,
-	5016,
-	1199,
-	1198,
-	10108,
-	562,
-	9607,
-	562,
-	9607,
-	1724,
-	10109,
-	1126,
-	9608,
-	9651,
-	9586,
-	9586,
-	9652,
-	9587,
-	16005,
-	15959,
-	12945,
-	11666,
-	10900,
-	10110,
-	9638,
-	10800,
-	10050,
-	10050,
-	11665,
-	14731,
-	12903,
-	11650,
-	10105,
-	12747,
-	11538,
-	10798,
-	16053,
-	10057,
-	9125,
-	7168,
-	3866,
-	11417,
-	15098,
-	9114,
-	9114,
-	9041,
-	8977,
+	9395,
+	9345,
+	5252,
+	5259,
+	1252,
+	1251,
+	10560,
+	580,
+	10041,
+	580,
+	10041,
+	1796,
+	10561,
+	1178,
+	10042,
+	10085,
+	10020,
+	10020,
+	10086,
+	10021,
+	16595,
+	16547,
+	13484,
+	12175,
+	11389,
+	10562,
+	10072,
+	11289,
+	10502,
+	10502,
+	12174,
+	15310,
+	13442,
+	12159,
+	10557,
+	13283,
+	12046,
+	11287,
+	16643,
+	10509,
+	9544,
+	7490,
+	4047,
+	11924,
+	15679,
+	9533,
+	9533,
+	9459,
+	9395,
+	9345,
+	7479,
+	9261,
+	7390,
+	9345,
+	7479,
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_UnityEngine_Physics2DModule_CodeGenModule;
 const Il2CppCodeGenModule g_UnityEngine_Physics2DModule_CodeGenModule = 
 {
 	"UnityEngine.Physics2DModule.dll",
-	49,
+	55,
 	s_methodPointers,
 	17,
 	s_adjustorThunks,
