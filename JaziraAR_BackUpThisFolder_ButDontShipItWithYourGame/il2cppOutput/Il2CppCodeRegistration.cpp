@@ -129,7 +129,11 @@ const Il2CppCodeRegistration g_CodeRegistration =
 {
 	14,
 	g_ReversePInvokeWrapperPointers,
+<<<<<<< Updated upstream
 	39277,
+=======
+	66328,
+>>>>>>> Stashed changes
 	g_Il2CppGenericMethodPointers,
 	g_Il2CppGenericAdjustorThunks,
 	9363,
