@@ -11,8 +11,10 @@ public class ARCursor : MonoBehaviour
     public ARRaycastManager raycastManager;
     public Button placeButton;
     public Button confirmButton;
+    public List<GameObject> placementMarkers; // Lista de marcadores invisibles
 
     private GameObject currentObject; // Guarda una referencia al objeto colocado actualmente
+    private GameObject currentMarker; // Marcador actualmente seleccionado
 
     private bool isPlacementModeActive = false; // Para rastrear si el modo de colocación está activo o no
 
@@ -38,17 +40,37 @@ public class ARCursor : MonoBehaviour
 
             if (hits.Count > 0)
             {
-                // Primero, eliminar el tablero actual si existe
-                if (currentObject != null)
+                // Buscar el marcador invisible más cercano al punto de toque
+                float closestDistance = Mathf.Infinity;
+                GameObject closestMarker = null;
+
+                foreach (GameObject marker in placementMarkers)
                 {
-                    Destroy(currentObject);
+                    float distance = Vector3.Distance(hits[0].pose.position, marker.transform.position);
+                    if (distance < closestDistance)
+                    {
+                        closestDistance = distance;
+                        closestMarker = marker;
+                    }
                 }
 
-                // Luego, crear un nuevo tablero y guardarlo como currentObject
-                currentObject = GameObject.Instantiate(objectToPlace, hits[0].pose.position, hits[0].pose.rotation);
+                if (closestMarker != null)
+                {
+                    // Asignar el marcador actualmente seleccionado
+                    currentMarker = closestMarker;
 
-                placeButton.gameObject.SetActive(false); // Desactivar el botón de colocación después de colocar el tablero
-                confirmButton.gameObject.SetActive(true); // Activar el botón de confirmación después de colocar el tablero
+                    // Primero, eliminar el tablero actual si existe
+                    if (currentObject != null)
+                    {
+                        Destroy(currentObject);
+                    }
+
+                    // Luego, crear un nuevo tablero y guardarlo como currentObject
+                    currentObject = GameObject.Instantiate(objectToPlace, hits[0].pose.position, hits[0].pose.rotation);
+
+                    placeButton.gameObject.SetActive(false); // Desactivar el botón de colocación después de colocar el tablero
+                    confirmButton.gameObject.SetActive(true); // Activar el botón de confirmación después de colocar el tablero
+                }
             }
         }
     }
@@ -60,7 +82,25 @@ public class ARCursor : MonoBehaviour
 
     public void ConfirmPlacement()
     {
+        if (currentMarker != null)
+        {
+            MarcadorInteractivo marcadorInteractivo = currentMarker.GetComponent<MarcadorInteractivo>();
+
+            if (marcadorInteractivo != null && marcadorInteractivo.canPlaceObject)
+            {
+                // Crear una instancia del objeto a colocar en la posición del marcador
+                GameObject objetoColocado = Instantiate(marcadorInteractivo.objectToPlace, currentMarker.transform.position, currentMarker.transform.rotation);
+
+                // Asignar el objeto colocado al marcador o hacer cualquier otra acción adicional necesaria
+
+                // Desactivar el marcador seleccionado
+                currentMarker.SetActive(false);
+                currentMarker = null;
+            }
+        }
+
         isPlacementModeActive = false; // Desactivar el modo de colocación
         confirmButton.gameObject.SetActive(false); // Desactivar el botón de confirmación después de confirmar la colocación
     }
+
 }
