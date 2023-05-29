@@ -301,7 +301,6 @@ GameObject:
   - component: {fileID: 1967819857830375622}
   - component: {fileID: 5958281223226932708}
   - component: {fileID: 4487120923374494078}
-  - component: {fileID: 4001909899329347852}
   m_Layer: 0
   m_Name: Empty camino2
   m_TagString: Arista
@@ -317,8 +316,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9091492702357634906}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.21, y: 1.49, z: -2.47}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 14.21, y: 3.62, z: 11.17}
+  m_LocalScale: {x: 3.9434, y: 3.9434, z: 3.9434}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3228681516824768599}
@@ -353,20 +352,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 2.0090942}
   m_Center: {x: 0, y: 0, z: -0.50454706}
---- !u!64 &4001909899329347852
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9091492702357634906}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1001 &2087909461848538814
 PrefabInstance:
   m_ObjectHideFlags: 0

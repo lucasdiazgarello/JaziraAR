@@ -11,7 +11,6 @@ public class ARCursor : MonoBehaviour
     public ARRaycastManager raycastManager;
     public Button placeButton;
     public Button confirmButton;
-    public ARPlaneManager planeManager;
 
     private GameObject currentObject; // Guarda una referencia al objeto colocado actualmente
 
@@ -69,7 +68,5 @@ public class ARCursor : MonoBehaviour
         {
             colocarPieza.enabled = true;
         }
-        // Desactivar el ARPlaneManager
-        planeManager.enabled = false;
     }
 }
