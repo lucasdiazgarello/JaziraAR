@@ -8,21 +8,20 @@ using UnityEngine.EventSystems;
 public class ARCursor : MonoBehaviour
 {
     public GameObject objectToPlace; // Este es el tablero
-    public GameObject placementPointsParent; // Esto debe ser el GameObject padre que contiene todos los puntos de colocación
     public ARRaycastManager raycastManager;
     public Button placeButton;
     public Button confirmButton;
+    public ARPlaneManager planeManager;
 
     private GameObject currentObject; // Guarda una referencia al objeto colocado actualmente
 
-    private bool isPlacementModeActive = false; // Para rastrear si el modo de colocación está activo o no
+    public bool isPlacementModeActive = false; // Para rastrear si el modo de colocación está activo o no
 
     void Start()
     {
         placeButton.onClick.AddListener(ActivatePlacementMode);
         confirmButton.onClick.AddListener(ConfirmPlacement);
         confirmButton.gameObject.SetActive(false); // Desactivar el botón de confirmación al inicio
-        placementPointsParent.SetActive(false); // Desactivar los puntos de colocación al inicio
     }
 
     void Update()
@@ -53,19 +52,6 @@ public class ARCursor : MonoBehaviour
                 confirmButton.gameObject.SetActive(true); // Activar el botón de confirmación después de colocar el tablero
             }
         }
-        else if (!isPlacementModeActive && placementPointsParent.activeSelf && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            RaycastHit hit;
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.GetTouch(0).position), out hit))
-            {
-                if (hit.transform.parent == placementPointsParent.transform)
-                {
-                    GameObject newObject = GameObject.Instantiate(objectToPlace, hit.transform.position, hit.transform.rotation);
-                    // Desactivar el punto de colocación después de colocar el objeto
-                    hit.transform.gameObject.SetActive(false);
-                }
-            }
-        }
     }
 
     public void ActivatePlacementMode()
@@ -76,7 +62,14 @@ public class ARCursor : MonoBehaviour
     public void ConfirmPlacement()
     {
         isPlacementModeActive = false; // Desactivar el modo de colocación
-        placeButton.gameObject.SetActive(false); // Desactivar el botón de colocación después de confirmar la colocación
-        placementPointsParent.SetActive(true); // Activar los puntos de colocación
+        confirmButton.gameObject.SetActive(false); // Desactivar el botón de confirmación después de confirmar la colocación
+
+        // Activar la colocación de las piezas en los marcadores invisibles
+        foreach (ColocarPieza colocarPieza in GetComponentsInChildren<ColocarPieza>())
+        {
+            colocarPieza.enabled = true;
+        }
+        // Desactivar el ARPlaneManager
+        planeManager.enabled = false;
     }
 }
