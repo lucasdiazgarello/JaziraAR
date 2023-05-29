@@ -47,6 +47,7 @@ public class ARCursor : MonoBehaviour
                 // Luego, crear un nuevo tablero y guardarlo como currentObject
                 currentObject = GameObject.Instantiate(objectToPlace, hits[0].pose.position, hits[0].pose.rotation);
 
+
                 placeButton.gameObject.SetActive(false); // Desactivar el botón de colocación después de colocar el tablero
                 confirmButton.gameObject.SetActive(true); // Activar el botón de confirmación después de colocar el tablero
             }
@@ -62,5 +63,12 @@ public class ARCursor : MonoBehaviour
     {
         isPlacementModeActive = false; // Desactivar el modo de colocación
         confirmButton.gameObject.SetActive(false); // Desactivar el botón de confirmación después de confirmar la colocación
+                                                  
+        // Activar la colocación de las piezas en los marcadores invisibles
+        foreach (ColocarPieza colocarPieza in GetComponentsInChildren<ColocarPieza>())
+        {
+            colocarPieza.enabled = true;
+            Debug.Log("Marcador invisible ACTIVADO: " + gameObject.name); // Mensaje de depuración
+        }
     }
 }
