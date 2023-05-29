@@ -14,7 +14,7 @@ public class ARCursor : MonoBehaviour
 
     private GameObject currentObject; // Guarda una referencia al objeto colocado actualmente
 
-    public bool isPlacementModeActive = false; // Para rastrear si el modo de colocación está activo o no
+    private bool isPlacementModeActive = false; // Para rastrear si el modo de colocación está activo o no
 
     void Start()
     {
@@ -62,11 +62,5 @@ public class ARCursor : MonoBehaviour
     {
         isPlacementModeActive = false; // Desactivar el modo de colocación
         confirmButton.gameObject.SetActive(false); // Desactivar el botón de confirmación después de confirmar la colocación
-
-        // Activar la colocación de las piezas en los marcadores invisibles
-        foreach (ColocarPieza colocarPieza in GetComponentsInChildren<ColocarPieza>())
-        {
-            colocarPieza.enabled = true;
-        }
     }
 }
