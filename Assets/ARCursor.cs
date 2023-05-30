@@ -12,7 +12,7 @@ public class ARCursor : MonoBehaviour
     public Button placeButton;
     public Button confirmButton;
     //public GameObject recursos; // Referencia al objeto Canvas que contiene las imágenes a mostrar
-
+    public List<GameObject> recursos; // Lista de objetos GameObject que contienen las imágenes a mostrar
     private GameObject currentObject; // Guarda una referencia al objeto colocado actualmente
 
     private bool isPlacementModeActive = false; // Para rastrear si el modo de colocación está activo o no
@@ -22,7 +22,13 @@ public class ARCursor : MonoBehaviour
         placeButton.onClick.AddListener(ActivatePlacementMode);
         confirmButton.onClick.AddListener(ConfirmPlacement);
         confirmButton.gameObject.SetActive(false); // Desactivar el botón de confirmación al inicio
-        //recursos.gameObject.SetActive(false); //Desacrivar cartas al inicio
+        DisableRecursos();
+        //if (recursos != null)
+        //{
+        //    Debug.Log("Recursos es un objeto nulo");
+        //    recursos.SetActive(false); //Desactivar cartas al inicio
+        //}
+        //recursos.SetActive(false); //Desacrivar cartas al inicio
     }
 
     void Update()
@@ -73,8 +79,23 @@ public class ARCursor : MonoBehaviour
             colocarPieza.enabled = true;
             //Debug.Log("Marcador invisible ACTIVADO: " + gameObject.name); // Mensaje de depuración
         }
-
         // Mostrar las imágenes en el canvas
-        //recursos.gameObject.SetActive(true); //Activa cartas 
+        //recursos.SetActive(true); //Activa cartas 
+        EnableRecursos();
+    }
+    private void EnableRecursos()
+    {
+        foreach (GameObject recurso in recursos)
+        {
+            recurso.SetActive(true);
+        }
+    }
+
+    private void DisableRecursos()
+    {
+        foreach (GameObject recurso in recursos)
+        {
+            recurso.SetActive(false);
+        }
     }
 }
