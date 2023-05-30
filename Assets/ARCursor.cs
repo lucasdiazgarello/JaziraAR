@@ -63,12 +63,12 @@ public class ARCursor : MonoBehaviour
     {
         isPlacementModeActive = false; // Desactivar el modo de colocación
         confirmButton.gameObject.SetActive(false); // Desactivar el botón de confirmación después de confirmar la colocación
-                                                  
+        Debug.Log("Número de componentes ColocarPieza encontrados: " + GetComponentsInChildren<ColocarPieza>().Length);
         // Activar la colocación de las piezas en los marcadores invisibles
         foreach (ColocarPieza colocarPieza in GetComponentsInChildren<ColocarPieza>())
         {
             colocarPieza.enabled = true;
-            Debug.Log("Marcador invisible ACTIVADO: " + gameObject.name); // Mensaje de depuración
+            //Debug.Log("Marcador invisible ACTIVADO: " + gameObject.name); // Mensaje de depuración
         }
     }
 }

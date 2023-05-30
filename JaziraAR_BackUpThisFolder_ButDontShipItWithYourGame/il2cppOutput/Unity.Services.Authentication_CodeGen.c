@@ -1,0 +1,2873 @@
+﻿#include "pch-c.h"
+#ifndef _MSC_VER
+# include <alloca.h>
+#else
+# include <malloc.h>
+#endif
+
+
+#include "codegen/il2cpp-codegen-metadata.h"
+
+
+
+
+
+// 0x00000001 Unity.Services.Authentication.IAuthenticationService Unity.Services.Authentication.AuthenticationService::get_Instance()
+extern void AuthenticationService_get_Instance_m84EBB538A503492BD441FFB825CF257EE1365BD1 (void);
+// 0x00000002 System.Void Unity.Services.Authentication.AuthenticationService::set_Instance(Unity.Services.Authentication.IAuthenticationService)
+extern void AuthenticationService_set_Instance_mF6E5CECFA4F9F11AD6628770749F28B73904F1F3 (void);
+// 0x00000003 System.Void Unity.Services.Authentication.AuthenticationServiceInternal::add_SignInFailed(System.Action`1<Unity.Services.Core.RequestFailedException>)
+extern void AuthenticationServiceInternal_add_SignInFailed_m9260DB451A02F56C93A92418596B2D7A79EC8B01 (void);
+// 0x00000004 System.Void Unity.Services.Authentication.AuthenticationServiceInternal::remove_SignInFailed(System.Action`1<Unity.Services.Core.RequestFailedException>)
+extern void AuthenticationServiceInternal_remove_SignInFailed_m11D5F7E981019A03E7A4161F8DDA9376FC24BD82 (void);
+// 0x00000005 System.Void Unity.Services.Authentication.AuthenticationServiceInternal::add_SignedIn(System.Action)
+extern void AuthenticationServiceInternal_add_SignedIn_mEF92B74D192609D12FC1D4C4A876FE386705AD8C (void);
+// 0x00000006 System.Void Unity.Services.Authentication.AuthenticationServiceInternal::remove_SignedIn(System.Action)
+extern void AuthenticationServiceInternal_remove_SignedIn_m379A905529DB2306A0067247A896348CC44024D3 (void);
+// 0x00000007 System.Void Unity.Services.Authentication.AuthenticationServiceInternal::add_SignedOut(System.Action)
+extern void AuthenticationServiceInternal_add_SignedOut_mCCEB16EC3898F15248866478B3F87355F3C780E7 (void);
+// 0x00000008 System.Void Unity.Services.Authentication.AuthenticationServiceInternal::remove_SignedOut(System.Action)
+extern void AuthenticationServiceInternal_remove_SignedOut_m4455B51ED0B978C1E0F244F12260549C1387A74B (void);
+// 0x00000009 System.Void Unity.Services.Authentication.AuthenticationServiceInternal::add_Expired(System.Action)
+extern void AuthenticationServiceInternal_add_Expired_m4897ECD3442AE5D00E39DF27CF8DDEF296AEE8B7 (void);
+// 0x0000000A System.Void Unity.Services.Authentication.AuthenticationServiceInternal::remove_Expired(System.Action)
+extern void AuthenticationServiceInternal_remove_Expired_m001910109FB6E37D1AB589FD76A4C893380D896F (void);
+// 0x0000000B System.Boolean Unity.Services.Authentication.AuthenticationServiceInternal::get_IsSignedIn()
+extern void AuthenticationServiceInternal_get_IsSignedIn_mCF8CDE17E3B5F2ACDCF556705C025DA48D5671FB (void);
+// 0x0000000C System.Boolean Unity.Services.Authentication.AuthenticationServiceInternal::get_IsAuthorized()
+extern void AuthenticationServiceInternal_get_IsAuthorized_m617D4F6C205F90145F46BA9C4069B3B9BC87CD8D (void);
+// 0x0000000D System.Boolean Unity.Services.Authentication.AuthenticationServiceInternal::get_IsExpired()
+extern void AuthenticationServiceInternal_get_IsExpired_m28F19D8E8DC230C7A898E1FC87E4681C1BA86EB0 (void);
+// 0x0000000E System.Boolean Unity.Services.Authentication.AuthenticationServiceInternal::get_SessionTokenExists()
+extern void AuthenticationServiceInternal_get_SessionTokenExists_mA2B8C4F770CF9D4D080D829C768885A1486D3F03 (void);
+// 0x0000000F System.String Unity.Services.Authentication.AuthenticationServiceInternal::get_Profile()
+extern void AuthenticationServiceInternal_get_Profile_m57B6553E0E1ED1628AEE6211632DBA79E1D22503 (void);
+// 0x00000010 System.String Unity.Services.Authentication.AuthenticationServiceInternal::get_AccessToken()
+extern void AuthenticationServiceInternal_get_AccessToken_m7B4AC5988045E8F833AE7E31782030743B96E8F2 (void);
+// 0x00000011 System.String Unity.Services.Authentication.AuthenticationServiceInternal::get_PlayerId()
+extern void AuthenticationServiceInternal_get_PlayerId_mA599BD2E88C01DD4168B1A49BC193BF76CD471AA (void);
+// 0x00000012 System.String Unity.Services.Authentication.AuthenticationServiceInternal::get_PlayerName()
+extern void AuthenticationServiceInternal_get_PlayerName_m9AE26C74515D2C845EFF147BC9E2FF0825C172E6 (void);
+// 0x00000013 Unity.Services.Authentication.PlayerInfo Unity.Services.Authentication.AuthenticationServiceInternal::get_PlayerInfo()
+extern void AuthenticationServiceInternal_get_PlayerInfo_m8B26511EDAA52A7C50EE4EFEBB5C31D6E904985A (void);
+// 0x00000014 System.Void Unity.Services.Authentication.AuthenticationServiceInternal::set_PlayerInfo(Unity.Services.Authentication.PlayerInfo)
+extern void AuthenticationServiceInternal_set_PlayerInfo_m7A68E82BD9D316E342DF5E3AECAF108EDD238EF4 (void);
+// 0x00000015 System.Nullable`1<System.Int64> Unity.Services.Authentication.AuthenticationServiceInternal::get_ExpirationActionId()
+extern void AuthenticationServiceInternal_get_ExpirationActionId_mBF3F9F53133B98D62D753B9CF11D561CC7809519 (void);
+// 0x00000016 System.Void Unity.Services.Authentication.AuthenticationServiceInternal::set_ExpirationActionId(System.Nullable`1<System.Int64>)
+extern void AuthenticationServiceInternal_set_ExpirationActionId_m99D9F7A20AF618C1C9E9A35F879EA553648CD7D8 (void);
+// 0x00000017 System.Nullable`1<System.Int64> Unity.Services.Authentication.AuthenticationServiceInternal::get_RefreshActionId()
+extern void AuthenticationServiceInternal_get_RefreshActionId_mE26972CCF62B936620DFDD885C954E1307AACACC (void);
+// 0x00000018 System.Void Unity.Services.Authentication.AuthenticationServiceInternal::set_RefreshActionId(System.Nullable`1<System.Int64>)
+extern void AuthenticationServiceInternal_set_RefreshActionId_mBF2A7072312F301BBC125EDFD4FDBF6A55FB7460 (void);
+// 0x00000019 Unity.Services.Authentication.AccessTokenComponent Unity.Services.Authentication.AuthenticationServiceInternal::get_AccessTokenComponent()
+extern void AuthenticationServiceInternal_get_AccessTokenComponent_mA3669DE89749DFCFA04AE2A4DB47505AD55D248E (void);
+// 0x0000001A Unity.Services.Authentication.EnvironmentIdComponent Unity.Services.Authentication.AuthenticationServiceInternal::get_EnvironmentIdComponent()
+extern void AuthenticationServiceInternal_get_EnvironmentIdComponent_m195E0AFCC08E96FB3FB53F3258BF6FBB3B75036A (void);
+// 0x0000001B Unity.Services.Authentication.PlayerIdComponent Unity.Services.Authentication.AuthenticationServiceInternal::get_PlayerIdComponent()
+extern void AuthenticationServiceInternal_get_PlayerIdComponent_mCB05A130C555F6DF00E4CBCD63A86DAACF9DF743 (void);
+// 0x0000001C Unity.Services.Authentication.PlayerNameComponent Unity.Services.Authentication.AuthenticationServiceInternal::get_PlayerNameComponent()
+extern void AuthenticationServiceInternal_get_PlayerNameComponent_mEB50E746196DC30FED8812EF930B11CF95A3B7E5 (void);
+// 0x0000001D Unity.Services.Authentication.SessionTokenComponent Unity.Services.Authentication.AuthenticationServiceInternal::get_SessionTokenComponent()
+extern void AuthenticationServiceInternal_get_SessionTokenComponent_m9C8B2E8C54AA80652A0D0A33B44C904823E95046 (void);
+// 0x0000001E Unity.Services.Authentication.AuthenticationState Unity.Services.Authentication.AuthenticationServiceInternal::get_State()
+extern void AuthenticationServiceInternal_get_State_m01234DE9BB769F6C48080DDF89A17CAC3AD4DD30 (void);
+// 0x0000001F System.Void Unity.Services.Authentication.AuthenticationServiceInternal::set_State(Unity.Services.Authentication.AuthenticationState)
+extern void AuthenticationServiceInternal_set_State_mBE3362F5E6AAA06DA3D0D9CFA6CE38C5A5991FA1 (void);
+// 0x00000020 Unity.Services.Authentication.IAuthenticationSettings Unity.Services.Authentication.AuthenticationServiceInternal::get_Settings()
+extern void AuthenticationServiceInternal_get_Settings_mC9B9A3983876B35F9926EDE4132C902A6B3B9968 (void);
+// 0x00000021 Unity.Services.Authentication.IAuthenticationNetworkClient Unity.Services.Authentication.AuthenticationServiceInternal::get_NetworkClient()
+extern void AuthenticationServiceInternal_get_NetworkClient_m37ED3928BBFE26F454787D617CE4FB07419A7A8A (void);
+// 0x00000022 System.Void Unity.Services.Authentication.AuthenticationServiceInternal::set_NetworkClient(Unity.Services.Authentication.IAuthenticationNetworkClient)
+extern void AuthenticationServiceInternal_set_NetworkClient_mAB5EE732963B22FE8D779546E8D7F00300BD6937 (void);
+// 0x00000023 Unity.Services.Authentication.Generated.IPlayerNamesApi Unity.Services.Authentication.AuthenticationServiceInternal::get_PlayerNamesApi()
+extern void AuthenticationServiceInternal_get_PlayerNamesApi_mB1389CBDAE010B8F1D7F4393BEB40339788402E2 (void);
+// 0x00000024 System.Void Unity.Services.Authentication.AuthenticationServiceInternal::set_PlayerNamesApi(Unity.Services.Authentication.Generated.IPlayerNamesApi)
+extern void AuthenticationServiceInternal_set_PlayerNamesApi_m47281B46735F6481BA38727FB23DD4807A5F2471 (void);
+// 0x00000025 Unity.Services.Authentication.IAuthenticationExceptionHandler Unity.Services.Authentication.AuthenticationServiceInternal::get_ExceptionHandler()
+extern void AuthenticationServiceInternal_get_ExceptionHandler_m32684B4D8CD253445CF7F4DD065EBE6885F4B807 (void);
+// 0x00000026 System.Void Unity.Services.Authentication.AuthenticationServiceInternal::set_ExceptionHandler(Unity.Services.Authentication.IAuthenticationExceptionHandler)
+extern void AuthenticationServiceInternal_set_ExceptionHandler_mBB94FA008C5625A46536D5260F74FA11A59EA72F (void);
+// 0x00000027 System.Void Unity.Services.Authentication.AuthenticationServiceInternal::add_StateChanged(System.Action`2<Unity.Services.Authentication.AuthenticationState,Unity.Services.Authentication.AuthenticationState>)
+extern void AuthenticationServiceInternal_add_StateChanged_mBE274D0D90C92E68F11E4CB76F1B6A0CBA92D51E (void);
+// 0x00000028 System.Void Unity.Services.Authentication.AuthenticationServiceInternal::remove_StateChanged(System.Action`2<Unity.Services.Authentication.AuthenticationState,Unity.Services.Authentication.AuthenticationState>)
+extern void AuthenticationServiceInternal_remove_StateChanged_m9358488CEDD7D856B563EB07592DBFFCE6644000 (void);
+// 0x00000029 System.Void Unity.Services.Authentication.AuthenticationServiceInternal::.ctor(Unity.Services.Authentication.IAuthenticationSettings,Unity.Services.Authentication.IAuthenticationNetworkClient,Unity.Services.Authentication.Generated.IPlayerNamesApi,Unity.Services.Authentication.IProfile,Unity.Services.Authentication.IJwtDecoder,Unity.Services.Authentication.IAuthenticationCache,Unity.Services.Core.Scheduler.Internal.IActionScheduler,Unity.Services.Authentication.IAuthenticationMetrics,Unity.Services.Authentication.AccessTokenComponent,Unity.Services.Authentication.EnvironmentIdComponent,Unity.Services.Authentication.PlayerIdComponent,Unity.Services.Authentication.PlayerNameComponent,Unity.Services.Authentication.SessionTokenComponent)
+extern void AuthenticationServiceInternal__ctor_m6BB624BF2678A8D12FA7317ACAA57D6F08D14803 (void);
+// 0x0000002A System.Void Unity.Services.Authentication.AuthenticationServiceInternal::OnPlayerIdChanged(System.String)
+extern void AuthenticationServiceInternal_OnPlayerIdChanged_m8F1D82EE695AE41A8AC22561463A1228C1516D7F (void);
+// 0x0000002B System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::SignInAnonymouslyAsync(Unity.Services.Authentication.SignInOptions)
+extern void AuthenticationServiceInternal_SignInAnonymouslyAsync_m4BAC03BBA2966C917F39B2B934E904A1AF56C0BE (void);
+// 0x0000002C System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::SignInWithAppleAsync(System.String,Unity.Services.Authentication.SignInOptions)
+extern void AuthenticationServiceInternal_SignInWithAppleAsync_m9438959DDE9EA79980705E87D4C9A582261E7928 (void);
+// 0x0000002D System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::LinkWithAppleAsync(System.String,Unity.Services.Authentication.LinkOptions)
+extern void AuthenticationServiceInternal_LinkWithAppleAsync_m79812F4B8E123CA37B4F9ACD7091724C27AB8DC7 (void);
+// 0x0000002E System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::UnlinkAppleAsync()
+extern void AuthenticationServiceInternal_UnlinkAppleAsync_m0BB7B1F4D85E74B4740D8978F2A645BF70A2565E (void);
+// 0x0000002F System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::SignInWithAppleGameCenterAsync(System.String,System.String,System.String,System.String,System.UInt64,Unity.Services.Authentication.SignInOptions)
+extern void AuthenticationServiceInternal_SignInWithAppleGameCenterAsync_m0721A14AA0A62B613DCAABDF5F4781E2CD7CD47B (void);
+// 0x00000030 System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::LinkWithAppleGameCenterAsync(System.String,System.String,System.String,System.String,System.UInt64,Unity.Services.Authentication.LinkOptions)
+extern void AuthenticationServiceInternal_LinkWithAppleGameCenterAsync_m14DB60E1DB12844B6F84A2BE25FEC2B55AF0DD32 (void);
+// 0x00000031 System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::UnlinkAppleGameCenterAsync()
+extern void AuthenticationServiceInternal_UnlinkAppleGameCenterAsync_mB053A3A915A5A49B5B6AFDDD97D39EF11555CDF1 (void);
+// 0x00000032 System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::SignInWithGoogleAsync(System.String,Unity.Services.Authentication.SignInOptions)
+extern void AuthenticationServiceInternal_SignInWithGoogleAsync_mB7ADE93702AA18F34566D4780F64DDDCDF3E4EBE (void);
+// 0x00000033 System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::LinkWithGoogleAsync(System.String,Unity.Services.Authentication.LinkOptions)
+extern void AuthenticationServiceInternal_LinkWithGoogleAsync_m9322A07ED46D38662C2DE33860EB3781021219AC (void);
+// 0x00000034 System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::UnlinkGoogleAsync()
+extern void AuthenticationServiceInternal_UnlinkGoogleAsync_m683BE3D579149A80CEE804CA2BC44E79795D9660 (void);
+// 0x00000035 System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::SignInWithGooglePlayGamesAsync(System.String,Unity.Services.Authentication.SignInOptions)
+extern void AuthenticationServiceInternal_SignInWithGooglePlayGamesAsync_mA4C432134C661EFAC1F39B58B1E6CB2C223AFAFE (void);
+// 0x00000036 System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::LinkWithGooglePlayGamesAsync(System.String,Unity.Services.Authentication.LinkOptions)
+extern void AuthenticationServiceInternal_LinkWithGooglePlayGamesAsync_mB06D2C704996E57BD3C7931DC47C98C82F07AC82 (void);
+// 0x00000037 System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::UnlinkGooglePlayGamesAsync()
+extern void AuthenticationServiceInternal_UnlinkGooglePlayGamesAsync_m996F398C7E64BC86BA301F52F8BE02F4F1FA1728 (void);
+// 0x00000038 System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::SignInWithFacebookAsync(System.String,Unity.Services.Authentication.SignInOptions)
+extern void AuthenticationServiceInternal_SignInWithFacebookAsync_m1A8CF00A875AAA4BEE722EFED56A6DA75F6A8723 (void);
+// 0x00000039 System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::LinkWithFacebookAsync(System.String,Unity.Services.Authentication.LinkOptions)
+extern void AuthenticationServiceInternal_LinkWithFacebookAsync_m9CF62A069FA85C851F146BACFF78DD9242E3D822 (void);
+// 0x0000003A System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::UnlinkFacebookAsync()
+extern void AuthenticationServiceInternal_UnlinkFacebookAsync_m9338E359D55A2F7C7D360756C5F0BDA69E8CEA68 (void);
+// 0x0000003B System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::SignInWithSteamAsync(System.String,Unity.Services.Authentication.SignInOptions)
+extern void AuthenticationServiceInternal_SignInWithSteamAsync_m38ECA4D8B9C2882D1CEA57641C6226DBEFD68719 (void);
+// 0x0000003C System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::LinkWithSteamAsync(System.String,Unity.Services.Authentication.LinkOptions)
+extern void AuthenticationServiceInternal_LinkWithSteamAsync_m35E08ECD20157F5BFFCBDAE974C19ABB9A8A2AF1 (void);
+// 0x0000003D System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::UnlinkSteamAsync()
+extern void AuthenticationServiceInternal_UnlinkSteamAsync_m1A9027DF204C5483D17F7E9409D235B39939EE91 (void);
+// 0x0000003E System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::SignInWithOculusAsync(System.String,System.String,Unity.Services.Authentication.SignInOptions)
+extern void AuthenticationServiceInternal_SignInWithOculusAsync_mF0D8471CE58236641B47656ED95D4DF56D968C9F (void);
+// 0x0000003F System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::LinkWithOculusAsync(System.String,System.String,Unity.Services.Authentication.LinkOptions)
+extern void AuthenticationServiceInternal_LinkWithOculusAsync_mB925C48FDD02854009AEF910BD304E4A91865C80 (void);
+// 0x00000040 System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::UnlinkOculusAsync()
+extern void AuthenticationServiceInternal_UnlinkOculusAsync_m39B8D073A5FAD099061C9CE8B310D4774A413137 (void);
+// 0x00000041 System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::SignInWithOpenIdConnectAsync(System.String,System.String,Unity.Services.Authentication.SignInOptions)
+extern void AuthenticationServiceInternal_SignInWithOpenIdConnectAsync_m0639D7D3C1334E8EDCC5E8337A05E4168CEFDBFA (void);
+// 0x00000042 System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::LinkWithOpenIdConnectAsync(System.String,System.String,Unity.Services.Authentication.LinkOptions)
+extern void AuthenticationServiceInternal_LinkWithOpenIdConnectAsync_m0A25A3433D018535796AB5988D855481572D199D (void);
+// 0x00000043 System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::UnlinkOpenIdConnectAsync(System.String)
+extern void AuthenticationServiceInternal_UnlinkOpenIdConnectAsync_mD6BFDD7B57BE26ADE394F184764B87D91504E185 (void);
+// 0x00000044 System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::DeleteAccountAsync()
+extern void AuthenticationServiceInternal_DeleteAccountAsync_mF911D9854C8197F76E1BFFF384AF7F218312A751 (void);
+// 0x00000045 System.Void Unity.Services.Authentication.AuthenticationServiceInternal::SignOut(System.Boolean)
+extern void AuthenticationServiceInternal_SignOut_m57F1EDE2B4ED5BAD2B115CC8706318E39848D18F (void);
+// 0x00000046 System.Void Unity.Services.Authentication.AuthenticationServiceInternal::SwitchProfile(System.String)
+extern void AuthenticationServiceInternal_SwitchProfile_mF20971349EFB7A009768687FD8377C6C509749FE (void);
+// 0x00000047 System.Void Unity.Services.Authentication.AuthenticationServiceInternal::ClearSessionToken()
+extern void AuthenticationServiceInternal_ClearSessionToken_mEA69C75EA48AA816E80655FAF60D15BFAB520956 (void);
+// 0x00000048 System.Threading.Tasks.Task`1<Unity.Services.Authentication.PlayerInfo> Unity.Services.Authentication.AuthenticationServiceInternal::GetPlayerInfoAsync()
+extern void AuthenticationServiceInternal_GetPlayerInfoAsync_m56A32EE64505A5AA2F7E920F02C062F99BFFC5F2 (void);
+// 0x00000049 System.Threading.Tasks.Task`1<System.String> Unity.Services.Authentication.AuthenticationServiceInternal::GetPlayerNameAsync()
+extern void AuthenticationServiceInternal_GetPlayerNameAsync_m70E6D4B8F08DD80BB2682B40A12D91FF606427EF (void);
+// 0x0000004A System.Threading.Tasks.Task`1<System.String> Unity.Services.Authentication.AuthenticationServiceInternal::UpdatePlayerNameAsync(System.String)
+extern void AuthenticationServiceInternal_UpdatePlayerNameAsync_mA26EB0F8EBF96FC35596EBE509B5F0FF896CD89C (void);
+// 0x0000004B System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::SignInWithExternalTokenAsync(System.String,Unity.Services.Authentication.SignInWithExternalTokenRequest,System.Boolean)
+extern void AuthenticationServiceInternal_SignInWithExternalTokenAsync_m821E9C1642EB0B5F30F6B58675E835275F38DD3C (void);
+// 0x0000004C System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::LinkWithExternalTokenAsync(System.String,Unity.Services.Authentication.LinkWithExternalTokenRequest)
+extern void AuthenticationServiceInternal_LinkWithExternalTokenAsync_mADEE06BFC252587421B771D9148D64AEEF3AE182 (void);
+// 0x0000004D System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::UnlinkExternalTokenAsync(System.String)
+extern void AuthenticationServiceInternal_UnlinkExternalTokenAsync_m5C2F9AC1CF447733FC51EE6BCA54C79910B5DF53 (void);
+// 0x0000004E System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::RefreshAccessTokenAsync()
+extern void AuthenticationServiceInternal_RefreshAccessTokenAsync_m03EB449C187B6B0C62E0BAE40E38E96990FFC1BF (void);
+// 0x0000004F System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::HandleSignInRequestAsync(System.Func`1<System.Threading.Tasks.Task`1<Unity.Services.Authentication.SignInResponse>>,System.Boolean)
+extern void AuthenticationServiceInternal_HandleSignInRequestAsync_m3423F29240C8B4EBB2298864A1FEF3309298EE7D (void);
+// 0x00000050 System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationServiceInternal::StartRefreshAsync(System.String)
+extern void AuthenticationServiceInternal_StartRefreshAsync_mF7C17957ABBFE3DF4F5537880B7B4D4EBB9F56EC (void);
+// 0x00000051 System.Void Unity.Services.Authentication.AuthenticationServiceInternal::CompleteSignIn(Unity.Services.Authentication.SignInResponse,System.Boolean)
+extern void AuthenticationServiceInternal_CompleteSignIn_m05519A7D98EC9B8FB6D2EF043A033FBF0D6885A9 (void);
+// 0x00000052 System.Void Unity.Services.Authentication.AuthenticationServiceInternal::ScheduleRefresh(System.Double)
+extern void AuthenticationServiceInternal_ScheduleRefresh_mD999E01866FCCBAD4554819092ED652F12138760 (void);
+// 0x00000053 System.Void Unity.Services.Authentication.AuthenticationServiceInternal::ScheduleExpiration(System.Double)
+extern void AuthenticationServiceInternal_ScheduleExpiration_m80E7EB6B01CACC101D8E850F8E3FAD80F4AC1847 (void);
+// 0x00000054 System.Void Unity.Services.Authentication.AuthenticationServiceInternal::ExecuteScheduledRefresh()
+extern void AuthenticationServiceInternal_ExecuteScheduledRefresh_m3F20BC22FE9891DB8DA89EDD005EA697F28E53D5 (void);
+// 0x00000055 System.Void Unity.Services.Authentication.AuthenticationServiceInternal::ExecuteScheduledExpiration()
+extern void AuthenticationServiceInternal_ExecuteScheduledExpiration_m295051F90C97683E17AEB33E12FF0C251E0AD287 (void);
+// 0x00000056 System.Void Unity.Services.Authentication.AuthenticationServiceInternal::CancelScheduledRefresh()
+extern void AuthenticationServiceInternal_CancelScheduledRefresh_m0B29DB4688BAC73FE422A438F3E0F3497EACEFAC (void);
+// 0x00000057 System.Void Unity.Services.Authentication.AuthenticationServiceInternal::CancelScheduledExpiration()
+extern void AuthenticationServiceInternal_CancelScheduledExpiration_m557C0FF13043CED6124ED31DA2B58E6CB6C63481 (void);
+// 0x00000058 System.Void Unity.Services.Authentication.AuthenticationServiceInternal::Expire()
+extern void AuthenticationServiceInternal_Expire_m8C6099E18DC51230DE98008291F7C59CE4956593 (void);
+// 0x00000059 System.Void Unity.Services.Authentication.AuthenticationServiceInternal::MigrateCache()
+extern void AuthenticationServiceInternal_MigrateCache_mF2F36D8CA3F887DAAF9E3374A6DFCBF488958FAB (void);
+// 0x0000005A System.Void Unity.Services.Authentication.AuthenticationServiceInternal::ChangeState(Unity.Services.Authentication.AuthenticationState)
+extern void AuthenticationServiceInternal_ChangeState_m91558470DA842D246FA2DC42F92E8602E719A61F (void);
+// 0x0000005B System.Void Unity.Services.Authentication.AuthenticationServiceInternal::HandleStateChanged(Unity.Services.Authentication.AuthenticationState,Unity.Services.Authentication.AuthenticationState)
+extern void AuthenticationServiceInternal_HandleStateChanged_mA91EB55BD7CB58B1D54CE9AFBF300671A11E5082 (void);
+// 0x0000005C System.Void Unity.Services.Authentication.AuthenticationServiceInternal::SendSignInFailedEvent(Unity.Services.Core.RequestFailedException,System.Boolean)
+extern void AuthenticationServiceInternal_SendSignInFailedEvent_mAC3544A54E02CF24D377A1DCC62FAB1288D360CD (void);
+// 0x0000005D System.Boolean Unity.Services.Authentication.AuthenticationServiceInternal::ValidateOpenIdConnectIdProviderName(System.String)
+extern void AuthenticationServiceInternal_ValidateOpenIdConnectIdProviderName_m57FA4BCBC6D9EF16B3F4227A11F58AEE2FB152D9 (void);
+// 0x0000005E System.Void Unity.Services.Authentication.AuthenticationServiceInternal::<.ctor>b__84_0()
+extern void AuthenticationServiceInternal_U3C_ctorU3Eb__84_0_mB309FF7C1301AAFE2451FC1CF90F63A15CC66386 (void);
+// 0x0000005F System.Void Unity.Services.Authentication.AuthenticationServiceInternal/<>c__DisplayClass86_0::.ctor()
+extern void U3CU3Ec__DisplayClass86_0__ctor_m38B2EAD9EBEC501ED7FF1B906255E40A2D023894 (void);
+// 0x00000060 System.Threading.Tasks.Task`1<Unity.Services.Authentication.SignInResponse> Unity.Services.Authentication.AuthenticationServiceInternal/<>c__DisplayClass86_0::<SignInAnonymouslyAsync>b__0()
+extern void U3CU3Ec__DisplayClass86_0_U3CSignInAnonymouslyAsyncU3Eb__0_m15898848F124A4603896B4B1F352F1D673645180 (void);
+// 0x00000061 System.Void Unity.Services.Authentication.AuthenticationServiceInternal/<DeleteAccountAsync>d__111::MoveNext()
+extern void U3CDeleteAccountAsyncU3Ed__111_MoveNext_mB0092D275548B227AFBDFFC9B29C6FC23C4273DB (void);
+// 0x00000062 System.Void Unity.Services.Authentication.AuthenticationServiceInternal/<DeleteAccountAsync>d__111::SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)
+extern void U3CDeleteAccountAsyncU3Ed__111_SetStateMachine_m03A9195B5A1403F310FB638168E2EF4601FED491 (void);
+// 0x00000063 System.Void Unity.Services.Authentication.AuthenticationServiceInternal/<GetPlayerInfoAsync>d__115::MoveNext()
+extern void U3CGetPlayerInfoAsyncU3Ed__115_MoveNext_m2745A501F939CAF40455B029217EC08721BD4C19 (void);
+// 0x00000064 System.Void Unity.Services.Authentication.AuthenticationServiceInternal/<GetPlayerInfoAsync>d__115::SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)
+extern void U3CGetPlayerInfoAsyncU3Ed__115_SetStateMachine_m62DC16AE098A6EE65FAF7CBB94A01CD48F7B8095 (void);
+// 0x00000065 System.Void Unity.Services.Authentication.AuthenticationServiceInternal/<GetPlayerNameAsync>d__116::MoveNext()
+extern void U3CGetPlayerNameAsyncU3Ed__116_MoveNext_mDA5D0F2B05AE77086DE58B32DB52C5DF1245E13F (void);
+// 0x00000066 System.Void Unity.Services.Authentication.AuthenticationServiceInternal/<GetPlayerNameAsync>d__116::SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)
+extern void U3CGetPlayerNameAsyncU3Ed__116_SetStateMachine_m5B7D4853A68A7B60BE857599BA0FB57542E98DFC (void);
+// 0x00000067 System.Void Unity.Services.Authentication.AuthenticationServiceInternal/<UpdatePlayerNameAsync>d__117::MoveNext()
+extern void U3CUpdatePlayerNameAsyncU3Ed__117_MoveNext_m7964EAC19261203FBD0CF257BBC9B52A589CA0B3 (void);
+// 0x00000068 System.Void Unity.Services.Authentication.AuthenticationServiceInternal/<UpdatePlayerNameAsync>d__117::SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)
+extern void U3CUpdatePlayerNameAsyncU3Ed__117_SetStateMachine_mA2662219231993418071AC21B7B5D1836221FEC3 (void);
+// 0x00000069 System.Void Unity.Services.Authentication.AuthenticationServiceInternal/<>c__DisplayClass118_0::.ctor()
+extern void U3CU3Ec__DisplayClass118_0__ctor_m509C059FF650F1F0F6E1141FD83FF9CBCF86E840 (void);
+// 0x0000006A System.Threading.Tasks.Task`1<Unity.Services.Authentication.SignInResponse> Unity.Services.Authentication.AuthenticationServiceInternal/<>c__DisplayClass118_0::<SignInWithExternalTokenAsync>b__0()
+extern void U3CU3Ec__DisplayClass118_0_U3CSignInWithExternalTokenAsyncU3Eb__0_m662EF5C06332A8730564768733FF15BB04CAF64A (void);
+// 0x0000006B System.Void Unity.Services.Authentication.AuthenticationServiceInternal/<>c__DisplayClass119_0::.ctor()
+extern void U3CU3Ec__DisplayClass119_0__ctor_mB56DA9E2149D20F7A9590D0E689B644A36047987 (void);
+// 0x0000006C System.Boolean Unity.Services.Authentication.AuthenticationServiceInternal/<>c__DisplayClass119_0::<LinkWithExternalTokenAsync>b__0(Unity.Services.Authentication.ExternalIdentity)
+extern void U3CU3Ec__DisplayClass119_0_U3CLinkWithExternalTokenAsyncU3Eb__0_m8549C1AC1D3523A2AD86C50514F37C4777DE6826 (void);
+// 0x0000006D System.Void Unity.Services.Authentication.AuthenticationServiceInternal/<LinkWithExternalTokenAsync>d__119::MoveNext()
+extern void U3CLinkWithExternalTokenAsyncU3Ed__119_MoveNext_mD01DD2F5E7DA67CB12EA0D8A44DF58C4927A330A (void);
+// 0x0000006E System.Void Unity.Services.Authentication.AuthenticationServiceInternal/<LinkWithExternalTokenAsync>d__119::SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)
+extern void U3CLinkWithExternalTokenAsyncU3Ed__119_SetStateMachine_m53FE29F70334BE654F0246F66C4F3DF4BDDFCE7F (void);
+// 0x0000006F System.Void Unity.Services.Authentication.AuthenticationServiceInternal/<UnlinkExternalTokenAsync>d__120::MoveNext()
+extern void U3CUnlinkExternalTokenAsyncU3Ed__120_MoveNext_mCC942E4BB16DBEE82AF58247649966DD6C6C02D5 (void);
+// 0x00000070 System.Void Unity.Services.Authentication.AuthenticationServiceInternal/<UnlinkExternalTokenAsync>d__120::SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)
+extern void U3CUnlinkExternalTokenAsyncU3Ed__120_SetStateMachine_m084B4D20E0174850B75FD95462692A7C4D60A409 (void);
+// 0x00000071 System.Void Unity.Services.Authentication.AuthenticationServiceInternal/<HandleSignInRequestAsync>d__122::MoveNext()
+extern void U3CHandleSignInRequestAsyncU3Ed__122_MoveNext_m441EAB4415608573AFD6CCE4EBD4363AFB54C71D (void);
+// 0x00000072 System.Void Unity.Services.Authentication.AuthenticationServiceInternal/<HandleSignInRequestAsync>d__122::SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)
+extern void U3CHandleSignInRequestAsyncU3Ed__122_SetStateMachine_m597960392295614497EE815DE8132D09005F6274 (void);
+// 0x00000073 System.Void Unity.Services.Authentication.AuthenticationServiceInternal/<StartRefreshAsync>d__123::MoveNext()
+extern void U3CStartRefreshAsyncU3Ed__123_MoveNext_mF70A61A50756202DF634AC009993CB501A487CAE (void);
+// 0x00000074 System.Void Unity.Services.Authentication.AuthenticationServiceInternal/<StartRefreshAsync>d__123::SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)
+extern void U3CStartRefreshAsyncU3Ed__123_SetStateMachine_m1CA92E0FA1B25FD7B843D2918EE69BCA5441A0C5 (void);
+// 0x00000075 System.Void Unity.Services.Authentication.AuthenticationServiceInternal/<>c::.cctor()
+extern void U3CU3Ec__cctor_m24D5D6B4E3E581FC2257B3B73EC89F135663E76C (void);
+// 0x00000076 System.Void Unity.Services.Authentication.AuthenticationServiceInternal/<>c::.ctor()
+extern void U3CU3Ec__ctor_mE9B682B809A0D474148BA6C0C48D2E67E07FF863 (void);
+// 0x00000077 System.Boolean Unity.Services.Authentication.AuthenticationServiceInternal/<>c::<CompleteSignIn>b__124_0(System.String)
+extern void U3CU3Ec_U3CCompleteSignInU3Eb__124_0_mABF10C12D5B2C901113EA025AAAC9085F186B51D (void);
+// 0x00000078 Unity.Services.Core.InitializationOptions Unity.Services.Authentication.AuthenticationExtensions::SetProfile(Unity.Services.Core.InitializationOptions,System.String)
+extern void AuthenticationExtensions_SetProfile_mD1C151F3937FEC53EBFD94CC4EE91E13DCE5BACA (void);
+// 0x00000079 System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationPackageInitializer::Initialize(Unity.Services.Core.Internal.CoreRegistry)
+extern void AuthenticationPackageInitializer_Initialize_m7203F9CF9F2E4231A87F06FDF19613C853874047 (void);
+// 0x0000007A System.Void Unity.Services.Authentication.AuthenticationPackageInitializer::Register()
+extern void AuthenticationPackageInitializer_Register_mFBA2D2FB318E6DBACF9D6CE54C20748A71DBD4E3 (void);
+// 0x0000007B System.String Unity.Services.Authentication.AuthenticationPackageInitializer::GetPlayerAuthHost(Unity.Services.Core.Configuration.Internal.IProjectConfiguration)
+extern void AuthenticationPackageInitializer_GetPlayerAuthHost_m9D80BB814ADE4DAFCFDE9268EE02DB21738DF121 (void);
+// 0x0000007C System.String Unity.Services.Authentication.AuthenticationPackageInitializer::GetPlayerNamesHost(Unity.Services.Core.Configuration.Internal.IProjectConfiguration)
+extern void AuthenticationPackageInitializer_GetPlayerNamesHost_mE0A301262A794147EE31737AACD63C1523ADDD90 (void);
+// 0x0000007D System.Void Unity.Services.Authentication.AuthenticationPackageInitializer::.ctor()
+extern void AuthenticationPackageInitializer__ctor_m7CCECFA94D25D61294F3A9A2FCEB6CCA2B401130 (void);
+// 0x0000007E System.Void Unity.Services.Authentication.AuthenticationErrorCodes::.cctor()
+extern void AuthenticationErrorCodes__cctor_m6745DB9DF5D40FEED6DC259B6362EDB627D6FF69 (void);
+// 0x0000007F System.Void Unity.Services.Authentication.AuthenticationException::.ctor(System.Int32,System.String,System.Exception)
+extern void AuthenticationException__ctor_mE85564838F285C5EB1D1B7B417BC3A2E8D3FE3CF (void);
+// 0x00000080 Unity.Services.Core.RequestFailedException Unity.Services.Authentication.AuthenticationException::Create(System.Int32,System.String,System.Exception)
+extern void AuthenticationException_Create_mE1E6C1F3DF918B0DBCD40D720049396EE93093F0 (void);
+// 0x00000081 Unity.Services.Authentication.IAuthenticationMetrics Unity.Services.Authentication.AuthenticationExceptionHandler::get_Metrics()
+extern void AuthenticationExceptionHandler_get_Metrics_mF82B642C6173955FB38796EA2F33101CE53C08F4 (void);
+// 0x00000082 System.Void Unity.Services.Authentication.AuthenticationExceptionHandler::.ctor(Unity.Services.Authentication.IAuthenticationMetrics)
+extern void AuthenticationExceptionHandler__ctor_mE511C787743409E6935F118104986FA6F2AA2D2D (void);
+// 0x00000083 Unity.Services.Core.RequestFailedException Unity.Services.Authentication.AuthenticationExceptionHandler::BuildClientInvalidStateException(Unity.Services.Authentication.AuthenticationState)
+extern void AuthenticationExceptionHandler_BuildClientInvalidStateException_m34CC3E8AA9A365C7F6E22FF47D63EC6045E480AB (void);
+// 0x00000084 Unity.Services.Core.RequestFailedException Unity.Services.Authentication.AuthenticationExceptionHandler::BuildClientInvalidProfileException()
+extern void AuthenticationExceptionHandler_BuildClientInvalidProfileException_mA9878EA0982E006B5F4522AB867BE31D7165AE33 (void);
+// 0x00000085 Unity.Services.Core.RequestFailedException Unity.Services.Authentication.AuthenticationExceptionHandler::BuildClientUnlinkExternalIdNotFoundException()
+extern void AuthenticationExceptionHandler_BuildClientUnlinkExternalIdNotFoundException_m58E2F3D34A1C6ABF60A49C3FD710A4591FFC1613 (void);
+// 0x00000086 Unity.Services.Core.RequestFailedException Unity.Services.Authentication.AuthenticationExceptionHandler::BuildClientSessionTokenNotExistsException()
+extern void AuthenticationExceptionHandler_BuildClientSessionTokenNotExistsException_mFE10150FCB954ADF516ACD9FCE23992CF488C09A (void);
+// 0x00000087 Unity.Services.Core.RequestFailedException Unity.Services.Authentication.AuthenticationExceptionHandler::BuildUnknownException(System.String)
+extern void AuthenticationExceptionHandler_BuildUnknownException_m953D21F54803045A8DA3C7DA05EE2F913E8A0B9F (void);
+// 0x00000088 Unity.Services.Core.RequestFailedException Unity.Services.Authentication.AuthenticationExceptionHandler::BuildInvalidIdProviderNameException()
+extern void AuthenticationExceptionHandler_BuildInvalidIdProviderNameException_m4CF741886E003D19B682C3740E51B05461F2C9B7 (void);
+// 0x00000089 Unity.Services.Core.RequestFailedException Unity.Services.Authentication.AuthenticationExceptionHandler::BuildInvalidPlayerNameException()
+extern void AuthenticationExceptionHandler_BuildInvalidPlayerNameException_m6DCCF5F84DE39759D87F3F1A666ECF9E1271C4F9 (void);
+// 0x0000008A Unity.Services.Core.RequestFailedException Unity.Services.Authentication.AuthenticationExceptionHandler::ConvertException(Unity.Services.Authentication.WebRequestException)
+extern void AuthenticationExceptionHandler_ConvertException_mECEA2AB94B92D193A58DA8B8AC57CAB816AD9C0D (void);
+// 0x0000008B Unity.Services.Core.RequestFailedException Unity.Services.Authentication.AuthenticationExceptionHandler::ConvertException(Unity.Services.Authentication.Shared.ApiException)
+extern void AuthenticationExceptionHandler_ConvertException_m8E66D01A7F09E8BB39B5C5791B852B26F99B1E50 (void);
+// 0x0000008C Unity.Services.Core.RequestFailedException Unity.Services.Authentication.AuthenticationExceptionHandler::CreateNetworkException(Unity.Services.Authentication.Shared.ApiException)
+extern void AuthenticationExceptionHandler_CreateNetworkException_m30575D080FF6E842B78B0047BFC6ACEC26876559 (void);
+// 0x0000008D Unity.Services.Core.RequestFailedException Unity.Services.Authentication.AuthenticationExceptionHandler::CreateHttpException(Unity.Services.Authentication.Shared.ApiException)
+extern void AuthenticationExceptionHandler_CreateHttpException_mF006E755A5B570151C16A61B3918828CB8CF5CC3 (void);
+// 0x0000008E Unity.Services.Core.RequestFailedException Unity.Services.Authentication.AuthenticationExceptionHandler::CreateUnknownException(System.Exception)
+extern void AuthenticationExceptionHandler_CreateUnknownException_m430FB8A7E37B2E1C9E1778AC602187ADCF13B48C (void);
+// 0x0000008F System.Int32 Unity.Services.Authentication.AuthenticationExceptionHandler::MapErrorCodes(System.String)
+extern void AuthenticationExceptionHandler_MapErrorCodes_m0D969D5544C94A7AA65B506EEB73C8A216773091 (void);
+// 0x00000090 Unity.Services.Core.RequestFailedException Unity.Services.Authentication.IAuthenticationExceptionHandler::BuildClientInvalidStateException(Unity.Services.Authentication.AuthenticationState)
+// 0x00000091 Unity.Services.Core.RequestFailedException Unity.Services.Authentication.IAuthenticationExceptionHandler::BuildClientInvalidProfileException()
+// 0x00000092 Unity.Services.Core.RequestFailedException Unity.Services.Authentication.IAuthenticationExceptionHandler::BuildClientUnlinkExternalIdNotFoundException()
+// 0x00000093 Unity.Services.Core.RequestFailedException Unity.Services.Authentication.IAuthenticationExceptionHandler::BuildClientSessionTokenNotExistsException()
+// 0x00000094 Unity.Services.Core.RequestFailedException Unity.Services.Authentication.IAuthenticationExceptionHandler::BuildUnknownException(System.String)
+// 0x00000095 Unity.Services.Core.RequestFailedException Unity.Services.Authentication.IAuthenticationExceptionHandler::BuildInvalidIdProviderNameException()
+// 0x00000096 Unity.Services.Core.RequestFailedException Unity.Services.Authentication.IAuthenticationExceptionHandler::BuildInvalidPlayerNameException()
+// 0x00000097 Unity.Services.Core.RequestFailedException Unity.Services.Authentication.IAuthenticationExceptionHandler::ConvertException(Unity.Services.Authentication.WebRequestException)
+// 0x00000098 Unity.Services.Core.RequestFailedException Unity.Services.Authentication.IAuthenticationExceptionHandler::ConvertException(Unity.Services.Authentication.Shared.ApiException)
+// 0x00000099 System.Void Unity.Services.Authentication.IAuthenticationService::add_SignedIn(System.Action)
+// 0x0000009A System.Void Unity.Services.Authentication.IAuthenticationService::remove_SignedIn(System.Action)
+// 0x0000009B System.Void Unity.Services.Authentication.IAuthenticationService::add_SignedOut(System.Action)
+// 0x0000009C System.Void Unity.Services.Authentication.IAuthenticationService::remove_SignedOut(System.Action)
+// 0x0000009D System.Void Unity.Services.Authentication.IAuthenticationService::add_Expired(System.Action)
+// 0x0000009E System.Void Unity.Services.Authentication.IAuthenticationService::remove_Expired(System.Action)
+// 0x0000009F System.Void Unity.Services.Authentication.IAuthenticationService::add_SignInFailed(System.Action`1<Unity.Services.Core.RequestFailedException>)
+// 0x000000A0 System.Void Unity.Services.Authentication.IAuthenticationService::remove_SignInFailed(System.Action`1<Unity.Services.Core.RequestFailedException>)
+// 0x000000A1 System.Boolean Unity.Services.Authentication.IAuthenticationService::get_IsSignedIn()
+// 0x000000A2 System.Boolean Unity.Services.Authentication.IAuthenticationService::get_IsAuthorized()
+// 0x000000A3 System.Boolean Unity.Services.Authentication.IAuthenticationService::get_IsExpired()
+// 0x000000A4 System.String Unity.Services.Authentication.IAuthenticationService::get_AccessToken()
+// 0x000000A5 System.String Unity.Services.Authentication.IAuthenticationService::get_PlayerId()
+// 0x000000A6 System.String Unity.Services.Authentication.IAuthenticationService::get_PlayerName()
+// 0x000000A7 System.String Unity.Services.Authentication.IAuthenticationService::get_Profile()
+// 0x000000A8 System.Boolean Unity.Services.Authentication.IAuthenticationService::get_SessionTokenExists()
+// 0x000000A9 Unity.Services.Authentication.PlayerInfo Unity.Services.Authentication.IAuthenticationService::get_PlayerInfo()
+// 0x000000AA System.Threading.Tasks.Task Unity.Services.Authentication.IAuthenticationService::SignInAnonymouslyAsync(Unity.Services.Authentication.SignInOptions)
+// 0x000000AB System.Threading.Tasks.Task Unity.Services.Authentication.IAuthenticationService::SignInWithAppleAsync(System.String,Unity.Services.Authentication.SignInOptions)
+// 0x000000AC System.Threading.Tasks.Task Unity.Services.Authentication.IAuthenticationService::LinkWithAppleAsync(System.String,Unity.Services.Authentication.LinkOptions)
+// 0x000000AD System.Threading.Tasks.Task Unity.Services.Authentication.IAuthenticationService::UnlinkAppleAsync()
+// 0x000000AE System.Threading.Tasks.Task Unity.Services.Authentication.IAuthenticationService::SignInWithAppleGameCenterAsync(System.String,System.String,System.String,System.String,System.UInt64,Unity.Services.Authentication.SignInOptions)
+// 0x000000AF System.Threading.Tasks.Task Unity.Services.Authentication.IAuthenticationService::LinkWithAppleGameCenterAsync(System.String,System.String,System.String,System.String,System.UInt64,Unity.Services.Authentication.LinkOptions)
+// 0x000000B0 System.Threading.Tasks.Task Unity.Services.Authentication.IAuthenticationService::UnlinkAppleGameCenterAsync()
+// 0x000000B1 System.Threading.Tasks.Task Unity.Services.Authentication.IAuthenticationService::SignInWithGoogleAsync(System.String,Unity.Services.Authentication.SignInOptions)
+// 0x000000B2 System.Threading.Tasks.Task Unity.Services.Authentication.IAuthenticationService::LinkWithGoogleAsync(System.String,Unity.Services.Authentication.LinkOptions)
+// 0x000000B3 System.Threading.Tasks.Task Unity.Services.Authentication.IAuthenticationService::UnlinkGoogleAsync()
+// 0x000000B4 System.Threading.Tasks.Task Unity.Services.Authentication.IAuthenticationService::SignInWithGooglePlayGamesAsync(System.String,Unity.Services.Authentication.SignInOptions)
+// 0x000000B5 System.Threading.Tasks.Task Unity.Services.Authentication.IAuthenticationService::LinkWithGooglePlayGamesAsync(System.String,Unity.Services.Authentication.LinkOptions)
+// 0x000000B6 System.Threading.Tasks.Task Unity.Services.Authentication.IAuthenticationService::UnlinkGooglePlayGamesAsync()
+// 0x000000B7 System.Threading.Tasks.Task Unity.Services.Authentication.IAuthenticationService::SignInWithFacebookAsync(System.String,Unity.Services.Authentication.SignInOptions)
+// 0x000000B8 System.Threading.Tasks.Task Unity.Services.Authentication.IAuthenticationService::LinkWithFacebookAsync(System.String,Unity.Services.Authentication.LinkOptions)
+// 0x000000B9 System.Threading.Tasks.Task Unity.Services.Authentication.IAuthenticationService::UnlinkFacebookAsync()
+// 0x000000BA System.Threading.Tasks.Task Unity.Services.Authentication.IAuthenticationService::SignInWithSteamAsync(System.String,Unity.Services.Authentication.SignInOptions)
+// 0x000000BB System.Threading.Tasks.Task Unity.Services.Authentication.IAuthenticationService::LinkWithSteamAsync(System.String,Unity.Services.Authentication.LinkOptions)
+// 0x000000BC System.Threading.Tasks.Task Unity.Services.Authentication.IAuthenticationService::UnlinkSteamAsync()
+// 0x000000BD System.Threading.Tasks.Task Unity.Services.Authentication.IAuthenticationService::SignInWithOculusAsync(System.String,System.String,Unity.Services.Authentication.SignInOptions)
+// 0x000000BE System.Threading.Tasks.Task Unity.Services.Authentication.IAuthenticationService::LinkWithOculusAsync(System.String,System.String,Unity.Services.Authentication.LinkOptions)
+// 0x000000BF System.Threading.Tasks.Task Unity.Services.Authentication.IAuthenticationService::UnlinkOculusAsync()
+// 0x000000C0 System.Threading.Tasks.Task Unity.Services.Authentication.IAuthenticationService::SignInWithOpenIdConnectAsync(System.String,System.String,Unity.Services.Authentication.SignInOptions)
+// 0x000000C1 System.Threading.Tasks.Task Unity.Services.Authentication.IAuthenticationService::LinkWithOpenIdConnectAsync(System.String,System.String,Unity.Services.Authentication.LinkOptions)
+// 0x000000C2 System.Threading.Tasks.Task Unity.Services.Authentication.IAuthenticationService::UnlinkOpenIdConnectAsync(System.String)
+// 0x000000C3 System.Threading.Tasks.Task Unity.Services.Authentication.IAuthenticationService::DeleteAccountAsync()
+// 0x000000C4 System.Threading.Tasks.Task`1<Unity.Services.Authentication.PlayerInfo> Unity.Services.Authentication.IAuthenticationService::GetPlayerInfoAsync()
+// 0x000000C5 System.Threading.Tasks.Task`1<System.String> Unity.Services.Authentication.IAuthenticationService::GetPlayerNameAsync()
+// 0x000000C6 System.Threading.Tasks.Task`1<System.String> Unity.Services.Authentication.IAuthenticationService::UpdatePlayerNameAsync(System.String)
+// 0x000000C7 System.Void Unity.Services.Authentication.IAuthenticationService::SignOut(System.Boolean)
+// 0x000000C8 System.Void Unity.Services.Authentication.IAuthenticationService::SwitchProfile(System.String)
+// 0x000000C9 System.Void Unity.Services.Authentication.IAuthenticationService::ClearSessionToken()
+// 0x000000CA System.Void Unity.Services.Authentication.AuthenticationMetrics::.ctor(Unity.Services.Core.Telemetry.Internal.IMetricsFactory)
+extern void AuthenticationMetrics__ctor_m1E94E3FA297755A05C3862DE285B69D6E47DF47B (void);
+// 0x000000CB System.Void Unity.Services.Authentication.AuthenticationMetrics::SendNetworkErrorMetric()
+extern void AuthenticationMetrics_SendNetworkErrorMetric_m8F9D0527DD7905C627E4B4E3FCDAFF6E9949238F (void);
+// 0x000000CC System.Void Unity.Services.Authentication.AuthenticationMetrics::SendExpiredSessionMetric()
+extern void AuthenticationMetrics_SendExpiredSessionMetric_m3D97D9ED9838EDC6D56428F655EC53D4967C4A2B (void);
+// 0x000000CD System.Void Unity.Services.Authentication.AuthenticationMetrics::SendClientInvalidStateExceptionMetric()
+extern void AuthenticationMetrics_SendClientInvalidStateExceptionMetric_m53CC1F526054710E3AF6A3B8C4FC123DADE695CC (void);
+// 0x000000CE System.Void Unity.Services.Authentication.AuthenticationMetrics::SendUnlinkExternalIdNotFoundExceptionMetric()
+extern void AuthenticationMetrics_SendUnlinkExternalIdNotFoundExceptionMetric_m7BC0F6D7EFABB4759E69A0F4CD0E9D1F68D10D10 (void);
+// 0x000000CF System.Void Unity.Services.Authentication.AuthenticationMetrics::SendClientSessionTokenNotExistsExceptionMetric()
+extern void AuthenticationMetrics_SendClientSessionTokenNotExistsExceptionMetric_m933EAFCB74F2516CC50D4B1C7BF6A0437483EA12 (void);
+// 0x000000D0 System.Void Unity.Services.Authentication.IAuthenticationMetrics::SendNetworkErrorMetric()
+// 0x000000D1 System.Void Unity.Services.Authentication.IAuthenticationMetrics::SendExpiredSessionMetric()
+// 0x000000D2 System.Void Unity.Services.Authentication.IAuthenticationMetrics::SendClientInvalidStateExceptionMetric()
+// 0x000000D3 System.Void Unity.Services.Authentication.IAuthenticationMetrics::SendUnlinkExternalIdNotFoundExceptionMetric()
+// 0x000000D4 System.Void Unity.Services.Authentication.IAuthenticationMetrics::SendClientSessionTokenNotExistsExceptionMetric()
+// 0x000000D5 System.String Unity.Services.Authentication.AccessTokenComponent::get_AccessToken()
+extern void AccessTokenComponent_get_AccessToken_m70FC319ED7E39A53D5C17E775FD052D466F29ED8 (void);
+// 0x000000D6 System.Void Unity.Services.Authentication.AccessTokenComponent::set_AccessToken(System.String)
+extern void AccessTokenComponent_set_AccessToken_m63F73183C53D3469EC2E8C6FD1862976D52916E8 (void);
+// 0x000000D7 System.Nullable`1<System.DateTime> Unity.Services.Authentication.AccessTokenComponent::get_ExpiryTime()
+extern void AccessTokenComponent_get_ExpiryTime_mD432CAD7F2F305A36AA717226C651F4A67F420A6 (void);
+// 0x000000D8 System.Void Unity.Services.Authentication.AccessTokenComponent::set_ExpiryTime(System.Nullable`1<System.DateTime>)
+extern void AccessTokenComponent_set_ExpiryTime_mCC7F031ADF1682401F64DF064612034E37A503B6 (void);
+// 0x000000D9 System.Void Unity.Services.Authentication.AccessTokenComponent::.ctor()
+extern void AccessTokenComponent__ctor_m844A2F62FDA9BF6E1E44A8193FF75DC0C6E1CEC4 (void);
+// 0x000000DA System.Void Unity.Services.Authentication.AccessTokenComponent::Clear()
+extern void AccessTokenComponent_Clear_mEDC9FC08D14A8270968A106A7D72C43686DDD5F6 (void);
+// 0x000000DB System.String Unity.Services.Authentication.EnvironmentIdComponent::get_EnvironmentId()
+extern void EnvironmentIdComponent_get_EnvironmentId_m73A4D15D88B632C3EDE3E4CB904896233B08720D (void);
+// 0x000000DC System.Void Unity.Services.Authentication.EnvironmentIdComponent::set_EnvironmentId(System.String)
+extern void EnvironmentIdComponent_set_EnvironmentId_m530BC338835B82D9D4401F7FF7E23F36321F4808 (void);
+// 0x000000DD System.Void Unity.Services.Authentication.EnvironmentIdComponent::.ctor()
+extern void EnvironmentIdComponent__ctor_m4DF99AC648D90C616999D41F6869CB2786F59B0D (void);
+// 0x000000DE System.Void Unity.Services.Authentication.PlayerIdComponent::add_PlayerIdChanged(System.Action`1<System.String>)
+extern void PlayerIdComponent_add_PlayerIdChanged_mBA0004B0877D77624016EB806E5721855ACBF3A4 (void);
+// 0x000000DF System.Void Unity.Services.Authentication.PlayerIdComponent::remove_PlayerIdChanged(System.Action`1<System.String>)
+extern void PlayerIdComponent_remove_PlayerIdChanged_mC99DA59304B6D42A076C0F355D95A89A4554DB8E (void);
+// 0x000000E0 System.String Unity.Services.Authentication.PlayerIdComponent::get_PlayerId()
+extern void PlayerIdComponent_get_PlayerId_m3B26D7263EE5FF703A96397CA7F8359EFC2B3E63 (void);
+// 0x000000E1 System.Void Unity.Services.Authentication.PlayerIdComponent::set_PlayerId(System.String)
+extern void PlayerIdComponent_set_PlayerId_mA274F8E83C33A5479A2AD42F3DDBF79E1DFE8EBC (void);
+// 0x000000E2 System.Void Unity.Services.Authentication.PlayerIdComponent::.ctor(Unity.Services.Authentication.IAuthenticationCache)
+extern void PlayerIdComponent__ctor_m61FB3E8D7DA71282C77AECA611588B55287C2869 (void);
+// 0x000000E3 System.Void Unity.Services.Authentication.PlayerIdComponent::Clear()
+extern void PlayerIdComponent_Clear_m438DBB045CB0417378B50D1B5A1E5F2DD4FCFE4B (void);
+// 0x000000E4 System.String Unity.Services.Authentication.PlayerIdComponent::GetPlayerId()
+extern void PlayerIdComponent_GetPlayerId_mDD6103F18860BEF427C8B046F136F145EB1FF058 (void);
+// 0x000000E5 System.Void Unity.Services.Authentication.PlayerIdComponent::SetPlayerId(System.String)
+extern void PlayerIdComponent_SetPlayerId_m48E64CCB35B3A4B741BFE9E72EB8D5FA449D1358 (void);
+// 0x000000E6 System.Void Unity.Services.Authentication.PlayerNameComponent::add_PlayerNameChanged(System.Action`1<System.String>)
+extern void PlayerNameComponent_add_PlayerNameChanged_m477FEDDEDED413A81ED8C95B9649C20764C647CB (void);
+// 0x000000E7 System.Void Unity.Services.Authentication.PlayerNameComponent::remove_PlayerNameChanged(System.Action`1<System.String>)
+extern void PlayerNameComponent_remove_PlayerNameChanged_mA8D11C4E1D58CECAB3B2B1E03E044EE0051670BE (void);
+// 0x000000E8 System.String Unity.Services.Authentication.PlayerNameComponent::get_PlayerName()
+extern void PlayerNameComponent_get_PlayerName_mB5968A1A0FA661D7F8ECF858E69E285D0842AECE (void);
+// 0x000000E9 System.Void Unity.Services.Authentication.PlayerNameComponent::set_PlayerName(System.String)
+extern void PlayerNameComponent_set_PlayerName_mE9F2A1C1D3DFAD56C47AA69FBFC56E0743405F31 (void);
+// 0x000000EA System.Void Unity.Services.Authentication.PlayerNameComponent::.ctor(Unity.Services.Authentication.IAuthenticationCache)
+extern void PlayerNameComponent__ctor_m7C9A403D8192A785D48749968F97745B2A6F950C (void);
+// 0x000000EB System.Void Unity.Services.Authentication.PlayerNameComponent::Clear()
+extern void PlayerNameComponent_Clear_mF9603F9E0F03A5E5A96D11EC98258D1E2616CF23 (void);
+// 0x000000EC System.String Unity.Services.Authentication.PlayerNameComponent::GetPlayerName()
+extern void PlayerNameComponent_GetPlayerName_mD04A341E062B32912A372BF883D55540CC369B59 (void);
+// 0x000000ED System.Void Unity.Services.Authentication.PlayerNameComponent::SetPlayerName(System.String)
+extern void PlayerNameComponent_SetPlayerName_m2F9084265624D5EF0F896504C31251C96326E760 (void);
+// 0x000000EE System.Void Unity.Services.Authentication.IProfile::add_ProfileChange(System.Action`1<Unity.Services.Authentication.ProfileEventArgs>)
+// 0x000000EF System.Void Unity.Services.Authentication.IProfile::remove_ProfileChange(System.Action`1<Unity.Services.Authentication.ProfileEventArgs>)
+// 0x000000F0 System.String Unity.Services.Authentication.IProfile::get_Current()
+// 0x000000F1 System.Void Unity.Services.Authentication.IProfile::set_Current(System.String)
+// 0x000000F2 System.Void Unity.Services.Authentication.ProfileComponent::add_ProfileChange(System.Action`1<Unity.Services.Authentication.ProfileEventArgs>)
+extern void ProfileComponent_add_ProfileChange_mBB42E17051F7D7731D99D43398021F00BE80B7AE (void);
+// 0x000000F3 System.Void Unity.Services.Authentication.ProfileComponent::remove_ProfileChange(System.Action`1<Unity.Services.Authentication.ProfileEventArgs>)
+extern void ProfileComponent_remove_ProfileChange_m2E7B0EA9820C27A3B77849FCA757D41A936AA0A5 (void);
+// 0x000000F4 System.String Unity.Services.Authentication.ProfileComponent::get_Current()
+extern void ProfileComponent_get_Current_m940230AD5703C84B0812260EDC717B738CF9BE9B (void);
+// 0x000000F5 System.Void Unity.Services.Authentication.ProfileComponent::set_Current(System.String)
+extern void ProfileComponent_set_Current_mA4EF018E3C67F096D95B80ADAE75507CED7C761D (void);
+// 0x000000F6 System.Void Unity.Services.Authentication.ProfileComponent::.ctor(System.String)
+extern void ProfileComponent__ctor_mB0A553E4B5E2EC2427A916389729ECC35CEFE38A (void);
+// 0x000000F7 System.Void Unity.Services.Authentication.ProfileComponent::SetProfile(System.String)
+extern void ProfileComponent_SetProfile_m910DD105C52B8FB3E06F437F6D7E723904696F98 (void);
+// 0x000000F8 System.String Unity.Services.Authentication.ProfileEventArgs::get_Profile()
+extern void ProfileEventArgs_get_Profile_m30FB038C9EBAFBC66AADDCA203B3579DD09AF58E (void);
+// 0x000000F9 System.Void Unity.Services.Authentication.ProfileEventArgs::.ctor(System.String)
+extern void ProfileEventArgs__ctor_m709F0824F5FA1A5EDDD6DE495047A2B322DEF7FF (void);
+// 0x000000FA System.String Unity.Services.Authentication.SessionTokenComponent::get_SessionToken()
+extern void SessionTokenComponent_get_SessionToken_mFCD6A8E0CAC451180203F6D1F56C9EEBBF61DAFA (void);
+// 0x000000FB System.Void Unity.Services.Authentication.SessionTokenComponent::set_SessionToken(System.String)
+extern void SessionTokenComponent_set_SessionToken_m169A99C88E662C238FE756FBD44AC46C3C8D2904 (void);
+// 0x000000FC System.Void Unity.Services.Authentication.SessionTokenComponent::.ctor(Unity.Services.Authentication.IAuthenticationCache)
+extern void SessionTokenComponent__ctor_mFAB481325A4F94D2F55985E75E44CEBA50878CAD (void);
+// 0x000000FD System.Void Unity.Services.Authentication.SessionTokenComponent::Clear()
+extern void SessionTokenComponent_Clear_m8C8411835ADD425D4A042F2345BCCB60FD2B6351 (void);
+// 0x000000FE System.Void Unity.Services.Authentication.SessionTokenComponent::Migrate()
+extern void SessionTokenComponent_Migrate_m270AD9D9556543733F170747713346F076210D86 (void);
+// 0x000000FF System.String Unity.Services.Authentication.SessionTokenComponent::GetSessionToken()
+extern void SessionTokenComponent_GetSessionToken_mDF23709AAD37F4EA8AEB0B25CFD43FD8D754DE71 (void);
+// 0x00000100 System.Void Unity.Services.Authentication.SessionTokenComponent::SetSessionToken(System.String)
+extern void SessionTokenComponent_SetSessionToken_m4F627C53F670EA1FF1EC3568BDDE5551A2C41F78 (void);
+// 0x00000101 System.Void Unity.Services.Authentication.Identity::.ctor(Unity.Services.Authentication.ExternalIdentity)
+extern void Identity__ctor_m10262663AE817B6356F47E13E30762275291B9E4 (void);
+// 0x00000102 System.Boolean Unity.Services.Authentication.LinkOptions::get_ForceLink()
+extern void LinkOptions_get_ForceLink_m7091635AF7588667BF843D8AAFFBBDE3B4D3426F (void);
+// 0x00000103 System.Void Unity.Services.Authentication.LinkOptions::set_ForceLink(System.Boolean)
+extern void LinkOptions_set_ForceLink_m61348BAD6BC1A1E6F436672A5A59C72B062000D4 (void);
+// 0x00000104 System.Void Unity.Services.Authentication.LinkOptions::.ctor()
+extern void LinkOptions__ctor_mBCD3C4D9B9FA0CAFE026C6E8FB5736945E78CA8A (void);
+// 0x00000105 System.String Unity.Services.Authentication.PlayerInfo::get_Id()
+extern void PlayerInfo_get_Id_m7C67DE9AAA0A4279DE0F31CF84CE06654F895128 (void);
+// 0x00000106 System.Nullable`1<System.DateTime> Unity.Services.Authentication.PlayerInfo::get_CreatedAt()
+extern void PlayerInfo_get_CreatedAt_m230C58465F7610264A3EC31E9EB01D277A6C9183 (void);
+// 0x00000107 System.Collections.Generic.List`1<Unity.Services.Authentication.Identity> Unity.Services.Authentication.PlayerInfo::get_Identities()
+extern void PlayerInfo_get_Identities_m8C89A941C76178DFECACF3C3D64219DC2AFA1F35 (void);
+// 0x00000108 System.Void Unity.Services.Authentication.PlayerInfo::.ctor(System.String)
+extern void PlayerInfo__ctor_m1BEC1A7D6AC5383CCFC5186FA247449D0311F9CF (void);
+// 0x00000109 System.Void Unity.Services.Authentication.PlayerInfo::.ctor(Unity.Services.Authentication.PlayerInfoResponse)
+extern void PlayerInfo__ctor_m31B8A4058024774C355A60CC1DD3AB0D045B97EF (void);
+// 0x0000010A System.Void Unity.Services.Authentication.PlayerInfo::.ctor(Unity.Services.Authentication.User)
+extern void PlayerInfo__ctor_m06C393A2C3EA9D14D3AD4BC996ADBD76BE07B97E (void);
+// 0x0000010B System.Void Unity.Services.Authentication.PlayerInfo::.ctor(System.String,System.String,System.Collections.Generic.List`1<Unity.Services.Authentication.ExternalIdentity>)
+extern void PlayerInfo__ctor_m82E4FCEF734B43BD5988F0FAF5B7165D3B159474 (void);
+// 0x0000010C System.String Unity.Services.Authentication.PlayerInfo::GetFacebookId()
+extern void PlayerInfo_GetFacebookId_mD30CE77CD155D7B40BD42A1A9F89230958CC7142 (void);
+// 0x0000010D System.String Unity.Services.Authentication.PlayerInfo::GetSteamId()
+extern void PlayerInfo_GetSteamId_mE30170BB7BA2EBAEEFDD89F167715E5845B9C257 (void);
+// 0x0000010E System.String Unity.Services.Authentication.PlayerInfo::GetGoogleId()
+extern void PlayerInfo_GetGoogleId_m3734711ED1EBBDB3B7BAB994C6312B74CD19B1A6 (void);
+// 0x0000010F System.String Unity.Services.Authentication.PlayerInfo::GetGooglePlayGamesId()
+extern void PlayerInfo_GetGooglePlayGamesId_m87F506EC47E450F3BC427C1F8B52878D4E15158C (void);
+// 0x00000110 System.String Unity.Services.Authentication.PlayerInfo::GetAppleId()
+extern void PlayerInfo_GetAppleId_mD530450984BED0A1E90B524AC0E59818DF717048 (void);
+// 0x00000111 System.String Unity.Services.Authentication.PlayerInfo::GetAppleGameCenterId()
+extern void PlayerInfo_GetAppleGameCenterId_m2162312542CB91F02C8B380ACA92BF7A872CEBDF (void);
+// 0x00000112 System.String Unity.Services.Authentication.PlayerInfo::GetOculusId()
+extern void PlayerInfo_GetOculusId_m1B703CB14A00E69A42897F314D24A75952C8C8C6 (void);
+// 0x00000113 System.String Unity.Services.Authentication.PlayerInfo::GetOpenIdConnectId(System.String)
+extern void PlayerInfo_GetOpenIdConnectId_m03675526770E41630E28D9F148879B887080FD1D (void);
+// 0x00000114 System.Collections.Generic.List`1<Unity.Services.Authentication.Identity> Unity.Services.Authentication.PlayerInfo::GetOpenIdConnectIdProviders()
+extern void PlayerInfo_GetOpenIdConnectIdProviders_mA348C69614AC85D971898947A6639BEC7528D3DB (void);
+// 0x00000115 System.String Unity.Services.Authentication.PlayerInfo::GetIdentityId(System.String)
+extern void PlayerInfo_GetIdentityId_m4B4287BCFE22426C6D9AECAAE6CF963F667DBAB3 (void);
+// 0x00000116 System.Void Unity.Services.Authentication.PlayerInfo::AddExternalIdentity(Unity.Services.Authentication.ExternalIdentity)
+extern void PlayerInfo_AddExternalIdentity_m6B4B832732C54847BB5531DCB5E852072273DFE5 (void);
+// 0x00000117 System.Void Unity.Services.Authentication.PlayerInfo::RemoveIdentity(System.String)
+extern void PlayerInfo_RemoveIdentity_mABDE25201FB941363381B3487969ACE5709AA4A7 (void);
+// 0x00000118 System.Boolean Unity.Services.Authentication.PlayerInfo::ValidateOpenIdConnectIdProviderName(System.String)
+extern void PlayerInfo_ValidateOpenIdConnectIdProviderName_m4F053B1CAF943B88F6BE373214D8070F777F8413 (void);
+// 0x00000119 System.Void Unity.Services.Authentication.PlayerInfo/<>c::.cctor()
+extern void U3CU3Ec__cctor_m1075DF0DE4A8559FBBA66C3A0561A3A43E72F31B (void);
+// 0x0000011A System.Void Unity.Services.Authentication.PlayerInfo/<>c::.ctor()
+extern void U3CU3Ec__ctor_m484B04CF22551FD83FF362FBDC0467EAB8D4644B (void);
+// 0x0000011B System.Boolean Unity.Services.Authentication.PlayerInfo/<>c::<GetOpenIdConnectIdProviders>b__23_0(Unity.Services.Authentication.Identity)
+extern void U3CU3Ec_U3CGetOpenIdConnectIdProvidersU3Eb__23_0_m77EF7543C52FBD0A3252A6567473FB2795DC576A (void);
+// 0x0000011C System.Void Unity.Services.Authentication.PlayerInfo/<>c__DisplayClass24_0::.ctor()
+extern void U3CU3Ec__DisplayClass24_0__ctor_mCBD8015D76B11C8E7FE07C67DE2886A3AD51D0E8 (void);
+// 0x0000011D System.Boolean Unity.Services.Authentication.PlayerInfo/<>c__DisplayClass24_0::<GetIdentityId>b__0(Unity.Services.Authentication.Identity)
+extern void U3CU3Ec__DisplayClass24_0_U3CGetIdentityIdU3Eb__0_m36B9B9C29CA5A10C4EC3F62CD3CB5B16BF43C9BF (void);
+// 0x0000011E System.Void Unity.Services.Authentication.PlayerInfo/<>c__DisplayClass26_0::.ctor()
+extern void U3CU3Ec__DisplayClass26_0__ctor_mC1D6E0FEF63DA275EFC726B39802AE139959F7E1 (void);
+// 0x0000011F System.Boolean Unity.Services.Authentication.PlayerInfo/<>c__DisplayClass26_0::<RemoveIdentity>b__0(Unity.Services.Authentication.Identity)
+extern void U3CU3Ec__DisplayClass26_0_U3CRemoveIdentityU3Eb__0_m6967D7BA55B388C17A5FA904DDDEAA40C3EB1987 (void);
+// 0x00000120 System.Void Unity.Services.Authentication.AppleGameCenterConfig::.ctor()
+extern void AppleGameCenterConfig__ctor_m8EF2251702DFDE99F385F2C19793F6971875942E (void);
+// 0x00000121 System.Void Unity.Services.Authentication.LinkWithAppleGameCenterRequest::.ctor()
+extern void LinkWithAppleGameCenterRequest__ctor_mABA1F422C0F6FD7A49809A2E824EDC778CE5357D (void);
+// 0x00000122 System.Void Unity.Services.Authentication.SignInWithAppleGameCenterRequest::.ctor()
+extern void SignInWithAppleGameCenterRequest__ctor_m113FC6A1B76861F41D809064F2F9C4AB0C93DFF1 (void);
+// 0x00000123 System.Void Unity.Services.Authentication.LinkWithExternalTokenRequest::.ctor()
+extern void LinkWithExternalTokenRequest__ctor_mC926C1E239309874F3E8594862352CD189407CE5 (void);
+// 0x00000124 System.Void Unity.Services.Authentication.LinkWithOculusRequest::.ctor()
+extern void LinkWithOculusRequest__ctor_m7892BB3B73BA5EE2BCD2633CCEA06AE023DCC4A2 (void);
+// 0x00000125 System.Void Unity.Services.Authentication.SignInWithOculusRequest::.ctor()
+extern void SignInWithOculusRequest__ctor_m3FFCE19E7A97843B009C2D18184740E156753D73 (void);
+// 0x00000126 System.String Unity.Services.Authentication.OculusConfig::get_UserId()
+extern void OculusConfig_get_UserId_m8139015C1DF7AFFDA12538A5025A6D87250D909D (void);
+// 0x00000127 System.Void Unity.Services.Authentication.OculusConfig::set_UserId(System.String)
+extern void OculusConfig_set_UserId_m1D9F16501AC103DF5E2BE7B3B462AE99C318623B (void);
+// 0x00000128 System.Void Unity.Services.Authentication.SessionTokenRequest::.ctor()
+extern void SessionTokenRequest__ctor_mBD8FDC3B255BDF93CD9BBE4153C4E286EF579660 (void);
+// 0x00000129 System.Void Unity.Services.Authentication.SignInWithExternalTokenRequest::.ctor()
+extern void SignInWithExternalTokenRequest__ctor_mBF7A476AF9D85BEDA4DD76A7DC5108A7BC74E82C (void);
+// 0x0000012A System.Void Unity.Services.Authentication.UnlinkRequest::.ctor()
+extern void UnlinkRequest__ctor_mC6DF0262CCE41490C8119C09876F9E281BBEEBA6 (void);
+// 0x0000012B System.Void Unity.Services.Authentication.AuthenticationErrorResponse::.ctor()
+extern void AuthenticationErrorResponse__ctor_m6DF8E8C3822026A8237DE92F92B7668710A7530A (void);
+// 0x0000012C System.Void Unity.Services.Authentication.ExternalIdentity::.ctor()
+extern void ExternalIdentity__ctor_m823DAD40F49542CC03EDB5E075ABCC697E430E30 (void);
+// 0x0000012D System.Void Unity.Services.Authentication.LinkResponse::.ctor()
+extern void LinkResponse__ctor_m339BA4504367155C2C1819603F84910052B5B942 (void);
+// 0x0000012E System.Void Unity.Services.Authentication.PlayerInfoResponse::.ctor()
+extern void PlayerInfoResponse__ctor_m125BC761C779F0E778174420514464788F1AA21C (void);
+// 0x0000012F System.Void Unity.Services.Authentication.SignInResponse::.ctor()
+extern void SignInResponse__ctor_m0963427AB9F97E55987916D5394683A910DB409C (void);
+// 0x00000130 System.Void Unity.Services.Authentication.UnlinkResponse::.ctor()
+extern void UnlinkResponse__ctor_mCC7100DACFA0EBCBD99A74968B8884EF2C8AD895 (void);
+// 0x00000131 System.Void Unity.Services.Authentication.User::.ctor()
+extern void User__ctor_m06FE409298F1B298DE8879F39571557939CA7792 (void);
+// 0x00000132 System.Void Unity.Services.Authentication.AccessToken::.ctor()
+extern void AccessToken__ctor_mA8C8B1DE354ECAF75F3331385C02D493CFB496C7 (void);
+// 0x00000133 System.Void Unity.Services.Authentication.AccessTokenExtraClaims::.ctor()
+extern void AccessTokenExtraClaims__ctor_m93CBA68C7A0F7BA3B8A2607889BE108836FC1194 (void);
+// 0x00000134 System.Void Unity.Services.Authentication.BaseJwt::.ctor()
+extern void BaseJwt__ctor_mCAAFF2897EB3B166CF374F97F0EA9848AC0B2073 (void);
+// 0x00000135 System.Nullable`1<System.DateTime> Unity.Services.Authentication.BaseJwt::get_ExpirationTime()
+extern void BaseJwt_get_ExpirationTime_m476B954A2BD1ED2925AB98CC0895335DA8B5471D (void);
+// 0x00000136 System.Nullable`1<System.DateTime> Unity.Services.Authentication.BaseJwt::get_IssuedAtTime()
+extern void BaseJwt_get_IssuedAtTime_m44032A751A8C26F899403713BA788B93AFBA70C6 (void);
+// 0x00000137 System.Nullable`1<System.DateTime> Unity.Services.Authentication.BaseJwt::get_NotBeforeTime()
+extern void BaseJwt_get_NotBeforeTime_mD97D56962AA4FA55341E1D0E240B400B861656BF (void);
+// 0x00000138 System.Nullable`1<System.DateTime> Unity.Services.Authentication.BaseJwt::ConvertTimestamp(System.Int32)
+extern void BaseJwt_ConvertTimestamp_m0CA39A85EE115193D6FF8EF9B14FED7F17BCDD85 (void);
+// 0x00000139 System.Int32 Unity.Services.Authentication.AuthenticationSettings::get_AccessTokenRefreshBuffer()
+extern void AuthenticationSettings_get_AccessTokenRefreshBuffer_m97948E6F70473A843396D73B9CC1EDECDC01EE87 (void);
+// 0x0000013A System.Void Unity.Services.Authentication.AuthenticationSettings::set_AccessTokenRefreshBuffer(System.Int32)
+extern void AuthenticationSettings_set_AccessTokenRefreshBuffer_m96B86C124804197F12B701796CDCE4E9D0443CEE (void);
+// 0x0000013B System.Int32 Unity.Services.Authentication.AuthenticationSettings::get_AccessTokenExpiryBuffer()
+extern void AuthenticationSettings_get_AccessTokenExpiryBuffer_mD47E2DFA7219940B060AC726513FDFD715826B69 (void);
+// 0x0000013C System.Void Unity.Services.Authentication.AuthenticationSettings::set_AccessTokenExpiryBuffer(System.Int32)
+extern void AuthenticationSettings_set_AccessTokenExpiryBuffer_m14A6389F6D9EDCE2FCD222C890ECC7F88861A64A (void);
+// 0x0000013D System.Int32 Unity.Services.Authentication.AuthenticationSettings::get_RefreshAttemptFrequency()
+extern void AuthenticationSettings_get_RefreshAttemptFrequency_mA63E83608C5227CA5D45AC47555489C045FF3FC7 (void);
+// 0x0000013E System.Void Unity.Services.Authentication.AuthenticationSettings::set_RefreshAttemptFrequency(System.Int32)
+extern void AuthenticationSettings_set_RefreshAttemptFrequency_mBAF4610491BF821F84D042A0007A28460623B0D2 (void);
+// 0x0000013F System.Void Unity.Services.Authentication.AuthenticationSettings::.ctor()
+extern void AuthenticationSettings__ctor_mBE5C222CEFEA863FD12B1EF18D0ACF22A31EFEBD (void);
+// 0x00000140 System.Void Unity.Services.Authentication.AuthenticationSettings::Reset()
+extern void AuthenticationSettings_Reset_mF09FA004D91F33E2A5D88F5062B595113557A05E (void);
+// 0x00000141 System.Int32 Unity.Services.Authentication.IAuthenticationSettings::get_AccessTokenRefreshBuffer()
+// 0x00000142 System.Int32 Unity.Services.Authentication.IAuthenticationSettings::get_AccessTokenExpiryBuffer()
+// 0x00000143 System.Int32 Unity.Services.Authentication.IAuthenticationSettings::get_RefreshAttemptFrequency()
+// 0x00000144 System.Int32 Unity.Services.Authentication.INetworkConfiguration::get_Retries()
+// 0x00000145 System.Int32 Unity.Services.Authentication.INetworkConfiguration::get_Timeout()
+// 0x00000146 System.Int32 Unity.Services.Authentication.NetworkConfiguration::get_Retries()
+extern void NetworkConfiguration_get_Retries_m06CF068CDC7D3224D7106D99479DB77A49C90D17 (void);
+// 0x00000147 System.Void Unity.Services.Authentication.NetworkConfiguration::set_Retries(System.Int32)
+extern void NetworkConfiguration_set_Retries_mE3D98A5AC6A5BEA4B1A4BB55F0A5DF30EB988D74 (void);
+// 0x00000148 System.Int32 Unity.Services.Authentication.NetworkConfiguration::get_Timeout()
+extern void NetworkConfiguration_get_Timeout_m710D931E0360F398921BB9321C1A02485661AB55 (void);
+// 0x00000149 System.Void Unity.Services.Authentication.NetworkConfiguration::set_Timeout(System.Int32)
+extern void NetworkConfiguration_set_Timeout_mC55E6D775EAD3CDE5083E81C9F752F8454F4DA0C (void);
+// 0x0000014A System.Void Unity.Services.Authentication.NetworkConfiguration::.ctor()
+extern void NetworkConfiguration__ctor_m61201E2D6FA572D1B8990CFBB621A1777AA7FDE1 (void);
+// 0x0000014B System.Boolean Unity.Services.Authentication.SignInOptions::get_CreateAccount()
+extern void SignInOptions_get_CreateAccount_m487DE1145466E4820534680E55CD209335908E02 (void);
+// 0x0000014C System.Void Unity.Services.Authentication.SignInOptions::set_CreateAccount(System.Boolean)
+extern void SignInOptions_set_CreateAccount_mBB8B2E56329F89AC35FDAE0EB2CB5A0CA7DF6102 (void);
+// 0x0000014D System.Void Unity.Services.Authentication.SignInOptions::.ctor()
+extern void SignInOptions__ctor_m97DAF844B83B6585AD5762E02D845698865F725C (void);
+// 0x0000014E Unity.Services.Authentication.INetworkConfiguration Unity.Services.Authentication.AuthenticationApiClient::get_Configuration()
+extern void AuthenticationApiClient_get_Configuration_m036B614378E578EA829E78B15DEE5774C4926126 (void);
+// 0x0000014F System.Void Unity.Services.Authentication.AuthenticationApiClient::.ctor(Unity.Services.Authentication.INetworkConfiguration)
+extern void AuthenticationApiClient__ctor_mCD372D92B768647379C2E2D97A0F099E06373D3F (void);
+// 0x00000150 System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse> Unity.Services.Authentication.AuthenticationApiClient::GetAsync(System.String,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration,System.Threading.CancellationToken)
+extern void AuthenticationApiClient_GetAsync_mB2C722680C101654CB9E2B0A0BC60F6E500AB430 (void);
+// 0x00000151 System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse`1<T>> Unity.Services.Authentication.AuthenticationApiClient::GetAsync(System.String,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration,System.Threading.CancellationToken)
+// 0x00000152 System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse> Unity.Services.Authentication.AuthenticationApiClient::PostAsync(System.String,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration,System.Threading.CancellationToken)
+extern void AuthenticationApiClient_PostAsync_mE774E8192C71B2F95ABC262676C3C24B303D40A3 (void);
+// 0x00000153 System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse`1<T>> Unity.Services.Authentication.AuthenticationApiClient::PostAsync(System.String,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration,System.Threading.CancellationToken)
+// 0x00000154 System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse> Unity.Services.Authentication.AuthenticationApiClient::PutAsync(System.String,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration,System.Threading.CancellationToken)
+extern void AuthenticationApiClient_PutAsync_m92FCB4F4102C2CEC8DE5793234D9A71CFC6C0874 (void);
+// 0x00000155 System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse`1<T>> Unity.Services.Authentication.AuthenticationApiClient::PutAsync(System.String,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration,System.Threading.CancellationToken)
+// 0x00000156 System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse> Unity.Services.Authentication.AuthenticationApiClient::DeleteAsync(System.String,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration,System.Threading.CancellationToken)
+extern void AuthenticationApiClient_DeleteAsync_m5B2CFCABD9118A331089CB29BDE60DE6F2B0A9A9 (void);
+// 0x00000157 System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse`1<T>> Unity.Services.Authentication.AuthenticationApiClient::DeleteAsync(System.String,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration,System.Threading.CancellationToken)
+// 0x00000158 System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse> Unity.Services.Authentication.AuthenticationApiClient::HeadAsync(System.String,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration,System.Threading.CancellationToken)
+extern void AuthenticationApiClient_HeadAsync_m824D627F1A83AD0B0033D3F40E53F2D5B1BB89BA (void);
+// 0x00000159 System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse`1<T>> Unity.Services.Authentication.AuthenticationApiClient::HeadAsync(System.String,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration,System.Threading.CancellationToken)
+// 0x0000015A System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse> Unity.Services.Authentication.AuthenticationApiClient::OptionsAsync(System.String,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration,System.Threading.CancellationToken)
+extern void AuthenticationApiClient_OptionsAsync_m859262E41127797C888B9623E55068F832A55088 (void);
+// 0x0000015B System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse`1<T>> Unity.Services.Authentication.AuthenticationApiClient::OptionsAsync(System.String,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration,System.Threading.CancellationToken)
+// 0x0000015C System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse> Unity.Services.Authentication.AuthenticationApiClient::PatchAsync(System.String,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration,System.Threading.CancellationToken)
+extern void AuthenticationApiClient_PatchAsync_mDCD5E544713E733CC213F066D897C2AE31727D2A (void);
+// 0x0000015D System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse`1<T>> Unity.Services.Authentication.AuthenticationApiClient::PatchAsync(System.String,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration,System.Threading.CancellationToken)
+// 0x0000015E System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse> Unity.Services.Authentication.AuthenticationApiClient::SendAsync(System.String,Unity.Services.Authentication.WebRequestVerb,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration,System.Threading.CancellationToken)
+extern void AuthenticationApiClient_SendAsync_m14B776007991CF4AE9EB43F4351407C08E2106FE (void);
+// 0x0000015F System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse`1<T>> Unity.Services.Authentication.AuthenticationApiClient::SendAsync(System.String,Unity.Services.Authentication.WebRequestVerb,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration,System.Threading.CancellationToken)
+// 0x00000160 UnityEngine.Networking.UnityWebRequest Unity.Services.Authentication.AuthenticationApiClient::BuildWebRequest(System.String,Unity.Services.Authentication.WebRequestVerb,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration)
+extern void AuthenticationApiClient_BuildWebRequest_m0643934D41CFDEAC11148695D4263D90898F4081 (void);
+// 0x00000161 System.Void Unity.Services.Authentication.AuthenticationApiClient/<SendAsync>d__18::MoveNext()
+extern void U3CSendAsyncU3Ed__18_MoveNext_mD2C3C958C3FD550ACE982D6AF230E95CB4147192 (void);
+// 0x00000162 System.Void Unity.Services.Authentication.AuthenticationApiClient/<SendAsync>d__18::SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)
+extern void U3CSendAsyncU3Ed__18_SetStateMachine_m0C15FB351A6A35B67120D524C3A964E9DC597078 (void);
+// 0x00000163 System.Void Unity.Services.Authentication.AuthenticationApiClient/<SendAsync>d__19`1::MoveNext()
+// 0x00000164 System.Void Unity.Services.Authentication.AuthenticationApiClient/<SendAsync>d__19`1::SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)
+// 0x00000165 Unity.Services.Authentication.AccessTokenComponent Unity.Services.Authentication.AuthenticationNetworkClient::get_AccessTokenComponent()
+extern void AuthenticationNetworkClient_get_AccessTokenComponent_mF10749E4B898F6824B849C31705952DC23C64D86 (void);
+// 0x00000166 Unity.Services.Core.Configuration.Internal.ICloudProjectId Unity.Services.Authentication.AuthenticationNetworkClient::get_CloudProjectIdComponent()
+extern void AuthenticationNetworkClient_get_CloudProjectIdComponent_mCAE38C64A9FF5A052B1DB965CDD698AECC90C03F (void);
+// 0x00000167 Unity.Services.Core.Environments.Internal.IEnvironments Unity.Services.Authentication.AuthenticationNetworkClient::get_EnvironmentComponent()
+extern void AuthenticationNetworkClient_get_EnvironmentComponent_m6B9DEC5E341192134461AFD8BBABA9AB17A7FB26 (void);
+// 0x00000168 Unity.Services.Authentication.INetworkHandler Unity.Services.Authentication.AuthenticationNetworkClient::get_NetworkHandler()
+extern void AuthenticationNetworkClient_get_NetworkHandler_mE8F20F2BF21EDA4B878917EACD2A3A736DBD8571 (void);
+// 0x00000169 System.String Unity.Services.Authentication.AuthenticationNetworkClient::get_AccessToken()
+extern void AuthenticationNetworkClient_get_AccessToken_m42B6AD48F27F4C586708E4DC9E2A64FE08656F1D (void);
+// 0x0000016A System.String Unity.Services.Authentication.AuthenticationNetworkClient::get_EnvironmentName()
+extern void AuthenticationNetworkClient_get_EnvironmentName_m9CC9B09E6F1CB8D169A4C05E9BF54AC1ABDE8A0D (void);
+// 0x0000016B System.Void Unity.Services.Authentication.AuthenticationNetworkClient::.ctor(System.String,Unity.Services.Core.Configuration.Internal.ICloudProjectId,Unity.Services.Core.Environments.Internal.IEnvironments,Unity.Services.Authentication.INetworkHandler,Unity.Services.Authentication.AccessTokenComponent)
+extern void AuthenticationNetworkClient__ctor_m2E1563DC14B43DFEE03BBDC785B27047ED816EE4 (void);
+// 0x0000016C System.Threading.Tasks.Task`1<Unity.Services.Authentication.SignInResponse> Unity.Services.Authentication.AuthenticationNetworkClient::SignInAnonymouslyAsync()
+extern void AuthenticationNetworkClient_SignInAnonymouslyAsync_mD06BB889D79C31294AFB9928314D646C7C2D16E2 (void);
+// 0x0000016D System.Threading.Tasks.Task`1<Unity.Services.Authentication.SignInResponse> Unity.Services.Authentication.AuthenticationNetworkClient::SignInWithSessionTokenAsync(System.String)
+extern void AuthenticationNetworkClient_SignInWithSessionTokenAsync_m9B414AE9F1F1C654D6A02993B6E467CDC6E726DE (void);
+// 0x0000016E System.Threading.Tasks.Task`1<Unity.Services.Authentication.SignInResponse> Unity.Services.Authentication.AuthenticationNetworkClient::SignInWithExternalTokenAsync(System.String,Unity.Services.Authentication.SignInWithExternalTokenRequest)
+extern void AuthenticationNetworkClient_SignInWithExternalTokenAsync_m16352C3F1532286A302E50FC95E4B692231607F3 (void);
+// 0x0000016F System.Threading.Tasks.Task`1<Unity.Services.Authentication.LinkResponse> Unity.Services.Authentication.AuthenticationNetworkClient::LinkWithExternalTokenAsync(System.String,Unity.Services.Authentication.LinkWithExternalTokenRequest)
+extern void AuthenticationNetworkClient_LinkWithExternalTokenAsync_m6AA44BD5C19DAB3CEF59477B317DE0BE116C104A (void);
+// 0x00000170 System.Threading.Tasks.Task`1<Unity.Services.Authentication.UnlinkResponse> Unity.Services.Authentication.AuthenticationNetworkClient::UnlinkExternalTokenAsync(System.String,Unity.Services.Authentication.UnlinkRequest)
+extern void AuthenticationNetworkClient_UnlinkExternalTokenAsync_m3E8A17000C303EBA6E72178C5A6837957A1D2D3E (void);
+// 0x00000171 System.Threading.Tasks.Task`1<Unity.Services.Authentication.PlayerInfoResponse> Unity.Services.Authentication.AuthenticationNetworkClient::GetPlayerInfoAsync(System.String)
+extern void AuthenticationNetworkClient_GetPlayerInfoAsync_m7A2E27B9166A8B703EE8FF22009E92B6A9B2B91B (void);
+// 0x00000172 System.Threading.Tasks.Task Unity.Services.Authentication.AuthenticationNetworkClient::DeleteAccountAsync(System.String)
+extern void AuthenticationNetworkClient_DeleteAccountAsync_m34C3B443A2A59A21A4DFD64B7D49D7EDFB2BCDD5 (void);
+// 0x00000173 System.String Unity.Services.Authentication.AuthenticationNetworkClient::CreateUserRequestUrl(System.String)
+extern void AuthenticationNetworkClient_CreateUserRequestUrl_m1E91DDCE4598C1ACA91E3888755CE123F07DEFDA (void);
+// 0x00000174 System.Collections.Generic.Dictionary`2<System.String,System.String> Unity.Services.Authentication.AuthenticationNetworkClient::WithAccessToken(System.Collections.Generic.Dictionary`2<System.String,System.String>)
+extern void AuthenticationNetworkClient_WithAccessToken_m38CB5FDE79922715525D88352E9E78BBBBA01683 (void);
+// 0x00000175 System.Collections.Generic.Dictionary`2<System.String,System.String> Unity.Services.Authentication.AuthenticationNetworkClient::WithEnvironment(System.Collections.Generic.Dictionary`2<System.String,System.String>)
+extern void AuthenticationNetworkClient_WithEnvironment_m9B313EFCA29F2D7457AE5029FA31443331CC5AFC (void);
+// 0x00000176 System.Collections.Generic.Dictionary`2<System.String,System.String> Unity.Services.Authentication.AuthenticationNetworkClient::GetCommonHeaders()
+extern void AuthenticationNetworkClient_GetCommonHeaders_mA91AF9F13338A7B915A99B61CC71874D75CB1C2F (void);
+// 0x00000177 System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse> Unity.Services.Authentication.AuthenticationWebRequestUtils::SendWebRequestAsync(UnityEngine.Networking.UnityWebRequest)
+extern void AuthenticationWebRequestUtils_SendWebRequestAsync_m3FC16EDF482769D86DAF3AA8427FF668952B1E66 (void);
+// 0x00000178 System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse`1<T>> Unity.Services.Authentication.AuthenticationWebRequestUtils::SendWebRequestAsync(UnityEngine.Networking.UnityWebRequest,System.Threading.CancellationToken)
+// 0x00000179 System.Void Unity.Services.Authentication.AuthenticationWebRequestUtils::ProcessResponse(System.Threading.Tasks.TaskCompletionSource`1<Unity.Services.Authentication.Shared.ApiResponse>,UnityEngine.Networking.UnityWebRequest)
+extern void AuthenticationWebRequestUtils_ProcessResponse_m8BE2C059A4C4BEBBDF0370E58E3B6E0E9E10BBE3 (void);
+// 0x0000017A System.Void Unity.Services.Authentication.AuthenticationWebRequestUtils::ProcessResponse(System.Threading.Tasks.TaskCompletionSource`1<Unity.Services.Authentication.Shared.ApiResponse`1<T>>,UnityEngine.Networking.UnityWebRequest)
+// 0x0000017B System.Boolean Unity.Services.Authentication.AuthenticationWebRequestUtils::IsNetworkError(UnityEngine.Networking.UnityWebRequest)
+extern void AuthenticationWebRequestUtils_IsNetworkError_m29B7B63B26A4C68256804DE8EC20E9A035AAC6C3 (void);
+// 0x0000017C System.Boolean Unity.Services.Authentication.AuthenticationWebRequestUtils::IsHttpError(UnityEngine.Networking.UnityWebRequest)
+extern void AuthenticationWebRequestUtils_IsHttpError_mF50468E17E107163A529CD79F3E748048EFFBC67 (void);
+// 0x0000017D System.Void Unity.Services.Authentication.AuthenticationWebRequestUtils/<>c__DisplayClass0_0::.ctor()
+extern void U3CU3Ec__DisplayClass0_0__ctor_m48C2C38CC58FB66BF8B91FEFF328A8C3B009DD8F (void);
+// 0x0000017E System.Void Unity.Services.Authentication.AuthenticationWebRequestUtils/<>c__DisplayClass0_0::<SendWebRequestAsync>b__0(UnityEngine.AsyncOperation)
+extern void U3CU3Ec__DisplayClass0_0_U3CSendWebRequestAsyncU3Eb__0_m41FC324FA96937DFE576A016864F5FE3883AC651 (void);
+// 0x0000017F System.Void Unity.Services.Authentication.AuthenticationWebRequestUtils/<>c__DisplayClass1_0`1::.ctor()
+// 0x00000180 System.Void Unity.Services.Authentication.AuthenticationWebRequestUtils/<>c__DisplayClass1_0`1::<SendWebRequestAsync>b__0()
+// 0x00000181 System.Void Unity.Services.Authentication.AuthenticationWebRequestUtils/<>c__DisplayClass1_0`1::<SendWebRequestAsync>b__1(UnityEngine.AsyncOperation)
+// 0x00000182 System.Collections.Generic.IDictionary`2<System.String,System.String> Unity.Services.Authentication.HttpUtilities::ParseQueryString(System.String)
+extern void HttpUtilities_ParseQueryString_m6014E84D7C7C4604AEBEC226B5AB0D12826EA93B (void);
+// 0x00000183 System.String Unity.Services.Authentication.HttpUtilities::EncodeQueryString(System.Collections.Generic.IDictionary`2<System.String,System.String>)
+extern void HttpUtilities_EncodeQueryString_m0F1E9E329E67D129A10E57885254FE57A2B34CB4 (void);
+// 0x00000184 System.String Unity.Services.Authentication.HttpUtilities::EscapeUrlString(System.String)
+extern void HttpUtilities_EscapeUrlString_mE97CA952E1525FFFAFC9D292A05E2DE07F94DE51 (void);
+// 0x00000185 System.String Unity.Services.Authentication.HttpUtilities::UnescapeUrlString(System.String)
+extern void HttpUtilities_UnescapeUrlString_m15F54F47563D19CC8FC5D176CE501DACB7A78941 (void);
+// 0x00000186 System.Threading.Tasks.Task`1<Unity.Services.Authentication.SignInResponse> Unity.Services.Authentication.IAuthenticationNetworkClient::SignInAnonymouslyAsync()
+// 0x00000187 System.Threading.Tasks.Task`1<Unity.Services.Authentication.SignInResponse> Unity.Services.Authentication.IAuthenticationNetworkClient::SignInWithSessionTokenAsync(System.String)
+// 0x00000188 System.Threading.Tasks.Task`1<Unity.Services.Authentication.SignInResponse> Unity.Services.Authentication.IAuthenticationNetworkClient::SignInWithExternalTokenAsync(System.String,Unity.Services.Authentication.SignInWithExternalTokenRequest)
+// 0x00000189 System.Threading.Tasks.Task`1<Unity.Services.Authentication.LinkResponse> Unity.Services.Authentication.IAuthenticationNetworkClient::LinkWithExternalTokenAsync(System.String,Unity.Services.Authentication.LinkWithExternalTokenRequest)
+// 0x0000018A System.Threading.Tasks.Task`1<Unity.Services.Authentication.UnlinkResponse> Unity.Services.Authentication.IAuthenticationNetworkClient::UnlinkExternalTokenAsync(System.String,Unity.Services.Authentication.UnlinkRequest)
+// 0x0000018B System.Threading.Tasks.Task`1<Unity.Services.Authentication.PlayerInfoResponse> Unity.Services.Authentication.IAuthenticationNetworkClient::GetPlayerInfoAsync(System.String)
+// 0x0000018C System.Threading.Tasks.Task Unity.Services.Authentication.IAuthenticationNetworkClient::DeleteAccountAsync(System.String)
+// 0x0000018D System.Threading.Tasks.Task`1<T> Unity.Services.Authentication.INetworkHandler::GetAsync(System.String,System.Collections.Generic.IDictionary`2<System.String,System.String>)
+// 0x0000018E System.Threading.Tasks.Task`1<T> Unity.Services.Authentication.INetworkHandler::PostAsync(System.String,System.Collections.Generic.IDictionary`2<System.String,System.String>)
+// 0x0000018F System.Threading.Tasks.Task`1<T> Unity.Services.Authentication.INetworkHandler::PostAsync(System.String,System.Object,System.Collections.Generic.IDictionary`2<System.String,System.String>)
+// 0x00000190 System.Threading.Tasks.Task`1<T> Unity.Services.Authentication.INetworkHandler::PutAsync(System.String,System.Object,System.Collections.Generic.IDictionary`2<System.String,System.String>)
+// 0x00000191 System.Threading.Tasks.Task Unity.Services.Authentication.INetworkHandler::DeleteAsync(System.String,System.Collections.Generic.IDictionary`2<System.String,System.String>)
+// 0x00000192 System.Threading.Tasks.Task`1<T> Unity.Services.Authentication.INetworkHandler::DeleteAsync(System.String,System.Collections.Generic.IDictionary`2<System.String,System.String>)
+// 0x00000193 Unity.Services.Authentication.INetworkConfiguration Unity.Services.Authentication.NetworkHandler::get_Configuration()
+extern void NetworkHandler_get_Configuration_m855B12C42C43AC5FEEDCD2536822705243B7B5A4 (void);
+// 0x00000194 System.Void Unity.Services.Authentication.NetworkHandler::.ctor(Unity.Services.Authentication.INetworkConfiguration)
+extern void NetworkHandler__ctor_m974B27C73A424554082ED992FE91ACEF1BF6DBB6 (void);
+// 0x00000195 System.Threading.Tasks.Task`1<T> Unity.Services.Authentication.NetworkHandler::GetAsync(System.String,System.Collections.Generic.IDictionary`2<System.String,System.String>)
+// 0x00000196 System.Threading.Tasks.Task`1<T> Unity.Services.Authentication.NetworkHandler::PostAsync(System.String,System.Collections.Generic.IDictionary`2<System.String,System.String>)
+// 0x00000197 System.Threading.Tasks.Task`1<T> Unity.Services.Authentication.NetworkHandler::PostAsync(System.String,System.Object,System.Collections.Generic.IDictionary`2<System.String,System.String>)
+// 0x00000198 System.Threading.Tasks.Task`1<T> Unity.Services.Authentication.NetworkHandler::PutAsync(System.String,System.Object,System.Collections.Generic.IDictionary`2<System.String,System.String>)
+// 0x00000199 System.Threading.Tasks.Task Unity.Services.Authentication.NetworkHandler::DeleteAsync(System.String,System.Collections.Generic.IDictionary`2<System.String,System.String>)
+extern void NetworkHandler_DeleteAsync_mA0C5CDA09F912B6EBA57299DD1B0106BC02E7A49 (void);
+// 0x0000019A System.Threading.Tasks.Task`1<T> Unity.Services.Authentication.NetworkHandler::DeleteAsync(System.String,System.Collections.Generic.IDictionary`2<System.String,System.String>)
+// 0x0000019B Unity.Services.Authentication.INetworkConfiguration Unity.Services.Authentication.WebRequest::get_Configuration()
+extern void WebRequest_get_Configuration_m17287B94E87EE12E6579C0D303BE14DD94639C5E (void);
+// 0x0000019C System.Int32 Unity.Services.Authentication.WebRequest::get_Retries()
+extern void WebRequest_get_Retries_m54A5EACF6AA10F0FC5E72D5E21068C894943BB4A (void);
+// 0x0000019D System.Void Unity.Services.Authentication.WebRequest::set_Retries(System.Int32)
+extern void WebRequest_set_Retries_mCFCC8E23AAEAD4F2836F22F645DD14F6A7AEE31A (void);
+// 0x0000019E System.Void Unity.Services.Authentication.WebRequest::.ctor(Unity.Services.Authentication.INetworkConfiguration,Unity.Services.Authentication.WebRequestVerb,System.String,System.Collections.Generic.IDictionary`2<System.String,System.String>,System.String,System.String)
+extern void WebRequest__ctor_m7E4F164BD970CD891671BF8F682EE7D2C5BC4B7D (void);
+// 0x0000019F System.Threading.Tasks.Task Unity.Services.Authentication.WebRequest::SendAsync()
+extern void WebRequest_SendAsync_mDBF29413F7446A8D9F6747C3AB89EAB5A6442C25 (void);
+// 0x000001A0 System.Threading.Tasks.Task`1<T> Unity.Services.Authentication.WebRequest::SendAsync()
+// 0x000001A1 System.Threading.Tasks.Task`1<System.String> Unity.Services.Authentication.WebRequest::SendAttemptAsync(System.Threading.Tasks.TaskCompletionSource`1<System.String>)
+extern void WebRequest_SendAttemptAsync_m72854F7D88560AC76FB8DC4B73B38E72ACE360D6 (void);
+// 0x000001A2 UnityEngine.Networking.UnityWebRequest Unity.Services.Authentication.WebRequest::Build()
+extern void WebRequest_Build_mB8DB21CB3B5CE2CDF55E5EB82DAB28EC8084C966 (void);
+// 0x000001A3 System.Void Unity.Services.Authentication.WebRequest::RequestCompleted(System.Threading.Tasks.TaskCompletionSource`1<System.String>,System.Int64,System.Boolean,System.Boolean,System.String,System.String,System.Collections.Generic.IDictionary`2<System.String,System.String>)
+extern void WebRequest_RequestCompleted_m0AB8EBFFF83D11CBF3F6CD7A075871944575A0C4 (void);
+// 0x000001A4 System.Boolean Unity.Services.Authentication.WebRequest::RequestHasServerError(UnityEngine.Networking.UnityWebRequest)
+extern void WebRequest_RequestHasServerError_m9D4204864901403DE7FA88503084221260926F98 (void);
+// 0x000001A5 System.Boolean Unity.Services.Authentication.WebRequest::RequestHasNetworkError(UnityEngine.Networking.UnityWebRequest)
+extern void WebRequest_RequestHasNetworkError_mB4FF69EB4F14B80019B012FAD35BAB9B15ACFDBF (void);
+// 0x000001A6 System.Void Unity.Services.Authentication.WebRequest/<SendAsync>d__15`1::MoveNext()
+// 0x000001A7 System.Void Unity.Services.Authentication.WebRequest/<SendAsync>d__15`1::SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)
+// 0x000001A8 System.Void Unity.Services.Authentication.WebRequest/<>c__DisplayClass16_0::.ctor()
+extern void U3CU3Ec__DisplayClass16_0__ctor_m3BA8501372C6D781E35B05EF4E452C516E26975F (void);
+// 0x000001A9 System.Void Unity.Services.Authentication.WebRequest/<>c__DisplayClass16_0::<SendAttemptAsync>b__0(UnityEngine.AsyncOperation)
+extern void U3CU3Ec__DisplayClass16_0_U3CSendAttemptAsyncU3Eb__0_mCF35D208EED10F62021FF88AF9256CDC4EAE1E32 (void);
+// 0x000001AA System.Boolean Unity.Services.Authentication.WebRequestException::get_NetworkError()
+extern void WebRequestException_get_NetworkError_m9819D76C20F277A2C1867EC658AAFBC8451CB39E (void);
+// 0x000001AB System.Void Unity.Services.Authentication.WebRequestException::set_NetworkError(System.Boolean)
+extern void WebRequestException_set_NetworkError_m2C115303197F2E683B07471C5A2883AE3B03F603 (void);
+// 0x000001AC System.Boolean Unity.Services.Authentication.WebRequestException::get_DeserializationError()
+extern void WebRequestException_get_DeserializationError_mF33CA43841C4CE2718F7F169F8EA9C1F416B79BC (void);
+// 0x000001AD System.Void Unity.Services.Authentication.WebRequestException::set_DeserializationError(System.Boolean)
+extern void WebRequestException_set_DeserializationError_mA826E42FBC5FD3D20CBECCA8A3299E5858688D4E (void);
+// 0x000001AE System.Boolean Unity.Services.Authentication.WebRequestException::get_ServerError()
+extern void WebRequestException_get_ServerError_m2FF122D77D3D18170A3C306B2F5BF24240877470 (void);
+// 0x000001AF System.Void Unity.Services.Authentication.WebRequestException::set_ServerError(System.Boolean)
+extern void WebRequestException_set_ServerError_m25C30AEFD94AA6B869D353E784AC51E740A924E5 (void);
+// 0x000001B0 System.Int64 Unity.Services.Authentication.WebRequestException::get_ResponseCode()
+extern void WebRequestException_get_ResponseCode_mD02CB7727ACF1A6EA570F1DDE88E544D54734F93 (void);
+// 0x000001B1 System.Void Unity.Services.Authentication.WebRequestException::set_ResponseCode(System.Int64)
+extern void WebRequestException_set_ResponseCode_mD5CBAF8670FE2515209045C9677CE5150DD380D7 (void);
+// 0x000001B2 System.Collections.Generic.IDictionary`2<System.String,System.String> Unity.Services.Authentication.WebRequestException::get_ResponseHeaders()
+extern void WebRequestException_get_ResponseHeaders_m4B3EEAE853935B50958D2AA261906B2B7CD830EB (void);
+// 0x000001B3 System.Void Unity.Services.Authentication.WebRequestException::set_ResponseHeaders(System.Collections.Generic.IDictionary`2<System.String,System.String>)
+extern void WebRequestException_set_ResponseHeaders_m413A013D40F846EE08E7959D4C226D571E48F03F (void);
+// 0x000001B4 System.Void Unity.Services.Authentication.WebRequestException::.ctor(System.Boolean,System.Boolean,System.Boolean,System.Int64,System.String,System.Collections.Generic.IDictionary`2<System.String,System.String>)
+extern void WebRequestException__ctor_m34FFE6C71B787343A350711B8D33CDCDE89589CA (void);
+// 0x000001B5 System.String Unity.Services.Authentication.AuthenticationCache::get_CloudProjectId()
+extern void AuthenticationCache_get_CloudProjectId_mB6305CFC987BED1721E733186A2115952C1A64B6 (void);
+// 0x000001B6 System.String Unity.Services.Authentication.AuthenticationCache::get_Profile()
+extern void AuthenticationCache_get_Profile_m3DFBA91E989329B137E0FD376D7775462B5C1CCA (void);
+// 0x000001B7 System.String Unity.Services.Authentication.AuthenticationCache::get_Prefix()
+extern void AuthenticationCache_get_Prefix_mDDC3F137BB4B91509ADC0A923F420FBF98BC1553 (void);
+// 0x000001B8 System.String Unity.Services.Authentication.AuthenticationCache::get_OldPrefix()
+extern void AuthenticationCache_get_OldPrefix_mF88F8AC4CAF17786D4AC7403EA00343CCFE5004B (void);
+// 0x000001B9 System.Void Unity.Services.Authentication.AuthenticationCache::.ctor(Unity.Services.Core.Configuration.Internal.ICloudProjectId,Unity.Services.Authentication.IProfile)
+extern void AuthenticationCache__ctor_mA3284BC025D6C4BD635EE4864ED05324E7CBC517 (void);
+// 0x000001BA System.Boolean Unity.Services.Authentication.AuthenticationCache::HasKey(System.String)
+extern void AuthenticationCache_HasKey_m6B560D471F2475F26DC211E4B78010392A0D4AE9 (void);
+// 0x000001BB System.Void Unity.Services.Authentication.AuthenticationCache::DeleteKey(System.String)
+extern void AuthenticationCache_DeleteKey_m7690A1B73670218BE20FE0665835D749853C5043 (void);
+// 0x000001BC System.String Unity.Services.Authentication.AuthenticationCache::GetString(System.String)
+extern void AuthenticationCache_GetString_m01449E6CF5E098A7315B4DDF1F0D76372419EEEE (void);
+// 0x000001BD System.Void Unity.Services.Authentication.AuthenticationCache::SetString(System.String,System.String)
+extern void AuthenticationCache_SetString_mC2550FC6CF03CD747E1893DDBD0086878FE60B74 (void);
+// 0x000001BE System.Void Unity.Services.Authentication.AuthenticationCache::Migrate(System.String)
+extern void AuthenticationCache_Migrate_mDD710013603020A02FDBC9D77460D8C433B6243B (void);
+// 0x000001BF System.String Unity.Services.Authentication.AuthenticationCache::GetKey(System.String)
+extern void AuthenticationCache_GetKey_m6F463861D10E9CF5ACE173652DB24C1CC2A59CB3 (void);
+// 0x000001C0 System.String Unity.Services.Authentication.AuthenticationCache::GetOldKey(System.String)
+extern void AuthenticationCache_GetOldKey_m7895B910BC29C8A7C1B8D4EDF735490D43092A09 (void);
+// 0x000001C1 System.String Unity.Services.Authentication.IAuthenticationCache::get_Profile()
+// 0x000001C2 System.String Unity.Services.Authentication.IAuthenticationCache::get_CloudProjectId()
+// 0x000001C3 System.Void Unity.Services.Authentication.IAuthenticationCache::Migrate(System.String)
+// 0x000001C4 System.Boolean Unity.Services.Authentication.ICache::HasKey(System.String)
+// 0x000001C5 System.Void Unity.Services.Authentication.ICache::DeleteKey(System.String)
+// 0x000001C6 System.Void Unity.Services.Authentication.ICache::SetString(System.String,System.String)
+// 0x000001C7 System.String Unity.Services.Authentication.ICache::GetString(System.String)
+// 0x000001C8 System.String Unity.Services.Authentication.IsolatedJsonConvert::SerializeObject(System.Object)
+extern void IsolatedJsonConvert_SerializeObject_m53D68B2C16ED4E3DD4163B2E11AF311AA9624FBA (void);
+// 0x000001C9 System.String Unity.Services.Authentication.IsolatedJsonConvert::SerializeObject(System.Object,Newtonsoft.Json.Formatting)
+extern void IsolatedJsonConvert_SerializeObject_m6D249A3DEE80F3204EE97D9AEEDCB8B5D4698F6E (void);
+// 0x000001CA System.String Unity.Services.Authentication.IsolatedJsonConvert::SerializeObject(System.Object,Newtonsoft.Json.JsonConverter[])
+extern void IsolatedJsonConvert_SerializeObject_m4AF896EB9739E297E6E08FF99B908CC57458F34F (void);
+// 0x000001CB System.String Unity.Services.Authentication.IsolatedJsonConvert::SerializeObject(System.Object,Newtonsoft.Json.Formatting,Newtonsoft.Json.JsonConverter[])
+extern void IsolatedJsonConvert_SerializeObject_mD418B85AD5270D5136FAE77C41F24DAD3CA68659 (void);
+// 0x000001CC System.String Unity.Services.Authentication.IsolatedJsonConvert::SerializeObject(System.Object,Newtonsoft.Json.JsonSerializerSettings)
+extern void IsolatedJsonConvert_SerializeObject_m6587999667E6691C605B2284D79E19DB18EA5F65 (void);
+// 0x000001CD System.String Unity.Services.Authentication.IsolatedJsonConvert::SerializeObject(System.Object,System.Type,Newtonsoft.Json.JsonSerializerSettings)
+extern void IsolatedJsonConvert_SerializeObject_mCB474D322E4303637D1BB0989064A1DC00BA0700 (void);
+// 0x000001CE System.String Unity.Services.Authentication.IsolatedJsonConvert::SerializeObject(System.Object,Newtonsoft.Json.Formatting,Newtonsoft.Json.JsonSerializerSettings)
+extern void IsolatedJsonConvert_SerializeObject_mD73AA028578C5EF348166AA618961461E133CE36 (void);
+// 0x000001CF System.String Unity.Services.Authentication.IsolatedJsonConvert::SerializeObject(System.Object,System.Type,Newtonsoft.Json.Formatting,Newtonsoft.Json.JsonSerializerSettings)
+extern void IsolatedJsonConvert_SerializeObject_mE484EAC3CD314C9C80E6069D9D65867C45F458D9 (void);
+// 0x000001D0 System.String Unity.Services.Authentication.IsolatedJsonConvert::SerializeObjectInternal(System.Object,System.Type,Newtonsoft.Json.JsonSerializer)
+extern void IsolatedJsonConvert_SerializeObjectInternal_m11DED4075B1DCC0C5411DD52C6B4E9DA034ACC88 (void);
+// 0x000001D1 System.Object Unity.Services.Authentication.IsolatedJsonConvert::DeserializeObject(System.String)
+extern void IsolatedJsonConvert_DeserializeObject_mD244B8CFAED2E0AE55D4DF340705EC079D72D616 (void);
+// 0x000001D2 System.Object Unity.Services.Authentication.IsolatedJsonConvert::DeserializeObject(System.String,Newtonsoft.Json.JsonSerializerSettings)
+extern void IsolatedJsonConvert_DeserializeObject_m278648BC61FC16F90C373D38DB8050A76816DD15 (void);
+// 0x000001D3 System.Object Unity.Services.Authentication.IsolatedJsonConvert::DeserializeObject(System.String,System.Type)
+extern void IsolatedJsonConvert_DeserializeObject_m4B5B3054DD852277F752B8A5678262660644D490 (void);
+// 0x000001D4 T Unity.Services.Authentication.IsolatedJsonConvert::DeserializeObject(System.String)
+// 0x000001D5 T Unity.Services.Authentication.IsolatedJsonConvert::DeserializeAnonymousType(System.String,T)
+// 0x000001D6 T Unity.Services.Authentication.IsolatedJsonConvert::DeserializeAnonymousType(System.String,T,Newtonsoft.Json.JsonSerializerSettings)
+// 0x000001D7 T Unity.Services.Authentication.IsolatedJsonConvert::DeserializeObject(System.String,Newtonsoft.Json.JsonConverter[])
+// 0x000001D8 T Unity.Services.Authentication.IsolatedJsonConvert::DeserializeObject(System.String,Newtonsoft.Json.JsonSerializerSettings)
+// 0x000001D9 System.Object Unity.Services.Authentication.IsolatedJsonConvert::DeserializeObject(System.String,System.Type,Newtonsoft.Json.JsonConverter[])
+extern void IsolatedJsonConvert_DeserializeObject_m3488C484EB9736ED8EFB8DA9E22549CF50B3CA95 (void);
+// 0x000001DA System.Object Unity.Services.Authentication.IsolatedJsonConvert::DeserializeObject(System.String,System.Type,Newtonsoft.Json.JsonSerializerSettings)
+extern void IsolatedJsonConvert_DeserializeObject_m1D3A5E9B5C9DBD5EB93F863CC85D91C2A5C48A8D (void);
+// 0x000001DB System.Void Unity.Services.Authentication.IsolatedJsonConvert::PopulateObject(System.String,System.Object)
+extern void IsolatedJsonConvert_PopulateObject_m78D4F8CA4FE431154AC3B65D4182231DF401BF4A (void);
+// 0x000001DC System.Void Unity.Services.Authentication.IsolatedJsonConvert::PopulateObject(System.String,System.Object,Newtonsoft.Json.JsonSerializerSettings)
+extern void IsolatedJsonConvert_PopulateObject_m804D300382B30ADEC13BB8356B55F04B9BD95E7B (void);
+// 0x000001DD T Unity.Services.Authentication.IJwtDecoder::Decode(System.String)
+// 0x000001DE T Unity.Services.Authentication.JwtDecoder::Decode(System.String)
+// 0x000001DF System.Byte[] Unity.Services.Authentication.JwtDecoder::Base64UrlDecode(System.String)
+extern void JwtDecoder_Base64UrlDecode_m4FAC88A6795B97AF79655B79A4C8BF70242DD7B9 (void);
+// 0x000001E0 System.Void Unity.Services.Authentication.JwtDecoder::.ctor()
+extern void JwtDecoder__ctor_m0B9D70A3A9BD1F9392F584894885E6A22F14CEC9 (void);
+// 0x000001E1 System.Void Unity.Services.Authentication.JwtDecoder::.cctor()
+extern void JwtDecoder__cctor_mB3966E27A02C595EC3650919A62426EACF89C747 (void);
+// 0x000001E2 System.Void Unity.Services.Authentication.Logger::Log(System.Object)
+extern void Logger_Log_m8A66EADCC18729652C2186FF04B0F0580972BC00 (void);
+// 0x000001E3 System.Void Unity.Services.Authentication.Logger::LogWarning(System.Object)
+extern void Logger_LogWarning_mE0A74606514DA618868A2737BAD77E6DF440F00E (void);
+// 0x000001E4 System.Void Unity.Services.Authentication.Logger::LogError(System.Object)
+extern void Logger_LogError_m698CECF45EB6570E4C933F9EE19A5D85A9E09B34 (void);
+// 0x000001E5 System.Void Unity.Services.Authentication.Logger::LogException(System.Exception)
+extern void Logger_LogException_m0AAD12A69AE2B31546E10F1770E2A0913EB151CA (void);
+// 0x000001E6 System.Void Unity.Services.Authentication.Logger::LogAssertion(System.Object)
+extern void Logger_LogAssertion_m15185E92BAFFE42BE97DD08600498FDE65CC5138 (void);
+// 0x000001E7 System.Void Unity.Services.Authentication.Logger::LogVerbose(System.Object)
+extern void Logger_LogVerbose_m20AC067B645553CD16424E4387BEBEBC06C628BD (void);
+// 0x000001E8 Newtonsoft.Json.JsonSerializerSettings Unity.Services.Authentication.SerializerSettings::get_DefaultSerializerSettings()
+extern void SerializerSettings_get_DefaultSerializerSettings_mE98213EAE9CD60E6705959976704FED1175BB06C (void);
+// 0x000001E9 System.String Unity.Services.Authentication.Internal.IPlayerName::get_PlayerName()
+// 0x000001EA System.Void Unity.Services.Authentication.Internal.IPlayerName::add_PlayerNameChanged(System.Action`1<System.String>)
+// 0x000001EB System.Void Unity.Services.Authentication.Internal.IPlayerName::remove_PlayerNameChanged(System.Action`1<System.String>)
+// 0x000001EC System.Object Unity.Services.Authentication.Shared.AbstractOpenAPISchema::get_ActualInstance()
+// 0x000001ED System.Void Unity.Services.Authentication.Shared.AbstractOpenAPISchema::set_ActualInstance(System.Object)
+// 0x000001EE System.Boolean Unity.Services.Authentication.Shared.AbstractOpenAPISchema::get_IsNullable()
+extern void AbstractOpenAPISchema_get_IsNullable_m688E164C89BECEF01D336CCD257C53BCE59813A7 (void);
+// 0x000001EF System.Void Unity.Services.Authentication.Shared.AbstractOpenAPISchema::set_IsNullable(System.Boolean)
+extern void AbstractOpenAPISchema_set_IsNullable_mA63568EF734C695308D9FE5D61A79F9A0D9E2AB6 (void);
+// 0x000001F0 System.String Unity.Services.Authentication.Shared.AbstractOpenAPISchema::get_SchemaType()
+extern void AbstractOpenAPISchema_get_SchemaType_mA93BEEA542597D6A5017711EED6AAD8CD57D3FD5 (void);
+// 0x000001F1 System.Void Unity.Services.Authentication.Shared.AbstractOpenAPISchema::set_SchemaType(System.String)
+extern void AbstractOpenAPISchema_set_SchemaType_m5C64328D4EFADCE3B64862A1825FFB57184DA96F (void);
+// 0x000001F2 System.String Unity.Services.Authentication.Shared.AbstractOpenAPISchema::ToJson()
+// 0x000001F3 System.Void Unity.Services.Authentication.Shared.AbstractOpenAPISchema::.ctor()
+extern void AbstractOpenAPISchema__ctor_m5813C11C4E1C1500101302583F11E5C97782D345 (void);
+// 0x000001F4 System.Void Unity.Services.Authentication.Shared.AbstractOpenAPISchema::.cctor()
+extern void AbstractOpenAPISchema__cctor_mD43F3BCF376FE8153F27719C816F7C73930151BB (void);
+// 0x000001F5 System.String Unity.Services.Authentication.Shared.ApiConfiguration::get_BasePath()
+extern void ApiConfiguration_get_BasePath_m2191560EE9C35D056C19CC3F19D4A2FE744C5508 (void);
+// 0x000001F6 System.Void Unity.Services.Authentication.Shared.ApiConfiguration::set_BasePath(System.String)
+extern void ApiConfiguration_set_BasePath_mA755D3D03CDA5AC702027D4F3CD1B38F6B861219 (void);
+// 0x000001F7 System.Collections.Generic.IDictionary`2<System.String,System.String> Unity.Services.Authentication.Shared.ApiConfiguration::get_DefaultHeaders()
+extern void ApiConfiguration_get_DefaultHeaders_m82DCA914B5CF1D05F4C68CA3498A752E7CFC511F (void);
+// 0x000001F8 System.Void Unity.Services.Authentication.Shared.ApiConfiguration::set_DefaultHeaders(System.Collections.Generic.IDictionary`2<System.String,System.String>)
+extern void ApiConfiguration_set_DefaultHeaders_mCE9910315215EA4F8ACBEA1DE80E64F627B850D4 (void);
+// 0x000001F9 System.Int32 Unity.Services.Authentication.Shared.ApiConfiguration::get_Timeout()
+extern void ApiConfiguration_get_Timeout_m9DCB061EF48AB0162694DBACFBB888D538DD6FF9 (void);
+// 0x000001FA System.Void Unity.Services.Authentication.Shared.ApiConfiguration::set_Timeout(System.Int32)
+extern void ApiConfiguration_set_Timeout_m6F104374C0A7495C45EC5A81F96832F90067B9B9 (void);
+// 0x000001FB System.String Unity.Services.Authentication.Shared.ApiConfiguration::get_UserAgent()
+extern void ApiConfiguration_get_UserAgent_mA052B2D404B8E9B369CB5D554D257356FA2EB91D (void);
+// 0x000001FC System.Void Unity.Services.Authentication.Shared.ApiConfiguration::set_UserAgent(System.String)
+extern void ApiConfiguration_set_UserAgent_m52CFEB93AEB24036DC4F9EE8837F23ABE24015F4 (void);
+// 0x000001FD System.String Unity.Services.Authentication.Shared.ApiConfiguration::get_Username()
+extern void ApiConfiguration_get_Username_m5E25402EA6C974E775F96081A9A4AFA17DADE009 (void);
+// 0x000001FE System.Void Unity.Services.Authentication.Shared.ApiConfiguration::set_Username(System.String)
+extern void ApiConfiguration_set_Username_m6B4726D0EBDEE6F1C46A10207CFE2BB7AC30BA84 (void);
+// 0x000001FF System.String Unity.Services.Authentication.Shared.ApiConfiguration::get_Password()
+extern void ApiConfiguration_get_Password_mB0DDD3C7AF0615438B18275A74234F86A6922DDD (void);
+// 0x00000200 System.Void Unity.Services.Authentication.Shared.ApiConfiguration::set_Password(System.String)
+extern void ApiConfiguration_set_Password_mCEDBE14455676F165F4A87535CF8C93A74D90153 (void);
+// 0x00000201 System.String Unity.Services.Authentication.Shared.ApiConfiguration::get_AccessToken()
+extern void ApiConfiguration_get_AccessToken_m9F75A514486FE78E31CA14666637E1632B8EACC5 (void);
+// 0x00000202 System.Void Unity.Services.Authentication.Shared.ApiConfiguration::set_AccessToken(System.String)
+extern void ApiConfiguration_set_AccessToken_m8AA70568696774453C4D7F4E2B653918CC9C72D9 (void);
+// 0x00000203 System.String Unity.Services.Authentication.Shared.ApiConfiguration::get_DateTimeFormat()
+extern void ApiConfiguration_get_DateTimeFormat_m8F7BA4E9584F38E0035EA4B9B644AC6C5FBC9D10 (void);
+// 0x00000204 System.Void Unity.Services.Authentication.Shared.ApiConfiguration::set_DateTimeFormat(System.String)
+extern void ApiConfiguration_set_DateTimeFormat_mC5BA46BF1E1884ACD9C031BB77FBB67B1FA93ACF (void);
+// 0x00000205 System.Collections.Generic.IDictionary`2<System.String,System.String> Unity.Services.Authentication.Shared.ApiConfiguration::get_ApiKeyPrefix()
+extern void ApiConfiguration_get_ApiKeyPrefix_mEB29932B8C38B942F0DC578908CBF43321A3C765 (void);
+// 0x00000206 System.Void Unity.Services.Authentication.Shared.ApiConfiguration::set_ApiKeyPrefix(System.Collections.Generic.IDictionary`2<System.String,System.String>)
+extern void ApiConfiguration_set_ApiKeyPrefix_mBB4EBEA049729EAFE6C99A94E4E80D47822FBBC9 (void);
+// 0x00000207 System.Collections.Generic.IDictionary`2<System.String,System.String> Unity.Services.Authentication.Shared.ApiConfiguration::get_ApiKey()
+extern void ApiConfiguration_get_ApiKey_m38A1BC40E4F75A7CA3B5CD8754504CDEA42929EF (void);
+// 0x00000208 System.Void Unity.Services.Authentication.Shared.ApiConfiguration::set_ApiKey(System.Collections.Generic.IDictionary`2<System.String,System.String>)
+extern void ApiConfiguration_set_ApiKey_m8E1E3528C255DE8DFD344309D1EBF016C5C84135 (void);
+// 0x00000209 System.Void Unity.Services.Authentication.Shared.ApiConfiguration::.ctor()
+extern void ApiConfiguration__ctor_mD0765A0047517478AA8A11CD99F9771DEB201DDD (void);
+// 0x0000020A System.Void Unity.Services.Authentication.Shared.ApiConfiguration::.ctor(System.Collections.Generic.IDictionary`2<System.String,System.String>,System.Collections.Generic.IDictionary`2<System.String,System.String>,System.Collections.Generic.IDictionary`2<System.String,System.String>,System.String)
+extern void ApiConfiguration__ctor_m17EB7132F787C5317CFC3B23ADF9875309E25995 (void);
+// 0x0000020B System.String Unity.Services.Authentication.Shared.ApiConfiguration::GetApiKeyWithPrefix(System.String)
+extern void ApiConfiguration_GetApiKeyWithPrefix_m56E8393B91AB12F9CFF2E39E21966D359851BDBD (void);
+// 0x0000020C System.Void Unity.Services.Authentication.Shared.ApiConfiguration::AddApiKey(System.String,System.String)
+extern void ApiConfiguration_AddApiKey_m3D4D01A54167141A96EF991D85FD0D3334F1460C (void);
+// 0x0000020D System.Void Unity.Services.Authentication.Shared.ApiConfiguration::AddApiKeyPrefix(System.String,System.String)
+extern void ApiConfiguration_AddApiKeyPrefix_m822FA7CF7DC5BAEE8B6F485D8F1CC353A08CE4A7 (void);
+// 0x0000020E Unity.Services.Authentication.Shared.ApiExceptionType Unity.Services.Authentication.Shared.ApiException::get_Type()
+extern void ApiException_get_Type_m5F8DB59E8E17BC0E7034E94798202930C78B273A (void);
+// 0x0000020F System.Void Unity.Services.Authentication.Shared.ApiException::set_Type(Unity.Services.Authentication.Shared.ApiExceptionType)
+extern void ApiException_set_Type_m6632103E498066083D34CE8FC08B1693ECFBC24B (void);
+// 0x00000210 Unity.Services.Authentication.Shared.IApiResponse Unity.Services.Authentication.Shared.ApiException::get_Response()
+extern void ApiException_get_Response_m0561EBC006BB8F6778F5DF40667D0745E2F7F942 (void);
+// 0x00000211 System.Void Unity.Services.Authentication.Shared.ApiException::set_Response(Unity.Services.Authentication.Shared.IApiResponse)
+extern void ApiException_set_Response_m0CD74A5EF88E695D5592F356CF4EC76CF81A7787 (void);
+// 0x00000212 System.Void Unity.Services.Authentication.Shared.ApiException::.ctor(Unity.Services.Authentication.Shared.ApiExceptionType,System.String,Unity.Services.Authentication.Shared.IApiResponse)
+extern void ApiException__ctor_m8613EA62B65E8A7792588C837DD66FAEA80A07F2 (void);
+// 0x00000213 System.Collections.Generic.Dictionary`2<System.String,System.String> Unity.Services.Authentication.Shared.ApiRequestOptions::get_PathParameters()
+extern void ApiRequestOptions_get_PathParameters_m751BD01D7CC6653A0FF5F30CC7F0B02DA0EC9386 (void);
+// 0x00000214 System.Void Unity.Services.Authentication.Shared.ApiRequestOptions::set_PathParameters(System.Collections.Generic.Dictionary`2<System.String,System.String>)
+extern void ApiRequestOptions_set_PathParameters_m5A27A4A5C73F335CCA8944D6221CF4B6D114AC3B (void);
+// 0x00000215 Unity.Services.Authentication.Shared.Multimap`2<System.String,System.String> Unity.Services.Authentication.Shared.ApiRequestOptions::get_QueryParameters()
+extern void ApiRequestOptions_get_QueryParameters_m8C131BD0B1D6DAE86F3B976D825E6228A4CFEEE8 (void);
+// 0x00000216 System.Void Unity.Services.Authentication.Shared.ApiRequestOptions::set_QueryParameters(Unity.Services.Authentication.Shared.Multimap`2<System.String,System.String>)
+extern void ApiRequestOptions_set_QueryParameters_m44F0DBEA8495726DE17B66977B87572AA2A8A9DA (void);
+// 0x00000217 Unity.Services.Authentication.Shared.Multimap`2<System.String,System.String> Unity.Services.Authentication.Shared.ApiRequestOptions::get_HeaderParameters()
+extern void ApiRequestOptions_get_HeaderParameters_m8E1EA97AD4BEFE82E2E967212DD03BBC1A7B99D6 (void);
+// 0x00000218 System.Void Unity.Services.Authentication.Shared.ApiRequestOptions::set_HeaderParameters(Unity.Services.Authentication.Shared.Multimap`2<System.String,System.String>)
+extern void ApiRequestOptions_set_HeaderParameters_m927BA51AF752E4E1DC053C5B33CBBE4825D83080 (void);
+// 0x00000219 System.Collections.Generic.Dictionary`2<System.String,System.String> Unity.Services.Authentication.Shared.ApiRequestOptions::get_FormParameters()
+extern void ApiRequestOptions_get_FormParameters_mB18244AA248D13991854DE3F09B8F96E2B9D68B4 (void);
+// 0x0000021A System.Void Unity.Services.Authentication.Shared.ApiRequestOptions::set_FormParameters(System.Collections.Generic.Dictionary`2<System.String,System.String>)
+extern void ApiRequestOptions_set_FormParameters_mF32697C09568970C064F86C8F7EF87F6DC04179C (void);
+// 0x0000021B Unity.Services.Authentication.Shared.Multimap`2<System.String,System.IO.Stream> Unity.Services.Authentication.Shared.ApiRequestOptions::get_FileParameters()
+extern void ApiRequestOptions_get_FileParameters_mC8C0FFEFF2077EDF82A7A5BFEAEC10F3A98C94CF (void);
+// 0x0000021C System.Void Unity.Services.Authentication.Shared.ApiRequestOptions::set_FileParameters(Unity.Services.Authentication.Shared.Multimap`2<System.String,System.IO.Stream>)
+extern void ApiRequestOptions_set_FileParameters_mB75B33A63800177EFB0196557F005E029667F47B (void);
+// 0x0000021D System.String Unity.Services.Authentication.Shared.ApiRequestOptions::get_Operation()
+extern void ApiRequestOptions_get_Operation_m6C54FFA2373DCD8FB11004DB77C1143B53D0B6FE (void);
+// 0x0000021E System.Void Unity.Services.Authentication.Shared.ApiRequestOptions::set_Operation(System.String)
+extern void ApiRequestOptions_set_Operation_mF6B25F8B3F9385D03C00A8522E3C5BDF131B5FBE (void);
+// 0x0000021F System.Object Unity.Services.Authentication.Shared.ApiRequestOptions::get_Data()
+extern void ApiRequestOptions_get_Data_m12FF77F83192BA3324222402386095B5BCDA8898 (void);
+// 0x00000220 System.Void Unity.Services.Authentication.Shared.ApiRequestOptions::set_Data(System.Object)
+extern void ApiRequestOptions_set_Data_m9C0F99493783FD2CDF74A14BFF007E9D73CE4E94 (void);
+// 0x00000221 System.Void Unity.Services.Authentication.Shared.ApiRequestOptions::.ctor()
+extern void ApiRequestOptions__ctor_m5EA6E302AC08BC87D183EA5FB5F67604BC6A94F4 (void);
+// 0x00000222 System.Void Unity.Services.Authentication.Shared.ApiRequestPathBuilder::.ctor(System.String,System.String)
+extern void ApiRequestPathBuilder__ctor_mF257137CF45B4DFD8B6D4FE33F6F7057820B081B (void);
+// 0x00000223 System.Void Unity.Services.Authentication.Shared.ApiRequestPathBuilder::AddPathParameters(System.Collections.Generic.Dictionary`2<System.String,System.String>)
+extern void ApiRequestPathBuilder_AddPathParameters_mDCD93CB1350B2870FF741E63C5FE14871A94C828 (void);
+// 0x00000224 System.Void Unity.Services.Authentication.Shared.ApiRequestPathBuilder::AddQueryParameters(Unity.Services.Authentication.Shared.Multimap`2<System.String,System.String>)
+extern void ApiRequestPathBuilder_AddQueryParameters_m80C5135402EE1A6F2B4D0C27DC1D42943CAF32E7 (void);
+// 0x00000225 System.String Unity.Services.Authentication.Shared.ApiRequestPathBuilder::GetFullUri()
+extern void ApiRequestPathBuilder_GetFullUri_mA1A601A434BFB570B79733F2ED44776F25D09195 (void);
+// 0x00000226 System.Object Unity.Services.Authentication.Shared.IApiResponse::get_Content()
+// 0x00000227 System.Int32 Unity.Services.Authentication.Shared.IApiResponse::get_StatusCode()
+// 0x00000228 Unity.Services.Authentication.Shared.Multimap`2<System.String,System.String> Unity.Services.Authentication.Shared.IApiResponse::get_Headers()
+// 0x00000229 System.String Unity.Services.Authentication.Shared.IApiResponse::get_ErrorText()
+// 0x0000022A System.String Unity.Services.Authentication.Shared.IApiResponse::get_RawContent()
+// 0x0000022B System.Boolean Unity.Services.Authentication.Shared.IApiResponse::get_IsSuccessful()
+// 0x0000022C System.Boolean Unity.Services.Authentication.Shared.IApiResponse::get_IsRedirection()
+// 0x0000022D System.Boolean Unity.Services.Authentication.Shared.IApiResponse::get_IsClientError()
+// 0x0000022E System.Boolean Unity.Services.Authentication.Shared.IApiResponse::get_IsServerError()
+// 0x0000022F System.Int32 Unity.Services.Authentication.Shared.ApiResponse::get_StatusCode()
+extern void ApiResponse_get_StatusCode_m2228DA21E2C2B93A3D6552E9528BA36326A9209B (void);
+// 0x00000230 System.Void Unity.Services.Authentication.Shared.ApiResponse::set_StatusCode(System.Int32)
+extern void ApiResponse_set_StatusCode_mF460FCFB59C55B8B0DF60DF9005A7CC06F276CA0 (void);
+// 0x00000231 Unity.Services.Authentication.Shared.Multimap`2<System.String,System.String> Unity.Services.Authentication.Shared.ApiResponse::get_Headers()
+extern void ApiResponse_get_Headers_m7FA6BF859C996C8A1BFAF079ADE1CD08C844CBA4 (void);
+// 0x00000232 System.Void Unity.Services.Authentication.Shared.ApiResponse::set_Headers(Unity.Services.Authentication.Shared.Multimap`2<System.String,System.String>)
+extern void ApiResponse_set_Headers_mD0450BD8C5EFB8F0932D200EDFC3542D701AA4A7 (void);
+// 0x00000233 System.String Unity.Services.Authentication.Shared.ApiResponse::get_ErrorText()
+extern void ApiResponse_get_ErrorText_m38BA3B5F403672DBF5A020AA78BDBFA899D24A42 (void);
+// 0x00000234 System.Void Unity.Services.Authentication.Shared.ApiResponse::set_ErrorText(System.String)
+extern void ApiResponse_set_ErrorText_m7A750E4E43A350A68B75277BBBDC1401B129ECD4 (void);
+// 0x00000235 System.String Unity.Services.Authentication.Shared.ApiResponse::get_RawContent()
+extern void ApiResponse_get_RawContent_m2D2EAFA5ED1387F1672919B27A92233D85C23B3C (void);
+// 0x00000236 System.Void Unity.Services.Authentication.Shared.ApiResponse::set_RawContent(System.String)
+extern void ApiResponse_set_RawContent_m154FC204FD427B14D197DB7EC557491D1CA24C00 (void);
+// 0x00000237 System.Object Unity.Services.Authentication.Shared.ApiResponse::get_Content()
+extern void ApiResponse_get_Content_mD4627A4B787C1DFB1568401562FF51D9361818F0 (void);
+// 0x00000238 System.Boolean Unity.Services.Authentication.Shared.ApiResponse::get_IsSuccessful()
+extern void ApiResponse_get_IsSuccessful_mBAB116A9E236704F153E63B85DDE1E2DF2FD7FF0 (void);
+// 0x00000239 System.Boolean Unity.Services.Authentication.Shared.ApiResponse::get_IsRedirection()
+extern void ApiResponse_get_IsRedirection_m439C2988DB5E24466C09A3B6699A79DF0B5CFC15 (void);
+// 0x0000023A System.Boolean Unity.Services.Authentication.Shared.ApiResponse::get_IsClientError()
+extern void ApiResponse_get_IsClientError_m2CADBF466C138FD56CB6DAE3FB6CB90CAA7F20A1 (void);
+// 0x0000023B System.Boolean Unity.Services.Authentication.Shared.ApiResponse::get_IsServerError()
+extern void ApiResponse_get_IsServerError_mAC6E2BD0EAE4C0BCDD475CC39E8913D6563078F4 (void);
+// 0x0000023C System.Void Unity.Services.Authentication.Shared.ApiResponse::.ctor()
+extern void ApiResponse__ctor_mDB7CD5C73E9B7318FC9D0B695E87812CCCB2A160 (void);
+// 0x0000023D T Unity.Services.Authentication.Shared.ApiResponse`1::get_Data()
+// 0x0000023E System.Void Unity.Services.Authentication.Shared.ApiResponse`1::set_Data(T)
+// 0x0000023F System.Object Unity.Services.Authentication.Shared.ApiResponse`1::get_Content()
+// 0x00000240 System.Void Unity.Services.Authentication.Shared.ApiResponse`1::.ctor()
+// 0x00000241 Unity.Services.Authentication.Shared.Multimap`2<System.String,System.String> Unity.Services.Authentication.Shared.ApiUtils::ParameterToMultiMap(Unity.Services.Authentication.Shared.IApiConfiguration,System.String,System.String,System.Object)
+extern void ApiUtils_ParameterToMultiMap_m7B6FD751B9240812D1D607E88BD42ED3C7CD8055 (void);
+// 0x00000242 System.String Unity.Services.Authentication.Shared.ApiUtils::ParameterToString(Unity.Services.Authentication.Shared.IApiConfiguration,System.Object)
+extern void ApiUtils_ParameterToString_mDF88F7220BE183A1FE4AD5B8C85C4AE291FDF78F (void);
+// 0x00000243 System.String Unity.Services.Authentication.Shared.ApiUtils::Base64Encode(System.String)
+extern void ApiUtils_Base64Encode_m91DE345BDCA0D8BFAE50BB12A171229D2D97E967 (void);
+// 0x00000244 System.String Unity.Services.Authentication.Shared.ApiUtils::SelectHeaderContentType(System.String[])
+extern void ApiUtils_SelectHeaderContentType_m44E80DA2592DAC0BC84DB618B8DABCBB7531D25C (void);
+// 0x00000245 System.String Unity.Services.Authentication.Shared.ApiUtils::SelectHeaderAccept(System.String[])
+extern void ApiUtils_SelectHeaderAccept_mAB123E7469E0B813F8BC095ED91096C2D5E6928B (void);
+// 0x00000246 System.Boolean Unity.Services.Authentication.Shared.ApiUtils::IsJsonMime(System.String)
+extern void ApiUtils_IsJsonMime_m9D90F2789183D501CA951EF9D23E2F989CCC7C95 (void);
+// 0x00000247 System.Boolean Unity.Services.Authentication.Shared.ApiUtils::HasEnumMemberAttrValue(System.Object)
+extern void ApiUtils_HasEnumMemberAttrValue_m093AD366C9A7CCDF2EB47DD3ABB0B0E714808155 (void);
+// 0x00000248 System.String Unity.Services.Authentication.Shared.ApiUtils::GetEnumMemberAttrValue(System.Object)
+extern void ApiUtils_GetEnumMemberAttrValue_mA8C2B23460735E305B94B88DECDA09AB47D2B3E4 (void);
+// 0x00000249 System.Void Unity.Services.Authentication.Shared.ApiUtils::.ctor()
+extern void ApiUtils__ctor_m0B7D18CD58D0FB9AF44BF36F973A40EB40CB4A47 (void);
+// 0x0000024A System.Void Unity.Services.Authentication.Shared.ApiUtils::.cctor()
+extern void ApiUtils__cctor_mABC5DEDD056230B036B65B9D4FF6BB46A73A5FA8 (void);
+// 0x0000024B Unity.Services.Authentication.Shared.IApiConfiguration Unity.Services.Authentication.Shared.IApiAccessor::get_Configuration()
+// 0x0000024C System.String Unity.Services.Authentication.Shared.IApiAccessor::GetBasePath()
+// 0x0000024D System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse`1<T>> Unity.Services.Authentication.Shared.IApiClient::GetAsync(System.String,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration,System.Threading.CancellationToken)
+// 0x0000024E System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse> Unity.Services.Authentication.Shared.IApiClient::GetAsync(System.String,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration,System.Threading.CancellationToken)
+// 0x0000024F System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse`1<T>> Unity.Services.Authentication.Shared.IApiClient::PostAsync(System.String,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration,System.Threading.CancellationToken)
+// 0x00000250 System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse> Unity.Services.Authentication.Shared.IApiClient::PostAsync(System.String,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration,System.Threading.CancellationToken)
+// 0x00000251 System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse`1<T>> Unity.Services.Authentication.Shared.IApiClient::PutAsync(System.String,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration,System.Threading.CancellationToken)
+// 0x00000252 System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse> Unity.Services.Authentication.Shared.IApiClient::PutAsync(System.String,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration,System.Threading.CancellationToken)
+// 0x00000253 System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse`1<T>> Unity.Services.Authentication.Shared.IApiClient::DeleteAsync(System.String,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration,System.Threading.CancellationToken)
+// 0x00000254 System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse> Unity.Services.Authentication.Shared.IApiClient::DeleteAsync(System.String,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration,System.Threading.CancellationToken)
+// 0x00000255 System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse`1<T>> Unity.Services.Authentication.Shared.IApiClient::HeadAsync(System.String,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration,System.Threading.CancellationToken)
+// 0x00000256 System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse> Unity.Services.Authentication.Shared.IApiClient::HeadAsync(System.String,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration,System.Threading.CancellationToken)
+// 0x00000257 System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse`1<T>> Unity.Services.Authentication.Shared.IApiClient::OptionsAsync(System.String,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration,System.Threading.CancellationToken)
+// 0x00000258 System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse> Unity.Services.Authentication.Shared.IApiClient::OptionsAsync(System.String,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration,System.Threading.CancellationToken)
+// 0x00000259 System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse`1<T>> Unity.Services.Authentication.Shared.IApiClient::PatchAsync(System.String,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration,System.Threading.CancellationToken)
+// 0x0000025A System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse> Unity.Services.Authentication.Shared.IApiClient::PatchAsync(System.String,Unity.Services.Authentication.Shared.ApiRequestOptions,Unity.Services.Authentication.Shared.IApiConfiguration,System.Threading.CancellationToken)
+// 0x0000025B System.String Unity.Services.Authentication.Shared.IApiConfiguration::get_AccessToken()
+// 0x0000025C System.Void Unity.Services.Authentication.Shared.IApiConfiguration::set_AccessToken(System.String)
+// 0x0000025D System.Collections.Generic.IDictionary`2<System.String,System.String> Unity.Services.Authentication.Shared.IApiConfiguration::get_ApiKey()
+// 0x0000025E System.Void Unity.Services.Authentication.Shared.IApiConfiguration::set_ApiKey(System.Collections.Generic.IDictionary`2<System.String,System.String>)
+// 0x0000025F System.Collections.Generic.IDictionary`2<System.String,System.String> Unity.Services.Authentication.Shared.IApiConfiguration::get_ApiKeyPrefix()
+// 0x00000260 System.Void Unity.Services.Authentication.Shared.IApiConfiguration::set_ApiKeyPrefix(System.Collections.Generic.IDictionary`2<System.String,System.String>)
+// 0x00000261 System.Collections.Generic.IDictionary`2<System.String,System.String> Unity.Services.Authentication.Shared.IApiConfiguration::get_DefaultHeaders()
+// 0x00000262 System.Void Unity.Services.Authentication.Shared.IApiConfiguration::set_DefaultHeaders(System.Collections.Generic.IDictionary`2<System.String,System.String>)
+// 0x00000263 System.String Unity.Services.Authentication.Shared.IApiConfiguration::get_BasePath()
+// 0x00000264 System.Void Unity.Services.Authentication.Shared.IApiConfiguration::set_BasePath(System.String)
+// 0x00000265 System.String Unity.Services.Authentication.Shared.IApiConfiguration::get_DateTimeFormat()
+// 0x00000266 System.Void Unity.Services.Authentication.Shared.IApiConfiguration::set_DateTimeFormat(System.String)
+// 0x00000267 System.Int32 Unity.Services.Authentication.Shared.IApiConfiguration::get_Timeout()
+// 0x00000268 System.Void Unity.Services.Authentication.Shared.IApiConfiguration::set_Timeout(System.Int32)
+// 0x00000269 System.String Unity.Services.Authentication.Shared.IApiConfiguration::get_UserAgent()
+// 0x0000026A System.Void Unity.Services.Authentication.Shared.IApiConfiguration::set_UserAgent(System.String)
+// 0x0000026B System.String Unity.Services.Authentication.Shared.IApiConfiguration::get_Username()
+// 0x0000026C System.Void Unity.Services.Authentication.Shared.IApiConfiguration::set_Username(System.String)
+// 0x0000026D System.String Unity.Services.Authentication.Shared.IApiConfiguration::get_Password()
+// 0x0000026E System.Void Unity.Services.Authentication.Shared.IApiConfiguration::set_Password(System.String)
+// 0x0000026F System.String Unity.Services.Authentication.Shared.IApiConfiguration::GetApiKeyWithPrefix(System.String)
+// 0x00000270 System.Collections.Generic.IList`1<TValue> Unity.Services.Authentication.Shared.Multimap`2::get_Item(TKey)
+// 0x00000271 System.Void Unity.Services.Authentication.Shared.Multimap`2::set_Item(TKey,System.Collections.Generic.IList`1<TValue>)
+// 0x00000272 System.Collections.Generic.ICollection`1<TKey> Unity.Services.Authentication.Shared.Multimap`2::get_Keys()
+// 0x00000273 System.Collections.Generic.ICollection`1<System.Collections.Generic.IList`1<TValue>> Unity.Services.Authentication.Shared.Multimap`2::get_Values()
+// 0x00000274 System.Int32 Unity.Services.Authentication.Shared.Multimap`2::get_Count()
+// 0x00000275 System.Boolean Unity.Services.Authentication.Shared.Multimap`2::get_IsReadOnly()
+// 0x00000276 System.Void Unity.Services.Authentication.Shared.Multimap`2::.ctor()
+// 0x00000277 System.Void Unity.Services.Authentication.Shared.Multimap`2::.ctor(System.Collections.Generic.IEqualityComparer`1<TKey>)
+// 0x00000278 System.Collections.Generic.IEnumerator`1<System.Collections.Generic.KeyValuePair`2<TKey,System.Collections.Generic.IList`1<TValue>>> Unity.Services.Authentication.Shared.Multimap`2::GetEnumerator()
+// 0x00000279 System.Collections.IEnumerator Unity.Services.Authentication.Shared.Multimap`2::System.Collections.IEnumerable.GetEnumerator()
+// 0x0000027A System.Void Unity.Services.Authentication.Shared.Multimap`2::Add(System.Collections.Generic.KeyValuePair`2<TKey,System.Collections.Generic.IList`1<TValue>>)
+// 0x0000027B System.Void Unity.Services.Authentication.Shared.Multimap`2::Add(Unity.Services.Authentication.Shared.Multimap`2<TKey,TValue>)
+// 0x0000027C System.Void Unity.Services.Authentication.Shared.Multimap`2::Clear()
+// 0x0000027D System.Boolean Unity.Services.Authentication.Shared.Multimap`2::Contains(System.Collections.Generic.KeyValuePair`2<TKey,System.Collections.Generic.IList`1<TValue>>)
+// 0x0000027E System.Void Unity.Services.Authentication.Shared.Multimap`2::CopyTo(System.Collections.Generic.KeyValuePair`2<TKey,System.Collections.Generic.IList`1<TValue>>[],System.Int32)
+// 0x0000027F System.Boolean Unity.Services.Authentication.Shared.Multimap`2::Remove(System.Collections.Generic.KeyValuePair`2<TKey,System.Collections.Generic.IList`1<TValue>>)
+// 0x00000280 System.Void Unity.Services.Authentication.Shared.Multimap`2::Add(TKey,System.Collections.Generic.IList`1<TValue>)
+// 0x00000281 System.Boolean Unity.Services.Authentication.Shared.Multimap`2::ContainsKey(TKey)
+// 0x00000282 System.Boolean Unity.Services.Authentication.Shared.Multimap`2::Remove(TKey)
+// 0x00000283 System.Boolean Unity.Services.Authentication.Shared.Multimap`2::TryGetValue(TKey,System.Collections.Generic.IList`1<TValue>&)
+// 0x00000284 System.Void Unity.Services.Authentication.Shared.Multimap`2::CopyTo(System.Array,System.Int32)
+// 0x00000285 System.Void Unity.Services.Authentication.Shared.Multimap`2::Add(TKey,TValue)
+// 0x00000286 System.Boolean Unity.Services.Authentication.Shared.Multimap`2::TryRemove(TKey,System.Collections.Generic.IList`1<TValue>&)
+// 0x00000287 System.Boolean Unity.Services.Authentication.Shared.Multimap`2::TryAdd(TKey,System.Collections.Generic.IList`1<TValue>)
+// 0x00000288 System.Void Unity.Services.Authentication.Shared.OpenAPIDateConverter::.ctor()
+extern void OpenAPIDateConverter__ctor_m0BC75A039126DA48EA00B60C8B24F04EC4CD50A2 (void);
+// 0x00000289 System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse`1<Unity.Services.Authentication.Generated.Player>> Unity.Services.Authentication.Generated.IPlayerNamesApi::GetNameAsync(System.String,System.Nullable`1<System.Boolean>,System.Nullable`1<System.Boolean>,System.Threading.CancellationToken)
+// 0x0000028A System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse`1<Unity.Services.Authentication.Generated.Player>> Unity.Services.Authentication.Generated.IPlayerNamesApi::UpdateNameAsync(System.String,Unity.Services.Authentication.Generated.UpdateNameRequest,System.Threading.CancellationToken)
+// 0x0000028B Unity.Services.Authentication.Shared.IApiClient Unity.Services.Authentication.Generated.PlayerNamesApi::get_Client()
+extern void PlayerNamesApi_get_Client_mC71FA0206EB7FD0FAD365D49E567535475C17437 (void);
+// 0x0000028C Unity.Services.Authentication.Shared.IApiConfiguration Unity.Services.Authentication.Generated.PlayerNamesApi::get_Configuration()
+extern void PlayerNamesApi_get_Configuration_m82EE46ACEB06490183A7A57718903BED5AF7390F (void);
+// 0x0000028D System.Void Unity.Services.Authentication.Generated.PlayerNamesApi::.ctor(Unity.Services.Authentication.Shared.IApiClient)
+extern void PlayerNamesApi__ctor_mC3521B39910F5C9BD09D5392917E2F1C173A2559 (void);
+// 0x0000028E System.Void Unity.Services.Authentication.Generated.PlayerNamesApi::.ctor(Unity.Services.Authentication.Shared.IApiClient,Unity.Services.Authentication.Shared.IApiConfiguration)
+extern void PlayerNamesApi__ctor_m6A47B018F51DBB7A7E44B67D3270780D4506400C (void);
+// 0x0000028F System.String Unity.Services.Authentication.Generated.PlayerNamesApi::GetBasePath()
+extern void PlayerNamesApi_GetBasePath_m5E84AD1EAD82778599AC5C871A3B20376BEE6131 (void);
+// 0x00000290 System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse`1<Unity.Services.Authentication.Generated.Player>> Unity.Services.Authentication.Generated.PlayerNamesApi::GetNameAsync(System.String,System.Nullable`1<System.Boolean>,System.Nullable`1<System.Boolean>,System.Threading.CancellationToken)
+extern void PlayerNamesApi_GetNameAsync_m5A13397E74853CD866D91CE0671EBCBD8ED75849 (void);
+// 0x00000291 System.Threading.Tasks.Task`1<Unity.Services.Authentication.Shared.ApiResponse`1<Unity.Services.Authentication.Generated.Player>> Unity.Services.Authentication.Generated.PlayerNamesApi::UpdateNameAsync(System.String,Unity.Services.Authentication.Generated.UpdateNameRequest,System.Threading.CancellationToken)
+extern void PlayerNamesApi_UpdateNameAsync_m5EDA12920878A81B81E44311ED7A9F2D77C5227A (void);
+// 0x00000292 System.Void Unity.Services.Authentication.Generated.PlayerNamesApi/<GetNameAsync>d__9::MoveNext()
+extern void U3CGetNameAsyncU3Ed__9_MoveNext_m32AD7EDF4657AC7553B2AFCB480C04410A777355 (void);
+// 0x00000293 System.Void Unity.Services.Authentication.Generated.PlayerNamesApi/<GetNameAsync>d__9::SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)
+extern void U3CGetNameAsyncU3Ed__9_SetStateMachine_mF540258C99A1327479B5BB70FCA15DAB5597ED33 (void);
+// 0x00000294 System.Void Unity.Services.Authentication.Generated.PlayerNamesApi/<UpdateNameAsync>d__10::MoveNext()
+extern void U3CUpdateNameAsyncU3Ed__10_MoveNext_m2C3EF838C1C29CFEAB55356F6E73D0A519554C75 (void);
+// 0x00000295 System.Void Unity.Services.Authentication.Generated.PlayerNamesApi/<UpdateNameAsync>d__10::SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)
+extern void U3CUpdateNameAsyncU3Ed__10_SetStateMachine_m3C095CAA4BD5D723FF0FAD7F467E7D33D2AF9B1C (void);
+// 0x00000296 System.String Unity.Services.Authentication.Generated.Detail::get_ErrorType()
+extern void Detail_get_ErrorType_mD9CA98EAEDDF382BDE9368A7B083CC64F9FDEF87 (void);
+// 0x00000297 System.Void Unity.Services.Authentication.Generated.Detail::set_ErrorType(System.String)
+extern void Detail_set_ErrorType_m9CAA5495DC1F80877CB05811C3D50C236E2CAF62 (void);
+// 0x00000298 System.String Unity.Services.Authentication.Generated.Detail::get_Message()
+extern void Detail_get_Message_m0EFB620B7FB56055373C852AB3B5CD41E8DC30CD (void);
+// 0x00000299 System.Void Unity.Services.Authentication.Generated.Detail::set_Message(System.String)
+extern void Detail_set_Message_mE40A9C78E0D10E1C553EB4A29A60FED86D910602 (void);
+// 0x0000029A System.Void Unity.Services.Authentication.Generated.Detail::.ctor(System.String,System.String)
+extern void Detail__ctor_mA23496DF27895D537EE4C37DA035B565C1FF57AF (void);
+// 0x0000029B System.Int32 Unity.Services.Authentication.Generated.ErrorStatus::get_Status()
+extern void ErrorStatus_get_Status_m9105A9F5AD2AA40E17B9B75A577A2E8ECDB2D82F (void);
+// 0x0000029C System.Void Unity.Services.Authentication.Generated.ErrorStatus::set_Status(System.Int32)
+extern void ErrorStatus_set_Status_mCFADC1F24F28ED7E936E2778F4FE4756DEB58D97 (void);
+// 0x0000029D System.String Unity.Services.Authentication.Generated.ErrorStatus::get_Title()
+extern void ErrorStatus_get_Title_mA4C8064B7E4A88786A06A736BC8AD4398AFDBC59 (void);
+// 0x0000029E System.Void Unity.Services.Authentication.Generated.ErrorStatus::set_Title(System.String)
+extern void ErrorStatus_set_Title_m8AFE10D39C118B50EDE0BA9685023C7327FCCF78 (void);
+// 0x0000029F System.String Unity.Services.Authentication.Generated.ErrorStatus::get_Detail()
+extern void ErrorStatus_get_Detail_m2950DB824A66F762D3ED68ADC5475FDB30C26FEE (void);
+// 0x000002A0 System.Void Unity.Services.Authentication.Generated.ErrorStatus::set_Detail(System.String)
+extern void ErrorStatus_set_Detail_mC0716E0869BFF81FE40436B64702F8663926B9B4 (void);
+// 0x000002A1 System.Int32 Unity.Services.Authentication.Generated.ErrorStatus::get_Code()
+extern void ErrorStatus_get_Code_mD5D141B73E6AB27C8D560054915A1E3E31B940C2 (void);
+// 0x000002A2 System.Void Unity.Services.Authentication.Generated.ErrorStatus::set_Code(System.Int32)
+extern void ErrorStatus_set_Code_mF9E4A74606AEF9FD6569CB161CCD95C7EE4245F7 (void);
+// 0x000002A3 System.Collections.Generic.List`1<Unity.Services.Authentication.Generated.Detail> Unity.Services.Authentication.Generated.ErrorStatus::get_Details()
+extern void ErrorStatus_get_Details_m82EE7300D1845EEDFDD8F574FCBBB82FDF24E67B (void);
+// 0x000002A4 System.Void Unity.Services.Authentication.Generated.ErrorStatus::set_Details(System.Collections.Generic.List`1<Unity.Services.Authentication.Generated.Detail>)
+extern void ErrorStatus_set_Details_mB5D7E4F22EE5C1FFD6B5068949E0D47BDDB786F6 (void);
+// 0x000002A5 System.Void Unity.Services.Authentication.Generated.ErrorStatus::.ctor(System.Int32,System.String,System.String,System.Int32,System.Collections.Generic.List`1<Unity.Services.Authentication.Generated.Detail>)
+extern void ErrorStatus__ctor_mA80AA43121C6349DB991DCFAB6C34511378E1100 (void);
+// 0x000002A6 System.String Unity.Services.Authentication.Generated.Player::get_Id()
+extern void Player_get_Id_mF8EF31CD860DACF947A92A367060A4F60D46A4EB (void);
+// 0x000002A7 System.Void Unity.Services.Authentication.Generated.Player::set_Id(System.String)
+extern void Player_set_Id_m7B34F85899A22D29B8751359753555EC3581F03B (void);
+// 0x000002A8 System.String Unity.Services.Authentication.Generated.Player::get_Name()
+extern void Player_get_Name_m4089A880415883C651D745599D3911A472FAD245 (void);
+// 0x000002A9 System.Void Unity.Services.Authentication.Generated.Player::set_Name(System.String)
+extern void Player_set_Name_m33F257E68B9AA0AD62B0CD9263F0344B3019981B (void);
+// 0x000002AA System.Boolean Unity.Services.Authentication.Generated.Player::get_AutoGenerated()
+extern void Player_get_AutoGenerated_mFED04451917F3604F8953E64440BEF4840C107D0 (void);
+// 0x000002AB System.Void Unity.Services.Authentication.Generated.Player::set_AutoGenerated(System.Boolean)
+extern void Player_set_AutoGenerated_m61400194E7C2FBB1D23CEE242E1A55F78356DB80 (void);
+// 0x000002AC System.Void Unity.Services.Authentication.Generated.Player::.ctor(System.String,System.String,System.Boolean)
+extern void Player__ctor_m6C4A35BB8399CCFF3A958B00C72011903A1B9640 (void);
+// 0x000002AD System.String Unity.Services.Authentication.Generated.UpdateNameRequest::get_Name()
+extern void UpdateNameRequest_get_Name_mC504D699B78F6A2801B7BA5F9555E9C68205B424 (void);
+// 0x000002AE System.Void Unity.Services.Authentication.Generated.UpdateNameRequest::set_Name(System.String)
+extern void UpdateNameRequest_set_Name_mACF219FCC5AC88C7327EACB6CD221E2D2CE2A030 (void);
+// 0x000002AF System.Void Unity.Services.Authentication.Generated.UpdateNameRequest::.ctor(System.String)
+extern void UpdateNameRequest__ctor_m70CE4F6DA33EB81349CF76FED1E942E887C53A24 (void);
+// 0x000002B0 System.Void Unity.Services.Authentication.Utilities.Compatibility::.ctor()
+extern void Compatibility__ctor_m1B314B7EFD08673EC815F2BC72F56E487C74C1F4 (void);
+// 0x000002B1 System.Void Unity.Services.Authentication.Models.Compatibility::.ctor()
+extern void Compatibility__ctor_mF28982837D7B46EB70975131530D994983228708 (void);
+static Il2CppMethodPointer s_methodPointers[689] = 
+{
+	AuthenticationService_get_Instance_m84EBB538A503492BD441FFB825CF257EE1365BD1,
+	AuthenticationService_set_Instance_mF6E5CECFA4F9F11AD6628770749F28B73904F1F3,
+	AuthenticationServiceInternal_add_SignInFailed_m9260DB451A02F56C93A92418596B2D7A79EC8B01,
+	AuthenticationServiceInternal_remove_SignInFailed_m11D5F7E981019A03E7A4161F8DDA9376FC24BD82,
+	AuthenticationServiceInternal_add_SignedIn_mEF92B74D192609D12FC1D4C4A876FE386705AD8C,
+	AuthenticationServiceInternal_remove_SignedIn_m379A905529DB2306A0067247A896348CC44024D3,
+	AuthenticationServiceInternal_add_SignedOut_mCCEB16EC3898F15248866478B3F87355F3C780E7,
+	AuthenticationServiceInternal_remove_SignedOut_m4455B51ED0B978C1E0F244F12260549C1387A74B,
+	AuthenticationServiceInternal_add_Expired_m4897ECD3442AE5D00E39DF27CF8DDEF296AEE8B7,
+	AuthenticationServiceInternal_remove_Expired_m001910109FB6E37D1AB589FD76A4C893380D896F,
+	AuthenticationServiceInternal_get_IsSignedIn_mCF8CDE17E3B5F2ACDCF556705C025DA48D5671FB,
+	AuthenticationServiceInternal_get_IsAuthorized_m617D4F6C205F90145F46BA9C4069B3B9BC87CD8D,
+	AuthenticationServiceInternal_get_IsExpired_m28F19D8E8DC230C7A898E1FC87E4681C1BA86EB0,
+	AuthenticationServiceInternal_get_SessionTokenExists_mA2B8C4F770CF9D4D080D829C768885A1486D3F03,
+	AuthenticationServiceInternal_get_Profile_m57B6553E0E1ED1628AEE6211632DBA79E1D22503,
+	AuthenticationServiceInternal_get_AccessToken_m7B4AC5988045E8F833AE7E31782030743B96E8F2,
+	AuthenticationServiceInternal_get_PlayerId_mA599BD2E88C01DD4168B1A49BC193BF76CD471AA,
+	AuthenticationServiceInternal_get_PlayerName_m9AE26C74515D2C845EFF147BC9E2FF0825C172E6,
+	AuthenticationServiceInternal_get_PlayerInfo_m8B26511EDAA52A7C50EE4EFEBB5C31D6E904985A,
+	AuthenticationServiceInternal_set_PlayerInfo_m7A68E82BD9D316E342DF5E3AECAF108EDD238EF4,
+	AuthenticationServiceInternal_get_ExpirationActionId_mBF3F9F53133B98D62D753B9CF11D561CC7809519,
+	AuthenticationServiceInternal_set_ExpirationActionId_m99D9F7A20AF618C1C9E9A35F879EA553648CD7D8,
+	AuthenticationServiceInternal_get_RefreshActionId_mE26972CCF62B936620DFDD885C954E1307AACACC,
+	AuthenticationServiceInternal_set_RefreshActionId_mBF2A7072312F301BBC125EDFD4FDBF6A55FB7460,
+	AuthenticationServiceInternal_get_AccessTokenComponent_mA3669DE89749DFCFA04AE2A4DB47505AD55D248E,
+	AuthenticationServiceInternal_get_EnvironmentIdComponent_m195E0AFCC08E96FB3FB53F3258BF6FBB3B75036A,
+	AuthenticationServiceInternal_get_PlayerIdComponent_mCB05A130C555F6DF00E4CBCD63A86DAACF9DF743,
+	AuthenticationServiceInternal_get_PlayerNameComponent_mEB50E746196DC30FED8812EF930B11CF95A3B7E5,
+	AuthenticationServiceInternal_get_SessionTokenComponent_m9C8B2E8C54AA80652A0D0A33B44C904823E95046,
+	AuthenticationServiceInternal_get_State_m01234DE9BB769F6C48080DDF89A17CAC3AD4DD30,
+	AuthenticationServiceInternal_set_State_mBE3362F5E6AAA06DA3D0D9CFA6CE38C5A5991FA1,
+	AuthenticationServiceInternal_get_Settings_mC9B9A3983876B35F9926EDE4132C902A6B3B9968,
+	AuthenticationServiceInternal_get_NetworkClient_m37ED3928BBFE26F454787D617CE4FB07419A7A8A,
+	AuthenticationServiceInternal_set_NetworkClient_mAB5EE732963B22FE8D779546E8D7F00300BD6937,
+	AuthenticationServiceInternal_get_PlayerNamesApi_mB1389CBDAE010B8F1D7F4393BEB40339788402E2,
+	AuthenticationServiceInternal_set_PlayerNamesApi_m47281B46735F6481BA38727FB23DD4807A5F2471,
+	AuthenticationServiceInternal_get_ExceptionHandler_m32684B4D8CD253445CF7F4DD065EBE6885F4B807,
+	AuthenticationServiceInternal_set_ExceptionHandler_mBB94FA008C5625A46536D5260F74FA11A59EA72F,
+	AuthenticationServiceInternal_add_StateChanged_mBE274D0D90C92E68F11E4CB76F1B6A0CBA92D51E,
+	AuthenticationServiceInternal_remove_StateChanged_m9358488CEDD7D856B563EB07592DBFFCE6644000,
+	AuthenticationServiceInternal__ctor_m6BB624BF2678A8D12FA7317ACAA57D6F08D14803,
+	AuthenticationServiceInternal_OnPlayerIdChanged_m8F1D82EE695AE41A8AC22561463A1228C1516D7F,
+	AuthenticationServiceInternal_SignInAnonymouslyAsync_m4BAC03BBA2966C917F39B2B934E904A1AF56C0BE,
+	AuthenticationServiceInternal_SignInWithAppleAsync_m9438959DDE9EA79980705E87D4C9A582261E7928,
+	AuthenticationServiceInternal_LinkWithAppleAsync_m79812F4B8E123CA37B4F9ACD7091724C27AB8DC7,
+	AuthenticationServiceInternal_UnlinkAppleAsync_m0BB7B1F4D85E74B4740D8978F2A645BF70A2565E,
+	AuthenticationServiceInternal_SignInWithAppleGameCenterAsync_m0721A14AA0A62B613DCAABDF5F4781E2CD7CD47B,
+	AuthenticationServiceInternal_LinkWithAppleGameCenterAsync_m14DB60E1DB12844B6F84A2BE25FEC2B55AF0DD32,
+	AuthenticationServiceInternal_UnlinkAppleGameCenterAsync_mB053A3A915A5A49B5B6AFDDD97D39EF11555CDF1,
+	AuthenticationServiceInternal_SignInWithGoogleAsync_mB7ADE93702AA18F34566D4780F64DDDCDF3E4EBE,
+	AuthenticationServiceInternal_LinkWithGoogleAsync_m9322A07ED46D38662C2DE33860EB3781021219AC,
+	AuthenticationServiceInternal_UnlinkGoogleAsync_m683BE3D579149A80CEE804CA2BC44E79795D9660,
+	AuthenticationServiceInternal_SignInWithGooglePlayGamesAsync_mA4C432134C661EFAC1F39B58B1E6CB2C223AFAFE,
+	AuthenticationServiceInternal_LinkWithGooglePlayGamesAsync_mB06D2C704996E57BD3C7931DC47C98C82F07AC82,
+	AuthenticationServiceInternal_UnlinkGooglePlayGamesAsync_m996F398C7E64BC86BA301F52F8BE02F4F1FA1728,
+	AuthenticationServiceInternal_SignInWithFacebookAsync_m1A8CF00A875AAA4BEE722EFED56A6DA75F6A8723,
+	AuthenticationServiceInternal_LinkWithFacebookAsync_m9CF62A069FA85C851F146BACFF78DD9242E3D822,
+	AuthenticationServiceInternal_UnlinkFacebookAsync_m9338E359D55A2F7C7D360756C5F0BDA69E8CEA68,
+	AuthenticationServiceInternal_SignInWithSteamAsync_m38ECA4D8B9C2882D1CEA57641C6226DBEFD68719,
+	AuthenticationServiceInternal_LinkWithSteamAsync_m35E08ECD20157F5BFFCBDAE974C19ABB9A8A2AF1,
+	AuthenticationServiceInternal_UnlinkSteamAsync_m1A9027DF204C5483D17F7E9409D235B39939EE91,
+	AuthenticationServiceInternal_SignInWithOculusAsync_mF0D8471CE58236641B47656ED95D4DF56D968C9F,
+	AuthenticationServiceInternal_LinkWithOculusAsync_mB925C48FDD02854009AEF910BD304E4A91865C80,
+	AuthenticationServiceInternal_UnlinkOculusAsync_m39B8D073A5FAD099061C9CE8B310D4774A413137,
+	AuthenticationServiceInternal_SignInWithOpenIdConnectAsync_m0639D7D3C1334E8EDCC5E8337A05E4168CEFDBFA,
+	AuthenticationServiceInternal_LinkWithOpenIdConnectAsync_m0A25A3433D018535796AB5988D855481572D199D,
+	AuthenticationServiceInternal_UnlinkOpenIdConnectAsync_mD6BFDD7B57BE26ADE394F184764B87D91504E185,
+	AuthenticationServiceInternal_DeleteAccountAsync_mF911D9854C8197F76E1BFFF384AF7F218312A751,
+	AuthenticationServiceInternal_SignOut_m57F1EDE2B4ED5BAD2B115CC8706318E39848D18F,
+	AuthenticationServiceInternal_SwitchProfile_mF20971349EFB7A009768687FD8377C6C509749FE,
+	AuthenticationServiceInternal_ClearSessionToken_mEA69C75EA48AA816E80655FAF60D15BFAB520956,
+	AuthenticationServiceInternal_GetPlayerInfoAsync_m56A32EE64505A5AA2F7E920F02C062F99BFFC5F2,
+	AuthenticationServiceInternal_GetPlayerNameAsync_m70E6D4B8F08DD80BB2682B40A12D91FF606427EF,
+	AuthenticationServiceInternal_UpdatePlayerNameAsync_mA26EB0F8EBF96FC35596EBE509B5F0FF896CD89C,
+	AuthenticationServiceInternal_SignInWithExternalTokenAsync_m821E9C1642EB0B5F30F6B58675E835275F38DD3C,
+	AuthenticationServiceInternal_LinkWithExternalTokenAsync_mADEE06BFC252587421B771D9148D64AEEF3AE182,
+	AuthenticationServiceInternal_UnlinkExternalTokenAsync_m5C2F9AC1CF447733FC51EE6BCA54C79910B5DF53,
+	AuthenticationServiceInternal_RefreshAccessTokenAsync_m03EB449C187B6B0C62E0BAE40E38E96990FFC1BF,
+	AuthenticationServiceInternal_HandleSignInRequestAsync_m3423F29240C8B4EBB2298864A1FEF3309298EE7D,
+	AuthenticationServiceInternal_StartRefreshAsync_mF7C17957ABBFE3DF4F5537880B7B4D4EBB9F56EC,
+	AuthenticationServiceInternal_CompleteSignIn_m05519A7D98EC9B8FB6D2EF043A033FBF0D6885A9,
+	AuthenticationServiceInternal_ScheduleRefresh_mD999E01866FCCBAD4554819092ED652F12138760,
+	AuthenticationServiceInternal_ScheduleExpiration_m80E7EB6B01CACC101D8E850F8E3FAD80F4AC1847,
+	AuthenticationServiceInternal_ExecuteScheduledRefresh_m3F20BC22FE9891DB8DA89EDD005EA697F28E53D5,
+	AuthenticationServiceInternal_ExecuteScheduledExpiration_m295051F90C97683E17AEB33E12FF0C251E0AD287,
+	AuthenticationServiceInternal_CancelScheduledRefresh_m0B29DB4688BAC73FE422A438F3E0F3497EACEFAC,
+	AuthenticationServiceInternal_CancelScheduledExpiration_m557C0FF13043CED6124ED31DA2B58E6CB6C63481,
+	AuthenticationServiceInternal_Expire_m8C6099E18DC51230DE98008291F7C59CE4956593,
+	AuthenticationServiceInternal_MigrateCache_mF2F36D8CA3F887DAAF9E3374A6DFCBF488958FAB,
+	AuthenticationServiceInternal_ChangeState_m91558470DA842D246FA2DC42F92E8602E719A61F,
+	AuthenticationServiceInternal_HandleStateChanged_mA91EB55BD7CB58B1D54CE9AFBF300671A11E5082,
+	AuthenticationServiceInternal_SendSignInFailedEvent_mAC3544A54E02CF24D377A1DCC62FAB1288D360CD,
+	AuthenticationServiceInternal_ValidateOpenIdConnectIdProviderName_m57FA4BCBC6D9EF16B3F4227A11F58AEE2FB152D9,
+	AuthenticationServiceInternal_U3C_ctorU3Eb__84_0_mB309FF7C1301AAFE2451FC1CF90F63A15CC66386,
+	U3CU3Ec__DisplayClass86_0__ctor_m38B2EAD9EBEC501ED7FF1B906255E40A2D023894,
+	U3CU3Ec__DisplayClass86_0_U3CSignInAnonymouslyAsyncU3Eb__0_m15898848F124A4603896B4B1F352F1D673645180,
+	U3CDeleteAccountAsyncU3Ed__111_MoveNext_mB0092D275548B227AFBDFFC9B29C6FC23C4273DB,
+	U3CDeleteAccountAsyncU3Ed__111_SetStateMachine_m03A9195B5A1403F310FB638168E2EF4601FED491,
+	U3CGetPlayerInfoAsyncU3Ed__115_MoveNext_m2745A501F939CAF40455B029217EC08721BD4C19,
+	U3CGetPlayerInfoAsyncU3Ed__115_SetStateMachine_m62DC16AE098A6EE65FAF7CBB94A01CD48F7B8095,
+	U3CGetPlayerNameAsyncU3Ed__116_MoveNext_mDA5D0F2B05AE77086DE58B32DB52C5DF1245E13F,
+	U3CGetPlayerNameAsyncU3Ed__116_SetStateMachine_m5B7D4853A68A7B60BE857599BA0FB57542E98DFC,
+	U3CUpdatePlayerNameAsyncU3Ed__117_MoveNext_m7964EAC19261203FBD0CF257BBC9B52A589CA0B3,
+	U3CUpdatePlayerNameAsyncU3Ed__117_SetStateMachine_mA2662219231993418071AC21B7B5D1836221FEC3,
+	U3CU3Ec__DisplayClass118_0__ctor_m509C059FF650F1F0F6E1141FD83FF9CBCF86E840,
+	U3CU3Ec__DisplayClass118_0_U3CSignInWithExternalTokenAsyncU3Eb__0_m662EF5C06332A8730564768733FF15BB04CAF64A,
+	U3CU3Ec__DisplayClass119_0__ctor_mB56DA9E2149D20F7A9590D0E689B644A36047987,
+	U3CU3Ec__DisplayClass119_0_U3CLinkWithExternalTokenAsyncU3Eb__0_m8549C1AC1D3523A2AD86C50514F37C4777DE6826,
+	U3CLinkWithExternalTokenAsyncU3Ed__119_MoveNext_mD01DD2F5E7DA67CB12EA0D8A44DF58C4927A330A,
+	U3CLinkWithExternalTokenAsyncU3Ed__119_SetStateMachine_m53FE29F70334BE654F0246F66C4F3DF4BDDFCE7F,
+	U3CUnlinkExternalTokenAsyncU3Ed__120_MoveNext_mCC942E4BB16DBEE82AF58247649966DD6C6C02D5,
+	U3CUnlinkExternalTokenAsyncU3Ed__120_SetStateMachine_m084B4D20E0174850B75FD95462692A7C4D60A409,
+	U3CHandleSignInRequestAsyncU3Ed__122_MoveNext_m441EAB4415608573AFD6CCE4EBD4363AFB54C71D,
+	U3CHandleSignInRequestAsyncU3Ed__122_SetStateMachine_m597960392295614497EE815DE8132D09005F6274,
+	U3CStartRefreshAsyncU3Ed__123_MoveNext_mF70A61A50756202DF634AC009993CB501A487CAE,
+	U3CStartRefreshAsyncU3Ed__123_SetStateMachine_m1CA92E0FA1B25FD7B843D2918EE69BCA5441A0C5,
+	U3CU3Ec__cctor_m24D5D6B4E3E581FC2257B3B73EC89F135663E76C,
+	U3CU3Ec__ctor_mE9B682B809A0D474148BA6C0C48D2E67E07FF863,
+	U3CU3Ec_U3CCompleteSignInU3Eb__124_0_mABF10C12D5B2C901113EA025AAAC9085F186B51D,
+	AuthenticationExtensions_SetProfile_mD1C151F3937FEC53EBFD94CC4EE91E13DCE5BACA,
+	AuthenticationPackageInitializer_Initialize_m7203F9CF9F2E4231A87F06FDF19613C853874047,
+	AuthenticationPackageInitializer_Register_mFBA2D2FB318E6DBACF9D6CE54C20748A71DBD4E3,
+	AuthenticationPackageInitializer_GetPlayerAuthHost_m9D80BB814ADE4DAFCFDE9268EE02DB21738DF121,
+	AuthenticationPackageInitializer_GetPlayerNamesHost_mE0A301262A794147EE31737AACD63C1523ADDD90,
+	AuthenticationPackageInitializer__ctor_m7CCECFA94D25D61294F3A9A2FCEB6CCA2B401130,
+	AuthenticationErrorCodes__cctor_m6745DB9DF5D40FEED6DC259B6362EDB627D6FF69,
+	AuthenticationException__ctor_mE85564838F285C5EB1D1B7B417BC3A2E8D3FE3CF,
+	AuthenticationException_Create_mE1E6C1F3DF918B0DBCD40D720049396EE93093F0,
+	AuthenticationExceptionHandler_get_Metrics_mF82B642C6173955FB38796EA2F33101CE53C08F4,
+	AuthenticationExceptionHandler__ctor_mE511C787743409E6935F118104986FA6F2AA2D2D,
+	AuthenticationExceptionHandler_BuildClientInvalidStateException_m34CC3E8AA9A365C7F6E22FF47D63EC6045E480AB,
+	AuthenticationExceptionHandler_BuildClientInvalidProfileException_mA9878EA0982E006B5F4522AB867BE31D7165AE33,
+	AuthenticationExceptionHandler_BuildClientUnlinkExternalIdNotFoundException_m58E2F3D34A1C6ABF60A49C3FD710A4591FFC1613,
+	AuthenticationExceptionHandler_BuildClientSessionTokenNotExistsException_mFE10150FCB954ADF516ACD9FCE23992CF488C09A,
+	AuthenticationExceptionHandler_BuildUnknownException_m953D21F54803045A8DA3C7DA05EE2F913E8A0B9F,
+	AuthenticationExceptionHandler_BuildInvalidIdProviderNameException_m4CF741886E003D19B682C3740E51B05461F2C9B7,
+	AuthenticationExceptionHandler_BuildInvalidPlayerNameException_m6DCCF5F84DE39759D87F3F1A666ECF9E1271C4F9,
+	AuthenticationExceptionHandler_ConvertException_mECEA2AB94B92D193A58DA8B8AC57CAB816AD9C0D,
+	AuthenticationExceptionHandler_ConvertException_m8E66D01A7F09E8BB39B5C5791B852B26F99B1E50,
+	AuthenticationExceptionHandler_CreateNetworkException_m30575D080FF6E842B78B0047BFC6ACEC26876559,
+	AuthenticationExceptionHandler_CreateHttpException_mF006E755A5B570151C16A61B3918828CB8CF5CC3,
+	AuthenticationExceptionHandler_CreateUnknownException_m430FB8A7E37B2E1C9E1778AC602187ADCF13B48C,
+	AuthenticationExceptionHandler_MapErrorCodes_m0D969D5544C94A7AA65B506EEB73C8A216773091,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	AuthenticationMetrics__ctor_m1E94E3FA297755A05C3862DE285B69D6E47DF47B,
+	AuthenticationMetrics_SendNetworkErrorMetric_m8F9D0527DD7905C627E4B4E3FCDAFF6E9949238F,
+	AuthenticationMetrics_SendExpiredSessionMetric_m3D97D9ED9838EDC6D56428F655EC53D4967C4A2B,
+	AuthenticationMetrics_SendClientInvalidStateExceptionMetric_m53CC1F526054710E3AF6A3B8C4FC123DADE695CC,
+	AuthenticationMetrics_SendUnlinkExternalIdNotFoundExceptionMetric_m7BC0F6D7EFABB4759E69A0F4CD0E9D1F68D10D10,
+	AuthenticationMetrics_SendClientSessionTokenNotExistsExceptionMetric_m933EAFCB74F2516CC50D4B1C7BF6A0437483EA12,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	AccessTokenComponent_get_AccessToken_m70FC319ED7E39A53D5C17E775FD052D466F29ED8,
+	AccessTokenComponent_set_AccessToken_m63F73183C53D3469EC2E8C6FD1862976D52916E8,
+	AccessTokenComponent_get_ExpiryTime_mD432CAD7F2F305A36AA717226C651F4A67F420A6,
+	AccessTokenComponent_set_ExpiryTime_mCC7F031ADF1682401F64DF064612034E37A503B6,
+	AccessTokenComponent__ctor_m844A2F62FDA9BF6E1E44A8193FF75DC0C6E1CEC4,
+	AccessTokenComponent_Clear_mEDC9FC08D14A8270968A106A7D72C43686DDD5F6,
+	EnvironmentIdComponent_get_EnvironmentId_m73A4D15D88B632C3EDE3E4CB904896233B08720D,
+	EnvironmentIdComponent_set_EnvironmentId_m530BC338835B82D9D4401F7FF7E23F36321F4808,
+	EnvironmentIdComponent__ctor_m4DF99AC648D90C616999D41F6869CB2786F59B0D,
+	PlayerIdComponent_add_PlayerIdChanged_mBA0004B0877D77624016EB806E5721855ACBF3A4,
+	PlayerIdComponent_remove_PlayerIdChanged_mC99DA59304B6D42A076C0F355D95A89A4554DB8E,
+	PlayerIdComponent_get_PlayerId_m3B26D7263EE5FF703A96397CA7F8359EFC2B3E63,
+	PlayerIdComponent_set_PlayerId_mA274F8E83C33A5479A2AD42F3DDBF79E1DFE8EBC,
+	PlayerIdComponent__ctor_m61FB3E8D7DA71282C77AECA611588B55287C2869,
+	PlayerIdComponent_Clear_m438DBB045CB0417378B50D1B5A1E5F2DD4FCFE4B,
+	PlayerIdComponent_GetPlayerId_mDD6103F18860BEF427C8B046F136F145EB1FF058,
+	PlayerIdComponent_SetPlayerId_m48E64CCB35B3A4B741BFE9E72EB8D5FA449D1358,
+	PlayerNameComponent_add_PlayerNameChanged_m477FEDDEDED413A81ED8C95B9649C20764C647CB,
+	PlayerNameComponent_remove_PlayerNameChanged_mA8D11C4E1D58CECAB3B2B1E03E044EE0051670BE,
+	PlayerNameComponent_get_PlayerName_mB5968A1A0FA661D7F8ECF858E69E285D0842AECE,
+	PlayerNameComponent_set_PlayerName_mE9F2A1C1D3DFAD56C47AA69FBFC56E0743405F31,
+	PlayerNameComponent__ctor_m7C9A403D8192A785D48749968F97745B2A6F950C,
+	PlayerNameComponent_Clear_mF9603F9E0F03A5E5A96D11EC98258D1E2616CF23,
+	PlayerNameComponent_GetPlayerName_mD04A341E062B32912A372BF883D55540CC369B59,
+	PlayerNameComponent_SetPlayerName_m2F9084265624D5EF0F896504C31251C96326E760,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	ProfileComponent_add_ProfileChange_mBB42E17051F7D7731D99D43398021F00BE80B7AE,
+	ProfileComponent_remove_ProfileChange_m2E7B0EA9820C27A3B77849FCA757D41A936AA0A5,
+	ProfileComponent_get_Current_m940230AD5703C84B0812260EDC717B738CF9BE9B,
+	ProfileComponent_set_Current_mA4EF018E3C67F096D95B80ADAE75507CED7C761D,
+	ProfileComponent__ctor_mB0A553E4B5E2EC2427A916389729ECC35CEFE38A,
+	ProfileComponent_SetProfile_m910DD105C52B8FB3E06F437F6D7E723904696F98,
+	ProfileEventArgs_get_Profile_m30FB038C9EBAFBC66AADDCA203B3579DD09AF58E,
+	ProfileEventArgs__ctor_m709F0824F5FA1A5EDDD6DE495047A2B322DEF7FF,
+	SessionTokenComponent_get_SessionToken_mFCD6A8E0CAC451180203F6D1F56C9EEBBF61DAFA,
+	SessionTokenComponent_set_SessionToken_m169A99C88E662C238FE756FBD44AC46C3C8D2904,
+	SessionTokenComponent__ctor_mFAB481325A4F94D2F55985E75E44CEBA50878CAD,
+	SessionTokenComponent_Clear_m8C8411835ADD425D4A042F2345BCCB60FD2B6351,
+	SessionTokenComponent_Migrate_m270AD9D9556543733F170747713346F076210D86,
+	SessionTokenComponent_GetSessionToken_mDF23709AAD37F4EA8AEB0B25CFD43FD8D754DE71,
+	SessionTokenComponent_SetSessionToken_m4F627C53F670EA1FF1EC3568BDDE5551A2C41F78,
+	Identity__ctor_m10262663AE817B6356F47E13E30762275291B9E4,
+	LinkOptions_get_ForceLink_m7091635AF7588667BF843D8AAFFBBDE3B4D3426F,
+	LinkOptions_set_ForceLink_m61348BAD6BC1A1E6F436672A5A59C72B062000D4,
+	LinkOptions__ctor_mBCD3C4D9B9FA0CAFE026C6E8FB5736945E78CA8A,
+	PlayerInfo_get_Id_m7C67DE9AAA0A4279DE0F31CF84CE06654F895128,
+	PlayerInfo_get_CreatedAt_m230C58465F7610264A3EC31E9EB01D277A6C9183,
+	PlayerInfo_get_Identities_m8C89A941C76178DFECACF3C3D64219DC2AFA1F35,
+	PlayerInfo__ctor_m1BEC1A7D6AC5383CCFC5186FA247449D0311F9CF,
+	PlayerInfo__ctor_m31B8A4058024774C355A60CC1DD3AB0D045B97EF,
+	PlayerInfo__ctor_m06C393A2C3EA9D14D3AD4BC996ADBD76BE07B97E,
+	PlayerInfo__ctor_m82E4FCEF734B43BD5988F0FAF5B7165D3B159474,
+	PlayerInfo_GetFacebookId_mD30CE77CD155D7B40BD42A1A9F89230958CC7142,
+	PlayerInfo_GetSteamId_mE30170BB7BA2EBAEEFDD89F167715E5845B9C257,
+	PlayerInfo_GetGoogleId_m3734711ED1EBBDB3B7BAB994C6312B74CD19B1A6,
+	PlayerInfo_GetGooglePlayGamesId_m87F506EC47E450F3BC427C1F8B52878D4E15158C,
+	PlayerInfo_GetAppleId_mD530450984BED0A1E90B524AC0E59818DF717048,
+	PlayerInfo_GetAppleGameCenterId_m2162312542CB91F02C8B380ACA92BF7A872CEBDF,
+	PlayerInfo_GetOculusId_m1B703CB14A00E69A42897F314D24A75952C8C8C6,
+	PlayerInfo_GetOpenIdConnectId_m03675526770E41630E28D9F148879B887080FD1D,
+	PlayerInfo_GetOpenIdConnectIdProviders_mA348C69614AC85D971898947A6639BEC7528D3DB,
+	PlayerInfo_GetIdentityId_m4B4287BCFE22426C6D9AECAAE6CF963F667DBAB3,
+	PlayerInfo_AddExternalIdentity_m6B4B832732C54847BB5531DCB5E852072273DFE5,
+	PlayerInfo_RemoveIdentity_mABDE25201FB941363381B3487969ACE5709AA4A7,
+	PlayerInfo_ValidateOpenIdConnectIdProviderName_m4F053B1CAF943B88F6BE373214D8070F777F8413,
+	U3CU3Ec__cctor_m1075DF0DE4A8559FBBA66C3A0561A3A43E72F31B,
+	U3CU3Ec__ctor_m484B04CF22551FD83FF362FBDC0467EAB8D4644B,
+	U3CU3Ec_U3CGetOpenIdConnectIdProvidersU3Eb__23_0_m77EF7543C52FBD0A3252A6567473FB2795DC576A,
+	U3CU3Ec__DisplayClass24_0__ctor_mCBD8015D76B11C8E7FE07C67DE2886A3AD51D0E8,
+	U3CU3Ec__DisplayClass24_0_U3CGetIdentityIdU3Eb__0_m36B9B9C29CA5A10C4EC3F62CD3CB5B16BF43C9BF,
+	U3CU3Ec__DisplayClass26_0__ctor_mC1D6E0FEF63DA275EFC726B39802AE139959F7E1,
+	U3CU3Ec__DisplayClass26_0_U3CRemoveIdentityU3Eb__0_m6967D7BA55B388C17A5FA904DDDEAA40C3EB1987,
+	AppleGameCenterConfig__ctor_m8EF2251702DFDE99F385F2C19793F6971875942E,
+	LinkWithAppleGameCenterRequest__ctor_mABA1F422C0F6FD7A49809A2E824EDC778CE5357D,
+	SignInWithAppleGameCenterRequest__ctor_m113FC6A1B76861F41D809064F2F9C4AB0C93DFF1,
+	LinkWithExternalTokenRequest__ctor_mC926C1E239309874F3E8594862352CD189407CE5,
+	LinkWithOculusRequest__ctor_m7892BB3B73BA5EE2BCD2633CCEA06AE023DCC4A2,
+	SignInWithOculusRequest__ctor_m3FFCE19E7A97843B009C2D18184740E156753D73,
+	OculusConfig_get_UserId_m8139015C1DF7AFFDA12538A5025A6D87250D909D,
+	OculusConfig_set_UserId_m1D9F16501AC103DF5E2BE7B3B462AE99C318623B,
+	SessionTokenRequest__ctor_mBD8FDC3B255BDF93CD9BBE4153C4E286EF579660,
+	SignInWithExternalTokenRequest__ctor_mBF7A476AF9D85BEDA4DD76A7DC5108A7BC74E82C,
+	UnlinkRequest__ctor_mC6DF0262CCE41490C8119C09876F9E281BBEEBA6,
+	AuthenticationErrorResponse__ctor_m6DF8E8C3822026A8237DE92F92B7668710A7530A,
+	ExternalIdentity__ctor_m823DAD40F49542CC03EDB5E075ABCC697E430E30,
+	LinkResponse__ctor_m339BA4504367155C2C1819603F84910052B5B942,
+	PlayerInfoResponse__ctor_m125BC761C779F0E778174420514464788F1AA21C,
+	SignInResponse__ctor_m0963427AB9F97E55987916D5394683A910DB409C,
+	UnlinkResponse__ctor_mCC7100DACFA0EBCBD99A74968B8884EF2C8AD895,
+	User__ctor_m06FE409298F1B298DE8879F39571557939CA7792,
+	AccessToken__ctor_mA8C8B1DE354ECAF75F3331385C02D493CFB496C7,
+	AccessTokenExtraClaims__ctor_m93CBA68C7A0F7BA3B8A2607889BE108836FC1194,
+	BaseJwt__ctor_mCAAFF2897EB3B166CF374F97F0EA9848AC0B2073,
+	BaseJwt_get_ExpirationTime_m476B954A2BD1ED2925AB98CC0895335DA8B5471D,
+	BaseJwt_get_IssuedAtTime_m44032A751A8C26F899403713BA788B93AFBA70C6,
+	BaseJwt_get_NotBeforeTime_mD97D56962AA4FA55341E1D0E240B400B861656BF,
+	BaseJwt_ConvertTimestamp_m0CA39A85EE115193D6FF8EF9B14FED7F17BCDD85,
+	AuthenticationSettings_get_AccessTokenRefreshBuffer_m97948E6F70473A843396D73B9CC1EDECDC01EE87,
+	AuthenticationSettings_set_AccessTokenRefreshBuffer_m96B86C124804197F12B701796CDCE4E9D0443CEE,
+	AuthenticationSettings_get_AccessTokenExpiryBuffer_mD47E2DFA7219940B060AC726513FDFD715826B69,
+	AuthenticationSettings_set_AccessTokenExpiryBuffer_m14A6389F6D9EDCE2FCD222C890ECC7F88861A64A,
+	AuthenticationSettings_get_RefreshAttemptFrequency_mA63E83608C5227CA5D45AC47555489C045FF3FC7,
+	AuthenticationSettings_set_RefreshAttemptFrequency_mBAF4610491BF821F84D042A0007A28460623B0D2,
+	AuthenticationSettings__ctor_mBE5C222CEFEA863FD12B1EF18D0ACF22A31EFEBD,
+	AuthenticationSettings_Reset_mF09FA004D91F33E2A5D88F5062B595113557A05E,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NetworkConfiguration_get_Retries_m06CF068CDC7D3224D7106D99479DB77A49C90D17,
+	NetworkConfiguration_set_Retries_mE3D98A5AC6A5BEA4B1A4BB55F0A5DF30EB988D74,
+	NetworkConfiguration_get_Timeout_m710D931E0360F398921BB9321C1A02485661AB55,
+	NetworkConfiguration_set_Timeout_mC55E6D775EAD3CDE5083E81C9F752F8454F4DA0C,
+	NetworkConfiguration__ctor_m61201E2D6FA572D1B8990CFBB621A1777AA7FDE1,
+	SignInOptions_get_CreateAccount_m487DE1145466E4820534680E55CD209335908E02,
+	SignInOptions_set_CreateAccount_mBB8B2E56329F89AC35FDAE0EB2CB5A0CA7DF6102,
+	SignInOptions__ctor_m97DAF844B83B6585AD5762E02D845698865F725C,
+	AuthenticationApiClient_get_Configuration_m036B614378E578EA829E78B15DEE5774C4926126,
+	AuthenticationApiClient__ctor_mCD372D92B768647379C2E2D97A0F099E06373D3F,
+	AuthenticationApiClient_GetAsync_mB2C722680C101654CB9E2B0A0BC60F6E500AB430,
+	NULL,
+	AuthenticationApiClient_PostAsync_mE774E8192C71B2F95ABC262676C3C24B303D40A3,
+	NULL,
+	AuthenticationApiClient_PutAsync_m92FCB4F4102C2CEC8DE5793234D9A71CFC6C0874,
+	NULL,
+	AuthenticationApiClient_DeleteAsync_m5B2CFCABD9118A331089CB29BDE60DE6F2B0A9A9,
+	NULL,
+	AuthenticationApiClient_HeadAsync_m824D627F1A83AD0B0033D3F40E53F2D5B1BB89BA,
+	NULL,
+	AuthenticationApiClient_OptionsAsync_m859262E41127797C888B9623E55068F832A55088,
+	NULL,
+	AuthenticationApiClient_PatchAsync_mDCD5E544713E733CC213F066D897C2AE31727D2A,
+	NULL,
+	AuthenticationApiClient_SendAsync_m14B776007991CF4AE9EB43F4351407C08E2106FE,
+	NULL,
+	AuthenticationApiClient_BuildWebRequest_m0643934D41CFDEAC11148695D4263D90898F4081,
+	U3CSendAsyncU3Ed__18_MoveNext_mD2C3C958C3FD550ACE982D6AF230E95CB4147192,
+	U3CSendAsyncU3Ed__18_SetStateMachine_m0C15FB351A6A35B67120D524C3A964E9DC597078,
+	NULL,
+	NULL,
+	AuthenticationNetworkClient_get_AccessTokenComponent_mF10749E4B898F6824B849C31705952DC23C64D86,
+	AuthenticationNetworkClient_get_CloudProjectIdComponent_mCAE38C64A9FF5A052B1DB965CDD698AECC90C03F,
+	AuthenticationNetworkClient_get_EnvironmentComponent_m6B9DEC5E341192134461AFD8BBABA9AB17A7FB26,
+	AuthenticationNetworkClient_get_NetworkHandler_mE8F20F2BF21EDA4B878917EACD2A3A736DBD8571,
+	AuthenticationNetworkClient_get_AccessToken_m42B6AD48F27F4C586708E4DC9E2A64FE08656F1D,
+	AuthenticationNetworkClient_get_EnvironmentName_m9CC9B09E6F1CB8D169A4C05E9BF54AC1ABDE8A0D,
+	AuthenticationNetworkClient__ctor_m2E1563DC14B43DFEE03BBDC785B27047ED816EE4,
+	AuthenticationNetworkClient_SignInAnonymouslyAsync_mD06BB889D79C31294AFB9928314D646C7C2D16E2,
+	AuthenticationNetworkClient_SignInWithSessionTokenAsync_m9B414AE9F1F1C654D6A02993B6E467CDC6E726DE,
+	AuthenticationNetworkClient_SignInWithExternalTokenAsync_m16352C3F1532286A302E50FC95E4B692231607F3,
+	AuthenticationNetworkClient_LinkWithExternalTokenAsync_m6AA44BD5C19DAB3CEF59477B317DE0BE116C104A,
+	AuthenticationNetworkClient_UnlinkExternalTokenAsync_m3E8A17000C303EBA6E72178C5A6837957A1D2D3E,
+	AuthenticationNetworkClient_GetPlayerInfoAsync_m7A2E27B9166A8B703EE8FF22009E92B6A9B2B91B,
+	AuthenticationNetworkClient_DeleteAccountAsync_m34C3B443A2A59A21A4DFD64B7D49D7EDFB2BCDD5,
+	AuthenticationNetworkClient_CreateUserRequestUrl_m1E91DDCE4598C1ACA91E3888755CE123F07DEFDA,
+	AuthenticationNetworkClient_WithAccessToken_m38CB5FDE79922715525D88352E9E78BBBBA01683,
+	AuthenticationNetworkClient_WithEnvironment_m9B313EFCA29F2D7457AE5029FA31443331CC5AFC,
+	AuthenticationNetworkClient_GetCommonHeaders_mA91AF9F13338A7B915A99B61CC71874D75CB1C2F,
+	AuthenticationWebRequestUtils_SendWebRequestAsync_m3FC16EDF482769D86DAF3AA8427FF668952B1E66,
+	NULL,
+	AuthenticationWebRequestUtils_ProcessResponse_m8BE2C059A4C4BEBBDF0370E58E3B6E0E9E10BBE3,
+	NULL,
+	AuthenticationWebRequestUtils_IsNetworkError_m29B7B63B26A4C68256804DE8EC20E9A035AAC6C3,
+	AuthenticationWebRequestUtils_IsHttpError_mF50468E17E107163A529CD79F3E748048EFFBC67,
+	U3CU3Ec__DisplayClass0_0__ctor_m48C2C38CC58FB66BF8B91FEFF328A8C3B009DD8F,
+	U3CU3Ec__DisplayClass0_0_U3CSendWebRequestAsyncU3Eb__0_m41FC324FA96937DFE576A016864F5FE3883AC651,
+	NULL,
+	NULL,
+	NULL,
+	HttpUtilities_ParseQueryString_m6014E84D7C7C4604AEBEC226B5AB0D12826EA93B,
+	HttpUtilities_EncodeQueryString_m0F1E9E329E67D129A10E57885254FE57A2B34CB4,
+	HttpUtilities_EscapeUrlString_mE97CA952E1525FFFAFC9D292A05E2DE07F94DE51,
+	HttpUtilities_UnescapeUrlString_m15F54F47563D19CC8FC5D176CE501DACB7A78941,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NetworkHandler_get_Configuration_m855B12C42C43AC5FEEDCD2536822705243B7B5A4,
+	NetworkHandler__ctor_m974B27C73A424554082ED992FE91ACEF1BF6DBB6,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NetworkHandler_DeleteAsync_mA0C5CDA09F912B6EBA57299DD1B0106BC02E7A49,
+	NULL,
+	WebRequest_get_Configuration_m17287B94E87EE12E6579C0D303BE14DD94639C5E,
+	WebRequest_get_Retries_m54A5EACF6AA10F0FC5E72D5E21068C894943BB4A,
+	WebRequest_set_Retries_mCFCC8E23AAEAD4F2836F22F645DD14F6A7AEE31A,
+	WebRequest__ctor_m7E4F164BD970CD891671BF8F682EE7D2C5BC4B7D,
+	WebRequest_SendAsync_mDBF29413F7446A8D9F6747C3AB89EAB5A6442C25,
+	NULL,
+	WebRequest_SendAttemptAsync_m72854F7D88560AC76FB8DC4B73B38E72ACE360D6,
+	WebRequest_Build_mB8DB21CB3B5CE2CDF55E5EB82DAB28EC8084C966,
+	WebRequest_RequestCompleted_m0AB8EBFFF83D11CBF3F6CD7A075871944575A0C4,
+	WebRequest_RequestHasServerError_m9D4204864901403DE7FA88503084221260926F98,
+	WebRequest_RequestHasNetworkError_mB4FF69EB4F14B80019B012FAD35BAB9B15ACFDBF,
+	NULL,
+	NULL,
+	U3CU3Ec__DisplayClass16_0__ctor_m3BA8501372C6D781E35B05EF4E452C516E26975F,
+	U3CU3Ec__DisplayClass16_0_U3CSendAttemptAsyncU3Eb__0_mCF35D208EED10F62021FF88AF9256CDC4EAE1E32,
+	WebRequestException_get_NetworkError_m9819D76C20F277A2C1867EC658AAFBC8451CB39E,
+	WebRequestException_set_NetworkError_m2C115303197F2E683B07471C5A2883AE3B03F603,
+	WebRequestException_get_DeserializationError_mF33CA43841C4CE2718F7F169F8EA9C1F416B79BC,
+	WebRequestException_set_DeserializationError_mA826E42FBC5FD3D20CBECCA8A3299E5858688D4E,
+	WebRequestException_get_ServerError_m2FF122D77D3D18170A3C306B2F5BF24240877470,
+	WebRequestException_set_ServerError_m25C30AEFD94AA6B869D353E784AC51E740A924E5,
+	WebRequestException_get_ResponseCode_mD02CB7727ACF1A6EA570F1DDE88E544D54734F93,
+	WebRequestException_set_ResponseCode_mD5CBAF8670FE2515209045C9677CE5150DD380D7,
+	WebRequestException_get_ResponseHeaders_m4B3EEAE853935B50958D2AA261906B2B7CD830EB,
+	WebRequestException_set_ResponseHeaders_m413A013D40F846EE08E7959D4C226D571E48F03F,
+	WebRequestException__ctor_m34FFE6C71B787343A350711B8D33CDCDE89589CA,
+	AuthenticationCache_get_CloudProjectId_mB6305CFC987BED1721E733186A2115952C1A64B6,
+	AuthenticationCache_get_Profile_m3DFBA91E989329B137E0FD376D7775462B5C1CCA,
+	AuthenticationCache_get_Prefix_mDDC3F137BB4B91509ADC0A923F420FBF98BC1553,
+	AuthenticationCache_get_OldPrefix_mF88F8AC4CAF17786D4AC7403EA00343CCFE5004B,
+	AuthenticationCache__ctor_mA3284BC025D6C4BD635EE4864ED05324E7CBC517,
+	AuthenticationCache_HasKey_m6B560D471F2475F26DC211E4B78010392A0D4AE9,
+	AuthenticationCache_DeleteKey_m7690A1B73670218BE20FE0665835D749853C5043,
+	AuthenticationCache_GetString_m01449E6CF5E098A7315B4DDF1F0D76372419EEEE,
+	AuthenticationCache_SetString_mC2550FC6CF03CD747E1893DDBD0086878FE60B74,
+	AuthenticationCache_Migrate_mDD710013603020A02FDBC9D77460D8C433B6243B,
+	AuthenticationCache_GetKey_m6F463861D10E9CF5ACE173652DB24C1CC2A59CB3,
+	AuthenticationCache_GetOldKey_m7895B910BC29C8A7C1B8D4EDF735490D43092A09,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	IsolatedJsonConvert_SerializeObject_m53D68B2C16ED4E3DD4163B2E11AF311AA9624FBA,
+	IsolatedJsonConvert_SerializeObject_m6D249A3DEE80F3204EE97D9AEEDCB8B5D4698F6E,
+	IsolatedJsonConvert_SerializeObject_m4AF896EB9739E297E6E08FF99B908CC57458F34F,
+	IsolatedJsonConvert_SerializeObject_mD418B85AD5270D5136FAE77C41F24DAD3CA68659,
+	IsolatedJsonConvert_SerializeObject_m6587999667E6691C605B2284D79E19DB18EA5F65,
+	IsolatedJsonConvert_SerializeObject_mCB474D322E4303637D1BB0989064A1DC00BA0700,
+	IsolatedJsonConvert_SerializeObject_mD73AA028578C5EF348166AA618961461E133CE36,
+	IsolatedJsonConvert_SerializeObject_mE484EAC3CD314C9C80E6069D9D65867C45F458D9,
+	IsolatedJsonConvert_SerializeObjectInternal_m11DED4075B1DCC0C5411DD52C6B4E9DA034ACC88,
+	IsolatedJsonConvert_DeserializeObject_mD244B8CFAED2E0AE55D4DF340705EC079D72D616,
+	IsolatedJsonConvert_DeserializeObject_m278648BC61FC16F90C373D38DB8050A76816DD15,
+	IsolatedJsonConvert_DeserializeObject_m4B5B3054DD852277F752B8A5678262660644D490,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	IsolatedJsonConvert_DeserializeObject_m3488C484EB9736ED8EFB8DA9E22549CF50B3CA95,
+	IsolatedJsonConvert_DeserializeObject_m1D3A5E9B5C9DBD5EB93F863CC85D91C2A5C48A8D,
+	IsolatedJsonConvert_PopulateObject_m78D4F8CA4FE431154AC3B65D4182231DF401BF4A,
+	IsolatedJsonConvert_PopulateObject_m804D300382B30ADEC13BB8356B55F04B9BD95E7B,
+	NULL,
+	NULL,
+	JwtDecoder_Base64UrlDecode_m4FAC88A6795B97AF79655B79A4C8BF70242DD7B9,
+	JwtDecoder__ctor_m0B9D70A3A9BD1F9392F584894885E6A22F14CEC9,
+	JwtDecoder__cctor_mB3966E27A02C595EC3650919A62426EACF89C747,
+	Logger_Log_m8A66EADCC18729652C2186FF04B0F0580972BC00,
+	Logger_LogWarning_mE0A74606514DA618868A2737BAD77E6DF440F00E,
+	Logger_LogError_m698CECF45EB6570E4C933F9EE19A5D85A9E09B34,
+	Logger_LogException_m0AAD12A69AE2B31546E10F1770E2A0913EB151CA,
+	Logger_LogAssertion_m15185E92BAFFE42BE97DD08600498FDE65CC5138,
+	Logger_LogVerbose_m20AC067B645553CD16424E4387BEBEBC06C628BD,
+	SerializerSettings_get_DefaultSerializerSettings_mE98213EAE9CD60E6705959976704FED1175BB06C,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	AbstractOpenAPISchema_get_IsNullable_m688E164C89BECEF01D336CCD257C53BCE59813A7,
+	AbstractOpenAPISchema_set_IsNullable_mA63568EF734C695308D9FE5D61A79F9A0D9E2AB6,
+	AbstractOpenAPISchema_get_SchemaType_mA93BEEA542597D6A5017711EED6AAD8CD57D3FD5,
+	AbstractOpenAPISchema_set_SchemaType_m5C64328D4EFADCE3B64862A1825FFB57184DA96F,
+	NULL,
+	AbstractOpenAPISchema__ctor_m5813C11C4E1C1500101302583F11E5C97782D345,
+	AbstractOpenAPISchema__cctor_mD43F3BCF376FE8153F27719C816F7C73930151BB,
+	ApiConfiguration_get_BasePath_m2191560EE9C35D056C19CC3F19D4A2FE744C5508,
+	ApiConfiguration_set_BasePath_mA755D3D03CDA5AC702027D4F3CD1B38F6B861219,
+	ApiConfiguration_get_DefaultHeaders_m82DCA914B5CF1D05F4C68CA3498A752E7CFC511F,
+	ApiConfiguration_set_DefaultHeaders_mCE9910315215EA4F8ACBEA1DE80E64F627B850D4,
+	ApiConfiguration_get_Timeout_m9DCB061EF48AB0162694DBACFBB888D538DD6FF9,
+	ApiConfiguration_set_Timeout_m6F104374C0A7495C45EC5A81F96832F90067B9B9,
+	ApiConfiguration_get_UserAgent_mA052B2D404B8E9B369CB5D554D257356FA2EB91D,
+	ApiConfiguration_set_UserAgent_m52CFEB93AEB24036DC4F9EE8837F23ABE24015F4,
+	ApiConfiguration_get_Username_m5E25402EA6C974E775F96081A9A4AFA17DADE009,
+	ApiConfiguration_set_Username_m6B4726D0EBDEE6F1C46A10207CFE2BB7AC30BA84,
+	ApiConfiguration_get_Password_mB0DDD3C7AF0615438B18275A74234F86A6922DDD,
+	ApiConfiguration_set_Password_mCEDBE14455676F165F4A87535CF8C93A74D90153,
+	ApiConfiguration_get_AccessToken_m9F75A514486FE78E31CA14666637E1632B8EACC5,
+	ApiConfiguration_set_AccessToken_m8AA70568696774453C4D7F4E2B653918CC9C72D9,
+	ApiConfiguration_get_DateTimeFormat_m8F7BA4E9584F38E0035EA4B9B644AC6C5FBC9D10,
+	ApiConfiguration_set_DateTimeFormat_mC5BA46BF1E1884ACD9C031BB77FBB67B1FA93ACF,
+	ApiConfiguration_get_ApiKeyPrefix_mEB29932B8C38B942F0DC578908CBF43321A3C765,
+	ApiConfiguration_set_ApiKeyPrefix_mBB4EBEA049729EAFE6C99A94E4E80D47822FBBC9,
+	ApiConfiguration_get_ApiKey_m38A1BC40E4F75A7CA3B5CD8754504CDEA42929EF,
+	ApiConfiguration_set_ApiKey_m8E1E3528C255DE8DFD344309D1EBF016C5C84135,
+	ApiConfiguration__ctor_mD0765A0047517478AA8A11CD99F9771DEB201DDD,
+	ApiConfiguration__ctor_m17EB7132F787C5317CFC3B23ADF9875309E25995,
+	ApiConfiguration_GetApiKeyWithPrefix_m56E8393B91AB12F9CFF2E39E21966D359851BDBD,
+	ApiConfiguration_AddApiKey_m3D4D01A54167141A96EF991D85FD0D3334F1460C,
+	ApiConfiguration_AddApiKeyPrefix_m822FA7CF7DC5BAEE8B6F485D8F1CC353A08CE4A7,
+	ApiException_get_Type_m5F8DB59E8E17BC0E7034E94798202930C78B273A,
+	ApiException_set_Type_m6632103E498066083D34CE8FC08B1693ECFBC24B,
+	ApiException_get_Response_m0561EBC006BB8F6778F5DF40667D0745E2F7F942,
+	ApiException_set_Response_m0CD74A5EF88E695D5592F356CF4EC76CF81A7787,
+	ApiException__ctor_m8613EA62B65E8A7792588C837DD66FAEA80A07F2,
+	ApiRequestOptions_get_PathParameters_m751BD01D7CC6653A0FF5F30CC7F0B02DA0EC9386,
+	ApiRequestOptions_set_PathParameters_m5A27A4A5C73F335CCA8944D6221CF4B6D114AC3B,
+	ApiRequestOptions_get_QueryParameters_m8C131BD0B1D6DAE86F3B976D825E6228A4CFEEE8,
+	ApiRequestOptions_set_QueryParameters_m44F0DBEA8495726DE17B66977B87572AA2A8A9DA,
+	ApiRequestOptions_get_HeaderParameters_m8E1EA97AD4BEFE82E2E967212DD03BBC1A7B99D6,
+	ApiRequestOptions_set_HeaderParameters_m927BA51AF752E4E1DC053C5B33CBBE4825D83080,
+	ApiRequestOptions_get_FormParameters_mB18244AA248D13991854DE3F09B8F96E2B9D68B4,
+	ApiRequestOptions_set_FormParameters_mF32697C09568970C064F86C8F7EF87F6DC04179C,
+	ApiRequestOptions_get_FileParameters_mC8C0FFEFF2077EDF82A7A5BFEAEC10F3A98C94CF,
+	ApiRequestOptions_set_FileParameters_mB75B33A63800177EFB0196557F005E029667F47B,
+	ApiRequestOptions_get_Operation_m6C54FFA2373DCD8FB11004DB77C1143B53D0B6FE,
+	ApiRequestOptions_set_Operation_mF6B25F8B3F9385D03C00A8522E3C5BDF131B5FBE,
+	ApiRequestOptions_get_Data_m12FF77F83192BA3324222402386095B5BCDA8898,
+	ApiRequestOptions_set_Data_m9C0F99493783FD2CDF74A14BFF007E9D73CE4E94,
+	ApiRequestOptions__ctor_m5EA6E302AC08BC87D183EA5FB5F67604BC6A94F4,
+	ApiRequestPathBuilder__ctor_mF257137CF45B4DFD8B6D4FE33F6F7057820B081B,
+	ApiRequestPathBuilder_AddPathParameters_mDCD93CB1350B2870FF741E63C5FE14871A94C828,
+	ApiRequestPathBuilder_AddQueryParameters_m80C5135402EE1A6F2B4D0C27DC1D42943CAF32E7,
+	ApiRequestPathBuilder_GetFullUri_mA1A601A434BFB570B79733F2ED44776F25D09195,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	ApiResponse_get_StatusCode_m2228DA21E2C2B93A3D6552E9528BA36326A9209B,
+	ApiResponse_set_StatusCode_mF460FCFB59C55B8B0DF60DF9005A7CC06F276CA0,
+	ApiResponse_get_Headers_m7FA6BF859C996C8A1BFAF079ADE1CD08C844CBA4,
+	ApiResponse_set_Headers_mD0450BD8C5EFB8F0932D200EDFC3542D701AA4A7,
+	ApiResponse_get_ErrorText_m38BA3B5F403672DBF5A020AA78BDBFA899D24A42,
+	ApiResponse_set_ErrorText_m7A750E4E43A350A68B75277BBBDC1401B129ECD4,
+	ApiResponse_get_RawContent_m2D2EAFA5ED1387F1672919B27A92233D85C23B3C,
+	ApiResponse_set_RawContent_m154FC204FD427B14D197DB7EC557491D1CA24C00,
+	ApiResponse_get_Content_mD4627A4B787C1DFB1568401562FF51D9361818F0,
+	ApiResponse_get_IsSuccessful_mBAB116A9E236704F153E63B85DDE1E2DF2FD7FF0,
+	ApiResponse_get_IsRedirection_m439C2988DB5E24466C09A3B6699A79DF0B5CFC15,
+	ApiResponse_get_IsClientError_m2CADBF466C138FD56CB6DAE3FB6CB90CAA7F20A1,
+	ApiResponse_get_IsServerError_mAC6E2BD0EAE4C0BCDD475CC39E8913D6563078F4,
+	ApiResponse__ctor_mDB7CD5C73E9B7318FC9D0B695E87812CCCB2A160,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	ApiUtils_ParameterToMultiMap_m7B6FD751B9240812D1D607E88BD42ED3C7CD8055,
+	ApiUtils_ParameterToString_mDF88F7220BE183A1FE4AD5B8C85C4AE291FDF78F,
+	ApiUtils_Base64Encode_m91DE345BDCA0D8BFAE50BB12A171229D2D97E967,
+	ApiUtils_SelectHeaderContentType_m44E80DA2592DAC0BC84DB618B8DABCBB7531D25C,
+	ApiUtils_SelectHeaderAccept_mAB123E7469E0B813F8BC095ED91096C2D5E6928B,
+	ApiUtils_IsJsonMime_m9D90F2789183D501CA951EF9D23E2F989CCC7C95,
+	ApiUtils_HasEnumMemberAttrValue_m093AD366C9A7CCDF2EB47DD3ABB0B0E714808155,
+	ApiUtils_GetEnumMemberAttrValue_mA8C2B23460735E305B94B88DECDA09AB47D2B3E4,
+	ApiUtils__ctor_m0B7D18CD58D0FB9AF44BF36F973A40EB40CB4A47,
+	ApiUtils__cctor_mABC5DEDD056230B036B65B9D4FF6BB46A73A5FA8,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	OpenAPIDateConverter__ctor_m0BC75A039126DA48EA00B60C8B24F04EC4CD50A2,
+	NULL,
+	NULL,
+	PlayerNamesApi_get_Client_mC71FA0206EB7FD0FAD365D49E567535475C17437,
+	PlayerNamesApi_get_Configuration_m82EE46ACEB06490183A7A57718903BED5AF7390F,
+	PlayerNamesApi__ctor_mC3521B39910F5C9BD09D5392917E2F1C173A2559,
+	PlayerNamesApi__ctor_m6A47B018F51DBB7A7E44B67D3270780D4506400C,
+	PlayerNamesApi_GetBasePath_m5E84AD1EAD82778599AC5C871A3B20376BEE6131,
+	PlayerNamesApi_GetNameAsync_m5A13397E74853CD866D91CE0671EBCBD8ED75849,
+	PlayerNamesApi_UpdateNameAsync_m5EDA12920878A81B81E44311ED7A9F2D77C5227A,
+	U3CGetNameAsyncU3Ed__9_MoveNext_m32AD7EDF4657AC7553B2AFCB480C04410A777355,
+	U3CGetNameAsyncU3Ed__9_SetStateMachine_mF540258C99A1327479B5BB70FCA15DAB5597ED33,
+	U3CUpdateNameAsyncU3Ed__10_MoveNext_m2C3EF838C1C29CFEAB55356F6E73D0A519554C75,
+	U3CUpdateNameAsyncU3Ed__10_SetStateMachine_m3C095CAA4BD5D723FF0FAD7F467E7D33D2AF9B1C,
+	Detail_get_ErrorType_mD9CA98EAEDDF382BDE9368A7B083CC64F9FDEF87,
+	Detail_set_ErrorType_m9CAA5495DC1F80877CB05811C3D50C236E2CAF62,
+	Detail_get_Message_m0EFB620B7FB56055373C852AB3B5CD41E8DC30CD,
+	Detail_set_Message_mE40A9C78E0D10E1C553EB4A29A60FED86D910602,
+	Detail__ctor_mA23496DF27895D537EE4C37DA035B565C1FF57AF,
+	ErrorStatus_get_Status_m9105A9F5AD2AA40E17B9B75A577A2E8ECDB2D82F,
+	ErrorStatus_set_Status_mCFADC1F24F28ED7E936E2778F4FE4756DEB58D97,
+	ErrorStatus_get_Title_mA4C8064B7E4A88786A06A736BC8AD4398AFDBC59,
+	ErrorStatus_set_Title_m8AFE10D39C118B50EDE0BA9685023C7327FCCF78,
+	ErrorStatus_get_Detail_m2950DB824A66F762D3ED68ADC5475FDB30C26FEE,
+	ErrorStatus_set_Detail_mC0716E0869BFF81FE40436B64702F8663926B9B4,
+	ErrorStatus_get_Code_mD5D141B73E6AB27C8D560054915A1E3E31B940C2,
+	ErrorStatus_set_Code_mF9E4A74606AEF9FD6569CB161CCD95C7EE4245F7,
+	ErrorStatus_get_Details_m82EE7300D1845EEDFDD8F574FCBBB82FDF24E67B,
+	ErrorStatus_set_Details_mB5D7E4F22EE5C1FFD6B5068949E0D47BDDB786F6,
+	ErrorStatus__ctor_mA80AA43121C6349DB991DCFAB6C34511378E1100,
+	Player_get_Id_mF8EF31CD860DACF947A92A367060A4F60D46A4EB,
+	Player_set_Id_m7B34F85899A22D29B8751359753555EC3581F03B,
+	Player_get_Name_m4089A880415883C651D745599D3911A472FAD245,
+	Player_set_Name_m33F257E68B9AA0AD62B0CD9263F0344B3019981B,
+	Player_get_AutoGenerated_mFED04451917F3604F8953E64440BEF4840C107D0,
+	Player_set_AutoGenerated_m61400194E7C2FBB1D23CEE242E1A55F78356DB80,
+	Player__ctor_m6C4A35BB8399CCFF3A958B00C72011903A1B9640,
+	UpdateNameRequest_get_Name_mC504D699B78F6A2801B7BA5F9555E9C68205B424,
+	UpdateNameRequest_set_Name_mACF219FCC5AC88C7327EACB6CD221E2D2CE2A030,
+	UpdateNameRequest__ctor_m70CE4F6DA33EB81349CF76FED1E942E887C53A24,
+	Compatibility__ctor_m1B314B7EFD08673EC815F2BC72F56E487C74C1F4,
+	Compatibility__ctor_mF28982837D7B46EB70975131530D994983228708,
+};
+extern void U3CDeleteAccountAsyncU3Ed__111_MoveNext_mB0092D275548B227AFBDFFC9B29C6FC23C4273DB_AdjustorThunk (void);
+extern void U3CDeleteAccountAsyncU3Ed__111_SetStateMachine_m03A9195B5A1403F310FB638168E2EF4601FED491_AdjustorThunk (void);
+extern void U3CGetPlayerInfoAsyncU3Ed__115_MoveNext_m2745A501F939CAF40455B029217EC08721BD4C19_AdjustorThunk (void);
+extern void U3CGetPlayerInfoAsyncU3Ed__115_SetStateMachine_m62DC16AE098A6EE65FAF7CBB94A01CD48F7B8095_AdjustorThunk (void);
+extern void U3CGetPlayerNameAsyncU3Ed__116_MoveNext_mDA5D0F2B05AE77086DE58B32DB52C5DF1245E13F_AdjustorThunk (void);
+extern void U3CGetPlayerNameAsyncU3Ed__116_SetStateMachine_m5B7D4853A68A7B60BE857599BA0FB57542E98DFC_AdjustorThunk (void);
+extern void U3CUpdatePlayerNameAsyncU3Ed__117_MoveNext_m7964EAC19261203FBD0CF257BBC9B52A589CA0B3_AdjustorThunk (void);
+extern void U3CUpdatePlayerNameAsyncU3Ed__117_SetStateMachine_mA2662219231993418071AC21B7B5D1836221FEC3_AdjustorThunk (void);
+extern void U3CLinkWithExternalTokenAsyncU3Ed__119_MoveNext_mD01DD2F5E7DA67CB12EA0D8A44DF58C4927A330A_AdjustorThunk (void);
+extern void U3CLinkWithExternalTokenAsyncU3Ed__119_SetStateMachine_m53FE29F70334BE654F0246F66C4F3DF4BDDFCE7F_AdjustorThunk (void);
+extern void U3CUnlinkExternalTokenAsyncU3Ed__120_MoveNext_mCC942E4BB16DBEE82AF58247649966DD6C6C02D5_AdjustorThunk (void);
+extern void U3CUnlinkExternalTokenAsyncU3Ed__120_SetStateMachine_m084B4D20E0174850B75FD95462692A7C4D60A409_AdjustorThunk (void);
+extern void U3CHandleSignInRequestAsyncU3Ed__122_MoveNext_m441EAB4415608573AFD6CCE4EBD4363AFB54C71D_AdjustorThunk (void);
+extern void U3CHandleSignInRequestAsyncU3Ed__122_SetStateMachine_m597960392295614497EE815DE8132D09005F6274_AdjustorThunk (void);
+extern void U3CStartRefreshAsyncU3Ed__123_MoveNext_mF70A61A50756202DF634AC009993CB501A487CAE_AdjustorThunk (void);
+extern void U3CStartRefreshAsyncU3Ed__123_SetStateMachine_m1CA92E0FA1B25FD7B843D2918EE69BCA5441A0C5_AdjustorThunk (void);
+extern void OculusConfig_get_UserId_m8139015C1DF7AFFDA12538A5025A6D87250D909D_AdjustorThunk (void);
+extern void OculusConfig_set_UserId_m1D9F16501AC103DF5E2BE7B3B462AE99C318623B_AdjustorThunk (void);
+extern void U3CSendAsyncU3Ed__18_MoveNext_mD2C3C958C3FD550ACE982D6AF230E95CB4147192_AdjustorThunk (void);
+extern void U3CSendAsyncU3Ed__18_SetStateMachine_m0C15FB351A6A35B67120D524C3A964E9DC597078_AdjustorThunk (void);
+extern void U3CGetNameAsyncU3Ed__9_MoveNext_m32AD7EDF4657AC7553B2AFCB480C04410A777355_AdjustorThunk (void);
+extern void U3CGetNameAsyncU3Ed__9_SetStateMachine_mF540258C99A1327479B5BB70FCA15DAB5597ED33_AdjustorThunk (void);
+extern void U3CUpdateNameAsyncU3Ed__10_MoveNext_m2C3EF838C1C29CFEAB55356F6E73D0A519554C75_AdjustorThunk (void);
+extern void U3CUpdateNameAsyncU3Ed__10_SetStateMachine_m3C095CAA4BD5D723FF0FAD7F467E7D33D2AF9B1C_AdjustorThunk (void);
+static Il2CppTokenAdjustorThunkPair s_adjustorThunks[24] = 
+{
+	{ 0x06000061, U3CDeleteAccountAsyncU3Ed__111_MoveNext_mB0092D275548B227AFBDFFC9B29C6FC23C4273DB_AdjustorThunk },
+	{ 0x06000062, U3CDeleteAccountAsyncU3Ed__111_SetStateMachine_m03A9195B5A1403F310FB638168E2EF4601FED491_AdjustorThunk },
+	{ 0x06000063, U3CGetPlayerInfoAsyncU3Ed__115_MoveNext_m2745A501F939CAF40455B029217EC08721BD4C19_AdjustorThunk },
+	{ 0x06000064, U3CGetPlayerInfoAsyncU3Ed__115_SetStateMachine_m62DC16AE098A6EE65FAF7CBB94A01CD48F7B8095_AdjustorThunk },
+	{ 0x06000065, U3CGetPlayerNameAsyncU3Ed__116_MoveNext_mDA5D0F2B05AE77086DE58B32DB52C5DF1245E13F_AdjustorThunk },
+	{ 0x06000066, U3CGetPlayerNameAsyncU3Ed__116_SetStateMachine_m5B7D4853A68A7B60BE857599BA0FB57542E98DFC_AdjustorThunk },
+	{ 0x06000067, U3CUpdatePlayerNameAsyncU3Ed__117_MoveNext_m7964EAC19261203FBD0CF257BBC9B52A589CA0B3_AdjustorThunk },
+	{ 0x06000068, U3CUpdatePlayerNameAsyncU3Ed__117_SetStateMachine_mA2662219231993418071AC21B7B5D1836221FEC3_AdjustorThunk },
+	{ 0x0600006D, U3CLinkWithExternalTokenAsyncU3Ed__119_MoveNext_mD01DD2F5E7DA67CB12EA0D8A44DF58C4927A330A_AdjustorThunk },
+	{ 0x0600006E, U3CLinkWithExternalTokenAsyncU3Ed__119_SetStateMachine_m53FE29F70334BE654F0246F66C4F3DF4BDDFCE7F_AdjustorThunk },
+	{ 0x0600006F, U3CUnlinkExternalTokenAsyncU3Ed__120_MoveNext_mCC942E4BB16DBEE82AF58247649966DD6C6C02D5_AdjustorThunk },
+	{ 0x06000070, U3CUnlinkExternalTokenAsyncU3Ed__120_SetStateMachine_m084B4D20E0174850B75FD95462692A7C4D60A409_AdjustorThunk },
+	{ 0x06000071, U3CHandleSignInRequestAsyncU3Ed__122_MoveNext_m441EAB4415608573AFD6CCE4EBD4363AFB54C71D_AdjustorThunk },
+	{ 0x06000072, U3CHandleSignInRequestAsyncU3Ed__122_SetStateMachine_m597960392295614497EE815DE8132D09005F6274_AdjustorThunk },
+	{ 0x06000073, U3CStartRefreshAsyncU3Ed__123_MoveNext_mF70A61A50756202DF634AC009993CB501A487CAE_AdjustorThunk },
+	{ 0x06000074, U3CStartRefreshAsyncU3Ed__123_SetStateMachine_m1CA92E0FA1B25FD7B843D2918EE69BCA5441A0C5_AdjustorThunk },
+	{ 0x06000126, OculusConfig_get_UserId_m8139015C1DF7AFFDA12538A5025A6D87250D909D_AdjustorThunk },
+	{ 0x06000127, OculusConfig_set_UserId_m1D9F16501AC103DF5E2BE7B3B462AE99C318623B_AdjustorThunk },
+	{ 0x06000161, U3CSendAsyncU3Ed__18_MoveNext_mD2C3C958C3FD550ACE982D6AF230E95CB4147192_AdjustorThunk },
+	{ 0x06000162, U3CSendAsyncU3Ed__18_SetStateMachine_m0C15FB351A6A35B67120D524C3A964E9DC597078_AdjustorThunk },
+	{ 0x06000292, U3CGetNameAsyncU3Ed__9_MoveNext_m32AD7EDF4657AC7553B2AFCB480C04410A777355_AdjustorThunk },
+	{ 0x06000293, U3CGetNameAsyncU3Ed__9_SetStateMachine_mF540258C99A1327479B5BB70FCA15DAB5597ED33_AdjustorThunk },
+	{ 0x06000294, U3CUpdateNameAsyncU3Ed__10_MoveNext_m2C3EF838C1C29CFEAB55356F6E73D0A519554C75_AdjustorThunk },
+	{ 0x06000295, U3CUpdateNameAsyncU3Ed__10_SetStateMachine_m3C095CAA4BD5D723FF0FAD7F467E7D33D2AF9B1C_AdjustorThunk },
+};
+static const int32_t s_InvokerIndices[689] = 
+{
+	16592,
+	15699,
+	7525,
+	7525,
+	7525,
+	7525,
+	7525,
+	7525,
+	7525,
+	7525,
+	9261,
+	9261,
+	9261,
+	9261,
+	9395,
+	9395,
+	9395,
+	9395,
+	9395,
+	7525,
+	9024,
+	7215,
+	9024,
+	7215,
+	9395,
+	9395,
+	9395,
+	9395,
+	9395,
+	9345,
+	7479,
+	9395,
+	9395,
+	7525,
+	9395,
+	7525,
+	9395,
+	7525,
+	7525,
+	7525,
+	22,
+	7525,
+	6602,
+	3069,
+	3069,
+	9395,
+	297,
+	297,
+	9395,
+	3069,
+	3069,
+	9395,
+	3069,
+	3069,
+	9395,
+	3069,
+	3069,
+	9395,
+	3069,
+	3069,
+	9395,
+	1773,
+	1773,
+	9395,
+	1773,
+	1773,
+	6602,
+	9395,
+	7390,
+	7525,
+	9544,
+	9395,
+	9395,
+	6602,
+	1768,
+	3069,
+	6602,
+	9395,
+	3064,
+	6602,
+	3969,
+	7421,
+	7421,
+	9544,
+	9544,
+	9544,
+	9544,
+	9544,
+	9544,
+	7479,
+	3626,
+	3969,
+	5252,
+	9544,
+	9544,
+	9395,
+	9544,
+	7525,
+	9544,
+	7525,
+	9544,
+	7525,
+	9544,
+	7525,
+	9544,
+	9395,
+	9544,
+	5252,
+	9544,
+	7525,
+	9544,
+	7525,
+	9544,
+	7525,
+	9544,
+	7525,
+	16643,
+	9544,
+	5252,
+	13432,
+	6602,
+	16643,
+	6602,
+	6602,
+	9544,
+	16643,
+	1960,
+	12118,
+	9395,
+	7525,
+	6593,
+	9395,
+	9395,
+	9395,
+	6602,
+	9395,
+	9395,
+	6602,
+	6602,
+	15309,
+	15309,
+	15309,
+	6192,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	7525,
+	9544,
+	9544,
+	9544,
+	9544,
+	9544,
+	0,
+	0,
+	0,
+	0,
+	0,
+	9395,
+	7525,
+	9014,
+	7206,
+	9544,
+	9544,
+	9395,
+	7525,
+	9544,
+	7525,
+	7525,
+	9395,
+	7525,
+	7525,
+	9544,
+	9395,
+	7525,
+	7525,
+	7525,
+	9395,
+	7525,
+	7525,
+	9544,
+	9395,
+	7525,
+	0,
+	0,
+	0,
+	0,
+	7525,
+	7525,
+	9395,
+	7525,
+	7525,
+	7525,
+	9395,
+	7525,
+	9395,
+	7525,
+	7525,
+	9544,
+	9544,
+	9395,
+	7525,
+	7525,
+	9261,
+	7390,
+	9544,
+	9395,
+	9014,
+	9395,
+	7525,
+	7525,
+	7525,
+	2039,
+	9395,
+	9395,
+	9395,
+	9395,
+	9395,
+	9395,
+	9395,
+	6602,
+	9395,
+	6602,
+	7525,
+	7525,
+	5252,
+	16643,
+	9544,
+	5252,
+	9544,
+	5252,
+	9544,
+	5252,
+	9544,
+	9544,
+	9544,
+	9544,
+	9544,
+	9544,
+	9395,
+	7525,
+	9544,
+	9544,
+	9544,
+	9544,
+	9544,
+	9544,
+	9544,
+	9544,
+	9544,
+	9544,
+	9544,
+	9544,
+	9544,
+	9014,
+	9014,
+	9014,
+	4481,
+	9345,
+	7479,
+	9345,
+	7479,
+	9345,
+	7479,
+	9544,
+	9544,
+	0,
+	0,
+	0,
+	0,
+	0,
+	9345,
+	7479,
+	9345,
+	7479,
+	9544,
+	9261,
+	7390,
+	9544,
+	9395,
+	7525,
+	1237,
+	0,
+	1237,
+	0,
+	1237,
+	0,
+	1237,
+	0,
+	1237,
+	0,
+	1237,
+	0,
+	1237,
+	0,
+	608,
+	0,
+	1224,
+	9544,
+	7525,
+	0,
+	0,
+	9395,
+	9395,
+	9395,
+	9395,
+	9395,
+	9395,
+	738,
+	9395,
+	6602,
+	3069,
+	3069,
+	3069,
+	6602,
+	6602,
+	6602,
+	6602,
+	6602,
+	9395,
+	15309,
+	0,
+	13948,
+	0,
+	14943,
+	14943,
+	9544,
+	7525,
+	0,
+	0,
+	0,
+	15309,
+	15309,
+	15309,
+	15309,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	9395,
+	7525,
+	0,
+	0,
+	0,
+	0,
+	3069,
+	0,
+	9395,
+	9345,
+	7479,
+	347,
+	9395,
+	0,
+	6602,
+	9395,
+	216,
+	5252,
+	5252,
+	0,
+	0,
+	9544,
+	7525,
+	9261,
+	7390,
+	9261,
+	7390,
+	9261,
+	7390,
+	9346,
+	7480,
+	9395,
+	7525,
+	311,
+	9395,
+	9395,
+	9395,
+	9395,
+	3987,
+	5252,
+	7525,
+	6602,
+	3987,
+	7525,
+	6602,
+	6602,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	15309,
+	13426,
+	13432,
+	12140,
+	13432,
+	12146,
+	12140,
+	11363,
+	12146,
+	15309,
+	13432,
+	13432,
+	0,
+	0,
+	0,
+	0,
+	0,
+	12146,
+	12146,
+	13948,
+	12604,
+	0,
+	0,
+	6602,
+	9544,
+	16643,
+	15699,
+	15699,
+	15699,
+	15699,
+	15699,
+	15699,
+	16592,
+	0,
+	0,
+	0,
+	0,
+	0,
+	9261,
+	7390,
+	9395,
+	7525,
+	0,
+	9544,
+	16643,
+	9395,
+	7525,
+	9395,
+	7525,
+	9345,
+	7479,
+	9395,
+	7525,
+	9395,
+	7525,
+	9395,
+	7525,
+	9395,
+	7525,
+	9395,
+	7525,
+	9395,
+	7525,
+	9395,
+	7525,
+	9544,
+	1448,
+	6602,
+	3987,
+	3987,
+	9345,
+	7479,
+	9395,
+	7525,
+	1960,
+	9395,
+	7525,
+	9395,
+	7525,
+	9395,
+	7525,
+	9395,
+	7525,
+	9395,
+	7525,
+	9395,
+	7525,
+	9395,
+	7525,
+	9544,
+	3987,
+	7525,
+	7525,
+	9395,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	9345,
+	7479,
+	9395,
+	7525,
+	9395,
+	7525,
+	9395,
+	7525,
+	9395,
+	9261,
+	9261,
+	9261,
+	9261,
+	9544,
+	0,
+	0,
+	0,
+	0,
+	11369,
+	13432,
+	15309,
+	15309,
+	15309,
+	14943,
+	14943,
+	15309,
+	9544,
+	16643,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	9544,
+	0,
+	0,
+	9395,
+	9395,
+	7525,
+	3987,
+	9395,
+	1209,
+	1769,
+	9544,
+	7525,
+	9544,
+	7525,
+	9395,
+	7525,
+	9395,
+	7525,
+	3987,
+	9345,
+	7479,
+	9395,
+	7525,
+	9395,
+	7525,
+	9345,
+	7479,
+	9395,
+	7525,
+	685,
+	9395,
+	7525,
+	9395,
+	7525,
+	9261,
+	7390,
+	2034,
+	9395,
+	7525,
+	7525,
+	9544,
+	9544,
+};
+static const Il2CppTokenRangePair s_rgctxIndices[27] = 
+{
+	{ 0x02000043, { 11, 9 } },
+	{ 0x02000047, { 36, 3 } },
+	{ 0x0200004E, { 48, 5 } },
+	{ 0x02000064, { 61, 2 } },
+	{ 0x02000069, { 63, 35 } },
+	{ 0x06000151, { 0, 1 } },
+	{ 0x06000153, { 1, 1 } },
+	{ 0x06000155, { 2, 1 } },
+	{ 0x06000157, { 3, 1 } },
+	{ 0x06000159, { 4, 1 } },
+	{ 0x0600015B, { 5, 1 } },
+	{ 0x0600015D, { 6, 1 } },
+	{ 0x0600015F, { 7, 4 } },
+	{ 0x06000178, { 20, 8 } },
+	{ 0x0600017A, { 28, 8 } },
+	{ 0x06000195, { 39, 1 } },
+	{ 0x06000196, { 40, 1 } },
+	{ 0x06000197, { 41, 1 } },
+	{ 0x06000198, { 42, 1 } },
+	{ 0x0600019A, { 43, 1 } },
+	{ 0x060001A0, { 44, 4 } },
+	{ 0x060001D4, { 53, 1 } },
+	{ 0x060001D5, { 54, 1 } },
+	{ 0x060001D6, { 55, 1 } },
+	{ 0x060001D7, { 56, 2 } },
+	{ 0x060001D8, { 58, 2 } },
+	{ 0x060001DE, { 60, 1 } },
+};
+extern const uint32_t g_rgctx_AuthenticationApiClient_SendAsync_TisT_tA440616FA726EC6B4A782A0C298760B7BA689FBD_m1A9353A6998807BE8B9B57DB52BD07B78EB76802;
+extern const uint32_t g_rgctx_AuthenticationApiClient_SendAsync_TisT_tF610943C9C692F573F49E3F250F6FF38E1415CD1_m2886778F6D89F756591F2A22AA20C5F17BB4AD21;
+extern const uint32_t g_rgctx_AuthenticationApiClient_SendAsync_TisT_t5FA29D08C196B8DF081AAED9B735F2CD1D8DFFE8_mAB4DED32E5153A5E1BB4D749E1B3C9CC5C8B9D8E;
+extern const uint32_t g_rgctx_AuthenticationApiClient_SendAsync_TisT_t9483DCE7EE6F62DD7C4B72F0CC90C6F137159C1F_mF5FC1537045570073DE627A6B6FFD7AE22C0A578;
+extern const uint32_t g_rgctx_AuthenticationApiClient_SendAsync_TisT_tBE988F4485859C3990342611730576EBDE045835_mB7E84B6B876B7BEBEFF090678C6AF6DB3AF7EF54;
+extern const uint32_t g_rgctx_AuthenticationApiClient_SendAsync_TisT_tB4F22A9C3ACAAE3601FC4FD1D9205AD9AE0DF254_m076808A5B3D056E2CBE4B6AAA193DA7F19B7DB01;
+extern const uint32_t g_rgctx_AuthenticationApiClient_SendAsync_TisT_t962A83A30414E0728129354B34C18AB5516C9106_mC4597D2D7B93727626FABD75A1B7D6F846862F3E;
+extern const uint32_t g_rgctx_AsyncTaskMethodBuilder_1_Create_m312B2646166041C87D213234D1BCD12CD2B3FE36;
+extern const uint32_t g_rgctx_AsyncTaskMethodBuilder_1_t120251DFA1836D97F160CA5D1D02D09E5C634AD8;
+extern const uint32_t g_rgctx_AsyncTaskMethodBuilder_1_Start_TisU3CSendAsyncU3Ed__19_1_t548B9E6DF137D2C3A485987E16A70012CCB5BC2B_m23197D7C37F771588BDAC90C0F5F4E07F3116373;
+extern const uint32_t g_rgctx_AsyncTaskMethodBuilder_1_get_Task_m691DA3A13015E7326CDEA2A514AAA1551D376280;
+extern const uint32_t g_rgctx_AuthenticationWebRequestUtils_SendWebRequestAsync_TisT_t56F5C0FC48A129D494C3677D941E8752228AE678_m6E506FA59DAB9B020BF4E154780DA23800C932B7;
+extern const uint32_t g_rgctx_Task_1_t546B8664F86C6281F1CBC776BA617888C384984E;
+extern const uint32_t g_rgctx_Task_1_GetAwaiter_mB17A08F4A866E78EB2125511BF03E269903205CD;
+extern const uint32_t g_rgctx_TaskAwaiter_1_get_IsCompleted_m12ACFC5FCEB33ABA18F5E90074BE130E4087F11E;
+extern const uint32_t g_rgctx_AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_1_t7310B81DED6E0ED1EE2A26A7577B4C9D6BE872C6_TisU3CSendAsyncU3Ed__19_1_t6EA041105F344F73CE669F1C3C8B0BA0D761CD3D_m36AF660855CDE5ADE3E77159DCBBA0F907C470E5;
+extern const uint32_t g_rgctx_TaskAwaiter_1_GetResult_m3EE92969FB478372716B964405C9D063B4D2ECE8;
+extern const uint32_t g_rgctx_AsyncTaskMethodBuilder_1_SetException_m0C65683FFF76367FB07EDBC6A48B8AAEE0CB153B;
+extern const uint32_t g_rgctx_AsyncTaskMethodBuilder_1_SetResult_mADD1805C149B62AA6B2969E617870E751F98BECA;
+extern const uint32_t g_rgctx_AsyncTaskMethodBuilder_1_SetStateMachine_m610696557E16A200C67ED5FD9C4BFB8C548919BE;
+extern const uint32_t g_rgctx_U3CU3Ec__DisplayClass1_0_1_tD4F3EC5E41900D62C460EB5CB153DD7F10F2501B;
+extern const uint32_t g_rgctx_U3CU3Ec__DisplayClass1_0_1__ctor_m477E2A7087DFFAACF7B595C8F066AF045DA7194E;
+extern const uint32_t g_rgctx_TaskCompletionSource_1_t3B7DAA7EE9251F8D9AAFE1EAB907F362A6A107E1;
+extern const uint32_t g_rgctx_TaskCompletionSource_1__ctor_m43F75C46DC91FA08072B390E1B8DE73CACEC3263;
+extern const uint32_t g_rgctx_U3CU3Ec__DisplayClass1_0_1_U3CSendWebRequestAsyncU3Eb__0_mCCA6C5543706DF573E8474B2379A8231BBDE9AF1;
+extern const uint32_t g_rgctx_AuthenticationWebRequestUtils_ProcessResponse_TisT_t4871FA196D3360E9E0AF6B91C285CDC5F7BBE1BB_m714B5E358100A08250AE5226B9741344472063CD;
+extern const uint32_t g_rgctx_U3CU3Ec__DisplayClass1_0_1_U3CSendWebRequestAsyncU3Eb__1_mDCD8A57102C147185FF931104667B33CD38DD8D2;
+extern const uint32_t g_rgctx_TaskCompletionSource_1_get_Task_m6F0495082AC76E003E038FDD7E715D7D91C60B9F;
+extern const uint32_t g_rgctx_ApiResponse_1_t573EAA6A5F0A6D81F5D3565D267B0C2BEDA2211A;
+extern const uint32_t g_rgctx_ApiResponse_1__ctor_m3775318F3CAA4F203CE0916F7EAC1FD66B1759A4;
+extern const uint32_t g_rgctx_TaskCompletionSource_1_tFE5C68DB79AB8429A284EE6F94EFDAE6FE6EDF30;
+extern const uint32_t g_rgctx_TaskCompletionSource_1_SetException_m6C5F4EF72EA4AA0427501A4DB8FEBDB6C13F3502;
+extern const uint32_t g_rgctx_IsolatedJsonConvert_DeserializeObject_TisT_t7310C18FDBA2E40907E654D710FC0A18731F556C_m31760D45F6E394FA8E75A040BA276906B3AAF4FC;
+extern const uint32_t g_rgctx_ApiResponse_1_set_Data_m6BDE9BF89909EBC16EDA8BA2459BFA280208461F;
+extern const uint32_t g_rgctx_T_t7310C18FDBA2E40907E654D710FC0A18731F556C;
+extern const uint32_t g_rgctx_TaskCompletionSource_1_SetResult_m2540802C06744C5AA14F56C45BE84D59271D4F74;
+extern const uint32_t g_rgctx_TaskCompletionSource_1_tF08E28C60C15CD9A70A82484D673C7C4A8420149;
+extern const uint32_t g_rgctx_TaskCompletionSource_1_SetCanceled_m357CB7B4A32EFF7AFB74D47E5C11D2B3D4DAA7F6;
+extern const uint32_t g_rgctx_AuthenticationWebRequestUtils_ProcessResponse_TisT_tE8F07653FC28F976F5E70856EAB5323BC9364493_m4E127DC2036CEC5DDBF7656815E3F0975F14781D;
+extern const uint32_t g_rgctx_WebRequest_SendAsync_TisT_t5CA9660033E69DA315EA7507671C4B58DFF51EB2_m62AA779385A17156B295DFED4185D11C5D01E063;
+extern const uint32_t g_rgctx_WebRequest_SendAsync_TisT_tF6CCDDFA78DD555A861E1EA70DCD4EEF4016564E_m37AC4AB7B8B52DF0B9C5ED08C6C410BB93EB30FD;
+extern const uint32_t g_rgctx_WebRequest_SendAsync_TisT_t5449E09D1612BA352450F9945153E0747C29A6F0_m38C9B50EAF15715BCAE18524631AB1F1E7A7D72E;
+extern const uint32_t g_rgctx_WebRequest_SendAsync_TisT_t10400118F9C61BD0D1E7C9CACD44942CC8EA3213_mA137CDF90C0D243EB68930998E79095A7F959A85;
+extern const uint32_t g_rgctx_WebRequest_SendAsync_TisT_t72E86F5B647B536FC360DA063244EB6C9ABBF142_mEB27129947D0E06657B075624E1C7EE4D76E76A4;
+extern const uint32_t g_rgctx_AsyncTaskMethodBuilder_1_Create_m828ED8DA10BFCF160E6DA79309258076E8B968B8;
+extern const uint32_t g_rgctx_AsyncTaskMethodBuilder_1_t29818EB99E1E3BE0E46A2C1313311A2DAD96C531;
+extern const uint32_t g_rgctx_AsyncTaskMethodBuilder_1_Start_TisU3CSendAsyncU3Ed__15_1_t6E4E60CF96326FB85C668EE2B312613719F3BD4C_m5BDB4956538F98B16BB3D856F316B435A8932A83;
+extern const uint32_t g_rgctx_AsyncTaskMethodBuilder_1_get_Task_m9850CC6B298F0031258910BCFA1ABADC37F8D311;
+extern const uint32_t g_rgctx_AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_1_t254638BB1FAD695D9A9542E098A189D438A000F6_TisU3CSendAsyncU3Ed__15_1_t038D2A86D9F945A11ACA294EB24CD4DF21428368_m08C9DD8200E8114947F36C870EF02B1C53E00DE7;
+extern const uint32_t g_rgctx_IsolatedJsonConvert_DeserializeObject_TisT_t9C512BAB6AAF722F2B61DAEDADADEA28A7D89874_mBB5F211EF07B3555B4B19E687B9E0AA49AC3AB97;
+extern const uint32_t g_rgctx_AsyncTaskMethodBuilder_1_SetException_m2ABE46CC0178F658A08DB70AB132AA122E0A6EFE;
+extern const uint32_t g_rgctx_AsyncTaskMethodBuilder_1_SetResult_mEC005495B95AA099DABFDABF28D3E89268E2A83B;
+extern const uint32_t g_rgctx_AsyncTaskMethodBuilder_1_SetStateMachine_mD6FCEF2E5CD4EEE7593DE7365D1D6F4C9B4F320D;
+extern const uint32_t g_rgctx_IsolatedJsonConvert_DeserializeObject_TisT_t77DE02E640451048F8754A260291D05CE533606D_m5A330CF45F1B642BC0421DD856EC66BE09D34FFF;
+extern const uint32_t g_rgctx_IsolatedJsonConvert_DeserializeObject_TisT_tE498CBF5DEF1BF042DCF6E694DA811ACE0E80198_m4BDE6C76D50055ECE00E557235AFD45BC57D821F;
+extern const uint32_t g_rgctx_IsolatedJsonConvert_DeserializeObject_TisT_t313B62A2234DACB3D6F68235B7DFC8F9FF38A486_mF0F1F70D825D4F921DF4D30CE029FEFAA6725BDC;
+extern const uint32_t g_rgctx_T_tED4A350D3E05E065A982ED6ED80E13E40B15A429;
+extern const uint32_t g_rgctx_T_tED4A350D3E05E065A982ED6ED80E13E40B15A429;
+extern const uint32_t g_rgctx_T_t8E52C8349DDF723FFD9DB80A4252DC6F148146CC;
+extern const uint32_t g_rgctx_T_t8E52C8349DDF723FFD9DB80A4252DC6F148146CC;
+extern const uint32_t g_rgctx_IsolatedJsonConvert_DeserializeObject_TisT_tBB2B70F5D135BAEFA62FA0792609CC47E73D1C90_m46CCEF4E8543868A4026362A6836FC3C5DAB21F0;
+extern const uint32_t g_rgctx_ApiResponse_1_get_Data_m9649DE8C903D5C4251D204685E49F0C31EDAD0B8;
+extern const uint32_t g_rgctx_T_t0B84B30B3616343299CFB8AD08CC7C68EAA60011;
+extern const uint32_t g_rgctx_Dictionary_2_t584D8C8DA32E7F42A9F5B15D1C0B99B9A4A8263D;
+extern const uint32_t g_rgctx_Dictionary_2_get_Item_m1D581B7BA76C7D554537B4B26A467786EC9E4899;
+extern const uint32_t g_rgctx_Dictionary_2_set_Item_m074A7391A4EC503EBEF482D93F0BF5CAA560112E;
+extern const uint32_t g_rgctx_Dictionary_2_get_Keys_m07A19BB87F1CBF440A64DDB7AF0F4D1119C23E0F;
+extern const uint32_t g_rgctx_Dictionary_2_get_Values_m35892C6EB58F8ECE77F719B49D7A219D839B8CA7;
+extern const uint32_t g_rgctx_Dictionary_2_get_Count_m2F0C270261AECED0FBA491CC58FC1996EB40A9EB;
+extern const uint32_t g_rgctx_Dictionary_2__ctor_m55CC1762516D8F6F72CF3F3CA5D6345E7ADE9249;
+extern const uint32_t g_rgctx_Dictionary_2__ctor_m770DCFE84C31310B4A4B4379B28D355BCE1BF0E9;
+extern const uint32_t g_rgctx_Dictionary_2_GetEnumerator_m55167BD9289C970694613E6E76315AAA45CD5331;
+extern const uint32_t g_rgctx_Enumerator_tF774F62D6D6F11F4896E4053A277EF0B7D3CFE87;
+extern const uint32_t g_rgctx_KeyValuePair_2_get_Key_mA16BFBA304567B9ADB3275E0456E805195E34E8C;
+extern const uint32_t g_rgctx_KeyValuePair_2_get_Value_mF958147D9EFEE94ABBEEBB63CDA866D1F5BBF0DE;
+extern const uint32_t g_rgctx_Multimap_2_TryAdd_mB5F4E7F2BAA65850E7F4392E83633C90C02E4261;
+extern const uint32_t g_rgctx_Multimap_2_tE9E8D3E3B087374E89CBC1411607CF12B507F238;
+extern const uint32_t g_rgctx_Multimap_2_GetEnumerator_m8408477E0A6FF76A0A8BDBAB277E4BA9FFE25B43;
+extern const uint32_t g_rgctx_IEnumerator_1_t73E5CB7BEEADBA0813052B844E0E6EB2D038F24E;
+extern const uint32_t g_rgctx_IEnumerator_1_get_Current_m296883CB60E5B95415528D88A78E3419269CB5BC;
+extern const uint32_t g_rgctx_Dictionary_2_Clear_m8527354FA2CC4ED1D3EAD116CECD7D1C43A1FA11;
+extern const uint32_t g_rgctx_ICollection_1_t3C11BA2915CEFB3A23A4E2399D771B5AB9BF0619;
+extern const uint32_t g_rgctx_ICollection_1_get_Count_m89ACFAB6CDE55006D1C3AC4D1DE287ACF8984013;
+extern const uint32_t g_rgctx_Dictionary_2_TryGetValue_m25F823FC0140C97D9A6E0C326522263D63D9F47D;
+extern const uint32_t g_rgctx_IEnumerable_1_t98F7A2DF3AFE0BFD8F453ECC374D74FFDEBBBAB9;
+extern const uint32_t g_rgctx_IEnumerable_1_GetEnumerator_m1DD3CE42166A1EE4FB536F7B441F24CF73063E76;
+extern const uint32_t g_rgctx_IEnumerator_1_tA2C3744554451DFF47FEE3FFF5E1C4EC149BC08D;
+extern const uint32_t g_rgctx_IEnumerator_1_get_Current_m75C0BEA03B91E9ACE9C58400D45A9796224C6DDA;
+extern const uint32_t g_rgctx_ICollection_1_Add_mF332EC74BB29A55C7626805235D609D1B6016E42;
+extern const uint32_t g_rgctx_List_1_tD044173EF4261FA56DEEA6F9C5155DF7BF720C7F;
+extern const uint32_t g_rgctx_List_1__ctor_m91A9FFB6AE9B67BE86AFDCD72F62CC5CFFD19131;
+extern const uint32_t g_rgctx_Dictionary_2_ContainsKey_m58C3DE7F176821AD48C5DA8A8B09D4217CC7A062;
+extern const uint32_t g_rgctx_Multimap_2_TryRemove_m7D04F1F8ED32877A867210951971777819F88E21;
+extern const uint32_t g_rgctx_TValue_tA64160A836849001EEC972157965C4C6F1B49CA4;
+extern const uint32_t g_rgctx_List_1__ctor_m156D3F927042665E1F89F2941F24EB92BDAC3176;
+extern const uint32_t g_rgctx_List_1_Add_m9374F6CCE0B57F4D52D8D2F174174844CBB400BE;
+extern const uint32_t g_rgctx_Dictionary_2_Remove_mA2DD5870FA2FBE1273E9728B3456076DCED7AAF6;
+extern const uint32_t g_rgctx_Dictionary_2_Add_m1A02B98AE097BADEE9FBCE4C8F07D8B745492E84;
+static const Il2CppRGCTXDefinition s_rgctxValues[98] = 
+{
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AuthenticationApiClient_SendAsync_TisT_tA440616FA726EC6B4A782A0C298760B7BA689FBD_m1A9353A6998807BE8B9B57DB52BD07B78EB76802 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AuthenticationApiClient_SendAsync_TisT_tF610943C9C692F573F49E3F250F6FF38E1415CD1_m2886778F6D89F756591F2A22AA20C5F17BB4AD21 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AuthenticationApiClient_SendAsync_TisT_t5FA29D08C196B8DF081AAED9B735F2CD1D8DFFE8_mAB4DED32E5153A5E1BB4D749E1B3C9CC5C8B9D8E },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AuthenticationApiClient_SendAsync_TisT_t9483DCE7EE6F62DD7C4B72F0CC90C6F137159C1F_mF5FC1537045570073DE627A6B6FFD7AE22C0A578 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AuthenticationApiClient_SendAsync_TisT_tBE988F4485859C3990342611730576EBDE045835_mB7E84B6B876B7BEBEFF090678C6AF6DB3AF7EF54 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AuthenticationApiClient_SendAsync_TisT_tB4F22A9C3ACAAE3601FC4FD1D9205AD9AE0DF254_m076808A5B3D056E2CBE4B6AAA193DA7F19B7DB01 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AuthenticationApiClient_SendAsync_TisT_t962A83A30414E0728129354B34C18AB5516C9106_mC4597D2D7B93727626FABD75A1B7D6F846862F3E },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AsyncTaskMethodBuilder_1_Create_m312B2646166041C87D213234D1BCD12CD2B3FE36 },
+	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_AsyncTaskMethodBuilder_1_t120251DFA1836D97F160CA5D1D02D09E5C634AD8 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AsyncTaskMethodBuilder_1_Start_TisU3CSendAsyncU3Ed__19_1_t548B9E6DF137D2C3A485987E16A70012CCB5BC2B_m23197D7C37F771588BDAC90C0F5F4E07F3116373 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AsyncTaskMethodBuilder_1_get_Task_m691DA3A13015E7326CDEA2A514AAA1551D376280 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AuthenticationWebRequestUtils_SendWebRequestAsync_TisT_t56F5C0FC48A129D494C3677D941E8752228AE678_m6E506FA59DAB9B020BF4E154780DA23800C932B7 },
+	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_Task_1_t546B8664F86C6281F1CBC776BA617888C384984E },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_Task_1_GetAwaiter_mB17A08F4A866E78EB2125511BF03E269903205CD },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_TaskAwaiter_1_get_IsCompleted_m12ACFC5FCEB33ABA18F5E90074BE130E4087F11E },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_1_t7310B81DED6E0ED1EE2A26A7577B4C9D6BE872C6_TisU3CSendAsyncU3Ed__19_1_t6EA041105F344F73CE669F1C3C8B0BA0D761CD3D_m36AF660855CDE5ADE3E77159DCBBA0F907C470E5 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_TaskAwaiter_1_GetResult_m3EE92969FB478372716B964405C9D063B4D2ECE8 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AsyncTaskMethodBuilder_1_SetException_m0C65683FFF76367FB07EDBC6A48B8AAEE0CB153B },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AsyncTaskMethodBuilder_1_SetResult_mADD1805C149B62AA6B2969E617870E751F98BECA },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AsyncTaskMethodBuilder_1_SetStateMachine_m610696557E16A200C67ED5FD9C4BFB8C548919BE },
+	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_U3CU3Ec__DisplayClass1_0_1_tD4F3EC5E41900D62C460EB5CB153DD7F10F2501B },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_U3CU3Ec__DisplayClass1_0_1__ctor_m477E2A7087DFFAACF7B595C8F066AF045DA7194E },
+	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_TaskCompletionSource_1_t3B7DAA7EE9251F8D9AAFE1EAB907F362A6A107E1 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_TaskCompletionSource_1__ctor_m43F75C46DC91FA08072B390E1B8DE73CACEC3263 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_U3CU3Ec__DisplayClass1_0_1_U3CSendWebRequestAsyncU3Eb__0_mCCA6C5543706DF573E8474B2379A8231BBDE9AF1 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AuthenticationWebRequestUtils_ProcessResponse_TisT_t4871FA196D3360E9E0AF6B91C285CDC5F7BBE1BB_m714B5E358100A08250AE5226B9741344472063CD },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_U3CU3Ec__DisplayClass1_0_1_U3CSendWebRequestAsyncU3Eb__1_mDCD8A57102C147185FF931104667B33CD38DD8D2 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_TaskCompletionSource_1_get_Task_m6F0495082AC76E003E038FDD7E715D7D91C60B9F },
+	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_ApiResponse_1_t573EAA6A5F0A6D81F5D3565D267B0C2BEDA2211A },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_ApiResponse_1__ctor_m3775318F3CAA4F203CE0916F7EAC1FD66B1759A4 },
+	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_TaskCompletionSource_1_tFE5C68DB79AB8429A284EE6F94EFDAE6FE6EDF30 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_TaskCompletionSource_1_SetException_m6C5F4EF72EA4AA0427501A4DB8FEBDB6C13F3502 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_IsolatedJsonConvert_DeserializeObject_TisT_t7310C18FDBA2E40907E654D710FC0A18731F556C_m31760D45F6E394FA8E75A040BA276906B3AAF4FC },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_ApiResponse_1_set_Data_m6BDE9BF89909EBC16EDA8BA2459BFA280208461F },
+	{ (Il2CppRGCTXDataType)1, (const void *)&g_rgctx_T_t7310C18FDBA2E40907E654D710FC0A18731F556C },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_TaskCompletionSource_1_SetResult_m2540802C06744C5AA14F56C45BE84D59271D4F74 },
+	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_TaskCompletionSource_1_tF08E28C60C15CD9A70A82484D673C7C4A8420149 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_TaskCompletionSource_1_SetCanceled_m357CB7B4A32EFF7AFB74D47E5C11D2B3D4DAA7F6 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AuthenticationWebRequestUtils_ProcessResponse_TisT_tE8F07653FC28F976F5E70856EAB5323BC9364493_m4E127DC2036CEC5DDBF7656815E3F0975F14781D },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_WebRequest_SendAsync_TisT_t5CA9660033E69DA315EA7507671C4B58DFF51EB2_m62AA779385A17156B295DFED4185D11C5D01E063 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_WebRequest_SendAsync_TisT_tF6CCDDFA78DD555A861E1EA70DCD4EEF4016564E_m37AC4AB7B8B52DF0B9C5ED08C6C410BB93EB30FD },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_WebRequest_SendAsync_TisT_t5449E09D1612BA352450F9945153E0747C29A6F0_m38C9B50EAF15715BCAE18524631AB1F1E7A7D72E },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_WebRequest_SendAsync_TisT_t10400118F9C61BD0D1E7C9CACD44942CC8EA3213_mA137CDF90C0D243EB68930998E79095A7F959A85 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_WebRequest_SendAsync_TisT_t72E86F5B647B536FC360DA063244EB6C9ABBF142_mEB27129947D0E06657B075624E1C7EE4D76E76A4 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AsyncTaskMethodBuilder_1_Create_m828ED8DA10BFCF160E6DA79309258076E8B968B8 },
+	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_AsyncTaskMethodBuilder_1_t29818EB99E1E3BE0E46A2C1313311A2DAD96C531 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AsyncTaskMethodBuilder_1_Start_TisU3CSendAsyncU3Ed__15_1_t6E4E60CF96326FB85C668EE2B312613719F3BD4C_m5BDB4956538F98B16BB3D856F316B435A8932A83 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AsyncTaskMethodBuilder_1_get_Task_m9850CC6B298F0031258910BCFA1ABADC37F8D311 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_1_t254638BB1FAD695D9A9542E098A189D438A000F6_TisU3CSendAsyncU3Ed__15_1_t038D2A86D9F945A11ACA294EB24CD4DF21428368_m08C9DD8200E8114947F36C870EF02B1C53E00DE7 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_IsolatedJsonConvert_DeserializeObject_TisT_t9C512BAB6AAF722F2B61DAEDADADEA28A7D89874_mBB5F211EF07B3555B4B19E687B9E0AA49AC3AB97 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AsyncTaskMethodBuilder_1_SetException_m2ABE46CC0178F658A08DB70AB132AA122E0A6EFE },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AsyncTaskMethodBuilder_1_SetResult_mEC005495B95AA099DABFDABF28D3E89268E2A83B },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AsyncTaskMethodBuilder_1_SetStateMachine_mD6FCEF2E5CD4EEE7593DE7365D1D6F4C9B4F320D },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_IsolatedJsonConvert_DeserializeObject_TisT_t77DE02E640451048F8754A260291D05CE533606D_m5A330CF45F1B642BC0421DD856EC66BE09D34FFF },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_IsolatedJsonConvert_DeserializeObject_TisT_tE498CBF5DEF1BF042DCF6E694DA811ACE0E80198_m4BDE6C76D50055ECE00E557235AFD45BC57D821F },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_IsolatedJsonConvert_DeserializeObject_TisT_t313B62A2234DACB3D6F68235B7DFC8F9FF38A486_mF0F1F70D825D4F921DF4D30CE029FEFAA6725BDC },
+	{ (Il2CppRGCTXDataType)1, (const void *)&g_rgctx_T_tED4A350D3E05E065A982ED6ED80E13E40B15A429 },
+	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_T_tED4A350D3E05E065A982ED6ED80E13E40B15A429 },
+	{ (Il2CppRGCTXDataType)1, (const void *)&g_rgctx_T_t8E52C8349DDF723FFD9DB80A4252DC6F148146CC },
+	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_T_t8E52C8349DDF723FFD9DB80A4252DC6F148146CC },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_IsolatedJsonConvert_DeserializeObject_TisT_tBB2B70F5D135BAEFA62FA0792609CC47E73D1C90_m46CCEF4E8543868A4026362A6836FC3C5DAB21F0 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_ApiResponse_1_get_Data_m9649DE8C903D5C4251D204685E49F0C31EDAD0B8 },
+	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_T_t0B84B30B3616343299CFB8AD08CC7C68EAA60011 },
+	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_Dictionary_2_t584D8C8DA32E7F42A9F5B15D1C0B99B9A4A8263D },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_Dictionary_2_get_Item_m1D581B7BA76C7D554537B4B26A467786EC9E4899 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_Dictionary_2_set_Item_m074A7391A4EC503EBEF482D93F0BF5CAA560112E },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_Dictionary_2_get_Keys_m07A19BB87F1CBF440A64DDB7AF0F4D1119C23E0F },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_Dictionary_2_get_Values_m35892C6EB58F8ECE77F719B49D7A219D839B8CA7 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_Dictionary_2_get_Count_m2F0C270261AECED0FBA491CC58FC1996EB40A9EB },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_Dictionary_2__ctor_m55CC1762516D8F6F72CF3F3CA5D6345E7ADE9249 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_Dictionary_2__ctor_m770DCFE84C31310B4A4B4379B28D355BCE1BF0E9 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_Dictionary_2_GetEnumerator_m55167BD9289C970694613E6E76315AAA45CD5331 },
+	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_Enumerator_tF774F62D6D6F11F4896E4053A277EF0B7D3CFE87 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_KeyValuePair_2_get_Key_mA16BFBA304567B9ADB3275E0456E805195E34E8C },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_KeyValuePair_2_get_Value_mF958147D9EFEE94ABBEEBB63CDA866D1F5BBF0DE },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_Multimap_2_TryAdd_mB5F4E7F2BAA65850E7F4392E83633C90C02E4261 },
+	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_Multimap_2_tE9E8D3E3B087374E89CBC1411607CF12B507F238 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_Multimap_2_GetEnumerator_m8408477E0A6FF76A0A8BDBAB277E4BA9FFE25B43 },
+	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_IEnumerator_1_t73E5CB7BEEADBA0813052B844E0E6EB2D038F24E },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_IEnumerator_1_get_Current_m296883CB60E5B95415528D88A78E3419269CB5BC },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_Dictionary_2_Clear_m8527354FA2CC4ED1D3EAD116CECD7D1C43A1FA11 },
+	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_ICollection_1_t3C11BA2915CEFB3A23A4E2399D771B5AB9BF0619 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_ICollection_1_get_Count_m89ACFAB6CDE55006D1C3AC4D1DE287ACF8984013 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_Dictionary_2_TryGetValue_m25F823FC0140C97D9A6E0C326522263D63D9F47D },
+	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_IEnumerable_1_t98F7A2DF3AFE0BFD8F453ECC374D74FFDEBBBAB9 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_IEnumerable_1_GetEnumerator_m1DD3CE42166A1EE4FB536F7B441F24CF73063E76 },
+	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_IEnumerator_1_tA2C3744554451DFF47FEE3FFF5E1C4EC149BC08D },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_IEnumerator_1_get_Current_m75C0BEA03B91E9ACE9C58400D45A9796224C6DDA },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_ICollection_1_Add_mF332EC74BB29A55C7626805235D609D1B6016E42 },
+	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_List_1_tD044173EF4261FA56DEEA6F9C5155DF7BF720C7F },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_List_1__ctor_m91A9FFB6AE9B67BE86AFDCD72F62CC5CFFD19131 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_Dictionary_2_ContainsKey_m58C3DE7F176821AD48C5DA8A8B09D4217CC7A062 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_Multimap_2_TryRemove_m7D04F1F8ED32877A867210951971777819F88E21 },
+	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_TValue_tA64160A836849001EEC972157965C4C6F1B49CA4 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_List_1__ctor_m156D3F927042665E1F89F2941F24EB92BDAC3176 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_List_1_Add_m9374F6CCE0B57F4D52D8D2F174174844CBB400BE },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_Dictionary_2_Remove_mA2DD5870FA2FBE1273E9728B3456076DCED7AAF6 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_Dictionary_2_Add_m1A02B98AE097BADEE9FBCE4C8F07D8B745492E84 },
+};
+IL2CPP_EXTERN_C const Il2CppCodeGenModule g_Unity_Services_Authentication_CodeGenModule;
+const Il2CppCodeGenModule g_Unity_Services_Authentication_CodeGenModule = 
+{
+	"Unity.Services.Authentication.dll",
+	689,
+	s_methodPointers,
+	24,
+	s_adjustorThunks,
+	s_InvokerIndices,
+	0,
+	NULL,
+	27,
+	s_rgctxIndices,
+	98,
+	s_rgctxValues,
+	NULL,
+	NULL, // module initializer,
+	NULL,
+	NULL,
+	NULL,
+};
