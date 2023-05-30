@@ -45,7 +45,10 @@ public class ColocarPieza : MonoBehaviour
                 if (hit.collider.gameObject.CompareTag("Arista"))
                 {
                     Debug.Log("El objeto golpeado es una arista.");
-                    Instantiate(prefabCamino, hit.collider.gameObject.transform.position, Quaternion.identity);
+                    //Instantiate(prefabCamino, hit.collider.gameObject.transform.position, Quaternion.identity);
+                    //Para que el camino siga la direccion del collider
+                    GameObject camino = Instantiate(prefabCamino, hit.collider.gameObject.transform.position, Quaternion.identity);
+                    camino.transform.rotation = hit.collider.transform.rotation;
                 }
                 else if (hit.collider.gameObject.CompareTag("Esquina"))
                 {
