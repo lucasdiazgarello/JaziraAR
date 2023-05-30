@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3793470607573573202}
   - component: {fileID: 1157398176188134721}
   - component: {fileID: 1764584311039485487}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Empty camino1
   m_TagString: Arista
   m_Icon: {fileID: 0}
@@ -49,6 +49,9 @@ MonoBehaviour:
     type: 3}
   prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!65 &1764584311039485487
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -62,68 +65,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 2.073021}
   m_Center: {x: 0, y: 0, z: -0.38764954}
---- !u!1 &2165289753908888529
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8892575453771795533}
-  - component: {fileID: 3645609794482422127}
-  - component: {fileID: 6801186721840553461}
-  m_Layer: 0
-  m_Name: Empty camino2
-  m_TagString: Arista
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8892575453771795533
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2165289753908888529}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.2100525, y: 3.619995, z: 11.170006}
-  m_LocalScale: {x: 3.9434001, y: 3.9434001, z: 3.9434001}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3813611934402495106}
-  m_RootOrder: 40
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3645609794482422127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2165289753908888529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
---- !u!65 &6801186721840553461
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2165289753908888529}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 2.0090942}
-  m_Center: {x: 0, y: 0, z: -0.50454706}
 --- !u!1 &3813611934402495197
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,7 +133,7 @@ Transform:
   - {fileID: 5542043578181707421}
   - {fileID: 6607808216238630231}
   - {fileID: 3793470607573573202}
-  - {fileID: 8892575453771795533}
+  - {fileID: 4540120422558166049}
   - {fileID: 5542043576259103964}
   - {fileID: 595200995413244793}
   m_Father: {fileID: 0}
@@ -240,7 +181,7 @@ GameObject:
   - component: {fileID: 5542043578181707421}
   - component: {fileID: 8779408863385349394}
   - component: {fileID: 2039235598416655573}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Empty casa1
   m_TagString: Esquina
   m_Icon: {fileID: 0}
@@ -255,8 +196,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5542043578181707418}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.5600586, y: 1.4499664, z: -0.17000198}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 6.5600586, y: 2.08, z: 4.58}
+  m_LocalScale: {x: 1.5745, y: 1.5745, z: 1.5745}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3813611934402495106}
@@ -278,6 +219,9 @@ MonoBehaviour:
     type: 3}
   prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!65 &2039235598416655573
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -291,6 +235,71 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &6387267248331648763
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4540120422558166049}
+  - component: {fileID: 4162219387349803279}
+  - component: {fileID: 5652645970183922692}
+  m_Layer: 3
+  m_Name: Empty camino2
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4540120422558166049
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6387267248331648763}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 14.12, y: 1.4499664, z: -2.4699974}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 40
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4162219387349803279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6387267248331648763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!65 &5652645970183922692
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6387267248331648763}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 2.073021}
+  m_Center: {x: 0, y: 0, z: -0.38764954}
 --- !u!1 &6728453377176082093
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,7 +311,7 @@ GameObject:
   - component: {fileID: 6607808216238630231}
   - component: {fileID: 8405804557858533045}
   - component: {fileID: 1131176319984595774}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Empty casa2
   m_TagString: Esquina
   m_Icon: {fileID: 0}
@@ -340,6 +349,9 @@ MonoBehaviour:
     type: 3}
   prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!65 &1131176319984595774
 BoxCollider:
   m_ObjectHideFlags: 0
