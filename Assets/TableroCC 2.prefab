@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1621098262832640271}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.459961, y: 1.4499664, z: -2.4699974}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 6.459961, y: 1.4499664, z: -2.55}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3813611934402495106}
@@ -51,7 +51,7 @@ MonoBehaviour:
     type: 3}
   myLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
 --- !u!65 &1764584311039485487
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -63,8 +63,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 2.073021}
-  m_Center: {x: 0, y: 0, z: -0.38764954}
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
 --- !u!1 &3813611934402495197
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,8 +196,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5542043578181707418}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.5600586, y: 2.08, z: 4.58}
-  m_LocalScale: {x: 1.5745, y: 1.5745, z: 1.5745}
+  m_LocalPosition: {x: 6.5600586, y: 1.85, z: -0.01}
+  m_LocalScale: {x: 1.4910042, y: 1.4910042, z: 1.4910042}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3813611934402495106}
@@ -221,7 +221,7 @@ MonoBehaviour:
     type: 3}
   myLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
 --- !u!65 &2039235598416655573
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -233,8 +233,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 0.3947955, z: 1}
+  m_Center: {x: 0, y: -0.30260226, z: 0}
 --- !u!1 &6387267248331648763
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,7 +286,7 @@ MonoBehaviour:
     type: 3}
   myLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
 --- !u!65 &5652645970183922692
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -298,8 +298,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 2.073021}
-  m_Center: {x: 0, y: 0, z: -0.38764954}
+  m_Size: {x: 1, y: 0.44700623, z: 2.073021}
+  m_Center: {x: 0, y: -0.101890564, z: -0.38764954}
 --- !u!1 &6728453377176082093
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,8 +326,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6728453377176082093}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.179993, y: 1.4499664, z: -0.17000198}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 14.397, y: 1.436, z: 0.046008}
+  m_LocalScale: {x: 1.0795, y: 1.0795, z: 1.0795}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3813611934402495106}
@@ -351,7 +351,7 @@ MonoBehaviour:
     type: 3}
   myLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
 --- !u!65 &1131176319984595774
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -363,8 +363,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.1813049, y: 0.38030362, z: 1.15094}
+  m_Center: {x: -0.09065242, y: -0.12110207, z: -0.07546993}
 --- !u!1001 &7747781436871
 PrefabInstance:
   m_ObjectHideFlags: 0
