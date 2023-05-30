@@ -11,6 +11,7 @@ public class ARCursor : MonoBehaviour
     public ARRaycastManager raycastManager;
     public Button placeButton;
     public Button confirmButton;
+    //public GameObject recursos; // Referencia al objeto Canvas que contiene las imágenes a mostrar
 
     private GameObject currentObject; // Guarda una referencia al objeto colocado actualmente
 
@@ -21,6 +22,7 @@ public class ARCursor : MonoBehaviour
         placeButton.onClick.AddListener(ActivatePlacementMode);
         confirmButton.onClick.AddListener(ConfirmPlacement);
         confirmButton.gameObject.SetActive(false); // Desactivar el botón de confirmación al inicio
+        //recursos.gameObject.SetActive(false); //Desacrivar cartas al inicio
     }
 
     void Update()
@@ -63,6 +65,7 @@ public class ARCursor : MonoBehaviour
     {
         isPlacementModeActive = false; // Desactivar el modo de colocación
         confirmButton.gameObject.SetActive(false); // Desactivar el botón de confirmación después de confirmar la colocación
+
         Debug.Log("Número de componentes ColocarPieza encontrados: " + GetComponentsInChildren<ColocarPieza>().Length);
         // Activar la colocación de las piezas en los marcadores invisibles
         foreach (ColocarPieza colocarPieza in GetComponentsInChildren<ColocarPieza>())
@@ -70,5 +73,8 @@ public class ARCursor : MonoBehaviour
             colocarPieza.enabled = true;
             //Debug.Log("Marcador invisible ACTIVADO: " + gameObject.name); // Mensaje de depuración
         }
+
+        // Mostrar las imágenes en el canvas
+        //recursos.gameObject.SetActive(true); //Activa cartas 
     }
 }
