@@ -74,6 +74,8 @@ struct Dictionary_2_t5C8F46F5D57502270DD9E1DA8303B23C7FE85588;
 struct Dictionary_2_t645C7B1DAE2D839B52A5E387C165CE13D5465B00;
 // System.Collections.Generic.Dictionary`2<System.String,UnityEngine.InputSystem.Utilities.JsonParser/JsonValue>
 struct Dictionary_2_t6682243BDABA638FCBE4F1D9875B5B1455A7686E;
+// System.Array/EmptyInternalEnumerator`1<UnityEngine.InputSystem.InputManager/AvailableDevice>
+struct EmptyInternalEnumerator_1_tC5AAE991D182E451BD6B3CA2FD941D826267BF0B;
 // System.Array/EmptyInternalEnumerator`1<UnityEngine.InputSystem.InputManager/StateChangeMonitorListener>
 struct EmptyInternalEnumerator_1_tAA7B8D001DC4BA2717F92E20D73A50F33BB537CB;
 // System.Array/EmptyInternalEnumerator`1<UnityEngine.InputSystem.InputManager/StateChangeMonitorTimeout>
@@ -872,6 +874,7 @@ IL2CPP_EXTERN_C const RuntimeMethod* EmptyInternalEnumerator_1_get_Current_mD30A
 IL2CPP_EXTERN_C const RuntimeMethod* EmptyInternalEnumerator_1_get_Current_mD375ADB037B5F73277E4CA82ED30829D7508CDC1_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* EmptyInternalEnumerator_1_get_Current_mD556E51CA7233E756D58BEB49164CE7215A8A99A_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* EmptyInternalEnumerator_1_get_Current_mD816455E3995D3A053A76B7487DC6DC57FFE5DDE_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* EmptyInternalEnumerator_1_get_Current_mDA813508D1EF9076D1D8F550616CA429E874AAE1_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* EmptyInternalEnumerator_1_get_Current_mDF39D404DAFEDD6430E813EED98D0F353A8BFF12_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* EmptyInternalEnumerator_1_get_Current_mE0CB9E75DBBBA30DCF4BAB9CE4497E17C22E561A_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* EmptyInternalEnumerator_1_get_Current_mE15F0A6CE03C533C8DE4D761E29198CB0338E57A_RuntimeMethod_var;
@@ -1001,6 +1004,17 @@ IL2CPP_EXTERN_C_END
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
+
+// System.Array/EmptyInternalEnumerator`1<UnityEngine.InputSystem.InputManager/AvailableDevice>
+struct EmptyInternalEnumerator_1_tC5AAE991D182E451BD6B3CA2FD941D826267BF0B  : public RuntimeObject
+{
+};
+
+struct EmptyInternalEnumerator_1_tC5AAE991D182E451BD6B3CA2FD941D826267BF0B_StaticFields
+{
+	// System.Array/EmptyInternalEnumerator`1<T> System.Array/EmptyInternalEnumerator`1::Value
+	EmptyInternalEnumerator_1_tC5AAE991D182E451BD6B3CA2FD941D826267BF0B* ___Value_0;
+};
 
 // System.Array/EmptyInternalEnumerator`1<UnityEngine.InputSystem.InputManager/StateChangeMonitorListener>
 struct EmptyInternalEnumerator_1_tAA7B8D001DC4BA2717F92E20D73A50F33BB537CB  : public RuntimeObject
@@ -15258,6 +15272,35 @@ struct ControlItem_t25B2C46F52E78ADC5F54903F9E769364B02CD4AD_marshaled_com
 	PrimitiveValue_t1CC37566F40746757D5E3F87474A05909D85C2D4_marshaled_com ___U3CmaxValueU3Ek__BackingField_18;
 };
 
+// UnityEngine.InputSystem.InputManager/AvailableDevice
+struct AvailableDevice_tEA24B4A4D9BF644F85FECF7EEACF2D02369940B6 
+{
+	// UnityEngine.InputSystem.Layouts.InputDeviceDescription UnityEngine.InputSystem.InputManager/AvailableDevice::description
+	InputDeviceDescription_tE86DD77422AAF60ADDAC788B31E5A05E739B708F ___description_0;
+	// System.Int32 UnityEngine.InputSystem.InputManager/AvailableDevice::deviceId
+	int32_t ___deviceId_1;
+	// System.Boolean UnityEngine.InputSystem.InputManager/AvailableDevice::isNative
+	bool ___isNative_2;
+	// System.Boolean UnityEngine.InputSystem.InputManager/AvailableDevice::isRemoved
+	bool ___isRemoved_3;
+};
+// Native definition for P/Invoke marshalling of UnityEngine.InputSystem.InputManager/AvailableDevice
+struct AvailableDevice_tEA24B4A4D9BF644F85FECF7EEACF2D02369940B6_marshaled_pinvoke
+{
+	InputDeviceDescription_tE86DD77422AAF60ADDAC788B31E5A05E739B708F_marshaled_pinvoke ___description_0;
+	int32_t ___deviceId_1;
+	int32_t ___isNative_2;
+	int32_t ___isRemoved_3;
+};
+// Native definition for COM marshalling of UnityEngine.InputSystem.InputManager/AvailableDevice
+struct AvailableDevice_tEA24B4A4D9BF644F85FECF7EEACF2D02369940B6_marshaled_com
+{
+	InputDeviceDescription_tE86DD77422AAF60ADDAC788B31E5A05E739B708F_marshaled_com ___description_0;
+	int32_t ___deviceId_1;
+	int32_t ___isNative_2;
+	int32_t ___isRemoved_3;
+};
+
 // UnityEngine.InputSystem.InputRemoting/RemoteInputDevice
 struct RemoteInputDevice_tF7E8C5EB795DA20F3EABAA259FE5A118C976C5AE 
 {
@@ -24123,6 +24166,76 @@ inline void Enumerator_System_Collections_IEnumerator_Reset_m09C71699CDD99413A94
 {
 	((  void (*) (Enumerator_t1ED2EFBA8997D05D3B6586A9FF9D467F8D5482F0*, const RuntimeMethod*))Enumerator_System_Collections_IEnumerator_Reset_m09C71699CDD99413A9473F79998D612F8F93C659_gshared)(__this, method);
 }
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// System.Void System.Array/EmptyInternalEnumerator`1<UnityEngine.InputSystem.InputManager/AvailableDevice>::Dispose()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EmptyInternalEnumerator_1_Dispose_m6D4ABEB3D1CDC21137CB6B6A98BBAABCA9655B03_gshared (EmptyInternalEnumerator_1_tC5AAE991D182E451BD6B3CA2FD941D826267BF0B* __this, const RuntimeMethod* method) 
+{
+	{
+		return;
+	}
+}
+// System.Boolean System.Array/EmptyInternalEnumerator`1<UnityEngine.InputSystem.InputManager/AvailableDevice>::MoveNext()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool EmptyInternalEnumerator_1_MoveNext_m2D79F07647912B805AAD6C1611C27D0C40879641_gshared (EmptyInternalEnumerator_1_tC5AAE991D182E451BD6B3CA2FD941D826267BF0B* __this, const RuntimeMethod* method) 
+{
+	{
+		return (bool)0;
+	}
+}
+// T System.Array/EmptyInternalEnumerator`1<UnityEngine.InputSystem.InputManager/AvailableDevice>::get_Current()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR AvailableDevice_tEA24B4A4D9BF644F85FECF7EEACF2D02369940B6 EmptyInternalEnumerator_1_get_Current_mDA813508D1EF9076D1D8F550616CA429E874AAE1_gshared (EmptyInternalEnumerator_1_tC5AAE991D182E451BD6B3CA2FD941D826267BF0B* __this, const RuntimeMethod* method) 
+{
+	{
+		InvalidOperationException_t5DDE4D49B7405FAAB1E4576F4715A42A3FAD4BAB* L_0 = (InvalidOperationException_t5DDE4D49B7405FAAB1E4576F4715A42A3FAD4BAB*)il2cpp_codegen_object_new(((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&InvalidOperationException_t5DDE4D49B7405FAAB1E4576F4715A42A3FAD4BAB_il2cpp_TypeInfo_var)));
+		NullCheck(L_0);
+		InvalidOperationException__ctor_mE4CB6F4712AB6D99A2358FBAE2E052B3EE976162(L_0, ((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteral7E7A07FECA0FF43839D67A9F7828EE56182CC9F6)), NULL);
+		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&EmptyInternalEnumerator_1_get_Current_mDA813508D1EF9076D1D8F550616CA429E874AAE1_RuntimeMethod_var)));
+	}
+}
+// System.Object System.Array/EmptyInternalEnumerator`1<UnityEngine.InputSystem.InputManager/AvailableDevice>::System.Collections.IEnumerator.get_Current()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* EmptyInternalEnumerator_1_System_Collections_IEnumerator_get_Current_m5C75BC28E80196937E06ABC7988271F1B1CA5D82_gshared (EmptyInternalEnumerator_1_tC5AAE991D182E451BD6B3CA2FD941D826267BF0B* __this, const RuntimeMethod* method) 
+{
+	{
+		AvailableDevice_tEA24B4A4D9BF644F85FECF7EEACF2D02369940B6 L_0;
+		L_0 = ((  AvailableDevice_tEA24B4A4D9BF644F85FECF7EEACF2D02369940B6 (*) (EmptyInternalEnumerator_1_tC5AAE991D182E451BD6B3CA2FD941D826267BF0B*, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->klass->rgctx_data, 0)))(__this, il2cpp_rgctx_method(method->klass->rgctx_data, 0));
+		AvailableDevice_tEA24B4A4D9BF644F85FECF7EEACF2D02369940B6 L_1 = L_0;
+		RuntimeObject* L_2 = Box(il2cpp_rgctx_data(method->klass->rgctx_data, 1), &L_1);
+		return L_2;
+	}
+}
+// System.Void System.Array/EmptyInternalEnumerator`1<UnityEngine.InputSystem.InputManager/AvailableDevice>::System.Collections.IEnumerator.Reset()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EmptyInternalEnumerator_1_System_Collections_IEnumerator_Reset_m03755A980E6273500EE929CAFC3AF99F7A08F7A6_gshared (EmptyInternalEnumerator_1_tC5AAE991D182E451BD6B3CA2FD941D826267BF0B* __this, const RuntimeMethod* method) 
+{
+	{
+		return;
+	}
+}
+// System.Void System.Array/EmptyInternalEnumerator`1<UnityEngine.InputSystem.InputManager/AvailableDevice>::.ctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EmptyInternalEnumerator_1__ctor_m31A247F21D9D79D3EACCED94DE86700520CA29DE_gshared (EmptyInternalEnumerator_1_tC5AAE991D182E451BD6B3CA2FD941D826267BF0B* __this, const RuntimeMethod* method) 
+{
+	{
+		Object__ctor_mE837C6B9FA8C6D5D109F4B2EC885D79919AC0EA2((RuntimeObject*)__this, NULL);
+		return;
+	}
+}
+// System.Void System.Array/EmptyInternalEnumerator`1<UnityEngine.InputSystem.InputManager/AvailableDevice>::.cctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EmptyInternalEnumerator_1__cctor_m5725C7618612FECE3672E953B1214B32F38790B4_gshared (const RuntimeMethod* method) 
+{
+	{
+		EmptyInternalEnumerator_1_tC5AAE991D182E451BD6B3CA2FD941D826267BF0B* L_0 = (EmptyInternalEnumerator_1_tC5AAE991D182E451BD6B3CA2FD941D826267BF0B*)il2cpp_codegen_object_new(il2cpp_rgctx_data(InitializedTypeInfo(method->klass)->rgctx_data, 2));
+		NullCheck(L_0);
+		((  void (*) (EmptyInternalEnumerator_1_tC5AAE991D182E451BD6B3CA2FD941D826267BF0B*, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(InitializedTypeInfo(method->klass)->rgctx_data, 3)))(L_0, il2cpp_rgctx_method(InitializedTypeInfo(method->klass)->rgctx_data, 3));
+		((EmptyInternalEnumerator_1_tC5AAE991D182E451BD6B3CA2FD941D826267BF0B_StaticFields*)il2cpp_codegen_static_fields_for(il2cpp_rgctx_data(InitializedTypeInfo(method->klass)->rgctx_data, 4)))->___Value_0 = L_0;
+		Il2CppCodeGenWriteBarrier((void**)(&((EmptyInternalEnumerator_1_tC5AAE991D182E451BD6B3CA2FD941D826267BF0B_StaticFields*)il2cpp_codegen_static_fields_for(il2cpp_rgctx_data(InitializedTypeInfo(method->klass)->rgctx_data, 4)))->___Value_0), (void*)L_0);
+		return;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
 #ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Winvalid-offsetof"

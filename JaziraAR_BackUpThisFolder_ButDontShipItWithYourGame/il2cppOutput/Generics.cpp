@@ -594,6 +594,10 @@ struct U3CU3Ec__DisplayClass7_0_3_tF97B316F531456715FA7F725FF77E9CA73A98109;
 struct U3CU3Ec__DisplayClass7_0_3_tAE46C6485BF861F2AFDDF4485F9EABD8A4DDCEF3;
 // System.Linq.Enumerable/<>c__DisplayClass7_0`3<UnityEngine.InputSystem.Utilities.Substring,System.Object,UnityEngine.Vector3>
 struct U3CU3Ec__DisplayClass7_0_3_tE6336CC7DF78F412DD37A29133A76D394426237D;
+// System.Linq.Enumerable/<>c__DisplayClass7_0`3<UnityEngine.Touch,System.Int32,System.Int32>
+struct U3CU3Ec__DisplayClass7_0_3_tE169773DDEB03447C8789F33E376C532AAE75A69;
+// System.Linq.Enumerable/<>c__DisplayClass7_0`3<UnityEngine.Touch,System.Int32,System.Object>
+struct U3CU3Ec__DisplayClass7_0_3_t2D00CB04A6CC69AE0CFD00099EE23DCC2A3E0FFA;
 // System.Linq.Enumerable/<>c__DisplayClass7_0`3<UnityEngine.Vector2,System.Object,UnityEngine.ProBuilder.Edge>
 struct U3CU3Ec__DisplayClass7_0_3_t570429D9D958BA6C4DC3701079A707CBD15ADAEF;
 // System.Linq.Enumerable/<>c__DisplayClass7_0`3<UnityEngine.Vector2,System.Object,System.Int32>
@@ -948,6 +952,8 @@ struct Func_2_t89D9548C15273DC61D5CB695EB12E7D8F9277392;
 struct Func_2_tFD36EA818BBCBD1EDE1E1540FC3EF156A6ADCCAD;
 // System.Func`2<UnityEngine.InputSystem.Utilities.Substring,System.Object>
 struct Func_2_tB87969817D1EDC637904CC3302B8C93B14ACF9FB;
+// System.Func`2<UnityEngine.Touch,System.Int32>
+struct Func_2_t210B14F4BF657F825147B91B22CD420754C70C32;
 // System.Func`2<UnityEngine.ProBuilder.Triangle,System.Collections.Generic.IEnumerable`1<System.Int32>>
 struct Func_2_tE29D58616FB003D761BFEB8A9184ECA1F212165A;
 // System.Func`2<System.UInt64,System.Boolean>
@@ -3927,6 +3933,24 @@ struct U3CU3Ec__DisplayClass7_0_3_tE6336CC7DF78F412DD37A29133A76D394426237D  : p
 	Func_2_t1F9887E0A0ADE496D09CAA16DBA7B19D5579727E* ___selector2_0;
 	// System.Func`2<TSource,TMiddle> System.Linq.Enumerable/<>c__DisplayClass7_0`3::selector1
 	Func_2_tB87969817D1EDC637904CC3302B8C93B14ACF9FB* ___selector1_1;
+};
+
+// System.Linq.Enumerable/<>c__DisplayClass7_0`3<UnityEngine.Touch,System.Int32,System.Int32>
+struct U3CU3Ec__DisplayClass7_0_3_tE169773DDEB03447C8789F33E376C532AAE75A69  : public RuntimeObject
+{
+	// System.Func`2<TMiddle,TResult> System.Linq.Enumerable/<>c__DisplayClass7_0`3::selector2
+	Func_2_t2FDA873D8482C79555CFB05233D610E8F1C7C354* ___selector2_0;
+	// System.Func`2<TSource,TMiddle> System.Linq.Enumerable/<>c__DisplayClass7_0`3::selector1
+	Func_2_t210B14F4BF657F825147B91B22CD420754C70C32* ___selector1_1;
+};
+
+// System.Linq.Enumerable/<>c__DisplayClass7_0`3<UnityEngine.Touch,System.Int32,System.Object>
+struct U3CU3Ec__DisplayClass7_0_3_t2D00CB04A6CC69AE0CFD00099EE23DCC2A3E0FFA  : public RuntimeObject
+{
+	// System.Func`2<TMiddle,TResult> System.Linq.Enumerable/<>c__DisplayClass7_0`3::selector2
+	Func_2_tB8444326CD91502B291E0988F04448A82D0F6552* ___selector2_0;
+	// System.Func`2<TSource,TMiddle> System.Linq.Enumerable/<>c__DisplayClass7_0`3::selector1
+	Func_2_t210B14F4BF657F825147B91B22CD420754C70C32* ___selector1_1;
 };
 
 // System.Linq.Enumerable/<>c__DisplayClass7_0`3<UnityEngine.Vector2,System.Object,UnityEngine.ProBuilder.Edge>
@@ -8634,6 +8658,39 @@ struct SetMemberBinder_t0D70ED9A9888FF8074796DF76600BDBA3104C55F  : public Dynam
 	bool ___U3CIgnoreCaseU3Ek__BackingField_3;
 };
 
+// UnityEngine.Touch
+struct Touch_t03E51455ED508492B3F278903A0114FA0E87B417 
+{
+	// System.Int32 UnityEngine.Touch::m_FingerId
+	int32_t ___m_FingerId_0;
+	// UnityEngine.Vector2 UnityEngine.Touch::m_Position
+	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___m_Position_1;
+	// UnityEngine.Vector2 UnityEngine.Touch::m_RawPosition
+	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___m_RawPosition_2;
+	// UnityEngine.Vector2 UnityEngine.Touch::m_PositionDelta
+	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___m_PositionDelta_3;
+	// System.Single UnityEngine.Touch::m_TimeDelta
+	float ___m_TimeDelta_4;
+	// System.Int32 UnityEngine.Touch::m_TapCount
+	int32_t ___m_TapCount_5;
+	// UnityEngine.TouchPhase UnityEngine.Touch::m_Phase
+	int32_t ___m_Phase_6;
+	// UnityEngine.TouchType UnityEngine.Touch::m_Type
+	int32_t ___m_Type_7;
+	// System.Single UnityEngine.Touch::m_Pressure
+	float ___m_Pressure_8;
+	// System.Single UnityEngine.Touch::m_maximumPossiblePressure
+	float ___m_maximumPossiblePressure_9;
+	// System.Single UnityEngine.Touch::m_Radius
+	float ___m_Radius_10;
+	// System.Single UnityEngine.Touch::m_RadiusVariance
+	float ___m_RadiusVariance_11;
+	// System.Single UnityEngine.Touch::m_AltitudeAngle
+	float ___m_AltitudeAngle_12;
+	// System.Single UnityEngine.Touch::m_AzimuthAngle
+	float ___m_AzimuthAngle_13;
+};
+
 // Unity.Networking.QoS.UcgQosServer
 struct UcgQosServer_tB2AFA57F819F8A2EFB52F813E38521D31F765136 
 {
@@ -9750,6 +9807,11 @@ struct Func_2_tFD36EA818BBCBD1EDE1E1540FC3EF156A6ADCCAD  : public MulticastDeleg
 
 // System.Func`2<UnityEngine.InputSystem.Utilities.Substring,System.Object>
 struct Func_2_tB87969817D1EDC637904CC3302B8C93B14ACF9FB  : public MulticastDelegate_t
+{
+};
+
+// System.Func`2<UnityEngine.Touch,System.Int32>
+struct Func_2_t210B14F4BF657F825147B91B22CD420754C70C32  : public MulticastDelegate_t
 {
 };
 
@@ -20616,6 +20678,70 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A
 		NullCheck(L_0);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_4;
 		L_4 = ((  Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 (*) (Func_2_t1F9887E0A0ADE496D09CAA16DBA7B19D5579727E*, RuntimeObject*, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->klass->rgctx_data, 3)))(L_0, L_3, il2cpp_rgctx_method(method->klass->rgctx_data, 3));
+		return L_4;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// System.Void System.Linq.Enumerable/<>c__DisplayClass7_0`3<UnityEngine.Touch,System.Int32,System.Int32>::.ctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec__DisplayClass7_0_3__ctor_m7FFC6FF97643FEBBB312573CBAA67355D1C5F21A_gshared (U3CU3Ec__DisplayClass7_0_3_tE169773DDEB03447C8789F33E376C532AAE75A69* __this, const RuntimeMethod* method) 
+{
+	{
+		Object__ctor_mE837C6B9FA8C6D5D109F4B2EC885D79919AC0EA2((RuntimeObject*)__this, NULL);
+		return;
+	}
+}
+// TResult System.Linq.Enumerable/<>c__DisplayClass7_0`3<UnityEngine.Touch,System.Int32,System.Int32>::<CombineSelectors>b__0(TSource)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t U3CU3Ec__DisplayClass7_0_3_U3CCombineSelectorsU3Eb__0_m361B526757CDE715820B196ABE4ACDD39277D9C9_gshared (U3CU3Ec__DisplayClass7_0_3_tE169773DDEB03447C8789F33E376C532AAE75A69* __this, Touch_t03E51455ED508492B3F278903A0114FA0E87B417 ___x0, const RuntimeMethod* method) 
+{
+	{
+		Func_2_t2FDA873D8482C79555CFB05233D610E8F1C7C354* L_0 = (Func_2_t2FDA873D8482C79555CFB05233D610E8F1C7C354*)__this->___selector2_0;
+		Func_2_t210B14F4BF657F825147B91B22CD420754C70C32* L_1 = (Func_2_t210B14F4BF657F825147B91B22CD420754C70C32*)__this->___selector1_1;
+		Touch_t03E51455ED508492B3F278903A0114FA0E87B417 L_2 = ___x0;
+		NullCheck(L_1);
+		int32_t L_3;
+		L_3 = ((  int32_t (*) (Func_2_t210B14F4BF657F825147B91B22CD420754C70C32*, Touch_t03E51455ED508492B3F278903A0114FA0E87B417, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->klass->rgctx_data, 1)))(L_1, L_2, il2cpp_rgctx_method(method->klass->rgctx_data, 1));
+		NullCheck(L_0);
+		int32_t L_4;
+		L_4 = ((  int32_t (*) (Func_2_t2FDA873D8482C79555CFB05233D610E8F1C7C354*, int32_t, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->klass->rgctx_data, 3)))(L_0, L_3, il2cpp_rgctx_method(method->klass->rgctx_data, 3));
+		return L_4;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// System.Void System.Linq.Enumerable/<>c__DisplayClass7_0`3<UnityEngine.Touch,System.Int32,System.Object>::.ctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec__DisplayClass7_0_3__ctor_m0948D1A2A76F557031B83A967BA75D2CB9E8DC56_gshared (U3CU3Ec__DisplayClass7_0_3_t2D00CB04A6CC69AE0CFD00099EE23DCC2A3E0FFA* __this, const RuntimeMethod* method) 
+{
+	{
+		Object__ctor_mE837C6B9FA8C6D5D109F4B2EC885D79919AC0EA2((RuntimeObject*)__this, NULL);
+		return;
+	}
+}
+// TResult System.Linq.Enumerable/<>c__DisplayClass7_0`3<UnityEngine.Touch,System.Int32,System.Object>::<CombineSelectors>b__0(TSource)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CU3Ec__DisplayClass7_0_3_U3CCombineSelectorsU3Eb__0_m0A45FD223116E33EE904C58FD97ACFC89C0BA727_gshared (U3CU3Ec__DisplayClass7_0_3_t2D00CB04A6CC69AE0CFD00099EE23DCC2A3E0FFA* __this, Touch_t03E51455ED508492B3F278903A0114FA0E87B417 ___x0, const RuntimeMethod* method) 
+{
+	{
+		Func_2_tB8444326CD91502B291E0988F04448A82D0F6552* L_0 = (Func_2_tB8444326CD91502B291E0988F04448A82D0F6552*)__this->___selector2_0;
+		Func_2_t210B14F4BF657F825147B91B22CD420754C70C32* L_1 = (Func_2_t210B14F4BF657F825147B91B22CD420754C70C32*)__this->___selector1_1;
+		Touch_t03E51455ED508492B3F278903A0114FA0E87B417 L_2 = ___x0;
+		NullCheck(L_1);
+		int32_t L_3;
+		L_3 = ((  int32_t (*) (Func_2_t210B14F4BF657F825147B91B22CD420754C70C32*, Touch_t03E51455ED508492B3F278903A0114FA0E87B417, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->klass->rgctx_data, 1)))(L_1, L_2, il2cpp_rgctx_method(method->klass->rgctx_data, 1));
+		NullCheck(L_0);
+		RuntimeObject* L_4;
+		L_4 = ((  RuntimeObject* (*) (Func_2_tB8444326CD91502B291E0988F04448A82D0F6552*, int32_t, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->klass->rgctx_data, 3)))(L_0, L_3, il2cpp_rgctx_method(method->klass->rgctx_data, 3));
 		return L_4;
 	}
 }

@@ -7,7 +7,10 @@ public class ColocarPieza : MonoBehaviour
     public GameObject prefabCamino;
     public GameObject prefabCasa;
 
+    // Declaración de una máscara de capa.
+    public LayerMask myLayerMask;
     private ARCursor arCursor;
+
 
     void Start()
     {
@@ -22,30 +25,25 @@ public class ColocarPieza : MonoBehaviour
             // Comprobar si el toque está sobre un elemento de la interfaz de usuario
             if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
             {
-                //Debug.Log("El toque está sobre un elemento de la interfaz de usuario");
+                Debug.Log("El toque está sobre un elemento de la interfaz de usuario");
                 return; // No colocar la pieza si el toque está sobre un elemento de la interfaz de usuario
             }
 
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
             {
-                Debug.Log("Raycast ha golpeado algo");
-                if (hit.collider.gameObject == gameObject)
+                Debug.Log("Raycast ha golpeado algo.");
+
+                if (hit.collider.gameObject.CompareTag("Arista"))
                 {
-                    Debug.Log("Marcador invisible tocado: " + gameObject.name); // Mensaje de depuración
-                    // Colocar camino si el marcador es una arista
-                    if (gameObject.CompareTag("Arista"))
-                    {
-                        Debug.Log("La arista ha sido tocada, intentando instanciar el camino");
-                        Instantiate(prefabCamino, hit.point, Quaternion.identity);
-                    }
-                    // Colocar casa si el marcador es una esquina de parcela
-                    else if (gameObject.CompareTag("Esquina"))
-                    {
-                        Debug.Log("La esquina ha sido tocada, intentando instanciar la casa");
-                        Instantiate(prefabCasa, hit.point, Quaternion.identity);
-                    }
+                    Debug.Log("El objeto golpeado es una arista.");
+                    Instantiate(prefabCamino, hit.point + new Vector3(0, 0.1f, 0), Quaternion.identity);
+                }
+                else if (hit.collider.gameObject.CompareTag("Esquina"))
+                {
+                    Debug.Log("El objeto golpeado es una esquina.");
+                    Instantiate(prefabCasa, hit.point + new Vector3(0, 0.1f, 0), Quaternion.identity);
                 }
             }
         }
