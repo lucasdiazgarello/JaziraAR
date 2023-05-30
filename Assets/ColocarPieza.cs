@@ -22,7 +22,7 @@ public class ColocarPieza : MonoBehaviour
             // Comprobar si el toque está sobre un elemento de la interfaz de usuario
             if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
             {
-                Debug.Log("El toque está sobre un elemento de la interfaz de usuario");
+                //Debug.Log("El toque está sobre un elemento de la interfaz de usuario");
                 return; // No colocar la pieza si el toque está sobre un elemento de la interfaz de usuario
             }
 
