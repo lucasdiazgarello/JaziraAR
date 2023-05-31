@@ -9,8 +9,6 @@ using System.Threading.Tasks;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-
-
     private Lobby hostLobby;
     private float heartbeatTimer;
     private string playerName;
@@ -21,7 +19,6 @@ public class NewBehaviourScript : MonoBehaviour
         AuthenticationService.Instance.SignedIn += () =>
         {
             Debug.Log("Se logueo el jugador con id" + AuthenticationService.Instance.PlayerId);
-
         };
 
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
@@ -59,7 +56,6 @@ public class NewBehaviourScript : MonoBehaviour
         {
             Debug.Log(e);
         }
-
     }
 
     private async void ListLobbies()
