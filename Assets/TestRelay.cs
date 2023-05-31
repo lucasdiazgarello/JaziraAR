@@ -10,6 +10,7 @@ using UnityEngine;
 
 public class TestRelay : MonoBehaviour
 {
+    private int cantJugadores;
     private async void Start()
     {
         await UnityServices.InitializeAsync();
@@ -26,7 +27,8 @@ public class TestRelay : MonoBehaviour
     {
         try
         {
-            Allocation allocation = await RelayService.Instance.CreateAllocationAsync(3); // el host y 3 mas
+            //traer cantJugadores del canvas
+            Allocation allocation = await RelayService.Instance.CreateAllocationAsync(cantJugadores-1); // el host y 3 mas
 
             string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
 

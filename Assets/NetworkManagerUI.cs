@@ -4,8 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using Unity.Netcode;
 
+
 public class NetworkManagerUI : MonoBehaviour
 {
+    private TestRelay testrelay;
 
     [SerializeField] private Button hostBtn;
     [SerializeField] private Button joinBtn;
@@ -16,7 +18,10 @@ public class NetworkManagerUI : MonoBehaviour
 
         hostBtn.onClick.AddListener(() =>
         {
+
+            testrelay.CreateRelay();
             NetworkManager.Singleton.StartHost();
+            
         });
 
         joinBtn.onClick.AddListener(() =>
