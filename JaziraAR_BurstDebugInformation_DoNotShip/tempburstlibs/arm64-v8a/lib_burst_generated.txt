@@ -166,8 +166,8 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\eugem\OneDrive\Documents\FACULTAD\PROYECTO FINAL\JaziraAR\JaziraAR\Temp\StagingArea\Data\Managed\Unity.Netcode.Runtime.dll
 --root-assembly=C:\Users\eugem\OneDrive\Documents\FACULTAD\PROYECTO FINAL\JaziraAR\JaziraAR\Temp\StagingArea\Data\Managed\Unity.Burst.dll
 --root-assembly=C:\Users\eugem\OneDrive\Documents\FACULTAD\PROYECTO FINAL\JaziraAR\JaziraAR\Temp\StagingArea\Data\Managed\Unity.Services.Relay.dll
---root-assembly=C:\Users\eugem\OneDrive\Documents\FACULTAD\PROYECTO FINAL\JaziraAR\JaziraAR\Temp\StagingArea\Data\Managed\Unity.Services.Lobbies.dll
 --root-assembly=C:\Users\eugem\OneDrive\Documents\FACULTAD\PROYECTO FINAL\JaziraAR\JaziraAR\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
+--root-assembly=C:\Users\eugem\OneDrive\Documents\FACULTAD\PROYECTO FINAL\JaziraAR\JaziraAR\Temp\StagingArea\Data\Managed\Unity.Services.Lobbies.dll
 --root-assembly=C:\Users\eugem\OneDrive\Documents\FACULTAD\PROYECTO FINAL\JaziraAR\JaziraAR\Temp\StagingArea\Data\Managed\Unity.Services.Authentication.dll
 --root-assembly=C:\Users\eugem\OneDrive\Documents\FACULTAD\PROYECTO FINAL\JaziraAR\JaziraAR\Temp\StagingArea\Data\Managed\Unity.Services.Core.Environments.dll
 --root-assembly=C:\Users\eugem\OneDrive\Documents\FACULTAD\PROYECTO FINAL\JaziraAR\JaziraAR\Temp\StagingArea\Data\Managed\Unity.Multiplayer.Tools.MetricTypes.dll
