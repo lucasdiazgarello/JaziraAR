@@ -167,6 +167,8 @@ struct EqualsDelegate_tE6378BB0BF2AB72E6122DEC3862C98D0CE46A970;
 struct EqualsDelegate_t25A05E0926AD1CBAF53139F1A6E2762DF7CDBBF3;
 // Unity.Netcode.NetworkVariableSerialization`1/EqualsDelegate<Unity.Netcode.Components.NetworkTransform/NetworkTransformState>
 struct EqualsDelegate_tB991E153159B4233C86D1BEBEA1C97EE53282683;
+// Unity.Netcode.NetworkVariableSerialization`1/EqualsDelegate<PlayerNetwork/datosJugador>
+struct EqualsDelegate_t1771222D2A0A44B8D9FD169C7F7AA46B6C63BFC8;
 // System.EventHandler`1<System.Threading.Tasks.UnobservedTaskExceptionEventArgs>
 struct EventHandler_1_tE698654C3F437D97ABCCA3FD0AD8F86E776DC77A;
 // System.Func`1<System.Threading.Tasks.Task`1<Unity.Services.Authentication.SignInResponse>>
@@ -511,6 +513,8 @@ struct INetworkVariableSerializer_1_t5BB0D2FB58F94C0D79F39FF8382EAF45417108FC;
 struct INetworkVariableSerializer_1_tFD69ED048B1F085C3A46B470900EFB62EAAE319D;
 // Unity.Netcode.INetworkVariableSerializer`1<Unity.Netcode.Components.NetworkTransform/NetworkTransformState>
 struct INetworkVariableSerializer_1_t62DA38D9B02277D39571060B517C593AEC4F741F;
+// Unity.Netcode.INetworkVariableSerializer`1<PlayerNetwork/datosJugador>
+struct INetworkVariableSerializer_1_tA3514A594CD5216C8FDC8B373A08F1ECAB45891A;
 // System.Linq.IOrderedEnumerable`1<UnityEngine.TextCore.LowLevel.GlyphPairAdjustmentRecord>
 struct IOrderedEnumerable_1_tF01059B4E37CC5D11A61FCA09D884F07708D5829;
 // System.Linq.IOrderedEnumerable`1<System.Object>
@@ -1785,6 +1789,19 @@ struct NetworkVariableSerialization_1_t47E68B1FBF137079915BACD1893C4F350CE5B29F_
 	RuntimeObject* ___Serializer_0;
 	// Unity.Netcode.NetworkVariableSerialization`1/EqualsDelegate<T> Unity.Netcode.NetworkVariableSerialization`1::AreEqual
 	EqualsDelegate_tB991E153159B4233C86D1BEBEA1C97EE53282683* ___AreEqual_1;
+};
+
+// Unity.Netcode.NetworkVariableSerialization`1<PlayerNetwork/datosJugador>
+struct NetworkVariableSerialization_1_tE3FBE2B7FEF0D18E8369A940AB303684737313A2  : public RuntimeObject
+{
+};
+
+struct NetworkVariableSerialization_1_tE3FBE2B7FEF0D18E8369A940AB303684737313A2_StaticFields
+{
+	// Unity.Netcode.INetworkVariableSerializer`1<T> Unity.Netcode.NetworkVariableSerialization`1::Serializer
+	RuntimeObject* ___Serializer_0;
+	// Unity.Netcode.NetworkVariableSerialization`1/EqualsDelegate<T> Unity.Netcode.NetworkVariableSerialization`1::AreEqual
+	EqualsDelegate_t1771222D2A0A44B8D9FD169C7F7AA46B6C63BFC8* ___AreEqual_1;
 };
 
 // System.Linq.OrderedEnumerable`1<UnityEngine.TextCore.LowLevel.GlyphPairAdjustmentRecord>
@@ -5008,6 +5025,43 @@ struct PipelineImpl_t422927EB35F759F18ECBA1C7B075AAC92918017E
 	int32_t ___headerCapacity_5;
 	// System.Int32 Unity.Networking.Transport.NetworkPipelineProcessor/PipelineImpl::payloadCapacity
 	int32_t ___payloadCapacity_6;
+};
+
+// PlayerNetwork/datosJugador
+struct datosJugador_tE11C71326206B9B808C1FD4316EF66CB50AE13D7 
+{
+	// System.Int32 PlayerNetwork/datosJugador::jugadorId
+	int32_t ___jugadorId_0;
+	// System.Int32 PlayerNetwork/datosJugador::puntaje
+	int32_t ___puntaje_1;
+	// System.Int32 PlayerNetwork/datosJugador::cantidadCartas
+	int32_t ___cantidadCartas_2;
+	// System.Boolean PlayerNetwork/datosJugador::gano
+	bool ___gano_3;
+	// System.Boolean PlayerNetwork/datosJugador::turno
+	bool ___turno_4;
+	// System.Int32 PlayerNetwork/datosJugador::cantidadCasa
+	int32_t ___cantidadCasa_5;
+};
+// Native definition for P/Invoke marshalling of PlayerNetwork/datosJugador
+struct datosJugador_tE11C71326206B9B808C1FD4316EF66CB50AE13D7_marshaled_pinvoke
+{
+	int32_t ___jugadorId_0;
+	int32_t ___puntaje_1;
+	int32_t ___cantidadCartas_2;
+	int32_t ___gano_3;
+	int32_t ___turno_4;
+	int32_t ___cantidadCasa_5;
+};
+// Native definition for COM marshalling of PlayerNetwork/datosJugador
+struct datosJugador_tE11C71326206B9B808C1FD4316EF66CB50AE13D7_marshaled_com
+{
+	int32_t ___jugadorId_0;
+	int32_t ___puntaje_1;
+	int32_t ___cantidadCartas_2;
+	int32_t ___gano_3;
+	int32_t ___turno_4;
+	int32_t ___cantidadCasa_5;
 };
 
 // Unity.Networking.Transport.SessionIdToken/<Value>e__FixedBuffer
@@ -30543,6 +30597,28 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool NetworkVariableSerialization_1_ValueEqua
 		return (bool)((((int32_t)L_6) == ((int32_t)0))? 1 : 0);
 	}
 }
+// System.Boolean Unity.Netcode.NetworkVariableSerialization`1<PlayerNetwork/datosJugador>::ValueEquals<PlayerNetwork/datosJugador>(TValueType&,TValueType&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool NetworkVariableSerialization_1_ValueEquals_TisdatosJugador_tE11C71326206B9B808C1FD4316EF66CB50AE13D7_m6180C8928A9B579D15D7D69BF66AAB0D1EB70B9C_gshared (datosJugador_tE11C71326206B9B808C1FD4316EF66CB50AE13D7* ___a0, datosJugador_tE11C71326206B9B808C1FD4316EF66CB50AE13D7* ___b1, const RuntimeMethod* method) 
+{
+	void* V_0 = NULL;
+	{
+		// var aptr = UnsafeUtility.AddressOf(ref a);
+		datosJugador_tE11C71326206B9B808C1FD4316EF66CB50AE13D7* L_0 = ___a0;
+		void* L_1;
+		L_1 = il2cpp_codegen_unsafe_cast(L_0);
+		// var bptr = UnsafeUtility.AddressOf(ref b);
+		datosJugador_tE11C71326206B9B808C1FD4316EF66CB50AE13D7* L_2 = ___b1;
+		void* L_3;
+		L_3 = il2cpp_codegen_unsafe_cast(L_2);
+		V_0 = L_3;
+		// return UnsafeUtility.MemCmp(aptr, bptr, sizeof(TValueType)) == 0;
+		void* L_4 = V_0;
+		uint32_t L_5 = sizeof(datosJugador_tE11C71326206B9B808C1FD4316EF66CB50AE13D7);
+		int32_t L_6;
+		L_6 = UnsafeUtility_MemCmp_mA0E0E1A93F715105E7B576F1603DCAB37717A5EF(L_1, L_4, ((int64_t)((int32_t)L_5)), NULL);
+		return (bool)((((int32_t)L_6) == ((int32_t)0))? 1 : 0);
+	}
+}
 // System.Linq.IOrderedEnumerable`1<TElement> System.Linq.OrderedEnumerable`1<UnityEngine.TextCore.LowLevel.GlyphPairAdjustmentRecord>::System.Linq.IOrderedEnumerable<TElement>.CreateOrderedEnumerable<System.UInt32>(System.Func`2<TElement,TKey>,System.Collections.Generic.IComparer`1<TKey>,System.Boolean)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* OrderedEnumerable_1_System_Linq_IOrderedEnumerableU3CTElementU3E_CreateOrderedEnumerable_TisUInt32_t1833D51FFA667B18A5AA4B8D34DE284F8495D29B_m27AF1282CC8406066C450F28C992AF67EF310985_gshared (OrderedEnumerable_1_t8EEABC87399C51697FF13CC459FC26CA5A5857DA* __this, Func_2_tEDCDCD7BE3F7A4F5A742A5FD711EA63155BC825E* ___keySelector0, RuntimeObject* ___comparer1, bool ___descending2, const RuntimeMethod* method) 
 {
@@ -37950,22 +38026,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* WhereSelectArrayIterator_2_Sel
 		WhereSelectArrayIterator_2_t1212E02FC05E943063E53277ED74EAA758B68E98* L_5 = (WhereSelectArrayIterator_2_t1212E02FC05E943063E53277ED74EAA758B68E98*)il2cpp_codegen_object_new(il2cpp_rgctx_data(method->rgctx_data, 1));
 		NullCheck(L_5);
 		((  void (*) (WhereSelectArrayIterator_2_t1212E02FC05E943063E53277ED74EAA758B68E98*, StyleSelectorPartU5BU5D_tBA574FB3E75E94E52874FDB7B05B9048E8A5421B*, Func_2_t7E7216694EE7A991563EC30D68D86C597BF2A56A*, Func_2_t34787AB6BB8F2217CFED1101834AAAEFFEC13115*, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 2)))(L_5, L_0, L_1, L_4, il2cpp_rgctx_method(method->rgctx_data, 2));
-		return (RuntimeObject*)L_5;
-	}
-}
-// System.Collections.Generic.IEnumerable`1<TResult2> System.Linq.Enumerable/WhereSelectArrayIterator`2<UnityEngine.UIElements.StyleSelectorPart,System.Object>::Select<System.Object>(System.Func`2<TResult,TResult2>)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* WhereSelectArrayIterator_2_Select_TisRuntimeObject_m30D310C128EF64C6C1908F7F8CE03E9C587B250A_gshared (WhereSelectArrayIterator_2_tF795401649F680CCD3CB35E5CF5B073D7D6B03CB* __this, Func_2_tACBF5A1656250800CE861707354491F0611F6624* ___selector0, const RuntimeMethod* method) 
-{
-	{
-		StyleSelectorPartU5BU5D_tBA574FB3E75E94E52874FDB7B05B9048E8A5421B* L_0 = (StyleSelectorPartU5BU5D_tBA574FB3E75E94E52874FDB7B05B9048E8A5421B*)__this->___source_3;
-		Func_2_t7E7216694EE7A991563EC30D68D86C597BF2A56A* L_1 = (Func_2_t7E7216694EE7A991563EC30D68D86C597BF2A56A*)__this->___predicate_4;
-		Func_2_tFD36EA818BBCBD1EDE1E1540FC3EF156A6ADCCAD* L_2 = (Func_2_tFD36EA818BBCBD1EDE1E1540FC3EF156A6ADCCAD*)__this->___selector_5;
-		Func_2_tACBF5A1656250800CE861707354491F0611F6624* L_3 = ___selector0;
-		Func_2_tFD36EA818BBCBD1EDE1E1540FC3EF156A6ADCCAD* L_4;
-		L_4 = ((  Func_2_tFD36EA818BBCBD1EDE1E1540FC3EF156A6ADCCAD* (*) (Func_2_tFD36EA818BBCBD1EDE1E1540FC3EF156A6ADCCAD*, Func_2_tACBF5A1656250800CE861707354491F0611F6624*, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 0)))(L_2, L_3, il2cpp_rgctx_method(method->rgctx_data, 0));
-		WhereSelectArrayIterator_2_tF795401649F680CCD3CB35E5CF5B073D7D6B03CB* L_5 = (WhereSelectArrayIterator_2_tF795401649F680CCD3CB35E5CF5B073D7D6B03CB*)il2cpp_codegen_object_new(il2cpp_rgctx_data(method->rgctx_data, 1));
-		NullCheck(L_5);
-		((  void (*) (WhereSelectArrayIterator_2_tF795401649F680CCD3CB35E5CF5B073D7D6B03CB*, StyleSelectorPartU5BU5D_tBA574FB3E75E94E52874FDB7B05B9048E8A5421B*, Func_2_t7E7216694EE7A991563EC30D68D86C597BF2A56A*, Func_2_tFD36EA818BBCBD1EDE1E1540FC3EF156A6ADCCAD*, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 2)))(L_5, L_0, L_1, L_4, il2cpp_rgctx_method(method->rgctx_data, 2));
 		return (RuntimeObject*)L_5;
 	}
 }

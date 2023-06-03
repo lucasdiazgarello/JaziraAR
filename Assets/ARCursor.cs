@@ -14,6 +14,10 @@ public class ARCursor : MonoBehaviour
     //public GameObject recursos; // Referencia al objeto Canvas que contiene las imágenes a mostrar
     public List<GameObject> recursos; // Lista de objetos GameObject que contienen las imágenes a mostrar
     private GameObject currentObject; // Guarda una referencia al objeto colocado actualmente
+    public Button tirarDadosButton;
+    public GameObject plataformaDados;
+    public float plataformaDistance = 1.0f; // Distancia de desplazamiento de la plataforma
+
 
     private bool isPlacementModeActive = false; // Para rastrear si el modo de colocación está activo o no
 
@@ -23,12 +27,9 @@ public class ARCursor : MonoBehaviour
         confirmButton.onClick.AddListener(ConfirmPlacement);
         confirmButton.gameObject.SetActive(false); // Desactivar el botón de confirmación al inicio
         DisableRecursos();
-        //if (recursos != null)
-        //{
-        //    Debug.Log("Recursos es un objeto nulo");
-        //    recursos.SetActive(false); //Desactivar cartas al inicio
-        //}
-        //recursos.SetActive(false); //Desacrivar cartas al inicio
+        tirarDadosButton.gameObject.SetActive(false); // Desactiva el botón al inicio
+        plataformaDados.SetActive(false); // Desactiva la plataforma al inicio
+
     }
 
     void Update()
@@ -69,6 +70,7 @@ public class ARCursor : MonoBehaviour
 
     public void ConfirmPlacement()
     {
+        Debug.Log("ConfirmPlacement fue llamado.");
         isPlacementModeActive = false; // Desactivar el modo de colocación
         confirmButton.gameObject.SetActive(false); // Desactivar el botón de confirmación después de confirmar la colocación
 
@@ -80,8 +82,20 @@ public class ARCursor : MonoBehaviour
             //Debug.Log("Marcador invisible ACTIVADO: " + gameObject.name); // Mensaje de depuración
         }
         // Mostrar las imágenes en el canvas
-        //recursos.SetActive(true); //Activa cartas 
         EnableRecursos();
+        //Tirar dados
+        // Haz que la plataforma aparezca justo al lado del tablero
+        Vector3 offset = new Vector3(1, 0, 0);  // Ajusta este valor según sea necesario
+        Vector3 plataformaPosition = currentObject.transform.position + offset;
+        GameObject newPlataforma = Instantiate(plataformaDados, plataformaPosition, Quaternion.identity);
+        newPlataforma.SetActive(true);
+
+        tirarDadosButton.gameObject.SetActive(true);
+
+        //Vector3 plataformaPosition = currentObject.transform.position + currentObject.transform.right * plataformaDistance;
+       //plataformaDados.transform.position = plataformaPosition;
+        //tirarDadosButton.gameObject.SetActive(true); // Activa el botón después de confirmar la ubicación
+        //plataformaDados.SetActive(true); // Activa la plataforma después de confirmar la ubicación
     }
     private void EnableRecursos()
     {
