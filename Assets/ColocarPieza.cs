@@ -40,11 +40,11 @@ public class ColocarPieza : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
             {
-                Debug.Log("Raycast ha golpeado algo.");
+                //Debug.Log("Raycast ha golpeado algo.");
 
                 if (hit.collider.gameObject.CompareTag("Arista"))
                 {
-                    Debug.Log("El objeto golpeado es una arista.");
+                    //Debug.Log("El objeto golpeado es una arista.");
                     //Instantiate(prefabCamino, hit.collider.gameObject.transform.position, Quaternion.identity);
                     //Para que el camino siga la direccion del collider
                     GameObject camino = Instantiate(prefabCamino, hit.collider.gameObject.transform.position, Quaternion.identity);
@@ -52,7 +52,7 @@ public class ColocarPieza : MonoBehaviour
                 }
                 else if (hit.collider.gameObject.CompareTag("Esquina"))
                 {
-                    Debug.Log("El objeto golpeado es una esquina.");
+                    //Debug.Log("El objeto golpeado es una esquina.");
                     Instantiate(prefabCasa, hit.collider.gameObject.transform.position, Quaternion.identity);
                 }
             }

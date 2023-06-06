@@ -3,57 +3,57 @@ using UnityEngine.UI;
 
 public class TirarDados : MonoBehaviour
 {
-    public Rigidbody rb;
-    private bool hasLanded;
-    private bool tirado;
-
-    public Vector3 InitialPosition;
     public Button tirardadosButton; // Botón UI
     public GameObject dadoPrefab; // Prefab del dado
-    //public Transform diceSpawnPoint1, diceSpawnPoint2; // Puntos de lanzamiento para los dados
     public float spawnDistance = 2.0f; // La distancia frente a la cámara donde los dados serán generados
     public float spawnOffset = 0.5f; // La distancia horizontal entre los dos puntos de generación de dados
 
-    // el resto de tu código va aquí...
+    private Dado dado1;
+    private Dado dado2;
+    private bool dadosLanzados;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        InitialPosition = transform.position;
-
         // Asegúrate de asignar el botón en el inspector de Unity.
         tirardadosButton.onClick.AddListener(TirarlosDados);
     }
 
+    void Update()
+    {
+        if (dadosLanzados && dado1.HasLanded() && dado2.HasLanded())
+        {
+            int valorDado1 = dado1.GetValue();
+            int valorDado2 = dado2.GetValue();
+            Debug.Log("El valor del dado 1 es: " + valorDado1);
+            Debug.Log("El valor del dado 2 es: " + valorDado2);
+            Reset();
+        }
+    }
+
     void TirarlosDados()
     {
-        if (!tirado && !hasLanded)
+        if (!dadosLanzados)
         {
-            tirado = true;
+            dadosLanzados = true;
 
             Vector3 spawnPosition1 = Camera.main.transform.position + Camera.main.transform.forward * spawnDistance;
             Vector3 spawnPosition2 = spawnPosition1 + new Vector3(spawnOffset, 0, 0); // Ajusta spawnOffset para cambiar la separación entre los puntos de spawn
 
-            GameObject dice1 = Instantiate(dadoPrefab, spawnPosition1, Quaternion.identity);
-            GameObject dice2 = Instantiate(dadoPrefab, spawnPosition2, Quaternion.identity);
+            GameObject diceGO1 = Instantiate(dadoPrefab, spawnPosition1, Quaternion.identity);
+            GameObject diceGO2 = Instantiate(dadoPrefab, spawnPosition2, Quaternion.identity);
 
-            //GameObject dice1 = Instantiate(dadoPrefab, diceSpawnPoint1.position, Quaternion.identity);
-            //GameObject dice2 = Instantiate(dadoPrefab, diceSpawnPoint2.position, Quaternion.identity);
-
-            Rigidbody rb1 = dice1.GetComponent<Rigidbody>();
-            Rigidbody rb2 = dice2.GetComponent<Rigidbody>();
+            dado1 = diceGO1.GetComponent<Dado>();
+            dado2 = diceGO2.GetComponent<Dado>();
 
             // Aplica fuerzas a ambos dados
-            ThrowSingleDice(rb1);
-            ThrowSingleDice(rb2);
-        }
-        else if (tirado && hasLanded)
-        {
-            Reset();
+            ThrowSingleDice(dado1);
+            ThrowSingleDice(dado2);
         }
     }
-    void ThrowSingleDice(Rigidbody rb)
+
+    void ThrowSingleDice(Dado dado)
     {
+        Rigidbody rb = dado.GetComponent<Rigidbody>();
         rb.useGravity = true;
         rb.AddTorque(Random.Range(0, 500), Random.Range(0, 500), Random.Range(0, 500));
         rb.AddForce(Vector3.up * Random.Range(500, 1000));
@@ -61,17 +61,6 @@ public class TirarDados : MonoBehaviour
 
     void Reset()
     {
-        transform.position = InitialPosition;
-        tirado = false;
-        hasLanded = false;
-        rb.useGravity = false;
-    }
-
-    void OnCollisionEnter()
-    {
-        if (tirado)
-        {
-            hasLanded = true;
-        }
+        dadosLanzados = false;
     }
 }
