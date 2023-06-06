@@ -7,10 +7,13 @@ using Unity.Services.Core;
 using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TestRelay : MonoBehaviour
 {
-    private int cantJugadores;
+    private int cantJugadores = 4;
+    public InputField codigo;
+
     private async void Start()
     {
         await UnityServices.InitializeAsync();
@@ -48,10 +51,11 @@ public class TestRelay : MonoBehaviour
             Debug.Log(e);
         }
     }
-    private async void JoinRelay (string joinCode)
+    public async void JoinRelay (string joinCode)
     {
         try
         {
+            joinCode = codigo.inputType.ToString();
             Debug.Log("Joining Relay with " + joinCode);
             JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
 

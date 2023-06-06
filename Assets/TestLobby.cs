@@ -26,7 +26,7 @@ public class NewBehaviourScript : MonoBehaviour
         Debug.Log(playerName);
     }
 
-    private async void CreateLobby()
+    public async void CreateLobby()
     {
         try
         {

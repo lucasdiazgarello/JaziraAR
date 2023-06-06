@@ -10,4 +10,9 @@ public class MainMenuController : MonoBehaviour
     {
         SceneManager.LoadScene("NuevaPartidaScene");
     }
+
+    public void LoadJoinScene()
+    {
+        SceneManager.LoadScene("BuscarPartidaScene");
+    }
 }
