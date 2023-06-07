@@ -28,6 +28,8 @@ public class ARCursor : MonoBehaviour
         confirmButton.onClick.AddListener(ConfirmPlacement);
         confirmButton.gameObject.SetActive(false); // Desactivar el botón de confirmación al inicio
         DisableRecursos();
+        objectToPlace = Resources.Load("TableroCC 2") as GameObject;
+
         //tirarDadosButton.gameObject.SetActive(false); // Desactiva el botón al inicio
         //plataformaDados.SetActive(false); // Desactiva la plataforma al inicio
 

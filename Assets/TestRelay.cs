@@ -55,9 +55,12 @@ public class TestRelay : MonoBehaviour
     {
         try
         {
-            joinCode = codigo.inputType.ToString();
+            joinCode = codigo.text;
             Debug.Log("Joining Relay with " + joinCode);
             JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
+            //Debug.Log("joinAllocation: " + joinAllocation);
+            //Debug.Log("NetworkManager.Singleton: " + NetworkManager.Singleton);
+            //Debug.Log("NetworkManager.Singleton.GetComponent<UnityTransport>(): " + NetworkManager.Singleton.GetComponent<UnityTransport>());
 
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetClientRelayData(
                 joinAllocation.RelayServer.IpV4,

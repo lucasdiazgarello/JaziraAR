@@ -3,7 +3,12 @@ guid: a27166ddeacb03f45914e566baf99c3f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - objectToPlace: {fileID: 3813611934402495197, guid: d09c7c5dc53f20b4e9a139f665bcddb6,
+      type: 3}
+  - raycastManager: {instanceID: 0}
+  - placeButton: {instanceID: 0}
+  - confirmButton: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
