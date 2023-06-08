@@ -11,16 +11,13 @@ public class ARCursor : MonoBehaviour
     public ARRaycastManager raycastManager;
     public Button placeButton;
     public Button confirmButton;
-    //public GameObject recursos; // Referencia al objeto Canvas que contiene las imágenes a mostrar
     public List<GameObject> recursos; // Lista de objetos GameObject que contienen las imágenes a mostrar
     private GameObject currentObject; // Guarda una referencia al objeto colocado actualmente
-    //public Button tirarDadosButton;
-    //public GameObject plataformaDados;
-    //public float plataformaDistance = 1.0f; // Distancia de desplazamiento de la plataforma
-    //private GameObject currentPlatform; // Guarda una referencia a la plataforma instanciada actualmente
-
 
     private bool isPlacementModeActive = false; // Para rastrear si el modo de colocación está activo o no
+
+    public Button placePlatformButton; // Nuevo botón para colocar la plataforma
+
 
     void Start()
     {
@@ -29,10 +26,7 @@ public class ARCursor : MonoBehaviour
         confirmButton.gameObject.SetActive(false); // Desactivar el botón de confirmación al inicio
         DisableRecursos();
         objectToPlace = Resources.Load("TableroCC 2") as GameObject;
-
-        //tirarDadosButton.gameObject.SetActive(false); // Desactiva el botón al inicio
-        //plataformaDados.SetActive(false); // Desactiva la plataforma al inicio
-
+        placePlatformButton.onClick.AddListener(PlacePlatform); // Añadido el Listener para el nuevo botón
     }
     void Update()
     {
@@ -63,13 +57,6 @@ public class ARCursor : MonoBehaviour
                 confirmButton.gameObject.SetActive(true); // Activar el botón de confirmación después de colocar el tablero
             }
         }
-        /*// Si se confirma la colocación, desactivar el modo de colocación
-        else if (!isPlacementModeActive && currentObject != null)
-        {
-            confirmButton.gameObject.SetActive(false);
-            placeButton.gameObject.SetActive(true);
-        }
-        */
     }
 
     public void ActivatePlacementMode()
@@ -80,49 +67,27 @@ public class ARCursor : MonoBehaviour
 
     public void ConfirmPlacement()
     {
-        //Debug.Log("ConfirmPlacement fue llamado.");
         isPlacementModeActive = false; // Desactivar el modo de colocación
-        //Debug.Log("isPlacementModeActive es ahora " + isPlacementModeActive);
         confirmButton.gameObject.SetActive(false); // Desactivar el botón de confirmación después de confirmar la colocación
-        //Debug.Log("Número de componentes ColocarPieza encontrados: " + GetComponentsInChildren<ColocarPieza>().Length);
         // Activar la colocación de las piezas en los marcadores invisibles
         foreach (ColocarPieza colocarPieza in GetComponentsInChildren<ColocarPieza>())
         {
             colocarPieza.enabled = true;
-            //Debug.Log("Marcador invisible ACTIVADO: " + gameObject.name); // Mensaje de depuración
         }
         // Mostrar las imágenes en el canvas
         EnableRecursos();
-        /*
-        //Tirar dados
-        // Haz que la plataforma aparezca justo al lado del tablero
-        Vector3 offset = new Vector3(1, 0, 0);  // Ajusta este valor según sea necesario
-        Vector3 plataformaPosition = currentObject.transform.position + offset;
 
-        // Primero, eliminar la plataforma actual si existe
-        if (currentPlatform != null)
+    }
+    public void PlacePlatform()
+    {
+        // Aquí invocamos el script que coloca la plataforma y el dado
+        // Pero antes de eso, nos aseguramos de que currentObject (el tablero) no sea null
+        if (currentObject != null)
         {
-            Destroy(currentPlatform);
+            // Aquí asumimos que tu script para colocar la plataforma se llama PlacePlatformScript
+            PlacePlatformScript placePlatformScript = GetComponent<PlacePlatformScript>();
+            placePlatformScript.PlacePlatformAndDado(currentObject);
         }
-
-        // Luego, crear una nueva plataforma y guardarla como currentPlatform
-        currentPlatform = Instantiate(plataformaDados, plataformaPosition, Quaternion.identity);
-        currentPlatform.SetActive(true);
-        */
-        /*
-        // Haz que la plataforma aparezca justo al lado del tablero
-        Vector3 offset = new Vector3(1, 0, 0);  // Ajusta este valor según sea necesario
-        Vector3 plataformaPosition = currentObject.transform.position + offset;
-        GameObject newPlataforma = Instantiate(plataformaDados, plataformaPosition, Quaternion.identity);
-        newPlataforma.SetActive(true);
-        */
-        //tirarDadosButton.gameObject.SetActive(true);
-
-        //Vector3 plataformaPosition = currentObject.transform.position + currentObject.transform.right * plataformaDistance;
-       //plataformaDados.transform.position = plataformaPosition;
-        //tirarDadosButton.gameObject.SetActive(true); // Activa el botón después de confirmar la ubicación
-        //plataformaDados.SetActive(true); // Activa la plataforma después de confirmar la ubicación
-        
     }
     private void EnableRecursos()
     {
