@@ -27,6 +27,7 @@ public class ARCursor : MonoBehaviour
     public float dadoDistance = 0.05f; // Distancia de desplazamiento del dado (en metros)
     private GameObject currentDado; // Dado actualmente en proceso de colocación
     public Button tirarDadoButton;
+    private Vector3 initialDadoPosition; // Para guardar la posición inicial del dado
 
     void Start()
     {
@@ -92,7 +93,7 @@ public class ARCursor : MonoBehaviour
                 }
                 // Luego, crear una nueva plataforma y guardarlo como currentPlatform
                 currentPlatform = GameObject.Instantiate(platformToPlace, hits[0].pose.position, hits[0].pose.rotation);
-
+                /*
                 // Haz que el dado aparezca por encima de la plataforma
                 Vector3 dadoOffset = new Vector3(0, dadoDistance, 0);  // Ajusta este valor según sea necesario
 
@@ -101,13 +102,14 @@ public class ARCursor : MonoBehaviour
                 {
                     currentDado.transform.position = currentPlatform.transform.position + dadoOffset;
                 }
-                // Solo crea el dado si aún no existe
+                */
+                /*// Solo crea el dado si aún no existe
                 else
                 {
                     Vector3 dadoPosition = currentPlatform.transform.position + dadoOffset;
                     // Luego, crear un nuevo dado y guardarlo como currentDado
                     currentDado = Instantiate(dadoToPlace, dadoPosition, Quaternion.identity);
-                }
+                }*/
 
                 placePlatformButton.gameObject.SetActive(false); // Desactivar el botón de colocación después de colocar la plataforma
                 confirmPlatformButton.gameObject.SetActive(true); // Activar el botón de confirmación después de colocar la plataforma
@@ -149,19 +151,53 @@ public class ARCursor : MonoBehaviour
             confirmPlatformButton.gameObject.SetActive(false);
 
             // Aquí puedes agregar cualquier otra lógica que necesites después de confirmar la colocación de la plataforma
+
+            // Obtener y mostrar la posición de la plataforma
+            Vector3 platformPosition = currentPlatform.transform.position;
+            Debug.Log("Posición de la plataforma: " + platformPosition);
+
+            // Ahora creamos y colocamos el dado cuando se confirma la plataforma
+            if (currentDado == null)
+            {
+                // Ajusta este valor según sea necesario
+                initialDadoPosition = platformPosition + new Vector3(0, dadoDistance, 0);
+                Debug.Log("Posición inicial del dado: " + initialDadoPosition);
+
+                // Luego, crear un nuevo dado y guardarlo como currentDado
+                currentDado = Instantiate(dadoToPlace, initialDadoPosition, Quaternion.identity);
+            }
         }
     }
+    /*public void ConfirmPlatformPlacement()
+    {
+        if (currentPlatform != null)
+        {
+            // Desactivar el modo de colocación de la plataforma
+            isPlatformPlacementModeActive = false;
+
+            // Desactivar el botón de confirmación después de confirmar la colocación
+            confirmPlatformButton.gameObject.SetActive(false);
+
+            // Aquí puedes agregar cualquier otra lógica que necesites después de confirmar la colocación de la plataforma
+            // Ahora creamos y colocamos el dado cuando se confirma la plataforma
+            if (currentDado == null)
+            {
+                initialDadoPosition = currentPlatform.transform.position + new Vector3(0, dadoDistance, 0);  // Ajusta este valor según sea necesario
+                // Luego, crear un nuevo dado y guardarlo como currentDado
+                currentDado = Instantiate(dadoToPlace, initialDadoPosition, Quaternion.identity);
+            }
+        }
+    }*/
     public void OnDiceRollButtonPressed()
     {
-        Debug.Log("Entro a OnrDiceRollButtonPressed.");
+        Debug.Log("Entro a OnDiceRollButtonPressed.");
         // Asegúrate de que currentPlatform y currentDado no sean null
         if (currentPlatform != null && currentDado != null)
         {
-            Vector3 platformCenter = currentPlatform.transform.position;
-            currentDado.GetComponent<DiceScript>().RollDice(platformCenter);
+            currentDado.GetComponent<DiceScript>().RollDice(initialDadoPosition);
         }
     }
-    
+
     private void EnableRecursos()
     {
         foreach (GameObject recurso in recursos)
