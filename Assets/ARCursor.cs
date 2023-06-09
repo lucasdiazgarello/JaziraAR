@@ -16,9 +16,16 @@ public class ARCursor : MonoBehaviour
 
     private bool isPlacementModeActive = false; // Para rastrear si el modo de colocación está activo o no
 
-    public Button placePlatformButton; // Nuevo botón para colocar la plataforma
-    public Button confirmPlatformButton; // Nuevo botón para confirmar la colocación de la plataforma
+    //public Button placePlatformButton; // Nuevo botón para colocar la plataforma
+    //public Button confirmPlatformButton; // Nuevo botón para confirmar la colocación de la plataforma
     private bool isPlatformPlacementModeActive = false; // Para rastrear si el modo de colocación de la plataforma está activo o no
+
+    //public PlacePlatformController placePlatformController;
+    public GameObject platformToPlace; // Prefab de la plataforma
+    public Button placePlatformButton; // Botón para colocar la plataforma
+    public Button confirmPlatformButton; // Botón para confirmar la ubicación de la plataforma
+    private GameObject currentPlatform; // Plataforma actualmente en proceso de colocación
+    private bool isBoardPlaced = false; // Para rastrear si el tablero ya ha sido colocado o no
 
 
     void Start()
@@ -28,14 +35,20 @@ public class ARCursor : MonoBehaviour
         confirmButton.gameObject.SetActive(false); // Desactivar el botón de confirmación al inicio
         DisableRecursos();
         objectToPlace = Resources.Load("TableroCC 2") as GameObject;
-        placePlatformButton.onClick.AddListener(PlacePlatform); // Añadido el Listener para el nuevo botón
-        placePlatformButton.gameObject.SetActive(false); // Desactivar el botón de colocar plataforma al inicio
-        confirmPlatformButton.onClick.AddListener(ConfirmPlatformPlacement);
+        //placePlatformButton.onClick.AddListener(PlacePlatform); // Añadido el Listener para el nuevo botón
+        //placePlatformButton.gameObject.SetActive(false); // Desactivar el botón de colocar plataforma al inicio
+        
+        //placePlatformButton.onClick.AddListener(ActivatePlacementMode);
+        //confirmPlatformButton.onClick.AddListener(ConfirmPlatformPlacement); //duplicado
         confirmPlatformButton.gameObject.SetActive(false); // Desactivar el botón de confirmación de la plataforma al inicio
+                                                           // Agrega los listeners de los botones para la plataforma
+        placePlatformButton.onClick.AddListener(ActivatePlatformPlacementMode);
+        confirmPlatformButton.onClick.AddListener(ConfirmPlatformPlacement);
     }
     void Update()
     {
-        if (isPlacementModeActive && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        //colocar tablero
+        if (isPlacementModeActive && !isBoardPlaced && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             //Debug.Log("Entrando en el bloque de colocación del tablero.");
             // Comprobar si el toque está sobre un elemento de la interfaz de usuario
@@ -61,6 +74,32 @@ public class ARCursor : MonoBehaviour
                 placeButton.gameObject.SetActive(false); // Desactivar el botón de colocación después de colocar el tablero
                 confirmButton.gameObject.SetActive(true); // Activar el botón de confirmación después de colocar el tablero
             }
+        }//colocar plataforma
+        else if (isPlatformPlacementModeActive && isBoardPlaced && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            // Comprobar si el toque está sobre un elemento de la interfaz de usuario
+            if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+            {
+                return; // No colocar la plataforma si el toque está sobre un elemento de la interfaz de usuario
+            }
+
+            List<ARRaycastHit> hits = new List<ARRaycastHit>();
+            raycastManager.Raycast(Input.GetTouch(0).position, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
+
+            if (hits.Count > 0)
+            {
+                // Primero, eliminar la plataforma actual si existe
+                if (currentPlatform != null)
+                {
+                    Destroy(currentPlatform);
+                }
+
+                // Luego, crear una nueva plataforma y guardarlo como currentPlatform
+                currentPlatform = GameObject.Instantiate(platformToPlace, hits[0].pose.position, hits[0].pose.rotation);
+
+                placePlatformButton.gameObject.SetActive(false); // Desactivar el botón de colocación después de colocar la plataforma
+                confirmPlatformButton.gameObject.SetActive(true); // Activar el botón de confirmación después de colocar la plataforma
+            }
         }
     }
 
@@ -81,8 +120,45 @@ public class ARCursor : MonoBehaviour
         }
         // Mostrar las imágenes en el canvas
         EnableRecursos();
+        //placePlatformButton.gameObject.SetActive(true); // Activar el botón de colocar plataforma después de confirmar la colocación del tablero
+        isBoardPlaced = true;
         placePlatformButton.gameObject.SetActive(true); // Activar el botón de colocar plataforma después de confirmar la colocación del tablero
+        // Desactiva este script y activa PlacePlatformController
+        //this.enabled = false;
+        //GetComponent<PlacePlatformController>().enabled = true;
+        // Activar el script PlacePlatformController
+        //placePlatformController.enabled = true;
     }
+    public void ActivatePlatformPlacementMode()
+    {
+        isPlatformPlacementModeActive = true;
+    }
+    public void ConfirmPlatformPlacement()
+    {
+        if (currentPlatform != null)
+        {
+            // Desactivar el modo de colocación de la plataforma
+            isPlatformPlacementModeActive = false;
+
+            // Desactivar el botón de confirmación después de confirmar la colocación
+            confirmPlatformButton.gameObject.SetActive(false);
+
+            // Aquí puedes agregar cualquier otra lógica que necesites después de confirmar la colocación de la plataforma
+        }
+    }
+    /*public void ConfirmPlatformPlacement()
+    {
+        if (currentPlatform != null)
+        {
+            // Desactivar el modo de colocación
+            isPlacementModeActive = false;
+
+            // Desactivar el botón de confirmación después de confirmar la colocación
+            confirmPlatformButton.gameObject.SetActive(false);
+
+            // Aquí puedes agregar cualquier otra lógica que necesites después de confirmar la colocación de la plataforma
+        }
+    }*/
 
     /*public void PlacePlatform()
     {
@@ -98,7 +174,7 @@ public class ARCursor : MonoBehaviour
         isPlatformPlacementModeActive = true;
         confirmPlatformButton.gameObject.SetActive(true); // Activar el botón de confirmación de la plataforma
     }*/
-    public void PlacePlatform()
+    /*public void PlacePlatform()
     {
         Debug.Log("Boton Colocar plataforma()");
         if (currentObject != null)
@@ -116,13 +192,14 @@ public class ARCursor : MonoBehaviour
         isPlatformPlacementModeActive = false; // Desactivar el modo de colocación de la plataforma
         confirmPlatformButton.gameObject.SetActive(false); // Desactivar el botón de confirmación de la plataforma después de confirmar la colocación
     }*/
-    public void ConfirmPlatformPlacement()
+    /*public void ConfirmPlatformPlacement()
     {
         isPlatformPlacementModeActive = false;
         confirmPlatformButton.gameObject.SetActive(false);
         PlacePlatformScript placePlatformScript = GetComponent<PlacePlatformScript>();
         placePlatformScript.StopPlatformPlacement();  // Añadido un método para detener la colocación de la plataforma
     }
+    */
     private void EnableRecursos()
     {
         foreach (GameObject recurso in recursos)
