@@ -1,6 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro; // Asegúrate de tener esta línea para utilizar TextMeshPro
+
+public class DiceNumberTextScript : MonoBehaviour
+{
+    TextMeshProUGUI text;
+    public static int diceNumber;
+
+    // Use this for initialization
+    void Start()
+    {
+        text = GetComponent<TextMeshProUGUI>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        text.text = diceNumber.ToString();
+        //Debug.Log("EL DADO ES " + diceNumber);
+    }
+}
+
+/*
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 
@@ -30,7 +56,6 @@ public class DiceNumberTextScript : MonoBehaviour
         if (tf != null)
         {
 
-
             text.text = diceNumber.ToString();
             tf.text = diceNumber.ToString();
             Debug.Log("EL DADO ES " + diceNumber);
@@ -39,3 +64,4 @@ public class DiceNumberTextScript : MonoBehaviour
         }
     }
 }
+*/

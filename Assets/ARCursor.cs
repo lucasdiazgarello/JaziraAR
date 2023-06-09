@@ -27,6 +27,9 @@ public class ARCursor : MonoBehaviour
     private GameObject currentPlatform; // Plataforma actualmente en proceso de colocación
     private bool isBoardPlaced = false; // Para rastrear si el tablero ya ha sido colocado o no
 
+    public GameObject dadoToPlace; // Prefab del dado
+    public float dadoDistance = 0.5f; // Distancia de desplazamiento del dado (en metros)
+    private GameObject currentDado; // Dado actualmente en proceso de colocación
 
     void Start()
     {
@@ -96,6 +99,19 @@ public class ARCursor : MonoBehaviour
 
                 // Luego, crear una nueva plataforma y guardarlo como currentPlatform
                 currentPlatform = GameObject.Instantiate(platformToPlace, hits[0].pose.position, hits[0].pose.rotation);
+
+                // Haz que el dado aparezca por encima de la plataforma
+                Vector3 dadoOffset = new Vector3(0, dadoDistance, 0);  // Ajusta este valor según sea necesario
+                Vector3 dadoPosition = currentPlatform.transform.position + dadoOffset;
+
+                // Primero, eliminar el dado actual si existe
+                if (currentDado != null)
+                {
+                    Destroy(currentDado);
+                }
+
+                // Luego, crear un nuevo dado y guardarlo como currentDado
+                currentDado = Instantiate(dadoToPlace, dadoPosition, Quaternion.identity);
 
                 placePlatformButton.gameObject.SetActive(false); // Desactivar el botón de colocación después de colocar la plataforma
                 confirmPlatformButton.gameObject.SetActive(true); // Activar el botón de confirmación después de colocar la plataforma
