@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1253,6 +1253,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1470590610312569609, guid: 4047eff88060f8d4abba368e8719e957,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 3206719522
+      objectReference: {fileID: 0}
     - target: {fileID: 8620374991974496819, guid: 4047eff88060f8d4abba368e8719e957,
         type: 3}
       propertyPath: m_Name
@@ -9984,6 +9989,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6319480766564268074, guid: e335f74d1c3c20a4ba4d3b7ae1063060,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1779052010
+      objectReference: {fileID: 0}
     - target: {fileID: 1885338187672598415, guid: e335f74d1c3c20a4ba4d3b7ae1063060,
         type: 3}
       propertyPath: m_RootOrder
@@ -10365,7 +10375,8 @@ MonoBehaviour:
     NetworkTransport: {fileID: 1889383226}
     PlayerPrefab: {fileID: 0}
     Prefabs:
-      NetworkPrefabsLists: []
+      NetworkPrefabsLists:
+      - {fileID: 11400000, guid: f18cb55af0e7e2143be8722760633d57, type: 2}
     TickRate: 30
     ClientConnectionBufferTimeout: 10
     ConnectionApproval: 0
@@ -12867,6 +12878,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1470590610312569609, guid: 4047eff88060f8d4abba368e8719e957,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 177252321
+      objectReference: {fileID: 0}
     - target: {fileID: 8620374991974496819, guid: 4047eff88060f8d4abba368e8719e957,
         type: 3}
       propertyPath: m_Name

@@ -4,8 +4,12 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Unity.Netcode;
+using UnityEngine.XR.ARFoundation;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class ARCursor : MonoBehaviour
+public class ARCursor : NetworkBehaviour
 {
     public GameObject objectToPlace; // Este es el tablero
     public ARRaycastManager raycastManager;
@@ -28,6 +32,7 @@ public class ARCursor : MonoBehaviour
     private GameObject currentDado; // Dado actualmente en proceso de colocación
     public Button tirarDadoButton;
     private Vector3 initialDadoPosition; // Para guardar la posición inicial del dado
+    public GameObject tableromInstance;
 
     void Start()
     {
@@ -36,7 +41,7 @@ public class ARCursor : MonoBehaviour
         confirmButton.gameObject.SetActive(false); // Desactivar el botón de confirmación al inicio
         DisableRecursos();
         objectToPlace = Resources.Load("TableroCC 2") as GameObject;
-       
+
         confirmPlatformButton.gameObject.SetActive(false); // Desactivar el botón de confirmación de la plataforma al inicio
                                                            // Agrega los listeners de los botones para la plataforma
         placePlatformButton.onClick.AddListener(ActivatePlatformPlacementMode);
@@ -61,14 +66,24 @@ public class ARCursor : MonoBehaviour
             if (hits.Count > 0)
             {
                 // Primero, eliminar el tablero actual si existe
-                if (currentObject != null)
-                {
-                    Destroy(currentObject);
-                }
+                // if (currentObject != null)
+                //{
+                // Destroy(currentObject);
+                //}
+                if (tableromInstance != null)
+                 {
+                     var networkObject = tableromInstance.GetComponent<NetworkObject>();
+                     if (networkObject != null && networkObject.IsSpawned)
+                     {
+                        Debug.Log("quise deaparecer el tablero");
+                        networkObject.Despawn();
+                     }
+                 }
 
                 // Luego, crear un nuevo tablero y guardarlo como currentObject
-                currentObject = GameObject.Instantiate(objectToPlace, hits[0].pose.position, hits[0].pose.rotation);
-
+                //currentObject = GameObject.Instantiate(objectToPlace, hits[0].pose.position, hits[0].pose.rotation);
+                tableromInstance = Instantiate(objectToPlace, hits[0].pose.position, hits[0].pose.rotation);
+                tableromInstance.GetComponent<NetworkObject>().Spawn();
                 placeButton.gameObject.SetActive(false); // Desactivar el botón de colocación después de colocar el tablero
                 confirmButton.gameObject.SetActive(true); // Activar el botón de confirmación después de colocar el tablero
             }
@@ -87,12 +102,24 @@ public class ARCursor : MonoBehaviour
             if (hits.Count > 0)
             {
                 // Primero, eliminar la plataforma actual si existe
+                //if (currentPlatform != null)
+                //{
+                //    Destroy(currentPlatform);
+                //}
                 if (currentPlatform != null)
                 {
-                    Destroy(currentPlatform);
+                    var networkObject = currentPlatform.GetComponent<NetworkObject>();
+                    if (networkObject != null && networkObject.IsSpawned)
+                    {
+                        //Debug.Log("quise deaparecer la plataforma");
+                        networkObject.Despawn();
+                    }
                 }
+
                 // Luego, crear una nueva plataforma y guardarlo como currentPlatform
-                currentPlatform = GameObject.Instantiate(platformToPlace, hits[0].pose.position, hits[0].pose.rotation);
+                //currentPlatform = GameObject.Instantiate(platformToPlace, hits[0].pose.position, hits[0].pose.rotation);
+                currentPlatform = Instantiate(platformToPlace, hits[0].pose.position, hits[0].pose.rotation);
+                currentPlatform.GetComponent<NetworkObject>().Spawn();
                 /*
                 // Haz que el dado aparezca por encima de la plataforma
                 Vector3 dadoOffset = new Vector3(0, dadoDistance, 0);  // Ajusta este valor según sea necesario
@@ -142,15 +169,13 @@ public class ARCursor : MonoBehaviour
     }
     public void ConfirmPlatformPlacement()
     {
-        if (currentPlatform != null)
+        if (currentPlatform != null && IsServer) // Asegúrate de que solo el host pueda confirmar la colocación
         {
             // Desactivar el modo de colocación de la plataforma
             isPlatformPlacementModeActive = false;
 
             // Desactivar el botón de confirmación después de confirmar la colocación
             confirmPlatformButton.gameObject.SetActive(false);
-
-            // Aquí puedes agregar cualquier otra lógica que necesites después de confirmar la colocación de la plataforma
 
             // Obtener y mostrar la posición de la plataforma
             Vector3 platformPosition = currentPlatform.transform.position;
@@ -164,7 +189,10 @@ public class ARCursor : MonoBehaviour
                 Debug.Log("Posición inicial del dado: " + initialDadoPosition);
 
                 // Luego, crear un nuevo dado y guardarlo como currentDado
-                currentDado = Instantiate(dadoToPlace, initialDadoPosition, Quaternion.identity);
+                // Usa Spawn en lugar de Instantiate
+                currentDado = Instantiate(currentDado, initialDadoPosition, Quaternion.identity);
+                currentDado.GetComponent<NetworkObject>().Spawn();
+
             }
         }
     }
@@ -213,4 +241,15 @@ public class ARCursor : MonoBehaviour
             recurso.SetActive(false);
         }
     }
+
+    [ServerRpc]
+    public void SpawnTableroServerRpc(Vector3 position, Quaternion rotation)
+    {
+        Debug.Log("Entro ServerRpc de tablero");
+        tableromInstance = Instantiate(objectToPlace, position, rotation);
+        tableromInstance.GetComponent<NetworkObject>().Spawn();
+    }
+
+
 }
+
