@@ -19,7 +19,7 @@ public class ARCursor : NetworkBehaviour
     private bool isBoardPlaced = false; // Para rastrear si el tablero ya ha sido colocado o no
 
     public GameObject dadoToPlace; // Prefab del dado
-    public float dadoDistance = 0.05f; // Distancia de desplazamiento del dado (en metros)
+    public float dadoDistance = 0.5f; // Distancia de desplazamiento del dado (en metros)
     private GameObject currentDado; // Dado actualmente en proceso de colocación
     public Button tirarDadoButton;
 
@@ -83,6 +83,11 @@ public class ARCursor : NetworkBehaviour
         isBoardPlaced = true;
         isPlacementModeActive = false;
         confirmButton.gameObject.SetActive(false); // Desactivar el botón de confirmación
+        // Activar la colocación de las piezas en los marcadores invisibles
+        foreach (ColocarPieza colocarPieza in GetComponentsInChildren<ColocarPieza>())
+        {
+            colocarPieza.enabled = true;
+        }
         EnableRecursos();
     }
 
@@ -110,9 +115,58 @@ public class ARCursor : NetworkBehaviour
         // Si ya hay un dado, destruirlo
         if (currentDado != null)
         {
+            Debug.Log("Destruyendo dado actual");
             Destroy(currentDado);
+            currentDado = null; // Asegúrate de que currentDado es null después de destruirlo
         }
 
+        if (tableromInstance != null)
+        {
+            Debug.Log("dadoToPlace es " + (dadoToPlace == null ? "null" : "no null")); // Comprobar si dadoToPlace es null antes de instanciar
+
+            // Crear un nuevo dado en la posición por encima del tablero
+            currentDado = Instantiate(dadoToPlace, tableromInstance.transform.position + Vector3.up * dadoDistance, Quaternion.identity);
+
+            Debug.Log("currentDado es " + (currentDado == null ? "null" : "no null")); // Comprobar si currentDado es null después de instanciar
+
+            // Obtén el DiceScript del dado actual y lanza el dado
+            DiceScript diceScript = currentDado.GetComponent<DiceScript>();
+            if (diceScript != null)
+            {
+                Debug.Log("Lanzando el dado");
+                diceScript.RollDice(tableromInstance.transform.position + Vector3.up * dadoDistance);
+            }
+        }
+        /*// Si el tablero no está colocado, regresar
+        if (!isBoardPlaced) return;
+
+        // Si ya hay un dado, destruirlo
+        if (currentDado != null)
+        {
+            Destroy(currentDado);
+        }
+        if (tableromInstance != null)
+        {
+            // Crear un nuevo dado en la posición por encima del tablero
+            currentDado = Instantiate(dadoToPlace, tableromInstance.transform.position + Vector3.up * dadoDistance, Quaternion.identity);
+
+            // Obtén el DiceScript del dado actual y lanza el dado
+            DiceScript diceScript = currentDado.GetComponent<DiceScript>();
+            if (diceScript != null)
+            {
+                diceScript.RollDice(tableromInstance.transform.position + Vector3.up * dadoDistance);
+            }
+        }
+        */
+        /*
+        // Si el tablero no está colocado, regresar
+        if (!isBoardPlaced) return;
+
+        // Si ya hay un dado, destruirlo
+        if (currentDado != null)
+        {
+            Destroy(currentDado);
+        }
         // Crear un nuevo dado y guardar su posición inicial
         currentDado = Instantiate(dadoToPlace, tableromInstance.transform.position + Vector3.up * dadoDistance, Quaternion.identity);
         initialDadoPosition = currentDado.transform.position;
@@ -121,7 +175,7 @@ public class ARCursor : NetworkBehaviour
         if (rb != null)
         {
             rb.isKinematic = false;
-        }
+        }*/
     }
 
     private void ResetDicePosition()

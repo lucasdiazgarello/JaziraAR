@@ -17,13 +17,14 @@ public class DiceScript : MonoBehaviour
     // Método público para lanzar el dado
     public void RollDice(Vector3 initialPosition)
     {
+        Debug.Log("entro a RollDice");
         DiceNumberTextScript.diceNumber = 0;
         float dirX = Random.Range(0, 500);
         float dirY = Random.Range(0, 500);
         float dirZ = Random.Range(0, 500);
         transform.position = initialPosition;
         transform.rotation = Quaternion.identity;
-        rb.AddForce(transform.up * 500);
+        rb.AddForce(transform.up * 1000);
         rb.AddTorque(dirX, dirY, dirZ);
     }
     /*

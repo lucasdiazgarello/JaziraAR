@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3773205482293043488}
   - component: {fileID: -1328597155744272058}
   - component: {fileID: -1470590610312569609}
-  - component: {fileID: 3610754220004074477}
+  - component: {fileID: -5465179441305599979}
   m_Layer: 0
   m_Name: DadoCube
   m_TagString: Untagged
@@ -186,7 +186,7 @@ MonoBehaviour:
   SceneMigrationSynchronization: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &3610754220004074477
+--- !u!114 &-5465179441305599979
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
