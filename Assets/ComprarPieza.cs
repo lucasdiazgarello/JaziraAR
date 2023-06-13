@@ -22,7 +22,11 @@ public class ComprarPieza : MonoBehaviour
     public Button comprarCaminoButton;
     public Button comprarCasaButton;
 
-        // Start is called before the first frame update
+    public DiceCheckZoneScript diceCheckZoneScript;
+
+    public DiceNumberTextScript diceNumberTextScript;
+
+    // Start is called before the first frame update
     void Start()
     {
         // inicializar contadores de recursos
@@ -43,23 +47,64 @@ public class ComprarPieza : MonoBehaviour
     }
 
     // método para incrementar los recursos cuando se lanza el dado
-    public void IncrementarRecursos(string tipoRecurso, int cantidad)
+    /*public void IncrementarRecursos(int numeroDado)
     {
-        if (tipoRecurso == "Madera")
+        int resultadoDado = DiceNumberTextScript.diceNumber;
+        // Obtener el tipo de recurso correspondiente al número del dado
+        string tipoRecurso = ObtenerTipoRecurso(numeroDado);
+
+        // Incrementar la cantidad del recurso correspondiente
+        switch (tipoRecurso)
         {
-            maderaCount += cantidad;
-        }
-        else if (tipoRecurso == "Ladrillo")
-        {
-            ladrilloCount += cantidad;
+            case "Madera":
+                maderaCount += 1;
+                break;
+            case "Ladrillo":
+                ladrilloCount += 1;
+                break;
+            case "Oveja":
+                ovejaCount += 1;
+                break;
+            case "Piedra":
+                piedraCount += 1;
+                break;
+            case "Trigo":
+                trigoCount += 1;
+                break;
         }
 
-        // actualizar el texto en la interfaz de usuario
+        // Verificar si el jugador tiene una casa en la esquina correspondiente a la parcela del número del dado
+        bool tieneCasa = VerificarCasaEnEsquina(numeroDado);
+
+        // Incrementar el recurso correspondiente si tiene una casa
+        if (tieneCasa)
+        {
+            switch (tipoRecurso)
+            {
+                case "Madera":
+                    maderaCount += 1;
+                    break;
+                case "Ladrillo":
+                    ladrilloCount += 1;
+                    break;
+                case "Oveja":
+                    ovejaCount += 1;
+                    break;
+                case "Piedra":
+                    piedraCount += 1;
+                    break;
+                case "Trigo":
+                    trigoCount += 1;
+                    break;
+            }
+        }
+
+        // Actualizar el texto en la interfaz de usuario
         UpdateResourceCount();
 
-        // actualizar estado del botón
+        // Actualizar estado del botón
         UpdateComprarCaminoButton();
-    }
+    }*/
 
     // método para actualizar el texto de los contadores de recursos
     void UpdateResourceCount()

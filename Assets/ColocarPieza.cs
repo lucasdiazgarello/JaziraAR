@@ -14,6 +14,9 @@ public class ColocarPieza : MonoBehaviour
     private ARCursor arCursor;
     private bool _isTouching;
 
+    // Agrega esta propiedad para almacenar el identificador de la parcela
+    public string identificadorParcela;
+
     void Start()
     {
         arCursor = GetComponentInParent<ARCursor>();
@@ -32,7 +35,6 @@ public class ColocarPieza : MonoBehaviour
 
             if (results.Count > 0)  // Si hay algún resultado, el toque está sobre un elemento de la interfaz de usuario
             {
-                //Debug.Log("El toque está sobre un elemento de la interfaz de usuario"); // esto sigue sin funcionar pero por ahora no afecta
                 return;
             }
 
@@ -40,20 +42,28 @@ public class ColocarPieza : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
             {
-                //Debug.Log("Raycast ha golpeado algo.");
-
                 if (hit.collider.gameObject.CompareTag("Arista"))
                 {
-                    //Debug.Log("El objeto golpeado es una arista.");
-                    //Instantiate(prefabCamino, hit.collider.gameObject.transform.position, Quaternion.identity);
-                    //Para que el camino siga la direccion del collider
+                    // El objeto golpeado es una arista.
                     GameObject camino = Instantiate(prefabCamino, hit.collider.gameObject.transform.position, Quaternion.identity);
                     camino.transform.rotation = hit.collider.transform.rotation;
+
+                    // Obtener el identificador de la parcela
+                    identificadorParcela = hit.collider.gameObject.GetComponent<ColocarPieza>().identificadorParcela;
+
+                    // Llamar al método en ComprarPieza para verificar si hay una casa colocada en esta parcela
+                    //FindObjectOfType<ComprarPieza>().VerificarCasaEnEsquina(hit.collider);
                 }
                 else if (hit.collider.gameObject.CompareTag("Esquina"))
                 {
-                    //Debug.Log("El objeto golpeado es una esquina.");
+                    // El objeto golpeado es una esquina.
                     Instantiate(prefabCasa, hit.collider.gameObject.transform.position, Quaternion.identity);
+
+                    // Obtener el identificador de la parcela
+                    identificadorParcela = hit.collider.gameObject.GetComponent<ColocarPieza>().identificadorParcela;
+
+                    // Llamar al método en ComprarPieza para verificar si hay una casa colocada en esta parcela
+                    //FindObjectOfType<ComprarPieza>().VerificarCasaEnEsquina(hit.collider);
                 }
             }
         }
