@@ -116,6 +116,12 @@ public class ARCursor : NetworkBehaviour
         // Crear un nuevo dado y guardar su posición inicial
         currentDado = Instantiate(dadoToPlace, tableromInstance.transform.position + Vector3.up * dadoDistance, Quaternion.identity);
         initialDadoPosition = currentDado.transform.position;
+
+        Rigidbody rb = currentDado.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.isKinematic = false;
+        }
     }
 
     private void ResetDicePosition()
