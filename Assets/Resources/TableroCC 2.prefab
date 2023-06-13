@@ -1,5 +1,90 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &40309443272671644
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3193192221957679991}
+  - component: {fileID: 2345315037954383477}
+  - component: {fileID: 8368692331992175862}
+  - component: {fileID: 8321651285498236269}
+  m_Layer: 3
+  m_Name: Empty camino 3 rotado (6)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3193192221957679991
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40309443272671644}
+  m_LocalRotation: {x: 0, y: 0.5, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 16.12001, y: 1.436, z: 14.630007}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 118
+  m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
+--- !u!114 &2345315037954383477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40309443272671644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &8368692331992175862
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40309443272671644}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &8321651285498236269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40309443272671644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &125893183354519858
 GameObject:
   m_ObjectHideFlags: 0
@@ -30,7 +115,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3813611934402495106}
-  m_RootOrder: 94
+  m_RootOrder: 160
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2883326314502427362
 MonoBehaviour:
@@ -45,6 +130,346 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   diceVelocity: {x: 0, y: 0, z: 0}
+--- !u!1 &367015613337687272
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6426685995902063678}
+  - component: {fileID: 5090057717677403182}
+  - component: {fileID: 8965297634370420901}
+  - component: {fileID: 1734356303928389678}
+  m_Layer: 3
+  m_Name: Empty camino rot der (21)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6426685995902063678
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367015613337687272}
+  m_LocalRotation: {x: -0, y: 0.86309624, z: -0, w: 0.5050396}
+  m_LocalPosition: {x: -3.1691, y: 1.4360046, z: 14.612}
+  m_LocalScale: {x: 0.6, y: 0.7, z: 0.6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 156
+  m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
+--- !u!114 &5090057717677403182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367015613337687272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &8965297634370420901
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367015613337687272}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &1734356303928389678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367015613337687272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &374372275092392794
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8918868981283619855}
+  - component: {fileID: 451108879814986603}
+  - component: {fileID: 1326678333395282388}
+  - component: {fileID: 6495055328418854036}
+  m_Layer: 3
+  m_Name: Empty camino rot der (11)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8918868981283619855
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374372275092392794}
+  m_LocalRotation: {x: -0, y: 0.86309624, z: -0, w: 0.5050396}
+  m_LocalPosition: {x: 8.28, y: 1.4360046, z: 7.93}
+  m_LocalScale: {x: 0.6, y: 0.7, z: 0.6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 146
+  m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
+--- !u!114 &451108879814986603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374372275092392794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &1326678333395282388
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374372275092392794}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &6495055328418854036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374372275092392794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &550828575393553520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6836960495781721735}
+  - component: {fileID: 9118596642568885480}
+  - component: {fileID: 5965225512426401455}
+  - component: {fileID: 4139942451314479211}
+  m_Layer: 3
+  m_Name: Empty camino rot der
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6836960495781721735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550828575393553520}
+  m_LocalRotation: {x: -0, y: 0.86309624, z: -0, w: 0.5050396}
+  m_LocalPosition: {x: 12.28, y: 1.4360046, z: 1.08}
+  m_LocalScale: {x: 0.6, y: 0.7, z: 0.6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 135
+  m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
+--- !u!114 &9118596642568885480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550828575393553520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &5965225512426401455
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550828575393553520}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &4139942451314479211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550828575393553520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &553374201488780511
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7990612769844890246}
+  - component: {fileID: 926824714594551610}
+  - component: {fileID: 1621766478347865705}
+  - component: {fileID: 7767387727090079848}
+  m_Layer: 3
+  m_Name: Empty camino 3 rotado (5)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7990612769844890246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553374201488780511}
+  m_LocalRotation: {x: 0, y: 0.5, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 4.480049, y: 1.436, z: -5.6800103}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 117
+  m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
+--- !u!114 &926824714594551610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553374201488780511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &1621766478347865705
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553374201488780511}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &7767387727090079848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553374201488780511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &564485439893476390
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,6 +543,176 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 564485439893476390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &605201819428216734
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5487028681643639214}
+  - component: {fileID: 702487409184054933}
+  - component: {fileID: 4747599580141442953}
+  - component: {fileID: 8840752975131634952}
+  m_Layer: 3
+  m_Name: Empty camino rot der (5)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5487028681643639214
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605201819428216734}
+  m_LocalRotation: {x: -0, y: 0.86309624, z: -0, w: 0.5050396}
+  m_LocalPosition: {x: 0.66, y: 1.4360046, z: -5.63}
+  m_LocalScale: {x: 0.6, y: 0.7, z: 0.6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 140
+  m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
+--- !u!114 &702487409184054933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605201819428216734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &4747599580141442953
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605201819428216734}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &8840752975131634952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605201819428216734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &646899990204383702
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3575393449594283728}
+  - component: {fileID: 8499191415719515734}
+  - component: {fileID: 2239680829754532109}
+  - component: {fileID: 5140386953663650921}
+  m_Layer: 3
+  m_Name: Empty camino 3 rotado (13)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3575393449594283728
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646899990204383702}
+  m_LocalRotation: {x: 0, y: 0.5, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 12.130043, y: 1.436, z: 21.549986}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 125
+  m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
+--- !u!114 &8499191415719515734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646899990204383702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &2239680829754532109
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646899990204383702}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &5140386953663650921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646899990204383702}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
@@ -470,6 +1065,261 @@ MonoBehaviour:
   SceneMigrationSynchronization: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!1 &1128814936663083073
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1829389165291890230}
+  - component: {fileID: 289767340572971613}
+  - component: {fileID: 7593888786245658833}
+  - component: {fileID: 4682208040571254623}
+  m_Layer: 3
+  m_Name: Empty camino rot der (1)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1829389165291890230
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128814936663083073}
+  m_LocalRotation: {x: -0, y: 0.86309624, z: -0, w: 0.5050396}
+  m_LocalPosition: {x: 8.43, y: 1.4360046, z: -5.7}
+  m_LocalScale: {x: 0.6, y: 0.7, z: 0.6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 136
+  m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
+--- !u!114 &289767340572971613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128814936663083073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &7593888786245658833
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128814936663083073}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &4682208040571254623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128814936663083073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &1258638560815388781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3032436705363128409}
+  - component: {fileID: 6806333657744133685}
+  - component: {fileID: 8467704301161506403}
+  - component: {fileID: 5542070191129486007}
+  m_Layer: 3
+  m_Name: Empty camino1 (17)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3032436705363128409
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258638560815388781}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.020073, y: 1.4360046, z: 17.809988}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 106
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6806333657744133685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258638560815388781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &8467704301161506403
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258638560815388781}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &5542070191129486007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258638560815388781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &1427642908995670599
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7091981290336449370}
+  - component: {fileID: 1150375300648949614}
+  - component: {fileID: 971817316532721381}
+  - component: {fileID: 7705333044641977984}
+  m_Layer: 3
+  m_Name: Empty camino1 (9)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7091981290336449370
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427642908995670599}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.3100219, y: 1.4360046, z: 11.260004}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 98
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1150375300648949614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427642908995670599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &971817316532721381
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427642908995670599}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &7705333044641977984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427642908995670599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &1621098262832640271
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,7 +1347,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1621098262832640271}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.459961, y: 1.4360046, z: -2.55}
+  m_LocalPosition: {x: -1.16, y: 1.4360046, z: -2.17}
   m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -543,6 +1393,91 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1621098262832640271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &1692725761349141327
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6450489015407948739}
+  - component: {fileID: 3413527465134531515}
+  - component: {fileID: 3059708826200840017}
+  - component: {fileID: 3501377903578310388}
+  m_Layer: 3
+  m_Name: Empty camino1 (11)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6450489015407948739
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692725761349141327}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.379978, y: 1.4360046, z: 11.260013}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 100
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3413527465134531515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692725761349141327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &3059708826200840017
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692725761349141327}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &3501377903578310388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692725761349141327}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
@@ -628,6 +1563,91 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1845096009335851830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &1891984961564945978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7708260941168677468}
+  - component: {fileID: 8486017077563295598}
+  - component: {fileID: 1812369604261074823}
+  - component: {fileID: 3007405167689213246}
+  m_Layer: 3
+  m_Name: Empty camino rot der (9)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7708260941168677468
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891984961564945978}
+  m_LocalRotation: {x: -0, y: 0.86309624, z: -0, w: 0.5050396}
+  m_LocalPosition: {x: 23.880087, y: 1.4360046, z: 7.97999}
+  m_LocalScale: {x: 0.6, y: 0.7, z: 0.6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 144
+  m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
+--- !u!114 &8486017077563295598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891984961564945978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &1812369604261074823
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891984961564945978}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &3007405167689213246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891984961564945978}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
@@ -980,6 +2000,91 @@ MonoBehaviour:
   SceneMigrationSynchronization: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!1 &2205052433765858695
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8850272984763890221}
+  - component: {fileID: 6882148450262927039}
+  - component: {fileID: 915672277269339068}
+  - component: {fileID: 8965547819183894449}
+  m_Layer: 3
+  m_Name: Empty camino rot der (6)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8850272984763890221
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2205052433765858695}
+  m_LocalRotation: {x: -0, y: 0.86309624, z: -0, w: 0.5050396}
+  m_LocalPosition: {x: 19.900085, y: 1.4360046, z: 14.63999}
+  m_LocalScale: {x: 0.6, y: 0.7, z: 0.6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 141
+  m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
+--- !u!114 &6882148450262927039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2205052433765858695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &915672277269339068
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2205052433765858695}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &8965547819183894449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2205052433765858695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &2285971444720211298
 GameObject:
   m_ObjectHideFlags: 0
@@ -1223,6 +2328,176 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2354297137774688703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &2375805832538510310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5968739891858643217}
+  - component: {fileID: 3934610709613818830}
+  - component: {fileID: 8079146254609961781}
+  - component: {fileID: 4634426842133718447}
+  m_Layer: 3
+  m_Name: Empty camino 3 rotado (19)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5968739891858643217
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2375805832538510310}
+  m_LocalRotation: {x: 0, y: 0.5, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: -3.4, y: 1.436, z: 21.1}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 131
+  m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
+--- !u!114 &3934610709613818830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2375805832538510310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &8079146254609961781
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2375805832538510310}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &4634426842133718447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2375805832538510310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &2657191830858207537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3857626648368743546}
+  - component: {fileID: 2392403162013326606}
+  - component: {fileID: 7669757612694569097}
+  - component: {fileID: 2250833682569499787}
+  m_Layer: 3
+  m_Name: Empty camino rot der (3)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3857626648368743546
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657191830858207537}
+  m_LocalRotation: {x: -0, y: 0.86309624, z: -0, w: 0.5050396}
+  m_LocalPosition: {x: 16.26, y: 1.4360046, z: -5.58}
+  m_LocalScale: {x: 0.6, y: 0.7, z: 0.6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 138
+  m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
+--- !u!114 &2392403162013326606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657191830858207537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &7669757612694569097
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657191830858207537}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &2250833682569499787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657191830858207537}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
@@ -1490,6 +2765,261 @@ MonoBehaviour:
   SceneMigrationSynchronization: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!1 &2827913348214072776
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8380886668063960057}
+  - component: {fileID: 111484672719600548}
+  - component: {fileID: 1781061531889940298}
+  - component: {fileID: 4184239111099182256}
+  m_Layer: 3
+  m_Name: Empty camino rot der (13)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8380886668063960057
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2827913348214072776}
+  m_LocalRotation: {x: -0, y: 0.86309624, z: -0, w: 0.5050396}
+  m_LocalPosition: {x: 8.290077, y: 1.4360046, z: 21.440006}
+  m_LocalScale: {x: 0.6, y: 0.7, z: 0.6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 148
+  m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
+--- !u!114 &111484672719600548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2827913348214072776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &1781061531889940298
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2827913348214072776}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &4184239111099182256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2827913348214072776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &3008435956550894517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2328324244737235060}
+  - component: {fileID: 2374436419325606359}
+  - component: {fileID: 955544246512177673}
+  - component: {fileID: 5278989278863515065}
+  m_Layer: 3
+  m_Name: Empty camino1 (18)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2328324244737235060
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3008435956550894517}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25.71, y: 1.4360046, z: 17.81}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 107
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2374436419325606359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3008435956550894517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &955544246512177673
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3008435956550894517}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &5278989278863515065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3008435956550894517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &3043064249212818660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6060277239719033626}
+  - component: {fileID: 182398765545804916}
+  - component: {fileID: 8952768183919588620}
+  - component: {fileID: 8947832007438110280}
+  m_Layer: 3
+  m_Name: Empty camino1 (16)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6060277239719033626
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3043064249212818660}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.36005, y: 1.4360046, z: 17.810001}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 105
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &182398765545804916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3043064249212818660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &8952768183919588620
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3043064249212818660}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &8947832007438110280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3043064249212818660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &3107751785235312378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1563,6 +3093,91 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3107751785235312378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &3213034466417022359
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 245992527839617970}
+  - component: {fileID: 911104697200196555}
+  - component: {fileID: 6443691557947094456}
+  - component: {fileID: 6500634499716877516}
+  m_Layer: 3
+  m_Name: Empty camino 3 rotado (4)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &245992527839617970
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3213034466417022359}
+  m_LocalRotation: {x: 0, y: 0.5, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 0.63, y: 1.436, z: 0.98}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 116
+  m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
+--- !u!114 &911104697200196555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3213034466417022359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &6443691557947094456
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3213034466417022359}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &6500634499716877516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3213034466417022359}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
@@ -1830,6 +3445,176 @@ MonoBehaviour:
   SceneMigrationSynchronization: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!1 &3448675845861815441
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7481028383529279492}
+  - component: {fileID: 8408572726103918307}
+  - component: {fileID: 8057662367259814981}
+  - component: {fileID: 3368927319001718761}
+  m_Layer: 3
+  m_Name: Empty camino1 (4)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7481028383529279492
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3448675845861815441}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.1, y: 1.4360046, z: 4.199991}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 93
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8408572726103918307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3448675845861815441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &8057662367259814981
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3448675845861815441}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &3368927319001718761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3448675845861815441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &3519028763029308482
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8282326930219153022}
+  - component: {fileID: 2115339236715346601}
+  - component: {fileID: 8122564258893595527}
+  - component: {fileID: 4661884594085438875}
+  m_Layer: 3
+  m_Name: Empty camino1 (10)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8282326930219153022
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3519028763029308482}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.379978, y: 1.4360046, z: 11.260004}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 99
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2115339236715346601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3519028763029308482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &8122564258893595527
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3519028763029308482}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &4661884594085438875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3519028763029308482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &3532364739421879623
 GameObject:
   m_ObjectHideFlags: 0
@@ -1862,7 +3647,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3813611934402495106}
-  m_RootOrder: 91
+  m_RootOrder: 112
   m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
 --- !u!114 &2209534290917023788
 MonoBehaviour:
@@ -2035,8 +3820,74 @@ Transform:
   - {fileID: 6429177481489566049}
   - {fileID: 9074807390145089167}
   - {fileID: 3793470607573573202}
-  - {fileID: 4540120422558166049}
+  - {fileID: 8487262730407896641}
+  - {fileID: 1088279915474270975}
+  - {fileID: 4225154118000687088}
+  - {fileID: 7481028383529279492}
+  - {fileID: 8574919383287494945}
+  - {fileID: 730450667658525945}
+  - {fileID: 2241488268098251475}
+  - {fileID: 3427457730726997906}
+  - {fileID: 7091981290336449370}
+  - {fileID: 8282326930219153022}
+  - {fileID: 6450489015407948739}
+  - {fileID: 2446680085670137887}
+  - {fileID: 4617011648911446515}
+  - {fileID: 2556983921509519275}
+  - {fileID: 6319603064878406405}
+  - {fileID: 6060277239719033626}
+  - {fileID: 3032436705363128409}
+  - {fileID: 2328324244737235060}
+  - {fileID: 5657109659653839990}
+  - {fileID: 878417180431849649}
+  - {fileID: 4959972282843614190}
+  - {fileID: 7652684158295047811}
   - {fileID: 3663108322576202054}
+  - {fileID: 4049639156636771924}
+  - {fileID: 6439611123773746882}
+  - {fileID: 3067725489440663873}
+  - {fileID: 245992527839617970}
+  - {fileID: 7990612769844890246}
+  - {fileID: 3193192221957679991}
+  - {fileID: 3782647293112679084}
+  - {fileID: 1182179959248180198}
+  - {fileID: 7480058551365831857}
+  - {fileID: 4588137906253381363}
+  - {fileID: 7675601220177995148}
+  - {fileID: 7113576876714183184}
+  - {fileID: 3575393449594283728}
+  - {fileID: 4680914878978056427}
+  - {fileID: 5171467052557060186}
+  - {fileID: 2628605132906193954}
+  - {fileID: 7791750699144496694}
+  - {fileID: 8521197365445143391}
+  - {fileID: 5968739891858643217}
+  - {fileID: 8111078936773467005}
+  - {fileID: 7047102319954459563}
+  - {fileID: 4238486190659474845}
+  - {fileID: 6836960495781721735}
+  - {fileID: 1829389165291890230}
+  - {fileID: 7323799788535404590}
+  - {fileID: 3857626648368743546}
+  - {fileID: 3335354535950631533}
+  - {fileID: 5487028681643639214}
+  - {fileID: 8850272984763890221}
+  - {fileID: 310212685174417812}
+  - {fileID: 6845430983617361513}
+  - {fileID: 7708260941168677468}
+  - {fileID: 7199758002397878103}
+  - {fileID: 8918868981283619855}
+  - {fileID: 8163609600120529959}
+  - {fileID: 8380886668063960057}
+  - {fileID: 8304687398746220164}
+  - {fileID: 9066216144503071917}
+  - {fileID: 8313505608460143214}
+  - {fileID: 5499647563557223182}
+  - {fileID: 9075552361647847040}
+  - {fileID: 4569363881847570857}
+  - {fileID: 213025343225563273}
+  - {fileID: 6426685995902063678}
+  - {fileID: 6043622137952979394}
   - {fileID: 5542043576259103964}
   - {fileID: 9176855522881910974}
   - {fileID: 7241462302247890279}
@@ -2166,6 +4017,91 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3834383890058580084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &3859090290296224921
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4680914878978056427}
+  - component: {fileID: 7883767421996456627}
+  - component: {fileID: 2910889638422345707}
+  - component: {fileID: 3882496316466303257}
+  m_Layer: 3
+  m_Name: Empty camino 3 rotado (14)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4680914878978056427
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3859090290296224921}
+  m_LocalRotation: {x: 0, y: 0.5, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 15.810043, y: 1.436, z: 28.139984}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 126
+  m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
+--- !u!114 &7883767421996456627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3859090290296224921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &2910889638422345707
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3859090290296224921}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &3882496316466303257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3859090290296224921}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
@@ -2348,6 +4284,261 @@ MonoBehaviour:
   SceneMigrationSynchronization: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!1 &4307976342414217429
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3427457730726997906}
+  - component: {fileID: 8759988564135323824}
+  - component: {fileID: 6974240479582360567}
+  - component: {fileID: 3392480931266997908}
+  m_Layer: 3
+  m_Name: Empty camino1 (8)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3427457730726997906
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4307976342414217429}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25.94, y: 1.4360046, z: 4.199991}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 97
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8759988564135323824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4307976342414217429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &6974240479582360567
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4307976342414217429}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &3392480931266997908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4307976342414217429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &4328442058161481545
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6439611123773746882}
+  - component: {fileID: 7325344612375150798}
+  - component: {fileID: 4343534693461011134}
+  - component: {fileID: 5372633531843851028}
+  m_Layer: 3
+  m_Name: Empty camino 3 rotado (2)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6439611123773746882
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4328442058161481545}
+  m_LocalRotation: {x: 0, y: 0.5, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 15.89, y: 1.436, z: 1.03}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 114
+  m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
+--- !u!114 &7325344612375150798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4328442058161481545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &4343534693461011134
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4328442058161481545}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &5372633531843851028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4328442058161481545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &4348364879023752490
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7480058551365831857}
+  - component: {fileID: 7681406205581302227}
+  - component: {fileID: 1222202081264929274}
+  - component: {fileID: 7279514484246377384}
+  m_Layer: 3
+  m_Name: Empty camino 3 rotado (9)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7480058551365831857
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4348364879023752490}
+  m_LocalRotation: {x: 0, y: 0.5, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 27.5, y: 1.436, z: 7.9}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 121
+  m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
+--- !u!114 &7681406205581302227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4348364879023752490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &1222202081264929274
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4348364879023752490}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &7279514484246377384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4348364879023752490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &4448206755247977223
 GameObject:
   m_ObjectHideFlags: 0
@@ -2421,6 +4612,516 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4448206755247977223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &4484842182914184130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8487262730407896641}
+  - component: {fileID: 3879792402670458969}
+  - component: {fileID: 7500437835668088533}
+  - component: {fileID: 9073663020331160517}
+  m_Layer: 3
+  m_Name: Empty camino1 (1)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8487262730407896641
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4484842182914184130}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.61, y: 1.4360046, z: -2.17}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 90
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3879792402670458969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4484842182914184130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &7500437835668088533
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4484842182914184130}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &9073663020331160517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4484842182914184130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &4541403406506183684
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8163609600120529959}
+  - component: {fileID: 3593513011419987928}
+  - component: {fileID: 5422292476175898907}
+  - component: {fileID: 751581234444294604}
+  m_Layer: 3
+  m_Name: Empty camino rot der (12)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8163609600120529959
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4541403406506183684}
+  m_LocalRotation: {x: -0, y: 0.86309624, z: -0, w: 0.5050396}
+  m_LocalPosition: {x: 12.140076, y: 1.4360046, z: 28.220007}
+  m_LocalScale: {x: 0.6, y: 0.7, z: 0.6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 147
+  m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
+--- !u!114 &3593513011419987928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4541403406506183684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &5422292476175898907
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4541403406506183684}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &751581234444294604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4541403406506183684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &4566873353667952160
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8313505608460143214}
+  - component: {fileID: 8069627567615591013}
+  - component: {fileID: 1348807662148434478}
+  - component: {fileID: 2542541527356402794}
+  m_Layer: 3
+  m_Name: Empty camino rot der (16)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8313505608460143214
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4566873353667952160}
+  m_LocalRotation: {x: -0, y: 0.86309624, z: -0, w: 0.5050396}
+  m_LocalPosition: {x: 4.369995, y: 1.4360046, z: 28.290007}
+  m_LocalScale: {x: 0.6, y: 0.7, z: 0.6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 151
+  m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
+--- !u!114 &8069627567615591013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4566873353667952160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &1348807662148434478
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4566873353667952160}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &2542541527356402794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4566873353667952160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &4651968975579439623
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7323799788535404590}
+  - component: {fileID: 8783614897910575831}
+  - component: {fileID: 3926362042874263856}
+  - component: {fileID: 9038807183858946317}
+  m_Layer: 3
+  m_Name: Empty camino rot der (2)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7323799788535404590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4651968975579439623}
+  m_LocalRotation: {x: -0, y: 0.86309624, z: -0, w: 0.5050396}
+  m_LocalPosition: {x: 19.809906, y: 1.4360046, z: 1.119997}
+  m_LocalScale: {x: 0.6, y: 0.7, z: 0.6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 137
+  m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
+--- !u!114 &8783614897910575831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4651968975579439623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &3926362042874263856
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4651968975579439623}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &9038807183858946317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4651968975579439623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &4656861639536846388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 730450667658525945}
+  - component: {fileID: 6390457153541895883}
+  - component: {fileID: 6894581548229876251}
+  - component: {fileID: 4183641500090662883}
+  m_Layer: 3
+  m_Name: Empty camino1 (6)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &730450667658525945
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4656861639536846388}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.59, y: 1.4360046, z: 4.2}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 95
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6390457153541895883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4656861639536846388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &6894581548229876251
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4656861639536846388}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &4183641500090662883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4656861639536846388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &4738710183628433495
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7113576876714183184}
+  - component: {fileID: 4133632338663713690}
+  - component: {fileID: 3207620609375774137}
+  - component: {fileID: 4755013551280915199}
+  m_Layer: 3
+  m_Name: Empty camino 3 rotado (12)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7113576876714183184
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4738710183628433495}
+  m_LocalRotation: {x: 0, y: 0.5, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 8.28, y: 1.436, z: 28.21}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 124
+  m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
+--- !u!114 &4133632338663713690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4738710183628433495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &3207620609375774137
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4738710183628433495}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &4755013551280915199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4738710183628433495}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
@@ -2518,6 +5219,91 @@ MonoBehaviour:
   SceneMigrationSynchronization: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!1 &4808266866897648660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4049639156636771924}
+  - component: {fileID: 8528397261510668444}
+  - component: {fileID: 1907717898541149199}
+  - component: {fileID: 1975071816017353659}
+  m_Layer: 3
+  m_Name: Empty camino 3 rotado (1)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4049639156636771924
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4808266866897648660}
+  m_LocalRotation: {x: 0, y: 0.5, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 12.21, y: 1.436, z: -5.56}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 113
+  m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
+--- !u!114 &8528397261510668444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4808266866897648660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &1907717898541149199
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4808266866897648660}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &1975071816017353659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4808266866897648660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &4882941456573497798
 GameObject:
   m_ObjectHideFlags: 0
@@ -2603,6 +5389,261 @@ MonoBehaviour:
   SceneMigrationSynchronization: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!1 &4928915421752753938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7199758002397878103}
+  - component: {fileID: 2673852442339047935}
+  - component: {fileID: 1864452271183755317}
+  - component: {fileID: 2451079015761530078}
+  m_Layer: 3
+  m_Name: Empty camino rot der (10)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7199758002397878103
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4928915421752753938}
+  m_LocalRotation: {x: -0, y: 0.86309624, z: -0, w: 0.5050396}
+  m_LocalPosition: {x: 12.130005, y: 1.4360046, z: 14.70999}
+  m_LocalScale: {x: 0.6, y: 0.7, z: 0.6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 145
+  m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
+--- !u!114 &2673852442339047935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4928915421752753938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &1864452271183755317
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4928915421752753938}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &2451079015761530078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4928915421752753938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &4972711452808938766
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8111078936773467005}
+  - component: {fileID: 4769207457525879892}
+  - component: {fileID: 9196808272473493023}
+  - component: {fileID: 1999530618280701527}
+  m_Layer: 3
+  m_Name: Empty camino 3 rotado (20)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8111078936773467005
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4972711452808938766}
+  m_LocalRotation: {x: 0, y: 0.5, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: -3.2, y: 1.436, z: 7.9}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 132
+  m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
+--- !u!114 &4769207457525879892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4972711452808938766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &9196808272473493023
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4972711452808938766}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &1999530618280701527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4972711452808938766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &4998875608768423409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7047102319954459563}
+  - component: {fileID: 3874828811340889378}
+  - component: {fileID: 3644213264651356018}
+  - component: {fileID: 94324378759242659}
+  m_Layer: 3
+  m_Name: Empty camino 3 rotado (21)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7047102319954459563
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4998875608768423409}
+  m_LocalRotation: {x: 0, y: 0.5, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 4.5, y: 1.436, z: 7.8}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 133
+  m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
+--- !u!114 &3874828811340889378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4998875608768423409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &3644213264651356018
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4998875608768423409}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &94324378759242659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4998875608768423409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &5099286649915038797
 GameObject:
   m_ObjectHideFlags: 0
@@ -2676,6 +5717,91 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5099286649915038797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &5176199145140509413
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4569363881847570857}
+  - component: {fileID: 6365260171528051579}
+  - component: {fileID: 3487201533927293949}
+  - component: {fileID: 5106538150774234631}
+  m_Layer: 3
+  m_Name: Empty camino rot der (19)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4569363881847570857
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5176199145140509413}
+  m_LocalRotation: {x: -0, y: 0.86309624, z: -0, w: 0.5050396}
+  m_LocalPosition: {x: 0.65000486, y: 1.4360046, z: 8.019972}
+  m_LocalScale: {x: 0.6, y: 0.7, z: 0.6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 154
+  m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
+--- !u!114 &6365260171528051579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5176199145140509413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &3487201533927293949
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5176199145140509413}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &5106538150774234631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5176199145140509413}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
@@ -2858,6 +5984,176 @@ MonoBehaviour:
   SceneMigrationSynchronization: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!1 &5394680363007505527
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7652684158295047811}
+  - component: {fileID: 7322795763386318586}
+  - component: {fileID: 2016019436978022501}
+  - component: {fileID: 4179401920927701491}
+  m_Layer: 3
+  m_Name: Empty camino1 (22)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7652684158295047811
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5394680363007505527}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 22.03, y: 1.4360046, z: 24.78}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 111
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7322795763386318586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5394680363007505527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &2016019436978022501
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5394680363007505527}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &4179401920927701491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5394680363007505527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &5413618736461140207
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 878417180431849649}
+  - component: {fileID: 5157638355265262068}
+  - component: {fileID: 8620113345584839999}
+  - component: {fileID: 4944617643673419098}
+  m_Layer: 3
+  m_Name: Empty camino1 (20)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &878417180431849649
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5413618736461140207}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.37006, y: 1.4360046, z: 24.780016}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 109
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5157638355265262068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5413618736461140207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &8620113345584839999
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5413618736461140207}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &4944617643673419098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5413618736461140207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &5414789884261282120
 GameObject:
   m_ObjectHideFlags: 0
@@ -3016,6 +6312,91 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5422651255476900389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &5426560330763385130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2628605132906193954}
+  - component: {fileID: 3622800907311878320}
+  - component: {fileID: 7291817553034625182}
+  - component: {fileID: 4856324373221598597}
+  m_Layer: 3
+  m_Name: Empty camino 3 rotado (16)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2628605132906193954
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5426560330763385130}
+  m_LocalRotation: {x: 0, y: 0.5, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 0.55004406, y: 1.436, z: 28.089985}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 128
+  m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
+--- !u!114 &3622800907311878320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5426560330763385130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &7291817553034625182
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5426560330763385130}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &4856324373221598597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5426560330763385130}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
@@ -3397,7 +6778,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3813611934402495106}
-  m_RootOrder: 92
+  m_RootOrder: 158
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5542043578181707418
 GameObject:
@@ -3685,7 +7066,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3813611934402495106}
-  m_RootOrder: 93
+  m_RootOrder: 159
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8034381505179407908
 BoxCollider:
@@ -3798,6 +7179,431 @@ MonoBehaviour:
   SceneMigrationSynchronization: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!1 &5935733970590515086
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7675601220177995148}
+  - component: {fileID: 3099999276578806347}
+  - component: {fileID: 2810704076440149726}
+  - component: {fileID: 4375075043011921549}
+  m_Layer: 3
+  m_Name: Empty camino 3 rotado (11)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7675601220177995148
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5935733970590515086}
+  m_LocalRotation: {x: 0, y: 0.5, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 12.240059, y: 1.436, z: 7.849996}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 123
+  m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
+--- !u!114 &3099999276578806347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5935733970590515086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &2810704076440149726
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5935733970590515086}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &4375075043011921549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5935733970590515086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &5983126008444847202
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3067725489440663873}
+  - component: {fileID: 5996383593914569611}
+  - component: {fileID: 8677584871931811994}
+  - component: {fileID: 9181540907250477282}
+  m_Layer: 3
+  m_Name: Empty camino 3 rotado (3)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3067725489440663873
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5983126008444847202}
+  m_LocalRotation: {x: 0, y: 0.5, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 19.740059, y: 1.436, z: -5.6299996}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 115
+  m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
+--- !u!114 &5996383593914569611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5983126008444847202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &8677584871931811994
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5983126008444847202}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &9181540907250477282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5983126008444847202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &6061615402555412793
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8304687398746220164}
+  - component: {fileID: 5270507449540249949}
+  - component: {fileID: 2971837801876918105}
+  - component: {fileID: 6047817856127008269}
+  m_Layer: 3
+  m_Name: Empty camino rot der (14)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8304687398746220164
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6061615402555412793}
+  m_LocalRotation: {x: -0, y: 0.86309624, z: -0, w: 0.5050396}
+  m_LocalPosition: {x: 19.669983, y: 1.4360046, z: 28.260004}
+  m_LocalScale: {x: 0.6, y: 0.7, z: 0.6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 149
+  m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
+--- !u!114 &5270507449540249949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6061615402555412793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &2971837801876918105
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6061615402555412793}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &6047817856127008269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6061615402555412793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &6292121816971327513
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 310212685174417812}
+  - component: {fileID: 8064291407591947483}
+  - component: {fileID: 9132302825770781634}
+  - component: {fileID: 5258633163857666208}
+  m_Layer: 3
+  m_Name: Empty camino rot der (7)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &310212685174417812
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6292121816971327513}
+  m_LocalRotation: {x: -0, y: 0.86309624, z: -0, w: 0.5050396}
+  m_LocalPosition: {x: 16.050087, y: 1.4360046, z: 7.85999}
+  m_LocalScale: {x: 0.6, y: 0.7, z: 0.6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 142
+  m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
+--- !u!114 &8064291407591947483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6292121816971327513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &9132302825770781634
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6292121816971327513}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &5258633163857666208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6292121816971327513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &6295146946130744814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4238486190659474845}
+  - component: {fileID: 5950101324215599992}
+  - component: {fileID: 3751480713126871092}
+  - component: {fileID: 6772452219407426989}
+  m_Layer: 3
+  m_Name: Empty camino 3 rotado (22)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4238486190659474845
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6295146946130744814}
+  m_LocalRotation: {x: 0, y: 0.5, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 23.6, y: 1.436, z: 1.4}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 134
+  m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
+--- !u!114 &5950101324215599992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6295146946130744814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &3751480713126871092
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6295146946130744814}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &6772452219407426989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6295146946130744814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &6334532631096395206
 GameObject:
   m_ObjectHideFlags: 0
@@ -3883,91 +7689,6 @@ MonoBehaviour:
   SceneMigrationSynchronization: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!1 &6387267248331648763
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4540120422558166049}
-  - component: {fileID: 4162219387349803279}
-  - component: {fileID: 5652645970183922692}
-  - component: {fileID: 2435227182685185311}
-  m_Layer: 3
-  m_Name: Empty camino2
-  m_TagString: Arista
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4540120422558166049
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6387267248331648763}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.12, y: 1.4360046, z: -2.4699974}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3813611934402495106}
-  m_RootOrder: 90
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4162219387349803279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6387267248331648763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  myLayerMask:
-    serializedVersion: 2
-    m_Bits: 8
---- !u!65 &5652645970183922692
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6387267248331648763}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.44700623, z: 2.073021}
-  m_Center: {x: 0, y: -0.101890564, z: -0.38764954}
---- !u!114 &2435227182685185311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6387267248331648763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 951099334
-  AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
 --- !u!1 &6498111981832891040
 GameObject:
   m_ObjectHideFlags: 0
@@ -4000,7 +7721,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3813611934402495106}
-  m_RootOrder: 95
+  m_RootOrder: 161
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6295302337750570686
 MeshFilter:
@@ -4066,6 +7787,261 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &6546555347493329637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6845430983617361513}
+  - component: {fileID: 787169107648226475}
+  - component: {fileID: 6885711391940138977}
+  - component: {fileID: 630530955439200479}
+  m_Layer: 3
+  m_Name: Empty camino rot der (8)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6845430983617361513
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6546555347493329637}
+  m_LocalRotation: {x: -0, y: 0.86309624, z: -0, w: 0.5050396}
+  m_LocalPosition: {x: 27.429993, y: 1.4360046, z: 14.679987}
+  m_LocalScale: {x: 0.6, y: 0.7, z: 0.6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 143
+  m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
+--- !u!114 &787169107648226475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6546555347493329637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &6885711391940138977
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6546555347493329637}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &630530955439200479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6546555347493329637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &6603823159926692161
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4225154118000687088}
+  - component: {fileID: 2635141605727421718}
+  - component: {fileID: 191538337840580232}
+  - component: {fileID: 5790404130032012808}
+  m_Layer: 3
+  m_Name: Empty camino1 (3)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4225154118000687088
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6603823159926692161}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 21.89, y: 1.4360046, z: -2.17}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 92
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2635141605727421718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6603823159926692161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &191538337840580232
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6603823159926692161}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &5790404130032012808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6603823159926692161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &6640738610300954837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5171467052557060186}
+  - component: {fileID: 7122952587719909421}
+  - component: {fileID: 6068372612439092345}
+  - component: {fileID: 7326325428557213049}
+  m_Layer: 3
+  m_Name: Empty camino 3 rotado (15)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5171467052557060186
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6640738610300954837}
+  m_LocalRotation: {x: 0, y: 0.5, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 19.660034, y: 1.436, z: 21.479979}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 127
+  m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
+--- !u!114 &7122952587719909421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6640738610300954837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &6068372612439092345
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6640738610300954837}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &7326325428557213049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6640738610300954837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &6728453377176082093
 GameObject:
   m_ObjectHideFlags: 0
@@ -4139,6 +8115,431 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6728453377176082093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &6731925978690244303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5657109659653839990}
+  - component: {fileID: 9120962547446999607}
+  - component: {fileID: 8385218980812095597}
+  - component: {fileID: 2609845741374973885}
+  m_Layer: 3
+  m_Name: Empty camino1 (19)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5657109659653839990
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731925978690244303}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.3199401, y: 1.4360046, z: 24.780016}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 108
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9120962547446999607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731925978690244303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &8385218980812095597
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731925978690244303}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &2609845741374973885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731925978690244303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &6923386114804083070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8574919383287494945}
+  - component: {fileID: 924141399847514697}
+  - component: {fileID: 148533790221368480}
+  - component: {fileID: 7936056024455567775}
+  m_Layer: 3
+  m_Name: Empty camino1 (5)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8574919383287494945
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6923386114804083070}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.59, y: 1.4360046, z: 4.199991}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 94
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &924141399847514697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6923386114804083070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &148533790221368480
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6923386114804083070}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &7936056024455567775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6923386114804083070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &7188784746584503744
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 213025343225563273}
+  - component: {fileID: 4156109288690434528}
+  - component: {fileID: 7801270302195919552}
+  - component: {fileID: 1546233519664535358}
+  m_Layer: 3
+  m_Name: Empty camino rot der (20)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &213025343225563273
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7188784746584503744}
+  m_LocalRotation: {x: -0, y: 0.86309624, z: -0, w: 0.5050396}
+  m_LocalPosition: {x: -3.23, y: 1.4360046, z: 1.07}
+  m_LocalScale: {x: 0.6, y: 0.7, z: 0.6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 155
+  m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
+--- !u!114 &4156109288690434528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7188784746584503744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &7801270302195919552
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7188784746584503744}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &1546233519664535358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7188784746584503744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &7220803945695418609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2241488268098251475}
+  - component: {fileID: 8889556707286232755}
+  - component: {fileID: 3589293539626056365}
+  - component: {fileID: 1383457000992226099}
+  m_Layer: 3
+  m_Name: Empty camino1 (7)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2241488268098251475
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7220803945695418609}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.250015, y: 1.4360046, z: 4.199991}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 96
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8889556707286232755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7220803945695418609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &3589293539626056365
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7220803945695418609}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &1383457000992226099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7220803945695418609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &7243565477070230598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2556983921509519275}
+  - component: {fileID: 1668287659665501071}
+  - component: {fileID: 6621282596276179248}
+  - component: {fileID: 1482966117657577245}
+  m_Layer: 3
+  m_Name: Empty camino1 (14)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2556983921509519275
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7243565477070230598}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.32995, y: 1.4360046, z: 17.809992}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 103
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1668287659665501071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7243565477070230598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &6621282596276179248
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7243565477070230598}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &1482966117657577245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7243565477070230598}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
@@ -4309,6 +8710,176 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7323293414708470486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &7512583081904381808
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4959972282843614190}
+  - component: {fileID: 7413875682910113172}
+  - component: {fileID: 6241143881788439629}
+  - component: {fileID: 6881930077308325816}
+  m_Layer: 3
+  m_Name: Empty camino1 (21)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4959972282843614190
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7512583081904381808}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.37006, y: 1.4360046, z: 24.780025}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 110
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7413875682910113172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7512583081904381808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &6241143881788439629
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7512583081904381808}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &6881930077308325816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7512583081904381808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &7757648470032258337
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4617011648911446515}
+  - component: {fileID: 6310320706791923185}
+  - component: {fileID: 290319245675087914}
+  - component: {fileID: 1488125848844977571}
+  m_Layer: 3
+  m_Name: Empty camino1 (13)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4617011648911446515
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7757648470032258337}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 29.729979, y: 1.4360046, z: 11.260004}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 102
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6310320706791923185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7757648470032258337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &290319245675087914
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7757648470032258337}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &1488125848844977571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7757648470032258337}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
@@ -4576,6 +9147,176 @@ MonoBehaviour:
   SceneMigrationSynchronization: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!1 &8027196956710123832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2446680085670137887}
+  - component: {fileID: 8392280526462139747}
+  - component: {fileID: 3465459804019544993}
+  - component: {fileID: 8590185336049212588}
+  m_Layer: 3
+  m_Name: Empty camino1 (12)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2446680085670137887
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8027196956710123832}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 22.04, y: 1.4360046, z: 11.26}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 101
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8392280526462139747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8027196956710123832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &3465459804019544993
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8027196956710123832}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &8590185336049212588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8027196956710123832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &8059184430481691550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9075552361647847040}
+  - component: {fileID: 3508753452229564807}
+  - component: {fileID: 6899045425131664899}
+  - component: {fileID: 5947328348566639080}
+  m_Layer: 3
+  m_Name: Empty camino rot der (18)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9075552361647847040
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8059184430481691550}
+  m_LocalRotation: {x: -0, y: 0.86309624, z: -0, w: 0.5050396}
+  m_LocalPosition: {x: 4.5, y: 1.4360046, z: 14.8}
+  m_LocalScale: {x: 0.6, y: 0.7, z: 0.6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 153
+  m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
+--- !u!114 &3508753452229564807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8059184430481691550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &6899045425131664899
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8059184430481691550}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &5947328348566639080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8059184430481691550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &8304993116117883408
 GameObject:
   m_ObjectHideFlags: 0
@@ -4649,6 +9390,261 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8304993116117883408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &8341758705152609550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7791750699144496694}
+  - component: {fileID: 1462862093058396776}
+  - component: {fileID: 6250346599870497930}
+  - component: {fileID: 1540494277475065268}
+  m_Layer: 3
+  m_Name: Empty camino 3 rotado (17)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7791750699144496694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341758705152609550}
+  m_LocalRotation: {x: 0, y: 0.5, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 4.400093, y: 1.436, z: 21.429976}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 129
+  m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
+--- !u!114 &1462862093058396776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341758705152609550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &6250346599870497930
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341758705152609550}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &1540494277475065268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341758705152609550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &8368690255903581279
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3335354535950631533}
+  - component: {fileID: 280076855037083989}
+  - component: {fileID: 872229848287519656}
+  - component: {fileID: 7390481958559932481}
+  m_Layer: 3
+  m_Name: Empty camino rot der (4)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3335354535950631533
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8368690255903581279}
+  m_LocalRotation: {x: -0, y: 0.86309624, z: -0, w: 0.5050396}
+  m_LocalPosition: {x: 4.509918, y: 1.4360046, z: 1.1499996}
+  m_LocalScale: {x: 0.6, y: 0.7, z: 0.6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 139
+  m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
+--- !u!114 &280076855037083989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8368690255903581279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &872229848287519656
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8368690255903581279}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &7390481958559932481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8368690255903581279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &8443583287706422816
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8521197365445143391}
+  - component: {fileID: 6124234880536373276}
+  - component: {fileID: 7182770462461758548}
+  - component: {fileID: 5174240631712064797}
+  m_Layer: 3
+  m_Name: Empty camino 3 rotado (18)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8521197365445143391
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8443583287706422816}
+  m_LocalRotation: {x: 0, y: 0.5, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 0.4, y: 1.436, z: 14.6}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 130
+  m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
+--- !u!114 &6124234880536373276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8443583287706422816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &7182770462461758548
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8443583287706422816}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &5174240631712064797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8443583287706422816}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
@@ -4746,6 +9742,261 @@ MonoBehaviour:
   SceneMigrationSynchronization: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!1 &8603102847509814968
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6319603064878406405}
+  - component: {fileID: 7988945888191963144}
+  - component: {fileID: 678357250760598600}
+  - component: {fileID: 5753639031042399845}
+  m_Layer: 3
+  m_Name: Empty camino1 (15)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6319603064878406405
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8603102847509814968}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.3600502, y: 1.4360046, z: 17.809992}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 104
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7988945888191963144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8603102847509814968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &678357250760598600
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8603102847509814968}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &5753639031042399845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8603102847509814968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &8662980578059517918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1088279915474270975}
+  - component: {fileID: 159838477932946728}
+  - component: {fileID: 8007681052292546212}
+  - component: {fileID: 2913580671502526127}
+  m_Layer: 3
+  m_Name: Empty camino1 (2)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1088279915474270975
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8662980578059517918}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.23, y: 1.4360046, z: -2.17}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 91
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &159838477932946728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8662980578059517918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &8007681052292546212
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8662980578059517918}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &2913580671502526127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8662980578059517918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &8685762543565420160
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3782647293112679084}
+  - component: {fileID: 5802967980856138757}
+  - component: {fileID: 6095513120443157319}
+  - component: {fileID: 2981622415300930967}
+  m_Layer: 3
+  m_Name: Empty camino 3 rotado (7)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3782647293112679084
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8685762543565420160}
+  m_LocalRotation: {x: 0, y: 0.5, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 19.970009, y: 1.436, z: 7.970007}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 119
+  m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
+--- !u!114 &5802967980856138757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8685762543565420160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &6095513120443157319
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8685762543565420160}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &2981622415300930967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8685762543565420160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &8734513454878182557
 GameObject:
   m_ObjectHideFlags: 0
@@ -4831,6 +10082,261 @@ MonoBehaviour:
   SceneMigrationSynchronization: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!1 &8768709769551551937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5499647563557223182}
+  - component: {fileID: 7773106060272334440}
+  - component: {fileID: 7646826812334889470}
+  - component: {fileID: 4006447317641148086}
+  m_Layer: 3
+  m_Name: Empty camino rot der (17)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5499647563557223182
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8768709769551551937}
+  m_LocalRotation: {x: -0, y: 0.86309624, z: -0, w: 0.5050396}
+  m_LocalPosition: {x: 0.52, y: 1.4360046, z: 21.51}
+  m_LocalScale: {x: 0.6, y: 0.7, z: 0.6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 152
+  m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
+--- !u!114 &7773106060272334440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8768709769551551937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &7646826812334889470
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8768709769551551937}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &4006447317641148086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8768709769551551937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &8894791944645104777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6043622137952979394}
+  - component: {fileID: 2296847091276362411}
+  - component: {fileID: 796760431396941854}
+  - component: {fileID: 841569320128831202}
+  m_Layer: 3
+  m_Name: Empty camino rot der (22)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6043622137952979394
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8894791944645104777}
+  m_LocalRotation: {x: -0, y: 0.86309624, z: -0, w: 0.5050396}
+  m_LocalPosition: {x: 24.192, y: 1.4360046, z: 21.332}
+  m_LocalScale: {x: 0.6, y: 0.7, z: 0.6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 157
+  m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
+--- !u!114 &2296847091276362411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8894791944645104777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &796760431396941854
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8894791944645104777}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &841569320128831202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8894791944645104777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &8905206397562631512
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4588137906253381363}
+  - component: {fileID: 3805516685520368119}
+  - component: {fileID: 1047878826040142905}
+  - component: {fileID: 4758274779277743308}
+  m_Layer: 3
+  m_Name: Empty camino 3 rotado (10)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4588137906253381363
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8905206397562631512}
+  m_LocalRotation: {x: 0, y: 0.5, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 8.39001, y: 1.436, z: 14.510006}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 122
+  m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
+--- !u!114 &3805516685520368119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8905206397562631512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &1047878826040142905
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8905206397562631512}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &4758274779277743308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8905206397562631512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &8928319720139892187
 GameObject:
   m_ObjectHideFlags: 0
@@ -4904,6 +10410,176 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8928319720139892187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &9071524882756359795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9066216144503071917}
+  - component: {fileID: 3965345476363819246}
+  - component: {fileID: 7107609173416705303}
+  - component: {fileID: 2713329136425524043}
+  m_Layer: 3
+  m_Name: Empty camino rot der (15)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9066216144503071917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9071524882756359795}
+  m_LocalRotation: {x: -0, y: 0.86309624, z: -0, w: 0.5050396}
+  m_LocalPosition: {x: 16.120077, y: 1.4360046, z: 21.560007}
+  m_LocalScale: {x: 0.6, y: 0.7, z: 0.6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 150
+  m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
+--- !u!114 &3965345476363819246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9071524882756359795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &7107609173416705303
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9071524882756359795}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &2713329136425524043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9071524882756359795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &9133963304294077143
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1182179959248180198}
+  - component: {fileID: 4568146647365471357}
+  - component: {fileID: 1857466996502815065}
+  - component: {fileID: 5293479802636723490}
+  m_Layer: 3
+  m_Name: Empty camino 3 rotado (8)
+  m_TagString: Arista
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1182179959248180198
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9133963304294077143}
+  m_LocalRotation: {x: 0, y: 0.5, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 23.65001, y: 1.436, z: 14.560006}
+  m_LocalScale: {x: 0.77101934, y: 0.69063, z: 0.8007855}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3813611934402495106}
+  m_RootOrder: 120
+  m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
+--- !u!114 &4568146647365471357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9133963304294077143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
+    type: 3}
+  prefabCasa: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
+    type: 3}
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!65 &1857466996502815065
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9133963304294077143}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
+  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
+--- !u!114 &5293479802636723490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9133963304294077143}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
