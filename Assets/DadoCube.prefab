@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 3852565257223654180}
   - component: {fileID: 4855041867761837887}
   - component: {fileID: 3773205482293043488}
-  - component: {fileID: 8975555281783966327}
   - component: {fileID: -1328597155744272058}
   - component: {fileID: -1470590610312569609}
   - component: {fileID: 3610754220004074477}
@@ -138,18 +137,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   diceVelocity: {x: 0, y: 0, z: 0}
---- !u!114 &8975555281783966327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8620374991974496819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0af068b337e7f1142a6333f0fd6523df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-1328597155744272058
 MonoBehaviour:
   m_ObjectHideFlags: 0
