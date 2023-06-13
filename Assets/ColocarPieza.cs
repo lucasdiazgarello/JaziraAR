@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -16,6 +15,9 @@ public class ColocarPieza : MonoBehaviour
 
     // Agrega esta propiedad para almacenar el identificador de la parcela
     public string identificadorParcela;
+
+    // Referencia al script ComprarPieza
+    public ComprarPieza comprarPieza;
 
     void Start()
     {
@@ -51,8 +53,11 @@ public class ColocarPieza : MonoBehaviour
                     // Obtener el identificador de la parcela
                     identificadorParcela = hit.collider.gameObject.GetComponent<ColocarPieza>().identificadorParcela;
 
-                    // Llamar al método en ComprarPieza para verificar si hay una casa colocada en esta parcela
-                    //FindObjectOfType<ComprarPieza>().VerificarCasaEnEsquina(hit.collider);
+                    // Llamar al método en ComprarPieza para incrementar los recursos
+                    comprarPieza.IncrementarRecursos(1); // Elige el número de dado adecuado
+
+                    // Verificar si hay una casa colocada en esta parcela
+                    VerificarCasaEnEsquina(hit.collider);
                 }
                 else if (hit.collider.gameObject.CompareTag("Esquina"))
                 {
@@ -62,8 +67,11 @@ public class ColocarPieza : MonoBehaviour
                     // Obtener el identificador de la parcela
                     identificadorParcela = hit.collider.gameObject.GetComponent<ColocarPieza>().identificadorParcela;
 
-                    // Llamar al método en ComprarPieza para verificar si hay una casa colocada en esta parcela
-                    //FindObjectOfType<ComprarPieza>().VerificarCasaEnEsquina(hit.collider);
+                    // Llamar al método en ComprarPieza para incrementar los recursos
+                    comprarPieza.IncrementarRecursos(1); // Elige el número de dado adecuado
+
+                    // Verificar si hay una casa colocada en esta parcela
+                    VerificarCasaEnEsquina(hit.collider);
                 }
             }
         }
@@ -71,5 +79,13 @@ public class ColocarPieza : MonoBehaviour
         {
             _isTouching = false;
         }
+    }
+
+    // Método para verificar si hay una casa colocada en una esquina
+    private void VerificarCasaEnEsquina(Collider collider)
+    {
+        // Aquí puedes implementar la lógica para verificar si hay una casa colocada en la esquina
+        // Puedes acceder a los componentes y propiedades necesarios del collider y del objeto en sí
+        // para determinar si hay una casa presente y tomar las acciones correspondientes.
     }
 }

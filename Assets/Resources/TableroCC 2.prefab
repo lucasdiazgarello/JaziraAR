@@ -53,6 +53,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &8368692331992175862
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -183,6 +184,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &8965297634370420901
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -268,6 +270,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &1326678333395282388
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -353,6 +356,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &5965225512426401455
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -438,6 +442,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &1621766478347865705
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -523,6 +528,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &2837097588806430902
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -608,6 +614,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &4747599580141442953
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -693,6 +700,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &2239680829754532109
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -778,6 +786,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &2099495222115941921
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -863,6 +872,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &2840175382966662541
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -948,6 +958,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &8626247423191261829
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1033,6 +1044,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &372364668555524928
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1118,6 +1130,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &7593888786245658833
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1203,6 +1216,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &8467704301161506403
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1288,6 +1302,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &971817316532721381
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1373,6 +1388,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &1764584311039485487
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1458,6 +1474,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &3059708826200840017
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1543,6 +1560,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &8497799199721343321
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1628,6 +1646,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &1812369604261074823
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1713,6 +1732,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &3794476420470665065
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1798,6 +1818,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &4019119364402068927
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1883,6 +1904,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &8670388638291716927
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1968,6 +1990,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &235398203702810430
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2053,6 +2076,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &915672277269339068
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2138,6 +2162,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &7400207741970799559
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2223,6 +2248,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &6829189525851115153
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2308,6 +2334,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &2111115502408525844
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2393,6 +2420,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &8079146254609961781
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2478,6 +2506,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &7669757612694569097
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2563,6 +2592,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &2694089995334796252
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2648,6 +2678,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &5532127205675803872
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2733,6 +2764,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &3209013569965152449
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2818,6 +2850,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &1781061531889940298
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2903,6 +2936,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &955544246512177673
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2988,6 +3022,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &8952768183919588620
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3073,6 +3108,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &1638313771333870897
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3158,6 +3194,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &6443691557947094456
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3243,6 +3280,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &3609514708119728693
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3328,6 +3366,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &2492631883675855905
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3413,6 +3452,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &2056718215205284139
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3498,6 +3538,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &8057662367259814981
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3583,6 +3624,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &8122564258893595527
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3668,6 +3710,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &4333417826635222534
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3997,6 +4040,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &4490345896239512973
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4082,6 +4126,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &2910889638422345707
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4167,6 +4212,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &8200085424382036917
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4252,6 +4298,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &5045150782094934689
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4337,6 +4384,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &6974240479582360567
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4422,6 +4470,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &4343534693461011134
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4507,6 +4556,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &1222202081264929274
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4592,6 +4642,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &1818731190991748957
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4677,6 +4728,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &7500437835668088533
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4762,6 +4814,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &5422292476175898907
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4847,6 +4900,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &1348807662148434478
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4932,6 +4986,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &3926362042874263856
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5017,6 +5072,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &6894581548229876251
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5102,6 +5158,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &3207620609375774137
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5187,6 +5244,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &9138149602648891040
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5272,6 +5330,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &1907717898541149199
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5357,6 +5416,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &201603472573795098
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5442,6 +5502,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &1864452271183755317
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5527,6 +5588,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &9196808272473493023
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5612,6 +5674,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &3644213264651356018
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5697,6 +5760,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &2950407874718939970
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5782,6 +5846,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &3487201533927293949
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5867,6 +5932,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &7288573615899915255
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5952,6 +6018,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &8045868821690556191
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6037,6 +6104,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &2016019436978022501
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6122,6 +6190,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &8620113345584839999
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6207,6 +6276,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &3381545276765655365
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6292,6 +6362,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &4122193599700394035
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6377,6 +6448,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &7291817553034625182
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6462,6 +6534,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &4151010387116307234
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6547,6 +6620,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &5467202547199220253
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6632,6 +6706,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &7803903791537860091
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6717,6 +6792,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &2794394136358064745
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6791,6 +6867,7 @@ GameObject:
   - component: {fileID: 5542043578181707421}
   - component: {fileID: 8779408863385349394}
   - component: {fileID: 2039235598416655573}
+  - component: {fileID: 7585050360032469351}
   - component: {fileID: 505271716365456459}
   m_Layer: 3
   m_Name: Empty casa1
@@ -6833,6 +6910,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &2039235598416655573
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6846,6 +6924,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.3947955, z: 1}
   m_Center: {x: 0, y: -0.30260226, z: 0}
+--- !u!114 &7585050360032469351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5542043578181707418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d8ba057d9792f44a939b3ea4420a7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identificador: 
+  tipoPieza: 0
+  recursosGenerados:
+  - numeroDado: 8
+    nombreRecurso: Ladrillo
+  - numeroDado: 5
+    nombreRecurso: Piedra
 --- !u!114 &505271716365456459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6918,6 +7015,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &6053130465206251507
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7003,6 +7101,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &6740854811898191621
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7147,6 +7246,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &8897364557934388980
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7232,6 +7332,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &2810704076440149726
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7317,6 +7418,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &8677584871931811994
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7402,6 +7504,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &2971837801876918105
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7487,6 +7590,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &9132302825770781634
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7572,6 +7676,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &3751480713126871092
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7657,6 +7762,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &6605187640083524535
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7840,6 +7946,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &6885711391940138977
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7925,6 +8032,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &191538337840580232
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8010,6 +8118,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &6068372612439092345
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8095,6 +8204,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &1131176319984595774
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8180,6 +8290,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &8385218980812095597
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8265,6 +8376,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &148533790221368480
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8350,6 +8462,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &7801270302195919552
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8435,6 +8548,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &3589293539626056365
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8520,6 +8634,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &6621282596276179248
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8605,6 +8720,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &5178743247076288069
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8690,6 +8806,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &1509416919322804794
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8775,6 +8892,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &6241143881788439629
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8860,6 +8978,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &290319245675087914
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8945,6 +9064,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &4559377772162319239
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9030,6 +9150,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &7452982170000875216
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9115,6 +9236,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &2051582833337068997
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9200,6 +9322,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &3465459804019544993
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9285,6 +9408,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &6899045425131664899
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9370,6 +9494,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &1819566401667957576
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9455,6 +9580,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &6250346599870497930
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9540,6 +9666,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &872229848287519656
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9625,6 +9752,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &7182770462461758548
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9710,6 +9838,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &740609879904660429
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9795,6 +9924,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &678357250760598600
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9880,6 +10010,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &8007681052292546212
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9965,6 +10096,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &6095513120443157319
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10050,6 +10182,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &380473034758785228
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10135,6 +10268,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &7646826812334889470
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10220,6 +10354,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &796760431396941854
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10305,6 +10440,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &1047878826040142905
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10390,6 +10526,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &742844687518041008
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10475,6 +10612,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &7107609173416705303
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10560,6 +10698,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &1857466996502815065
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10645,6 +10784,7 @@ MonoBehaviour:
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  identificadorParcela: 
 --- !u!65 &9212366579033326146
 BoxCollider:
   m_ObjectHideFlags: 0

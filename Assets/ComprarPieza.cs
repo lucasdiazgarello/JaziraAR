@@ -23,8 +23,9 @@ public class ComprarPieza : MonoBehaviour
     public Button comprarCasaButton;
 
     public DiceCheckZoneScript diceCheckZoneScript;
-
     public DiceNumberTextScript diceNumberTextScript;
+    public ColocarPieza colocarPiezaScript;
+    public IdentificadorParcela identificadorParcelaScript;
 
     // Start is called before the first frame update
     void Start()
@@ -43,68 +44,19 @@ public class ComprarPieza : MonoBehaviour
         UpdateComprarCaminoButton();
         // inicializar estado del botón de comprar casa
         UpdateComprarCasaButton();
-
     }
 
     // método para incrementar los recursos cuando se lanza el dado
-    /*public void IncrementarRecursos(int numeroDado)
+    public void IncrementarRecursos(int numeroDado)
     {
-        int resultadoDado = DiceNumberTextScript.diceNumber;
-        // Obtener el tipo de recurso correspondiente al número del dado
-        string tipoRecurso = ObtenerTipoRecurso(numeroDado);
-
-        // Incrementar la cantidad del recurso correspondiente
-        switch (tipoRecurso)
-        {
-            case "Madera":
-                maderaCount += 1;
-                break;
-            case "Ladrillo":
-                ladrilloCount += 1;
-                break;
-            case "Oveja":
-                ovejaCount += 1;
-                break;
-            case "Piedra":
-                piedraCount += 1;
-                break;
-            case "Trigo":
-                trigoCount += 1;
-                break;
-        }
-
-        // Verificar si el jugador tiene una casa en la esquina correspondiente a la parcela del número del dado
-        bool tieneCasa = VerificarCasaEnEsquina(numeroDado);
-
-        // Incrementar el recurso correspondiente si tiene una casa
-        if (tieneCasa)
-        {
-            switch (tipoRecurso)
-            {
-                case "Madera":
-                    maderaCount += 1;
-                    break;
-                case "Ladrillo":
-                    ladrilloCount += 1;
-                    break;
-                case "Oveja":
-                    ovejaCount += 1;
-                    break;
-                case "Piedra":
-                    piedraCount += 1;
-                    break;
-                case "Trigo":
-                    trigoCount += 1;
-                    break;
-            }
-        }
+        identificadorParcelaScript.IncrementarRecursos(numeroDado, ref maderaCount, ref ladrilloCount, ref ovejaCount, ref piedraCount, ref trigoCount);
 
         // Actualizar el texto en la interfaz de usuario
         UpdateResourceCount();
 
         // Actualizar estado del botón
         UpdateComprarCaminoButton();
-    }*/
+    }
 
     // método para actualizar el texto de los contadores de recursos
     void UpdateResourceCount()
@@ -122,11 +74,13 @@ public class ComprarPieza : MonoBehaviour
         // el botón solo está activo si el jugador tiene al menos 1 madera y 1 ladrillo
         comprarCaminoButton.interactable = (maderaCount >= 1 && ladrilloCount >= 1);
     }
+
     void UpdateComprarCasaButton()
     {
         // El botón solo está activo si el jugador tiene al menos 1 madera, 1 ladrillo, 1 trigo y 1 oveja
         comprarCasaButton.interactable = (maderaCount >= 1 && ladrilloCount >= 1 && trigoCount >= 1 && ovejaCount >= 1);
     }
+
     // método para comprar un camino
     public void ComprarCamino()
     {
@@ -146,6 +100,7 @@ public class ComprarPieza : MonoBehaviour
             // aquí va el código para permitir al jugador colocar un camino en el tablero
         }
     }
+
     public void ComprarCasa()
     {
         // Solo proceder si el jugador tiene suficientes recursos
@@ -164,6 +119,9 @@ public class ComprarPieza : MonoBehaviour
             UpdateComprarCasaButton();
 
             // Aquí va el código para permitir al jugador colocar una casa en el tablero
+
+            // Llamar a ColocarCasa en el script ColocarPieza para instanciar la casa
+            colocarPiezaScript.ColocarCasa();
         }
     }
 }
