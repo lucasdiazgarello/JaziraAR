@@ -21,6 +21,7 @@ public class ARCursor : NetworkBehaviour
     public GameObject dadoToPlace; // Prefab del dado
     public float dadoDistance = 0.5f; // Distancia de desplazamiento del dado (en metros)
     private GameObject currentDado; // Dado actualmente en proceso de colocación
+    private GameObject currentDado2;
     public Button tirarDadoButton;
 
     private Vector3 initialDadoPosition; // Para guardar la posición inicial del dado
@@ -120,6 +121,13 @@ public class ARCursor : NetworkBehaviour
             currentDado = null; // Asegúrate de que currentDado es null después de destruirlo
         }
 
+        if (currentDado2 != null)
+        {
+            Debug.Log("Destruyendo dado 2 actual");
+            Destroy(currentDado2);
+            currentDado2 = null; // Asegúrate de que currentDado2 es null después de destruirlo
+        }
+
         if (tableromInstance != null)
         {
             Debug.Log("dadoToPlace es " + (dadoToPlace == null ? "null" : "no null")); // Comprobar si dadoToPlace es null antes de instanciar
@@ -127,6 +135,11 @@ public class ARCursor : NetworkBehaviour
             // Crear un nuevo dado en la posición por encima del tablero
             currentDado = Instantiate(dadoToPlace, tableromInstance.transform.position + Vector3.up * dadoDistance, Quaternion.identity);
             currentDado.GetComponent<NetworkObject>().Spawn();
+
+            // Crear un segundo dado al costado del primero
+            currentDado2 = Instantiate(dadoToPlace, tableromInstance.transform.position + Vector3.up * dadoDistance + Vector3.right * dadoDistance, Quaternion.identity);
+            currentDado2.GetComponent<NetworkObject>().Spawn();
+
             Debug.Log("currentDado es " + (currentDado == null ? "null" : "no null")); // Comprobar si currentDado es null después de instanciar
 
             // Obtén el DiceScript del dado actual y lanza el dado
@@ -134,13 +147,18 @@ public class ARCursor : NetworkBehaviour
             if (diceScript != null)
             {
                 Debug.Log("Lanzando el dado");
-                //Debug.Log(tableromInstance.transform.position);
-                //Debug.Log(Vector3.up);
-                //Debug.Log(dadoDistance);
-                //Debug.Log("Lanzando el dado");
                 diceScript.RollDice(tableromInstance.transform.position + Vector3.up * dadoDistance);
             }
+
+            // Obtén el DiceScript del segundo dado y lanza el dado
+            DiceScript diceScript2 = currentDado2.GetComponent<DiceScript>();
+            if (diceScript2 != null)
+            {
+                Debug.Log("Lanzando el dado 2");
+                diceScript2.RollDice(tableromInstance.transform.position + Vector3.up * dadoDistance + Vector3.right * dadoDistance);
+            }
         }
+
         /*// Si el tablero no está colocado, regresar
         if (!isBoardPlaced) return;
 
