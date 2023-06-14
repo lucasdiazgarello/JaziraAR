@@ -148,6 +148,8 @@ public class ARCursor : NetworkBehaviour
             {
                 Debug.Log("Lanzando el dado");
                 diceScript.RollDice(tableromInstance.transform.position + Vector3.up * dadoDistance);
+                Destroy(currentDado, 2f);
+                
             }
 
             // Obtén el DiceScript del segundo dado y lanza el dado
@@ -156,7 +158,11 @@ public class ARCursor : NetworkBehaviour
             {
                 Debug.Log("Lanzando el dado 2");
                 diceScript2.RollDice(tableromInstance.transform.position + Vector3.up * dadoDistance + Vector3.right * dadoDistance);
+                Destroy(currentDado2, 2f);
             }
+
+
+
         }
 
         /*// Si el tablero no está colocado, regresar
