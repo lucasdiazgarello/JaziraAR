@@ -126,7 +126,7 @@ public class ARCursor : NetworkBehaviour
 
             // Crear un nuevo dado en la posición por encima del tablero
             currentDado = Instantiate(dadoToPlace, tableromInstance.transform.position + Vector3.up * dadoDistance, Quaternion.identity);
-
+            currentDado.GetComponent<NetworkObject>().Spawn();
             Debug.Log("currentDado es " + (currentDado == null ? "null" : "no null")); // Comprobar si currentDado es null después de instanciar
 
             // Obtén el DiceScript del dado actual y lanza el dado
@@ -134,6 +134,10 @@ public class ARCursor : NetworkBehaviour
             if (diceScript != null)
             {
                 Debug.Log("Lanzando el dado");
+                //Debug.Log(tableromInstance.transform.position);
+                //Debug.Log(Vector3.up);
+                //Debug.Log(dadoDistance);
+                //Debug.Log("Lanzando el dado");
                 diceScript.RollDice(tableromInstance.transform.position + Vector3.up * dadoDistance);
             }
         }

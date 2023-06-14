@@ -121,7 +121,8 @@ public class ComprarPieza : MonoBehaviour
             // Aquí va el código para permitir al jugador colocar una casa en el tablero
 
             // Llamar a ColocarCasa en el script ColocarPieza para instanciar la casa
-            colocarPiezaScript.ColocarCasa();
+            //ESTO TIRA ERROR PORQUE NO EXISTE METODO COLOCAR CASA
+            //colocarPiezaScript.ColocarCasa();
         }
     }
 }
