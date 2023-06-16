@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI; // Para manejar los botones
@@ -8,6 +9,7 @@ public class ColocarPieza : MonoBehaviour
 {
     public GameObject prefabCamino;
     public GameObject prefabBase; // Cambiado Casa por Base
+    private GameObject currentBase;
 
     // Declaración de una máscara de capa.
     public LayerMask myLayerMask;
@@ -97,8 +99,10 @@ public class ColocarPieza : MonoBehaviour
 
     public void ColocarBase(RaycastHit hit)
     {
+        Debug.Log("EntroColocar 2");
         // El objeto golpeado es una esquina.
-        Instantiate(prefabBase, hit.collider.gameObject.transform.position, Quaternion.identity);
+        currentBase = Instantiate(prefabBase, hit.collider.gameObject.transform.position, Quaternion.identity);
+        currentBase.GetComponent<NetworkObject>().Spawn();
 
         // Obtener el identificador de la parcela
         //identificadorParcela = hit.collider.gameObject.GetComponent<ColocarPieza>().identificadorParcela;
@@ -114,6 +118,7 @@ public class ColocarPieza : MonoBehaviour
     }
     public void ColocarCamino()
     {
+        //Debug.Log("EntroColocar 1");
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
@@ -129,6 +134,7 @@ public class ColocarPieza : MonoBehaviour
 
     public void ColocarBase()
     {
+        Debug.Log("EntroColocar 1");
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
