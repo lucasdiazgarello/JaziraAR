@@ -493,7 +493,7 @@ GameObject:
   - component: {fileID: 2837097588806430902}
   - component: {fileID: 7129632162244669848}
   m_Layer: 3
-  m_Name: Empty casa2 (5)
+  m_Name: Empty casa22
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -752,6 +752,7 @@ GameObject:
   - component: {fileID: 6905271185800949015}
   - component: {fileID: 8457485827375018104}
   - component: {fileID: 2099495222115941921}
+  - component: {fileID: 7420809312620359794}
   - component: {fileID: 7259713473129404271}
   m_Layer: 3
   m_Name: Empty casa4
@@ -809,6 +810,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1813049, y: 0.38030362, z: 1.15094}
   m_Center: {x: -0.09065242, y: -0.12110207, z: -0.07546993}
+--- !u!114 &7420809312620359794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677488294647571754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d8ba057d9792f44a939b3ea4420a7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipoPieza: 0
+  recursosGenerados:
+  - numeroDado: 5
+    nombreRecurso: Piedra
+  - numeroDado: 2
+    nombreRecurso: Trigo
 --- !u!114 &7259713473129404271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -841,7 +860,7 @@ GameObject:
   - component: {fileID: 2840175382966662541}
   - component: {fileID: 3743632886648911666}
   m_Layer: 3
-  m_Name: Empty casa2 (17)
+  m_Name: Empty casa43
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -928,7 +947,7 @@ GameObject:
   - component: {fileID: 8626247423191261829}
   - component: {fileID: 3901378292903861223}
   m_Layer: 3
-  m_Name: Empty casa3 (19)
+  m_Name: Empty casa50
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1015,7 +1034,7 @@ GameObject:
   - component: {fileID: 372364668555524928}
   - component: {fileID: 6257452422215690685}
   m_Layer: 3
-  m_Name: Empty casa1 (1)
+  m_Name: Empty casa15
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1537,7 +1556,7 @@ GameObject:
   - component: {fileID: 8497799199721343321}
   - component: {fileID: 2644827693638898732}
   m_Layer: 3
-  m_Name: Empty casa5 (1)
+  m_Name: Empty casa10
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1711,7 +1730,7 @@ GameObject:
   - component: {fileID: 3794476420470665065}
   - component: {fileID: 7744557400156105350}
   m_Layer: 3
-  m_Name: Empty casa2 (10)
+  m_Name: Empty casa28
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1798,7 +1817,7 @@ GameObject:
   - component: {fileID: 4019119364402068927}
   - component: {fileID: 435017219346172494}
   m_Layer: 3
-  m_Name: Empty casa1 (2)
+  m_Name: Empty casa19
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1885,7 +1904,7 @@ GameObject:
   - component: {fileID: 8670388638291716927}
   - component: {fileID: 8919366828136583088}
   m_Layer: 3
-  m_Name: Empty casa3 (18)
+  m_Name: Empty casa49
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1970,9 +1989,10 @@ GameObject:
   - component: {fileID: 7059684145418153360}
   - component: {fileID: 4547653573640354530}
   - component: {fileID: 235398203702810430}
+  - component: {fileID: 8731790611245683311}
   - component: {fileID: 1380835727838369578}
   m_Layer: 3
-  m_Name: Empty casa2 (1)
+  m_Name: Empty casa7
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2027,6 +2047,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1813049, y: 0.38030362, z: 1.15094}
   m_Center: {x: -0.09065242, y: -0.12110207, z: -0.07546993}
+--- !u!114 &8731790611245683311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131917383866306669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d8ba057d9792f44a939b3ea4420a7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipoPieza: 0
+  recursosGenerados:
+  - numeroDado: 10
+    nombreRecurso: Oveja
+  - numeroDado: 9
+    nombreRecurso: Oveja
+  - numeroDado: 2
+    nombreRecurso: Trigo
 --- !u!114 &1380835727838369578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2146,7 +2186,7 @@ GameObject:
   - component: {fileID: 7400207741970799559}
   - component: {fileID: 7452706115959462910}
   m_Layer: 3
-  m_Name: Empty casa3 (5)
+  m_Name: Empty casa27
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2233,7 +2273,7 @@ GameObject:
   - component: {fileID: 6829189525851115153}
   - component: {fileID: 4370383790732969740}
   m_Layer: 3
-  m_Name: Empty casa3 (20)
+  m_Name: Empty casa51
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2320,7 +2360,7 @@ GameObject:
   - component: {fileID: 2111115502408525844}
   - component: {fileID: 1776671335499012}
   m_Layer: 3
-  m_Name: Empty casa3 (3)
+  m_Name: Empty casa17
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2581,7 +2621,7 @@ GameObject:
   - component: {fileID: 2694089995334796252}
   - component: {fileID: 1150647618465003965}
   m_Layer: 3
-  m_Name: Empty casa2 (9)
+  m_Name: Empty casa26
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2668,7 +2708,7 @@ GameObject:
   - component: {fileID: 5532127205675803872}
   - component: {fileID: 3236588177296201633}
   m_Layer: 3
-  m_Name: Empty casa2 (16)
+  m_Name: Empty casa41
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2755,7 +2795,7 @@ GameObject:
   - component: {fileID: 3209013569965152449}
   - component: {fileID: 1535335997770684593}
   m_Layer: 3
-  m_Name: Empty casa3 (16)
+  m_Name: Empty casa47
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3103,7 +3143,7 @@ GameObject:
   - component: {fileID: 1638313771333870897}
   - component: {fileID: 3032180333449006058}
   m_Layer: 3
-  m_Name: Empty casa2 (15)
+  m_Name: Empty casa39
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3277,7 +3317,7 @@ GameObject:
   - component: {fileID: 3609514708119728693}
   - component: {fileID: 3144735021309329194}
   m_Layer: 3
-  m_Name: Empty casa2 (11)
+  m_Name: Empty casa30
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3364,7 +3404,7 @@ GameObject:
   - component: {fileID: 2492631883675855905}
   - component: {fileID: 7921146392683942506}
   m_Layer: 3
-  m_Name: Empty casa3 (7)
+  m_Name: Empty casa31
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3451,7 +3491,7 @@ GameObject:
   - component: {fileID: 2056718215205284139}
   - component: {fileID: 267102027569867907}
   m_Layer: 3
-  m_Name: Empty casa2 (4)
+  m_Name: Empty casa20
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4041,6 +4081,7 @@ GameObject:
   - component: {fileID: 8900204445176158197}
   - component: {fileID: 1809764379557744634}
   - component: {fileID: 4490345896239512973}
+  - component: {fileID: 7457123838384404118}
   - component: {fileID: 5372165521214475424}
   m_Layer: 3
   m_Name: Empty casa6
@@ -4098,6 +4139,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1813049, y: 0.38030362, z: 1.15094}
   m_Center: {x: -0.09065242, y: -0.12110207, z: -0.07546993}
+--- !u!114 &7457123838384404118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3834383890058580084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d8ba057d9792f44a939b3ea4420a7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipoPieza: 0
+  recursosGenerados:
+  - numeroDado: 5
+    nombreRecurso: Piedra
 --- !u!114 &5372165521214475424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4217,7 +4274,7 @@ GameObject:
   - component: {fileID: 8200085424382036917}
   - component: {fileID: 490254781127343952}
   m_Layer: 3
-  m_Name: Empty casa3 (11)
+  m_Name: Empty casa38
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4304,7 +4361,7 @@ GameObject:
   - component: {fileID: 5045150782094934689}
   - component: {fileID: 5197717768968549995}
   m_Layer: 3
-  m_Name: Empty casa3 (6)
+  m_Name: Empty casa29
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4652,7 +4709,7 @@ GameObject:
   - component: {fileID: 1818731190991748957}
   - component: {fileID: 1903569837875269561}
   m_Layer: 3
-  m_Name: Empty casa2 (7)
+  m_Name: Empty casa24
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5261,7 +5318,7 @@ GameObject:
   - component: {fileID: 9138149602648891040}
   - component: {fileID: 2962184881290153518}
   m_Layer: 3
-  m_Name: Empty casa2 (13)
+  m_Name: Empty casa35
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5435,7 +5492,7 @@ GameObject:
   - component: {fileID: 201603472573795098}
   - component: {fileID: 7762537345525571940}
   m_Layer: 3
-  m_Name: Empty casa3 (12)
+  m_Name: Empty casa40
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5783,7 +5840,7 @@ GameObject:
   - component: {fileID: 2950407874718939970}
   - component: {fileID: 5159116839940988882}
   m_Layer: 3
-  m_Name: Empty casa3 (17)
+  m_Name: Empty casa48
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5957,7 +6014,7 @@ GameObject:
   - component: {fileID: 7288573615899915255}
   - component: {fileID: 2980950588375290488}
   m_Layer: 3
-  m_Name: Empty casa4 (2)
+  m_Name: Empty casa13
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6044,7 +6101,7 @@ GameObject:
   - component: {fileID: 8045868821690556191}
   - component: {fileID: 8997879000370598301}
   m_Layer: 3
-  m_Name: Empty casa2 (6)
+  m_Name: Empty casa23
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6305,7 +6362,7 @@ GameObject:
   - component: {fileID: 3381545276765655365}
   - component: {fileID: 6722902341652604114}
   m_Layer: 3
-  m_Name: Empty casa3 (4)
+  m_Name: Empty casa21
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6392,7 +6449,7 @@ GameObject:
   - component: {fileID: 4122193599700394035}
   - component: {fileID: 5043450773352037559}
   m_Layer: 3
-  m_Name: Empty casa2 (8)
+  m_Name: Empty casa25
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6564,6 +6621,7 @@ GameObject:
   - component: {fileID: 7160471898494566019}
   - component: {fileID: 2593560023527707631}
   - component: {fileID: 4151010387116307234}
+  - component: {fileID: 5160103169091129563}
   - component: {fileID: 7872933431843515346}
   m_Layer: 3
   m_Name: Empty casa3
@@ -6621,6 +6679,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1813049, y: 0.38030362, z: 1.15094}
   m_Center: {x: -0.09065242, y: -0.12110207, z: -0.07546993}
+--- !u!114 &5160103169091129563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5463609224187267081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d8ba057d9792f44a939b3ea4420a7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipoPieza: 0
+  recursosGenerados:
+  - numeroDado: 10
+    nombreRecurso: Oveja
+  - numeroDado: 2
+    nombreRecurso: Trigo
+  - numeroDado: 5
+    nombreRecurso: Piedra
 --- !u!114 &7872933431843515346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6653,7 +6731,7 @@ GameObject:
   - component: {fileID: 5467202547199220253}
   - component: {fileID: 3089959250105835645}
   m_Layer: 3
-  m_Name: Empty casa2 (3)
+  m_Name: Empty casa16
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6740,7 +6818,7 @@ GameObject:
   - component: {fileID: 7803903791537860091}
   - component: {fileID: 6127292422091639580}
   m_Layer: 3
-  m_Name: Empty casa2 (18)
+  m_Name: Empty casa45
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6827,7 +6905,7 @@ GameObject:
   - component: {fileID: 2794394136358064745}
   - component: {fileID: 7479141884012113628}
   m_Layer: 3
-  m_Name: Empty casa2 (2)
+  m_Name: Empty casa11
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7013,7 +7091,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d8ba057d9792f44a939b3ea4420a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  identificador: 
   tipoPieza: 0
   recursosGenerados:
   - numeroDado: 8
@@ -7052,7 +7129,7 @@ GameObject:
   - component: {fileID: 6053130465206251507}
   - component: {fileID: 2579722822411692314}
   m_Layer: 3
-  m_Name: Empty casa3 (8)
+  m_Name: Empty casa33
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7139,7 +7216,7 @@ GameObject:
   - component: {fileID: 6740854811898191621}
   - component: {fileID: 5970588263846263162}
   m_Layer: 3
-  m_Name: Empty casa3 (2)
+  m_Name: Empty casa12
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7285,7 +7362,7 @@ GameObject:
   - component: {fileID: 8897364557934388980}
   - component: {fileID: 5686670303380821572}
   m_Layer: 3
-  m_Name: Empty casa2 (12)
+  m_Name: Empty casa32
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7807,7 +7884,7 @@ GameObject:
   - component: {fileID: 6605187640083524535}
   - component: {fileID: 8466068681337602902}
   m_Layer: 3
-  m_Name: Empty casa3 (9)
+  m_Name: Empty casa34
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8251,6 +8328,7 @@ GameObject:
   - component: {fileID: 6607808216238630231}
   - component: {fileID: 8405804557858533045}
   - component: {fileID: 1131176319984595774}
+  - component: {fileID: 9073656523293774858}
   - component: {fileID: 3280208467550431503}
   m_Layer: 3
   m_Name: Empty casa2
@@ -8308,6 +8386,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1813049, y: 0.38030362, z: 1.15094}
   m_Center: {x: -0.09065242, y: -0.12110207, z: -0.07546993}
+--- !u!114 &9073656523293774858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6728453377176082093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d8ba057d9792f44a939b3ea4420a7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipoPieza: 0
+  recursosGenerados:
+  - numeroDado: 8
+    nombreRecurso: Ladrillo
+  - numeroDado: 10
+    nombreRecurso: Oveja
+  - numeroDado: 5
+    nombreRecurso: Piedra
 --- !u!114 &3280208467550431503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8775,7 +8873,7 @@ GameObject:
   - component: {fileID: 5178743247076288069}
   - component: {fileID: 659635598125801621}
   m_Layer: 3
-  m_Name: Empty casa5 (2)
+  m_Name: Empty casa14
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8860,6 +8958,7 @@ GameObject:
   - component: {fileID: 5468582349285430601}
   - component: {fileID: 3165415271041738387}
   - component: {fileID: 1509416919322804794}
+  - component: {fileID: 4157834378683217390}
   - component: {fileID: 1988540543672136776}
   m_Layer: 3
   m_Name: Empty casa5
@@ -8917,6 +9016,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1813049, y: 0.38030362, z: 1.15094}
   m_Center: {x: -0.09065242, y: -0.12110207, z: -0.07546993}
+--- !u!114 &4157834378683217390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7323293414708470486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d8ba057d9792f44a939b3ea4420a7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipoPieza: 0
+  recursosGenerados:
+  - numeroDado: 5
+    nombreRecurso: Piedra
 --- !u!114 &1988540543672136776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9121,9 +9236,10 @@ GameObject:
   - component: {fileID: 4142118215586910864}
   - component: {fileID: 7619103830173421348}
   - component: {fileID: 4559377772162319239}
+  - component: {fileID: 3447102401260996012}
   - component: {fileID: 5822801069885992106}
   m_Layer: 3
-  m_Name: Empty casa3 (1)
+  m_Name: Empty casa8
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9178,6 +9294,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1813049, y: 0.38030362, z: 1.15094}
   m_Center: {x: -0.09065242, y: -0.12110207, z: -0.07546993}
+--- !u!114 &3447102401260996012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7779796883601018668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d8ba057d9792f44a939b3ea4420a7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipoPieza: 0
+  recursosGenerados:
+  - numeroDado: 9
+    nombreRecurso: Oveja
+  - numeroDado: 6
+    nombreRecurso: Madera
+  - numeroDado: 2
+    nombreRecurso: Trigo
 --- !u!114 &5822801069885992106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9210,7 +9346,7 @@ GameObject:
   - component: {fileID: 7452982170000875216}
   - component: {fileID: 6199765516394780672}
   m_Layer: 3
-  m_Name: Empty casa2 (14)
+  m_Name: Empty casa37
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9297,7 +9433,7 @@ GameObject:
   - component: {fileID: 2051582833337068997}
   - component: {fileID: 1221168232560612023}
   m_Layer: 3
-  m_Name: Empty casa3 (14)
+  m_Name: Empty casa44
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9558,7 +9694,7 @@ GameObject:
   - component: {fileID: 1819566401667957576}
   - component: {fileID: 8014692572303569323}
   m_Layer: 3
-  m_Name: Empty casa3 (13)
+  m_Name: Empty casa42
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9906,7 +10042,7 @@ GameObject:
   - component: {fileID: 740609879904660429}
   - component: {fileID: 4000706707021437357}
   m_Layer: 3
-  m_Name: Empty casa4 (1)
+  m_Name: Empty casa9
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10254,7 +10390,7 @@ GameObject:
   - component: {fileID: 380473034758785228}
   - component: {fileID: 1644024016930871218}
   m_Layer: 3
-  m_Name: Empty casa3 (15)
+  m_Name: Empty casa46
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10602,7 +10738,7 @@ GameObject:
   - component: {fileID: 742844687518041008}
   - component: {fileID: 30628262552414924}
   m_Layer: 3
-  m_Name: Empty casa6 (1)
+  m_Name: Empty casa18
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10863,7 +10999,7 @@ GameObject:
   - component: {fileID: 9212366579033326146}
   - component: {fileID: 2286539731099759794}
   m_Layer: 3
-  m_Name: Empty casa3 (10)
+  m_Name: Empty casa36
   m_TagString: Esquina
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

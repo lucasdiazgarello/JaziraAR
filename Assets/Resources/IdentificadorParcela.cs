@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class IdentificadorParcela : MonoBehaviour
 {
-    public string identificador;
+    //public string identificador;
     public TipoPieza tipoPieza;
     public List<TipoRecurso> recursosGenerados;
 
     public enum TipoPieza
     {
-        Casa,
+        Base,
         Pueblo
     }
 
@@ -32,22 +32,43 @@ public class IdentificadorParcela : MonoBehaviour
 
     private void IncrementarRecurso(string nombreRecurso, ref int maderaCount, ref int ladrilloCount, ref int ovejaCount, ref int piedraCount, ref int trigoCount)
     {
+        if (tipoPieza == TipoPieza.Base)
+        {
+            switch (nombreRecurso)
+            {
+                case "Madera":
+                    maderaCount += 1;
+                    break;
+                case "Ladrillo":
+                    ladrilloCount += 1;
+                    break;
+                case "Oveja":
+                    ovejaCount += 1;
+                    break;
+                case "Piedra":
+                    piedraCount += 1;
+                    break;
+                case "Trigo":
+                    trigoCount += 1;
+                    break;
+            }
+        }
         switch (nombreRecurso)
         {
             case "Madera":
-                maderaCount += 1;
+                maderaCount += 2;
                 break;
             case "Ladrillo":
-                ladrilloCount += 1;
+                ladrilloCount += 2;
                 break;
             case "Oveja":
-                ovejaCount += 1;
+                ovejaCount += 2;
                 break;
             case "Piedra":
-                piedraCount += 1;
+                piedraCount += 2;
                 break;
             case "Trigo":
-                trigoCount += 1;
+                trigoCount += 2;
                 break;
         }
     }

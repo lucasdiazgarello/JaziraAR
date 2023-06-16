@@ -19,6 +19,9 @@ public class ColocarPieza : MonoBehaviour
     // Referencia al script ComprarPieza
     public ComprarPieza comprarPieza;
 
+    // Variable booleana para indicar si tiene una casa colocada
+    public bool tieneCasa;
+
     void Start()
     {
         arCursor = GetComponentInParent<ARCursor>();
@@ -84,8 +87,15 @@ public class ColocarPieza : MonoBehaviour
     // Método para verificar si hay una casa colocada en una esquina
     private void VerificarCasaEnEsquina(Collider collider)
     {
-        // Aquí puedes implementar la lógica para verificar si hay una casa colocada en la esquina
-        // Puedes acceder a los componentes y propiedades necesarios del collider y del objeto en sí
-        // para determinar si hay una casa presente y tomar las acciones correspondientes.
+        // Verificar si el objeto tiene el componente ColocarPieza
+        ColocarPieza colocarPieza = collider.gameObject.GetComponent<ColocarPieza>();
+        if (colocarPieza != null)
+        {
+            // Obtener el valor de tieneCasa del objeto en la esquina
+            tieneCasa = colocarPieza.tieneCasa;
+
+            // Aquí puedes implementar la lógica para verificar si hay una casa colocada en la esquina
+            // Utiliza la variable tieneCasa para tomar las acciones correspondientes.
+        }
     }
 }

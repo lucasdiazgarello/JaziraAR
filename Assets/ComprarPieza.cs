@@ -30,6 +30,13 @@ public class ComprarPieza : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Desactivar los contadores de recursos al inicio
+        maderaCountText.gameObject.SetActive(false);
+        ladrilloCountText.gameObject.SetActive(false);
+        ovejaCountText.gameObject.SetActive(false);
+        piedraCountText.gameObject.SetActive(false);
+        trigoCountText.gameObject.SetActive(false);
+
         // inicializar contadores de recursos
         maderaCount = 0;
         ladrilloCount = 0;
@@ -49,6 +56,12 @@ public class ComprarPieza : MonoBehaviour
     // método para incrementar los recursos cuando se lanza el dado
     public void IncrementarRecursos(int numeroDado)
     {
+        // Activar los contadores de recursos al lanzar el dado por primera vez
+        maderaCountText.gameObject.SetActive(true);
+        ladrilloCountText.gameObject.SetActive(true);
+        ovejaCountText.gameObject.SetActive(true);
+        piedraCountText.gameObject.SetActive(true);
+        trigoCountText.gameObject.SetActive(true);
         identificadorParcelaScript.IncrementarRecursos(numeroDado, ref maderaCount, ref ladrilloCount, ref ovejaCount, ref piedraCount, ref trigoCount);
 
         // Actualizar el texto en la interfaz de usuario
