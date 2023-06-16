@@ -20,10 +20,10 @@ public class ComprarPieza : MonoBehaviour
 
     // referencia al botón de comprar camino
     public Button comprarCaminoButton;
-    public Button comprarCasaButton;
+    public Button comprarBaseButton;
 
-    public DiceCheckZoneScript diceCheckZoneScript;
-    public DiceNumberTextScript diceNumberTextScript;
+    //public DiceCheckZoneScript diceCheckZoneScript;
+    //public DiceNumberTextScript diceNumberTextScript;
     public ColocarPieza colocarPiezaScript;
     public IdentificadorParcela identificadorParcelaScript;
 
@@ -36,6 +36,9 @@ public class ComprarPieza : MonoBehaviour
         ovejaCountText.gameObject.SetActive(false);
         piedraCountText.gameObject.SetActive(false);
         trigoCountText.gameObject.SetActive(false);
+        //Desactivar los botones de comprar piezas al inicio MAS ADELANTE poner que se activen recien cuando el jugador tenga el minimo de recursos para poder comprar
+        //comprarBaseButton.gameObject.SetActive(false); 
+        //comprarCaminoButton.gameObject.SetActive(false);
 
         // inicializar contadores de recursos
         maderaCount = 0;
@@ -50,7 +53,7 @@ public class ComprarPieza : MonoBehaviour
         // inicializar estado del botón de comprar camino
         UpdateComprarCaminoButton();
         // inicializar estado del botón de comprar casa
-        UpdateComprarCasaButton();
+        UpdateComprarBaseButton();
     }
 
     // método para incrementar los recursos cuando se lanza el dado
@@ -88,10 +91,10 @@ public class ComprarPieza : MonoBehaviour
         comprarCaminoButton.interactable = (maderaCount >= 1 && ladrilloCount >= 1);
     }
 
-    void UpdateComprarCasaButton()
+    void UpdateComprarBaseButton()
     {
         // El botón solo está activo si el jugador tiene al menos 1 madera, 1 ladrillo, 1 trigo y 1 oveja
-        comprarCasaButton.interactable = (maderaCount >= 1 && ladrilloCount >= 1 && trigoCount >= 1 && ovejaCount >= 1);
+        comprarBaseButton.interactable = (maderaCount >= 1 && ladrilloCount >= 1 && trigoCount >= 1 && ovejaCount >= 1);
     }
 
     // método para comprar un camino
@@ -111,10 +114,13 @@ public class ComprarPieza : MonoBehaviour
             UpdateComprarCaminoButton();
 
             // aquí va el código para permitir al jugador colocar un camino en el tablero
+
+            // Llamar a ActivarColocacion en el script ColocarPieza para permitir al jugador colocar un camino
+            colocarPiezaScript.ActivarColocacion(ColocarPieza.TipoObjeto.Camino);
         }
     }
 
-    public void ComprarCasa()
+    public void ComprarBase()
     {
         // Solo proceder si el jugador tiene suficientes recursos
         if (maderaCount >= 1 && ladrilloCount >= 1 && trigoCount >= 1 && ovejaCount >= 1)
@@ -129,13 +135,15 @@ public class ComprarPieza : MonoBehaviour
             UpdateResourceCount();
 
             // Actualizar estado del botón
-            UpdateComprarCasaButton();
+            UpdateComprarBaseButton();
 
             // Aquí va el código para permitir al jugador colocar una casa en el tablero
 
             // Llamar a ColocarCasa en el script ColocarPieza para instanciar la casa
             //ESTO TIRA ERROR PORQUE NO EXISTE METODO COLOCAR CASA
-            //colocarPiezaScript.ColocarCasa();
+            //colocarPiezaScript.ColocarBase();
+            // Llamar a ActivarColocacion en el script ColocarPieza para permitir al jugador colocar una base
+            colocarPiezaScript.ActivarColocacion(ColocarPieza.TipoObjeto.Base);
         }
     }
 }

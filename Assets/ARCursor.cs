@@ -24,6 +24,8 @@ public class ARCursor : NetworkBehaviour
     private GameObject currentDado2;
     public Button tirarDadoButton;
 
+    private ColocarPieza colocarPieza;
+
     private Vector3 initialDadoPosition; // Para guardar la posición inicial del dado
     private GameObject tableromInstance;
 
@@ -35,6 +37,7 @@ public class ARCursor : NetworkBehaviour
         DisableRecursos();
         objectToPlace = Resources.Load("TableroCC 2") as GameObject;
         tirarDadoButton.onClick.AddListener(OnDiceRollButtonPressed);
+        colocarPieza = GetComponentInChildren<ColocarPieza>();
     }
 
     void Update()
@@ -65,6 +68,17 @@ public class ARCursor : NetworkBehaviour
                 tableromInstance.GetComponent<NetworkObject>().Spawn();
                 placeButton.gameObject.SetActive(false); // Desactivar el botón de colocación después de colocar el tablero
                 confirmButton.gameObject.SetActive(true); // Activar el botón de confirmación después de colocar el tablero
+            }
+        }
+        if (colocarPieza != null && colocarPieza.enabled)
+        {
+            if (colocarPieza.tipoActual == ColocarPieza.TipoObjeto.Base)
+            {
+                colocarPieza.ColocarBase();
+            }
+            else if (colocarPieza.tipoActual == ColocarPieza.TipoObjeto.Camino)
+            {
+                colocarPieza.ColocarCamino();
             }
         }
     }
