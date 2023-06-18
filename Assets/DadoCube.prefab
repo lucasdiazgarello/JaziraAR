@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3773205482293043488}
   - component: {fileID: -1328597155744272058}
   - component: {fileID: -1470590610312569609}
-  - component: {fileID: -5465179441305599979}
+  - component: {fileID: 8783946273568060976}
   m_Layer: 0
   m_Name: DadoCube
   m_TagString: Untagged
@@ -116,7 +116,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8620374991974496819}
   serializedVersion: 2
-  m_Mass: 2
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   diceVelocity: {x: 0, y: 1, z: 0}
+  dado: {fileID: 8620374991974496819}
 --- !u!114 &-1328597155744272058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +187,7 @@ MonoBehaviour:
   SceneMigrationSynchronization: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &-5465179441305599979
+--- !u!114 &8783946273568060976
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

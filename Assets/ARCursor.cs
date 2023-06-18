@@ -161,8 +161,9 @@ public class ARCursor : NetworkBehaviour
             if (diceScript != null)
             {
                 Debug.Log("Lanzando el dado");
-                diceScript.RollDice(tableromInstance.transform.position + Vector3.up * dadoDistance);
-                Destroy(currentDado, 2f);
+                diceScript.RollDice(currentDado,tableromInstance.transform.position + Vector3.up * dadoDistance);
+
+                //Destroy(currentDado, 2f);
                 
             }
 
@@ -171,7 +172,7 @@ public class ARCursor : NetworkBehaviour
             if (diceScript2 != null)
             {
                 Debug.Log("Lanzando el dado 2");
-                diceScript2.RollDice(tableromInstance.transform.position + Vector3.up * dadoDistance + Vector3.right * dadoDistance);
+                diceScript2.RollDice(currentDado2,tableromInstance.transform.position + Vector3.up * dadoDistance + Vector3.right * dadoDistance);
                 Destroy(currentDado2, 2f);
             }
 

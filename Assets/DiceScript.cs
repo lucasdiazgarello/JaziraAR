@@ -6,27 +6,30 @@ public class DiceScript : MonoBehaviour
 {
     Rigidbody rb;
     public Vector3 diceVelocity;
+    private GameObject dado;
     private Vector3 platformCenter;
 
     // Use this for initialization
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        //rb = dado.GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
     }
 
     // Método público para lanzar el dado
-    public void RollDice(Vector3 initialPosition)
+    public void RollDice(GameObject dado,Vector3 initialPosition)
     {
-        //Debug.Log("entro a RollDice");
+        Debug.Log("Entró a RollDice");
+        rb = dado.GetComponent<Rigidbody>();
         DiceNumberTextScript.diceNumber = 0;
-        float dirX = Random.Range(400, 500);
-        float dirY = Random.Range(400, 500);
-        float dirZ = Random.Range(400, 500);
-        //Debug.Log(dirX+""+dirY+""+dirZ);
-        //Debug.Log("poscicion inicial =" + initialPosition);
+
+        // Aplicar una fuerza y un torque aleatorios
+        //Vector3 randomForce = new Vector3(Random.Range(-500, 500), Random.Range(1000, 2000), Random.Range(-500, 500));
+        Vector3 randomTorque = new Vector3(Random.Range(-50, 50), Random.Range(-50, 50), Random.Range(-50, 50));
+         
         transform.SetPositionAndRotation(initialPosition, Quaternion.identity);
-        rb.AddForce(transform.up * 1000);
-        rb.AddTorque(dirX, dirY, dirZ);
+        //rb.AddForce(randomForce);
+        rb.AddTorque(randomTorque);
     }
 }
 
