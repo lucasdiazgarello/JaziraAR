@@ -27,8 +27,10 @@ public class DiceCheckZoneScript : MonoBehaviour
 
     void OnTriggerStay(Collider col)
     {
-        if (diceVelocity.x == 0f && diceVelocity.y == 0f && diceVelocity.z == 0f)
+        if (!diceScript.IsDiceRolling)
         {
+            //Debug.Log(diceScript.IsDiceRolling);
+            Debug.Log(diceScript.diceVelocity);
             switch (col.gameObject.name)
             {
                 case "Side1":
