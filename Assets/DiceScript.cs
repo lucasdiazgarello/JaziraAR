@@ -23,6 +23,7 @@ public class DiceScript : MonoBehaviour
         posicion1 = new Vector3 (5, 5, 5);
         posicion2 = new Vector3(10, 10, 10);
         alternar = false;
+        diceVelocity= Vector3.zero;
         //rb = dado.GetComponent<Rigidbody>();
         //rb = GetComponent<Rigidbody>();
         rb = dado.GetComponent<Rigidbody>();
@@ -75,6 +76,6 @@ public class DiceScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        diceVelocity = rb.velocity;
     }
 }

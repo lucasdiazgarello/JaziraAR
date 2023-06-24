@@ -163,7 +163,7 @@ public class ARCursor : NetworkBehaviour
                 Debug.Log("Lanzando el dado");
                 diceScript.RollDice(currentDado,tableromInstance.transform.position + Vector3.up * dadoDistance);
 
-               Destroy(currentDado, 2f);
+               Destroy(currentDado, 5f);
                 
             }
 
@@ -173,7 +173,7 @@ public class ARCursor : NetworkBehaviour
             {
                 Debug.Log("Lanzando el dado 2");
                 diceScript2.RollDice(currentDado2,tableromInstance.transform.position + Vector3.up * dadoDistance + Vector3.right * dadoDistance);
-                Destroy(currentDado2, 2f);
+                Destroy(currentDado2, 5f);
             }
 
 
