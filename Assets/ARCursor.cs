@@ -19,7 +19,7 @@ public class ARCursor : NetworkBehaviour
     private bool isBoardPlaced = false; // Para rastrear si el tablero ya ha sido colocado o no
 
     public GameObject dadoToPlace; // Prefab del dado
-    public float dadoDistance = 0.5f; // Distancia de desplazamiento del dado (en metros)
+    public float dadoDistance = 0.3f; // Distancia de desplazamiento del dado (en metros)
     private GameObject currentDado; // Dado actualmente en proceso de colocación
     private GameObject currentDado2;
     public Button tirarDadoButton;
@@ -149,10 +149,12 @@ public class ARCursor : NetworkBehaviour
             // Crear un nuevo dado en la posición por encima del tablero
             currentDado = Instantiate(dadoToPlace, tableromInstance.transform.position + Vector3.up * dadoDistance, Quaternion.identity);
             currentDado.GetComponent<NetworkObject>().Spawn();
+            DiceNumberTextScript.dice1 = currentDado;
 
             // Crear un segundo dado al costado del primero
             currentDado2 = Instantiate(dadoToPlace, tableromInstance.transform.position + Vector3.up * dadoDistance + Vector3.right * dadoDistance, Quaternion.identity);
             currentDado2.GetComponent<NetworkObject>().Spawn();
+            DiceNumberTextScript.dice2 = currentDado2;
 
             Debug.Log("currentDado es " + (currentDado == null ? "null" : "no null")); // Comprobar si currentDado es null después de instanciar
 
