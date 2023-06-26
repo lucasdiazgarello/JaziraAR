@@ -7465,7 +7465,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1135787aa8ba3294a93cc3247b50a92d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diceScript: {fileID: 2883326314502427362}
+  diceScript1: {fileID: 2883326314502427362}
+  diceScript2: {fileID: 2883326314502427362}
 --- !u!1 &5780422614674847116
 GameObject:
   m_ObjectHideFlags: 0

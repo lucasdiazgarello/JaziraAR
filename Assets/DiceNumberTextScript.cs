@@ -19,6 +19,9 @@ public class DiceNumberTextScript : MonoBehaviour
     void Start()
     {
         text = GetComponent<TextMeshProUGUI>();
+        // Asigna los objetos de los dados
+        dice1 = diceScript1.gameObject;
+        dice2 = diceScript2.gameObject;
     }
 
     // Update is called once per frame
@@ -28,8 +31,10 @@ public class DiceNumberTextScript : MonoBehaviour
         if (!diceScript1.IsDiceRolling && !diceScript2.IsDiceRolling)
         {
             int totalDiceNumber = diceNumber1 + diceNumber2; // La suma de ambos dados
+            //Debug.Log("Dado1:  " + diceNumber1);
+            //Debug.Log("Dado2:  " + diceNumber2);
+            //Debug.Log("La suma:  " + totalDiceNumber);
             text.text = totalDiceNumber.ToString();
-            //Debug.Log("EL DADO ES " + diceNumber);
         }
     }
 }

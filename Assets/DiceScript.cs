@@ -176,7 +176,7 @@ public class DiceScript : MonoBehaviour
         {
             rb = DiceNumberTextScript.dice1.GetComponent<Rigidbody>();
             diceVelocity = rb.velocity;
-            Debug.Log(diceVelocity);
+            //Debug.Log(diceVelocity);
 
             if (diceVelocity.magnitude == 0)
             {
