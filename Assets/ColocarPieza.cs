@@ -30,8 +30,8 @@ public class ColocarPieza : MonoBehaviour
     public ComprarPieza comprarPieza;
 
     // Variable booleana para indicar si tiene una base colocada
-    private bool tieneBase;
-    private bool tienePueblo;
+    public bool tieneBase;
+    public bool tienePueblo;
 
     public enum TipoObjeto { Ninguno, Camino, Base, Pueblo }
     public TipoObjeto tipoActual;
@@ -107,7 +107,7 @@ public class ColocarPieza : MonoBehaviour
         //identificadorParcela = hit.collider.gameObject.GetComponent<ColocarPieza>().identificadorParcela;
 
         // Llamar al método en ComprarPieza para incrementar los recursos
-        comprarPieza.IncrementarRecursos(1); // Elige el número de dado adecuado
+        comprarPieza.IncrementarRecursos();
 
         // Verificar si hay una base colocada en esta parcela
         VerificarBaseEnEsquina(hit.collider);
@@ -127,7 +127,7 @@ public class ColocarPieza : MonoBehaviour
         //identificadorParcela = hit.collider.gameObject.GetComponent<ColocarPieza>().identificadorParcela;
 
         // Llamar al método en ComprarPieza para incrementar los recursos
-        comprarPieza.IncrementarRecursos(1); // Elige el número de dado adecuado
+        comprarPieza.IncrementarRecursos();
 
         // Verificar si hay una base colocada en esta parcela
         VerificarBaseEnEsquina(hit.collider);
@@ -146,7 +146,7 @@ public class ColocarPieza : MonoBehaviour
         //identificadorParcela = hit.collider.gameObject.GetComponent<ColocarPieza>().identificadorParcela;
 
         // Llamar al método en ComprarPieza para incrementar los recursos
-        comprarPieza.IncrementarRecursos(1); // Elige el número de dado adecuado
+        comprarPieza.IncrementarRecursos();
 
         // Verificar si hay una base colocada en esta parcela
         VerificarPuebloEnEsquina(hit.collider); //CHEQUEAR

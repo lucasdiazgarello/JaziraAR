@@ -121,8 +121,57 @@ public class ARCursor : NetworkBehaviour
             recurso.SetActive(false);
         }
     }
-
     private void OnDiceRollButtonPressed()
+    {
+        // Si el tablero no está colocado, regresar
+        if (!isBoardPlaced) return;
+
+        // Comprobar si dadoToPlace o tableromInstance son null antes de proceder
+        if (dadoToPlace == null || tableromInstance == null) return;
+
+        // Si el dado no existe, crearlo
+        if (currentDado == null)
+        {
+            // Crear un nuevo dado en la posición por encima del tablero
+            currentDado = Instantiate(dadoToPlace, tableromInstance.transform.position + Vector3.up * dadoDistance, Quaternion.identity);
+            currentDado.GetComponent<NetworkObject>().Spawn();
+            DiceNumberTextScript.dice1 = currentDado;
+        }
+        else
+        {
+            // Si el dado existe, reposicionarlo para el nuevo lanzamiento
+            currentDado.transform.position = tableromInstance.transform.position + Vector3.up * dadoDistance;
+        }
+
+        if (currentDado2 == null)
+        {
+            // Crear un segundo dado al costado del primero
+            currentDado2 = Instantiate(dadoToPlace, tableromInstance.transform.position + Vector3.up * dadoDistance + Vector3.right * dadoDistance, Quaternion.identity);
+            currentDado2.GetComponent<NetworkObject>().Spawn();
+            DiceNumberTextScript.dice2 = currentDado2;
+        }
+        else
+        {
+            // Si el segundo dado existe, reposicionarlo para el nuevo lanzamiento
+            currentDado2.transform.position = tableromInstance.transform.position + Vector3.up * dadoDistance + Vector3.right * dadoDistance;
+        }
+
+        // Obtén el DiceScript del dado actual y lanza el dado
+        DiceScript diceScript = currentDado.GetComponent<DiceScript>();
+        if (diceScript != null)
+        {
+            diceScript.RollDice(currentDado, tableromInstance.transform.position + Vector3.up * dadoDistance);
+        }
+
+        // Obtén el DiceScript del segundo dado y lanza el dado
+        DiceScript diceScript2 = currentDado2.GetComponent<DiceScript>();
+        if (diceScript2 != null)
+        {
+            diceScript2.RollDice(currentDado2, tableromInstance.transform.position + Vector3.up * dadoDistance + Vector3.right * dadoDistance);
+        }
+    }
+
+    /*private void OnDiceRollButtonPressed()
     {
         // Si el tablero no está colocado, regresar
         if (!isBoardPlaced) return;
@@ -177,51 +226,8 @@ public class ARCursor : NetworkBehaviour
                 diceScript2.RollDice(currentDado2,tableromInstance.transform.position + Vector3.up * dadoDistance + Vector3.right * dadoDistance);
                 Destroy(currentDado2, 5f);
             }
-
-
-
         }
-
-        /*// Si el tablero no está colocado, regresar
-        if (!isBoardPlaced) return;
-
-        // Si ya hay un dado, destruirlo
-        if (currentDado != null)
-        {
-            Destroy(currentDado);
-        }
-        if (tableromInstance != null)
-        {
-            // Crear un nuevo dado en la posición por encima del tablero
-            currentDado = Instantiate(dadoToPlace, tableromInstance.transform.position + Vector3.up * dadoDistance, Quaternion.identity);
-
-            // Obtén el DiceScript del dado actual y lanza el dado
-            DiceScript diceScript = currentDado.GetComponent<DiceScript>();
-            if (diceScript != null)
-            {
-                diceScript.RollDice(tableromInstance.transform.position + Vector3.up * dadoDistance);
-            }
-        }
-        */
-        /*
-        // Si el tablero no está colocado, regresar
-        if (!isBoardPlaced) return;
-
-        // Si ya hay un dado, destruirlo
-        if (currentDado != null)
-        {
-            Destroy(currentDado);
-        }
-        // Crear un nuevo dado y guardar su posición inicial
-        currentDado = Instantiate(dadoToPlace, tableromInstance.transform.position + Vector3.up * dadoDistance, Quaternion.identity);
-        initialDadoPosition = currentDado.transform.position;
-
-        Rigidbody rb = currentDado.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.isKinematic = false;
-        }*/
-    }
+    }*/
 
     private void ResetDicePosition()
     {

@@ -49,12 +49,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &8368692331992175862
 BoxCollider:
@@ -88,51 +92,6 @@ MonoBehaviour:
   SceneMigrationSynchronization: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!1 &125893183354519858
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7241462302247890279}
-  - component: {fileID: 2883326314502427362}
-  m_Layer: 0
-  m_Name: Script diceScript
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7241462302247890279
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 125893183354519858}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1312.24, y: -1179.16, z: -110.33024}
-  m_LocalScale: {x: 0.120000005, y: 2, z: 12}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3813611934402495106}
-  m_RootOrder: 160
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2883326314502427362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 125893183354519858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c890b7bc06f73749b8c556271c25bed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  diceVelocity: {x: 0, y: 0, z: 0}
 --- !u!1 &367015613337687272
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,12 +141,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &8965297634370420901
 BoxCollider:
@@ -270,12 +233,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &1326678333395282388
 BoxCollider:
@@ -358,12 +325,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &5965225512426401455
 BoxCollider:
@@ -446,12 +417,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &1621766478347865705
 BoxCollider:
@@ -535,12 +510,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &2837097588806430902
 BoxCollider:
@@ -623,12 +602,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &4747599580141442953
 BoxCollider:
@@ -711,12 +694,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &2239680829754532109
 BoxCollider:
@@ -801,12 +788,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &2099495222115941921
 BoxCollider:
@@ -833,12 +824,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d8ba057d9792f44a939b3ea4420a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipoPieza: 0
   recursosGenerados:
-  - numeroDado: 5
+  - numeroficha: 0
     nombreRecurso: Piedra
-  - numeroDado: 2
+  - numeroficha: 0
     nombreRecurso: Trigo
+  collidersParcela: []
 --- !u!114 &7259713473129404271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -908,12 +899,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &2840175382966662541
 BoxCollider:
@@ -997,12 +992,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &8626247423191261829
 BoxCollider:
@@ -1086,12 +1085,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &372364668555524928
 BoxCollider:
@@ -1174,12 +1177,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &7593888786245658833
 BoxCollider:
@@ -1262,12 +1269,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &8467704301161506403
 BoxCollider:
@@ -1350,12 +1361,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &971817316532721381
 BoxCollider:
@@ -1438,12 +1453,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &1764584311039485487
 BoxCollider:
@@ -1526,12 +1545,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &3059708826200840017
 BoxCollider:
@@ -1615,12 +1638,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &8497799199721343321
 BoxCollider:
@@ -1703,12 +1730,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &1812369604261074823
 BoxCollider:
@@ -1792,12 +1823,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &3794476420470665065
 BoxCollider:
@@ -1881,12 +1916,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &4019119364402068927
 BoxCollider:
@@ -1970,12 +2009,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &8670388638291716927
 BoxCollider:
@@ -2060,12 +2103,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &235398203702810430
 BoxCollider:
@@ -2092,14 +2139,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d8ba057d9792f44a939b3ea4420a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipoPieza: 0
   recursosGenerados:
-  - numeroDado: 10
+  - numeroficha: 0
     nombreRecurso: Oveja
-  - numeroDado: 9
+  - numeroficha: 0
     nombreRecurso: Oveja
-  - numeroDado: 2
+  - numeroficha: 0
     nombreRecurso: Trigo
+  collidersParcela: []
 --- !u!114 &1380835727838369578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2168,12 +2215,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &915672277269339068
 BoxCollider:
@@ -2257,12 +2308,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &7400207741970799559
 BoxCollider:
@@ -2346,12 +2401,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &6829189525851115153
 BoxCollider:
@@ -2435,12 +2494,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &2111115502408525844
 BoxCollider:
@@ -2523,12 +2586,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &8079146254609961781
 BoxCollider:
@@ -2611,12 +2678,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &7669757612694569097
 BoxCollider:
@@ -2700,12 +2771,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &2694089995334796252
 BoxCollider:
@@ -2789,12 +2864,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &5532127205675803872
 BoxCollider:
@@ -2878,12 +2957,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &3209013569965152449
 BoxCollider:
@@ -2966,12 +3049,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &1781061531889940298
 BoxCollider:
@@ -3054,12 +3141,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &955544246512177673
 BoxCollider:
@@ -3142,12 +3233,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &8952768183919588620
 BoxCollider:
@@ -3231,12 +3326,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &1638313771333870897
 BoxCollider:
@@ -3319,12 +3418,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &6443691557947094456
 BoxCollider:
@@ -3408,12 +3511,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &3609514708119728693
 BoxCollider:
@@ -3497,12 +3604,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &2492631883675855905
 BoxCollider:
@@ -3586,12 +3697,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &2056718215205284139
 BoxCollider:
@@ -3674,12 +3789,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &8057662367259814981
 BoxCollider:
@@ -3762,12 +3881,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &8122564258893595527
 BoxCollider:
@@ -3850,12 +3973,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &4333417826635222534
 BoxCollider:
@@ -4079,7 +4206,6 @@ Transform:
   - {fileID: 6043622137952979394}
   - {fileID: 5542043576259103964}
   - {fileID: 9176855522881910974}
-  - {fileID: 7241462302247890279}
   - {fileID: 4454035145929170052}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -4184,12 +4310,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &4490345896239512973
 BoxCollider:
@@ -4216,10 +4346,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d8ba057d9792f44a939b3ea4420a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipoPieza: 0
   recursosGenerados:
-  - numeroDado: 5
+  - numeroficha: 0
     nombreRecurso: Piedra
+  collidersParcela: []
 --- !u!114 &5372165521214475424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4288,12 +4418,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &2910889638422345707
 BoxCollider:
@@ -4377,12 +4511,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &8200085424382036917
 BoxCollider:
@@ -4466,12 +4604,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &5045150782094934689
 BoxCollider:
@@ -4554,12 +4696,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &6974240479582360567
 BoxCollider:
@@ -4642,12 +4788,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &4343534693461011134
 BoxCollider:
@@ -4730,12 +4880,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &1222202081264929274
 BoxCollider:
@@ -4819,12 +4973,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &1818731190991748957
 BoxCollider:
@@ -4907,12 +5065,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &7500437835668088533
 BoxCollider:
@@ -4995,12 +5157,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &5422292476175898907
 BoxCollider:
@@ -5083,12 +5249,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &1348807662148434478
 BoxCollider:
@@ -5171,12 +5341,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &3926362042874263856
 BoxCollider:
@@ -5259,12 +5433,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &6894581548229876251
 BoxCollider:
@@ -5347,12 +5525,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &3207620609375774137
 BoxCollider:
@@ -5436,12 +5618,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &9138149602648891040
 BoxCollider:
@@ -5524,12 +5710,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &1907717898541149199
 BoxCollider:
@@ -5613,12 +5803,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &201603472573795098
 BoxCollider:
@@ -5701,12 +5895,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &1864452271183755317
 BoxCollider:
@@ -5789,12 +5987,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &9196808272473493023
 BoxCollider:
@@ -5877,12 +6079,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &3644213264651356018
 BoxCollider:
@@ -5966,12 +6172,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &2950407874718939970
 BoxCollider:
@@ -6054,12 +6264,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &3487201533927293949
 BoxCollider:
@@ -6143,12 +6357,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &7288573615899915255
 BoxCollider:
@@ -6232,12 +6450,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &8045868821690556191
 BoxCollider:
@@ -6320,12 +6542,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &2016019436978022501
 BoxCollider:
@@ -6408,12 +6634,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &8620113345584839999
 BoxCollider:
@@ -6497,12 +6727,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &3381545276765655365
 BoxCollider:
@@ -6586,12 +6820,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &4122193599700394035
 BoxCollider:
@@ -6674,12 +6912,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &7291817553034625182
 BoxCollider:
@@ -6764,12 +7006,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &4151010387116307234
 BoxCollider:
@@ -6796,14 +7042,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d8ba057d9792f44a939b3ea4420a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipoPieza: 0
   recursosGenerados:
-  - numeroDado: 10
+  - numeroficha: 0
     nombreRecurso: Oveja
-  - numeroDado: 2
+  - numeroficha: 0
     nombreRecurso: Trigo
-  - numeroDado: 5
+  - numeroficha: 0
     nombreRecurso: Piedra
+  collidersParcela: []
 --- !u!114 &7872933431843515346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6873,12 +7119,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &5467202547199220253
 BoxCollider:
@@ -6962,12 +7212,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &7803903791537860091
 BoxCollider:
@@ -7051,12 +7305,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &2794394136358064745
 BoxCollider:
@@ -7172,12 +7430,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &2039235598416655573
 BoxCollider:
@@ -7204,12 +7466,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d8ba057d9792f44a939b3ea4420a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipoPieza: 0
   recursosGenerados:
-  - numeroDado: 8
+  - numeroficha: 0
     nombreRecurso: Ladrillo
-  - numeroDado: 5
+  - numeroficha: 0
     nombreRecurso: Piedra
+  collidersParcela: []
 --- !u!114 &505271716365456459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7279,12 +7541,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &6053130465206251507
 BoxCollider:
@@ -7368,12 +7634,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &6740854811898191621
 BoxCollider:
@@ -7465,8 +7735,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1135787aa8ba3294a93cc3247b50a92d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diceScript1: {fileID: 2883326314502427362}
-  diceScript2: {fileID: 2883326314502427362}
 --- !u!1 &5780422614674847116
 GameObject:
   m_ObjectHideFlags: 0
@@ -7517,12 +7785,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &8897364557934388980
 BoxCollider:
@@ -7605,12 +7877,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &2810704076440149726
 BoxCollider:
@@ -7693,12 +7969,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &8677584871931811994
 BoxCollider:
@@ -7781,12 +8061,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &2971837801876918105
 BoxCollider:
@@ -7869,12 +8153,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &9132302825770781634
 BoxCollider:
@@ -7957,12 +8245,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &3751480713126871092
 BoxCollider:
@@ -8046,12 +8338,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &6605187640083524535
 BoxCollider:
@@ -8117,7 +8413,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3813611934402495106}
-  m_RootOrder: 161
+  m_RootOrder: 160
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6295302337750570686
 MeshFilter:
@@ -8232,12 +8528,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &6885711391940138977
 BoxCollider:
@@ -8320,12 +8620,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &191538337840580232
 BoxCollider:
@@ -8408,12 +8712,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &6068372612439092345
 BoxCollider:
@@ -8498,12 +8806,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &1131176319984595774
 BoxCollider:
@@ -8530,14 +8842,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d8ba057d9792f44a939b3ea4420a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipoPieza: 0
   recursosGenerados:
-  - numeroDado: 8
+  - numeroficha: 0
     nombreRecurso: Ladrillo
-  - numeroDado: 10
+  - numeroficha: 0
     nombreRecurso: Oveja
-  - numeroDado: 5
+  - numeroficha: 0
     nombreRecurso: Piedra
+  collidersParcela: []
 --- !u!114 &3280208467550431503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8606,12 +8918,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &8385218980812095597
 BoxCollider:
@@ -8694,12 +9010,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &148533790221368480
 BoxCollider:
@@ -8782,12 +9102,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &7801270302195919552
 BoxCollider:
@@ -8870,12 +9194,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &3589293539626056365
 BoxCollider:
@@ -8958,12 +9286,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &6621282596276179248
 BoxCollider:
@@ -9047,12 +9379,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &5178743247076288069
 BoxCollider:
@@ -9137,12 +9473,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &1509416919322804794
 BoxCollider:
@@ -9169,10 +9509,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d8ba057d9792f44a939b3ea4420a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipoPieza: 0
   recursosGenerados:
-  - numeroDado: 5
+  - numeroficha: 0
     nombreRecurso: Piedra
+  collidersParcela: []
 --- !u!114 &1988540543672136776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9241,12 +9581,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &6241143881788439629
 BoxCollider:
@@ -9329,12 +9673,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &290319245675087914
 BoxCollider:
@@ -9419,12 +9767,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &4559377772162319239
 BoxCollider:
@@ -9451,14 +9803,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d8ba057d9792f44a939b3ea4420a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipoPieza: 0
   recursosGenerados:
-  - numeroDado: 9
+  - numeroficha: 0
     nombreRecurso: Oveja
-  - numeroDado: 6
+  - numeroficha: 0
     nombreRecurso: Madera
-  - numeroDado: 2
+  - numeroficha: 0
     nombreRecurso: Trigo
+  collidersParcela: []
 --- !u!114 &5822801069885992106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9528,12 +9880,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &7452982170000875216
 BoxCollider:
@@ -9617,12 +9973,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &2051582833337068997
 BoxCollider:
@@ -9705,12 +10065,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &3465459804019544993
 BoxCollider:
@@ -9793,12 +10157,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &6899045425131664899
 BoxCollider:
@@ -9882,12 +10250,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &1819566401667957576
 BoxCollider:
@@ -9970,12 +10342,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &6250346599870497930
 BoxCollider:
@@ -10058,12 +10434,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &872229848287519656
 BoxCollider:
@@ -10146,12 +10526,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &7182770462461758548
 BoxCollider:
@@ -10235,12 +10619,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &740609879904660429
 BoxCollider:
@@ -10323,12 +10711,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &678357250760598600
 BoxCollider:
@@ -10411,12 +10803,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &8007681052292546212
 BoxCollider:
@@ -10499,12 +10895,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &6095513120443157319
 BoxCollider:
@@ -10588,12 +10988,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &380473034758785228
 BoxCollider:
@@ -10676,12 +11080,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &7646826812334889470
 BoxCollider:
@@ -10764,12 +11172,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &796760431396941854
 BoxCollider:
@@ -10852,12 +11264,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &1047878826040142905
 BoxCollider:
@@ -10941,12 +11357,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &742844687518041008
 BoxCollider:
@@ -11029,12 +11449,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &7107609173416705303
 BoxCollider:
@@ -11117,12 +11541,16 @@ MonoBehaviour:
   prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
   prefabBase: {fileID: 0}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &1857466996502815065
 BoxCollider:
@@ -11206,12 +11634,16 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
+  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
   comprarPieza: {fileID: 0}
+  tieneBase: 0
+  tienePueblo: 0
   tipoActual: 0
 --- !u!65 &9212366579033326146
 BoxCollider:
@@ -11618,10 +12050,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d8ba057d9792f44a939b3ea4420a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipoPieza: 0
   recursosGenerados:
-  - numeroDado: 0
-    nombreRecurso: 
+  - numeroficha: 5
+    nombreRecurso: Piedra
+  collidersParcela:
+  - {fileID: 2039235598416655573}
+  - {fileID: 1131176319984595774}
+  - {fileID: 4151010387116307234}
+  - {fileID: 2099495222115941921}
+  - {fileID: 1509416919322804794}
+  - {fileID: 4490345896239512973}
 --- !u!1001 &1072670724830761426
 PrefabInstance:
   m_ObjectHideFlags: 0

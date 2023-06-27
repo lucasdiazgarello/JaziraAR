@@ -14,7 +14,8 @@ public class DiceNumberTextScript : MonoBehaviour
     public static int diceNumber2; // Para el segundo dado
     public static GameObject dice1; // Para el primer dado
     public static GameObject dice2; // Para el segundo dado
-    public int totalDiceNumber;
+    //public int totalDiceNumber;
+    public int TotalDiceNumber { get; private set; }
 
 
     // Use this for initialization
@@ -32,11 +33,11 @@ public class DiceNumberTextScript : MonoBehaviour
         // Chequea si ambos dados han dejado de rodar
         if (!diceScript1.IsDiceRolling && !diceScript2.IsDiceRolling)
         {
-            totalDiceNumber = diceNumber1 + diceNumber2; // La suma de ambos dados
+            TotalDiceNumber = diceNumber1 + diceNumber2; // La suma de ambos dados
             //Debug.Log("Dado1:  " + diceNumber1);
             //Debug.Log("Dado2:  " + diceNumber2);
             //Debug.Log("La suma:  " + totalDiceNumber);
-            text.text = totalDiceNumber.ToString();
+            text.text = TotalDiceNumber.ToString();
         }
     }
 }
