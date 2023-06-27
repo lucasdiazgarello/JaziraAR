@@ -26,6 +26,7 @@ public class ComprarPieza : MonoBehaviour
     //public DiceNumberTextScript diceNumberTextScript;
     public ColocarPieza colocarPiezaScript;
     public IdentificadorParcela identificadorParcelaScript;
+    public DiceNumberTextScript diceNumberTextScript;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,7 @@ public class ComprarPieza : MonoBehaviour
         //Desactivar los botones de comprar piezas al inicio MAS ADELANTE poner que se activen recien cuando el jugador tenga el minimo de recursos para poder comprar
         //comprarBaseButton.gameObject.SetActive(false); 
         //comprarCaminoButton.gameObject.SetActive(false);
+        int numeroDado = diceNumberTextScript.totalDiceNumber;
 
         // inicializar contadores de recursos
         maderaCount = 0;

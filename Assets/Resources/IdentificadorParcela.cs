@@ -7,6 +7,7 @@ public class IdentificadorParcela : MonoBehaviour
     //public string identificador;
     public TipoPieza tipoPieza;
     public List<TipoRecurso> recursosGenerados;
+    public List<Collider> collidersParcela;
 
     public enum TipoPieza
     {
@@ -17,13 +18,13 @@ public class IdentificadorParcela : MonoBehaviour
     [System.Serializable]
     public class TipoRecurso
     {
-        public int numeroDado;
+        public int numeroficha;
         public string nombreRecurso;
     }
 
     public void IncrementarRecursos(int resultadoDado, ref int maderaCount, ref int ladrilloCount, ref int ovejaCount, ref int piedraCount, ref int trigoCount)
     {
-        TipoRecurso recurso = recursosGenerados.Find(r => r.numeroDado == resultadoDado);
+        TipoRecurso recurso = recursosGenerados.Find(r => r.numeroficha == resultadoDado);
         if (recurso != null)
         {
             IncrementarRecurso(recurso.nombreRecurso, ref maderaCount, ref ladrilloCount, ref ovejaCount, ref piedraCount, ref trigoCount);
