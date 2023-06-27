@@ -4703,9 +4703,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 4389630012397980345, guid: ac73804a664143143a0aa3ebca50f539,
+  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
     type: 3}
-  prefabBase: {fileID: 5386401047743853591, guid: 6e8ea509dc5304349b916bb02a07ca10,
+  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   myLayerMask:
     serializedVersion: 2
