@@ -16791,6 +16791,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ar_cursor
       objectReference: {fileID: 0}
+    - target: {fileID: 4796678246097450598, guid: 8bbfb449df032044f84bdbc209246819,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bbfb449df032044f84bdbc209246819, type: 3}
 --- !u!114 &5434462552450501220
