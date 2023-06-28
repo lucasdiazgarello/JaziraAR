@@ -8,9 +8,9 @@ public class PlayerNetwork : NetworkBehaviour
     //hacer aparecer algo
    [SerializeField] private Transform spawnedObjectPrefab;
     
-    private NetworkVariable<datosJugador> numequipo = new NetworkVariable<datosJugador>(new datosJugador { jugadorId = -1, puntaje = 0, gano = false, cantidadCartas = 0, turno = false, cantidadCasa = 0 }, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+    private NetworkVariable<DatosJugador> numequipo = new NetworkVariable<DatosJugador>(new DatosJugador { jugadorId = -1, puntaje = 0, gano = false, cantidadCartas = 0, turno = false, cantidadCasa = 0 }, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
-    public struct datosJugador : INetworkSerializable
+    public struct DatosJugador : INetworkSerializable
     {
         public int jugadorId;
         public int puntaje;

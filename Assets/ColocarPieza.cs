@@ -39,6 +39,7 @@ public class ColocarPieza : MonoBehaviour
     void Start()
     {
         arCursor = GetComponentInParent<ARCursor>();
+
         // para la busqueda del null reference verifico que arcursor no es null
         if (arCursor == null)
         {
@@ -49,6 +50,7 @@ public class ColocarPieza : MonoBehaviour
             //Debug.Log("ARCursor is not null in object " + gameObject.name);
         }
         enabled = false; // Desactivar la colocación de piezas al inicio
+        tipoActual = new TipoObjeto();
         tipoActual = TipoObjeto.Ninguno;
 
         // Agregar los listeners a los botones
