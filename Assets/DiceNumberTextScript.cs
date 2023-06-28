@@ -10,17 +10,21 @@ public class DiceNumberTextScript : MonoBehaviour
     // Agregar referencias a ambos scripts de los dados
     public DiceScript diceScript1;
     public DiceScript diceScript2;
+
     public static int diceNumber1; // Para el primer dado
     public static int diceNumber2; // Para el segundo dado
     public static GameObject dice1; // Para el primer dado
     public static GameObject dice2; // Para el segundo dado
-    //public int totalDiceNumber;
+    //public int totalDiceNumber
+    //public PlayerNetwork playernetwork;
+
     public int TotalDiceNumber { get; private set; }
 
 
     // Use this for initialization
     void Start()
     {
+        //playernetwork = GameObject.FindObjectOfType<PlayerNetwork>();
         text = GetComponent<TextMeshProUGUI>();
         // Asigna los objetos de los dados
         dice1 = diceScript1.gameObject;
@@ -30,13 +34,15 @@ public class DiceNumberTextScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         // Chequea si ambos dados han dejado de rodar
         if (!diceScript1.IsDiceRolling && !diceScript2.IsDiceRolling)
         {
+            //Debug.Log("nombre host 2" + playernetwork.GetNomJugador(0));
             TotalDiceNumber = diceNumber1 + diceNumber2; // La suma de ambos dados
-            //Debug.Log("Dado1:  " + diceNumber1);
-            //Debug.Log("Dado2:  " + diceNumber2);
-            //Debug.Log("La suma:  " + TotalDiceNumber);
+            Debug.Log("Dado1:  " + diceNumber1);
+            Debug.Log("Dado2:  " + diceNumber2);
+            Debug.Log("La suma:  " + TotalDiceNumber);
             text.text = TotalDiceNumber.ToString();
         }
     }

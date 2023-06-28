@@ -5,19 +5,23 @@ using UnityEngine;
 
 public class PlayerNetwork : NetworkBehaviour
 {
-    //hacer aparecer algo
-   [SerializeField] private Transform spawnedObjectPrefab;
-    
-    private NetworkVariable<DatosJugador> numequipo = new NetworkVariable<DatosJugador>(new DatosJugador { jugadorId = -1, puntaje = 0, gano = false, cantidadCartas = 0, turno = false, cantidadCasa = 0 }, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+
+    private List<NetworkVariable<DatosJugador>> jugadores = new List<NetworkVariable<DatosJugador>>();
 
     public struct DatosJugador : INetworkSerializable
     {
         public int jugadorId;
+        public string nomJugador;
         public int puntaje;
         public int cantidadCartas;
         public bool gano;
         public bool turno;
         public int cantidadCasa;
+        public int maderaCount;
+        public int ladrilloCount;
+        public int ovejaCount;
+        public int piedraCount;
+        public int trigoCount;
 
         public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
         {
@@ -26,108 +30,184 @@ public class PlayerNetwork : NetworkBehaviour
             serializer.SerializeValue(ref cantidadCartas);
             serializer.SerializeValue(ref gano);
             serializer.SerializeValue(ref turno);
+            serializer.SerializeValue(ref maderaCount);
+            serializer.SerializeValue(ref ladrilloCount);
+            serializer.SerializeValue(ref ovejaCount);
+            serializer.SerializeValue(ref piedraCount);
+            serializer.SerializeValue(ref trigoCount);
             serializer.SerializeValue(ref cantidadCasa);
+            serializer.SerializeValue(ref nomJugador);
+
+
         }
     }
 
-    public int GetJugadorId()
+    private bool isHost = false;
+
+    private void Start()
     {
-        return numequipo.Value.jugadorId;
+        // Solo el host crea la lista de jugadores
+        if (IsHost)
+        {
+            isHost = true;
+
+            // Crear 4 jugadores con todas las variables en 0
+            for (int i = 0; i < 4; i++)
+            {
+                DatosJugador jugador = new DatosJugador
+                {
+                    jugadorId = i,
+                    puntaje = 0,
+                    cantidadCartas = 0,
+                    gano = false,
+                    turno = false,
+                    cantidadCasa = 0,
+                    maderaCount = 0,
+                    ladrilloCount= 0,
+                    ovejaCount = 0,
+                    piedraCount= 0,
+                    trigoCount= 0
+};
+
+                NetworkVariable<DatosJugador> networkJugador = new NetworkVariable<DatosJugador>(jugador, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+                jugadores.Add(networkJugador);
+            }
+        }
     }
 
-    public void SetJugadorId(int id)
+    public void AgregarDatosJugador(int idJugador, DatosJugador datos)
     {
-        if (IsOwner)
+        if (!isHost) return; // Solo el host puede agregar datos a la lista de jugadores
+
+        if (idJugador >= 0 && idJugador < jugadores.Count)
         {
-            var datos = numequipo.Value;
+            jugadores[idJugador].Value = datos;
+        }
+    }
+
+    public int GetJugadorId(int idJugador)
+    {
+        return jugadores[idJugador].Value.jugadorId;
+    }
+
+    public void SetJugadorId(int idJugador, int id)
+    {
+        if (!isHost) return; // Solo el host puede cambiar el ID del jugador
+
+        if (idJugador >= 0 && idJugador < jugadores.Count)
+        {
+            var datos = jugadores[idJugador].Value;
             datos.jugadorId = id;
-            numequipo.Value = datos;
+            jugadores[idJugador].Value = datos;
+        }
+    }
+    public string GetNomJugador(int idJugador)
+    {
+        return jugadores[idJugador].Value.nomJugador;
+    }
+
+    public void SetNomJugador(int idJugador, string nombre)
+    {
+        if (!isHost) return; // Solo el host puede cambiar el ID del jugador
+
+        if (idJugador >= 0 && idJugador < jugadores.Count)
+        {
+            var datos = jugadores[idJugador].Value;
+            datos.nomJugador = nombre;
+            jugadores[idJugador].Value = datos;
         }
     }
 
-    public int GetPuntaje()
+    public int GetPuntaje(int idJugador)
     {
-        return numequipo.Value.puntaje;
+        return jugadores[idJugador].Value.puntaje;
     }
 
-    public void SetPuntaje(int puntaje)
+    public void SetPuntaje(int idJugador, int puntaje)
     {
-        if (IsOwner)
+        if (!isHost) return; // Solo el host puede cambiar el puntaje del jugador
+
+        if (idJugador >= 0 && idJugador < jugadores.Count)
         {
-            var datos = numequipo.Value;
+            var datos = jugadores[idJugador].Value;
             datos.puntaje = puntaje;
-            numequipo.Value = datos;
+            jugadores[idJugador].Value = datos;
         }
     }
 
-    public int GetCantidadCartas()
+    public int GetCantidadCartas(int idJugador)
     {
-        return numequipo.Value.cantidadCartas;
+        return jugadores[idJugador].Value.cantidadCartas;
     }
 
-    public void SetCantidadCartas(int cantidad)
+    public void SetCantidadCartas(int idJugador, int cantidad)
     {
-        if (IsOwner)
+        if (!isHost) return; // Solo el host puede cambiar la cantidad de cartas del jugador
+
+        if (idJugador >= 0 && idJugador < jugadores.Count)
         {
-            var datos = numequipo.Value;
+            var datos = jugadores[idJugador].Value;
             datos.cantidadCartas = cantidad;
-            numequipo.Value = datos;
+            jugadores[idJugador].Value = datos;
         }
     }
 
-    public bool GetGano()
+    public bool GetGano(int idJugador)
     {
-        return numequipo.Value.gano;
+        return jugadores[idJugador].Value.gano;
     }
 
-    public void SetGano(bool gano)
+    public void SetGano(int idJugador, bool gano)
     {
-        if (IsOwner)
+        if (!isHost) return; // Solo el host puede cambiar el estado de ganador del jugador
+
+        if (idJugador >= 0 && idJugador < jugadores.Count)
         {
-            var datos = numequipo.Value;
+            var datos = jugadores[idJugador].Value;
             datos.gano = gano;
-            numequipo.Value = datos;
+            jugadores[idJugador].Value = datos;
         }
     }
 
-    public bool GetTurno()
+    public bool GetTurno(int idJugador)
     {
-        return numequipo.Value.turno;
+        return jugadores[idJugador].Value.turno;
     }
 
-    public void SetTurno(bool turno)
+    public void SetTurno(int idJugador, bool turno)
     {
-        if (IsOwner)
+        if (!isHost) return; // Solo el host puede cambiar el turno del jugador
+
+        if (idJugador >= 0 && idJugador < jugadores.Count)
         {
-            var datos = numequipo.Value;
+            var datos = jugadores[idJugador].Value;
             datos.turno = turno;
-            numequipo.Value = datos;
+            jugadores[idJugador].Value = datos;
         }
     }
 
-    public int GetCantidadCasa()
+    public int GetCantidadCasa(int idJugador)
     {
-        return numequipo.Value.cantidadCasa;
+        return jugadores[idJugador].Value.cantidadCasa;
     }
 
-    public void SetCantidadCasa(int cantidad)
+    public void SetCantidadCasa(int idJugador, int cantidad)
     {
-        if (IsOwner)
+        if (!isHost) return; // Solo el host puede cambiar la cantidad de casas del jugador
+
+        if (idJugador >= 0 && idJugador < jugadores.Count)
         {
-            var datos = numequipo.Value;
+            var datos = jugadores[idJugador].Value;
             datos.cantidadCasa = cantidad;
-            numequipo.Value = datos;
+            jugadores[idJugador].Value = datos;
         }
     }
 
+    //hacer get y set de los recursos
     private void Update()
     {
         if (!IsOwner) return;
 
-        if(Input.GetKeyDown(KeyCode.T)) {
-            Transform spawnedObectTransform = Instantiate(spawnedObjectPrefab);
-            spawnedObectTransform.GetComponent<NetworkObject>().Spawn(true);
-            Debug.Log("pusiste un coso");
-        }
+        // Resto del código...
     }
 }

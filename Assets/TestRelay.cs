@@ -11,8 +11,12 @@ using UnityEngine.UI;
 
 public class TestRelay : MonoBehaviour
 {
-    private int cantJugadores = 4;
+    public int cantJugadores = 4;
+    private string nombreHost;
     public InputField codigo;
+    public InputField cantidadJugadores;
+    public InputField nombreHostinput;
+    public PlayerNetwork playernetwork;
 
     private async void Start()
     {
@@ -31,6 +35,10 @@ public class TestRelay : MonoBehaviour
         try
         {
             //traer cantJugadores del canvas
+            cantJugadores = int.Parse(cantidadJugadores.text);
+            nombreHost = nombreHostinput.text;
+            playernetwork.SetNomJugador(0, nombreHost);
+            Debug.Log("nombre relay" + nombreHost);
             Allocation allocation = await RelayService.Instance.CreateAllocationAsync(cantJugadores-1); // el host y 3 mas
 
             string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
