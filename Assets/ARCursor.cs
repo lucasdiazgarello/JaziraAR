@@ -8,6 +8,7 @@ using Unity.Netcode;
 
 public class ARCursor : NetworkBehaviour
 {
+    public ARPlaneManager planeManager;
     public GameObject objectToPlace; // Este es el tablero
     public ARRaycastManager raycastManager;
     public Button placeButton;
@@ -105,6 +106,18 @@ public class ARCursor : NetworkBehaviour
             colocarPieza.enabled = true;
         }
         EnableRecursos();
+        // Desactivar la detección de planos al confirmar la colocación del tablero
+        if (planeManager)
+        {
+            planeManager.enabled = false;
+            // Y esto eliminará todos los planos existentes
+            foreach (var plane in planeManager.trackables)
+            {
+                Destroy(plane.gameObject);
+            }
+            // Esto también funcionaría:
+            // planeManager.planeDetectionMode = PlaneDetectionMode.None;
+        }
     }
 
     private void EnableRecursos()

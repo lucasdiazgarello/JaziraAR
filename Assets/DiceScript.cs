@@ -136,8 +136,8 @@ public class DiceScript : MonoBehaviour
     // Propiedad para verificar si algún dado está rodando
     public bool IsDiceRolling => IsDice1Rolling || IsDice2Rolling;
 
-    public Vector3 dice1Velocity { get; private set; }
-    public Vector3 dice2Velocity { get; private set; }
+    public Vector3 Dice1Velocity { get; private set; }
+    public Vector3 Dice2Velocity { get; private set; }
     //private Vector3 dice1Velocity;
     //private Vector3 dice2Velocity;
 
@@ -191,8 +191,8 @@ public class DiceScript : MonoBehaviour
             Rigidbody rb1 = DiceNumberTextScript.dice1.GetComponent<Rigidbody>();
             if (rb1 != null)
             {
-                dice1Velocity = rb1.velocity;
-                if (dice1Velocity.magnitude == 0)
+                Dice1Velocity = rb1.velocity;
+                if (Dice1Velocity.magnitude == 0)
                 {
                     IsDice1Rolling = false;
                 }
@@ -207,8 +207,8 @@ public class DiceScript : MonoBehaviour
             Rigidbody rb2 = DiceNumberTextScript.dice2.GetComponent<Rigidbody>();
             if (rb2 != null)
             {
-                dice2Velocity = rb2.velocity;
-                if (dice2Velocity.magnitude == 0)
+                Dice2Velocity = rb2.velocity;
+                if (Dice2Velocity.magnitude == 0)
                 {
                     IsDice2Rolling = false;
                 }
