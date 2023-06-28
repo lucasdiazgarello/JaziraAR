@@ -124,8 +124,8 @@ public class DiceScript : MonoBehaviour
     public Vector3 diceVelocity;
     private Vector3 posicion1;
     private Vector3 posicion2;
-    //private bool alternar;
-
+    // Almacena una referencia al script ARCursor para acceder a dicesThrown
+    private ARCursor arCursor;
     // Propiedad pública para verificar si el dado está rodando
     public bool IsDiceRolling { get; private set; }
 
@@ -182,6 +182,10 @@ public class DiceScript : MonoBehaviour
             {
                 IsDiceRolling = false;
             }
+            else if (arCursor != null)
+            {
+                arCursor.dicesThrown = false;
+            }
         }
         if (DiceNumberTextScript.dice2 != null)
         {
@@ -192,6 +196,10 @@ public class DiceScript : MonoBehaviour
             if (diceVelocity.magnitude == 0)
             {
                 IsDiceRolling = false;
+            }
+            else if (arCursor != null)
+            {
+                arCursor.dicesThrown = false;
             }
         }
     }

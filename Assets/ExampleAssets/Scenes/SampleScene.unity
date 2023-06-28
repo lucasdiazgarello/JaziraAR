@@ -912,7 +912,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 782628377}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &107399426
 GameObject:
@@ -5007,7 +5007,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 782628377}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &572302048
 MonoBehaviour:
@@ -6758,7 +6758,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 782628377}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &782628375
 GameObject:
@@ -6804,6 +6804,7 @@ MonoBehaviour:
     type: 3}
   dadoDistance: 0.5
   tirarDadoButton: {fileID: 180662478}
+  dicesThrown: 0
 --- !u!4 &782628377
 Transform:
   m_ObjectHideFlags: 0
@@ -6818,8 +6819,6 @@ Transform:
   m_Children:
   - {fileID: 223974228}
   - {fileID: 2013278313}
-  - {fileID: 1622199085}
-  - {fileID: 1919570599}
   - {fileID: 572302047}
   - {fileID: 779833895}
   - {fileID: 1189762168}
@@ -9368,7 +9367,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 782628377}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1189762169
 MonoBehaviour:
@@ -11739,56 +11738,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1600812346}
   m_CullTransparentMesh: 1
---- !u!1 &1622199084
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1622199085}
-  - component: {fileID: 1622199086}
-  m_Layer: 0
-  m_Name: Script Plataforma
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1622199085
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1622199084}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 782628377}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1622199086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1622199084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2919628e9cd0524bb05b7144ef7e89f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  plataformaDados: {fileID: 4143570274146337242, guid: e335f74d1c3c20a4ba4d3b7ae1063060,
-    type: 3}
-  dado: {fileID: 8620374991974496819, guid: 4047eff88060f8d4abba368e8719e957, type: 3}
-  plataformaDistance: 0.05
-  dadoDistance: 0.05
-  raycastManager: {fileID: 388525033}
 --- !u!43 &1650410729
 Mesh:
   m_ObjectHideFlags: 0
@@ -12983,6 +12932,7 @@ MonoBehaviour:
   dadoToPlace: {fileID: 0}
   dadoDistance: 0.05
   tirarDadoButton: {fileID: 0}
+  dicesThrown: 0
 --- !u!4 &1888942781
 Transform:
   m_ObjectHideFlags: 0
@@ -13259,55 +13209,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &1919570597
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1919570599}
-  - component: {fileID: 1919570598}
-  m_Layer: 0
-  m_Name: PlacePlatController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1919570598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1919570597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f64cae998a0511441879dc6962ddc8f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  raycastManager: {fileID: 388525033}
-  platformToPlace: {fileID: 4143570274146337242, guid: e335f74d1c3c20a4ba4d3b7ae1063060,
-    type: 3}
-  placePlatformButton: {fileID: 1355172171}
-  confirmPlatformButton: {fileID: 1978905952}
---- !u!4 &1919570599
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1919570597}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 782628377}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1922638191
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,6 +23,7 @@ public class ARCursor : NetworkBehaviour
     private GameObject currentDado; // Dado actualmente en proceso de colocación
     private GameObject currentDado2;
     public Button tirarDadoButton;
+    public bool dicesThrown = false;
 
     private ColocarPieza colocarPieza;
 
@@ -169,6 +170,8 @@ public class ARCursor : NetworkBehaviour
         {
             diceScript2.RollDice(currentDado2, tableromInstance.transform.position + Vector3.up * dadoDistance + Vector3.right * dadoDistance);
         }
+        // Ajustar dicesThrown a true luego de lanzar los dados
+        dicesThrown = true;
     }
 
     /*private void OnDiceRollButtonPressed()

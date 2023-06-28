@@ -5,17 +5,28 @@ using UnityEngine;
 public class DiceCheckZoneScript : MonoBehaviour
 {
     private DiceScript[] diceScripts;  // Almacena las referencias a ambos scripts de los dados
-
+    // Almacena una referencia al script ARCursor para acceder a dicesThrown
+    private ARCursor arCursor;
     Vector3 diceVelocity;
     private Dictionary<GameObject, bool> hasRegistered = new Dictionary<GameObject, bool>();
 
     void Start()
     {
-        diceScripts = GameObject.FindObjectsOfType<DiceScript>();
-        // Verifica si encontró las instancias de DiceScript
-        if (diceScripts.Length < 2)
+        // Obtén la referencia a ARCursor
+        arCursor = GameObject.FindObjectOfType<ARCursor>();
+    }
+
+    void Update()
+    {
+        // Solo busca las instancias de DiceScript si los dados han sido lanzados
+        if (arCursor.dicesThrown)
         {
-            Debug.LogWarning("No se encontraron las dos instancias de DiceScript en la escena");
+            diceScripts = GameObject.FindObjectsOfType<DiceScript>();
+            // Verifica si encontró las instancias de DiceScript
+            if (diceScripts.Length < 2)
+            {
+                Debug.LogWarning("No se encontraron las dos instancias de DiceScript en la escena");
+            }
         }
     }
 
@@ -42,6 +53,7 @@ public class DiceCheckZoneScript : MonoBehaviour
 
     IEnumerator CheckIfStill(Collider col)
     {
+        Debug.Log("Entro al Checkifstill");
         hasRegistered[col.gameObject] = true;
 
         Vector3 initPosition = col.transform.position;
@@ -79,6 +91,7 @@ public class DiceCheckZoneScript : MonoBehaviour
 
     private void UpdateDiceNumber(Collider col, int number)
     {
+        Debug.Log("Entro UpdateNumber");
         if (col.gameObject.transform.parent.gameObject == DiceNumberTextScript.dice1)
         {
             DiceNumberTextScript.diceNumber1 = number;

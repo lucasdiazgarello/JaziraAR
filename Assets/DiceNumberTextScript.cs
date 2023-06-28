@@ -34,9 +34,9 @@ public class DiceNumberTextScript : MonoBehaviour
         if (!diceScript1.IsDiceRolling && !diceScript2.IsDiceRolling)
         {
             TotalDiceNumber = diceNumber1 + diceNumber2; // La suma de ambos dados
-            //Debug.Log("Dado1:  " + diceNumber1);
-            //Debug.Log("Dado2:  " + diceNumber2);
-            //Debug.Log("La suma:  " + totalDiceNumber);
+            Debug.Log("Dado1:  " + diceNumber1);
+            Debug.Log("Dado2:  " + diceNumber2);
+            Debug.Log("La suma:  " + TotalDiceNumber);
             text.text = TotalDiceNumber.ToString();
         }
     }
