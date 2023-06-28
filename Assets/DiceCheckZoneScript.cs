@@ -30,11 +30,12 @@ public class DiceCheckZoneScript : MonoBehaviour
         }
     }
 
+
     void FixedUpdate()
     {
-        if (diceScripts.Length == 2 && diceScripts[0] != null && diceScripts[1] != null)
+        if (diceScripts != null && diceScripts.Length == 2 && diceScripts[0] != null && diceScripts[1] != null)
         {
-            diceVelocity = diceScripts[0].diceVelocity + diceScripts[1].diceVelocity;
+            diceVelocity = diceScripts[0].dice1Velocity + diceScripts[1].dice2Velocity;
         }
     }
 

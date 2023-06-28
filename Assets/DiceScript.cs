@@ -121,22 +121,35 @@ using UnityEngine.UIElements;
 public class DiceScript : MonoBehaviour
 {
     Rigidbody rb;
+    Rigidbody rb1;
+    Rigidbody rb2;
     public Vector3 diceVelocity;
     private Vector3 posicion1;
     private Vector3 posicion2;
     // Almacena una referencia al script ARCursor para acceder a dicesThrown
     private ARCursor arCursor;
     // Propiedad pública para verificar si el dado está rodando
-    public bool IsDiceRolling { get; private set; }
+    //public bool IsDiceRolling { get; private set; }
+    // Propiedad pública para verificar si el dado está rodando
+    public bool IsDice1Rolling { get; private set; }
+    public bool IsDice2Rolling { get; private set; }
+    // Propiedad para verificar si algún dado está rodando
+    public bool IsDiceRolling => IsDice1Rolling || IsDice2Rolling;
 
-    // Use this for initialization
+    public Vector3 dice1Velocity { get; private set; }
+    public Vector3 dice2Velocity { get; private set; }
+    //private Vector3 dice1Velocity;
+    //private Vector3 dice2Velocity;
+
     void Start()
     {
         posicion1 = new Vector3(5, 5, 5);
         posicion2 = new Vector3(10, 10, 10);
         //alternar = false;
         diceVelocity = Vector3.zero;
-        IsDiceRolling = true;
+        //IsDiceRolling = true;
+        IsDice1Rolling = IsDice2Rolling = true;
+
     }
 
     // Método público para lanzar el dado
@@ -144,7 +157,7 @@ public class DiceScript : MonoBehaviour
     {
         Debug.Log("Entró a RollDice");
 
-        rb = dado.GetComponent<Rigidbody>();
+        Rigidbody rb = dado.GetComponent<Rigidbody>();
 
         if (rb == null)
         {
@@ -155,10 +168,12 @@ public class DiceScript : MonoBehaviour
         if (dado == DiceNumberTextScript.dice1)
         {
             DiceNumberTextScript.diceNumber1 = 0;
+            IsDice1Rolling = true; // Modificación aquí
         }
         else if (dado == DiceNumberTextScript.dice2)
         {
             DiceNumberTextScript.diceNumber2 = 0;
+            IsDice2Rolling = true; // Modificación aquí
         }
 
         Vector3 randomTorque = new Vector3(Random.Range(-50, 50), Random.Range(-50, 50), Random.Range(-50, 50));
@@ -166,7 +181,6 @@ public class DiceScript : MonoBehaviour
         dado.transform.SetPositionAndRotation(initialPosition, Quaternion.identity);
 
         rb.AddTorque(randomTorque);
-        IsDiceRolling = true;
     }
 
     // Update is called once per frame
@@ -174,32 +188,34 @@ public class DiceScript : MonoBehaviour
     {
         if (DiceNumberTextScript.dice1 != null)
         {
-            rb = DiceNumberTextScript.dice1.GetComponent<Rigidbody>();
-            diceVelocity = rb.velocity;
-            //Debug.Log(diceVelocity);
-
-            if (diceVelocity.magnitude == 0)
+            Rigidbody rb1 = DiceNumberTextScript.dice1.GetComponent<Rigidbody>();
+            if (rb1 != null)
             {
-                IsDiceRolling = false;
-            }
-            else if (arCursor != null)
-            {
-                arCursor.dicesThrown = false;
+                dice1Velocity = rb1.velocity;
+                if (dice1Velocity.magnitude == 0)
+                {
+                    IsDice1Rolling = false;
+                }
+                else if (arCursor != null)
+                {
+                    arCursor.dicesThrown = false;
+                }
             }
         }
         if (DiceNumberTextScript.dice2 != null)
         {
-            rb = DiceNumberTextScript.dice2.GetComponent<Rigidbody>();
-            diceVelocity = rb.velocity;
-            //Debug.Log(diceVelocity);
-
-            if (diceVelocity.magnitude == 0)
+            Rigidbody rb2 = DiceNumberTextScript.dice2.GetComponent<Rigidbody>();
+            if (rb2 != null)
             {
-                IsDiceRolling = false;
-            }
-            else if (arCursor != null)
-            {
-                arCursor.dicesThrown = false;
+                dice2Velocity = rb2.velocity;
+                if (dice2Velocity.magnitude == 0)
+                {
+                    IsDice2Rolling = false;
+                }
+                else if (arCursor != null)
+                {
+                    arCursor.dicesThrown = false;
+                }
             }
         }
     }
