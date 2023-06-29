@@ -5,6 +5,20 @@ using UnityEngine;
 
 public class PlayerNetwork : NetworkBehaviour
 {
+    // Singleton instance
+    public static PlayerNetwork Instance { get; private set; }
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Para mantener el objeto al cambiar de escena
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private List<NetworkVariable<DatosJugador>> jugadores = new List<NetworkVariable<DatosJugador>>();
 
@@ -37,7 +51,6 @@ public class PlayerNetwork : NetworkBehaviour
             serializer.SerializeValue(ref trigoCount);
             serializer.SerializeValue(ref cantidadCasa);
             serializer.SerializeValue(ref nomJugador);
-
 
         }
     }

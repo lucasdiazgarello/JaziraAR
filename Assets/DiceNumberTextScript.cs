@@ -15,8 +15,8 @@ public class DiceNumberTextScript : MonoBehaviour
     public static int diceNumber2; // Para el segundo dado
     public static GameObject dice1; // Para el primer dado
     public static GameObject dice2; // Para el segundo dado
-    //public int totalDiceNumber
-    //public PlayerNetwork playernetwork;
+
+    public PlayerNetwork playerNetwork;
 
     public int TotalDiceNumber { get; private set; }
 
@@ -29,6 +29,7 @@ public class DiceNumberTextScript : MonoBehaviour
         // Asigna los objetos de los dados
         dice1 = diceScript1.gameObject;
         dice2 = diceScript2.gameObject;
+        playerNetwork = PlayerNetwork.Instance;
     }
 
     // Update is called once per frame
@@ -38,7 +39,16 @@ public class DiceNumberTextScript : MonoBehaviour
         // Chequea si ambos dados han dejado de rodar
         if (!diceScript1.IsDiceRolling && !diceScript2.IsDiceRolling)
         {
-            //Debug.Log("nombre host 2" + playernetwork.GetNomJugador(0));
+            /*
+            if (playerNetwork != null)
+            {
+                Debug.Log("nombre host 2" + playerNetwork.GetNomJugador(0));
+            }
+            else
+            {
+                Debug.Log("PlayerNetwork instance is null");
+            }*/
+            //Debug.Log("nombre host 2" + playerNetwork.GetNomJugador(0));
             TotalDiceNumber = diceNumber1 + diceNumber2; // La suma de ambos dados
             Debug.Log("Dado1:  " + diceNumber1);
             Debug.Log("Dado2:  " + diceNumber2);
@@ -47,47 +57,3 @@ public class DiceNumberTextScript : MonoBehaviour
         }
     }
 }
-
-/*
-
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-
-
-public class DiceNumberTextScript : MonoBehaviour
-{
-
-    Text text;
-    public Text tf;
-    public static int diceNumber;
-    private string texto = "hola";
-
-    // Use this for initialization
-    void Start()
-    {
-        text = GetComponent<Text>();
-        tf = GetComponent<Text>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        text.text = diceNumber.ToString();
-   
-
-    texto=diceNumber.ToString();
-
-        if (tf != null)
-        {
-
-            text.text = diceNumber.ToString();
-            tf.text = diceNumber.ToString();
-            Debug.Log("EL DADO ES " + diceNumber);
-        
-			
-        }
-    }
-}
-*/
