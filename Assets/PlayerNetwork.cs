@@ -59,14 +59,18 @@ public class PlayerNetwork : NetworkBehaviour
 
     private void Start()
     {
+
+        Debug.Log("HOLA QUE TAL");
         // Solo el host crea la lista de jugadores
-        if (IsHost)
-        {
-            isHost = true;
+
+        //if (IsHost)
+       // {
+            //isHost = true;
 
             // Crear 4 jugadores con todas las variables en 0
             for (int i = 0; i < 4; i++)
             {
+            //Debug.Log("EL CONTADOR DE PLAYER" + i);
                 DatosJugador jugador = new DatosJugador
                 {
                     jugadorId = i,
@@ -83,9 +87,11 @@ public class PlayerNetwork : NetworkBehaviour
 };
 
                 NetworkVariable<DatosJugador> networkJugador = new NetworkVariable<DatosJugador>(jugador, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+                
                 jugadores.Add(networkJugador);
+                //Debug.Log(jugadores.Count+" info de jugadores");
             }
-        }
+       // }
     }
 
     public void AgregarDatosJugador(int idJugador, DatosJugador datos)

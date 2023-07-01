@@ -16,7 +16,7 @@ public class DiceNumberTextScript : MonoBehaviour
     public static GameObject dice1; // Para el primer dado
     public static GameObject dice2; // Para el segundo dado
 
-    public PlayerNetwork playerNetwork;
+    //public PlayerNetwork playerNetwork;
 
     public int TotalDiceNumber { get; private set; }
 
@@ -29,7 +29,7 @@ public class DiceNumberTextScript : MonoBehaviour
         // Asigna los objetos de los dados
         dice1 = diceScript1.gameObject;
         dice2 = diceScript2.gameObject;
-        playerNetwork = PlayerNetwork.Instance;
+        //playerNetwork = PlayerNetwork.Instance;
     }
 
     // Update is called once per frame

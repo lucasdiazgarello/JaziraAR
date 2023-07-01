@@ -31,15 +31,20 @@ public class ARCursor : NetworkBehaviour
     private Vector3 initialDadoPosition; // Para guardar la posición inicial del dado
     private GameObject tableromInstance;
 
+    public PlayerNetwork playerNetwork;
+
+
     void Start()
     {
         placeButton.onClick.AddListener(ActivatePlacementMode);
         confirmButton.onClick.AddListener(ConfirmPlacement);
         confirmButton.gameObject.SetActive(false); // Desactivar el botón de confirmación al inicio
         DisableRecursos();
+
         objectToPlace = Resources.Load("TableroCC 2") as GameObject;
         tirarDadoButton.onClick.AddListener(OnDiceRollButtonPressed);
         colocarPieza = GetComponentInChildren<ColocarPieza>();
+        playerNetwork = PlayerNetwork.Instance;
     }
 
     void Update()
@@ -99,6 +104,20 @@ public class ARCursor : NetworkBehaviour
         // Confirmar la colocación del tablero y desactivar el modo de colocación
         isBoardPlaced = true;
         isPlacementModeActive = false;
+
+        //Debug.Log("nombre host 1");
+        //Debug.Log("nombre host 2" + playerNetwork.GetNomJugador(0));
+        //Debug.Log("nombre host 3");
+        /*
+        if (playerNetwork != null)
+        {
+            Debug.Log("nombre host 2" + playerNetwork.GetNomJugador(0));
+        }
+        else
+        {
+            Debug.Log("PlayerNetwork instance is null");
+        }
+        */
         confirmButton.gameObject.SetActive(false); // Desactivar el botón de confirmación
         // Activar la colocación de las piezas en los marcadores invisibles
         foreach (ColocarPieza colocarPieza in GetComponentsInChildren<ColocarPieza>())
