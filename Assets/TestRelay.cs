@@ -37,7 +37,8 @@ public class TestRelay : MonoBehaviour
             //traer cantJugadores del canvas
             cantJugadores = int.Parse(cantidadJugadores.text);
             nombreHost = nombreHostinput.text;
-            playernetwork.SetNomJugador(0, nombreHost);
+            
+            //playernetwork.SetNomJugador(0, nombreHost);
             Debug.Log("nombre relay" + nombreHost);
             Allocation allocation = await RelayService.Instance.CreateAllocationAsync(cantJugadores-1); // el host y 3 mas
 
@@ -53,6 +54,8 @@ public class TestRelay : MonoBehaviour
                 allocation.ConnectionData
                 );
             NetworkManager.Singleton.StartHost();
+            playernetwork.CrearJugadores();
+            playernetwork.RequestSetNomJugador(0, nombreHost);
 
         } catch (RelayServiceException e)
         {

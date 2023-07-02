@@ -155,7 +155,7 @@ public class DiceScript : MonoBehaviour
     // Método público para lanzar el dado
     public void RollDice(GameObject dado, Vector3 initialPosition)
     {
-        Debug.Log("Entró a RollDice");
+        //Debug.Log("Entró a RollDice");
 
         Rigidbody rb = dado.GetComponent<Rigidbody>();
 

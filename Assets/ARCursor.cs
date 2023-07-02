@@ -105,9 +105,9 @@ public class ARCursor : NetworkBehaviour
         isBoardPlaced = true;
         isPlacementModeActive = false;
 
-        //Debug.Log("nombre host 1");
-        //Debug.Log("nombre host 2" + playerNetwork.GetNomJugador(0));
-        //Debug.Log("nombre host 3");
+        Debug.Log("nombre host 1");
+        Debug.Log("nombre host 2" + playerNetwork.GetNomJugador(0));
+        Debug.Log("nombre host 3");
         /*
         if (playerNetwork != null)
         {
@@ -169,6 +169,7 @@ public class ARCursor : NetworkBehaviour
             currentDado = Instantiate(dadoToPlace, tableromInstance.transform.position + Vector3.up * dadoDistance, Quaternion.identity);
             currentDado.GetComponent<NetworkObject>().Spawn();
             DiceNumberTextScript.dice1 = currentDado;
+            //Destroy(currentDado2, 5f);
         }
         else
         {
@@ -182,6 +183,7 @@ public class ARCursor : NetworkBehaviour
             currentDado2 = Instantiate(dadoToPlace, tableromInstance.transform.position + Vector3.up * dadoDistance + Vector3.right * dadoDistance, Quaternion.identity);
             currentDado2.GetComponent<NetworkObject>().Spawn();
             DiceNumberTextScript.dice2 = currentDado2;
+            //Destroy(currentDado2, 5f);
         }
         else
         {
