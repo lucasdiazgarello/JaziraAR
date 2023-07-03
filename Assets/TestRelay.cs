@@ -21,12 +21,10 @@ public class TestRelay : MonoBehaviour
     private async void Start()
     {
         await UnityServices.InitializeAsync();
-
         AuthenticationService.Instance.SignedIn += () =>
         {
             Debug.Log("Signed in " + AuthenticationService.Instance.PlayerId);
         };
-
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
     }
 
@@ -55,7 +53,7 @@ public class TestRelay : MonoBehaviour
                 );
             NetworkManager.Singleton.StartHost();
             playernetwork.CrearJugadores();
-            playernetwork.RequestSetNomJugador(0, nombreHost);
+            playernetwork.SetNomJugador(0, nombreHost);
 
         } catch (RelayServiceException e)
         {
@@ -87,8 +85,5 @@ public class TestRelay : MonoBehaviour
         {
             Debug.Log(e);
         }
-        
-
     }
-
 }

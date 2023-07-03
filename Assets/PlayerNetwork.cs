@@ -6,10 +6,19 @@ using UnityEngine;
 
 public class PlayerNetwork : NetworkBehaviour
 {
+    public List<NetworkVariable<DatosJugador>> jugadores = new List<NetworkVariable<DatosJugador>>();
 
-    //public bool IsHost = false;
+    /*public NetworkVariable<Dictionary<int, DatosJugador>> jugadores =
+        new NetworkVariable<Dictionary<int, DatosJugador>>(new NetworkVariableSettings
+        {
+            WritePermission = NetworkVariablePermission.Everyone,
+            ReadPermission = NetworkVariablePermission.Everyone
+        });
+    */
     // Singleton instance
     public static PlayerNetwork Instance { get; private set; }
+    public object NetworkVariablePermission { get; private set; }
+
     private void Awake()
     {
         if (Instance == null)
@@ -22,8 +31,6 @@ public class PlayerNetwork : NetworkBehaviour
             Destroy(gameObject);
         }
     }
-
-    private List<NetworkVariable<DatosJugador>> jugadores = new List<NetworkVariable<DatosJugador>>();
 
     public struct DatosJugador : INetworkSerializable
     {
@@ -58,24 +65,67 @@ public class PlayerNetwork : NetworkBehaviour
         }
     }
 
-
     private void Start()
     {
        
     }
+    /*public void InicializarJugadores()
+    {
+        // Asegúrate de llamar a este método antes de usar la lista de jugadores.
+        for (int i = 0; i < 4; i++)
+        {
 
-
+            NetworkVariable<DatosJugador> jugador = new NetworkVariable<DatosJugador>(new NetworkVariableSettings
+            {
+                ReadPermission = NetworkVariablePermission.Everyone,
+                WritePermission = NetworkVariablePermission.Owner
+            });
+            jugadores.Add(jugador);
+        }
+    }*/
+    /*
     public void CrearJugadores()
     {
         Debug.Log("HOLA QUE TAL");
-
-        // Verificamos si es el host
-        //isHost = IsHost;
 
         // Solo el host crea la lista de jugadores
         if (IsHost)
         {
             Debug.Log("entre al host de start");
+            //InicializarJugadores();
+            // Crear 4 jugadores con todas las variables en 0
+            for (int i = 0; i < 4; i++)
+            {
+                DatosJugador jugador = new DatosJugador
+                {
+                    jugadorId = i,
+                    puntaje = 0,
+                    cantidadCartas = 0,
+                    gano = false,
+                    turno = false,
+                    maderaCount = 0,
+                    ladrilloCount = 0,
+                    ovejaCount = 0,
+                    piedraCount = 0,
+                    trigoCount = 0,
+                    cantidadCasa = 0,
+                    nomJugador = "carla"
+                };
+                jugadores[i].Value = jugador;
+                Debug.Log("nombre JUGADOR " + jugadores[i].Value.nomJugador);
+            }
+        }
+    }*/
+
+    public void CrearJugadores()
+    {
+        Debug.Log("HOLA QUE TAL");
+
+        // Solo el host crea la lista de jugadores
+        if (IsHost)
+        {
+            Debug.Log("entre al host de start");
+            //InicializarJugadores();
             // Crear 4 jugadores con todas las variables en 0
             for (int i = 0; i < 4; i++)
             {
@@ -135,6 +185,36 @@ public class PlayerNetwork : NetworkBehaviour
         Debug.Log("Entre a GetNomJugador");
         return jugadores[idJugador].Value.nomJugador;
     }
+
+    public void SetNomJugador(int idJugador, string nombre)
+    {
+        if (!IsHost) return; // Solo el host puede cambiar el ID del jugador
+
+        if (idJugador >= 0 && idJugador < jugadores.Count)
+        {
+            /*
+            var datos = jugadores[idJugador].Value;
+            datos.nomJugador = nombre;
+            jugadores[idJugador].Value = datos;
+            Debug.Log("deberia decir euge :" + jugadores[idJugador].Value.nomJugador);
+            */
+            /*Debug.Log("Entre a SetNomJugadorServerRpc");
+            DatosJugador aux = jugadores[idJugador].Value;
+            Debug.Log("JAJAS");
+            aux.nomJugador = nombre;
+            Debug.Log("JAJAS2");
+            jugadores[idJugador].Value = aux;
+            Debug.Log("aca tiene que decir euge :" + jugadores[idJugador].Value.nomJugador);
+            Debug.Log("JAJAS 32");*/
+            Debug.Log("Entre a SetNomJugador");
+
+            var datos = jugadores[idJugador].Value;
+            datos.nomJugador = nombre;
+            jugadores[idJugador].Value = datos;
+
+            Debug.Log("aca tiene que decir euge :" + jugadores[idJugador].Value.nomJugador);
+        }
+    }
     /*
     public void SetNomJugador(int idJugador, string nombre)
     {
@@ -153,7 +233,7 @@ public class PlayerNetwork : NetworkBehaviour
         }
     }
     */
-
+    /*
     [ServerRpc]
     public void SetNomJugadorServerRpc(int idJugador, string nombre)
     {
@@ -169,12 +249,11 @@ public class PlayerNetwork : NetworkBehaviour
             aux.nomJugador = nombre;
             Debug.Log("JAJAS2");
             jugadores[idJugador].Value = aux;
-            
             Debug.Log("aca tiene que decir lucas :" + jugadores[idJugador].Value.nomJugador);
             Debug.Log("JAJAS 32");
         }
-    }
-
+    }*/
+    /*
     public void RequestSetNomJugador(int idJugador, string nombre)
     {
         // Esto enviará la solicitud al servidor para cambiar el nombre del jugador
@@ -186,7 +265,7 @@ public class PlayerNetwork : NetworkBehaviour
 
         SetNomJugadorServerRpc(idJugador, nombre);
     }
-
+    */
 
     public int GetPuntaje(int idJugador)
     {
