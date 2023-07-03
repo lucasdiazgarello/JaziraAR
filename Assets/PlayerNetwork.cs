@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerNetwork : NetworkBehaviour
 {
     public List<NetworkVariable<DatosJugador>> jugadores = new List<NetworkVariable<DatosJugador>>();
+    public bool IsInitialized { get; private set; } = false; // Añade este campo de estado
 
     /*public NetworkVariable<Dictionary<int, DatosJugador>> jugadores =
         new NetworkVariable<Dictionary<int, DatosJugador>>(new NetworkVariableSettings
@@ -25,6 +26,8 @@ public class PlayerNetwork : NetworkBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject); // Para mantener el objeto al cambiar de escena
+            // Inicializar los jugadores aquí
+            //CrearJugadores();
         }
         else
         {
@@ -61,7 +64,6 @@ public class PlayerNetwork : NetworkBehaviour
             serializer.SerializeValue(ref trigoCount);
             serializer.SerializeValue(ref cantidadCasa);
             serializer.SerializeValue(ref nomJugador);
-
         }
     }
 
@@ -119,12 +121,12 @@ public class PlayerNetwork : NetworkBehaviour
 
     public void CrearJugadores()
     {
-        Debug.Log("HOLA QUE TAL");
+        Debug.Log("Entro a Crear jugadores");
 
         // Solo el host crea la lista de jugadores
         if (IsHost)
         {
-            Debug.Log("entre al host de start");
+            //Debug.Log("entre al host de start");
             //InicializarJugadores();
             // Crear 4 jugadores con todas las variables en 0
             for (int i = 0; i < 4; i++)
@@ -145,13 +147,15 @@ public class PlayerNetwork : NetworkBehaviour
                     cantidadCasa = 0,
                     nomJugador = "carla"
                 };
-                Debug.Log("llegue hasta aca");
+                //Debug.Log("llegue hasta aca");
                 NetworkVariable<DatosJugador> networkJugador = new NetworkVariable<DatosJugador>(jugador, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
-                Debug.Log("llegue hast aca 2");
+                //Debug.Log("llegue hast aca 2");
+                Debug.Log("CrearJugadores(): i = " + i);
                 jugadores.Add(networkJugador);
                 Debug.Log("ID JUGADOR " + jugadores[i].Value.nomJugador);
                 //Debug.Log(jugadores.Count+" info de jugadores");
             }
+            IsInitialized = true;
         }
     }
     public void AgregarDatosJugador(int idJugador, DatosJugador datos)
@@ -190,30 +194,32 @@ public class PlayerNetwork : NetworkBehaviour
     {
         if (!IsHost) return; // Solo el host puede cambiar el ID del jugador
 
-        if (idJugador >= 0 && idJugador < jugadores.Count)
+        if (jugadores == null)
         {
-            /*
-            var datos = jugadores[idJugador].Value;
-            datos.nomJugador = nombre;
-            jugadores[idJugador].Value = datos;
-            Debug.Log("deberia decir euge :" + jugadores[idJugador].Value.nomJugador);
-            */
-            /*Debug.Log("Entre a SetNomJugadorServerRpc");
-            DatosJugador aux = jugadores[idJugador].Value;
-            Debug.Log("JAJAS");
-            aux.nomJugador = nombre;
-            Debug.Log("JAJAS2");
-            jugadores[idJugador].Value = aux;
-            Debug.Log("aca tiene que decir euge :" + jugadores[idJugador].Value.nomJugador);
-            Debug.Log("JAJAS 32");*/
-            Debug.Log("Entre a SetNomJugador");
-
-            var datos = jugadores[idJugador].Value;
-            datos.nomJugador = nombre;
-            jugadores[idJugador].Value = datos;
-
-            Debug.Log("aca tiene que decir euge :" + jugadores[idJugador].Value.nomJugador);
+            Debug.Log("jugadores is null");
+            return;
         }
+
+        if (idJugador < 0 || idJugador >= jugadores.Count)
+        {
+            Debug.Log("Invalid idJugador: " + idJugador);
+            return;
+        }
+
+        if (!IsInitialized)
+        {
+            Debug.Log("Not initialized");
+            return;
+        }
+
+        Debug.Log("Entre a SetNomJugador y se inicializo");
+        Debug.Log("SetNomJugador(): Setting name for player " + idJugador);
+
+        var datos = jugadores[idJugador].Value;
+        datos.nomJugador = nombre;
+        jugadores[idJugador].Value = datos;
+
+        Debug.Log("aca tiene que decir euge :" + jugadores[idJugador].Value.nomJugador);
     }
     /*
     public void SetNomJugador(int idJugador, string nombre)
