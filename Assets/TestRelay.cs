@@ -17,6 +17,11 @@ public class TestRelay : MonoBehaviour
     public InputField cantidadJugadores;
     public InputField nombreHostinput;
     public PlayerNetwork playernetwork;
+    public Toggle toggleRojo;
+    public Toggle toggleAzul;
+    public Toggle toggleVioleta;
+    public Toggle toggleNaranja;
+    private string colorSeleccionado = "rojo"; // Un valor predeterminado
 
     private async void Start()
     {
@@ -27,6 +32,12 @@ public class TestRelay : MonoBehaviour
         };
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
     }
+    public void OnToggleClicked()
+    {
+        if (toggleAzul.isOn) colorSeleccionado = "azul";
+        else if (toggleVioleta.isOn) colorSeleccionado = "violeta";
+        else if (toggleNaranja.isOn) colorSeleccionado = "naranja";
+    }
 
     public async void CreateRelay()
     {
@@ -35,9 +46,15 @@ public class TestRelay : MonoBehaviour
             //traer cantJugadores del canvas
             cantJugadores = int.Parse(cantidadJugadores.text);
             nombreHost = nombreHostinput.text;
-            
+            /*// Determine el color del jugador
+            string colorSeleccionado = "rojo"; // Un valor predeterminado
+            if (toggleAzul.isOn) colorSeleccionado = "azul";
+            else if (toggleVioleta.isOn) colorSeleccionado = "violeta";
+            else if (toggleNaranja.isOn) colorSeleccionado = "naranja";*/
+
             //playernetwork.SetNomJugador(0, nombreHost);
             Debug.Log("nombre relay" + nombreHost);
+            Debug.Log("color relay" + colorSeleccionado);
             Allocation allocation = await RelayService.Instance.CreateAllocationAsync(cantJugadores-1); // el host y 3 mas
 
             string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
@@ -54,7 +71,11 @@ public class TestRelay : MonoBehaviour
             NetworkManager.Singleton.StartHost();
             Debug.Log("antes de cargar");
             PlayerNetwork.Instance.ImprimirDatosJugador();
-            PlayerNetwork.Instance.CargarDatosJugador(1, "Jugador", 100, 5, false, true, 2, 10, 10, 10, 10, 10);
+            PlayerNetwork.Instance.CargarDatosColorJugador(colorSeleccionado);
+            Debug.Log("color post cargar" + colorSeleccionado);
+            PlayerNetwork.Instance.CargarDatosJugador(1,nombreHost, 100, cantJugadores, false, true, 2, 10, 10, 10, 10, 10);
+            // Luego de determinar el color, se lo asigna al jugador:
+            //PlayerNetwork.Instance.CargarDatosColorJugador(colorSeleccionado);
             Debug.Log("despues de cargar");
             PlayerNetwork.Instance.ImprimirDatosJugador();
             //playernetwork.CrearJugadores();

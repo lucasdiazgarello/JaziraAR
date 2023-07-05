@@ -47,7 +47,7 @@ public class PlayerNetwork : NetworkBehaviour
             jugadorId = 0,
             nomJugador = "Unity",
             puntaje = 0,
-            cantidadCartas= 0,
+            cantidadJugadores= 0,
             gano = false,
             turno = false,
             cantidadCasa = 0,
@@ -56,6 +56,7 @@ public class PlayerNetwork : NetworkBehaviour
             ovejaCount = 0,
             piedraCount = 0,
             trigoCount = 0,
+            colorJugador = "rojo",
 
         },NetworkVariableReadPermission.Everyone,NetworkVariableWritePermission.Owner);
     public struct DatosJugador : INetworkSerializable
@@ -63,7 +64,7 @@ public class PlayerNetwork : NetworkBehaviour
         public int jugadorId;
         public string nomJugador;
         public int puntaje;
-        public int cantidadCartas;
+        public int cantidadJugadores;
         public bool gano;
         public bool turno;
         public int cantidadCasa;
@@ -72,12 +73,13 @@ public class PlayerNetwork : NetworkBehaviour
         public int ovejaCount;
         public int piedraCount;
         public int trigoCount;
+        public string colorJugador;
 
         public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
         {
             serializer.SerializeValue(ref jugadorId);
             serializer.SerializeValue(ref puntaje);
-            serializer.SerializeValue(ref cantidadCartas);
+            serializer.SerializeValue(ref cantidadJugadores);
             serializer.SerializeValue(ref gano);
             serializer.SerializeValue(ref turno);
             serializer.SerializeValue(ref maderaCount);
@@ -87,6 +89,7 @@ public class PlayerNetwork : NetworkBehaviour
             serializer.SerializeValue(ref trigoCount);
             serializer.SerializeValue(ref cantidadCasa);
             serializer.SerializeValue(ref nomJugador);
+            serializer.SerializeValue(ref colorJugador);
         }
     }
 
@@ -106,7 +109,7 @@ public class PlayerNetwork : NetworkBehaviour
         Debug.Log("ID Jugador: " + jugador.Value.jugadorId);
         Debug.Log("Nombre Jugador: " + jugador.Value.nomJugador);
         Debug.Log("Puntaje: " + jugador.Value.puntaje);
-        Debug.Log("Cantidad de Cartas: " + jugador.Value.cantidadCartas);
+        Debug.Log("Cantidad de Jugadores: " + jugador.Value.cantidadJugadores);
         Debug.Log("Ganó?: " + jugador.Value.gano);
         Debug.Log("Turno?: " + jugador.Value.turno);
         Debug.Log("Cantidad de Casas: " + jugador.Value.cantidadCasa);
@@ -115,15 +118,16 @@ public class PlayerNetwork : NetworkBehaviour
         Debug.Log("Cuenta de Ovejas: " + jugador.Value.ovejaCount);
         Debug.Log("Cuenta de Piedras: " + jugador.Value.piedraCount);
         Debug.Log("Cuenta de Trigo: " + jugador.Value.trigoCount);
+        Debug.Log("Color de Jugador: " + jugador.Value.colorJugador);
     }
 
-    public void CargarDatosJugador(int jugadorId, string nomJugador, int puntaje, int cantidadCartas, bool gano, bool turno, int cantidadCasa, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount)
+    public void CargarDatosJugador(int jugadorId, string nomJugador, int puntaje, int cantidadJugadores, bool gano, bool turno, int cantidadCasa, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount)
     {
         DatosJugador newDatos = new DatosJugador();
         newDatos.jugadorId = jugadorId;
         newDatos.nomJugador = nomJugador;
         newDatos.puntaje = puntaje;
-        newDatos.cantidadCartas = cantidadCartas;
+        newDatos.cantidadJugadores = cantidadJugadores;
         newDatos.gano = gano;
         newDatos.turno = turno;
         newDatos.cantidadCasa = cantidadCasa;
@@ -132,6 +136,7 @@ public class PlayerNetwork : NetworkBehaviour
         newDatos.ovejaCount = ovejaCount;
         newDatos.piedraCount = piedraCount;
         newDatos.trigoCount = trigoCount;
+        //newDatos.colorJugador = colorJugador;
 
         jugador.Value = newDatos;
     }
@@ -141,6 +146,13 @@ public class PlayerNetwork : NetworkBehaviour
         Debug.Log("Nombre de Jugador antes: " + nombreJugador.Value);
         nombreJugador.Value = "eugenia";
         Debug.Log("Nombre de Jugador despues: " + nombreJugador.Value);
+    }
+    public void CargarDatosColorJugador(string colorSeleccionado)
+    {
+        DatosJugador datosActuales = jugador.Value;
+        datosActuales.colorJugador = colorSeleccionado;
+        jugador.Value = datosActuales;
+        Debug.Log("color neuvo es: " + jugador.Value.colorJugador);
     }
 
     private void Update()

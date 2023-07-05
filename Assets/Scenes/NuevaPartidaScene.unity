@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3708984, g: 0.37837017, b: 0.35722524, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -445,10 +445,10 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 421652247}
-        m_TargetAssemblyTypeName: AsignarDatosUI, Assembly-CSharp
-        m_MethodName: AsignarColor
-        m_Mode: 5
+      - m_Target: {fileID: 1122006203}
+        m_TargetAssemblyTypeName: TestRelay, Assembly-CSharp
+        m_MethodName: OnToggleClicked
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1562,6 +1562,10 @@ MonoBehaviour:
   cantidadJugadores: {fileID: 1832887630}
   nombreHostinput: {fileID: 1750614816}
   playernetwork: {fileID: 1748177637}
+  toggleRojo: {fileID: 0}
+  toggleAzul: {fileID: 0}
+  toggleVioleta: {fileID: 0}
+  toggleNaranja: {fileID: 0}
 --- !u!1 &1152160993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2117,10 +2121,10 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 421652247}
-        m_TargetAssemblyTypeName: AsignarDatosUI, Assembly-CSharp
-        m_MethodName: AsignarColor
-        m_Mode: 5
+      - m_Target: {fileID: 1122006203}
+        m_TargetAssemblyTypeName: TestRelay, Assembly-CSharp
+        m_MethodName: OnToggleClicked
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2291,10 +2295,10 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 421652247}
-        m_TargetAssemblyTypeName: AsignarDatosUI, Assembly-CSharp
-        m_MethodName: AsignarColor
-        m_Mode: 5
+      - m_Target: {fileID: 1122006203}
+        m_TargetAssemblyTypeName: TestRelay, Assembly-CSharp
+        m_MethodName: OnToggleClicked
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2604,10 +2608,10 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 421652247}
-        m_TargetAssemblyTypeName: AsignarDatosUI, Assembly-CSharp
-        m_MethodName: AsignarColor
-        m_Mode: 5
+      - m_Target: {fileID: 1122006203}
+        m_TargetAssemblyTypeName: TestRelay, Assembly-CSharp
+        m_MethodName: OnToggleClicked
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
