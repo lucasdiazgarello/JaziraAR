@@ -105,9 +105,9 @@ public class ARCursor : NetworkBehaviour
         isBoardPlaced = true;
         isPlacementModeActive = false;
 
-        Debug.Log("nombre host 1");
-        Debug.Log("nombre host 2" + playerNetwork.GetNomJugador(0));
-        Debug.Log("nombre host 3");
+        //Debug.Log("nombre host 1");
+        //Debug.Log("nombre host 2" + playerNetwork.GetNomJugador(0));
+        //Debug.Log("nombre host 3");
         /*
         if (playerNetwork != null)
         {

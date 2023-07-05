@@ -52,8 +52,13 @@ public class TestRelay : MonoBehaviour
                 allocation.ConnectionData
                 );
             NetworkManager.Singleton.StartHost();
-            playernetwork.CrearJugadores();
-            playernetwork.SetNomJugador(0, nombreHost);
+            Debug.Log("antes de cargar");
+            PlayerNetwork.Instance.ImprimirDatosJugador();
+            PlayerNetwork.Instance.CargarDatosJugador(1, "Jugador", 100, 5, false, true, 2, 10, 10, 10, 10, 10);
+            Debug.Log("despues de cargar");
+            PlayerNetwork.Instance.ImprimirDatosJugador();
+            //playernetwork.CrearJugadores();
+            //playernetwork.SetNomJugador(0, nombreHost);
 
         } catch (RelayServiceException e)
         {

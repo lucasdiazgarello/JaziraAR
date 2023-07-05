@@ -3123,6 +3123,7 @@ MonoBehaviour:
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
   SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
 --- !u!114 &1748177637
@@ -3137,6 +3138,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44c2bfda6b1e4fd4abc5ac2b30e3533c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nombreJugador:
+    m_InternalValue: alejandro
+  buttonToPress: {fileID: 1159869438}
+  buttonPrint: {fileID: 1159869438}
+  buttonLoad: {fileID: 1159869438}
 --- !u!4 &1748177638
 Transform:
   m_ObjectHideFlags: 0
