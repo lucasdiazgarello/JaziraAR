@@ -21,7 +21,12 @@ public class TestRelay : MonoBehaviour
     public Toggle toggleAzul;
     public Toggle toggleVioleta;
     public Toggle toggleNaranja;
-    private string colorSeleccionado = "rojo"; // Un valor predeterminado
+    //private string colorSeleccionado = "verde"; // Un valor predeterminado
+    public string colorSeleccionado;
+    public Text colorrojo;
+    public Text colorazul;
+    public Text colorvioleta;
+    public Text colornaranja;
 
     private async void Start()
     {
@@ -31,13 +36,60 @@ public class TestRelay : MonoBehaviour
             Debug.Log("Signed in " + AuthenticationService.Instance.PlayerId);
         };
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
+        //toggleRojo.onValueChanged.AddListener(OnToggleClicked);
+        //toggleAzul.onValueChanged.AddListener(OnToggleClicked);
+        //toggleVioleta.onValueChanged.AddListener(OnToggleClicked);
+        //toggleNaranja.onValueChanged.AddListener(OnToggleClicked);
+        //Fetch the Toggle GameObject
+        /*toggleRojo = GetComponent<Toggle>();
+        //Add listener for when the state of the Toggle changes, to take action
+        toggleRojo.onValueChanged.AddListener(delegate {
+            ToggleValueChangedRojo(toggleRojo);
+        });
+
+        toggleAzul = GetComponent<Toggle>();
+        //Add listener for when the state of the Toggle changes, to take action
+        toggleAzul.onValueChanged.AddListener(delegate {
+            ToggleValueChangedAzul(toggleAzul);
+        });
+
+        //Initialise the Text to say the first state of the Toggle
+        colorrojo.text = "First Value : " + toggleRojo.isOn;
+        colorazul.text = "First Value : " + toggleAzul.isOn;
+        */
+    }
+    //Output the new state of the Toggle into Text
+    /*void ToggleValueChangedRojo(Toggle change)
+    {
+        colorrojo.text = "Rojo : " + toggleRojo.isOn;
+    }
+    void ToggleValueChangedAzul(Toggle change)
+    {
+        colorazul.text = "Azul : " + toggleAzul.isOn;
     }
     public void OnToggleClicked()
     {
-        if (toggleAzul.isOn) colorSeleccionado = "azul";
-        else if (toggleVioleta.isOn) colorSeleccionado = "violeta";
-        else if (toggleNaranja.isOn) colorSeleccionado = "naranja";
-    }
+        if (toggleRojo.isOn)
+        {
+            colorSeleccionado = "rojo";
+            Debug.Log("Rojo seleccionado");
+        }
+        else if (toggleAzul.isOn)
+        {
+            colorSeleccionado = "azul";
+            Debug.Log("Azul seleccionado");
+        }
+        else if (toggleVioleta.isOn)
+        {
+            colorSeleccionado = "violeta";
+            Debug.Log("Violeta seleccionado");
+        }
+        else if (toggleNaranja.isOn)
+        {
+            colorSeleccionado = "naranja";
+            Debug.Log("Naranja seleccionado");
+        }
+    }*/
 
     public async void CreateRelay()
     {
@@ -71,9 +123,11 @@ public class TestRelay : MonoBehaviour
             NetworkManager.Singleton.StartHost();
             Debug.Log("antes de cargar");
             PlayerNetwork.Instance.ImprimirDatosJugador();
-            PlayerNetwork.Instance.CargarDatosColorJugador(colorSeleccionado);
-            Debug.Log("color post cargar" + colorSeleccionado);
-            PlayerNetwork.Instance.CargarDatosJugador(1,nombreHost, 100, cantJugadores, false, true, 2, 10, 10, 10, 10, 10);
+            Debug.Log("color pre cargar" + colorSeleccionado);
+            //PlayerNetwork.Instance.CargarDatosColorJugador(colorSeleccionado);
+            //PlayerNetwork.Instance.CargarDatosColorJugador(colorSeleccionado);
+            //Debug.Log("color post cargar" + colorSeleccionado);
+            PlayerNetwork.Instance.CargarDatosJugador(1,nombreHost, 100, cantJugadores, false, true, 2, 10, 10, 10, 10, 10,colorSeleccionado);
             // Luego de determinar el color, se lo asigna al jugador:
             //PlayerNetwork.Instance.CargarDatosColorJugador(colorSeleccionado);
             Debug.Log("despues de cargar");

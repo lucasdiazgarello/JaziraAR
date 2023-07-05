@@ -121,7 +121,7 @@ public class PlayerNetwork : NetworkBehaviour
         Debug.Log("Color de Jugador: " + jugador.Value.colorJugador);
     }
 
-    public void CargarDatosJugador(int jugadorId, string nomJugador, int puntaje, int cantidadJugadores, bool gano, bool turno, int cantidadCasa, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount)
+    public void CargarDatosJugador(int jugadorId, string nomJugador, int puntaje, int cantidadJugadores, bool gano, bool turno, int cantidadCasa, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, string colorJugador)
     {
         DatosJugador newDatos = new DatosJugador();
         newDatos.jugadorId = jugadorId;
@@ -136,7 +136,7 @@ public class PlayerNetwork : NetworkBehaviour
         newDatos.ovejaCount = ovejaCount;
         newDatos.piedraCount = piedraCount;
         newDatos.trigoCount = trigoCount;
-        //newDatos.colorJugador = colorJugador;
+        newDatos.colorJugador = colorJugador;
 
         jugador.Value = newDatos;
     }
@@ -147,13 +147,14 @@ public class PlayerNetwork : NetworkBehaviour
         nombreJugador.Value = "eugenia";
         Debug.Log("Nombre de Jugador despues: " + nombreJugador.Value);
     }
-    public void CargarDatosColorJugador(string colorSeleccionado)
+    /*public void CargarDatosColorJugador(string colorSeleccionado)
     {
+        Debug.Log("CargarDatosColorJugador fue llamado con: " + colorSeleccionado);
         DatosJugador datosActuales = jugador.Value;
         datosActuales.colorJugador = colorSeleccionado;
         jugador.Value = datosActuales;
         Debug.Log("color neuvo es: " + jugador.Value.colorJugador);
-    }
+    }*/
 
     private void Update()
     {
