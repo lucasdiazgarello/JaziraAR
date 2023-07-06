@@ -126,8 +126,8 @@ public class TestRelay : MonoBehaviour
             Debug.Log("color pre cargar" + colorSeleccionado);
 
             //PlayerNetwork.Instance.CargarDatosJugador(1,nombreHost, 100, cantJugadores, false, true, 2, 10, 10, 10, 10, 10,colorSeleccionado);
-            PlayerNetwork.Instance.AgregarJugador(1, nombreHost, 100, cantJugadores, false, false, 2, 10, 10, 10, 10, 10, colorSeleccionado);
-            PlayerNetwork.Instance.AgregarJugador(2, "JugadorManual", 120, cantJugadores, false, false, 1, 8, 9, 7, 6, 8, "azul");
+            PlayerNetwork.Instance.AgregarJugador(nombreHost, 100, cantJugadores, false, false, 2, 10, 10, 10, 10, 10, colorSeleccionado);
+            PlayerNetwork.Instance.AgregarJugador("JugadorManual", 120, cantJugadores, false, false, 1, 8, 9, 7, 6, 8, "azul");
             Debug.Log("despues de cargar");
             PlayerNetwork.Instance.MostrarJugadores();
             /*for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
