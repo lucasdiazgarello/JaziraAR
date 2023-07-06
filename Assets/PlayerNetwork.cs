@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class PlayerNetwork : NetworkBehaviour
 {
-    public NetworkVariable<string> nombreJugador = new NetworkVariable<string>("alejandro",NetworkVariableReadPermission.Everyone,NetworkVariableWritePermission.Owner);
     //public List<NetworkVariable<DatosJugador>> jugadores = new List<NetworkVariable<DatosJugador>>();
     
     public bool IsInitialized { get; private set; } = false; // Añade este campo de estado
@@ -141,12 +140,7 @@ public class PlayerNetwork : NetworkBehaviour
         jugador.Value = newDatos;
     }
 
-    public void PrintPlayerName()
-    {
-        Debug.Log("Nombre de Jugador antes: " + nombreJugador.Value);
-        nombreJugador.Value = "eugenia";
-        Debug.Log("Nombre de Jugador despues: " + nombreJugador.Value);
-    }
+
     /*public void CargarDatosColorJugador(string colorSeleccionado)
     {
         Debug.Log("CargarDatosColorJugador fue llamado con: " + colorSeleccionado);
