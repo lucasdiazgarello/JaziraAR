@@ -124,6 +124,11 @@ public class PlayerNetwork : NetworkBehaviour
 
     public void AgregarJugador(string nomJugador, int puntaje, int cantidadJugadores, bool gano, bool turno, int cantidadCasa, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, string colorJugador)
     {
+        if (playerData.Count >= 4 || playerData.Count >= cantidadJugadores)
+        {
+            Debug.LogWarning("No se agregan mas de 4 jugadores.");
+            return;
+        }
         DatosJugador newDatos = new DatosJugador();
         newDatos.jugadorId = PlayerId;
         //newDatos.jugadorId = jugadorId;
