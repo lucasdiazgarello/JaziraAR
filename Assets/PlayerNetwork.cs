@@ -1,18 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.Collections;
 using Unity.Netcode;
+//using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerNetwork : NetworkBehaviour
 {
     //public List<NetworkVariable<DatosJugador>> jugadores = new List<NetworkVariable<DatosJugador>>();
-    
+
     public bool IsInitialized { get; private set; } = false; // Añade este campo de estado
     public Button buttonToPress;
     public Button buttonPrint;
     public Button buttonLoad;
+    //private int myInt;
 
     /*public NetworkVariable<Dictionary<int, DatosJugador>> jugadores =
         new NetworkVariable<Dictionary<int, DatosJugador>>(new NetworkVariableSettings
@@ -25,28 +29,15 @@ public class PlayerNetwork : NetworkBehaviour
     public static PlayerNetwork Instance { get; private set; }
     public object NetworkVariablePermission { get; private set; }
 
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); // Para mantener el objeto al cambiar de escena
-            // Inicializar los jugadores aquí
-            //CrearJugadores();
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+    public NetworkVariable<DatosJugador> jugador;
 
-
-    public NetworkVariable<DatosJugador> jugador = new NetworkVariable<DatosJugador>(
-        new DatosJugador {
+    /*public NetworkVariable<DatosJugador> jugador = new NetworkVariable<DatosJugador>(
+        new DatosJugador
+        {
             jugadorId = 0,
-            nomJugador = "Unity",
+            nomJugador = new FixedString64Bytes(),
             puntaje = 0,
-            cantidadJugadores= 0,
+            cantidadJugadores = 0,
             gano = false,
             turno = false,
             cantidadCasa = 0,
@@ -55,13 +46,14 @@ public class PlayerNetwork : NetworkBehaviour
             ovejaCount = 0,
             piedraCount = 0,
             trigoCount = 0,
-            colorJugador = "rojo",
+            colorJugador = new FixedString64Bytes(),
 
-        },NetworkVariableReadPermission.Everyone,NetworkVariableWritePermission.Owner);
-    public struct DatosJugador : INetworkSerializable
+        }, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+    */
+    public struct DatosJugador : INetworkSerializable, IEquatable<DatosJugador>
     {
         public int jugadorId;
-        public string nomJugador;
+        public FixedString64Bytes nomJugador;
         public int puntaje;
         public int cantidadJugadores;
         public bool gano;
@@ -72,7 +64,16 @@ public class PlayerNetwork : NetworkBehaviour
         public int ovejaCount;
         public int piedraCount;
         public int trigoCount;
-        public string colorJugador;
+        public FixedString64Bytes colorJugador;
+
+        /*public bool Equals(DatosJugador other)
+        {
+            throw new NotImplementedException();
+        }*/
+        public bool Equals(DatosJugador other)
+        {
+            return jugadorId == other.jugadorId && nomJugador.Equals(other.nomJugador) && colorJugador.Equals(other.colorJugador);
+        }
 
         public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
         {
@@ -92,6 +93,56 @@ public class PlayerNetwork : NetworkBehaviour
         }
     }
 
+    public NetworkList<int> playerIDs;
+    private int myInt;
+    public NetworkList<PlayerNetwork.DatosJugador> playerData;
+
+    /*public NetworkList<int> playerIDs = new NetworkList<int>();
+    private int myInt;
+
+    //public NetworkList<DatosJugador> playerData = new NetworkList<DatosJugador>();
+    public NetworkList<PlayerNetwork.DatosJugador> playerData { get; } = new NetworkList<PlayerNetwork.DatosJugador>();
+    */
+
+    private void Awake()
+    {
+        //myInt = EditorPrefs.GetInt("myIntKey");
+        //playerData = new NetworkList<DatosJugador>();
+
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Para mantener el objeto al cambiar de escena
+            // Inicializar los jugadores aquí
+            //CrearJugadores();
+            // Mover inicializaciones aquí
+            jugador = new NetworkVariable<DatosJugador>(
+                new DatosJugador
+                {
+                    jugadorId = 0,
+                    nomJugador = new FixedString64Bytes(),
+                    puntaje = 0,
+                    cantidadJugadores = 0,
+                    gano = false,
+                    turno = false,
+                    cantidadCasa = 0,
+                    maderaCount = 0,
+                    ladrilloCount = 0,
+                    ovejaCount = 0,
+                    piedraCount = 0,
+                    trigoCount = 0,
+                    colorJugador = new FixedString64Bytes(),
+
+                }, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+
+            playerIDs = new NetworkList<int>();
+            playerData = new NetworkList<PlayerNetwork.DatosJugador>();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     private void Start()
     {
         //buttonToPress.onClick.AddListener(PrintPlayerName);
@@ -106,7 +157,7 @@ public class PlayerNetwork : NetworkBehaviour
     public void ImprimirDatosJugador()
     {
         Debug.Log("ID Jugador: " + jugador.Value.jugadorId);
-        Debug.Log("Nombre Jugador: " + jugador.Value.nomJugador);
+        Debug.Log("Nombre Jugador: " + jugador.Value.nomJugador.ToString());
         Debug.Log("Puntaje: " + jugador.Value.puntaje);
         Debug.Log("Cantidad de Jugadores: " + jugador.Value.cantidadJugadores);
         Debug.Log("Ganó?: " + jugador.Value.gano);
@@ -117,14 +168,14 @@ public class PlayerNetwork : NetworkBehaviour
         Debug.Log("Cuenta de Ovejas: " + jugador.Value.ovejaCount);
         Debug.Log("Cuenta de Piedras: " + jugador.Value.piedraCount);
         Debug.Log("Cuenta de Trigo: " + jugador.Value.trigoCount);
-        Debug.Log("Color de Jugador: " + jugador.Value.colorJugador);
+        Debug.Log("Color de Jugador: " + jugador.Value.colorJugador.ToString());
     }
 
     public void CargarDatosJugador(int jugadorId, string nomJugador, int puntaje, int cantidadJugadores, bool gano, bool turno, int cantidadCasa, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, string colorJugador)
     {
         DatosJugador newDatos = new DatosJugador();
         newDatos.jugadorId = jugadorId;
-        newDatos.nomJugador = nomJugador;
+        newDatos.nomJugador = new FixedString64Bytes(nomJugador ?? string.Empty); // si es null, asigna una cadena vacía
         newDatos.puntaje = puntaje;
         newDatos.cantidadJugadores = cantidadJugadores;
         newDatos.gano = gano;
@@ -135,11 +186,45 @@ public class PlayerNetwork : NetworkBehaviour
         newDatos.ovejaCount = ovejaCount;
         newDatos.piedraCount = piedraCount;
         newDatos.trigoCount = trigoCount;
-        newDatos.colorJugador = colorJugador;
+        newDatos.colorJugador = new FixedString64Bytes(colorJugador ?? string.Empty); // si es null, asigna una cadena vacía
 
         jugador.Value = newDatos;
     }
 
+    public void AgregarJugador(int jugadorId, string nomJugador, int puntaje, int cantidadJugadores, bool gano, bool turno, int cantidadCasa, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, string colorJugador)
+    {
+        DatosJugador newDatos = new DatosJugador();
+        newDatos.jugadorId = jugadorId;
+        newDatos.nomJugador = new FixedString64Bytes(nomJugador ?? string.Empty);
+        newDatos.puntaje = puntaje;
+        newDatos.cantidadJugadores = cantidadJugadores;
+        newDatos.gano = gano;
+        newDatos.turno = turno;
+        newDatos.cantidadCasa = cantidadCasa;
+        newDatos.maderaCount = maderaCount;
+        newDatos.ladrilloCount = ladrilloCount;
+        newDatos.ovejaCount = ovejaCount;
+        newDatos.piedraCount = piedraCount;
+        newDatos.trigoCount = trigoCount;
+        newDatos.colorJugador = new FixedString64Bytes(colorJugador ?? string.Empty); 
+
+        playerIDs.Add(jugadorId);
+        playerData.Add(newDatos);
+    }
+
+    public DatosJugador GetPlayerData(int jugadorId)
+    {
+        int index = playerIDs.IndexOf(jugadorId);
+        if (index != -1)
+        {
+            return playerData[index];
+        }
+        else
+        {
+            Debug.LogError("Jugador no encontrado: " + jugadorId);
+            return default(DatosJugador); // Retorna un DatosJugador por defecto
+        }
+    }
 
     /*public void CargarDatosColorJugador(string colorSeleccionado)
     {
