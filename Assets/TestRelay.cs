@@ -98,11 +98,6 @@ public class TestRelay : MonoBehaviour
             //traer cantJugadores del canvas
             cantJugadores = int.Parse(cantidadJugadores.text);
             nombreHost = nombreHostinput.text;
-            /*// Determine el color del jugador
-            string colorSeleccionado = "rojo"; // Un valor predeterminado
-            if (toggleAzul.isOn) colorSeleccionado = "azul";
-            else if (toggleVioleta.isOn) colorSeleccionado = "violeta";
-            else if (toggleNaranja.isOn) colorSeleccionado = "naranja";*/
 
             //playernetwork.SetNomJugador(0, nombreHost);
             Debug.Log("nombre relay" + nombreHost);
@@ -122,20 +117,25 @@ public class TestRelay : MonoBehaviour
                 );
             NetworkManager.Singleton.StartHost();
             Debug.Log("antes de cargar");
-            PlayerNetwork.Instance.ImprimirDatosJugador();
+            //PlayerNetwork.Instance.ImprimirDatosJugador();
+            PlayerNetwork.Instance.MostrarJugadores();
+            /*for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+            {
+                PlayerNetwork.Instance.ImprimirDatosJugador(i);
+            }*/
             Debug.Log("color pre cargar" + colorSeleccionado);
-            //PlayerNetwork.Instance.CargarDatosColorJugador(colorSeleccionado);
-            //PlayerNetwork.Instance.CargarDatosColorJugador(colorSeleccionado);
-            //Debug.Log("color post cargar" + colorSeleccionado);
-            PlayerNetwork.Instance.CargarDatosJugador(1,nombreHost, 100, cantJugadores, false, true, 2, 10, 10, 10, 10, 10,colorSeleccionado);
-            // Luego de determinar el color, se lo asigna al jugador:
-            //PlayerNetwork.Instance.CargarDatosColorJugador(colorSeleccionado);
-            Debug.Log("despues de cargar");
-            PlayerNetwork.Instance.ImprimirDatosJugador();
-            //playernetwork.CrearJugadores();
-            //playernetwork.SetNomJugador(0, nombreHost);
 
-        } catch (RelayServiceException e)
+            //PlayerNetwork.Instance.CargarDatosJugador(1,nombreHost, 100, cantJugadores, false, true, 2, 10, 10, 10, 10, 10,colorSeleccionado);
+            PlayerNetwork.Instance.AgregarJugador(1, nombreHost, 100, cantJugadores, false, false, 2, 10, 10, 10, 10, 10, colorSeleccionado);
+            PlayerNetwork.Instance.AgregarJugador(2, "JugadorManual", 120, cantJugadores, false, false, 1, 8, 9, 7, 6, 8, "azul");
+            Debug.Log("despues de cargar");
+            PlayerNetwork.Instance.MostrarJugadores();
+            /*for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+            {
+                PlayerNetwork.Instance.ImprimirDatosJugador(i);
+            }*/
+        }
+        catch (RelayServiceException e)
         {
             Debug.Log(e);
         }
