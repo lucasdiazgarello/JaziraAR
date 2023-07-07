@@ -1228,17 +1228,10 @@ MonoBehaviour:
   cantJugadores: 4
   codigo: {fileID: 0}
   cantidadJugadores: {fileID: 0}
-  nombreHostinput: {fileID: 0}
+  nombreHostInput: {fileID: 0}
+  nombreJugadorInput: {fileID: 0}
   playernetwork: {fileID: 0}
-  toggleRojo: {fileID: 0}
-  toggleAzul: {fileID: 0}
-  toggleVioleta: {fileID: 0}
-  toggleNaranja: {fileID: 0}
   colorSeleccionado: 
-  colorrojo: {fileID: 0}
-  colorazul: {fileID: 0}
-  colorvioleta: {fileID: 0}
-  colornaranja: {fileID: 0}
 --- !u!1 &1152160993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1554,7 +1547,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1122006203}
         m_TargetAssemblyTypeName: TestRelay, Assembly-CSharp
-        m_MethodName: StartRelayHost
+        m_MethodName: CreateRelay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

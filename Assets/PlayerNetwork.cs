@@ -126,7 +126,6 @@ public class PlayerNetwork : NetworkBehaviour
 
     }
 
-
     public void AgregarJugador(string nomJugador, int puntaje, int cantidadJugadores, bool gano, bool turno, int cantidadCasa, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, string colorJugador)
     {
         // Chequear si el color ya fue seleccionado
@@ -223,8 +222,6 @@ public class PlayerNetwork : NetworkBehaviour
     private void Update()
     {
         if (!IsOwner) return;
-
-
         // Resto del código...
     }
 }

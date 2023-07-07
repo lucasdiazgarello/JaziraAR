@@ -12,10 +12,10 @@ public class NetworkManagerUI : MonoBehaviour
     [SerializeField] private Button hostBtn;
     [SerializeField] private Button joinBtn;
 
-
+    
     private void Awake()
     {
-
+        /*
         hostBtn.onClick.AddListener(() =>
         {
 
@@ -29,6 +29,6 @@ public class NetworkManagerUI : MonoBehaviour
         {
             NetworkManager.Singleton.StartClient();
         });
-
+        */
     }
 }
