@@ -107,7 +107,12 @@ public class PlayerNetwork : NetworkBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            if (Instance != this) // Si hay otra instancia de PlayerNetwork, destruye este objeto.
+            {
+                Destroy(gameObject);
+                return;
+            }
         }
     }
     private void Start()
@@ -124,6 +129,15 @@ public class PlayerNetwork : NetworkBehaviour
 
     public void AgregarJugador(string nomJugador, int puntaje, int cantidadJugadores, bool gano, bool turno, int cantidadCasa, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, string colorJugador)
     {
+        // Chequear si el color ya fue seleccionado
+        for (int i = 0; i < playerData.Count; i++)
+        {
+            if (playerData[i].colorJugador.ToString() == colorJugador)
+            {
+                throw new ColorAlreadySelectedException("Este color ya ha sido seleccionado por otro jugador.");
+            }
+        }
+
         if (playerData.Count >= 4 || playerData.Count >= cantidadJugadores)
         {
             Debug.LogWarning("No se agregan mas de 4 jugadores.");
@@ -187,6 +201,22 @@ public class PlayerNetwork : NetworkBehaviour
         for (int i = 0; i < playerData.Count; i++)
         {
             ImprimirDatosJugador(i);
+        }
+    }
+    public class ColorAlreadySelectedException : Exception
+    {
+        public ColorAlreadySelectedException()
+        {
+        }
+
+        public ColorAlreadySelectedException(string message)
+            : base(message)
+        {
+        }
+
+        public ColorAlreadySelectedException(string message, Exception inner)
+            : base(message, inner)
+        {
         }
     }
 

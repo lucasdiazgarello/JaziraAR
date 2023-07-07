@@ -1,5 +1,6 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using Unity.Services.Authentication;
@@ -27,6 +28,7 @@ public class TestRelay : MonoBehaviour
     public Text colorazul;
     public Text colorvioleta;
     public Text colornaranja;
+    private TaskCompletionSource<bool> startRelayHostCompletionSource;
 
     private async void Start()
     {
@@ -36,61 +38,145 @@ public class TestRelay : MonoBehaviour
             Debug.Log("Signed in " + AuthenticationService.Instance.PlayerId);
         };
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
-        //toggleRojo.onValueChanged.AddListener(OnToggleClicked);
-        //toggleAzul.onValueChanged.AddListener(OnToggleClicked);
-        //toggleVioleta.onValueChanged.AddListener(OnToggleClicked);
-        //toggleNaranja.onValueChanged.AddListener(OnToggleClicked);
-        //Fetch the Toggle GameObject
-        /*toggleRojo = GetComponent<Toggle>();
-        //Add listener for when the state of the Toggle changes, to take action
-        toggleRojo.onValueChanged.AddListener(delegate {
-            ToggleValueChangedRojo(toggleRojo);
-        });
+        
+    }
+    public async void StartRelayHost()
+    {
+        Allocation allocation = await RelayService.Instance.CreateAllocationAsync(cantJugadores - 1); // el host y 3 mas
+        //Allocation allocation = await RelayService.Instance.CreateAllocationAsync(3);
+        string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
 
-        toggleAzul = GetComponent<Toggle>();
-        //Add listener for when the state of the Toggle changes, to take action
-        toggleAzul.onValueChanged.AddListener(delegate {
-            ToggleValueChangedAzul(toggleAzul);
-        });
+        Debug.Log(joinCode);
 
-        //Initialise the Text to say the first state of the Toggle
-        colorrojo.text = "First Value : " + toggleRojo.isOn;
-        colorazul.text = "First Value : " + toggleAzul.isOn;
-        */
+        NetworkManager.Singleton.GetComponent<UnityTransport>().SetHostRelayData(
+            allocation.RelayServer.IpV4,
+            (ushort)allocation.RelayServer.Port,
+            allocation.AllocationIdBytes,
+            allocation.Key,
+            allocation.ConnectionData
+        );
+        NetworkManager.Singleton.StartHost();
     }
-    //Output the new state of the Toggle into Text
-    /*void ToggleValueChangedRojo(Toggle change)
+
+    /*
+    public void StartRelayHost()
     {
-        colorrojo.text = "Rojo : " + toggleRojo.isOn;
+        Debug.Log("Iniciando Host");
+
+        startRelayHostCompletionSource = new TaskCompletionSource<bool>();
+
+        StartCoroutine(StartRelayHostCoroutine());
     }
-    void ToggleValueChangedAzul(Toggle change)
+    public IEnumerator StartRelayHostCoroutine()
     {
-        colorazul.text = "Azul : " + toggleAzul.isOn;
+        Debug.Log("Botón presionado.");
+        // Ejecutar el método asincrónico y obtener la tarea que representa.
+        var task = StartRelayHostAsync();
+        // Esperar a que la tarea se complete.
+        yield return new WaitUntil(() => task.IsCompleted);
+        // Verificar si hubo alguna excepción en la tarea.
+        if (task.Exception != null)
+        {
+            Debug.Log(task.Exception);
+        }
+        else
+        {
+            Debug.Log("Host iniciado.");
+        }
     }
-    public void OnToggleClicked()
+    private async Task StartRelayHostAsync()
     {
-        if (toggleRojo.isOn)
+        try
         {
-            colorSeleccionado = "rojo";
-            Debug.Log("Rojo seleccionado");
+            Debug.Log("Entro al try de StartRelayHostAsync");
+            Allocation allocation = await RelayService.Instance.CreateAllocationAsync(cantJugadores - 1); // el host y 3 mas
+            //Allocation allocation = await RelayService.Instance.CreateAllocationAsync(3);
+            string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
+
+            Debug.Log(joinCode);
+
+            NetworkManager.Singleton.GetComponent<UnityTransport>().SetHostRelayData(
+                allocation.RelayServer.IpV4,
+                (ushort)allocation.RelayServer.Port,
+                allocation.AllocationIdBytes,
+                allocation.Key,
+                allocation.ConnectionData
+            );
+            NetworkManager.Singleton.StartHost();
+            Debug.Log("Terminó StartRelayHostAsync");
         }
-        else if (toggleAzul.isOn)
+        catch (RelayServiceException)
         {
-            colorSeleccionado = "azul";
-            Debug.Log("Azul seleccionado");
+            // Simplemente lanza la excepción de nuevo, así que será capturada y manejada en StartRelayHostCoroutine.
+            throw;
         }
-        else if (toggleVioleta.isOn)
+    }
+    /*
+    private IEnumerator StartRelayHostCoroutine()
+    {
+        try
         {
-            colorSeleccionado = "violeta";
-            Debug.Log("Violeta seleccionado");
+            //Aquí va tu código existente para iniciar el host...
+            Debug.Log("Entro al try de StartRelayHost");
+            //Allocation allocation = await RelayService.Instance.CreateAllocationAsync(cantJugadores - 1); // el host y 3 mas
+            Allocation allocation = await RelayService.Instance.CreateAllocationAsync(3);
+            string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
+
+            Debug.Log(joinCode);
+
+            NetworkManager.Singleton.GetComponent<UnityTransport>().SetHostRelayData(
+                allocation.RelayServer.IpV4,
+                (ushort)allocation.RelayServer.Port,
+                allocation.AllocationIdBytes,
+                allocation.Key,
+                allocation.ConnectionData
+                );
+            NetworkManager.Singleton.StartHost();
+            Debug.Log("Host iniciado.");
+            //Después de que cada operación asíncrona se complete, debe ceder a Unity para continuar la ejecución del marco:
+            //...
+            yield return null; //Cede a Unity después de la operación asíncrona
+
+            startRelayHostCompletionSource.SetResult(true);
         }
-        else if (toggleNaranja.isOn)
+        catch (RelayServiceException e)
         {
-            colorSeleccionado = "naranja";
-            Debug.Log("Naranja seleccionado");
+            Debug.Log(e);
+            startRelayHostCompletionSource.SetException(e);
         }
     }*/
 
+    public void CreatePlayer()
+    {
+        try
+        {
+            // Espera a que se complete StartRelayHost
+            //await startRelayHostCompletionSource.Task;
+            if (PlayerNetwork.Instance == null)
+            {
+                Debug.LogError("PlayerNetwork.Instance is null");
+                return;
+            }
+            //traer cantJugadores del canvas
+            cantJugadores = int.Parse(cantidadJugadores.text);
+            nombreHost = nombreHostinput.text;
+            Debug.Log("nombre relay" + nombreHost);
+            Debug.Log("color relay" + colorSeleccionado);
+
+            Debug.Log("antes de cargar");
+            PlayerNetwork.Instance.AgregarJugador(nombreHost, 100, cantJugadores, false, false, 2, 10, 10, 10, 10, 10, colorSeleccionado);
+            PlayerNetwork.Instance.AgregarJugador("JugadorManual", 120, cantJugadores, false, false, 1, 8, 9, 7, 6, 8, "azul");
+            //PlayerNetwork.Instance.AgregarJugador("manuel", 50, cantJugadores, false, false, 1, 8, 9, 7, 6, 8, "rojo");
+            //PlayerNetwork.Instance.AgregarJugador("manolo", 76, cantJugadores, false, false, 1, 8, 9, 7, 6, 8, "naranja");
+            Debug.Log("despues de cargar");
+            PlayerNetwork.Instance.MostrarJugadores();
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
+    }
+    /*
     public async void CreateRelay()
     {
         try
@@ -119,10 +205,7 @@ public class TestRelay : MonoBehaviour
             Debug.Log("antes de cargar");
             //PlayerNetwork.Instance.ImprimirDatosJugador();
             PlayerNetwork.Instance.MostrarJugadores();
-            /*for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
-            {
-                PlayerNetwork.Instance.ImprimirDatosJugador(i);
-            }*/
+
             Debug.Log("color pre cargar" + colorSeleccionado);
 
             //PlayerNetwork.Instance.CargarDatosJugador(1,nombreHost, 100, cantJugadores, false, true, 2, 10, 10, 10, 10, 10,colorSeleccionado);
@@ -132,16 +215,14 @@ public class TestRelay : MonoBehaviour
             PlayerNetwork.Instance.AgregarJugador("manolo", 76, cantJugadores, false, false, 1, 8, 9, 7, 6, 8, "naranja");
             Debug.Log("despues de cargar");
             PlayerNetwork.Instance.MostrarJugadores();
-            /*for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
-            {
-                PlayerNetwork.Instance.ImprimirDatosJugador(i);
-            }*/
+
         }
         catch (RelayServiceException e)
         {
             Debug.Log(e);
         }
     }
+    */
     public async void JoinRelay (string joinCode)
     {
         try
@@ -168,4 +249,5 @@ public class TestRelay : MonoBehaviour
             Debug.Log(e);
         }
     }
+
 }

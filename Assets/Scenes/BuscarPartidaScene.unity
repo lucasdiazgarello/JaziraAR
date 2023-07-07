@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3708984, g: 0.37837017, b: 0.35722524, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 76243462}
   - component: {fileID: 76243463}
   m_Layer: 5
-  m_Name: NuevaPartidaController
+  m_Name: BuscarPartidaController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 76243461}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c65581bc961d367419475872b7ea208b, type: 3}
+  m_Script: {fileID: 11500000, guid: 7308001438673d5418654ea56284c072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &309629696
@@ -1020,7 +1020,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 76243463}
-        m_TargetAssemblyTypeName: NuevaPartidacontroller, Assembly-CSharp
+        m_TargetAssemblyTypeName: BuscarPartidaController, Assembly-CSharp
         m_MethodName: LoadGameScene
         m_Mode: 1
         m_Arguments:
@@ -1283,7 +1283,7 @@ GameObject:
   - component: {fileID: 1502792024}
   - component: {fileID: 1502792023}
   m_Layer: 0
-  m_Name: Unirse
+  m_Name: TestRelay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1301,7 +1301,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb8d66f02bee4224da2dc35d64e32610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cantJugadores: 4
   codigo: {fileID: 697795847}
+  cantidadJugadores: {fileID: 0}
+  nombreHostinput: {fileID: 0}
+  playernetwork: {fileID: 0}
+  toggleRojo: {fileID: 0}
+  toggleAzul: {fileID: 0}
+  toggleVioleta: {fileID: 0}
+  toggleNaranja: {fileID: 0}
+  colorSeleccionado: 
+  colorrojo: {fileID: 0}
+  colorazul: {fileID: 0}
+  colorvioleta: {fileID: 0}
+  colornaranja: {fileID: 0}
 --- !u!4 &1502792024
 Transform:
   m_ObjectHideFlags: 0
@@ -1375,7 +1388,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Unirse
+  m_text: 'Aceptar
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

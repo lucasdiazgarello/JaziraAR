@@ -19,7 +19,8 @@ public class NetworkManagerUI : MonoBehaviour
         hostBtn.onClick.AddListener(() =>
         {
 
-            testrelay.CreateRelay();
+            //testrelay.CreateRelay();
+            testrelay.StartRelayHost();
             NetworkManager.Singleton.StartHost();
             
         });
