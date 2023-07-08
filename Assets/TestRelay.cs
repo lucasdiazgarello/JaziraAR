@@ -38,7 +38,9 @@ public class TestRelay : MonoBehaviour
             Debug.Log("Entro CreateRelay");
             //traer cantJugadores del canvas
             cantJugadores = int.Parse(cantidadJugadores.text);
+            Debug.Log("Entro CreateRelay2");
             nombreHost = nombreHostInput.text;
+
 
             Debug.Log("nombre relay" + nombreHost);
             Debug.Log("color relay" + colorSeleccionado);
