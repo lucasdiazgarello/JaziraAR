@@ -27,6 +27,7 @@ public class Unirse : NetworkBehaviour
         Debug.Log("nombre jugador: "+ nombreJugador);
         Debug.Log("antes de join relay");
         Debug.Log("color seleccionado: " + colorSeleccionado);
+
         try
         {
             relay.JoinRelay(code, nombreJugador, colorSeleccionado);
@@ -36,9 +37,8 @@ public class Unirse : NetworkBehaviour
             Debug.Log(e);
         }
         Debug.Log("despues de join relay");
-
-
     }
+
     // Update is called once per frame
     void Update()
     {

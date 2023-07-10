@@ -15,21 +15,11 @@ public class TestRelay : NetworkBehaviour
 
     public int cantJugadores = 4;
     private string nombreHost;
-
     public InputField cantidadJugadores;
     public InputField nombreHostinput;
     public PlayerNetwork playernetwork;
-    /*public Toggle toggleRojo;
-    public Toggle toggleAzul;
-    public Toggle toggleVioleta;
-    public Toggle toggleNaranja;*/
-    //private string colorSeleccionado = "verde"; // Un valor predeterminado
     public string colorSeleccionado;
-    /*public Text colorrojo;
-    public Text colorazul;
-    public Text colorvioleta;
-    public Text colornaranja;
-    */
+
     private async void Start()
     {
         await UnityServices.InitializeAsync();
@@ -40,7 +30,7 @@ public class TestRelay : NetworkBehaviour
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
 
     }
-
+    private readonly List<string> coloresDisponibles = new List<string>() { "Rojo", "Azul", "Violeta", "Naranja" };
 
     public async void CreateRelay()
     {
@@ -78,10 +68,9 @@ public class TestRelay : NetworkBehaviour
             PlayerNetwork.Instance.AgregarJugador(1, nombreHost, 100, false, true, 2, 10, 10, 10, 10, 10, colorSeleccionado);
             //PlayerNetwork.Instance.AgregarJugador(1, "Juancho", 100, false, true, 2, 10, 10, 10, 10, 10,colorSeleccionado);
             //PlayerNetwork.Instance.AgregarJugador(1, "Pepe", 100, false, true, 2, 10, 10, 10, 10, 10, colorSeleccionado);
-
+            RemoverColor(colorSeleccionado);
             Debug.Log("despues de cargar");
             PlayerNetwork.Instance.ImprimirTodosLosJugadores();
-
 
         }
         catch (RelayServiceException e)
@@ -108,17 +97,50 @@ public class TestRelay : NetworkBehaviour
                 joinAllocation.ConnectionData,
                 joinAllocation.HostConnectionData
                 );
-
+            //List<string> coloresDisponibles = ObtenerColoresDisponibles();
             NetworkManager.Singleton.StartClient();
             Debug.Log("Se unio " + codigo);
-            playernetwork.TestServerRpc(nombreJugador, color); // <-- Call the RPC method here
+            // Si el color no está disponible, asigna uno diferente
+            if (!coloresDisponibles.Contains(color))
+            {
+                Debug.Log("Color seleccionado no está disponible. Asignando un color diferente...");
+                color = AsignarColorDisponible();  // Necesitamos implementar este método
+                if (color == null)
+                {
+                    Debug.Log("No hay colores disponibles. No se pudo unirse al juego.");
+                    return;
+                }
+            }
+            RemoverColor(color);
+
+            playernetwork.TestServerRpc(nombreJugador, color);
             await Task.Delay(500);
-            // Print the list of all players
+
             PlayerNetwork.Instance.ImprimirTodosLosJugadores();
+
         }
         catch (RelayServiceException e)
         {
             Debug.Log(e);
         }
     }
+    private string AsignarColorDisponible()
+    {
+        if (coloresDisponibles.Count > 0)
+        {
+            return coloresDisponibles[0]; // Asigna el primer color disponible
+        }
+        else
+        {
+            return null; // No hay colores disponibles
+        }
+    }
+    public void RemoverColor(string color)
+    {
+        coloresDisponibles.Remove(color);
+    }
+    /*public List<string> ObtenerColoresDisponibles()
+    {
+        return coloresDisponibles;
+    }*/
 }
