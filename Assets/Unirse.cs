@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using Unity.Services.Relay;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Unirse : MonoBehaviour
+public class Unirse : NetworkBehaviour
 {
     // Start is called before the first frame update
     public TestRelay relay;

@@ -2955,7 +2955,7 @@ MonoBehaviour:
   cantidadJugadores: {fileID: 0}
   nombreHostinput: {fileID: 0}
   playernetwork: {fileID: 1635399618}
-  colorSeleccionado: 
+  colorSeleccionado: Color2
 --- !u!4 &1763495472
 Transform:
   m_ObjectHideFlags: 0

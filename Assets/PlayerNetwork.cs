@@ -1,11 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Runtime.CompilerServices;
 using Unity.Collections;
 using Unity.Netcode;
 //using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem.OSX;
 using UnityEngine.UI;
 
 public class PlayerNetwork : NetworkBehaviour
@@ -108,7 +110,6 @@ public class PlayerNetwork : NetworkBehaviour
     {
         //myInt = EditorPrefs.GetInt("myIntKey");
         //playerData = new NetworkList<DatosJugador>();
-        Debug.Log("para commit");
         if (Instance == null)
         {
             Instance = this;
@@ -153,8 +154,28 @@ public class PlayerNetwork : NetworkBehaviour
         //buttonPrint.onClick.AddListener(ImprimirDatosJugador);
 
     }
+    public void AgregarJugador(int jugadorId, string nomJugador, int puntaje, int cantidadJugadores, bool gano, bool turno, int cantidadCasa, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, string colorJugador)
+    {
+        DatosJugador newDatos = new DatosJugador();
+        newDatos.jugadorId = jugadorId;
+        newDatos.nomJugador = new FixedString64Bytes(nomJugador ?? string.Empty);
+        newDatos.puntaje = puntaje;
+        newDatos.cantidadJugadores = cantidadJugadores;
+        newDatos.gano = gano;
+        newDatos.turno = turno;
+        newDatos.cantidadCasa = cantidadCasa;
+        newDatos.maderaCount = maderaCount;
+        newDatos.ladrilloCount = ladrilloCount;
+        newDatos.ovejaCount = ovejaCount;
+        newDatos.piedraCount = piedraCount;
+        newDatos.trigoCount = trigoCount;
+        newDatos.colorJugador = new FixedString64Bytes(colorJugador ?? string.Empty);
 
-    public void ImprimirDatosJugador()
+        playerIDs.Add(jugadorId);
+        playerData.Add(newDatos);
+    }
+
+    /*public void ImprimirDatosJugador()
     {
         Debug.Log("ID Jugador: " + jugador.Value.jugadorId);
         Debug.Log("Nombre Jugador: " + jugador.Value.nomJugador.ToString());
@@ -169,8 +190,29 @@ public class PlayerNetwork : NetworkBehaviour
         Debug.Log("Cuenta de Piedras: " + jugador.Value.piedraCount);
         Debug.Log("Cuenta de Trigo: " + jugador.Value.trigoCount);
         Debug.Log("Color de Jugador: " + jugador.Value.colorJugador.ToString());
+    }*/
+    public void ImprimirTodosLosJugadores()
+    {
+        for (int i = 0; i < playerData.Count; i++)
+        {
+            Debug.Log("Información del jugador número " + (i + 1));
+            DatosJugador jugadorActual = playerData[i];
+            Debug.Log("ID Jugador: " + jugadorActual.jugadorId);
+            Debug.Log("Nombre Jugador: " + jugadorActual.nomJugador.ToString());
+            Debug.Log("Puntaje: " + jugadorActual.puntaje);
+            Debug.Log("Cantidad de Jugadores: " + jugadorActual.cantidadJugadores);
+            Debug.Log("Ganó?: " + jugadorActual.gano);
+            Debug.Log("Turno?: " + jugadorActual.turno);
+            Debug.Log("Cantidad de Casas: " + jugadorActual.cantidadCasa);
+            Debug.Log("Cuenta de Madera: " + jugadorActual.maderaCount);
+            Debug.Log("Cuenta de Ladrillos: " + jugadorActual.ladrilloCount);
+            Debug.Log("Cuenta de Ovejas: " + jugadorActual.ovejaCount);
+            Debug.Log("Cuenta de Piedras: " + jugadorActual.piedraCount);
+            Debug.Log("Cuenta de Trigo: " + jugadorActual.trigoCount);
+            Debug.Log("Color de Jugador: " + jugadorActual.colorJugador.ToString());
+            Debug.Log("----------------------------------------------------");
+        }
     }
-
     public void CargarDatosJugador(int jugadorId, string nomJugador, int puntaje, int cantidadJugadores, bool gano, bool turno, int cantidadCasa, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, string colorJugador)
     {
         DatosJugador newDatos = new DatosJugador();
@@ -191,26 +233,7 @@ public class PlayerNetwork : NetworkBehaviour
         jugador.Value = newDatos;
     }
 
-    public void AgregarJugador(int jugadorId, string nomJugador, int puntaje, int cantidadJugadores, bool gano, bool turno, int cantidadCasa, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, string colorJugador)
-    {
-        DatosJugador newDatos = new DatosJugador();
-        newDatos.jugadorId = jugadorId;
-        newDatos.nomJugador = new FixedString64Bytes(nomJugador ?? string.Empty);
-        newDatos.puntaje = puntaje;
-        newDatos.cantidadJugadores = cantidadJugadores;
-        newDatos.gano = gano;
-        newDatos.turno = turno;
-        newDatos.cantidadCasa = cantidadCasa;
-        newDatos.maderaCount = maderaCount;
-        newDatos.ladrilloCount = ladrilloCount;
-        newDatos.ovejaCount = ovejaCount;
-        newDatos.piedraCount = piedraCount;
-        newDatos.trigoCount = trigoCount;
-        newDatos.colorJugador = new FixedString64Bytes(colorJugador ?? string.Empty); 
-
-        playerIDs.Add(jugadorId);
-        playerData.Add(newDatos);
-    }
+    
 
     public DatosJugador GetPlayerData(int jugadorId)
     {
@@ -238,305 +261,17 @@ public class PlayerNetwork : NetworkBehaviour
     private void Update()
     {
         if (!IsOwner) return;
+        //ACA HAY QUE HACER TODAS LAS FUNCIONES QUE TRANSMITEN AL CLIENTE DATA
+        //El cliente no agrega jugadores, solo le pasa los datos para que el host lo agregue y a menos que invoque a una funcion que traiga info del host no se entera de nada 
+        //mirar min 35, COMPLETE Unity Multiplayer Tutorial (Netcode for Game Objects)
+        // Resto del código... 
+        //TestServerRpcc(nombre, color); de alguna manera hay que traer las variables de testrelay para usarlas aca
+    }
 
-
-        // Resto del código...
+    [ServerRpc]
+    private void TestServerRpc(string nombre, string color)
+    {
+        Debug.Log("Nombre y Color " + nombre + color);
     }
 }
-
-
-
-
-
-    /*public void InicializarJugadores()
-    {
-        // Asegúrate de llamar a este método antes de usar la lista de jugadores.
-        for (int i = 0; i < 4; i++)
-        {
-
-            NetworkVariable<DatosJugador> jugador = new NetworkVariable<DatosJugador>(new NetworkVariableSettings
-            {
-                ReadPermission = NetworkVariablePermission.Everyone,
-                WritePermission = NetworkVariablePermission.Owner
-            });
-            jugadores.Add(jugador);
-        }
-    }*/
-    /*
-    public void CrearJugadores()
-    {
-        Debug.Log("HOLA QUE TAL");
-
-        // Solo el host crea la lista de jugadores
-        if (IsHost)
-        {
-            Debug.Log("entre al host de start");
-            //InicializarJugadores();
-            // Crear 4 jugadores con todas las variables en 0
-            for (int i = 0; i < 4; i++)
-            {
-                DatosJugador jugador = new DatosJugador
-                {
-                    jugadorId = i,
-                    puntaje = 0,
-                    cantidadCartas = 0,
-                    gano = false,
-                    turno = false,
-                    maderaCount = 0,
-                    ladrilloCount = 0,
-                    ovejaCount = 0,
-                    piedraCount = 0,
-                    trigoCount = 0,
-                    cantidadCasa = 0,
-                    nomJugador = "carla"
-                };
-                jugadores[i].Value = jugador;
-                Debug.Log("nombre JUGADOR " + jugadores[i].Value.nomJugador);
-            }
-        }
-    }*/
-        /*
-            public void CrearJugadores()
-            {
-                Debug.Log("Entro a Crear jugadores");
-
-                // Solo el host crea la lista de jugadores
-                if (IsHost)
-                {
-                    //Debug.Log("entre al host de start");
-                    //InicializarJugadores();
-                    // Crear 4 jugadores con todas las variables en 0
-                    for (int i = 0; i < 4; i++)
-                    {
-                        //Debug.Log("EL CONTADOR DE PLAYER" + i);
-                        DatosJugador jugador = new DatosJugador
-                        {
-                            jugadorId = i,
-                            puntaje = 0,
-                            cantidadCartas = 0,
-                            gano = false,
-                            turno = false,
-                            maderaCount = 0,
-                            ladrilloCount = 0,
-                            ovejaCount = 0,
-                            piedraCount = 0,
-                            trigoCount = 0,
-                            cantidadCasa = 0,
-                            nomJugador = "carla"
-                        };
-                        //Debug.Log("llegue hasta aca");
-                        NetworkVariable<DatosJugador> networkJugador = new NetworkVariable<DatosJugador>(jugador, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
-                        //Debug.Log("llegue hast aca 2");
-                        Debug.Log("CrearJugadores(): i = " + i);
-                        jugadores.Add(networkJugador);
-                        Debug.Log("ID JUGADOR " + jugadores[i].Value.nomJugador);
-                        //Debug.Log(jugadores.Count+" info de jugadores");
-                    }
-                    IsInitialized = true;
-                }
-            }
-        */
-        /*
-            public void AgregarDatosJugador(int idJugador, DatosJugador datos)
-            {
-                if (!IsHost) return; // Solo el host puede agregar datos a la lista de jugadores
-
-                if (idJugador >= 0 && idJugador < jugadores.Count)
-                {
-                    jugadores[idJugador].Value = datos;
-                }
-            }
-
-            public int GetJugadorId(int idJugador)
-            {
-                return jugadores[idJugador].Value.jugadorId;
-            }
-
-            public void SetJugadorId(int idJugador, int id)
-            {
-                if (!IsHost) return; // Solo el host puede cambiar el ID del jugador
-
-                if (idJugador >= 0 && idJugador < jugadores.Count)
-                {
-                    var datos = jugadores[idJugador].Value;
-                    datos.jugadorId = id;
-                    jugadores[idJugador].Value = datos;
-                }
-            }
-            public string GetNomJugador(int idJugador)
-            {
-                Debug.Log("Entre a GetNomJugador");
-                return jugadores[idJugador].Value.nomJugador;
-            }
-
-            public void SetNomJugador(int idJugador, string nombre)
-            {
-                if (!IsHost) return; // Solo el host puede cambiar el ID del jugador
-
-                if (jugadores == null)
-                {
-                    Debug.Log("jugadores is null");
-                    return;
-                }
-
-                if (idJugador < 0 || idJugador >= jugadores.Count)
-                {
-                    Debug.Log("Invalid idJugador: " + idJugador);
-                    return;
-                }
-
-                if (!IsInitialized)
-                {
-                    Debug.Log("Not initialized");
-                    return;
-                }
-
-                Debug.Log("Entre a SetNomJugador y se inicializo");
-                Debug.Log("SetNomJugador(): Setting name for player " + idJugador);
-
-                var datos = jugadores[idJugador].Value;
-                datos.nomJugador = nombre;
-                jugadores[idJugador].Value = datos;
-
-                Debug.Log("aca tiene que decir euge :" + jugadores[idJugador].Value.nomJugador);
-            }
-        */
-        /*
-        public void SetNomJugador(int idJugador, string nombre)
-        {
-            //if (!isHost) return; // Solo el host puede cambiar el ID del jugador
-            Debug.Log("Entre a SetNomJugador");
-            if (idJugador >= 0 && idJugador < jugadores.Count)
-            {
-                //Debug.Log("Entre a SetNomJugador1");
-                DatosJugador aux = new DatosJugador();
-                aux = jugadores[idJugador].Value;
-                Debug.Log("deberia decir carla :" + aux.nomJugador);
-                aux.nomJugador=nombre;
-                jugadores[idJugador].Value = aux;
-                Debug.Log("deberia decir lucas :" + jugadores[idJugador].Value.nomJugador);
-                Debug.Log("Entre a SetNomJugador4");
-            }
-        }
-        */
-        /*
-        [ServerRpc]
-        public void SetNomJugadorServerRpc(int idJugador, string nombre)
-        {
-            // Aquí puedes incluir cualquier validación adicional que necesites
-            // ...
-
-            // Asegurarte de que el ID es válido
-            //if (idJugador >= 0 && idJugador < jugadores.Count)
-            {
-                Debug.Log("Entre a SetNomJugadorServerRpc");
-                DatosJugador aux = jugadores[idJugador].Value;
-                Debug.Log("JAJAS");
-                aux.nomJugador = nombre;
-                Debug.Log("JAJAS2");
-                jugadores[idJugador].Value = aux;
-                Debug.Log("aca tiene que decir lucas :" + jugadores[idJugador].Value.nomJugador);
-                Debug.Log("JAJAS 32");
-            }
-        }*/
-        /*
-        public void RequestSetNomJugador(int idJugador, string nombre)
-        {
-            // Esto enviará la solicitud al servidor para cambiar el nombre del jugador
-            Debug.Log("Entre a RequestSetNomJugador");
-            if (IsHost)
-            {
-                Debug.Log("SOY EL HOST");
-            }
-
-            SetNomJugadorServerRpc(idJugador, nombre);
-        }
-        */
-        /*
-        public int GetPuntaje(int idJugador)
-        {
-            return jugadores[idJugador].Value.puntaje;
-        }
-
-        public void SetPuntaje(int idJugador, int puntaje)
-        {
-            if (!IsHost) return; // Solo el host puede cambiar el puntaje del jugador
-
-            if (idJugador >= 0 && idJugador < jugadores.Count)
-            {
-                var datos = jugadores[idJugador].Value;
-                datos.puntaje = puntaje;
-                jugadores[idJugador].Value = datos;
-            }
-        }
-
-        public int GetCantidadCartas(int idJugador)
-        {
-            return jugadores[idJugador].Value.cantidadCartas;
-        }
-
-        public void SetCantidadCartas(int idJugador, int cantidad)
-        {
-            if (!IsHost) return; // Solo el host puede cambiar la cantidad de cartas del jugador
-
-            if (idJugador >= 0 && idJugador < jugadores.Count)
-            {
-                var datos = jugadores[idJugador].Value;
-                datos.cantidadCartas = cantidad;
-                jugadores[idJugador].Value = datos;
-            }
-        }
-
-        public bool GetGano(int idJugador)
-        {
-            return jugadores[idJugador].Value.gano;
-        }
-
-        public void SetGano(int idJugador, bool gano)
-        {
-            if (!IsHost) return; // Solo el host puede cambiar el estado de ganador del jugador
-
-            if (idJugador >= 0 && idJugador < jugadores.Count)
-            {
-                var datos = jugadores[idJugador].Value;
-                datos.gano = gano;
-                jugadores[idJugador].Value = datos;
-            }
-        }
-
-        public bool GetTurno(int idJugador)
-        {
-            return jugadores[idJugador].Value.turno;
-        }
-
-        public void SetTurno(int idJugador, bool turno)
-        {
-            if (!IsHost) return; // Solo el host puede cambiar el turno del jugador
-
-            if (idJugador >= 0 && idJugador < jugadores.Count)
-            {
-                var datos = jugadores[idJugador].Value;
-                datos.turno = turno;
-                jugadores[idJugador].Value = datos;
-            }
-        }
-
-        public int GetCantidadCasa(int idJugador)
-        {
-            return jugadores[idJugador].Value.cantidadCasa;
-        }
-
-        public void SetCantidadCasa(int idJugador, int cantidad)
-        {
-            if (!IsHost) return; // Solo el host puede cambiar la cantidad de casas del jugador
-
-            if (idJugador >= 0 && idJugador < jugadores.Count)
-            {
-                var datos = jugadores[idJugador].Value;
-                datos.cantidadCasa = cantidad;
-                jugadores[idJugador].Value = datos;
-            }
-        }
-        */
-        //hacer get y set de los recursos
 
