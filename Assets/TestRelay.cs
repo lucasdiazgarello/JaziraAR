@@ -11,23 +11,24 @@ using UnityEngine.UI;
 
 public class TestRelay : MonoBehaviour
 {
+ 
     public int cantJugadores = 4;
     private string nombreHost;
-    public InputField codigo;
+    
     public InputField cantidadJugadores;
     public InputField nombreHostinput;
     public PlayerNetwork playernetwork;
-    public Toggle toggleRojo;
+    /*public Toggle toggleRojo;
     public Toggle toggleAzul;
     public Toggle toggleVioleta;
-    public Toggle toggleNaranja;
+    public Toggle toggleNaranja;*/
     //private string colorSeleccionado = "verde"; // Un valor predeterminado
     public string colorSeleccionado;
-    public Text colorrojo;
+    /*public Text colorrojo;
     public Text colorazul;
     public Text colorvioleta;
     public Text colornaranja;
-
+    */
     private async void Start()
     {
         await UnityServices.InitializeAsync();
@@ -111,8 +112,8 @@ public class TestRelay : MonoBehaviour
 
             string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
 
-            Debug.Log(joinCode);
-
+            Debug.Log("El codigo es:" + joinCode);
+            Debug.Log("Va a iniciar el host");
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetHostRelayData(
                 allocation.RelayServer.IpV4,
                 (ushort)allocation.RelayServer.Port,
@@ -121,6 +122,7 @@ public class TestRelay : MonoBehaviour
                 allocation.ConnectionData
                 );
             NetworkManager.Singleton.StartHost();
+            Debug.Log("Inicio el host");
             Debug.Log("antes de cargar");
             PlayerNetwork.Instance.ImprimirDatosJugador();
             Debug.Log("color pre cargar" + colorSeleccionado);
@@ -140,13 +142,14 @@ public class TestRelay : MonoBehaviour
             Debug.Log(e);
         }
     }
-    public async void JoinRelay (string joinCode)
+    public async void JoinRelay (string codigo, string nombreJugador, string color )
     {
         try
         {
-            joinCode = codigo.text;
-            Debug.Log("Joining Relay with " + joinCode);
-            JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
+
+
+            Debug.Log("Joining Relay with " + codigo);
+            JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(codigo);
             //Debug.Log("joinAllocation: " + joinAllocation);
             //Debug.Log("NetworkManager.Singleton: " + NetworkManager.Singleton);
             //Debug.Log("NetworkManager.Singleton.GetComponent<UnityTransport>(): " + NetworkManager.Singleton.GetComponent<UnityTransport>());
@@ -161,6 +164,10 @@ public class TestRelay : MonoBehaviour
                 );
 
             NetworkManager.Singleton.StartClient();
+            Debug.Log("Se unio " + codigo);
+            PlayerNetwork.Instance.CargarDatosJugador(1, nombreJugador, 100, 4, false, true, 2, 10, 10, 10, 10, 10, color);
+            Debug.Log("Cargo jugador");
+            PlayerNetwork.Instance.ImprimirDatosJugador();
         } catch (RelayServiceException e)
         {
             Debug.Log(e);

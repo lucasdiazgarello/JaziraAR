@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708984, g: 0.37837017, b: 0.35722524, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -460,6 +460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   relay: {fileID: 1122006203}
+  unirse: {fileID: 0}
 --- !u!1 &421652245
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,11 +606,11 @@ RectTransform:
   - {fileID: 1628153441}
   - {fileID: 421652246}
   - {fileID: 1525050227}
-  - {fileID: 1488259130}
   - {fileID: 1159869437}
   - {fileID: 900164813}
   - {fileID: 1832887631}
   - {fileID: 1750614817}
+  - {fileID: 1488259130}
   - {fileID: 1919823162}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1018,7 +1019,7 @@ RectTransform:
   - {fileID: 988094752}
   - {fileID: 989045530}
   m_Father: {fileID: 589196877}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1557,19 +1558,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cantJugadores: 4
-  codigo: {fileID: 0}
   cantidadJugadores: {fileID: 1832887630}
   nombreHostinput: {fileID: 1750614816}
   playernetwork: {fileID: 1748177637}
-  toggleRojo: {fileID: 0}
-  toggleAzul: {fileID: 0}
-  toggleVioleta: {fileID: 0}
-  toggleNaranja: {fileID: 0}
   colorSeleccionado: 
-  colorrojo: {fileID: 0}
-  colorazul: {fileID: 0}
-  colorvioleta: {fileID: 0}
-  colornaranja: {fileID: 0}
 --- !u!1 &1152160993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1819,7 +1811,7 @@ RectTransform:
   - {fileID: 1152160994}
   - {fileID: 1726667123}
   m_Father: {fileID: 589196877}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2140,6 +2132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   relay: {fileID: 1122006203}
+  unirse: {fileID: 0}
 --- !u!1 &1425937718
 GameObject:
   m_ObjectHideFlags: 0
@@ -2316,6 +2309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   relay: {fileID: 1122006203}
+  unirse: {fileID: 0}
 --- !u!1 &1471843286
 GameObject:
   m_ObjectHideFlags: 0
@@ -2427,7 +2421,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 589196877}
-  m_RootOrder: 4
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2631,6 +2625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   relay: {fileID: 1122006203}
+  unirse: {fileID: 0}
 --- !u!1 &1525050226
 GameObject:
   m_ObjectHideFlags: 0
@@ -3152,8 +3147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44c2bfda6b1e4fd4abc5ac2b30e3533c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nombreJugador:
-    m_InternalValue: alejandro
   buttonToPress: {fileID: 1159869438}
   buttonPrint: {fileID: 1159869438}
   buttonLoad: {fileID: 1159869438}
@@ -3274,7 +3267,7 @@ RectTransform:
   - {fileID: 17087377}
   - {fileID: 1471843287}
   m_Father: {fileID: 589196877}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3497,7 +3490,7 @@ RectTransform:
   - {fileID: 80951203}
   - {fileID: 1158420522}
   m_Father: {fileID: 589196877}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

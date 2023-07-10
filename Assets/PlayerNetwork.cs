@@ -108,7 +108,7 @@ public class PlayerNetwork : NetworkBehaviour
     {
         //myInt = EditorPrefs.GetInt("myIntKey");
         //playerData = new NetworkList<DatosJugador>();
-
+        Debug.Log("para commit");
         if (Instance == null)
         {
             Instance = this;

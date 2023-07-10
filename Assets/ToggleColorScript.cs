@@ -4,7 +4,8 @@ using UnityEngine.UI;
 public class ToggleColorScript : MonoBehaviour
 {
     Toggle m_Toggle;
-    public TestRelay relay; // Asigna esto en el Inspector a la instancia de tu script TestRelay
+    public TestRelay relay;// Asigna esto en el Inspector a la instancia de tu script TestRelay
+    public Unirse unirse;
 
     void Start()
     {
@@ -22,6 +23,7 @@ public class ToggleColorScript : MonoBehaviour
         if (change.isOn)
         {
             relay.colorSeleccionado = change.name; // Asumiendo que el nombre del GameObject es el color
+            unirse.colorSeleccionado = change.name;
         }
     }
 }
