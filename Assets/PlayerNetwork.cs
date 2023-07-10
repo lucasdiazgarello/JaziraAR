@@ -7,7 +7,7 @@ using Unity.Collections;
 using Unity.Netcode;
 //using UnityEditor;
 using UnityEngine;
-using UnityEngine.InputSystem.OSX;
+//using UnityEngine.InputSystem.OSX;
 using UnityEngine.UI;
 
 public class PlayerNetwork : NetworkBehaviour
@@ -57,7 +57,7 @@ public class PlayerNetwork : NetworkBehaviour
         public int jugadorId;
         public FixedString64Bytes nomJugador;
         public int puntaje;
-        public int cantidadJugadores;
+        //public int cantidadJugadores;
         public bool gano;
         public bool turno;
         public int cantidadCasa;
@@ -81,7 +81,7 @@ public class PlayerNetwork : NetworkBehaviour
         {
             serializer.SerializeValue(ref jugadorId);
             serializer.SerializeValue(ref puntaje);
-            serializer.SerializeValue(ref cantidadJugadores);
+            //serializer.SerializeValue(ref cantidadJugadores);
             serializer.SerializeValue(ref gano);
             serializer.SerializeValue(ref turno);
             serializer.SerializeValue(ref maderaCount);
@@ -123,7 +123,7 @@ public class PlayerNetwork : NetworkBehaviour
                     jugadorId = 0,
                     nomJugador = new FixedString64Bytes(),
                     puntaje = 0,
-                    cantidadJugadores = 0,
+                    //cantidadJugadores = 0,
                     gano = false,
                     turno = false,
                     cantidadCasa = 0,
@@ -146,21 +146,16 @@ public class PlayerNetwork : NetworkBehaviour
     }
     private void Start()
     {
-        //buttonToPress.onClick.AddListener(PrintPlayerName);
-        //Debug.Log("antes de cargar");
-        //buttonPrint.onClick.AddListener(ImprimirDatosJugador);
-        //buttonLoad.onClick.AddListener(() => CargarDatosJugador(1, "Jugador", 100, 5, false, true, 2, 10, 10, 10, 10, 10));
-        //Debug.Log("despues de cargar");
-        //buttonPrint.onClick.AddListener(ImprimirDatosJugador);
+
 
     }
-    public void AgregarJugador(int jugadorId, string nomJugador, int puntaje, int cantidadJugadores, bool gano, bool turno, int cantidadCasa, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, string colorJugador)
+    public void AgregarJugador(int jugadorId, string nomJugador, int puntaje, bool gano, bool turno, int cantidadCasa, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, string colorJugador)
     {
         DatosJugador newDatos = new DatosJugador();
         newDatos.jugadorId = jugadorId;
         newDatos.nomJugador = new FixedString64Bytes(nomJugador ?? string.Empty);
         newDatos.puntaje = puntaje;
-        newDatos.cantidadJugadores = cantidadJugadores;
+        //newDatos.cantidadJugadores = cantidadJugadores;
         newDatos.gano = gano;
         newDatos.turno = turno;
         newDatos.cantidadCasa = cantidadCasa;
@@ -200,7 +195,7 @@ public class PlayerNetwork : NetworkBehaviour
             Debug.Log("ID Jugador: " + jugadorActual.jugadorId);
             Debug.Log("Nombre Jugador: " + jugadorActual.nomJugador.ToString());
             Debug.Log("Puntaje: " + jugadorActual.puntaje);
-            Debug.Log("Cantidad de Jugadores: " + jugadorActual.cantidadJugadores);
+            //Debug.Log("Cantidad de Jugadores: " + jugadorActual.cantidadJugadores);
             Debug.Log("Ganó?: " + jugadorActual.gano);
             Debug.Log("Turno?: " + jugadorActual.turno);
             Debug.Log("Cantidad de Casas: " + jugadorActual.cantidadCasa);
@@ -219,7 +214,7 @@ public class PlayerNetwork : NetworkBehaviour
         newDatos.jugadorId = jugadorId;
         newDatos.nomJugador = new FixedString64Bytes(nomJugador ?? string.Empty); // si es null, asigna una cadena vacía
         newDatos.puntaje = puntaje;
-        newDatos.cantidadJugadores = cantidadJugadores;
+        //newDatos.cantidadJugadores = cantidadJugadores;
         newDatos.gano = gano;
         newDatos.turno = turno;
         newDatos.cantidadCasa = cantidadCasa;
@@ -232,8 +227,6 @@ public class PlayerNetwork : NetworkBehaviour
 
         jugador.Value = newDatos;
     }
-
-    
 
     public DatosJugador GetPlayerData(int jugadorId)
     {
@@ -260,18 +253,35 @@ public class PlayerNetwork : NetworkBehaviour
 
     private void Update()
     {
-        if (!IsOwner) return;
+        if (!IsOwner) // si es cliente
+        {
+            //TestServerRpc();
+        }
+        else // si es host
+        {
+            //TestClientRpc();
+        }
+        return;
         //ACA HAY QUE HACER TODAS LAS FUNCIONES QUE TRANSMITEN AL CLIENTE DATA
         //El cliente no agrega jugadores, solo le pasa los datos para que el host lo agregue y a menos que invoque a una funcion que traiga info del host no se entera de nada 
         //mirar min 35, COMPLETE Unity Multiplayer Tutorial (Netcode for Game Objects)
         // Resto del código... 
-        //TestServerRpcc(nombre, color); de alguna manera hay que traer las variables de testrelay para usarlas aca
+        //TestServerRpc(nombre, color); //de alguna manera hay que traer las variables de testrelay para usarlas aca
     }
 
     [ServerRpc]
-    private void TestServerRpc(string nombre, string color)
+    public void TestServerRpc(string nombre, string color) //este comunica del cliente al servidor 
     {
         Debug.Log("Nombre y Color " + nombre + color);
+        //aca podria ir AgregarJugador no?
+        Instance.AgregarJugador(1, nombre, 100, false, true, 2, 10, 10, 10, 10, 10, color);
+    }
+
+    [ClientRpc]
+    private void TestClientRpc() //este comunica del servidor al cliente 
+    {
+        Debug.Log("TestClientRpc ");
+        //aca irian las funciones que pasa el puntaje o cantidad de recursos por ejemplo
     }
 }
 

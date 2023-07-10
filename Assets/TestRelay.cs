@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using Unity.Services.Authentication;
@@ -11,10 +12,10 @@ using UnityEngine.UI;
 
 public class TestRelay : NetworkBehaviour
 {
- 
+
     public int cantJugadores = 4;
     private string nombreHost;
-    
+
     public InputField cantidadJugadores;
     public InputField nombreHostinput;
     public PlayerNetwork playernetwork;
@@ -57,7 +58,7 @@ public class TestRelay : NetworkBehaviour
             //playernetwork.SetNomJugador(0, nombreHost);
             Debug.Log("nombre relay" + nombreHost);
             Debug.Log("color relay" + colorSeleccionado);
-            Allocation allocation = await RelayService.Instance.CreateAllocationAsync(cantJugadores-1); // el host y 3 mas
+            Allocation allocation = await RelayService.Instance.CreateAllocationAsync(cantJugadores - 1); // el host y 3 mas
 
             string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
 
@@ -74,21 +75,22 @@ public class TestRelay : NetworkBehaviour
             Debug.Log("Inicio el host");
             Debug.Log("antes de cargar");
             //PlayerNetwork.Instance.ImprimirDatosJugador();
-            PlayerNetwork.Instance.AgregarJugador(1,nombreHost, 100, cantJugadores, false, true, 2, 10, 10, 10, 10, 10,colorSeleccionado);
-            PlayerNetwork.Instance.AgregarJugador(1, "Juancho", 100, cantJugadores, false, true, 2, 10, 10, 10, 10, 10,colorSeleccionado);
-            PlayerNetwork.Instance.AgregarJugador(1, "Pepe", 100, cantJugadores, false, true, 2, 10, 10, 10, 10, 10, colorSeleccionado);
+            PlayerNetwork.Instance.AgregarJugador(1, nombreHost, 100, false, true, 2, 10, 10, 10, 10, 10, colorSeleccionado);
+            //PlayerNetwork.Instance.AgregarJugador(1, "Juancho", 100, false, true, 2, 10, 10, 10, 10, 10,colorSeleccionado);
+            //PlayerNetwork.Instance.AgregarJugador(1, "Pepe", 100, false, true, 2, 10, 10, 10, 10, 10, colorSeleccionado);
 
             Debug.Log("despues de cargar");
             PlayerNetwork.Instance.ImprimirTodosLosJugadores();
 
 
-        } catch (RelayServiceException e)
+        }
+        catch (RelayServiceException e)
         {
             Debug.Log(e);
         }
     }
 
-    public async void JoinRelay (string codigo, string nombreJugador, string color )
+    public async void JoinRelay(string codigo, string nombreJugador, string color)
     {
         try
         {
@@ -109,10 +111,12 @@ public class TestRelay : NetworkBehaviour
 
             NetworkManager.Singleton.StartClient();
             Debug.Log("Se unio " + codigo);
-            //PlayerNetwork.Instance.AgregarJugador(1, nombreJugador, 100, 4, false, true, 2, 10, 10, 10, 10, 10, color);
-            //Debug.Log("Cargo jugador");
-            //PlayerNetwork.Instance.ImprimirTodosLosJugadores();
-        } catch (RelayServiceException e)
+            playernetwork.TestServerRpc(nombreJugador, color); // <-- Call the RPC method here
+            await Task.Delay(500);
+            // Print the list of all players
+            PlayerNetwork.Instance.ImprimirTodosLosJugadores();
+        }
+        catch (RelayServiceException e)
         {
             Debug.Log(e);
         }
