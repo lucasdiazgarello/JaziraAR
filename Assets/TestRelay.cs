@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Threading.Tasks;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
@@ -26,11 +27,24 @@ public class TestRelay : NetworkBehaviour
         AuthenticationService.Instance.SignedIn += () =>
         {
             Debug.Log("Signed in " + AuthenticationService.Instance.PlayerId);
+            NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
         };
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
 
     }
-    private readonly List<string> coloresDisponibles = new List<string>() { "Rojo", "Azul", "Violeta", "Naranja" };
+    private List<string> coloresDisponibles = new List<string>() { "Rojo", "Azul", "Violeta", "Naranja" };
+
+
+    void OnClientConnected(ulong clientId)
+    {
+        // Verifica si el cliente conectado es el cliente local.
+        if (NetworkManager.Singleton.LocalClientId == clientId)
+        {
+            // Aquí puedes llamar a tu RPC
+            //playernetwork.TestServerRpc(nombreJugador, color);
+            Debug.Log("Me conecte?");
+        }
+    }
 
     public async void CreateRelay()
     {
@@ -129,6 +143,7 @@ public class TestRelay : NetworkBehaviour
         if (coloresDisponibles.Count > 0)
         {
             return coloresDisponibles[0]; // Asigna el primer color disponible
+            Debug.Log("Cambie el color");
         }
         else
         {
