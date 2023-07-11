@@ -15,7 +15,7 @@ public class NetworkManagerUI : MonoBehaviour
 
     private void Awake()
     {
-
+        /*
         hostBtn.onClick.AddListener(() =>
         {
 
@@ -28,6 +28,6 @@ public class NetworkManagerUI : MonoBehaviour
         {
             NetworkManager.Singleton.StartClient();
         });
-
+        */
     }
 }

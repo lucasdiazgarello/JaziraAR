@@ -21,17 +21,69 @@ public class TestRelay : NetworkBehaviour
     public PlayerNetwork playernetwork;
     public string colorSeleccionado;
 
+    /*private async void Start()
+    {
+        await UnityServices.InitializeAsync();
+
+        AuthenticationService.Instance.SignedIn += OnSignedIn;
+
+        await AuthenticationService.Instance.SignInAnonymouslyAsync();
+    }
+
+
+    private void OnSignedIn()
+    {
+        Debug.Log("Signed in " + AuthenticationService.Instance.PlayerId);
+        NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
+
+        // Puedes llamar a otros métodos que requieren autenticación aquí.
+        // Por ejemplo:
+        // await CreateRelay();
+    }*/
     private async void Start()
     {
         await UnityServices.InitializeAsync();
-        AuthenticationService.Instance.SignedIn += () =>
-        {
-            Debug.Log("Signed in " + AuthenticationService.Instance.PlayerId);
-            NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
-        };
-        await AuthenticationService.Instance.SignInAnonymouslyAsync();
 
+        if (!AuthenticationService.Instance.IsSignedIn)
+        {
+            AuthenticationService.Instance.SignedIn += () =>
+            {
+                Debug.Log("Signed in " + AuthenticationService.Instance.PlayerId);
+                NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
+            };
+            await SignInAnonymouslyAsync(); // Llamar a tu nueva función aquí
+        }
+        else
+        {
+            Debug.Log("Already signed in " + AuthenticationService.Instance.PlayerId);
+        }
     }
+
+    async Task SignInAnonymouslyAsync()
+    {
+        try
+        {
+            await AuthenticationService.Instance.SignInAnonymouslyAsync();
+            Debug.Log("Sign in anonymously succeeded!");
+
+            // Shows how to get the playerID
+            Debug.Log($"PlayerID: {AuthenticationService.Instance.PlayerId}");
+
+        }
+        catch (AuthenticationException ex)
+        {
+            // Compare error code to AuthenticationErrorCodes
+            // Notify the player with the proper error message
+            Debug.LogException(ex);
+        }
+        catch (RequestFailedException ex)
+        {
+            // Compare error code to CommonErrorCodes
+            // Notify the player with the proper error message
+            Debug.LogException(ex);
+        }
+    }
+    
     private List<string> coloresDisponibles = new List<string>() { "Rojo", "Azul", "Violeta", "Naranja" };
 
 
@@ -46,10 +98,11 @@ public class TestRelay : NetworkBehaviour
         }
     }
 
-    public async void CreateRelay()
+    public async Task CreateRelay()
     {
         try
         {
+
             //traer cantJugadores del canvas
             cantJugadores = int.Parse(cantidadJugadores.text);
             nombreHost = nombreHostinput.text;
@@ -143,7 +196,6 @@ public class TestRelay : NetworkBehaviour
         if (coloresDisponibles.Count > 0)
         {
             return coloresDisponibles[0]; // Asigna el primer color disponible
-            Debug.Log("Cambie el color");
         }
         else
         {
