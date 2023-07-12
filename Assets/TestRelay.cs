@@ -143,7 +143,6 @@ public class TestRelay : NetworkBehaviour
         if (coloresDisponibles.Count > 0)
         {
             return coloresDisponibles[0]; // Asigna el primer color disponible
-            Debug.Log("Cambie el color");
         }
         else
         {
