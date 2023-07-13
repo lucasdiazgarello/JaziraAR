@@ -1,3 +1,4 @@
+using Unity.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,8 +23,11 @@ public class ToggleColorScript : MonoBehaviour
     {
         if (change.isOn)
         {
-            relay.colorSeleccionado = change.name; // Asumiendo que el nombre del GameObject es el color
-            unirse.colorSeleccionado = change.name;
+            FixedString64Bytes colorName = new FixedString64Bytes(change.name);
+            relay.colorSeleccionado.Value = colorName;
+            unirse.colorSeleccionado.Value = colorName;
+            //relay.colorSeleccionado = change.name; // Asumiendo que el nombre del GameObject es el color
+            //unirse.colorSeleccionado = change.name;
         }
     }
 }

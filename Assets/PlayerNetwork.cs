@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Runtime.CompilerServices;
+using System.Text;
 using Unity.Collections;
 using Unity.Netcode;
 //using UnityEditor;
@@ -149,11 +150,12 @@ public class PlayerNetwork : NetworkBehaviour
 
 
     }
-    public void AgregarJugador(int jugadorId, string nomJugador, int puntaje, bool gano, bool turno, int cantidadCasa, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, string colorJugador)
+    public void AgregarJugador(int jugadorId, FixedString64Bytes nomJugador, int puntaje, bool gano, bool turno, int cantidadCasa, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, FixedString64Bytes colorJugador)
     {
         DatosJugador newDatos = new DatosJugador();
         newDatos.jugadorId = jugadorId;
-        newDatos.nomJugador = new FixedString64Bytes(nomJugador ?? string.Empty);
+        //newDatos.nomJugador = new FixedString64Bytes(nomJugador ?? string.Empty);
+        newDatos.nomJugador = nomJugador;
         newDatos.puntaje = puntaje;
         //newDatos.cantidadJugadores = cantidadJugadores;
         newDatos.gano = gano;
@@ -164,7 +166,8 @@ public class PlayerNetwork : NetworkBehaviour
         newDatos.ovejaCount = ovejaCount;
         newDatos.piedraCount = piedraCount;
         newDatos.trigoCount = trigoCount;
-        newDatos.colorJugador = new FixedString64Bytes(colorJugador ?? string.Empty);
+        //newDatos.colorJugador = new FixedString64Bytes(colorJugador ?? string.Empty);
+        newDatos.colorJugador = colorJugador;
 
         playerIDs.Add(jugadorId);
         playerData.Add(newDatos);
@@ -204,7 +207,8 @@ public class PlayerNetwork : NetworkBehaviour
             Debug.Log("Cuenta de Ovejas: " + jugadorActual.ovejaCount);
             Debug.Log("Cuenta de Piedras: " + jugadorActual.piedraCount);
             Debug.Log("Cuenta de Trigo: " + jugadorActual.trigoCount);
-            Debug.Log("Color de Jugador: " + jugadorActual.colorJugador.ToString());
+            //Debug.Log("Color de Jugador: " + jugadorActual.colorJugador.ToString(Encoding.UTF8));
+            Debug.Log("Color de Jugador: " + jugadorActual.colorJugador.ToString()); // me qeuda duda si el ToString funciona con este tipo de fixedstring
             Debug.Log("----------------------------------------------------");
         }
     }
@@ -251,18 +255,25 @@ public class PlayerNetwork : NetworkBehaviour
         Debug.Log("color neuvo es: " + jugador.Value.colorJugador);
     }*/
 
+    public override void OnNetworkSpawn()
+    {
+        
+    }
     private void Update()
     {
         if (!IsOwner) // si es cliente
         {
-
+            /*
             var nombre = "prueba";
             var color = "magenta";
-            TestServerRpc(nombre,color);
+            TestServerRpc(nombre,color); 
+            */
         }
         else // si es host
         {
-            //TestClientRpc();
+            /*var nombre = "prueba";
+            var color = "magenta";
+            TestServerRpc(nombre, color);*/
         }
         return;
         //ACA HAY QUE HACER TODAS LAS FUNCIONES QUE TRANSMITEN AL CLIENTE DATA
@@ -273,11 +284,11 @@ public class PlayerNetwork : NetworkBehaviour
     }
 
     [ServerRpc]
-    public void TestServerRpc(string nombre, string color) //este comunica del cliente al servidor 
+    public void TestServerRpc(FixedString64Bytes nombre, FixedString64Bytes color) //este comunica del cliente al servidor 
     {
-        Debug.Log("Nombre y Color " + nombre + color);
-        //aca podria ir AgregarJugador no?
-        Instance.AgregarJugador(1, nombre, 100, false, true, 2, 10, 10, 10, 10, 10, color);
+        Debug.Log("Nombre y Color del nuevo jugador " + nombre + color);
+        AgregarJugador(1, nombre, 100, false, true, 2, 10, 10, 10, 10, 10, color);
+        ImprimirTodosLosJugadores();
     }
 
     [ClientRpc]

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Threading.Tasks;
+using Unity.Collections;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using Unity.Services.Authentication;
@@ -14,13 +15,13 @@ using UnityEngine.UI;
 
 public class TestRelay : NetworkBehaviour
 {
-
     public int cantJugadores = 4;
-    private string nombreHost;
+    private FixedString64Bytes nombreHost;
     public InputField cantidadJugadores;
     public InputField nombreHostinput;
     public PlayerNetwork playernetwork;
-    public string colorSeleccionado;
+    //public string colorSeleccionado;
+    public NetworkVariable<FixedString64Bytes> colorSeleccionado = new NetworkVariable<FixedString64Bytes>();
 
     private async void Start()
     {
@@ -33,12 +34,8 @@ public class TestRelay : NetworkBehaviour
 
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
 
-
-
     }
     private List<string> coloresDisponibles = new List<string>() { "Rojo", "Azul", "Violeta", "Naranja" };
-
-
 
     public async void CreateRelay()
     {
@@ -46,16 +43,11 @@ public class TestRelay : NetworkBehaviour
         {
             //traer cantJugadores del canvas
             cantJugadores = int.Parse(cantidadJugadores.text);
-            nombreHost = nombreHostinput.text;
-            /*// Determine el color del jugador
-            string colorSeleccionado = "rojo"; // Un valor predeterminado
-            if (toggleAzul.isOn) colorSeleccionado = "azul";
-            else if (toggleVioleta.isOn) colorSeleccionado = "violeta";
-            else if (toggleNaranja.isOn) colorSeleccionado = "naranja";*/
+            //nombreHost = nombreHostinput.text;
+            nombreHost = new FixedString64Bytes(nombreHostinput.text);
 
-            //playernetwork.SetNomJugador(0, nombreHost);
             Debug.Log("nombre relay" + nombreHost);
-            Debug.Log("color relay" + colorSeleccionado);
+            Debug.Log("color relay" + colorSeleccionado.Value);
             Allocation allocation = await RelayService.Instance.CreateAllocationAsync(cantJugadores - 1); // el host y 3 mas
 
             string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
@@ -73,10 +65,10 @@ public class TestRelay : NetworkBehaviour
             Debug.Log("Inicio el host");
             Debug.Log("antes de cargar");
             //PlayerNetwork.Instance.ImprimirDatosJugador();
-            PlayerNetwork.Instance.AgregarJugador(1, nombreHost, 100, false, true, 2, 10, 10, 10, 10, 10, colorSeleccionado);
+            PlayerNetwork.Instance.AgregarJugador(1, nombreHost, 100, false, true, 2, 10, 10, 10, 10, 10, colorSeleccionado.Value);
             //PlayerNetwork.Instance.AgregarJugador(1, "Juancho", 100, false, true, 2, 10, 10, 10, 10, 10,colorSeleccionado);
             //PlayerNetwork.Instance.AgregarJugador(1, "Pepe", 100, false, true, 2, 10, 10, 10, 10, 10, colorSeleccionado);
-            RemoverColor(colorSeleccionado);
+            //RemoverColor(colorSeleccionado);
             Debug.Log("despues de cargar");
             PlayerNetwork.Instance.ImprimirTodosLosJugadores();
 
@@ -87,7 +79,7 @@ public class TestRelay : NetworkBehaviour
         }
     }
 
-    public async void JoinRelay(string codigo, string nombreJugador, string color)
+    public async void JoinRelay(string codigo)
     {
         try
         {
@@ -108,7 +100,7 @@ public class TestRelay : NetworkBehaviour
             //List<string> coloresDisponibles = ObtenerColoresDisponibles();
             NetworkManager.Singleton.StartClient();
             Debug.Log("Se unio " + codigo);
-            // Si el color no está disponible, asigna uno diferente
+            /*// Si el color no está disponible, asigna uno diferente
             Debug.Log("Color que se busca" + color);
             Debug.Log("Cantidad disponibles" + coloresDisponibles.Count);
             Debug.Log("Colores disponibles"+coloresDisponibles.ToShortString());
@@ -128,7 +120,7 @@ public class TestRelay : NetworkBehaviour
             //await Task.Delay(500);
 
             PlayerNetwork.Instance.ImprimirTodosLosJugadores();
-
+            */
         }
         catch (RelayServiceException e)
         {
