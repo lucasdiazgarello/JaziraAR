@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
@@ -12,6 +13,26 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+public enum ColoresJugadorEnum
+{
+    Rojo,
+    Azul,
+    Violeta,
+    Naranja
+}
+
+public struct ColoresJugador : IEquatable<ColoresJugador>
+{
+    public ColoresJugadorEnum Color { get; set; }
+
+    public bool Equals(ColoresJugador other)
+    {
+        return Color == other.Color;
+    }
+}
+
+
 public class TestRelay : NetworkBehaviour
 {
 
@@ -21,9 +42,19 @@ public class TestRelay : NetworkBehaviour
     public InputField nombreHostinput;
     public PlayerNetwork playernetwork;
     public string colorSeleccionado;
+    //public ColoresJugadorEnum colorSeleccionado;
+    public NetworkList<ColoresJugador> coloresDisponibles = new NetworkList<ColoresJugador>();
+
 
     private async void Start()
     {
+        if (IsServer)
+        {
+            coloresDisponibles.Add(new ColoresJugador { Color = ColoresJugadorEnum.Rojo });
+            coloresDisponibles.Add(new ColoresJugador { Color = ColoresJugadorEnum.Azul });
+            coloresDisponibles.Add(new ColoresJugador { Color = ColoresJugadorEnum.Violeta });
+            coloresDisponibles.Add(new ColoresJugador { Color = ColoresJugadorEnum.Naranja });
+        }
 
         await UnityServices.InitializeAsync();
         AuthenticationService.Instance.SignedIn += () =>
@@ -32,13 +63,7 @@ public class TestRelay : NetworkBehaviour
         };
 
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
-
-
-
     }
-    private List<string> coloresDisponibles = new List<string>() { "Rojo", "Azul", "Violeta", "Naranja" };
-
-
 
     public async void CreateRelay()
     {
@@ -76,7 +101,10 @@ public class TestRelay : NetworkBehaviour
             PlayerNetwork.Instance.AgregarJugador(1, nombreHost, 100, false, true, 2, 10, 10, 10, 10, 10, colorSeleccionado);
             //PlayerNetwork.Instance.AgregarJugador(1, "Juancho", 100, false, true, 2, 10, 10, 10, 10, 10,colorSeleccionado);
             //PlayerNetwork.Instance.AgregarJugador(1, "Pepe", 100, false, true, 2, 10, 10, 10, 10, 10, colorSeleccionado);
-            RemoverColor(colorSeleccionado);
+            //RemoverColor(colorSeleccionado);
+            ColoresJugadorEnum colorEnum = (ColoresJugadorEnum)Enum.Parse(typeof(ColoresJugadorEnum), colorSeleccionado, true);
+            coloresDisponibles.Remove(new ColoresJugador { Color = colorEnum });
+            //coloresDisponibles.Remove(new ColoresJugador { Color = colorSeleccionado });
             Debug.Log("despues de cargar");
             PlayerNetwork.Instance.ImprimirTodosLosJugadores();
 
@@ -93,9 +121,6 @@ public class TestRelay : NetworkBehaviour
         {
             Debug.Log("Joining Relay with " + codigo);
             JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(codigo);
-            //Debug.Log("joinAllocation: " + joinAllocation);
-            //Debug.Log("NetworkManager.Singleton: " + NetworkManager.Singleton);
-            //Debug.Log("NetworkManager.Singleton.GetComponent<UnityTransport>(): " + NetworkManager.Singleton.GetComponent<UnityTransport>());
 
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetClientRelayData(
                 joinAllocation.RelayServer.IpV4,
@@ -105,27 +130,30 @@ public class TestRelay : NetworkBehaviour
                 joinAllocation.ConnectionData,
                 joinAllocation.HostConnectionData
                 );
-            //List<string> coloresDisponibles = ObtenerColoresDisponibles();
             NetworkManager.Singleton.StartClient();
             Debug.Log("Se unio " + codigo);
             // Si el color no está disponible, asigna uno diferente
             Debug.Log("Color que se busca" + color);
             Debug.Log("Cantidad disponibles" + coloresDisponibles.Count);
-            Debug.Log("Colores disponibles"+coloresDisponibles.ToShortString());
-            if (!coloresDisponibles.Contains(color))
+            Debug.Log("Colores disponibles" + coloresDisponibles.ToShortString());
+
+            colorSeleccionado = color;
+            ColoresJugadorEnum colorEnum = (ColoresJugadorEnum)Enum.Parse(typeof(ColoresJugadorEnum), colorSeleccionado, true);
+
+            if (!coloresDisponibles.Contains(new ColoresJugador { Color = colorEnum }))
             {
                 Debug.Log("Color seleccionado no está disponible. Asignando un color diferente...");
-                color = AsignarColorDisponible();  // Necesitamos implementar este método
-                if (color == null)
+                colorSeleccionado = AsignarColorDisponible()?.Color.ToString();
+
+                if (colorSeleccionado == null)
                 {
                     Debug.Log("No hay colores disponibles. No se pudo unirse al juego.");
                     return;
                 }
             }
-            RemoverColor(color);
 
-            //playernetwork.TestServerRpc(nombreJugador, color);
-            //await Task.Delay(500);
+            colorEnum = (ColoresJugadorEnum)Enum.Parse(typeof(ColoresJugadorEnum), colorSeleccionado, true);
+            RemoverColor(new ColoresJugador { Color = colorEnum });
 
             PlayerNetwork.Instance.ImprimirTodosLosJugadores();
 
@@ -135,7 +163,15 @@ public class TestRelay : NetworkBehaviour
             Debug.Log(e);
         }
     }
-    private string AsignarColorDisponible()
+
+
+    /*public List<string> ObtenerColoresDisponibles()
+    {
+        return coloresDisponibles;
+    }*/
+
+
+    private ColoresJugador? AsignarColorDisponible()
     {
         if (coloresDisponibles.Count > 0)
         {
@@ -146,12 +182,11 @@ public class TestRelay : NetworkBehaviour
             return null; // No hay colores disponibles
         }
     }
-    public void RemoverColor(string color)
+
+    public void RemoverColor(ColoresJugador color)
     {
         coloresDisponibles.Remove(color);
     }
-    /*public List<string> ObtenerColoresDisponibles()
-    {
-        return coloresDisponibles;
-    }*/
 }
+
+
