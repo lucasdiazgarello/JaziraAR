@@ -142,6 +142,7 @@ public class PlayerNetwork : NetworkBehaviour
         }
         else
         {
+            Debug.LogWarning("Multiple instances of PlayerNetwork detected. Deleting one instance. GameObject: " + gameObject.name);
             Destroy(gameObject);
         }
     }
@@ -152,6 +153,7 @@ public class PlayerNetwork : NetworkBehaviour
     }
     public void AgregarJugador(int jugadorId, FixedString64Bytes nomJugador, int puntaje, bool gano, bool turno, int cantidadCasa, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, FixedString64Bytes colorJugador)
     {
+        Debug.Log($"AgregarJugador: {jugadorId}, {nomJugador}, {puntaje}, {gano}, {turno}, {cantidadCasa}, {maderaCount}, {ladrilloCount}, {ovejaCount}, {piedraCount}, {trigoCount}, {colorJugador}");
         DatosJugador newDatos = new DatosJugador();
         newDatos.jugadorId = jugadorId;
         //newDatos.nomJugador = new FixedString64Bytes(nomJugador ?? string.Empty);
@@ -208,7 +210,7 @@ public class PlayerNetwork : NetworkBehaviour
             Debug.Log("Cuenta de Piedras: " + jugadorActual.piedraCount);
             Debug.Log("Cuenta de Trigo: " + jugadorActual.trigoCount);
             //Debug.Log("Color de Jugador: " + jugadorActual.colorJugador.ToString(Encoding.UTF8));
-            Debug.Log("Color de Jugador: " + jugadorActual.colorJugador.ToString()); // me qeuda duda si el ToString funciona con este tipo de fixedstring
+            Debug.Log("Color de Jugador: " + jugadorActual.colorJugador.ToString());
             Debug.Log("----------------------------------------------------");
         }
     }
@@ -286,9 +288,52 @@ public class PlayerNetwork : NetworkBehaviour
     [ServerRpc]
     public void TestServerRpc(FixedString64Bytes nombre, FixedString64Bytes color) //este comunica del cliente al servidor 
     {
-        Debug.Log("Nombre y Color del nuevo jugador " + nombre + color);
-        AgregarJugador(1, nombre, 100, false, true, 2, 10, 10, 10, 10, 10, color);
+        Debug.Log("Entre a TestServerRpc ");
+        int myPlayerId = (int)NetworkManager.Singleton.LocalClientId; // Obtén el Id del jugador
+        Debug.Log("Nombre, Color y Id del nuevo jugador " + nombre + color + myPlayerId);
+        AgregarJugador(myPlayerId, nombre, 100, false, true, 2, 10, 10, 10, 10, 10, color);
         ImprimirTodosLosJugadores();
+    }
+
+    [ServerRpc]
+    public void UpdatePlayerColorServerRpc(int playerId, FixedString64Bytes colorName)
+    {
+        Debug.Log("Entre a UpdatePlayerColorServerRpc ");
+        int index = playerIDs.IndexOf(playerId);
+        if (index != -1)
+        {
+            DatosJugador datosActuales = playerData[index];
+            datosActuales.colorJugador = colorName;
+            playerData[index] = datosActuales;
+        }
+        else
+        {
+            Debug.LogError("Jugador no encontrado: " + playerId);
+        }
+    }
+
+    [ServerRpc]
+    public void UpdatePlayerNameServerRpc(int playerId, FixedString64Bytes playerName)
+    {
+        Debug.Log("Entre a UpdatePlayerNameServerRpc ");
+        int index = playerIDs.IndexOf(playerId);
+        if (index != -1)
+        {
+            DatosJugador datosActuales = playerData[index];
+            datosActuales.nomJugador = playerName;
+            playerData[index] = datosActuales;
+        }
+        else
+        {
+            Debug.LogError("Jugador no encontrado: " + playerId);
+        }
+    }
+
+    // Llamada por el cliente para notificar al servidor que se ha unido
+    [ServerRpc]
+    public void NotifyServerOfJoinServerRpc()
+    {
+        Debug.Log("Nuevo cliente conectado: " + NetworkManager.Singleton.LocalClientId);
     }
 
     [ClientRpc]
@@ -296,6 +341,15 @@ public class PlayerNetwork : NetworkBehaviour
     {
         Debug.Log("TestClientRpc ");
         //aca irian las funciones que pasa el puntaje o cantidad de recursos por ejemplo
+    }
+
+#pragma warning disable CS0114 // El miembro oculta el miembro heredado. Falta una contraseña de invalidación
+    private void OnDestroy()
+#pragma warning restore CS0114 // El miembro oculta el miembro heredado. Falta una contraseña de invalidación
+    {
+        // Reemplaza esto con las listas de red que estás utilizando.
+        playerIDs.Dispose();
+        playerData.Dispose();
     }
 }
 

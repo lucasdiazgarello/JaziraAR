@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
@@ -22,7 +23,6 @@ public class TestRelay : NetworkBehaviour
     public PlayerNetwork playernetwork;
     //public string colorSeleccionado;
     public NetworkVariable<FixedString64Bytes> colorSeleccionado = new NetworkVariable<FixedString64Bytes>();
-
     private async void Start()
     {
 
@@ -36,7 +36,21 @@ public class TestRelay : NetworkBehaviour
 
     }
     private List<string> coloresDisponibles = new List<string>() { "Rojo", "Azul", "Violeta", "Naranja" };
+    
+    public static TestRelay Instance; // Instancia Singleton
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Esto garantiza que el objeto no se destruirá al cargar una nueva escena
+        }
+        else
+        {
+            Destroy(gameObject); // Si ya hay una instancia, destruye esta
+        }
+    }
     public async void CreateRelay()
     {
         try
@@ -46,8 +60,8 @@ public class TestRelay : NetworkBehaviour
             //nombreHost = nombreHostinput.text;
             nombreHost = new FixedString64Bytes(nombreHostinput.text);
 
-            Debug.Log("nombre relay" + nombreHost);
-            Debug.Log("color relay" + colorSeleccionado.Value);
+            Debug.Log("nombre relay " + nombreHost);
+            Debug.Log("color relay " + colorSeleccionado.Value);
             Allocation allocation = await RelayService.Instance.CreateAllocationAsync(cantJugadores - 1); // el host y 3 mas
 
             string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
@@ -64,6 +78,7 @@ public class TestRelay : NetworkBehaviour
             NetworkManager.Singleton.StartHost();
             Debug.Log("Inicio el host");
             Debug.Log("antes de cargar");
+            Debug.Log("color antes de agregarjugador " + colorSeleccionado.Value);
             //PlayerNetwork.Instance.ImprimirDatosJugador();
             PlayerNetwork.Instance.AgregarJugador(1, nombreHost, 100, false, true, 2, 10, 10, 10, 10, 10, colorSeleccionado.Value);
             //PlayerNetwork.Instance.AgregarJugador(1, "Juancho", 100, false, true, 2, 10, 10, 10, 10, 10,colorSeleccionado);
@@ -85,46 +100,34 @@ public class TestRelay : NetworkBehaviour
         {
             Debug.Log("Joining Relay with " + codigo);
             JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(codigo);
-            //Debug.Log("joinAllocation: " + joinAllocation);
-            //Debug.Log("NetworkManager.Singleton: " + NetworkManager.Singleton);
-            //Debug.Log("NetworkManager.Singleton.GetComponent<UnityTransport>(): " + NetworkManager.Singleton.GetComponent<UnityTransport>());
 
-            NetworkManager.Singleton.GetComponent<UnityTransport>().SetClientRelayData(
-                joinAllocation.RelayServer.IpV4,
-                (ushort)joinAllocation.RelayServer.Port,
-                joinAllocation.AllocationIdBytes,
-                joinAllocation.Key,
-                joinAllocation.ConnectionData,
-                joinAllocation.HostConnectionData
-                );
-            //List<string> coloresDisponibles = ObtenerColoresDisponibles();
-            NetworkManager.Singleton.StartClient();
-            Debug.Log("Se unio " + codigo);
-            /*// Si el color no está disponible, asigna uno diferente
-            Debug.Log("Color que se busca" + color);
-            Debug.Log("Cantidad disponibles" + coloresDisponibles.Count);
-            Debug.Log("Colores disponibles"+coloresDisponibles.ToShortString());
-            if (!coloresDisponibles.Contains(color))
+            // Check if joinAllocation is not null before attempting to access its properties
+            if (joinAllocation != null)
             {
-                Debug.Log("Color seleccionado no está disponible. Asignando un color diferente...");
-                color = AsignarColorDisponible();  // Necesitamos implementar este método
-                if (color == null)
-                {
-                    Debug.Log("No hay colores disponibles. No se pudo unirse al juego.");
-                    return;
-                }
+                NetworkManager.Singleton.GetComponent<UnityTransport>().SetClientRelayData(
+                    joinAllocation.RelayServer.IpV4,
+                    (ushort)joinAllocation.RelayServer.Port,
+                    joinAllocation.AllocationIdBytes,
+                    joinAllocation.Key,
+                    joinAllocation.ConnectionData,
+                    joinAllocation.HostConnectionData
+                    );
+                //List<string> coloresDisponibles = ObtenerColoresDisponibles();
+                NetworkManager.Singleton.StartClient();
+                Debug.Log("Se unio " + codigo);
             }
-            RemoverColor(color);
-
-            //playernetwork.TestServerRpc(nombreJugador, color);
-            //await Task.Delay(500);
-
-            PlayerNetwork.Instance.ImprimirTodosLosJugadores();
-            */
+            else
+            {
+                Debug.Log("joinAllocation is null.");
+            }
         }
         catch (RelayServiceException e)
         {
             Debug.Log(e);
+        }
+        catch (NullReferenceException e)
+        {
+            Debug.Log("NullReferenceException caught: " + e.Message);
         }
     }
     private string AsignarColorDisponible()
