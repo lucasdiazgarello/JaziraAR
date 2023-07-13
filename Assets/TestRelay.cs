@@ -23,13 +23,20 @@ public class TestRelay : NetworkBehaviour
 
     private async void Start()
     {
+        Debug.Log("antes del await");
         await UnityServices.InitializeAsync();
+        Debug.Log("despues del await");
+
         AuthenticationService.Instance.SignedIn += () =>
         {
             Debug.Log("Signed in " + AuthenticationService.Instance.PlayerId);
-            NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
+            //NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
         };
+        Debug.Log("antes del await 2");
+
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
+        Debug.Log("despues del await 2");
+
 
     }
     private List<string> coloresDisponibles = new List<string>() { "Rojo", "Azul", "Violeta", "Naranja" };
