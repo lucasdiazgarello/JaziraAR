@@ -255,7 +255,10 @@ public class PlayerNetwork : NetworkBehaviour
     {
         if (!IsOwner) // si es cliente
         {
-            //TestServerRpc();
+
+            var nombre = "prueba";
+            var color = "magenta";
+            TestServerRpc(nombre,color);
         }
         else // si es host
         {

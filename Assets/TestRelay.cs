@@ -8,6 +8,7 @@ using Unity.Services.Authentication;
 using Unity.Services.Core;
 using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,35 +24,21 @@ public class TestRelay : NetworkBehaviour
 
     private async void Start()
     {
-        Debug.Log("antes del await");
-        await UnityServices.InitializeAsync();
-        Debug.Log("despues del await");
 
+        await UnityServices.InitializeAsync();
         AuthenticationService.Instance.SignedIn += () =>
         {
             Debug.Log("Signed in " + AuthenticationService.Instance.PlayerId);
-            //NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
         };
-        Debug.Log("antes del await 2");
 
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
-        Debug.Log("despues del await 2");
+
 
 
     }
     private List<string> coloresDisponibles = new List<string>() { "Rojo", "Azul", "Violeta", "Naranja" };
 
 
-    void OnClientConnected(ulong clientId)
-    {
-        // Verifica si el cliente conectado es el cliente local.
-        if (NetworkManager.Singleton.LocalClientId == clientId)
-        {
-            // Aquí puedes llamar a tu RPC
-            //playernetwork.TestServerRpc(nombreJugador, color);
-            Debug.Log("Me conecte?");
-        }
-    }
 
     public async void CreateRelay()
     {
@@ -122,6 +109,9 @@ public class TestRelay : NetworkBehaviour
             NetworkManager.Singleton.StartClient();
             Debug.Log("Se unio " + codigo);
             // Si el color no está disponible, asigna uno diferente
+            Debug.Log("Color que se busca" + color);
+            Debug.Log("Cantidad disponibles" + coloresDisponibles.Count);
+            Debug.Log("Colores disponibles"+coloresDisponibles.ToShortString());
             if (!coloresDisponibles.Contains(color))
             {
                 Debug.Log("Color seleccionado no está disponible. Asignando un color diferente...");
@@ -134,8 +124,8 @@ public class TestRelay : NetworkBehaviour
             }
             RemoverColor(color);
 
-            playernetwork.TestServerRpc(nombreJugador, color);
-            await Task.Delay(500);
+            //playernetwork.TestServerRpc(nombreJugador, color);
+            //await Task.Delay(500);
 
             PlayerNetwork.Instance.ImprimirTodosLosJugadores();
 
