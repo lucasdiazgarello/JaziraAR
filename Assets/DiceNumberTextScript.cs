@@ -11,15 +11,17 @@ public class DiceNumberTextScript : MonoBehaviour
     public DiceScript diceScript1;
     public DiceScript diceScript2;
 
-    public static int diceNumber1; // Para el primer dado
-    public static int diceNumber2; // Para el segundo dado
+    public static int diceNumber1 = 0; // Para el primer dado
+    public static int diceNumber2 = 0; // Para el segundo dado
     public static GameObject dice1; // Para el primer dado
     public static GameObject dice2; // Para el segundo dado
+    private int previousTotalDiceNumber = 0;
 
     //public PlayerNetwork playerNetwork;
 
     public int TotalDiceNumber { get; private set; }
 
+    //private int randomDiceNumber;
 
     // Use this for initialization
     void Start()
@@ -30,30 +32,24 @@ public class DiceNumberTextScript : MonoBehaviour
         dice1 = diceScript1.gameObject;
         dice2 = diceScript2.gameObject;
         //playerNetwork = PlayerNetwork.Instance;
-    }
+}
 
     // Update is called once per frame
     void Update()
     {
-
-        // Chequea si ambos dados han dejado de rodar
         if (!diceScript1.IsDiceRolling && !diceScript2.IsDiceRolling)
         {
-            /*
-            if (playerNetwork != null)
+            //randomDiceNumber = Random.Range(1, 13); // Genera un número aleatorio del 1 al 12
+            int totalDiceNumber = diceNumber1 + diceNumber2;
+            if (totalDiceNumber != previousTotalDiceNumber)
             {
-                Debug.Log("nombre host 2" + playerNetwork.GetNomJugador(0));
+                //Debug.Log("Dado1:  " + diceNumber1);
+               // Debug.Log("Dado2:  " + diceNumber2);
+                //Debug.Log("La suma:  " + totalDiceNumber);
+                previousTotalDiceNumber = totalDiceNumber;
             }
-            else
-            {
-                Debug.Log("PlayerNetwork instance is null");
-            }*/
-            //Debug.Log("nombre host 2" + playerNetwork.GetNomJugador(0));
-            TotalDiceNumber = diceNumber1 + diceNumber2; // La suma de ambos dados
-            Debug.Log("Dado1:  " + diceNumber1);
-            Debug.Log("Dado2:  " + diceNumber2);
-            Debug.Log("La suma:  " + TotalDiceNumber);
-            text.text = TotalDiceNumber.ToString();
+            text.text = totalDiceNumber.ToString();
+            //text.text = randomDiceNumber.ToString();
         }
     }
 }

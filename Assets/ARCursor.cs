@@ -208,64 +208,6 @@ public class ARCursor : NetworkBehaviour
         dicesThrown = true;
     }
 
-    /*private void OnDiceRollButtonPressed()
-    {
-        // Si el tablero no está colocado, regresar
-        if (!isBoardPlaced) return;
-
-        // Si ya hay un dado, destruirlo
-        if (currentDado != null)
-        {
-            Debug.Log("Destruyendo dado actual");
-            Destroy(currentDado);
-            currentDado = null; // Asegúrate de que currentDado es null después de destruirlo
-        }
-
-        if (currentDado2 != null)
-        {
-            Debug.Log("Destruyendo dado 2 actual");
-            Destroy(currentDado2);
-            currentDado2 = null; // Asegúrate de que currentDado2 es null después de destruirlo
-        }
-
-        if (tableromInstance != null)
-        {
-            Debug.Log("dadoToPlace es " + (dadoToPlace == null ? "null" : "no null")); // Comprobar si dadoToPlace es null antes de instanciar
-
-            // Crear un nuevo dado en la posición por encima del tablero
-            currentDado = Instantiate(dadoToPlace, tableromInstance.transform.position + Vector3.up * dadoDistance, Quaternion.identity);
-            currentDado.GetComponent<NetworkObject>().Spawn();
-            DiceNumberTextScript.dice1 = currentDado;
-
-            // Crear un segundo dado al costado del primero
-            currentDado2 = Instantiate(dadoToPlace, tableromInstance.transform.position + Vector3.up * dadoDistance + Vector3.right * dadoDistance, Quaternion.identity);
-            currentDado2.GetComponent<NetworkObject>().Spawn();
-            DiceNumberTextScript.dice2 = currentDado2;
-
-            Debug.Log("currentDado es " + (currentDado == null ? "null" : "no null")); // Comprobar si currentDado es null después de instanciar
-
-            // Obtén el DiceScript del dado actual y lanza el dado
-            DiceScript diceScript = currentDado.GetComponent<DiceScript>();
-            if (diceScript != null)
-            {
-                Debug.Log("Lanzando el dado");
-                diceScript.RollDice(currentDado,tableromInstance.transform.position + Vector3.up * dadoDistance);
-
-               Destroy(currentDado, 5f);
-                
-            }
-
-            // Obtén el DiceScript del segundo dado y lanza el dado
-            DiceScript diceScript2 = currentDado2.GetComponent<DiceScript>();
-            if (diceScript2 != null)
-            {
-                Debug.Log("Lanzando el dado 2");
-                diceScript2.RollDice(currentDado2,tableromInstance.transform.position + Vector3.up * dadoDistance + Vector3.right * dadoDistance);
-                Destroy(currentDado2, 5f);
-            }
-        }
-    }*/
-
     private void ResetDicePosition()
     {
         // Restablecer la posición del dado a la inicial

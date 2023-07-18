@@ -8,7 +8,8 @@ public class DiceCheckZoneScript : MonoBehaviour
     // Almacena una referencia al script ARCursor para acceder a dicesThrown
     private ARCursor arCursor;
     Vector3 diceVelocity;
-    private Dictionary<GameObject, bool> hasRegistered = new Dictionary<GameObject, bool>();
+    //private Dictionary<GameObject, bool> hasRegistered = new Dictionary<GameObject, bool>();
+    private List<GameObject> registeredObjects = new List<GameObject>(); // Lista de objetos registrados
 
     void Start()
     {
@@ -40,21 +41,31 @@ public class DiceCheckZoneScript : MonoBehaviour
 
     void OnTriggerStay(Collider col)
     {
-        if (!hasRegistered.ContainsKey(col.gameObject))
+        GameObject obj = col.gameObject;
+
+        // Verifica si el objeto ya ha sido registrado
+        if (registeredObjects.Contains(obj))
         {
-            hasRegistered[col.gameObject] = false;
+            return;
         }
 
-        if (!diceScripts[0].IsDiceRolling && !diceScripts[1].IsDiceRolling && diceVelocity.magnitude == 0f && !hasRegistered[col.gameObject])
+        registeredObjects.Add(obj);
+        StartCoroutine(CheckIfStill(col));
+        /*if (!diceScripts[0].IsDiceRolling && !diceScripts[1].IsDiceRolling && diceVelocity.magnitude == 0f)
         {
             StartCoroutine(CheckIfStill(col));
-        }
+            Debug.Log("Mande el CheckIfStill");
+        }*/
     }
 
     IEnumerator CheckIfStill(Collider col)
     {
-        Debug.Log("Entro al Checkifstill");
-        hasRegistered[col.gameObject] = true;
+        //Debug.Log("Entro al Checkifstill");
+
+        GameObject obj = col.gameObject;
+
+        // Remueve el objeto de la lista de registrados antes de realizar cualquier acción
+        registeredObjects.Remove(obj);
 
         Vector3 initPosition = col.transform.position;
         yield return new WaitForSeconds(1);
@@ -64,144 +75,50 @@ public class DiceCheckZoneScript : MonoBehaviour
             switch (col.gameObject.name)
             {
                 case "Side1":
+                    //Debug.Log("Pone un 6 ");
                     UpdateDiceNumber(col, 6);
                     break;
                 case "Side2":
+                    //Debug.Log("Pone un 5 ");
                     UpdateDiceNumber(col, 5);
                     break;
                 case "Side3":
+                    //Debug.Log("Pone un 4 ");
                     UpdateDiceNumber(col, 4);
                     break;
                 case "Side4":
+                    //Debug.Log("Pone un 3 ");
                     UpdateDiceNumber(col, 3);
                     break;
                 case "Side5":
+                    //Debug.Log("Pone un 2 ");
                     UpdateDiceNumber(col, 2);
                     break;
                 case "Side6":
+                    //Debug.Log("Pone un 1 ");
                     UpdateDiceNumber(col, 1);
                     break;
             }
-        }
-        else
-        {
-            hasRegistered[col.gameObject] = false;
         }
     }
 
     private void UpdateDiceNumber(Collider col, int number)
     {
-        Debug.Log("Entro UpdateNumber");
+        //Debug.Log("Entro UpdateNumber");
         if (col.gameObject.transform.parent.gameObject == DiceNumberTextScript.dice1)
         {
+            //Debug.Log("el numero del dado 1 es: " + number);
             DiceNumberTextScript.diceNumber1 = number;
         }
         else if (col.gameObject.transform.parent.gameObject == DiceNumberTextScript.dice2)
         {
+            //Debug.Log("el numero del dado 2 es: " + number);
             DiceNumberTextScript.diceNumber2 = number;
         }
     }
 
     public void ResetRegistration(GameObject dice)
     {
-        if (hasRegistered.ContainsKey(dice))
-        {
-            hasRegistered[dice] = false;
-        }
+        registeredObjects.Remove(dice);
     }
 }
-
-/*
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class DiceCheckZoneScript : MonoBehaviour
-{
-    //public DiceScript diceScript;
-    public DiceScript diceScript1; // Referencia al script del primer dado
-    public DiceScript diceScript2; // Referencia al script del segundo dado
-
-    Vector3 diceVelocity;
-    private Dictionary<GameObject, bool> hasRegistered = new Dictionary<GameObject, bool>();
-
-
-    void FixedUpdate()
-    {
-        if (diceScript1 != null && diceScript2 != null)
-        {
-            diceVelocity = diceScript1.diceVelocity + diceScript2.diceVelocity;
-        }
-    }
-
-    void OnTriggerStay(Collider col)
-    {
-        if (!hasRegistered.ContainsKey(col.gameObject))
-        {
-            hasRegistered[col.gameObject] = false;
-        }
-
-        if (!diceScript1.IsDiceRolling && !diceScript2.IsDiceRolling && diceVelocity.magnitude == 0f && !hasRegistered[col.gameObject])
-        {
-            StartCoroutine(CheckIfStill(col));
-        }
-    }
-
-    IEnumerator CheckIfStill(Collider col)
-    {
-        hasRegistered[col.gameObject] = true;
-
-        Vector3 initPosition = col.transform.position;
-        yield return new WaitForSeconds(1);
-
-        if (initPosition == col.transform.position)
-        {
-            switch (col.gameObject.name)
-            {
-                case "Side1":
-                    UpdateDiceNumber(col, 6);
-                    break;
-                case "Side2":
-                    UpdateDiceNumber(col, 5);
-                    break;
-                case "Side3":
-                    UpdateDiceNumber(col, 4);
-                    break;
-                case "Side4":
-                    UpdateDiceNumber(col, 3);
-                    break;
-                case "Side5":
-                    UpdateDiceNumber(col, 2);
-                    break;
-                case "Side6":
-                    UpdateDiceNumber(col, 1);
-                    break;
-            }
-        }
-        else
-        {
-            hasRegistered[col.gameObject] = false;
-        }
-    }
-
-    private void UpdateDiceNumber(Collider col, int number)
-    {
-        if (col.gameObject.transform.parent.gameObject == DiceNumberTextScript.dice1)
-        {
-            DiceNumberTextScript.diceNumber1 = number;
-        }
-        else if (col.gameObject.transform.parent.gameObject == DiceNumberTextScript.dice2)
-        {
-            DiceNumberTextScript.diceNumber2 = number;
-        }
-    }
-
-    public void ResetRegistration(GameObject dice)
-    {
-        if (hasRegistered.ContainsKey(dice))
-        {
-            hasRegistered[dice] = false;
-        }
-    }
-}
-*/

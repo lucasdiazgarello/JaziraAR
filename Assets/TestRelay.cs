@@ -44,7 +44,7 @@ public class TestRelay : NetworkBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Esto garantiza que el objeto no se destruirá al cargar una nueva escena
+            DontDestroyOnLoad(gameObject); // Esto garantiza que el objeto empty que tiene el script no se destruirá al cargar una nueva escena
         }
         else
         {
