@@ -27,7 +27,7 @@ public class ComprarPieza : MonoBehaviour
     //public DiceNumberTextScript diceNumberTextScript;
     public ColocarPieza colocarPiezaScript;
     public IdentificadorParcela identificadorParcelaScript;
-    public DiceNumberTextScript diceNumberTextScript;
+    //public DiceNumberTextScript diceNumberTextScript;
 
     // Start is called before the first frame update
     void Start()
@@ -63,7 +63,8 @@ public class ComprarPieza : MonoBehaviour
     // método para incrementar los recursos cuando se lanza el dado
     public void IncrementarRecursos()
     {
-        int numeroDado = diceNumberTextScript.TotalDiceNumber;
+        int numeroDado = DiceNumberTextScript.totalDiceNumber;
+        Debug.Log("el valor para incrementar es: " + numeroDado);
         // Activar los contadores de recursos al lanzar el dado por primera vez
         maderaCountText.gameObject.SetActive(true);
         ladrilloCountText.gameObject.SetActive(true);

@@ -22,6 +22,24 @@ public class IdentificadorParcela : MonoBehaviour
         public int numeroficha;
         public string nombreRecurso;
     }
+    public List<Collider> GetCollidersParcela(string parcelaName)
+    {
+        GameObject parcelaObject = GameObject.Find(parcelaName);
+        if (parcelaObject == null)
+        {
+            Debug.LogError("No se pudo encontrar una parcela con el nombre " + parcelaName);
+            return null;
+        }
+
+        IdentificadorParcela identificador = parcelaObject.GetComponent<IdentificadorParcela>();
+        if (identificador == null)
+        {
+            Debug.LogError("El objeto encontrado no tiene un componente IdentificadorParcela");
+            return null;
+        }
+
+        return identificador.collidersParcela;
+    }
 
     public void IncrementarRecursos(int resultadoDado, ref int maderaCount, ref int ladrilloCount, ref int ovejaCount, ref int piedraCount, ref int trigoCount)
     {

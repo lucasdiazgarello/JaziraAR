@@ -81,6 +81,7 @@ public class ARCursor : NetworkBehaviour
         {
             if (colocarPieza.tipoActual == ColocarPieza.TipoObjeto.Base)
             {
+                Debug.Log("Voy a llamar a colocar base");
                 colocarPieza.ColocarBase();
             }
             else if (colocarPieza.tipoActual == ColocarPieza.TipoObjeto.Camino)
@@ -156,6 +157,7 @@ public class ARCursor : NetworkBehaviour
     }
     private void OnDiceRollButtonPressed()
     {
+        /* NO BORRAR ESTO COMENTADO POR SI SURGE DENUEVO EL TEMA DE LOS DADOS
         // Si el tablero no está colocado, regresar
         if (!isBoardPlaced) return;
 
@@ -206,6 +208,11 @@ public class ARCursor : NetworkBehaviour
         }
         // Ajustar dicesThrown a true luego de lanzar los dados
         dicesThrown = true;
+        */
+
+        DiceNumberTextScript.Instance.DarResultadoRandom();
+        BoardManager.Instance.ManejoParcelas(DiceNumberTextScript.Instance.randomDiceNumber);
+
     }
 
     private void ResetDicePosition()

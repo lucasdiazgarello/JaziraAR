@@ -99,6 +99,18 @@ public class ColocarPieza : MonoBehaviour
         }
     }
 
+    public int DarTipo()
+    {
+        int tipo = 0; // Valor por defecto
+        if (tipoActual == TipoObjeto.Camino)
+            tipo = 1;
+        else if (tipoActual == TipoObjeto.Base)
+            tipo = 2;
+        else if (tipoActual == TipoObjeto.Pueblo)
+            tipo = 3;
+        return tipo;
+    }
+
     public void ColocarCamino(RaycastHit hit)
     {
         // El objeto golpeado es una arista.
@@ -120,22 +132,27 @@ public class ColocarPieza : MonoBehaviour
 
     public void ColocarBase(RaycastHit hit)
     {
-        //Debug.Log("EntroColocar 2");
+        Debug.Log("EntroColocar 2");
+
         // El objeto golpeado es una esquina.
         currentBase = Instantiate(prefabBase, hit.collider.gameObject.transform.position, Quaternion.identity);
         currentBase.GetComponent<NetworkObject>().Spawn();
+        Debug.Log("Antes de la asignación");
+        tipoActual = TipoObjeto.Base;
+        Debug.Log("Después de la asignación");
+        Debug.Log("el tipo de la base colocada es " + tipoActual);
 
         // Obtener el identificador de la parcela
         //identificadorParcela = hit.collider.gameObject.GetComponent<ColocarPieza>().identificadorParcela;
 
         // Llamar al método en ComprarPieza para incrementar los recursos
-        comprarPieza.IncrementarRecursos();
+        //comprarPieza.IncrementarRecursos();
 
         // Verificar si hay una base colocada en esta parcela
-        VerificarBaseEnEsquina(hit.collider);
+        //VerificarBaseEnEsquina(hit.collider);
 
         // Resetear la opción actual a Ninguno para evitar colocaciones no deseadas
-        tipoActual = TipoObjeto.Ninguno;
+
     }
     public void ColocarPueblo(RaycastHit hit)
     {
@@ -143,6 +160,7 @@ public class ColocarPieza : MonoBehaviour
         // El objeto golpeado es una esquina.
         currentPueblo = Instantiate(prefabPueblo, hit.collider.gameObject.transform.position, Quaternion.identity);
         currentPueblo.GetComponent<NetworkObject>().Spawn();
+
 
         // Obtener el identificador de la parcela
         //identificadorParcela = hit.collider.gameObject.GetComponent<ColocarPieza>().identificadorParcela;
@@ -154,7 +172,7 @@ public class ColocarPieza : MonoBehaviour
         VerificarPuebloEnEsquina(hit.collider); //CHEQUEAR
 
         // Resetear la opción actual a Ninguno para evitar colocaciones no deseadas
-        tipoActual = TipoObjeto.Ninguno;
+        tipoActual = TipoObjeto.Pueblo;
     }
     public void ColocarCamino()
     {
@@ -174,12 +192,14 @@ public class ColocarPieza : MonoBehaviour
 
     public void ColocarBase()
     {
-        //Debug.Log("EntroColocar 1");
+        Debug.Log("EntroColocar 1");
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
         {
             ColocarBase(hit);
+            
+            Debug.Log("Coloque base");
         }
         ARCursor arCursor = FindObjectOfType<ARCursor>();
         if (arCursor != null)
