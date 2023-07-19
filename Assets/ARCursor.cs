@@ -160,7 +160,7 @@ public class ARCursor : NetworkBehaviour
     private void OnDiceRollButtonPressed() //Boton Tirar Dados
     {
         DiceNumberTextScript.Instance.DarResultadoRandom();
-        colocarPieza.ManejoParcelas(DiceNumberTextScript.Instance.randomDiceNumber);
+        BoardManager.Instance.ManejoParcelas(DiceNumberTextScript.Instance.randomDiceNumber);
     }
     
     /* NO BORRAR ESTO COMENTADO POR SI SURGE DENUEVO EL TEMA DE LOS DADOS

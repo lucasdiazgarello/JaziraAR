@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BoardManager : MonoBehaviour
 {
-    /*private GameObject parcela;
+    private GameObject parcela;
     private GameObject parcela2;
     public string recurso;
     private string recurso2;
@@ -126,6 +126,7 @@ public class BoardManager : MonoBehaviour
                         break;
                     case TipoObjeto.Base:    // Aquí se hace uso del tipo enumerado TipoObjeto
                         Debug.Log("Base");
+                        //llamar a la funcion de playernetwork que AumenteRecurso(idJugador,recurso,1)
                         Debug.Log("sumo 1 " + recurso);
                         break;
                     case TipoObjeto.Pueblo:  // Aquí se hace uso del tipo enumerado TipoObjeto
@@ -166,14 +167,14 @@ public class BoardManager : MonoBehaviour
             {
                 Debug.LogError("El objeto " + empty.name + " no tiene un script de ColocarPieza.");
             }*/
-       /* }
+        }
 
         if (parcela2 == null)
         {
 
         }
 
-    }*/
+    }
 
 
     /*
