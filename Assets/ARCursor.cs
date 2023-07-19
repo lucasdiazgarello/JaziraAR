@@ -72,7 +72,9 @@ public class ARCursor : NetworkBehaviour
                 }
                 // Luego, crear un nuevo tablero y guardarlo como currentObject
                 tableromInstance = Instantiate(objectToPlace, hits[0].pose.position, hits[0].pose.rotation);
+                Debug.Log("Antes De tableroInstance");
                 tableromInstance.GetComponent<NetworkObject>().Spawn();
+                Debug.Log("Despues De tableroInstance");
                 placeButton.gameObject.SetActive(false); // Desactivar el botón de colocación después de colocar el tablero
                 confirmButton.gameObject.SetActive(true); // Activar el botón de confirmación después de colocar el tablero
             }

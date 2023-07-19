@@ -39,7 +39,7 @@ public class ColocarPieza : MonoBehaviour
     void Start()
     {
         arCursor = GetComponentInParent<ARCursor>();
-
+        prefabBase = Resources.Load("TR Casa Azul") as GameObject;
         // para la busqueda del null reference verifico que arcursor no es null
         if (arCursor == null)
         {
@@ -101,7 +101,9 @@ public class ColocarPieza : MonoBehaviour
 
     public int DarTipo()
     {
+        Debug.Log("Entre a dartipo");
         int tipo = 0; // Valor por defecto
+        Debug.Log("tipo actual tiene:" + tipoActual);
         if (tipoActual == TipoObjeto.Camino)
             tipo = 1;
         else if (tipoActual == TipoObjeto.Base)
@@ -136,6 +138,7 @@ public class ColocarPieza : MonoBehaviour
 
         // El objeto golpeado es una esquina.
         currentBase = Instantiate(prefabBase, hit.collider.gameObject.transform.position, Quaternion.identity);
+        Debug.Log("Luego de instatiate");
         currentBase.GetComponent<NetworkObject>().Spawn();
         Debug.Log("Antes de la asignación");
         tipoActual = TipoObjeto.Base;
