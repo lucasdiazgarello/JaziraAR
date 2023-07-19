@@ -79,7 +79,7 @@ public class ARCursor : NetworkBehaviour
                 confirmButton.gameObject.SetActive(true); // Activar el botón de confirmación después de colocar el tablero
             }
         }
-        if (colocarPieza != null && colocarPieza.enabled)
+        /*if (colocarPieza != null && colocarPieza.enabled)
         {
             if (colocarPieza.tipoActual == TipoObjeto.Base)
             {
@@ -90,7 +90,7 @@ public class ARCursor : NetworkBehaviour
             {
                 colocarPieza.ColocarCamino();
             }
-        }
+        }*/
     }
 
     public void ActivatePlacementMode()
@@ -160,7 +160,7 @@ public class ARCursor : NetworkBehaviour
     private void OnDiceRollButtonPressed() //Boton Tirar Dados
     {
         DiceNumberTextScript.Instance.DarResultadoRandom();
-        BoardManager.Instance.ManejoParcelas(DiceNumberTextScript.Instance.randomDiceNumber);
+        colocarPieza.ManejoParcelas(DiceNumberTextScript.Instance.randomDiceNumber);
     }
     
     /* NO BORRAR ESTO COMENTADO POR SI SURGE DENUEVO EL TEMA DE LOS DADOS

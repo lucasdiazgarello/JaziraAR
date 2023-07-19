@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BoardManager : MonoBehaviour
 {
-    private GameObject parcela;
+    /*private GameObject parcela;
     private GameObject parcela2;
     public string recurso;
     private string recurso2;
@@ -166,14 +166,14 @@ public class BoardManager : MonoBehaviour
             {
                 Debug.LogError("El objeto " + empty.name + " no tiene un script de ColocarPieza.");
             }*/
-        }
+       /* }
 
         if (parcela2 == null)
         {
 
         }
 
-    }
+    }*/
 
 
     /*
