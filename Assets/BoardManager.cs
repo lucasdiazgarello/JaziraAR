@@ -9,6 +9,7 @@ public class BoardManager : MonoBehaviour
     private string recurso2;
 
     public IdentificadorParcela identificadorParcela;
+    public ComprobarObjeto comprobarObjeto;
     public static BoardManager Instance; // Instancia Singleton
 
     private void Awake()
@@ -98,16 +99,52 @@ public class BoardManager : MonoBehaviour
         if (collidersParcela.Count > 0)
         {
             Debug.Log("First item in collidersParcela: " + collidersParcela[0]); // Ver el primer elemento
+            comprobarObjeto = collidersParcela[0].gameObject.GetComponent<ComprobarObjeto>();
+            Debug.Log("comprobarObjeto de la [0] es " + comprobarObjeto);
         }
         foreach (var empty in collidersParcela)
         {
             Debug.Log("entre al foreach");
-            // Obtener el script ColocarPieza del objeto.
-            ColocarPieza colocarPieza = empty.gameObject.GetComponent<ColocarPieza>();
-            Debug.Log("empty es " + colocarPieza);
-            // Si el script existe, invocar la función DarTipo().
-            if (colocarPieza != null)
+            Debug.Log("Empty GameObject: " + empty.gameObject.name);
+            // Obtener el script ComprobarObjeto del objeto.
+            comprobarObjeto = empty.gameObject.GetComponent<ComprobarObjeto>();
+            if (comprobarObjeto == null)
             {
+                Debug.LogError("No se pudo obtener el componente ComprobarObjeto de " + empty.gameObject.name);
+            }
+            Debug.Log("comprobarObjeto es " + comprobarObjeto);
+            // Si el script existe, invocar la función DarTipo().
+            if (comprobarObjeto != null)
+            {
+                Debug.Log("comprobarObjeto no es null");
+                TipoObjeto tipo = comprobarObjeto.tipoObjeto; // Aquí utilizas la variable tipoObjeto de tu instancia comprobarObjeto
+                Debug.Log("el tipo es " + tipo);
+                switch (tipo)
+                {
+                    case TipoObjeto.Ninguno:  // Aquí se hace uso del tipo enumerado TipoObjeto
+                        Debug.Log("Ninguno");
+                        break;
+                    case TipoObjeto.Base:    // Aquí se hace uso del tipo enumerado TipoObjeto
+                        Debug.Log("Base");
+                        Debug.Log("sumo 1 " + recurso);
+                        break;
+                    case TipoObjeto.Pueblo:  // Aquí se hace uso del tipo enumerado TipoObjeto
+                        Debug.Log("Pueblo");
+                        Debug.Log("sumo 2 " + recurso);
+                        break;
+                }
+            }
+            else
+            {
+                Debug.LogError("El objeto " + empty.name + " no tiene un script de ComprobarObjeto.");
+            }
+            // Obtener el script ColocarPieza del objeto.
+            //ColocarPieza colocarPieza = empty.gameObject.GetComponent<ColocarPieza>();
+            //Debug.Log("empty es " + colocarPieza);
+            // Si el script existe, invocar la función DarTipo().
+            /*if (colocarPieza != null)
+            {
+                Debug.Log("colocarPieza no es null");
                 int tipo = colocarPieza.DarTipo();
                 Debug.Log("el tipo es " + tipo);
                 switch (tipo)
@@ -128,9 +165,8 @@ public class BoardManager : MonoBehaviour
             else
             {
                 Debug.LogError("El objeto " + empty.name + " no tiene un script de ColocarPieza.");
-            }
+            }*/
         }
-
 
         if (parcela2 == null)
         {

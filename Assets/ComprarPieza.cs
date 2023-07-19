@@ -131,7 +131,7 @@ public class ComprarPieza : MonoBehaviour
             colocarPiezaScript.ColocarCamino();
 
             // Llamar a ActivarColocacion en el script ColocarPieza para permitir al jugador colocar un camino
-            colocarPiezaScript.ActivarColocacion(ColocarPieza.TipoObjeto.Camino);
+            colocarPiezaScript.ActivarColocacion(TipoObjeto.Camino);
         }
     }
 
@@ -157,7 +157,7 @@ public class ComprarPieza : MonoBehaviour
             // Llamar a ColocarCasa en el script ColocarPieza para instanciar la casa
             colocarPiezaScript.ColocarBase();
             // Llamar a ActivarColocacion en el script ColocarPieza para permitir al jugador colocar una base
-            colocarPiezaScript.ActivarColocacion(ColocarPieza.TipoObjeto.Base);
+            colocarPiezaScript.ActivarColocacion(TipoObjeto.Base);
         }
     }
     public void ComprarPueblo()
@@ -179,7 +179,7 @@ public class ComprarPieza : MonoBehaviour
             // Llamar a ColocarCasa en el script ColocarPieza para instanciar el pueblo
             colocarPiezaScript.ColocarPueblo();
             // Llamar a ActivarColocacion en el script ColocarPieza para permitir al jugador colocar un pueblo
-            colocarPiezaScript.ActivarColocacion(ColocarPieza.TipoObjeto.Pueblo);
+            colocarPiezaScript.ActivarColocacion(TipoObjeto.Pueblo);
         }
     }
 }

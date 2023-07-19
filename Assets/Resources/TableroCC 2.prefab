@@ -50,6 +50,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -143,6 +144,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -236,6 +238,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -329,6 +332,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -422,6 +426,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -516,6 +521,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -609,6 +615,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -702,6 +709,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -754,9 +762,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6905271185800949015}
-  - component: {fileID: 8457485827375018104}
   - component: {fileID: 2099495222115941921}
-  - component: {fileID: 7420809312620359794}
+  - component: {fileID: 1278456744098322716}
   - component: {fileID: 7259713473129404271}
   m_Layer: 3
   m_Name: Empty casa4
@@ -780,33 +787,6 @@ Transform:
   m_Father: {fileID: 3813611934402495106}
   m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8457485827375018104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 677488294647571754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
-  myLayerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  buttonCamino: {fileID: 0}
-  buttonBase: {fileID: 0}
-  buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &2099495222115941921
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -820,7 +800,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1813049, y: 0.38030362, z: 1.15094}
   m_Center: {x: -0.09065242, y: -0.12110207, z: -0.07546993}
---- !u!114 &7420809312620359794
+--- !u!114 &1278456744098322716
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -829,15 +809,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 677488294647571754}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d8ba057d9792f44a939b3ea4420a7f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f49bca53b85c2549b5d8489ebab0a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recursosGenerados:
-  - numeroficha: 0
-    nombreRecurso: Piedra
-  - numeroficha: 0
-    nombreRecurso: Trigo
-  collidersParcela: []
+  objetoColocado: {fileID: 0}
+  tipoObjeto: 0
 --- !u!114 &7259713473129404271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -909,6 +885,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -1003,6 +980,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -1097,6 +1075,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -1190,6 +1169,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -1283,6 +1263,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -1376,6 +1357,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -1469,6 +1451,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -1562,6 +1545,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -1656,6 +1640,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -1749,6 +1734,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -1843,6 +1829,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -1937,6 +1924,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -2031,6 +2019,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -2126,6 +2115,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -2239,6 +2229,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -2333,6 +2324,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -2427,6 +2419,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -2521,6 +2514,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -2614,6 +2608,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -2707,6 +2702,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -2801,6 +2797,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -2895,6 +2892,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -2989,6 +2987,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -3082,6 +3081,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -3175,6 +3175,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -3268,6 +3269,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -3362,6 +3364,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -3455,6 +3458,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -3549,6 +3553,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -3643,6 +3648,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -3737,6 +3743,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -3830,6 +3837,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -3923,6 +3931,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -4016,6 +4025,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -4312,9 +4322,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8900204445176158197}
-  - component: {fileID: 1809764379557744634}
   - component: {fileID: 4490345896239512973}
-  - component: {fileID: 7457123838384404118}
+  - component: {fileID: 3148249866304261825}
   - component: {fileID: 5372165521214475424}
   m_Layer: 3
   m_Name: Empty casa6
@@ -4338,33 +4347,6 @@ Transform:
   m_Father: {fileID: 3813611934402495106}
   m_RootOrder: 43
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1809764379557744634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3834383890058580084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
-  myLayerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  buttonCamino: {fileID: 0}
-  buttonBase: {fileID: 0}
-  buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &4490345896239512973
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4378,7 +4360,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1813049, y: 0.38030362, z: 1.15094}
   m_Center: {x: -0.09065242, y: -0.12110207, z: -0.07546993}
---- !u!114 &7457123838384404118
+--- !u!114 &3148249866304261825
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4387,13 +4369,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3834383890058580084}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d8ba057d9792f44a939b3ea4420a7f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f49bca53b85c2549b5d8489ebab0a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recursosGenerados:
-  - numeroficha: 0
-    nombreRecurso: Piedra
-  collidersParcela: []
+  objetoColocado: {fileID: 0}
+  tipoObjeto: 0
 --- !u!114 &5372165521214475424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4464,6 +4444,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -4558,6 +4539,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -4652,6 +4634,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -4745,6 +4728,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -4838,6 +4822,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -4931,6 +4916,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -5025,6 +5011,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -5118,6 +5105,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -5211,6 +5199,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -5304,6 +5293,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -5397,6 +5387,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -5490,6 +5481,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -5583,6 +5575,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -5677,6 +5670,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -5770,6 +5764,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -5864,6 +5859,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -5957,6 +5953,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -6050,6 +6047,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -6143,6 +6141,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -6237,6 +6236,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -6330,6 +6330,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -6424,6 +6425,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -6518,6 +6520,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -6611,6 +6614,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -6704,6 +6708,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -6798,6 +6803,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -6892,6 +6898,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -6985,6 +6992,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -7037,9 +7045,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7160471898494566019}
-  - component: {fileID: 2593560023527707631}
   - component: {fileID: 4151010387116307234}
-  - component: {fileID: 5160103169091129563}
+  - component: {fileID: 7770745217688662762}
   - component: {fileID: 7872933431843515346}
   m_Layer: 3
   m_Name: Empty casa3
@@ -7063,33 +7070,6 @@ Transform:
   m_Father: {fileID: 3813611934402495106}
   m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2593560023527707631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5463609224187267081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
-  myLayerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  buttonCamino: {fileID: 0}
-  buttonBase: {fileID: 0}
-  buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &4151010387116307234
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7103,7 +7083,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1813049, y: 0.38030362, z: 1.15094}
   m_Center: {x: -0.09065242, y: -0.12110207, z: -0.07546993}
---- !u!114 &5160103169091129563
+--- !u!114 &7770745217688662762
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7112,17 +7092,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5463609224187267081}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d8ba057d9792f44a939b3ea4420a7f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f49bca53b85c2549b5d8489ebab0a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recursosGenerados:
-  - numeroficha: 0
-    nombreRecurso: Oveja
-  - numeroficha: 0
-    nombreRecurso: Trigo
-  - numeroficha: 0
-    nombreRecurso: Piedra
-  collidersParcela: []
+  objetoColocado: {fileID: 0}
+  tipoObjeto: 0
 --- !u!114 &7872933431843515346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7194,6 +7168,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -7288,6 +7263,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -7382,6 +7358,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -7465,9 +7442,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5542043578181707421}
-  - component: {fileID: 8779408863385349394}
   - component: {fileID: 2039235598416655573}
-  - component: {fileID: 7585050360032469351}
+  - component: {fileID: 4616221489454890281}
   - component: {fileID: 505271716365456459}
   m_Layer: 3
   m_Name: Empty casa1
@@ -7491,33 +7467,6 @@ Transform:
   m_Father: {fileID: 3813611934402495106}
   m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8779408863385349394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5542043578181707418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
-  myLayerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  buttonCamino: {fileID: 0}
-  buttonBase: {fileID: 0}
-  buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &2039235598416655573
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7531,7 +7480,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.3947955, z: 1}
   m_Center: {x: 0, y: -0.30260226, z: 0}
---- !u!114 &7585050360032469351
+--- !u!114 &4616221489454890281
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7540,15 +7489,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5542043578181707418}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d8ba057d9792f44a939b3ea4420a7f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f49bca53b85c2549b5d8489ebab0a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recursosGenerados:
-  - numeroficha: 0
-    nombreRecurso: Ladrillo
-  - numeroficha: 0
-    nombreRecurso: Piedra
-  collidersParcela: []
+  objetoColocado: {fileID: 0}
+  tipoObjeto: 0
 --- !u!114 &505271716365456459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7620,6 +7565,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -7714,6 +7660,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -7866,6 +7813,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -7959,6 +7907,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -8052,6 +8001,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -8145,6 +8095,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -8238,6 +8189,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -8331,6 +8283,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -8425,6 +8378,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -8616,6 +8570,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -8709,6 +8664,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -8802,6 +8758,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -8854,9 +8811,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6607808216238630231}
-  - component: {fileID: 8405804557858533045}
   - component: {fileID: 1131176319984595774}
-  - component: {fileID: 9073656523293774858}
+  - component: {fileID: 8274491789223333674}
   - component: {fileID: 3280208467550431503}
   m_Layer: 3
   m_Name: Empty casa2
@@ -8880,33 +8836,6 @@ Transform:
   m_Father: {fileID: 3813611934402495106}
   m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8405804557858533045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6728453377176082093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
-  myLayerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  buttonCamino: {fileID: 0}
-  buttonBase: {fileID: 0}
-  buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &1131176319984595774
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8920,7 +8849,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1813049, y: 0.38030362, z: 1.15094}
   m_Center: {x: -0.09065242, y: -0.12110207, z: -0.07546993}
---- !u!114 &9073656523293774858
+--- !u!114 &8274491789223333674
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8929,17 +8858,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6728453377176082093}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d8ba057d9792f44a939b3ea4420a7f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f49bca53b85c2549b5d8489ebab0a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recursosGenerados:
-  - numeroficha: 0
-    nombreRecurso: Ladrillo
-  - numeroficha: 0
-    nombreRecurso: Oveja
-  - numeroficha: 0
-    nombreRecurso: Piedra
-  collidersParcela: []
+  objetoColocado: {fileID: 0}
+  tipoObjeto: 0
 --- !u!114 &3280208467550431503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9010,6 +8933,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -9103,6 +9027,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -9196,6 +9121,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -9289,6 +9215,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -9382,6 +9309,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -9476,6 +9404,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -9528,9 +9457,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5468582349285430601}
-  - component: {fileID: 3165415271041738387}
   - component: {fileID: 1509416919322804794}
-  - component: {fileID: 4157834378683217390}
+  - component: {fileID: 5690063900282610542}
   - component: {fileID: 1988540543672136776}
   m_Layer: 3
   m_Name: Empty casa5
@@ -9554,33 +9482,6 @@ Transform:
   m_Father: {fileID: 3813611934402495106}
   m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3165415271041738387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7323293414708470486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
-  myLayerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  buttonCamino: {fileID: 0}
-  buttonBase: {fileID: 0}
-  buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &1509416919322804794
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9594,7 +9495,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1813049, y: 0.38030362, z: 1.15094}
   m_Center: {x: -0.09065242, y: -0.12110207, z: -0.07546993}
---- !u!114 &4157834378683217390
+--- !u!114 &5690063900282610542
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9603,13 +9504,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7323293414708470486}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d8ba057d9792f44a939b3ea4420a7f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f49bca53b85c2549b5d8489ebab0a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recursosGenerados:
-  - numeroficha: 0
-    nombreRecurso: Piedra
-  collidersParcela: []
+  objetoColocado: {fileID: 0}
+  tipoObjeto: 0
 --- !u!114 &1988540543672136776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9680,6 +9579,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -9773,6 +9673,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -9868,6 +9769,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -9982,6 +9884,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -10076,6 +9979,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -10169,6 +10073,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -10262,6 +10167,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -10356,6 +10262,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -10449,6 +10356,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -10542,6 +10450,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -10635,6 +10544,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -10729,6 +10639,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -10822,6 +10733,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -10915,6 +10827,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -11008,6 +10921,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -11102,6 +11016,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -11195,6 +11110,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -11288,6 +11204,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -11381,6 +11298,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -11475,6 +11393,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -11568,6 +11487,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -11661,6 +11581,7 @@ MonoBehaviour:
     type: 3}
   prefabBase: {fileID: 0}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -11755,6 +11676,7 @@ MonoBehaviour:
   prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
     type: 3}
   prefabPueblo: {fileID: 0}
+  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -14779,12 +14701,12 @@ MonoBehaviour:
   - numeroficha: 5
     nombreRecurso: Piedra
   collidersParcela:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2039235598416655573}
+  - {fileID: 1131176319984595774}
+  - {fileID: 4151010387116307234}
+  - {fileID: 2099495222115941921}
+  - {fileID: 1509416919322804794}
+  - {fileID: 4490345896239512973}
 --- !u!4 &6625803542360727892 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1670185482592440088, guid: 54b7a9de3fe677c4394b9f628a0f7f32,
