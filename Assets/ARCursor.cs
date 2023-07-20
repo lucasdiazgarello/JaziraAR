@@ -31,8 +31,6 @@ public class ARCursor : NetworkBehaviour
     private Vector3 initialDadoPosition; // Para guardar la posición inicial del dado
     private GameObject tableromInstance;
 
-    public PlayerNetwork playerNetwork;
-
 
     void Start()
     {
@@ -44,7 +42,7 @@ public class ARCursor : NetworkBehaviour
         objectToPlace = Resources.Load("TableroCC 2") as GameObject;
         tirarDadoButton.onClick.AddListener(OnDiceRollButtonPressed);
         colocarPieza = GetComponentInChildren<ColocarPieza>();
-        playerNetwork = PlayerNetwork.Instance;
+        //playerNetwork = PlayerNetwork.Instance;
     }
 
     void Update()

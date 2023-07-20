@@ -19,6 +19,8 @@ public class PlayerNetwork : NetworkBehaviour
     public Button buttonToPress;
     public Button buttonPrint;
     public Button buttonLoad;
+
+    private Dictionary<int, Dictionary<string, int>> recursosPorJugador = new Dictionary<int, Dictionary<string, int>>();
     //private int myInt;
 
     /*public NetworkVariable<Dictionary<int, DatosJugador>> jugadores =
@@ -34,25 +36,6 @@ public class PlayerNetwork : NetworkBehaviour
 
     public NetworkVariable<DatosJugador> jugador;
 
-    /*public NetworkVariable<DatosJugador> jugador = new NetworkVariable<DatosJugador>(
-        new DatosJugador
-        {
-            jugadorId = 0,
-            nomJugador = new FixedString64Bytes(),
-            puntaje = 0,
-            cantidadJugadores = 0,
-            gano = false,
-            turno = false,
-            cantidadCasa = 0,
-            maderaCount = 0,
-            ladrilloCount = 0,
-            ovejaCount = 0,
-            piedraCount = 0,
-            trigoCount = 0,
-            colorJugador = new FixedString64Bytes(),
-
-        }, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
-    */
     public struct DatosJugador : INetworkSerializable, IEquatable<DatosJugador>
     {
         public int jugadorId;
@@ -351,5 +334,61 @@ public class PlayerNetwork : NetworkBehaviour
         playerIDs.Dispose();
         playerData.Dispose();
     }
+
+    // Esta función necesita ser implementada para buscar los datos del jugador basado en su ID.
+    private bool TryObtenerDatosJugadorPorId(int idJugador, out DatosJugador datosJugador)
+    {
+        // Busca a través de los datos de los jugadores
+        for (int i = 0; i < playerData.Count; i++)
+        {
+            // Si el ID del jugador coincide, devuelve sus datos
+            if (playerData[i].jugadorId == idJugador)
+            {
+                datosJugador = playerData[i];
+                return true;
+            }
+        }
+
+        // Si no se encontró ningún jugador con el ID proporcionado, devuelve false
+        datosJugador = default(DatosJugador);
+        return false;
+    }
+    public void AumentarRecursos(int idJugador, string recurso, int cantidad)
+    {
+        Debug.Log("Entre a AumentarRecurso");
+        // Encontrar los datos del jugador
+        if (!TryObtenerDatosJugadorPorId(idJugador, out var jugador))
+        {
+            Debug.Log("Jugador no encontrado");
+            return;
+        }
+
+        // Aumentar el recurso correspondiente
+        switch (recurso)
+        {
+            case "madera":
+                jugador.maderaCount += cantidad;
+                break;
+            case "ladrillo":
+                jugador.ladrilloCount += cantidad;
+                break;
+            case "oveja":
+                jugador.ovejaCount += cantidad;
+                break;
+            case "piedra":
+                jugador.piedraCount += cantidad;
+                break;
+            case "trigo":
+                jugador.trigoCount += cantidad;
+                break;
+            default:
+                Debug.Log("Tipo de recurso desconocido");
+                return;
+        }
+
+        // Podemos usar un Debug.Log para ver los resultados.
+        Debug.Log("Jugador " + idJugador + " ahora tiene " + recurso + ": " + cantidad);
+    }
 }
+
 

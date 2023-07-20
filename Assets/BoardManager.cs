@@ -125,12 +125,14 @@ public class BoardManager : MonoBehaviour
                         Debug.Log("Ninguno");
                         break;
                     case TipoObjeto.Base:    // Aquí se hace uso del tipo enumerado TipoObjeto
-                        Debug.Log("Base");
-                        //llamar a la funcion de playernetwork que AumenteRecurso(idJugador,recurso,1)
-                        Debug.Log("sumo 1 " + recurso);
+                        Debug.Log("Sumar a la Base 1 de " + recurso);
+                        int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
+                        PlayerNetwork.Instance.AumentarRecursos(currentPlayerID, recurso, 1);
+                        Debug.Log("ya sumo recurso");
                         break;
                     case TipoObjeto.Pueblo:  // Aquí se hace uso del tipo enumerado TipoObjeto
                         Debug.Log("Pueblo");
+                        //PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso, 2);
                         Debug.Log("sumo 2 " + recurso);
                         break;
                 }
