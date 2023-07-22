@@ -1,6 +1,10 @@
 using System.Collections.Generic;
+using TMPro;
 using Unity.Netcode;
+using Unity.Services.Authentication;
 using UnityEngine;
+using UnityEngine.UI;
+using static PlayerNetwork;
 
 public class BoardManager : MonoBehaviour
 {
@@ -8,6 +12,11 @@ public class BoardManager : MonoBehaviour
     private GameObject parcela2;
     public string recurso;
     private string recurso2;
+    public Text MaderaCountText;
+    public Text LadrilloCountText;
+    public Text OvejaCountText;
+    public Text PiedraCountText;
+    public Text TrigoCountText;
 
     public IdentificadorParcela identificadorParcela;
     public ComprobarObjeto comprobarObjeto;
@@ -28,7 +37,12 @@ public class BoardManager : MonoBehaviour
     // Llamar a esta función cuando se tira el dado.
     void Start()
     {
-
+        // Obtén el ID del jugador desde donde lo tengas almacenado.
+        // En este ejemplo, simplemente lo he establecido como 1.
+        int currentPlayerID = PlayerPrefs.GetInt("jugadorId");
+        Instance.UpdateResourceTexts(currentPlayerID);
+        // Actualiza los textos de recursos para el jugador al inicio.
+        //UpdateResourceTexts(jugadorId);
     }
     public void ManejoParcelas(int diceNumber)
     {
@@ -129,9 +143,11 @@ public class BoardManager : MonoBehaviour
                         break;
                     case TipoObjeto.Base:    // Aquí se hace uso del tipo enumerado TipoObjeto
                         Debug.Log("Sumar a la Base 1 de " + recurso);
-                        int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
+                        int currentPlayerID = PlayerPrefs.GetInt("jugadorId");
+                        //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
                         Debug.Log("CurrentPlayerID es " + currentPlayerID);
                         PlayerNetwork.Instance.AumentarRecursos(currentPlayerID, recurso, 1);
+                        Instance.UpdateResourceTexts(currentPlayerID);
                         Debug.Log("ya sumo recurso "+ recurso);
                         break;
                     case TipoObjeto.Pueblo:  // Aquí se hace uso del tipo enumerado TipoObjeto
@@ -145,34 +161,6 @@ public class BoardManager : MonoBehaviour
             {
                 Debug.LogError("El objeto " + empty.name + " no tiene un script de ComprobarObjeto.");
             }
-            // Obtener el script ColocarPieza del objeto.
-            //ColocarPieza colocarPieza = empty.gameObject.GetComponent<ColocarPieza>();
-            //Debug.Log("empty es " + colocarPieza);
-            // Si el script existe, invocar la función DarTipo().
-            /*if (colocarPieza != null)
-            {
-                Debug.Log("colocarPieza no es null");
-                int tipo = colocarPieza.DarTipo();
-                Debug.Log("el tipo es " + tipo);
-                switch (tipo)
-                {
-                    case 0:
-                        Debug.Log("Ninguno");
-                        break;
-                    case 2:
-                        Debug.Log("Base");
-                        Debug.Log("sumo 1 " + recurso);
-                        break;
-                    case 3:
-                        Debug.Log("Pueblo");
-                        Debug.Log("sumo 2 " + recurso);
-                        break;
-                }
-            }
-            else
-            {
-                Debug.LogError("El objeto " + empty.name + " no tiene un script de ColocarPieza.");
-            }*/
         }
 
         if (parcela2 == null)
@@ -182,6 +170,34 @@ public class BoardManager : MonoBehaviour
 
     }
 
+    public void UpdateResourceTexts(int jugadorId)
+    {
+        Debug.Log("Entre a UpdateResourceTexts");
+        DatosJugador datosJugador = default;
+
+        // Itera sobre los elementos de playerData para encontrar los datos del jugador
+        for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+        {
+            if (PlayerNetwork.Instance.playerData[i].jugadorId == jugadorId)
+            {
+                datosJugador = PlayerNetwork.Instance.playerData[i];
+                break;
+            }
+        }
+
+        if (datosJugador.jugadorId == 0)  // Suponiendo que 0 no es un ID de jugador válido
+        {
+            Debug.LogError("Jugador con ID " + jugadorId + " no encontrado.");
+            return;
+        }
+
+        // Actualiza los textos de los recursos
+        MaderaCountText.text = datosJugador.maderaCount.ToString();
+        LadrilloCountText.text = datosJugador.ladrilloCount.ToString();
+        OvejaCountText.text = datosJugador.ovejaCount.ToString();
+        PiedraCountText.text = datosJugador.piedraCount.ToString();
+        TrigoCountText.text = datosJugador.trigoCount.ToString();
+    }
 
     /*
     GameObject[] parcelArray = GameObject.FindGameObjectsWithTag(parcelName);

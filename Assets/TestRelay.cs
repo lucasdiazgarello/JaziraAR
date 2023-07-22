@@ -76,11 +76,16 @@ public class TestRelay : NetworkBehaviour
                 allocation.ConnectionData
                 );
             NetworkManager.Singleton.StartHost();
+            //Guardar el ID del jugador en PlayerPrefs cuando se selecciona el jugador
+            //PlayerPrefs.SetString("jugadorId", AuthenticationService.Instance.PlayerId);
+            int num = ConvertirAlfaNumericoAInt(AuthenticationService.Instance.PlayerId);
+            PlayerPrefs.SetInt("jugadorId", num);
+            Debug.Log("ID NUEVO" + num);
             Debug.Log("Inicio el host");
             Debug.Log("antes de cargar");
             Debug.Log("color antes de agregarjugador " + colorSeleccionado.Value);
             //PlayerNetwork.Instance.ImprimirDatosJugador();
-            PlayerNetwork.Instance.AgregarJugador(0, nombreHost, 100, false, true, 2, 10, 10, 10, 10, 10, colorSeleccionado.Value);
+            PlayerNetwork.Instance.AgregarJugador(num, nombreHost, 100, false, true, 2, 10, 10, 10, 10, 10, colorSeleccionado.Value);
             //PlayerNetwork.Instance.AgregarJugador(1, "Juancho", 100, false, true, 2, 10, 10, 10, 10, 10,colorSeleccionado);
             //PlayerNetwork.Instance.AgregarJugador(1, "Pepe", 100, false, true, 2, 10, 10, 10, 10, 10, colorSeleccionado);
             //RemoverColor(colorSeleccionado);
@@ -114,6 +119,11 @@ public class TestRelay : NetworkBehaviour
                     );
                 //List<string> coloresDisponibles = ObtenerColoresDisponibles();
                 NetworkManager.Singleton.StartClient();
+                //Guardar el ID del jugador en PlayerPrefs cuando se selecciona el jugador
+                //PlayerPrefs.SetString("jugadorId", AuthenticationService.Instance.PlayerId);
+                int num = ConvertirAlfaNumericoAInt(AuthenticationService.Instance.PlayerId);
+                PlayerPrefs.SetInt("jugadorId", num);
+                Debug.Log("MI ID ES" + num);
                 Debug.Log("Se unio " + codigo);
             }
             else
@@ -149,4 +159,25 @@ public class TestRelay : NetworkBehaviour
     {
         return coloresDisponibles;
     }*/
+    public int ConvertirAlfaNumericoAInt(string texto)
+    {
+        string soloNumeros = string.Empty;
+
+        foreach (char c in texto)
+        {
+            if (Char.IsDigit(c))
+            {
+                soloNumeros += c;
+            }
+        }
+
+        if (Int32.TryParse(soloNumeros, out int resultado))
+        {
+            return resultado;
+        }
+        else
+        {
+            throw new Exception("No se pudo convertir la cadena a un número entero.");
+        }
+    }
 }

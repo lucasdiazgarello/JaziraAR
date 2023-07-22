@@ -59,7 +59,8 @@ public class Unirse : NetworkBehaviour
         try
         {
             relay.JoinRelay(code);
-            int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
+            int currentPlayerID = PlayerPrefs.GetInt("jugadorId");
+            //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
             Debug.Log("Id Jugador Unido: " + currentPlayerID);
             PlayerNetwork.Instance.AddPlayerServerRpc(currentPlayerID, nombreTemporal.Value, nombreTemporal.Value);
             // Comprueba si el objeto ya ha sido generado antes de llamar a Spawn()

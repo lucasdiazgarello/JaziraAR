@@ -8,6 +8,7 @@ using Unity.Collections;
 using Unity.Netcode;
 //using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 //using UnityEngine.InputSystem.OSX;
 using UnityEngine.UI;
 
@@ -19,6 +20,8 @@ public class PlayerNetwork : NetworkBehaviour
     public Button buttonToPress;
     public Button buttonPrint;
     public Button buttonLoad;
+
+
 
     private Dictionary<int, Dictionary<string, int>> recursosPorJugador = new Dictionary<int, Dictionary<string, int>>();
     //private int myInt;
@@ -131,7 +134,6 @@ public class PlayerNetwork : NetworkBehaviour
     }
     private void Start()
     {
-
 
     }
     public void AgregarJugador(int jugadorId, FixedString64Bytes nomJugador, int puntaje, bool gano, bool turno, int cantidadCasa, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, FixedString64Bytes colorJugador)
@@ -469,6 +471,45 @@ public class PlayerNetwork : NetworkBehaviour
         // Podemos usar un Debug.Log para ver los resultados.
         Debug.Log("Jugador " + playerData[indexJugador].jugadorId + " ahora tiene " + playerData[indexJugador].piedraCount + "piedras ");
     }
+
+    /*
+    public void BuscarElementosDeUI()
+    {
+        // Buscar la escena por nombre
+        Scene escenaDeJuego = SceneManager.GetSceneByName("SampleScene");
+
+        // Asegurarse de que la escena esté cargada antes de intentar buscar objetos en ella
+        if (escenaDeJuego.isLoaded)
+        {
+            // Buscar los objetos de texto en la escena
+            foreach (GameObject obj in escenaDeJuego.GetRootGameObjects())
+            {
+                switch (obj.name)
+                {
+                    case "NombreDelObjetoDeTextoDeMadera":
+                        MaderaCountText = obj.GetComponent<Text>();
+                        break;
+                    case "NombreDelObjetoDeTextoDeLadrillo":
+                        LadrilloCountText = obj.GetComponent<Text>();
+                        break;
+                    case "NombreDelObjetoDeTextoDeOveja":
+                        OvejaCountText = obj.GetComponent<Text>();
+                        break;
+                    case "NombreDelObjetoDeTextoDePiedra":
+                        PiedraCountText = obj.GetComponent<Text>();
+                        break;
+                    case "NombreDelObjetoDeTextoDeTrigo":
+                        TrigoCountText = obj.GetComponent<Text>();
+                        break;
+                }
+            }
+        }
+        else
+        {
+            Debug.LogWarning("La escena de juego no está cargada.");
+        }
+    }
+    */
 
 }
 
