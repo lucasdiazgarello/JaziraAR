@@ -157,8 +157,10 @@ public class ARCursor : NetworkBehaviour
     }
     private void OnDiceRollButtonPressed() //Boton Tirar Dados
     {
+        Debug.Log("Diste click en el boton");
         DiceNumberTextScript.Instance.DarResultadoRandom();
         BoardManager.Instance.ManejoParcelas(DiceNumberTextScript.Instance.randomDiceNumber);
+        tirarDadoButton.interactable = false;
     }
     
     /* NO BORRAR ESTO COMENTADO POR SI SURGE DENUEVO EL TEMA DE LOS DADOS

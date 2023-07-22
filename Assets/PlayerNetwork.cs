@@ -267,6 +267,25 @@ public class PlayerNetwork : NetworkBehaviour
         // Resto del código... 
         //TestServerRpc(nombre, color); //de alguna manera hay que traer las variables de testrelay para usarlas aca
     }
+    
+    // Este es tu nuevo método RPC para agregar un jugador
+    [ServerRpc(RequireOwnership = false)]
+    public void AddPlayerServerRpc(int jugadorId, string nomJugador, FixedString64Bytes colorJugador, ServerRpcParams rpcParams = default)
+    {
+        Debug.Log("Entre a AddPlayerServerRpc");
+        // Verificar que solo el host puede ejecutar este código
+        if (!IsServer) return;
+
+        // Agrega al jugador a la lista de jugadores
+        DatosJugador newPlayer = new DatosJugador();
+        newPlayer.jugadorId = jugadorId;
+        newPlayer.nomJugador = new FixedString64Bytes(nomJugador);
+        newPlayer.colorJugador = colorJugador;
+        // ... y puedes agregar los demás valores predeterminados aquí
+        playerData.Add(newPlayer);
+        playerIDs.Add(newPlayer.jugadorId);
+        Debug.Log("Termino AddPlayerServerRpc");
+    }
 
     [ServerRpc]
     public void TestServerRpc(FixedString64Bytes nombre, FixedString64Bytes color) //este comunica del cliente al servidor 
@@ -353,7 +372,7 @@ public class PlayerNetwork : NetworkBehaviour
         datosJugador = default(DatosJugador);
         return false;
     }
-    public void AumentarRecursos(int idJugador, string recurso, int cantidad)
+    /*public void AumentarRecursos(int idJugador, string recurso, int cantidad)
     {
         Debug.Log("Entre a AumentarRecurso");
         // Encontrar los datos del jugador
@@ -388,7 +407,69 @@ public class PlayerNetwork : NetworkBehaviour
 
         // Podemos usar un Debug.Log para ver los resultados.
         Debug.Log("Jugador " + idJugador + " ahora tiene " + recurso + ": " + cantidad);
+    }*/
+    public void AumentarRecursos(int idJugador, string recurso, int cantidad)
+    {
+        Debug.Log("Entre a AumentarRecurso");
+        Debug.Log("id jugador: " + idJugador);
+        Debug.Log("Recurso: " + recurso);
+        Debug.Log("Cantidad: " + cantidad);
+
+        bool jugadorEncontrado = false;
+        int indexJugador = -1;
+
+        // Búsqueda del jugador en la lista playerData
+        for (int i = 0; i < playerData.Count; i++)
+        {
+            Debug.Log("La lista Ids es " + playerData[i].jugadorId);
+            if (playerData[i].jugadorId == idJugador)
+            {
+                jugadorEncontrado = true;
+                indexJugador = i;
+                Debug.Log("Jugador encontrado en la posición: " + i);
+                break;
+            }
+        }
+
+        if (!jugadorEncontrado)
+        {
+            Debug.Log("Jugador no encontrado en la lista playerData");
+            return;
+        }
+
+        // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
+        DatosJugador jugador = playerData[indexJugador];
+        Debug.Log("piedra antes de sumar: " + playerData[indexJugador].piedraCount);
+        // Aumentar el recurso correspondiente
+        switch (recurso)
+        {
+            case "Madera":
+                jugador.maderaCount += cantidad;
+                break;
+            case "Ladrillo":
+                jugador.ladrilloCount += cantidad;
+                break;
+            case "Oveja":
+                jugador.ovejaCount += cantidad;
+                break;
+            case "Piedra":
+                jugador.piedraCount += cantidad;
+                break;
+            case "Trigo":
+                jugador.trigoCount += cantidad;
+                break;
+            default:
+                Debug.Log("Tipo de recurso desconocido");
+                return;
+        }
+
+        // Reemplazar el jugador en la lista con la versión modificada
+        playerData[indexJugador] = jugador;
+
+        // Podemos usar un Debug.Log para ver los resultados.
+        Debug.Log("Jugador " + playerData[indexJugador].jugadorId + " ahora tiene " + playerData[indexJugador].piedraCount + "piedras ");
     }
+
 }
 
 

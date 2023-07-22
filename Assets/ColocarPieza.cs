@@ -185,17 +185,17 @@ public class ColocarPieza : MonoBehaviour
 
     public void EjecutarColocarBase(RaycastHit hit)
     {
-        Debug.Log("EntroColocar 2");
+        //Debug.Log("EntroColocar 2");
 
         // El objeto golpeado es una esquina.
         currentBase = Instantiate(prefabBase, hit.collider.gameObject.transform.position, Quaternion.identity);
-        Debug.Log("Luego de instatiate");
+        //Debug.Log("Luego de instatiate");
         currentBase.GetComponent<NetworkObject>().Spawn();
 
         // Obtener el componente ComprobarObjeto del objeto golpeado
         comprobarObjeto = hit.collider.gameObject.GetComponent<ComprobarObjeto>();
-        Debug.Log("el collider es : " + hit.collider.gameObject.name);
-        Debug.Log("comprobarobjeto al poner la base: " + comprobarObjeto);
+        //Debug.Log("el collider es : " + hit.collider.gameObject.name);
+        //Debug.Log("comprobarobjeto al poner la base: " + comprobarObjeto);
         // Asegurarse de que el componente existe
         if (comprobarObjeto != null)
         {
@@ -269,7 +269,7 @@ public class ColocarPieza : MonoBehaviour
 
     public void ColocarBase()
     {
-        Debug.Log("EntroColocar 1");
+        //Debug.Log("EntroColocar 1");
         AllowPlace();
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
@@ -277,9 +277,9 @@ public class ColocarPieza : MonoBehaviour
         Debug.Log("Lanzando raycast");
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
         {
-            Debug.Log("Antes EjecutarColocarBase");
+            //Debug.Log("Antes EjecutarColocarBase");
             EjecutarColocarBase(hit);
-            Debug.Log("Despues EjecutarColocarBase");
+            //Debug.Log("Despues EjecutarColocarBase");
             confirmBaseButton.gameObject.SetActive(true); // Habilita el botón de confirmación
         }
         ARCursor arCursor = FindObjectOfType<ARCursor>();
@@ -308,7 +308,7 @@ public class ColocarPieza : MonoBehaviour
 
     public void ConfirmarBase()
     {
-        Debug.Log("Confirmar base");
+        Debug.Log("Entro a ConfirmarBase");
         Debug.Log("canPlace es : " + canPlace);
         if (currentBase == null)
         {

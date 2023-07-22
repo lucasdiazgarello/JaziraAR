@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 public class BoardManager : MonoBehaviour
@@ -54,8 +55,8 @@ public class BoardManager : MonoBehaviour
                 break;
             case "Parcela 5":
                 Debug.Log("Busque parcela 5");
-                parcela = GameObject.Find("Parcela 3 Ladrillo");
-                parcela2 = GameObject.Find("Parcela 3 Piedra");
+                parcela = GameObject.Find("Parcela 5 Ladrillo");
+                parcela2 = GameObject.Find("Parcela 5 Piedra");
                 recurso = "Piedra";
                 break;
             case "Parcela 6":
@@ -90,22 +91,24 @@ public class BoardManager : MonoBehaviour
 
         }
         parcela = GameObject.Find("Parcela 5 Piedra");
-        Debug.Log("parcela 5: " + parcela);
+        recurso = "Piedra";
+
+        //Debug.Log("parcela 5: " + parcela);
         identificadorParcela = parcela.GetComponent<IdentificadorParcela>();
-        Debug.Log("identificadorParcela: " + identificadorParcela);
+        //Debug.Log("identificadorParcela: " + identificadorParcela);
         List<Collider> collidersParcela = identificadorParcela.GetCollidersParcela(parcela.name);
-        Debug.Log("collidersParcela count: " + collidersParcela.Count); // Ver el tamaño de la lista
+        //Debug.Log("collidersParcela count: " + collidersParcela.Count); // Ver el tamaño de la lista
 
         if (collidersParcela.Count > 0)
         {
-            Debug.Log("First item in collidersParcela: " + collidersParcela[0]); // Ver el primer elemento
+            //Debug.Log("First item in collidersParcela: " + collidersParcela[0]); // Ver el primer elemento
             comprobarObjeto = collidersParcela[0].gameObject.GetComponent<ComprobarObjeto>();
             Debug.Log("comprobarObjeto de la [0] es " + comprobarObjeto);
         }
         foreach (var empty in collidersParcela)
         {
-            Debug.Log("entre al foreach");
-            Debug.Log("Empty GameObject: " + empty.gameObject.name);
+           // Debug.Log("entre al foreach");
+            //Debug.Log("Empty GameObject: " + empty.gameObject.name);
             // Obtener el script ComprobarObjeto del objeto.
             comprobarObjeto = empty.gameObject.GetComponent<ComprobarObjeto>();
             if (comprobarObjeto == null)
@@ -127,8 +130,9 @@ public class BoardManager : MonoBehaviour
                     case TipoObjeto.Base:    // Aquí se hace uso del tipo enumerado TipoObjeto
                         Debug.Log("Sumar a la Base 1 de " + recurso);
                         int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
+                        Debug.Log("CurrentPlayerID es " + currentPlayerID);
                         PlayerNetwork.Instance.AumentarRecursos(currentPlayerID, recurso, 1);
-                        Debug.Log("ya sumo recurso");
+                        Debug.Log("ya sumo recurso "+ recurso);
                         break;
                     case TipoObjeto.Pueblo:  // Aquí se hace uso del tipo enumerado TipoObjeto
                         Debug.Log("Pueblo");
