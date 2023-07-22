@@ -12,11 +12,11 @@ public class ComprarPieza : MonoBehaviour
     public TextMeshProUGUI trigoCountText;
 
     // variables que guardan la cantidad de cada recurso
-    private int maderaCount;
+    /*private int maderaCount;
     private int ladrilloCount;
     private int ovejaCount;
     private int piedraCount;
-    private int trigoCount;
+    private int trigoCount;*/
 
     // referencia al botón de comprar camino
     public Button comprarCaminoButton;
@@ -32,6 +32,7 @@ public class ComprarPieza : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /*
         // Desactivar los contadores de recursos al inicio
         maderaCountText.gameObject.SetActive(false);
         ladrilloCountText.gameObject.SetActive(false);
@@ -58,11 +59,13 @@ public class ComprarPieza : MonoBehaviour
         UpdateComprarBaseButton();
         // inicializar estado del botón de comprar base
         UpdateComprarPuebloButton();
+        */
     }
 
     // método para incrementar los recursos cuando se lanza el dado
     public void IncrementarRecursos()
     {
+        /*
         int numeroDado = DiceNumberTextScript.totalDiceNumber;
         Debug.Log("el valor para incrementar es: " + numeroDado);
         // Activar los contadores de recursos al lanzar el dado por primera vez
@@ -80,39 +83,41 @@ public class ComprarPieza : MonoBehaviour
         UpdateComprarCaminoButton();
         UpdateComprarBaseButton();
         UpdateComprarPuebloButton();
+        */
     }
 
     // método para actualizar el texto de los contadores de recursos
     void UpdateResourceCount()
     {
-        maderaCountText.text = maderaCount.ToString();
+        /*maderaCountText.text = maderaCount.ToString();
         ladrilloCountText.text = ladrilloCount.ToString();
         ovejaCountText.text = ovejaCount.ToString();
         piedraCountText.text = piedraCount.ToString();
-        trigoCountText.text = trigoCount.ToString();
+        trigoCountText.text = trigoCount.ToString();*/
     }
 
     // método para actualizar el estado del botón de comprar camino
     void UpdateComprarCaminoButton()
     {
         // el botón solo está activo si el jugador tiene al menos 1 madera y 1 ladrillo
-        comprarCaminoButton.interactable = (maderaCount >= 1 && ladrilloCount >= 1);
+        //comprarCaminoButton.interactable = (maderaCount >= 1 && ladrilloCount >= 1);
     }
 
     void UpdateComprarBaseButton()
     {
         // El botón solo está activo si el jugador tiene al menos 1 madera, 1 ladrillo, 1 trigo y 1 oveja
-        comprarBaseButton.interactable = (maderaCount >= 1 && ladrilloCount >= 1 && trigoCount >= 1 && ovejaCount >= 1);
+        //comprarBaseButton.interactable = (maderaCount >= 1 && ladrilloCount >= 1 && trigoCount >= 1 && ovejaCount >= 1);
     }
     void UpdateComprarPuebloButton()
     {
         // El botón solo está activo si el jugador tiene al menos 1 madera, 1 ladrillo, 1 trigo y 1 oveja
-        comprarPuebloButton.interactable = (piedraCount >= 2 && trigoCount >= 3);
+        //comprarPuebloButton.interactable = (piedraCount >= 2 && trigoCount >= 3);
     }
 
     // método para comprar un camino
     public void ComprarCamino()
     {
+        /*
         // solo proceder si el jugador tiene suficientes recursos
         if (maderaCount >= 1 && ladrilloCount >= 1)
         {
@@ -132,11 +137,12 @@ public class ComprarPieza : MonoBehaviour
 
             // Llamar a ActivarColocacion en el script ColocarPieza para permitir al jugador colocar un camino
             colocarPiezaScript.ActivarColocacion(TipoObjeto.Camino);
-        }
+        }*/
     }
 
     public void ComprarBase()
     {
+        /*
         // Solo proceder si el jugador tiene suficientes recursos
         if (maderaCount >= 1 && ladrilloCount >= 1 && trigoCount >= 1 && ovejaCount >= 1)
         {
@@ -158,10 +164,11 @@ public class ComprarPieza : MonoBehaviour
             colocarPiezaScript.ColocarBase();
             // Llamar a ActivarColocacion en el script ColocarPieza para permitir al jugador colocar una base
             colocarPiezaScript.ActivarColocacion(TipoObjeto.Base);
-        }
+        }*/
     }
     public void ComprarPueblo()
     {
+        /*
         // Solo proceder si el jugador tiene suficientes recursos
         if (trigoCount >= 3 && piedraCount >= 2)
         {
@@ -181,5 +188,7 @@ public class ComprarPieza : MonoBehaviour
             // Llamar a ActivarColocacion en el script ColocarPieza para permitir al jugador colocar un pueblo
             colocarPiezaScript.ActivarColocacion(TipoObjeto.Pueblo);
         }
+        */
     }
+
 }

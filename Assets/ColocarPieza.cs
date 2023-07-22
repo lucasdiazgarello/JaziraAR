@@ -80,11 +80,11 @@ public class ColocarPieza : MonoBehaviour
             canPlace = true;
         });
 
-        confirmBaseButton.onClick.AddListener(() => {
+        /*confirmBaseButton.onClick.AddListener(() => {
             //canPlace = true;
             ConfirmarBase();
             //canPlace = false;
-        });
+        });*/
         confirmCaminoButton.onClick.AddListener(() => {
             //canPlace = true;
             ConfirmarCamino();

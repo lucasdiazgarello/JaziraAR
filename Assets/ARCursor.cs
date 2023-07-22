@@ -40,7 +40,7 @@ public class ARCursor : NetworkBehaviour
         DisableRecursos();
 
         objectToPlace = Resources.Load("TableroCC 2") as GameObject;
-        tirarDadoButton.onClick.AddListener(OnDiceRollButtonPressed);
+        //tirarDadoButton.onClick.AddListener(OnDiceRollButtonPressed);
         colocarPieza = GetComponentInChildren<ColocarPieza>();
         //playerNetwork = PlayerNetwork.Instance;
     }
