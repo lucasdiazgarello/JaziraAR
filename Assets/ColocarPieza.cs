@@ -185,7 +185,7 @@ public class ColocarPieza : MonoBehaviour
 
     public void EjecutarColocarBase(RaycastHit hit)
     {
-        //Debug.Log("EntroColocar 2");
+        Debug.Log("EntroColocar 2");
 
         // El objeto golpeado es una esquina.
         currentBase = Instantiate(prefabBase, hit.collider.gameObject.transform.position, Quaternion.identity);
@@ -269,12 +269,12 @@ public class ColocarPieza : MonoBehaviour
 
     public void ColocarBase()
     {
-        //Debug.Log("EntroColocar 1");
+        Debug.Log("EntroColocar 1");
         AllowPlace();
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
         //Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
-        Debug.Log("Lanzando raycast");
+        //Debug.Log("Lanzando raycast");
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
         {
             //Debug.Log("Antes EjecutarColocarBase");

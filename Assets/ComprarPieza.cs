@@ -1,15 +1,18 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static PlayerNetwork;
 
 public class ComprarPieza : MonoBehaviour
 {
     // referencias a los textos que muestran el contador de recursos
-    public TextMeshProUGUI maderaCountText;
-    public TextMeshProUGUI ladrilloCountText;
-    public TextMeshProUGUI ovejaCountText;
-    public TextMeshProUGUI piedraCountText;
-    public TextMeshProUGUI trigoCountText;
+    //public Text maderaCountText;
+    //public Text ladrilloCountText;
+    //public Text ovejaCountText;
+    //public Text piedraCountText;
+    //public Text trigoCountText;
+    private bool esperandoColocarBase = false;
+    private DatosJugador jugador;
 
     // variables que guardan la cantidad de cada recurso
     /*private int maderaCount;
@@ -25,8 +28,9 @@ public class ComprarPieza : MonoBehaviour
 
     //public DiceCheckZoneScript diceCheckZoneScript;
     //public DiceNumberTextScript diceNumberTextScript;
-    public ColocarPieza colocarPiezaScript;
-    public IdentificadorParcela identificadorParcelaScript;
+    public ColocarPieza colocarPieza;
+    public LayerMask myLayerMask;
+    //public IdentificadorParcela identificadorParcelaScript;
     //public DiceNumberTextScript diceNumberTextScript;
 
     // Start is called before the first frame update
@@ -61,7 +65,157 @@ public class ComprarPieza : MonoBehaviour
         UpdateComprarPuebloButton();
         */
     }
+    private void Update()
+    {
+        if (esperandoColocarBase && Input.touchCount > 0)
+        {
+            colocarPieza.AllowPlace();
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
 
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
+            {
+                Debug.Log("Antes EjecutarColocarBase");
+                colocarPieza.EjecutarColocarBase(hit);
+                Debug.Log("Despues EjecutarColocarBase");
+
+                esperandoColocarBase = false;
+
+                ARCursor arCursor = FindObjectOfType<ARCursor>();
+                if (arCursor != null)
+                {
+                    arCursor.ActivatePlacementMode();
+                }
+
+            }
+        }
+    }
+
+    // método para comprar un camino
+    public void ComprarCamino()
+    {
+        /*
+        // solo proceder si el jugador tiene suficientes recursos
+        if (maderaCount >= 1 && ladrilloCount >= 1)
+        {
+            // restar recursos
+            maderaCount -= 1;
+            ladrilloCount -= 1;
+
+            // actualizar el texto en la interfaz de usuario
+            UpdateResourceCount();
+
+            // actualizar estado del botón
+            UpdateComprarCaminoButton();
+
+            // aquí va el código para permitir al jugador colocar un camino en el tablero
+            // Llamar a ColocarCasa en el script ColocarPieza para instanciar la casa
+            colocarPiezaScript.ColocarCamino();
+
+            // Llamar a ActivarColocacion en el script ColocarPieza para permitir al jugador colocar un camino
+            colocarPiezaScript.ActivarColocacion(TipoObjeto.Camino);
+        }*/
+    }
+
+    public void ComprarBase()
+    {
+        Debug.Log("Entre a ComprarBase");
+        int id = PlayerPrefs.GetInt("jugadorId");
+        jugador = PlayerNetwork.Instance.GetPlayerData(id);
+
+        if (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1 && jugador.trigoCount >= 1 && jugador.ovejaCount >= 1)
+        {
+            jugador.maderaCount -= 1;
+            jugador.ladrilloCount -= 1;
+            jugador.trigoCount -= 1;
+            jugador.ovejaCount -= 1;
+
+            esperandoColocarBase = true;
+            Debug.Log("Jugador " + jugador.jugadorId + " ahora tiene " + jugador.maderaCount + " maderas ");
+            Debug.Log("Jugador " + jugador.jugadorId + " ahora tiene " + jugador.ladrilloCount + " ladrillos ");
+            Debug.Log("Jugador " + jugador.jugadorId + " ahora tiene " + jugador.trigoCount + " trigos ");
+            Debug.Log("Jugador " + jugador.jugadorId + " ahora tiene " + jugador.ovejaCount + " ovejas ");
+
+            PlayerNetwork.Instance.playerData[id] = jugador;
+            BoardManager.Instance.UpdateResourceTexts(id);
+            Debug.Log("llame a UpdateResourceTexts");
+        }
+    }
+
+    /*public void ComprarBase()
+    {
+        Debug.Log("Entre a ComprarBase");
+        int id = PlayerPrefs.GetInt("jugadorId");
+        DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
+        // Solo proceder si el jugador tiene suficientes recursos
+        if (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1 && jugador.trigoCount >= 1 && jugador.ovejaCount >= 1)
+        {
+            // Restar recursos
+            jugador.maderaCount -= 1;
+            jugador.ladrilloCount -= 1;
+            jugador.trigoCount -= 1;
+            jugador.ovejaCount -= 1;
+
+            Debug.Log("Antes de colocarla");
+            colocarPieza.AllowPlace();
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
+            {
+                Debug.Log("Antes EjecutarColocarBase");
+                colocarPieza.EjecutarColocarBase(hit);
+                Debug.Log("Despues EjecutarColocarBase");
+                //colocarPieza.confirmBaseButton.gameObject.SetActive(true); // CONFIRMAMOS??
+            }
+            ARCursor arCursor = FindObjectOfType<ARCursor>();
+            if (arCursor != null)
+            {
+                arCursor.ActivatePlacementMode();
+            }
+
+            PlayerNetwork.Instance.playerData[id] = jugador;
+            BoardManager.Instance.UpdateResourceTexts(id);
+            Debug.Log("llame a UpdateResourceTexts");
+
+            // Actualizar el texto en la interfaz de usuario
+            //UpdateResourceCount();
+
+            // Actualizar estado del botón
+            // UpdateComprarBaseButton();
+
+            // Aquí va el código para permitir al jugador colocar una casa en el tablero
+
+            // Llamar a ColocarCasa en el script ColocarPieza para instanciar la casa
+
+            //Debug.Log("Despues de colocarla");
+            // Llamar a ActivarColocacion en el script ColocarPieza para permitir al jugador colocar una base
+            //colocarPieza.ActivarColocacion(TipoObjeto.Base);
+        }
+    }*/
+    public void ComprarPueblo()
+    {
+        /*
+        // Solo proceder si el jugador tiene suficientes recursos
+        if (trigoCount >= 3 && piedraCount >= 2)
+        {
+            // Restar recursos
+            trigoCount -= 3;
+            piedraCount -= 2;
+
+            // Actualizar el texto en la interfaz de usuario
+            UpdateResourceCount();
+
+            // Actualizar estado del botón
+            UpdateComprarBaseButton();
+
+            // Aquí va el código para permitir al jugador colocar una casa en el tablero
+            // Llamar a ColocarCasa en el script ColocarPieza para instanciar el pueblo
+            colocarPiezaScript.ColocarPueblo();
+            // Llamar a ActivarColocacion en el script ColocarPieza para permitir al jugador colocar un pueblo
+            colocarPiezaScript.ActivarColocacion(TipoObjeto.Pueblo);
+        }
+        */
+    }
     // método para incrementar los recursos cuando se lanza el dado
     public void IncrementarRecursos()
     {
@@ -112,83 +266,6 @@ public class ComprarPieza : MonoBehaviour
     {
         // El botón solo está activo si el jugador tiene al menos 1 madera, 1 ladrillo, 1 trigo y 1 oveja
         //comprarPuebloButton.interactable = (piedraCount >= 2 && trigoCount >= 3);
-    }
-
-    // método para comprar un camino
-    public void ComprarCamino()
-    {
-        /*
-        // solo proceder si el jugador tiene suficientes recursos
-        if (maderaCount >= 1 && ladrilloCount >= 1)
-        {
-            // restar recursos
-            maderaCount -= 1;
-            ladrilloCount -= 1;
-
-            // actualizar el texto en la interfaz de usuario
-            UpdateResourceCount();
-
-            // actualizar estado del botón
-            UpdateComprarCaminoButton();
-
-            // aquí va el código para permitir al jugador colocar un camino en el tablero
-            // Llamar a ColocarCasa en el script ColocarPieza para instanciar la casa
-            colocarPiezaScript.ColocarCamino();
-
-            // Llamar a ActivarColocacion en el script ColocarPieza para permitir al jugador colocar un camino
-            colocarPiezaScript.ActivarColocacion(TipoObjeto.Camino);
-        }*/
-    }
-
-    public void ComprarBase()
-    {
-        /*
-        // Solo proceder si el jugador tiene suficientes recursos
-        if (maderaCount >= 1 && ladrilloCount >= 1 && trigoCount >= 1 && ovejaCount >= 1)
-        {
-            // Restar recursos
-            maderaCount -= 1;
-            ladrilloCount -= 1;
-            trigoCount -= 1;
-            ovejaCount -= 1;
-
-            // Actualizar el texto en la interfaz de usuario
-            UpdateResourceCount();
-
-            // Actualizar estado del botón
-            UpdateComprarBaseButton();
-
-            // Aquí va el código para permitir al jugador colocar una casa en el tablero
-
-            // Llamar a ColocarCasa en el script ColocarPieza para instanciar la casa
-            colocarPiezaScript.ColocarBase();
-            // Llamar a ActivarColocacion en el script ColocarPieza para permitir al jugador colocar una base
-            colocarPiezaScript.ActivarColocacion(TipoObjeto.Base);
-        }*/
-    }
-    public void ComprarPueblo()
-    {
-        /*
-        // Solo proceder si el jugador tiene suficientes recursos
-        if (trigoCount >= 3 && piedraCount >= 2)
-        {
-            // Restar recursos
-            trigoCount -= 3;
-            piedraCount -= 2;
-
-            // Actualizar el texto en la interfaz de usuario
-            UpdateResourceCount();
-
-            // Actualizar estado del botón
-            UpdateComprarBaseButton();
-
-            // Aquí va el código para permitir al jugador colocar una casa en el tablero
-            // Llamar a ColocarCasa en el script ColocarPieza para instanciar el pueblo
-            colocarPiezaScript.ColocarPueblo();
-            // Llamar a ActivarColocacion en el script ColocarPieza para permitir al jugador colocar un pueblo
-            colocarPiezaScript.ActivarColocacion(TipoObjeto.Pueblo);
-        }
-        */
     }
 
 }
