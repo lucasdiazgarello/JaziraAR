@@ -176,6 +176,50 @@ public class PlayerNetwork : NetworkBehaviour
         Debug.Log("Cuenta de Trigo: " + jugador.Value.trigoCount);
         Debug.Log("Color de Jugador: " + jugador.Value.colorJugador.ToString());
     }*/
+    public void ImprimirPlayerIDs()
+    {
+        Debug.Log("Imprimiendo lista de IDs de jugadores:");
+        for (int i = 0; i < playerIDs.Count; i++)
+        {
+            Debug.Log("ID del Jugador " + (i + 1) + ": " + playerIDs[i]);
+        }
+    }
+    public void ImprimirJugador(DatosJugador jugador)
+    {
+        Debug.Log("jugadorId: " + jugador.jugadorId);
+        Debug.Log("nomJugador: " + jugador.nomJugador.ToString());
+        Debug.Log("puntaje: " + jugador.puntaje);
+        Debug.Log("gano: " + jugador.gano);
+        Debug.Log("turno: " + jugador.turno);
+        Debug.Log("cantidadCasa: " + jugador.cantidadCasa);
+        Debug.Log("maderaCount: " + jugador.maderaCount);
+        Debug.Log("ladrilloCount: " + jugador.ladrilloCount);
+        Debug.Log("ovejaCount: " + jugador.ovejaCount);
+        Debug.Log("piedraCount: " + jugador.piedraCount);
+        Debug.Log("trigoCount: " + jugador.trigoCount);
+        Debug.Log("colorJugador: " + jugador.colorJugador.ToString());
+    }
+    public void ImprimirJugadorPorId(int idJugador)
+    {
+        Debug.Log("Buscando al jugador con ID: " + idJugador);
+        bool encontrado = false;
+
+        for (int i = 0; i < playerData.Count; i++)
+        {
+            if (playerData[i].jugadorId == idJugador)
+            {
+                encontrado = true;
+                Debug.Log("Jugador encontrado en la posición: " + i);
+                ImprimirJugador(playerData[i]);
+                break;
+            }
+        }
+
+        if (!encontrado)
+        {
+            Debug.Log("Jugador no encontrado en la lista playerData");
+        }
+    }
     public void ImprimirTodosLosJugadores()
     {
         for (int i = 0; i < playerData.Count; i++)
@@ -374,42 +418,7 @@ public class PlayerNetwork : NetworkBehaviour
         datosJugador = default(DatosJugador);
         return false;
     }
-    /*public void AumentarRecursos(int idJugador, string recurso, int cantidad)
-    {
-        Debug.Log("Entre a AumentarRecurso");
-        // Encontrar los datos del jugador
-        if (!TryObtenerDatosJugadorPorId(idJugador, out var jugador))
-        {
-            Debug.Log("Jugador no encontrado");
-            return;
-        }
 
-        // Aumentar el recurso correspondiente
-        switch (recurso)
-        {
-            case "madera":
-                jugador.maderaCount += cantidad;
-                break;
-            case "ladrillo":
-                jugador.ladrilloCount += cantidad;
-                break;
-            case "oveja":
-                jugador.ovejaCount += cantidad;
-                break;
-            case "piedra":
-                jugador.piedraCount += cantidad;
-                break;
-            case "trigo":
-                jugador.trigoCount += cantidad;
-                break;
-            default:
-                Debug.Log("Tipo de recurso desconocido");
-                return;
-        }
-
-        // Podemos usar un Debug.Log para ver los resultados.
-        Debug.Log("Jugador " + idJugador + " ahora tiene " + recurso + ": " + cantidad);
-    }*/
     public void AumentarRecursos(int idJugador, string recurso, int cantidad)
     {
         Debug.Log("Entre a AumentarRecurso");

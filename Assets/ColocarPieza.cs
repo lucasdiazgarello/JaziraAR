@@ -161,26 +161,25 @@ public class ColocarPieza : MonoBehaviour
 
     public void ColocarCamino(RaycastHit hit)
     {
-
+        //Debug.Log("EntroColocar 2");
+        // El objeto golpeado es una esquina.
         currentCamino = Instantiate(prefabCamino, hit.collider.gameObject.transform.position, Quaternion.identity);
         currentCamino.GetComponent<NetworkObject>().Spawn();
-        tipoActual = TipoObjeto.Camino;
+        comprobarObjeto = hit.collider.gameObject.GetComponent<ComprobarObjeto>();
 
-        // El objeto golpeado es una arista.
-        //GameObject camino = Instantiate(prefabCamino, hit.collider.gameObject.transform.position, Quaternion.identity);
-       // camino.transform.rotation = hit.collider.transform.rotation;
-
-        // Obtener el identificador de la parcela
-        //identificadorParcela = hit.collider.gameObject.GetComponent<ColocarPieza>().identificadorParcela;
-
-        // Llamar al método en ComprarPieza para incrementar los recursos
-        //comprarPieza.IncrementarRecursos();
-
-        // Verificar si hay una base colocada en esta parcela
-       // VerificarBaseEnEsquina(hit.collider);
-
-        // Resetear la opción actual a Ninguno para evitar colocaciones no deseadas
+        if (comprobarObjeto != null)
+        {
+            // Almacenar el tipo de objeto que acabamos de colocar
+            comprobarObjeto.tipoObjeto = TipoObjeto.Camino; // Puedes cambiar esto al tipo de objeto que corresponda
+            Debug.Log("puse el tipo del pueblo a: " + comprobarObjeto.tipoObjeto);
+        }
+        else
+        {
+            Debug.LogError("El objeto " + hit.collider.gameObject.name + " no tiene un script ComprobarObjeto.");
+        }
+        Debug.Log("el tipo del camino es " + tipoActual);
         tipoActual = TipoObjeto.Ninguno;
+        //Debug.Log("Termino EjecutarColocarBase");
     }
 
     public void EjecutarColocarBase(RaycastHit hit)
@@ -216,18 +215,8 @@ public class ColocarPieza : MonoBehaviour
         //Debug.Log("Después de la asignación");
         Debug.Log("el tipo de la base colocada es " + tipoActual);
         tipoActual = TipoObjeto.Ninguno;
-        Debug.Log("Termino EjecutarColocarBase");
+        //Debug.Log("Termino EjecutarColocarBase");
 
-        // Obtener el identificador de la parcela
-        //identificadorParcela = hit.collider.gameObject.GetComponent<ColocarPieza>().identificadorParcela;
-
-        // Llamar al método en ComprarPieza para incrementar los recursos
-        //comprarPieza.IncrementarRecursos();
-
-        // Verificar si hay una base colocada en esta parcela
-        //VerificarBaseEnEsquina(hit.collider);
-
-        // Resetear la opción actual a Ninguno para evitar colocaciones no deseadas
 
     }
     public void ColocarPueblo(RaycastHit hit)
@@ -236,18 +225,21 @@ public class ColocarPieza : MonoBehaviour
         // El objeto golpeado es una esquina.
         currentPueblo = Instantiate(prefabPueblo, hit.collider.gameObject.transform.position, Quaternion.identity);
         currentPueblo.GetComponent<NetworkObject>().Spawn();
+        comprobarObjeto = hit.collider.gameObject.GetComponent<ComprobarObjeto>();
 
-        // Obtener el identificador de la parcela
-        //identificadorParcela = hit.collider.gameObject.GetComponent<ColocarPieza>().identificadorParcela;
-
-        // Llamar al método en ComprarPieza para incrementar los recursos
-        //comprarPieza.IncrementarRecursos();
-
-        // Verificar si hay una base colocada en esta parcela
-        //VerificarPuebloEnEsquina(hit.collider); //CHEQUEAR
-
-        // Resetear la opción actual a Ninguno para evitar colocaciones no deseadas
+        if (comprobarObjeto != null)
+        {
+            // Almacenar el tipo de objeto que acabamos de colocar
+            comprobarObjeto.tipoObjeto = TipoObjeto.Pueblo; // Puedes cambiar esto al tipo de objeto que corresponda
+            Debug.Log("puse el tipo del pueblo a: " + comprobarObjeto.tipoObjeto);
+        }
+        else
+        {
+            Debug.LogError("El objeto " + hit.collider.gameObject.name + " no tiene un script ComprobarObjeto.");
+        }
+        Debug.Log("el tipo de la base colocada es " + tipoActual);
         tipoActual = TipoObjeto.Ninguno;
+        //Debug.Log("Termino EjecutarColocarBase");
     }
     public void ColocarCamino()
     {

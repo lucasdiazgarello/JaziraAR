@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+Ôªøusing System.Collections.Generic;
 using TMPro;
 using Unity.Netcode;
 using Unity.Services.Authentication;
@@ -27,17 +27,17 @@ public class BoardManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Esto garantiza que el objeto no se destruir· al cargar una nueva escena
+            DontDestroyOnLoad(gameObject); // Esto garantiza que el objeto no se destruir√° al cargar una nueva escena
         }
         else
         {
             Destroy(gameObject); // Si ya hay una instancia, destruye esta
         }
     }
-    // Llamar a esta funciÛn cuando se tira el dado.
+    // Llamar a esta funci√≥n cuando se tira el dado.
     void Start()
     {
-        // ObtÈn el ID del jugador desde donde lo tengas almacenado.
+        // Obt√©n el ID del jugador desde donde lo tengas almacenado.
         // En este ejemplo, simplemente lo he establecido como 1.
         int currentPlayerID = PlayerPrefs.GetInt("jugadorId");
         Instance.UpdateResourceTexts(currentPlayerID);
@@ -47,7 +47,7 @@ public class BoardManager : MonoBehaviour
     public void ManejoParcelas(int diceNumber)
     {
         Debug.Log("Entre a manejo parcelas");
-        // Obtener las parcelas correspondientes al n˙mero del dado.
+        // Obtener las parcelas correspondientes al n√∫mero del dado.
         string parcelName = "Parcela " + diceNumber.ToString();
 
         switch (parcelName)
@@ -111,7 +111,7 @@ public class BoardManager : MonoBehaviour
         identificadorParcela = parcela.GetComponent<IdentificadorParcela>();
         //Debug.Log("identificadorParcela: " + identificadorParcela);
         List<Collider> collidersParcela = identificadorParcela.GetCollidersParcela(parcela.name);
-        //Debug.Log("collidersParcela count: " + collidersParcela.Count); // Ver el tamaÒo de la lista
+        //Debug.Log("collidersParcela count: " + collidersParcela.Count); // Ver el tama√±o de la lista
 
         if (collidersParcela.Count > 0)
         {
@@ -130,18 +130,21 @@ public class BoardManager : MonoBehaviour
                 Debug.LogError("No se pudo obtener el componente ComprobarObjeto de " + empty.gameObject.name);
             }
             Debug.Log("comprobarObjeto es " + comprobarObjeto);
-            // Si el script existe, invocar la funciÛn DarTipo().
+            // Si el script existe, invocar la funci√≥n DarTipo().
             if (comprobarObjeto != null)
             {
                 Debug.Log("comprobarObjeto no es null");
-                TipoObjeto tipo = comprobarObjeto.tipoObjeto; // AquÌ utilizas la variable tipoObjeto de tu instancia comprobarObjeto
+                TipoObjeto tipo = comprobarObjeto.tipoObjeto; // Aqu√≠ utilizas la variable tipoObjeto de tu instancia comprobarObjeto
                 Debug.Log("el tipo es " + tipo);
                 switch (tipo)
                 {
-                    case TipoObjeto.Ninguno:  // AquÌ se hace uso del tipo enumerado TipoObjeto
+                    case TipoObjeto.Ninguno:  // Aqu√≠ se hace uso del tipo enumerado TipoObjeto
                         Debug.Log("Ninguno");
                         break;
-                    case TipoObjeto.Base:    // AquÌ se hace uso del tipo enumerado TipoObjeto
+                    case TipoObjeto.Camino:  // Aqu√≠ se hace uso del tipo enumerado TipoObjeto
+                        Debug.Log("Camino");
+                        break;
+                    case TipoObjeto.Base:    // Aqu√≠ se hace uso del tipo enumerado TipoObjeto
                         Debug.Log("Sumar a la Base 1 de " + recurso);
                         int currentPlayerID = PlayerPrefs.GetInt("jugadorId");
                         //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
@@ -150,7 +153,7 @@ public class BoardManager : MonoBehaviour
                         Instance.UpdateResourceTexts(currentPlayerID);
                         Debug.Log("ya sumo recurso "+ recurso);
                         break;
-                    case TipoObjeto.Pueblo:  // AquÌ se hace uso del tipo enumerado TipoObjeto
+                    case TipoObjeto.Pueblo:  // Aqu√≠ se hace uso del tipo enumerado TipoObjeto
                         Debug.Log("Pueblo");
                         //PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso, 2);
                         Debug.Log("sumo 2 " + recurso);
@@ -169,6 +172,44 @@ public class BoardManager : MonoBehaviour
         }
 
     }
+    public void UpdateResourcesBase(DatosJugador jugador) //se usa para disminuir los recursos solamente
+    {
+        Debug.Log("Entre a UpdateResourceBase");
+        int indexJugador = -1;
+        bool jugadorEncontrado = false;
+
+        // B√∫squeda del jugador en la lista playerData
+        for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+        {
+            //Debug.Log("La lista Ids es " + playerData[i].jugadorId);
+            if (PlayerNetwork.Instance.playerData[i].jugadorId == jugador.jugadorId)
+            {
+                jugadorEncontrado = true;
+                indexJugador = i;
+                Debug.Log("Jugador encontrado en la posici√≥n: " + i);
+                break;
+            }
+        }
+        if (!jugadorEncontrado)
+        {
+            Debug.Log("Jugador no encontrado en la lista playerData");
+            return;
+        }
+        // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
+        DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
+        Debug.Log("piedra antes de sumar: " + PlayerNetwork.Instance.playerData[indexJugador].piedraCount);
+        // Aqu√≠ es donde actualizar√≠as los recursos del jugador en tu juego.
+        jugadorcopia.maderaCount -= 1;
+        jugadorcopia.ladrilloCount -= 1;
+        jugadorcopia.trigoCount -= 1;
+        jugadorcopia.ovejaCount -= 1;
+
+        PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+        //PlayerNetwork.Instance.playerData[jugador.jugadorId] = jugador;
+        Debug.Log("Impimir del UpdateResourceBase");
+        PlayerNetwork.Instance.ImprimirJugador(PlayerNetwork.Instance.playerData[indexJugador]);
+        UpdateResourceTexts(indexJugador);
+    }
 
     public void UpdateResourceTexts(int jugadorId)
     {
@@ -185,7 +226,7 @@ public class BoardManager : MonoBehaviour
             }
         }
 
-        if (datosJugador.jugadorId == 0)  // Suponiendo que 0 no es un ID de jugador v·lido
+        if (datosJugador.jugadorId == 0)  // Suponiendo que 0 no es un ID de jugador vÔøΩlido
         {
             Debug.LogError("Jugador con ID " + jugadorId + " no encontrado.");
             return;
@@ -198,24 +239,42 @@ public class BoardManager : MonoBehaviour
         PiedraCountText.text = datosJugador.piedraCount.ToString();
         TrigoCountText.text = datosJugador.trigoCount.ToString();
     }
-
-    /*
-    GameObject[] parcelArray = GameObject.FindGameObjectsWithTag(parcelName);
-    GameObject[] parcelArray = GameObject.Find("Parcela  ")GameObjectsWithTag(parcelName);
-
-    foreach (var parcel in parcelArray)
+    /*public void UpdateResourceTexts(int jugadorId)
     {
-        ParcelScript parcelScript = parcel.GetComponent<ParcelScript>();
+        Debug.Log("Entre a UpdateResourceTexts");
+        Debug.Log("id es" + jugadorId);
+        DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(jugadorId);
+        Debug.Log("el jugador con id " + jugadorId + " es :" + jugador);
+        //DatosJugador datosJugador = default;
+        /*DatosJugador datosJugador = PlayerNetwork.Instance.GetPlayerData(jugadorId);
 
-        foreach (var corner in parcelScript.cornerList)
+        PlayerNetwork.Instance.ImprimirJugadorPorId(jugadorId);
+        // Itera sobre los elementos de playerData para encontrar los datos del jugador
+        for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
         {
-            CornerScript cornerScript = corner.GetComponent<CornerScript>();
-
-            if (cornerScript.hasBase)
+            if (PlayerNetwork.Instance.playerData[i].jugadorId == jugadorId)
             {
-                cornerScript.IncreaseResource(parcelScript.resourceType);
+                Debug.Log("Imprimir 1 ");
+                PlayerNetwork.Instance.ImprimirJugadorPorId(jugadorId);
+                datosJugador = PlayerNetwork.Instance.playerData[i];
+                Debug.Log("Imprimir 2 ");
+                PlayerNetwork.Instance.ImprimirJugadorPorId(jugadorId);
+                break;
             }
-        }
-    }*/
+        }*/
+
+    /* if (jugador.jugadorId == 0)  // Suponiendo que 0 no es un ID de jugador v√°lido
+     {
+         Debug.LogError("Jugador con ID " + jugadorId + " no encontrado.");
+         return;
+     }
+
+     // Actualiza los textos de los recursos
+     MaderaCountText.text = jugador.maderaCount.ToString();
+     LadrilloCountText.text = jugador.ladrilloCount.ToString();
+     OvejaCountText.text = jugador.ovejaCount.ToString();
+     PiedraCountText.text = jugador.piedraCount.ToString();
+     TrigoCountText.text = jugador.trigoCount.ToString();
+ }*/
 
 }

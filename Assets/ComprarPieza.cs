@@ -12,7 +12,7 @@ public class ComprarPieza : MonoBehaviour
     //public Text piedraCountText;
     //public Text trigoCountText;
     private bool esperandoColocarBase = false;
-    private DatosJugador jugador;
+    //private DatosJugador jugador;
 
     // variables que guardan la cantidad de cada recurso
     /*private int maderaCount;
@@ -121,24 +121,37 @@ public class ComprarPieza : MonoBehaviour
     {
         Debug.Log("Entre a ComprarBase");
         int id = PlayerPrefs.GetInt("jugadorId");
-        jugador = PlayerNetwork.Instance.GetPlayerData(id);
+        PlayerNetwork.Instance.ImprimirPlayerIDs();
+        Debug.Log("ID CB: " + id);
+        DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
+        Debug.Log("El JUGADOR CB es: ");
+        PlayerNetwork.Instance.ImprimirJugador(jugador);
 
         if (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1 && jugador.trigoCount >= 1 && jugador.ovejaCount >= 1)
         {
-            jugador.maderaCount -= 1;
+            BoardManager.Instance.UpdateResourcesBase(jugador);
+            /*jugador.maderaCount -= 1;
             jugador.ladrilloCount -= 1;
             jugador.trigoCount -= 1;
             jugador.ovejaCount -= 1;
-
+            */
             esperandoColocarBase = true;
             Debug.Log("Jugador " + jugador.jugadorId + " ahora tiene " + jugador.maderaCount + " maderas ");
             Debug.Log("Jugador " + jugador.jugadorId + " ahora tiene " + jugador.ladrilloCount + " ladrillos ");
             Debug.Log("Jugador " + jugador.jugadorId + " ahora tiene " + jugador.trigoCount + " trigos ");
             Debug.Log("Jugador " + jugador.jugadorId + " ahora tiene " + jugador.ovejaCount + " ovejas ");
 
-            PlayerNetwork.Instance.playerData[id] = jugador;
-            BoardManager.Instance.UpdateResourceTexts(id);
-            Debug.Log("llame a UpdateResourceTexts");
+            //BoardManager.Instance.UpdateResourceTexts(id);
+
+            Debug.Log("Imprimir jugador post ");
+            PlayerNetwork.Instance.ImprimirJugador(jugador);
+            Debug.Log("Imprimir jugador por ID post ");
+            PlayerNetwork.Instance.ImprimirJugadorPorId(id);
+            
+            /*PlayerNetwork.Instance.playerData[id] = jugador;
+            Debug.Log("Imprimir jugador 2");
+            PlayerNetwork.Instance.ImprimirJugadorPorId(id);
+            */
         }
     }
 
