@@ -12,6 +12,8 @@ public class ComprarPieza : MonoBehaviour
     //public Text piedraCountText;
     //public Text trigoCountText;
     private bool esperandoColocarBase = false;
+    private bool esperandoColocarCamino = false;
+    private bool esperandoColocarPueblo = false;
     //private DatosJugador jugador;
 
     // variables que guardan la cantidad de cada recurso
@@ -86,7 +88,48 @@ public class ComprarPieza : MonoBehaviour
                 {
                     arCursor.ActivatePlacementMode();
                 }
+            }
+        }
+        else if (esperandoColocarCamino && Input.touchCount > 0)
+        {
+            colocarPieza.AllowPlace();
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
 
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
+            {
+                Debug.Log("Antes EjecutarColocarCamino");
+                colocarPieza.EjecutarColocarCamino(hit);
+                Debug.Log("Despues EjecutarColocarCamino");
+
+                esperandoColocarCamino = false;
+
+                ARCursor arCursor = FindObjectOfType<ARCursor>();
+                if (arCursor != null)
+                {
+                    arCursor.ActivatePlacementMode();
+                }
+            }
+        }
+        else if (esperandoColocarPueblo && Input.touchCount > 0)
+        {
+            colocarPieza.AllowPlace();
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
+            {
+                Debug.Log("Antes EjecutarColocarPueblo");
+                colocarPieza.EjecutarColocarPueblo(hit);
+                Debug.Log("Despues EjecutarColocarPueblo");
+
+                esperandoColocarPueblo = false;
+
+                ARCursor arCursor = FindObjectOfType<ARCursor>();
+                if (arCursor != null)
+                {
+                    arCursor.ActivatePlacementMode();
+                }
             }
         }
     }
@@ -94,27 +137,33 @@ public class ComprarPieza : MonoBehaviour
     // método para comprar un camino
     public void ComprarCamino()
     {
-        /*
-        // solo proceder si el jugador tiene suficientes recursos
-        if (maderaCount >= 1 && ladrilloCount >= 1)
+        Debug.Log("Entre a ComprarCamino");
+        int id = PlayerPrefs.GetInt("jugadorId");
+        //PlayerNetwork.Instance.ImprimirPlayerIDs();
+        //Debug.Log("ID CB: " + id);
+        DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
+        //Debug.Log("El JUGADOR CB es: ");
+        PlayerNetwork.Instance.ImprimirJugador(jugador);
+
+        if (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1 )
         {
-            // restar recursos
-            maderaCount -= 1;
-            ladrilloCount -= 1;
+            BoardManager.Instance.UpdateResourcesCamino(jugador);
+            esperandoColocarCamino = true;
+            //Debug.Log("Jugador " + jugador.jugadorId + " ahora tiene " + jugador.maderaCount + " maderas ");
+            //Debug.Log("Jugador " + jugador.jugadorId + " ahora tiene " + jugador.ladrilloCount + " ladrillos ");
 
-            // actualizar el texto en la interfaz de usuario
-            UpdateResourceCount();
+            //BoardManager.Instance.UpdateResourceTexts(id);
 
-            // actualizar estado del botón
-            UpdateComprarCaminoButton();
+            //Debug.Log("Imprimir jugador post ");
+            //PlayerNetwork.Instance.ImprimirJugador(jugador);
+            Debug.Log("Imprimir jugador por ID post ");
+            PlayerNetwork.Instance.ImprimirJugadorPorId(id);
 
-            // aquí va el código para permitir al jugador colocar un camino en el tablero
-            // Llamar a ColocarCasa en el script ColocarPieza para instanciar la casa
-            colocarPiezaScript.ColocarCamino();
-
-            // Llamar a ActivarColocacion en el script ColocarPieza para permitir al jugador colocar un camino
-            colocarPiezaScript.ActivarColocacion(TipoObjeto.Camino);
-        }*/
+            /*PlayerNetwork.Instance.playerData[id] = jugador;
+            Debug.Log("Imprimir jugador 2");
+            PlayerNetwork.Instance.ImprimirJugadorPorId(id);
+            */
+        }
     }
 
     public void ComprarBase()
@@ -136,15 +185,13 @@ public class ComprarPieza : MonoBehaviour
             jugador.ovejaCount -= 1;
             */
             esperandoColocarBase = true;
-            Debug.Log("Jugador " + jugador.jugadorId + " ahora tiene " + jugador.maderaCount + " maderas ");
-            Debug.Log("Jugador " + jugador.jugadorId + " ahora tiene " + jugador.ladrilloCount + " ladrillos ");
-            Debug.Log("Jugador " + jugador.jugadorId + " ahora tiene " + jugador.trigoCount + " trigos ");
-            Debug.Log("Jugador " + jugador.jugadorId + " ahora tiene " + jugador.ovejaCount + " ovejas ");
+            //Debug.Log("Jugador " + jugador.jugadorId + " ahora tiene " + jugador.maderaCount + " maderas ");
+            //Debug.Log("Jugador " + jugador.jugadorId + " ahora tiene " + jugador.ladrilloCount + " ladrillos ");
+            //Debug.Log("Jugador " + jugador.jugadorId + " ahora tiene " + jugador.trigoCount + " trigos ");
+            //Debug.Log("Jugador " + jugador.jugadorId + " ahora tiene " + jugador.ovejaCount + " ovejas ");
 
-            //BoardManager.Instance.UpdateResourceTexts(id);
-
-            Debug.Log("Imprimir jugador post ");
-            PlayerNetwork.Instance.ImprimirJugador(jugador);
+            //Debug.Log("Imprimir jugador post ");
+            //PlayerNetwork.Instance.ImprimirJugador(jugador);
             Debug.Log("Imprimir jugador por ID post ");
             PlayerNetwork.Instance.ImprimirJugadorPorId(id);
             
@@ -155,56 +202,7 @@ public class ComprarPieza : MonoBehaviour
         }
     }
 
-    /*public void ComprarBase()
-    {
-        Debug.Log("Entre a ComprarBase");
-        int id = PlayerPrefs.GetInt("jugadorId");
-        DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
-        // Solo proceder si el jugador tiene suficientes recursos
-        if (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1 && jugador.trigoCount >= 1 && jugador.ovejaCount >= 1)
-        {
-            // Restar recursos
-            jugador.maderaCount -= 1;
-            jugador.ladrilloCount -= 1;
-            jugador.trigoCount -= 1;
-            jugador.ovejaCount -= 1;
-
-            Debug.Log("Antes de colocarla");
-            colocarPieza.AllowPlace();
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
-            {
-                Debug.Log("Antes EjecutarColocarBase");
-                colocarPieza.EjecutarColocarBase(hit);
-                Debug.Log("Despues EjecutarColocarBase");
-                //colocarPieza.confirmBaseButton.gameObject.SetActive(true); // CONFIRMAMOS??
-            }
-            ARCursor arCursor = FindObjectOfType<ARCursor>();
-            if (arCursor != null)
-            {
-                arCursor.ActivatePlacementMode();
-            }
-
-            PlayerNetwork.Instance.playerData[id] = jugador;
-            BoardManager.Instance.UpdateResourceTexts(id);
-            Debug.Log("llame a UpdateResourceTexts");
-
-            // Actualizar el texto en la interfaz de usuario
-            //UpdateResourceCount();
-
-            // Actualizar estado del botón
-            // UpdateComprarBaseButton();
-
-            // Aquí va el código para permitir al jugador colocar una casa en el tablero
-
-            // Llamar a ColocarCasa en el script ColocarPieza para instanciar la casa
-
-            //Debug.Log("Despues de colocarla");
-            // Llamar a ActivarColocacion en el script ColocarPieza para permitir al jugador colocar una base
-            //colocarPieza.ActivarColocacion(TipoObjeto.Base);
-        }
-    }*/
+ 
     public void ComprarPueblo()
     {
         /*

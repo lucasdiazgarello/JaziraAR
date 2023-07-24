@@ -85,7 +85,7 @@ public class ColocarPieza : MonoBehaviour
             ConfirmarBase();
             //canPlace = false;
         });*/
-        confirmCaminoButton.onClick.AddListener(() => {
+        /*confirmCaminoButton.onClick.AddListener(() => {
             //canPlace = true;
             ConfirmarCamino();
             //canPlace = false;
@@ -94,7 +94,7 @@ public class ColocarPieza : MonoBehaviour
             //canPlace = true;
             ConfirmarPueblo();
             //canPlace = false;
-        });
+        });*/
         confirmBaseButton.gameObject.SetActive(false);
         confirmCaminoButton.gameObject.SetActive(false);
         confirmPuebloButton.gameObject.SetActive(false);
@@ -159,11 +159,12 @@ public class ColocarPieza : MonoBehaviour
         return tipo;
     }
 
-    public void ColocarCamino(RaycastHit hit)
+    public void EjecutarColocarCamino(RaycastHit hit)
     {
         //Debug.Log("EntroColocar 2");
         // El objeto golpeado es una esquina.
-        currentCamino = Instantiate(prefabCamino, hit.collider.gameObject.transform.position, Quaternion.identity);
+        //currentCamino = Instantiate(prefabCamino, hit.collider.gameObject.transform.position, Quaternion.identity);
+        currentCamino = Instantiate(prefabCamino, hit.collider.gameObject.transform.position, hit.collider.gameObject.transform.rotation); //con rotacion
         currentCamino.GetComponent<NetworkObject>().Spawn();
         comprobarObjeto = hit.collider.gameObject.GetComponent<ComprobarObjeto>();
 
@@ -171,7 +172,7 @@ public class ColocarPieza : MonoBehaviour
         {
             // Almacenar el tipo de objeto que acabamos de colocar
             comprobarObjeto.tipoObjeto = TipoObjeto.Camino; // Puedes cambiar esto al tipo de objeto que corresponda
-            Debug.Log("puse el tipo del pueblo a: " + comprobarObjeto.tipoObjeto);
+            Debug.Log("puse el tipo camino a: " + comprobarObjeto.tipoObjeto);
         }
         else
         {
@@ -215,11 +216,31 @@ public class ColocarPieza : MonoBehaviour
         //Debug.Log("Después de la asignación");
         Debug.Log("el tipo de la base colocada es " + tipoActual);
         tipoActual = TipoObjeto.Ninguno;
-        //Debug.Log("Termino EjecutarColocarBase");
-
-
     }
-    public void ColocarPueblo(RaycastHit hit)
+    public void EjecutarColocarPueblo(RaycastHit hit)
+    {
+        //Debug.Log("EntroColocar 2");
+        // El objeto golpeado es una esquina.
+        currentPueblo = Instantiate(prefabPueblo, hit.collider.gameObject.transform.position, Quaternion.identity);
+        //currentPueblo = Instantiate(prefabPueblo, hit.collider.gameObject.transform.position, hit.collider.gameObject.transform.rotation); //con rotacion
+        currentPueblo.GetComponent<NetworkObject>().Spawn();
+        comprobarObjeto = hit.collider.gameObject.GetComponent<ComprobarObjeto>();
+
+        if (comprobarObjeto != null)
+        {
+            // Almacenar el tipo de objeto que acabamos de colocar
+            comprobarObjeto.tipoObjeto = TipoObjeto.Pueblo; // Puedes cambiar esto al tipo de objeto que corresponda
+            Debug.Log("puse el tipo del pueblo a: " + comprobarObjeto.tipoObjeto);
+        }
+        else
+        {
+            Debug.LogError("El objeto " + hit.collider.gameObject.name + " no tiene un script ComprobarObjeto.");
+        }
+        Debug.Log("el tipo del camino es " + tipoActual);
+        tipoActual = TipoObjeto.Ninguno;
+        //Debug.Log("Termino EjecutarColocarBase");
+    }
+    /*public void ColocarPueblo(RaycastHit hit)
     {
         //Debug.Log("EntroColocar 2");
         // El objeto golpeado es una esquina.
@@ -240,7 +261,7 @@ public class ColocarPieza : MonoBehaviour
         Debug.Log("el tipo de la base colocada es " + tipoActual);
         tipoActual = TipoObjeto.Ninguno;
         //Debug.Log("Termino EjecutarColocarBase");
-    }
+    }*/
     public void ColocarCamino()
     {
         AllowPlace();
@@ -249,7 +270,7 @@ public class ColocarPieza : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
         {
-            ColocarCamino(hit);
+            EjecutarColocarCamino(hit);
             confirmCaminoButton.gameObject.SetActive(true);
         }
         ARCursor arCursor = FindObjectOfType<ARCursor>();
@@ -288,8 +309,10 @@ public class ColocarPieza : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
         {
-            ColocarPueblo(hit);
-            confirmPuebloButton.gameObject.SetActive(true);
+            //Debug.Log("Antes EjecutarColocarBase");
+            EjecutarColocarPueblo(hit);
+            //Debug.Log("Despues EjecutarColocarBase");
+            confirmBaseButton.gameObject.SetActive(true); // Habilita el botón de confirmación
         }
         ARCursor arCursor = FindObjectOfType<ARCursor>();
         if (arCursor != null)
@@ -300,8 +323,6 @@ public class ColocarPieza : MonoBehaviour
 
     public void ConfirmarBase()
     {
-        Debug.Log("Entro a ConfirmarBase");
-        Debug.Log("canPlace es : " + canPlace);
         if (currentBase == null)
         {
             Debug.Log("currentBase es null");
@@ -309,18 +330,11 @@ public class ColocarPieza : MonoBehaviour
         // Verifica si la base actual no es nula y se puede colocar
         if (currentBase != null && canPlace)
         {
-            Debug.Log("entro AL IF");
-            // Aquí puedes incluir cualquier lógica adicional que necesites cuando una base es confirmada.
-            // Por ejemplo, podrías actualizar el estado de la base para indicar que ha sido "confirmada".
-
             // Deshabilita el botón de confirmación
             confirmBaseButton.gameObject.SetActive(false);
 
             // Desactiva la capacidad de mover la base
             canPlace = false;
-
-            // Puedes guardar la referencia a la base confirmada
-            // confirmedBase = currentBase;
 
             // Borra la referencia a la base actual
             currentBase = null;
@@ -333,12 +347,26 @@ public class ColocarPieza : MonoBehaviour
     }
     public void ConfirmarCamino()
     {
+        if (currentCamino == null)
+        {
+            Debug.Log("currentBase es null");
+        }
+        // Verifica si la base actual no es nula y se puede colocar
         if (currentCamino != null && canPlace)
         {
             // Deshabilita el botón de confirmación
             confirmCaminoButton.gameObject.SetActive(false);
+
+            // Desactiva la capacidad de mover la base
             canPlace = false;
+
+            // Borra la referencia a la base actual
             currentCamino = null;
+        }
+        else
+        {
+            // Puedes mostrar algún mensaje o realizar alguna acción si la base no puede ser confirmada
+            Debug.Log("El camino no puede ser confirmado");
         }
     }
 

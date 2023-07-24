@@ -172,6 +172,41 @@ public class BoardManager : MonoBehaviour
         }
 
     }
+    public void UpdateResourcesCamino(DatosJugador jugador) //se usa para disminuir los recursos solamente
+    {
+        Debug.Log("Entre a UpdateResourceCamino");
+        int indexJugador = -1;
+        bool jugadorEncontrado = false;
+
+        // Búsqueda del jugador en la lista playerData
+        for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+        {
+            //Debug.Log("La lista Ids es " + playerData[i].jugadorId);
+            if (PlayerNetwork.Instance.playerData[i].jugadorId == jugador.jugadorId)
+            {
+                jugadorEncontrado = true;
+                indexJugador = i;
+                Debug.Log("Jugador encontrado en la posición: " + i);
+                break;
+            }
+        }
+        if (!jugadorEncontrado)
+        {
+            Debug.Log("Jugador no encontrado en la lista playerData");
+            return;
+        }
+        // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
+        DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
+        // Aquí es donde actualizarías los recursos del jugador en tu juego.
+        jugadorcopia.maderaCount -= 1;
+        jugadorcopia.ladrilloCount -= 1;
+
+        PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+        //PlayerNetwork.Instance.playerData[jugador.jugadorId] = jugador;
+        //Debug.Log("Impimir del UpdateResourceCamino");
+        //PlayerNetwork.Instance.ImprimirJugador(PlayerNetwork.Instance.playerData[indexJugador]);
+        UpdateResourceTexts(indexJugador);
+    }
     public void UpdateResourcesBase(DatosJugador jugador) //se usa para disminuir los recursos solamente
     {
         Debug.Log("Entre a UpdateResourceBase");
@@ -197,7 +232,6 @@ public class BoardManager : MonoBehaviour
         }
         // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
         DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
-        Debug.Log("piedra antes de sumar: " + PlayerNetwork.Instance.playerData[indexJugador].piedraCount);
         // Aquí es donde actualizarías los recursos del jugador en tu juego.
         jugadorcopia.maderaCount -= 1;
         jugadorcopia.ladrilloCount -= 1;
@@ -206,14 +240,14 @@ public class BoardManager : MonoBehaviour
 
         PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
         //PlayerNetwork.Instance.playerData[jugador.jugadorId] = jugador;
-        Debug.Log("Impimir del UpdateResourceBase");
-        PlayerNetwork.Instance.ImprimirJugador(PlayerNetwork.Instance.playerData[indexJugador]);
+        //Debug.Log("Impimir del UpdateResourceBase");
+        //PlayerNetwork.Instance.ImprimirJugador(PlayerNetwork.Instance.playerData[indexJugador]);
         UpdateResourceTexts(indexJugador);
     }
 
     public void UpdateResourceTexts(int jugadorId)
     {
-        Debug.Log("Entre a UpdateResourceTexts");
+        //Debug.Log("Entre a UpdateResourceTexts");
         DatosJugador datosJugador = default;
 
         // Itera sobre los elementos de playerData para encontrar los datos del jugador
