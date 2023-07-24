@@ -34,18 +34,13 @@ public class ColocarPieza : MonoBehaviour
     //public string identificadorParcela;
 
     // Referencia al script ComprarPieza
-    public ComprarPieza comprarPieza;
+    //public ComprarPieza comprarPieza;
+    //public IdentificadorParcela identificadorParcela;
 
     // Variable booleana para indicar si tiene una base colocada
-    public bool tieneBase;
-    public bool tienePueblo;
-
-    //public enum TipoObjeto { Ninguno, Camino, Base, Pueblo }
+    //public bool tieneBase;
+    //public bool tienePueblo;
     public TipoObjeto tipoActual;
-
-
-    public IdentificadorParcela identificadorParcela;
-
 
     void Start()
     {
@@ -161,7 +156,7 @@ public class ColocarPieza : MonoBehaviour
 
     public void EjecutarColocarCamino(RaycastHit hit)
     {
-        //Debug.Log("EntroColocar 2");
+        Debug.Log("EjecutarColocarCamino");
         // El objeto golpeado es una esquina.
         //currentCamino = Instantiate(prefabCamino, hit.collider.gameObject.transform.position, Quaternion.identity);
         currentCamino = Instantiate(prefabCamino, hit.collider.gameObject.transform.position, hit.collider.gameObject.transform.rotation); //con rotacion
@@ -312,7 +307,7 @@ public class ColocarPieza : MonoBehaviour
             //Debug.Log("Antes EjecutarColocarBase");
             EjecutarColocarPueblo(hit);
             //Debug.Log("Despues EjecutarColocarBase");
-            confirmBaseButton.gameObject.SetActive(true); // Habilita el botón de confirmación
+            confirmPuebloButton.gameObject.SetActive(true); // Habilita el botón de confirmación
         }
         ARCursor arCursor = FindObjectOfType<ARCursor>();
         if (arCursor != null)
@@ -354,18 +349,12 @@ public class ColocarPieza : MonoBehaviour
         // Verifica si la base actual no es nula y se puede colocar
         if (currentCamino != null && canPlace)
         {
-            // Deshabilita el botón de confirmación
             confirmCaminoButton.gameObject.SetActive(false);
-
-            // Desactiva la capacidad de mover la base
             canPlace = false;
-
-            // Borra la referencia a la base actual
             currentCamino = null;
         }
         else
         {
-            // Puedes mostrar algún mensaje o realizar alguna acción si la base no puede ser confirmada
             Debug.Log("El camino no puede ser confirmado");
         }
     }
@@ -381,9 +370,10 @@ public class ColocarPieza : MonoBehaviour
         }
     }
    
-    public void ActivarColocacion(TipoObjeto tipo)
+    /*public void ActivarColocacion(TipoObjeto tipo)
     {
         tipoActual = tipo;
     }
+    */
 
 }

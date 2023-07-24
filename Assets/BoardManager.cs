@@ -244,12 +244,45 @@ public class BoardManager : MonoBehaviour
         //PlayerNetwork.Instance.ImprimirJugador(PlayerNetwork.Instance.playerData[indexJugador]);
         UpdateResourceTexts(indexJugador);
     }
+    public void UpdateResourcesPueblo(DatosJugador jugador) //se usa para disminuir los recursos solamente
+    {
+        Debug.Log("Entre a UpdateResourcePueblo");
+        int indexJugador = -1;
+        bool jugadorEncontrado = false;
 
+        // Búsqueda del jugador en la lista playerData
+        for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+        {
+            //Debug.Log("La lista Ids es " + playerData[i].jugadorId);
+            if (PlayerNetwork.Instance.playerData[i].jugadorId == jugador.jugadorId)
+            {
+                jugadorEncontrado = true;
+                indexJugador = i;
+                Debug.Log("Jugador encontrado en la posición: " + i);
+                break;
+            }
+        }
+        if (!jugadorEncontrado)
+        {
+            Debug.Log("Jugador no encontrado en la lista playerData");
+            return;
+        }
+        // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
+        DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
+        // Aquí es donde actualizarías los recursos del jugador en tu juego.
+        jugadorcopia.trigoCount -= 3;
+        jugadorcopia.piedraCount -= 2;
+
+        PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+        //PlayerNetwork.Instance.playerData[jugador.jugadorId] = jugador;
+        //Debug.Log("Impimir del UpdateResourceBase");
+        //PlayerNetwork.Instance.ImprimirJugador(PlayerNetwork.Instance.playerData[indexJugador]);
+        UpdateResourceTexts(indexJugador);
+    }
     public void UpdateResourceTexts(int jugadorId)
     {
         //Debug.Log("Entre a UpdateResourceTexts");
         DatosJugador datosJugador = default;
-
         // Itera sobre los elementos de playerData para encontrar los datos del jugador
         for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
         {
@@ -259,13 +292,11 @@ public class BoardManager : MonoBehaviour
                 break;
             }
         }
-
         if (datosJugador.jugadorId == 0)  // Suponiendo que 0 no es un ID de jugador v�lido
         {
             Debug.LogError("Jugador con ID " + jugadorId + " no encontrado.");
             return;
         }
-
         // Actualiza los textos de los recursos
         MaderaCountText.text = datosJugador.maderaCount.ToString();
         LadrilloCountText.text = datosJugador.ladrilloCount.ToString();

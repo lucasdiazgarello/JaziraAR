@@ -205,60 +205,24 @@ public class ComprarPieza : MonoBehaviour
  
     public void ComprarPueblo()
     {
-        /*
-        // Solo proceder si el jugador tiene suficientes recursos
-        if (trigoCount >= 3 && piedraCount >= 2)
+        Debug.Log("Entre a ComprarPueblo");
+        int id = PlayerPrefs.GetInt("jugadorId");
+        PlayerNetwork.Instance.ImprimirPlayerIDs();
+        Debug.Log("ID CB: " + id);
+        DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
+        Debug.Log("El JUGADOR CB es: ");
+        PlayerNetwork.Instance.ImprimirJugador(jugador);
+
+        if (jugador.trigoCount >= 3 && jugador.piedraCount >= 2)
         {
-            // Restar recursos
-            trigoCount -= 3;
-            piedraCount -= 2;
+            BoardManager.Instance.UpdateResourcesPueblo(jugador);
 
-            // Actualizar el texto en la interfaz de usuario
-            UpdateResourceCount();
+            esperandoColocarBase = true;
 
-            // Actualizar estado del botón
-            UpdateComprarBaseButton();
+            Debug.Log("Imprimir jugador por ID post ");
+            PlayerNetwork.Instance.ImprimirJugadorPorId(id);
 
-            // Aquí va el código para permitir al jugador colocar una casa en el tablero
-            // Llamar a ColocarCasa en el script ColocarPieza para instanciar el pueblo
-            colocarPiezaScript.ColocarPueblo();
-            // Llamar a ActivarColocacion en el script ColocarPieza para permitir al jugador colocar un pueblo
-            colocarPiezaScript.ActivarColocacion(TipoObjeto.Pueblo);
         }
-        */
-    }
-    // método para incrementar los recursos cuando se lanza el dado
-    public void IncrementarRecursos()
-    {
-        /*
-        int numeroDado = DiceNumberTextScript.totalDiceNumber;
-        Debug.Log("el valor para incrementar es: " + numeroDado);
-        // Activar los contadores de recursos al lanzar el dado por primera vez
-        maderaCountText.gameObject.SetActive(true);
-        ladrilloCountText.gameObject.SetActive(true);
-        ovejaCountText.gameObject.SetActive(true);
-        piedraCountText.gameObject.SetActive(true);
-        trigoCountText.gameObject.SetActive(true);
-        identificadorParcelaScript.IncrementarRecursos(numeroDado, ref maderaCount, ref ladrilloCount, ref ovejaCount, ref piedraCount, ref trigoCount);
-
-        // Actualizar el texto en la interfaz de usuario
-        UpdateResourceCount();
-
-        // Actualizar estado de los  botones
-        UpdateComprarCaminoButton();
-        UpdateComprarBaseButton();
-        UpdateComprarPuebloButton();
-        */
-    }
-
-    // método para actualizar el texto de los contadores de recursos
-    void UpdateResourceCount()
-    {
-        /*maderaCountText.text = maderaCount.ToString();
-        ladrilloCountText.text = ladrilloCount.ToString();
-        ovejaCountText.text = ovejaCount.ToString();
-        piedraCountText.text = piedraCount.ToString();
-        trigoCountText.text = trigoCount.ToString();*/
     }
 
     // método para actualizar el estado del botón de comprar camino

@@ -41,7 +41,7 @@ public class IdentificadorParcela : MonoBehaviour
         return identificador.collidersParcela;
     }
 
-    public void IncrementarRecursos(int resultadoDado, ref int maderaCount, ref int ladrilloCount, ref int ovejaCount, ref int piedraCount, ref int trigoCount)
+    /*public void IncrementarRecursos(int resultadoDado, ref int maderaCount, ref int ladrilloCount, ref int ovejaCount, ref int piedraCount, ref int trigoCount)
     {
         TipoRecurso recurso = recursosGenerados.Find(r => r.numeroficha == resultadoDado);
         if (recurso != null)
@@ -66,7 +66,7 @@ public class IdentificadorParcela : MonoBehaviour
                 }
             }
         }
-    }
+    }*/
     /*
     public void IncrementarRecursos(int resultadoDado, ref int maderaCount, ref int ladrilloCount, ref int ovejaCount, ref int piedraCount, ref int trigoCount)
     {
@@ -78,7 +78,7 @@ public class IdentificadorParcela : MonoBehaviour
     }
     */
 
-    private void IncrementarRecurso(string nombreRecurso, ref int maderaCount, ref int ladrilloCount, ref int ovejaCount, ref int piedraCount, ref int trigoCount)
+    /*private void IncrementarRecurso(string nombreRecurso, ref int maderaCount, ref int ladrilloCount, ref int ovejaCount, ref int piedraCount, ref int trigoCount)
     {
         // Incrementar los recursos según el nombre y el tipo de pieza
         if (nombreRecurso == "Madera")
@@ -101,7 +101,7 @@ public class IdentificadorParcela : MonoBehaviour
         {
             trigoCount += 1;
         }
-    }
+    }*/
     /*
     private void IncrementarRecurso(string nombreRecurso, ref int maderaCount, ref int ladrilloCount, ref int ovejaCount, ref int piedraCount, ref int trigoCount)
     {
