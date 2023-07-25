@@ -281,7 +281,7 @@ public class BoardManager : MonoBehaviour
     }
     public void UpdateResourceTexts(int jugadorId)
     {
-        //Debug.Log("Entre a UpdateResourceTexts");
+        Debug.Log("Entre a UpdateResourceTexts");
         DatosJugador datosJugador = default;
         // Itera sobre los elementos de playerData para encontrar los datos del jugador
         for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)

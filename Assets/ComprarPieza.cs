@@ -5,24 +5,9 @@ using static PlayerNetwork;
 
 public class ComprarPieza : MonoBehaviour
 {
-    // referencias a los textos que muestran el contador de recursos
-    //public Text maderaCountText;
-    //public Text ladrilloCountText;
-    //public Text ovejaCountText;
-    //public Text piedraCountText;
-    //public Text trigoCountText;
     private bool esperandoColocarBase = false;
     private bool esperandoColocarCamino = false;
     private bool esperandoColocarPueblo = false;
-    //private DatosJugador jugador;
-
-    // variables que guardan la cantidad de cada recurso
-    /*private int maderaCount;
-    private int ladrilloCount;
-    private int ovejaCount;
-    private int piedraCount;
-    private int trigoCount;*/
-
     // referencia al botón de comprar camino
     public Button comprarCaminoButton;
     public Button comprarBaseButton;
@@ -30,7 +15,7 @@ public class ComprarPieza : MonoBehaviour
 
     //public DiceCheckZoneScript diceCheckZoneScript;
     //public DiceNumberTextScript diceNumberTextScript;
-    public ColocarPieza colocarPieza;
+    //public ColocarPieza colocarPieza;
     public LayerMask myLayerMask;
     //public IdentificadorParcela identificadorParcelaScript;
     //public DiceNumberTextScript diceNumberTextScript;
@@ -39,26 +24,11 @@ public class ComprarPieza : MonoBehaviour
     void Start()
     {
         /*
-        // Desactivar los contadores de recursos al inicio
-        maderaCountText.gameObject.SetActive(false);
-        ladrilloCountText.gameObject.SetActive(false);
-        ovejaCountText.gameObject.SetActive(false);
-        piedraCountText.gameObject.SetActive(false);
-        trigoCountText.gameObject.SetActive(false);
         //Desactivar los botones de comprar piezas al inicio MAS ADELANTE poner que se activen recien cuando el jugador tenga el minimo de recursos para poder comprar
         //comprarBaseButton.gameObject.SetActive(false); 
         //comprarCaminoButton.gameObject.SetActive(false);
-
-        // inicializar contadores de recursos
-        maderaCount = 10;
-        ladrilloCount = 10;
-        ovejaCount = 10;
-        piedraCount = 10;
-        trigoCount = 10;
-
         // actualizar texto en la interfaz de usuario
         UpdateResourceCount();
-
         // inicializar estado del botón de comprar camino
         UpdateComprarCaminoButton();
         // inicializar estado del botón de comprar base
@@ -71,7 +41,7 @@ public class ComprarPieza : MonoBehaviour
     {
         if (esperandoColocarBase && Input.touchCount > 0)
         {
-            colocarPieza.AllowPlace();
+            ColocarPieza.Instance.AllowPlace();
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
 
@@ -83,30 +53,25 @@ public class ComprarPieza : MonoBehaviour
                     //Debug.Log("Tag: " + hit.collider.gameObject.tag);
                     if (hit.collider.gameObject.CompareTag("Esquina"))
                     {
-                        colocarPieza.EjecutarColocarBase(hit);
+                        ColocarPieza.Instance.EjecutarColocarBase(hit);
                         esperandoColocarBase = false;
-
                     }
                     Debug.Log("Despues EjecutarColocarBase");
-
-                    ARCursor arCursor = FindObjectOfType<ARCursor>();
+                    /*ARCursor arCursor = FindObjectOfType<ARCursor>();
                     if (arCursor != null)
                     {
                         arCursor.ActivatePlacementMode();
-                    }
-
+                    }*/
                 }
-
             }
             else
                 Debug.Log("No era esquina, es: " + hit.collider.gameObject.name);
         }
         else if (esperandoColocarCamino && Input.touchCount > 0)
         {
-            colocarPieza.AllowPlace();
+            ColocarPieza.Instance.AllowPlace();
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
             {
                 //if (hit.collider.gameObject.CompareTag("Arista"))
@@ -114,25 +79,21 @@ public class ComprarPieza : MonoBehaviour
                     Debug.Log("Antes EjecutarColocarCamino");
                     if (hit.collider.gameObject.CompareTag("Arista"))
                     {
-                        colocarPieza.EjecutarColocarCamino(hit);
+                        ColocarPieza.Instance.EjecutarColocarCamino(hit);
                         esperandoColocarCamino = false;
-
                     }
                     Debug.Log("Despues EjecutarColocarCamino");
-
-
-                    ARCursor arCursor = FindObjectOfType<ARCursor>();
+                    /*ARCursor arCursor = FindObjectOfType<ARCursor>();
                     if (arCursor != null)
                     {
                         arCursor.ActivatePlacementMode();
-                    }
+                    }*/
                 }
-
             }
         }
         else if (esperandoColocarPueblo && Input.touchCount > 0)
         {
-            colocarPieza.AllowPlace();
+            ColocarPieza.Instance.AllowPlace();
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
 
@@ -143,22 +104,16 @@ public class ComprarPieza : MonoBehaviour
                     Debug.Log("Antes EjecutarColocarPueblo");
                     if (hit.collider.gameObject.CompareTag("Esquina"))
                     {
-                        colocarPieza.EjecutarColocarPueblo(hit);
+                        ColocarPieza.Instance.EjecutarColocarPueblo(hit);
                         esperandoColocarPueblo = false;
                     }
-
-
                     Debug.Log("Despues EjecutarColocarPueblo");
-
-
-                    ARCursor arCursor = FindObjectOfType<ARCursor>();
+                    /*ARCursor arCursor = FindObjectOfType<ARCursor>();
                     if (arCursor != null)
                     {
                         arCursor.ActivatePlacementMode();
-                    }
-
+                    }*/
                 }
-
             }
         }
     }
@@ -169,29 +124,17 @@ public class ComprarPieza : MonoBehaviour
         Debug.Log("Entre a ComprarCamino");
         int id = PlayerPrefs.GetInt("jugadorId");
         //PlayerNetwork.Instance.ImprimirPlayerIDs();
-        //Debug.Log("ID CB: " + id);
+        Debug.Log("ID CB: " + id);
         DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
-        //Debug.Log("El JUGADOR CB es: ");
+        Debug.Log("El JUGADOR CB es: ");
         PlayerNetwork.Instance.ImprimirJugador(jugador);
 
         if (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1 )
         {
             BoardManager.Instance.UpdateResourcesCamino(jugador);
             esperandoColocarCamino = true;
-            //Debug.Log("Jugador " + jugador.jugadorId + " ahora tiene " + jugador.maderaCount + " maderas ");
-            //Debug.Log("Jugador " + jugador.jugadorId + " ahora tiene " + jugador.ladrilloCount + " ladrillos ");
-
-            //BoardManager.Instance.UpdateResourceTexts(id);
-
-            //Debug.Log("Imprimir jugador post ");
-            //PlayerNetwork.Instance.ImprimirJugador(jugador);
             Debug.Log("Imprimir jugador por ID post ");
             PlayerNetwork.Instance.ImprimirJugadorPorId(id);
-
-            /*PlayerNetwork.Instance.playerData[id] = jugador;
-            Debug.Log("Imprimir jugador 2");
-            PlayerNetwork.Instance.ImprimirJugadorPorId(id);
-            */
         }
     }
 
@@ -208,30 +151,12 @@ public class ComprarPieza : MonoBehaviour
         if (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1 && jugador.trigoCount >= 1 && jugador.ovejaCount >= 1)
         {
             BoardManager.Instance.UpdateResourcesBase(jugador);
-            /*jugador.maderaCount -= 1;
-            jugador.ladrilloCount -= 1;
-            jugador.trigoCount -= 1;
-            jugador.ovejaCount -= 1;
-            */
             esperandoColocarBase = true;
-            //Debug.Log("Jugador " + jugador.jugadorId + " ahora tiene " + jugador.maderaCount + " maderas ");
-            //Debug.Log("Jugador " + jugador.jugadorId + " ahora tiene " + jugador.ladrilloCount + " ladrillos ");
-            //Debug.Log("Jugador " + jugador.jugadorId + " ahora tiene " + jugador.trigoCount + " trigos ");
-            //Debug.Log("Jugador " + jugador.jugadorId + " ahora tiene " + jugador.ovejaCount + " ovejas ");
-
-            //Debug.Log("Imprimir jugador post ");
-            //PlayerNetwork.Instance.ImprimirJugador(jugador);
             Debug.Log("Imprimir jugador por ID post ");
             PlayerNetwork.Instance.ImprimirJugadorPorId(id);
-            
-            /*PlayerNetwork.Instance.playerData[id] = jugador;
-            Debug.Log("Imprimir jugador 2");
-            PlayerNetwork.Instance.ImprimirJugadorPorId(id);
-            */
         }
     }
 
- 
     public void ComprarPueblo()
     {
         Debug.Log("Entre a ComprarPueblo");
