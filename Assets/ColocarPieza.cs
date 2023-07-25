@@ -30,7 +30,6 @@ public class ColocarPieza : MonoBehaviour
     public Button confirmBaseButton; // Asegúrate de asignar este botón en el inspector de Unity
     public Button confirmCaminoButton;
     public Button confirmPuebloButton;
-    public static ColocarPieza Instance;
 
     public TipoObjeto tipoActual;
 
@@ -66,21 +65,25 @@ public class ColocarPieza : MonoBehaviour
             tipoActual = TipoObjeto.Pueblo;
             canPlace = true;
         });
+
+        /*confirmBaseButton.onClick.AddListener(() => {
+            //canPlace = true;
+            ConfirmarBase();
+            //canPlace = false;
+        });*/
+        /*confirmCaminoButton.onClick.AddListener(() => {
+            //canPlace = true;
+            ConfirmarCamino();
+            //canPlace = false;
+        });
+        confirmPuebloButton.onClick.AddListener(() => {
+            //canPlace = true;
+            ConfirmarPueblo();
+            //canPlace = false;
+        });*/
         confirmBaseButton.gameObject.SetActive(false);
         confirmCaminoButton.gameObject.SetActive(false);
         confirmPuebloButton.gameObject.SetActive(false);
-    }
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); // Esto garantiza que el objeto no se destruirá al cargar una nueva escena
-        }
-        else
-        {
-            Destroy(gameObject); // Si ya hay una instancia, destruye esta
-        }
     }
 
     void Update()
@@ -219,11 +222,11 @@ public class ColocarPieza : MonoBehaviour
             Debug.Log("Despues EjecutarColocarCamino");
             confirmCaminoButton.gameObject.SetActive(true);
         }
-        /*ARCursor arCursor = FindObjectOfType<ARCursor>();
+        ARCursor arCursor = FindObjectOfType<ARCursor>();
         if (arCursor != null)
         {
             arCursor.ActivatePlacementMode();
-        }*/
+        }
     }
     public void ColocarBase()
     {
@@ -240,11 +243,11 @@ public class ColocarPieza : MonoBehaviour
             Debug.Log("Despues EjecutarColocarBase");
             confirmBaseButton.gameObject.SetActive(true); // Habilita el botón de confirmación
         }
-       /* ARCursor arCursor = FindObjectOfType<ARCursor>();
+        ARCursor arCursor = FindObjectOfType<ARCursor>();
         if (arCursor != null)
         {
             arCursor.ActivatePlacementMode();
-        }*/
+        }
     }
     public void ColocarPueblo()
     {
@@ -258,11 +261,11 @@ public class ColocarPieza : MonoBehaviour
             Debug.Log("Despues EjecutarColocarPueblo");
             confirmPuebloButton.gameObject.SetActive(true); // Habilita el botón de confirmación
         }
-        /*ARCursor arCursor = FindObjectOfType<ARCursor>();
+        ARCursor arCursor = FindObjectOfType<ARCursor>();
         if (arCursor != null)
         {
             arCursor.ActivatePlacementMode();
-        }*/
+        }
     }
     public void ConfirmarBase()
     {
