@@ -77,18 +77,29 @@ public class ComprarPieza : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
             {
-                Debug.Log("Antes EjecutarColocarBase");
-                colocarPieza.EjecutarColocarBase(hit);
-                Debug.Log("Despues EjecutarColocarBase");
-
-                esperandoColocarBase = false;
-
-                ARCursor arCursor = FindObjectOfType<ARCursor>();
-                if (arCursor != null)
+                //if (hit.collider.gameObject.CompareTag("Esquina"))
                 {
-                    arCursor.ActivatePlacementMode();
+                    Debug.Log("Antes EjecutarColocarBase");
+                    //Debug.Log("Tag: " + hit.collider.gameObject.tag);
+                    if (hit.collider.gameObject.CompareTag("Esquina"))
+                    {
+                        colocarPieza.EjecutarColocarBase(hit);
+                        esperandoColocarBase = false;
+
+                    }
+                    Debug.Log("Despues EjecutarColocarBase");
+
+                    ARCursor arCursor = FindObjectOfType<ARCursor>();
+                    if (arCursor != null)
+                    {
+                        arCursor.ActivatePlacementMode();
+                    }
+
                 }
+
             }
+            else
+                Debug.Log("No era esquina, es: " + hit.collider.gameObject.name);
         }
         else if (esperandoColocarCamino && Input.touchCount > 0)
         {
@@ -98,17 +109,25 @@ public class ComprarPieza : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
             {
-                Debug.Log("Antes EjecutarColocarCamino");
-                colocarPieza.EjecutarColocarCamino(hit);
-                Debug.Log("Despues EjecutarColocarCamino");
-
-                esperandoColocarCamino = false;
-
-                ARCursor arCursor = FindObjectOfType<ARCursor>();
-                if (arCursor != null)
+                //if (hit.collider.gameObject.CompareTag("Arista"))
                 {
-                    arCursor.ActivatePlacementMode();
+                    Debug.Log("Antes EjecutarColocarCamino");
+                    if (hit.collider.gameObject.CompareTag("Arista"))
+                    {
+                        colocarPieza.EjecutarColocarCamino(hit);
+                        esperandoColocarCamino = false;
+
+                    }
+                    Debug.Log("Despues EjecutarColocarCamino");
+
+
+                    ARCursor arCursor = FindObjectOfType<ARCursor>();
+                    if (arCursor != null)
+                    {
+                        arCursor.ActivatePlacementMode();
+                    }
                 }
+
             }
         }
         else if (esperandoColocarPueblo && Input.touchCount > 0)
@@ -119,17 +138,27 @@ public class ComprarPieza : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
             {
-                Debug.Log("Antes EjecutarColocarPueblo");
-                colocarPieza.EjecutarColocarPueblo(hit);
-                Debug.Log("Despues EjecutarColocarPueblo");
-
-                esperandoColocarPueblo = false;
-
-                ARCursor arCursor = FindObjectOfType<ARCursor>();
-                if (arCursor != null)
+                //if (hit.collider.gameObject.CompareTag("Esquina"))
                 {
-                    arCursor.ActivatePlacementMode();
+                    Debug.Log("Antes EjecutarColocarPueblo");
+                    if (hit.collider.gameObject.CompareTag("Esquina"))
+                    {
+                        colocarPieza.EjecutarColocarPueblo(hit);
+                        esperandoColocarPueblo = false;
+                    }
+
+
+                    Debug.Log("Despues EjecutarColocarPueblo");
+
+
+                    ARCursor arCursor = FindObjectOfType<ARCursor>();
+                    if (arCursor != null)
+                    {
+                        arCursor.ActivatePlacementMode();
+                    }
+
                 }
+
             }
         }
     }
