@@ -90,34 +90,34 @@ public class ColocarPieza : MonoBehaviour
     {
         if (canPlace && Input.touchCount == 1 && !_isTouching && Input.GetTouch(0).phase == TouchPhase.Began)
         {
+            Debug.Log("IF del Update");
             _isTouching = true;
             PointerEventData eventData = new PointerEventData(EventSystem.current);
             eventData.position = Input.GetTouch(0).position;
             List<RaycastResult> results = new List<RaycastResult>();
             EventSystem.current.RaycastAll(eventData, results);
-
             if (results.Count > 0)  // Si hay algún resultado, el toque está sobre un elemento de la interfaz de usuario
             {
                 return;
             }
-            
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
             {
                 if (hit.collider.gameObject.CompareTag("Arista") && tipoActual == TipoObjeto.Camino)
                 {
+                    //Debug.Log("Detecto toque en arista");
                     ColocarCamino();
                 }
                 else if (hit.collider.gameObject.CompareTag("Esquina") && tipoActual == TipoObjeto.Base)
                 {
+                    //Debug.Log("Detecto toque en Esquina BASE");
                     ColocarBase();
-                    //EjecutarColocarBase(hit);
-                    //canPlace = false; // Desactivar la capacidad de colocar después de que se ha colocado la base
                 }
                 // Nuevo if para manejar el caso de TipoObjeto.Pueblo
                 else if (hit.collider.gameObject.CompareTag("Esquina") && tipoActual == TipoObjeto.Pueblo)
                 {
+                    //Debug.Log("Detecto toque en Esquina Pueblo");
                     ColocarPueblo();
                 }
             }
@@ -131,29 +131,16 @@ public class ColocarPieza : MonoBehaviour
     {
         canPlace = true;
     }
-    public int DarTipo()
-    {
-        Debug.Log("Entre a dartipo");
-        int tipo = 0; // Valor por defecto
-        Debug.Log("tipo actual tiene:" + tipoActual);
-        if (tipoActual == TipoObjeto.Camino)
-            tipo = 1;
-        else if (tipoActual == TipoObjeto.Base)
-            tipo = 2;
-        else if (tipoActual == TipoObjeto.Pueblo)
-            tipo = 3;
-        return tipo;
-    }
 
     public void EjecutarColocarCamino(RaycastHit hit)
     {
-        Debug.Log("Entro Colocar Camino 2");
-        // El objeto golpeado es una esquina.
-        //currentCamino = Instantiate(prefabCamino, hit.collider.gameObject.transform.position, Quaternion.identity);
+        //Debug.Log("Entro Colocar Camino 2");
         currentCamino = Instantiate(prefabCamino, hit.collider.gameObject.transform.position, hit.collider.gameObject.transform.rotation); //con rotacion
+        //Debug.Log("Luego de instatiate");
         currentCamino.GetComponent<NetworkObject>().Spawn();
+        //Debug.Log("Luego del Spawn");
         comprobarObjeto = hit.collider.gameObject.GetComponent<ComprobarObjeto>();
-
+        //Debug.Log("Luego del comprobarObjeto");
         if (comprobarObjeto != null)
         {
             // Almacenar el tipo de objeto que acabamos de colocar
@@ -172,16 +159,12 @@ public class ColocarPieza : MonoBehaviour
     public void EjecutarColocarBase(RaycastHit hit)
     {
         Debug.Log("EntroColocar 2");
-
         // El objeto golpeado es una esquina.
         currentBase = Instantiate(prefabBase, hit.collider.gameObject.transform.position, Quaternion.identity);
         //Debug.Log("Luego de instatiate");
         currentBase.GetComponent<NetworkObject>().Spawn();
-
         // Obtener el componente ComprobarObjeto del objeto golpeado
         comprobarObjeto = hit.collider.gameObject.GetComponent<ComprobarObjeto>();
-        //Debug.Log("el collider es : " + hit.collider.gameObject.name);
-        //Debug.Log("comprobarobjeto al poner la base: " + comprobarObjeto);
         // Asegurarse de que el componente existe
         if (comprobarObjeto != null)
         {
@@ -197,19 +180,18 @@ public class ColocarPieza : MonoBehaviour
         {
             Debug.LogError("El objeto " + hit.collider.gameObject.name + " no tiene un script ComprobarObjeto.");
         }
-        //Debug.Log("Antes de la asignación");
-        //tipoActual = TipoObjeto.Base;
-        //Debug.Log("Después de la asignación");
         Debug.Log("el tipo de la base colocada es " + tipoActual);
         tipoActual = TipoObjeto.Ninguno;
     }
     public void EjecutarColocarPueblo(RaycastHit hit)
     {
-        //Debug.Log("EntroColocar 2");
+        //Debug.Log("EntroColocarPueblo 2");
         // El objeto golpeado es una esquina.
         currentPueblo = Instantiate(prefabPueblo, hit.collider.gameObject.transform.position, Quaternion.identity);
+        //Debug.Log("Luego del Instantiate");
         //currentPueblo = Instantiate(prefabPueblo, hit.collider.gameObject.transform.position, hit.collider.gameObject.transform.rotation); //con rotacion
         currentPueblo.GetComponent<NetworkObject>().Spawn();
+        //Debug.Log("Luego del Spawn");
         comprobarObjeto = hit.collider.gameObject.GetComponent<ComprobarObjeto>();
 
         if (comprobarObjeto != null)
@@ -226,28 +208,6 @@ public class ColocarPieza : MonoBehaviour
         tipoActual = TipoObjeto.Ninguno;
         //Debug.Log("Termino EjecutarColocarBase");
     }
-    /*public void ColocarPueblo(RaycastHit hit)
-    {
-        //Debug.Log("EntroColocar 2");
-        // El objeto golpeado es una esquina.
-        currentPueblo = Instantiate(prefabPueblo, hit.collider.gameObject.transform.position, Quaternion.identity);
-        currentPueblo.GetComponent<NetworkObject>().Spawn();
-        comprobarObjeto = hit.collider.gameObject.GetComponent<ComprobarObjeto>();
-
-        if (comprobarObjeto != null)
-        {
-            // Almacenar el tipo de objeto que acabamos de colocar
-            comprobarObjeto.tipoObjeto = TipoObjeto.Pueblo; // Puedes cambiar esto al tipo de objeto que corresponda
-            Debug.Log("puse el tipo del pueblo a: " + comprobarObjeto.tipoObjeto);
-        }
-        else
-        {
-            Debug.LogError("El objeto " + hit.collider.gameObject.name + " no tiene un script ComprobarObjeto.");
-        }
-        Debug.Log("el tipo de la base colocada es " + tipoActual);
-        tipoActual = TipoObjeto.Ninguno;
-        //Debug.Log("Termino EjecutarColocarBase");
-    }*/
     public void ColocarCamino()
     {
         Debug.Log("Entro Colocar Camino 1");
@@ -257,7 +217,9 @@ public class ColocarPieza : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
         {
+            Debug.Log("Antes EjecutarColocarCamino");
             EjecutarColocarCamino(hit);
+            Debug.Log("Despues EjecutarColocarCamino");
             confirmCaminoButton.gameObject.SetActive(true);
         }
         ARCursor arCursor = FindObjectOfType<ARCursor>();
@@ -266,7 +228,6 @@ public class ColocarPieza : MonoBehaviour
             arCursor.ActivatePlacementMode();
         }
     }
-
     public void ColocarBase()
     {
         Debug.Log("EntroColocar 1");
@@ -277,9 +238,9 @@ public class ColocarPieza : MonoBehaviour
         //Debug.Log("Lanzando raycast");
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
         {
-            //Debug.Log("Antes EjecutarColocarBase");
+            Debug.Log("Antes EjecutarColocarBase");
             EjecutarColocarBase(hit);
-            //Debug.Log("Despues EjecutarColocarBase");
+            Debug.Log("Despues EjecutarColocarBase");
             confirmBaseButton.gameObject.SetActive(true); // Habilita el botón de confirmación
         }
         ARCursor arCursor = FindObjectOfType<ARCursor>();
@@ -288,7 +249,6 @@ public class ColocarPieza : MonoBehaviour
             arCursor.ActivatePlacementMode();
         }
     }
-    
     public void ColocarPueblo()
     {
         AllowPlace();
@@ -296,9 +256,9 @@ public class ColocarPieza : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
         {
-            //Debug.Log("Antes EjecutarColocarBase");
+            Debug.Log("Antes EjecutarColocarPueblo");
             EjecutarColocarPueblo(hit);
-            //Debug.Log("Despues EjecutarColocarBase");
+            Debug.Log("Despues EjecutarColocarPueblo");
             confirmPuebloButton.gameObject.SetActive(true); // Habilita el botón de confirmación
         }
         ARCursor arCursor = FindObjectOfType<ARCursor>();
@@ -307,7 +267,6 @@ public class ColocarPieza : MonoBehaviour
             arCursor.ActivatePlacementMode();
         }
     }
-
     public void ConfirmarBase()
     {
         if (currentBase == null)
@@ -319,10 +278,8 @@ public class ColocarPieza : MonoBehaviour
         {
             // Deshabilita el botón de confirmación
             confirmBaseButton.gameObject.SetActive(false);
-
             // Desactiva la capacidad de mover la base
             canPlace = false;
-
             // Borra la referencia a la base actual
             currentBase = null;
         }
@@ -350,15 +307,22 @@ public class ColocarPieza : MonoBehaviour
             Debug.Log("El camino no puede ser confirmado");
         }
     }
-
     public void ConfirmarPueblo()
     {
+        if (currentPueblo == null)
+        {
+            Debug.Log("currentBase es null");
+        }
         if (currentPueblo != null && canPlace)
         {
             // Deshabilita el botón de confirmación
             confirmPuebloButton.gameObject.SetActive(false);
             canPlace = false;
             currentPueblo = null;
+        }
+        else
+        {
+            Debug.Log("El camino no puede ser confirmado");
         }
     }
    
