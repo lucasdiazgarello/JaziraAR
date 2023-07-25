@@ -120,9 +120,9 @@ using UnityEngine.UIElements;
 
 public class DiceScript : MonoBehaviour
 {
-    Rigidbody rb;
-    Rigidbody rb1;
-    Rigidbody rb2;
+    //Rigidbody rb;
+    //Rigidbody rb1;
+    //Rigidbody rb2;
     public Vector3 diceVelocity;
     private Vector3 posicion1;
     private Vector3 posicion2;

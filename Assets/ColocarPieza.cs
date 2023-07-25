@@ -30,16 +30,7 @@ public class ColocarPieza : MonoBehaviour
     public Button confirmBaseButton; // Asegúrate de asignar este botón en el inspector de Unity
     public Button confirmCaminoButton;
     public Button confirmPuebloButton;
-    // Agrega esta propiedad para almacenar el identificador de la parcela
-    //public string identificadorParcela;
 
-    // Referencia al script ComprarPieza
-    //public ComprarPieza comprarPieza;
-    //public IdentificadorParcela identificadorParcela;
-
-    // Variable booleana para indicar si tiene una base colocada
-    //public bool tieneBase;
-    //public bool tienePueblo;
     public TipoObjeto tipoActual;
 
     void Start()
@@ -156,7 +147,7 @@ public class ColocarPieza : MonoBehaviour
 
     public void EjecutarColocarCamino(RaycastHit hit)
     {
-        Debug.Log("EjecutarColocarCamino");
+        Debug.Log("Entro Colocar Camino 2");
         // El objeto golpeado es una esquina.
         //currentCamino = Instantiate(prefabCamino, hit.collider.gameObject.transform.position, Quaternion.identity);
         currentCamino = Instantiate(prefabCamino, hit.collider.gameObject.transform.position, hit.collider.gameObject.transform.rotation); //con rotacion
@@ -259,6 +250,7 @@ public class ColocarPieza : MonoBehaviour
     }*/
     public void ColocarCamino()
     {
+        Debug.Log("Entro Colocar Camino 1");
         AllowPlace();
         //Debug.Log("EntroColocar 1");
         RaycastHit hit;

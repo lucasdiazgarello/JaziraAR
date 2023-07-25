@@ -270,8 +270,8 @@ public class BoardManager : MonoBehaviour
         // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
         DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
         // Aquí es donde actualizarías los recursos del jugador en tu juego.
-        jugadorcopia.trigoCount -= 3;
-        jugadorcopia.piedraCount -= 2;
+        jugadorcopia.trigoCount -= 2;
+        jugadorcopia.piedraCount -= 3;
 
         PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
         //PlayerNetwork.Instance.playerData[jugador.jugadorId] = jugador;

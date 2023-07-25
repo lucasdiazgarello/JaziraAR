@@ -5,7 +5,9 @@ using TMPro; // Asegúrate de tener esta línea para utilizar TextMeshPro
 
 public class DiceNumberTextScript : MonoBehaviour
 {
-    public static DiceNumberTextScript Instance { get; private set; }
+    public static DiceNumberTextScript Instance; 
+    //public static DiceNumberTextScript Instance { get; private set; }
+
     TextMeshProUGUI text;
     //public static int diceNumber;
     // Agregar referencias a ambos scripts de los dados
@@ -23,7 +25,7 @@ public class DiceNumberTextScript : MonoBehaviour
 
     public int TotalDiceNumber { get; private set; }
 
-    public int randomDiceNumber;
+    //public int randomDiceNumber;
 
     // Use this for initialization
     void Start()
@@ -60,17 +62,17 @@ public class DiceNumberTextScript : MonoBehaviour
                 //Debug.Log("La suma:  " + totalDiceNumber);
                 previousTotalDiceNumber = totalDiceNumber;
             }
-            //text.text = totalDiceNumber.ToString();
-            Debug.Log("La suma:  " + totalDiceNumber);
+            text.text = totalDiceNumber.ToString();
+            //Debug.Log("La suma:  " + totalDiceNumber);
 
         }
     }
-    public void DarResultadoRandom()
+    /*public void DarResultadoRandom()
     {
         Debug.Log("Entre a dar resultado random");
         randomDiceNumber = Random.Range(2, 13); // Genera un número aleatorio del 1 al 12
         text.text = randomDiceNumber.ToString();
         Debug.Log("Resultado random es " + randomDiceNumber.ToString());
-    }
+    }*/
 }
 
