@@ -187,7 +187,7 @@ public class ARCursor : NetworkBehaviour
         if (currentDado2 == null)
         {
             // Crear un segundo dado al costado del primero
-            currentDado2 = Instantiate(dadoToPlace, tableromInstance.transform.position + Vector3.up * dadoDistance + Vector3.right * dadoDistance, Quaternion.identity);
+            currentDado2 = Instantiate(dadoToPlace, tableromInstance.transform.position + Vector3.up * dadoDistance + Vector3.right * dadoDistance/2, Quaternion.identity);
             currentDado2.GetComponent<NetworkObject>().Spawn();
             DiceNumberTextScript.dice2 = currentDado2;
             //Destroy(currentDado2, 5f);

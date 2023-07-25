@@ -3276,6 +3276,7 @@ MonoBehaviour:
   comprarCaminoButton: {fileID: 179042881}
   comprarBaseButton: {fileID: 682262275}
   comprarPuebloButton: {fileID: 854905464}
+  colocarPieza: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -3338,7 +3339,7 @@ MonoBehaviour:
   - {fileID: 1600812346}
   dadoToPlace: {fileID: 8620374991974496819, guid: 4047eff88060f8d4abba368e8719e957,
     type: 3}
-  dadoDistance: 0.5
+  dadoDistance: 0.3
   tirarDadoButton: {fileID: 180662478}
   dicesThrown: 0
 --- !u!4 &782628377
