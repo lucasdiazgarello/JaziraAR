@@ -6,7 +6,7 @@ public class DiceCheckZoneScript : MonoBehaviour
 {
     private DiceScript[] diceScripts;  // Almacena las referencias a ambos scripts de los dados
     // Almacena una referencia al script ARCursor para acceder a dicesThrown
-    private ARCursor arCursor;
+    //private ARCursor arCursor;
     Vector3 diceVelocity;
     //private Dictionary<GameObject, bool> hasRegistered = new Dictionary<GameObject, bool>();
     private List<GameObject> registeredObjects = new List<GameObject>(); // Lista de objetos registrados
@@ -14,13 +14,13 @@ public class DiceCheckZoneScript : MonoBehaviour
     void Start()
     {
         // Obtén la referencia a ARCursor
-        arCursor = GameObject.FindObjectOfType<ARCursor>();
+        //ARCursor.Instance = GameObject.FindObjectOfType<ARCursor>();
     }
 
     void Update()
     {
         // Solo busca las instancias de DiceScript si los dados han sido lanzados
-        if (arCursor.dicesThrown)
+        if (ARCursor.Instance.dicesThrown)
         {
             diceScripts = GameObject.FindObjectsOfType<DiceScript>();
             // Verifica si encontró las instancias de DiceScript

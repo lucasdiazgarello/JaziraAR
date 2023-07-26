@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -511,7 +511,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 782628377}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &107399426
 GameObject:
@@ -2011,11 +2011,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 1568686911}
   confirmCaminoButton: {fileID: 1115698939}
   confirmPuebloButton: {fileID: 1050630408}
-  comprarPieza: {fileID: 779833894}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!1 &579668301
 GameObject:
   m_ObjectHideFlags: 0
@@ -3277,11 +3273,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7dd5a0b041bcd1478018439bdff7d6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maderaCountText: {fileID: 224838995}
-  ladrilloCountText: {fileID: 806327759}
-  ovejaCountText: {fileID: 974871198}
-  piedraCountText: {fileID: 619308359}
-  trigoCountText: {fileID: 1346219318}
   comprarCaminoButton: {fileID: 179042881}
   comprarBaseButton: {fileID: 682262275}
   comprarPuebloButton: {fileID: 854905464}
@@ -3348,7 +3339,7 @@ MonoBehaviour:
   - {fileID: 1600812346}
   dadoToPlace: {fileID: 8620374991974496819, guid: 4047eff88060f8d4abba368e8719e957,
     type: 3}
-  dadoDistance: 0.5
+  dadoDistance: 0.3
   tirarDadoButton: {fileID: 180662478}
   dicesThrown: 0
 --- !u!4 &782628377
@@ -3366,7 +3357,6 @@ Transform:
   - {fileID: 223974228}
   - {fileID: 572302047}
   - {fileID: 779833895}
-  - {fileID: 1189762168}
   - {fileID: 85050637}
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -4848,62 +4838,6 @@ RectTransform:
   m_AnchoredPosition: {x: -189, y: -443}
   m_SizeDelta: {x: 123.683, y: 106.0132}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1189762167
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1189762168}
-  - component: {fileID: 1189762169}
-  m_Layer: 0
-  m_Name: ControladorDiceNumberScript
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1189762168
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1189762167}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 782628377}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1189762169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1189762167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7dd5a0b041bcd1478018439bdff7d6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maderaCountText: {fileID: 0}
-  ladrilloCountText: {fileID: 0}
-  ovejaCountText: {fileID: 0}
-  piedraCountText: {fileID: 0}
-  trigoCountText: {fileID: 0}
-  comprarCaminoButton: {fileID: 179042881}
-  comprarBaseButton: {fileID: 682262275}
-  comprarPuebloButton: {fileID: 854905464}
-  colocarPieza: {fileID: 0}
-  myLayerMask:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1346219317
 GameObject:
   m_ObjectHideFlags: 0
@@ -5220,8 +5154,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 243.77936, y: -33}
-  m_SizeDelta: {x: 149.7687, y: 104.26}
+  m_AnchoredPosition: {x: 3, y: 536.3157}
+  m_SizeDelta: {x: 100.3978, y: 47.6287}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1434654861
 MonoBehaviour:
@@ -5258,7 +5192,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Resultado dado
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5267,8 +5201,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5285,13 +5219,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -5321,7 +5255,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0.96032715, z: -21.154419, w: -0.6203003}
+  m_margin: {x: 0, y: 0.96032715, z: 0.6268921, w: -10.108459}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

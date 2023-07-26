@@ -44,12 +44,13 @@ public class BoardManager : MonoBehaviour
         // Actualiza los textos de recursos para el jugador al inicio.
         //UpdateResourceTexts(jugadorId);
     }
+
     public void ManejoParcelas(int diceNumber)
     {
         Debug.Log("Entre a manejo parcelas");
         // Obtener las parcelas correspondientes al número del dado.
         string parcelName = "Parcela " + diceNumber.ToString();
-
+        Debug.Log("parcelaName: " + parcelName);
         switch (parcelName)
         {
             case "Parcela 2":
@@ -106,8 +107,7 @@ public class BoardManager : MonoBehaviour
         }
         parcela = GameObject.Find("Parcela 5 Piedra");
         recurso = "Piedra";
-
-        //Debug.Log("parcela 5: " + parcela);
+        Debug.Log("parcela 5: " + parcela);
         identificadorParcela = parcela.GetComponent<IdentificadorParcela>();
         //Debug.Log("identificadorParcela: " + identificadorParcela);
         List<Collider> collidersParcela = identificadorParcela.GetCollidersParcela(parcela.name);
@@ -117,7 +117,7 @@ public class BoardManager : MonoBehaviour
         {
             //Debug.Log("First item in collidersParcela: " + collidersParcela[0]); // Ver el primer elemento
             comprobarObjeto = collidersParcela[0].gameObject.GetComponent<ComprobarObjeto>();
-            Debug.Log("comprobarObjeto de la [0] es " + comprobarObjeto);
+            //Debug.Log("comprobarObjeto de la [0] es " + comprobarObjeto);
         }
         foreach (var empty in collidersParcela)
         {
@@ -129,7 +129,7 @@ public class BoardManager : MonoBehaviour
             {
                 Debug.LogError("No se pudo obtener el componente ComprobarObjeto de " + empty.gameObject.name);
             }
-            Debug.Log("comprobarObjeto es " + comprobarObjeto);
+            //Debug.Log("comprobarObjeto es " + comprobarObjeto);
             // Si el script existe, invocar la función DarTipo().
             if (comprobarObjeto != null)
             {

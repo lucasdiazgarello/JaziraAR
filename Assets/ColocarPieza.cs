@@ -8,6 +8,7 @@ using UnityEngine.UI; // Para manejar los botones
 
 public class ColocarPieza : MonoBehaviour
 {
+    //public static ColocarPieza Instance { get; private set; }
     public GameObject prefabCamino;
     public GameObject prefabBase; // Cambiado Casa por Base
     public GameObject prefabPueblo; // Nuevo prefab para el pueblo
@@ -20,7 +21,7 @@ public class ColocarPieza : MonoBehaviour
     public ComprobarObjeto comprobarObjeto;
     // Declaración de una máscara de capa.
     public LayerMask myLayerMask;
-    private ARCursor arCursor;
+    //private ARCursor arCursor;
     //private bool _isTouching;
 
     // Botones para las acciones de colocar camino y base
@@ -44,12 +45,12 @@ public class ColocarPieza : MonoBehaviour
 
     void Start()
     {
-        arCursor = GetComponentInParent<ARCursor>();
+        //arCursor = GetComponentInParent<ARCursor>();
         prefabBase = Resources.Load("TR Casa Azul") as GameObject;
         prefabCamino = Resources.Load("TR Camino Azul  1") as GameObject;
         prefabPueblo = Resources.Load("TR Pueblo Azul") as GameObject;
         // para la busqueda del null reference verifico que arcursor no es null
-        if (arCursor == null)
+        if (ARCursor.Instance == null)
         {
             //Debug.LogError("ARCursor is null in object " + gameObject.name);
         }
@@ -94,7 +95,18 @@ public class ColocarPieza : MonoBehaviour
         confirmCaminoButton.gameObject.SetActive(false);
         confirmPuebloButton.gameObject.SetActive(false);
     }
-
+    /*private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Esto garantiza que el objeto no se destruirá al cargar una nueva escena
+        }
+        else
+        {
+            Destroy(gameObject); // Si ya hay una instancia, destruye esta
+        }
+    }*/
     void Update()
     {
         if (canPlace && Input.touchCount == 1 && !_isTouching && Input.GetTouch(0).phase == TouchPhase.Began)
@@ -268,10 +280,10 @@ public class ColocarPieza : MonoBehaviour
             EjecutarColocarCamino(hit);
             confirmCaminoButton.gameObject.SetActive(true);
         }
-        ARCursor arCursor = FindObjectOfType<ARCursor>();
-        if (arCursor != null)
+        //ARCursor arCursor = FindObjectOfType<ARCursor>();
+        if (ARCursor.Instance != null)
         {
-            arCursor.ActivatePlacementMode();
+            ARCursor.Instance.ActivatePlacementMode();
         }
     }
 
@@ -290,10 +302,10 @@ public class ColocarPieza : MonoBehaviour
             //Debug.Log("Despues EjecutarColocarBase");
             confirmBaseButton.gameObject.SetActive(true); // Habilita el botón de confirmación
         }
-        ARCursor arCursor = FindObjectOfType<ARCursor>();
-        if (arCursor != null)
+        //ARCursor arCursor = FindObjectOfType<ARCursor>();
+        if (ARCursor.Instance != null)
         {
-            arCursor.ActivatePlacementMode();
+            ARCursor.Instance.ActivatePlacementMode();
         }
     }
     
@@ -309,10 +321,10 @@ public class ColocarPieza : MonoBehaviour
             //Debug.Log("Despues EjecutarColocarBase");
             confirmPuebloButton.gameObject.SetActive(true); // Habilita el botón de confirmación
         }
-        ARCursor arCursor = FindObjectOfType<ARCursor>();
-        if (arCursor != null)
+        //ARCursor arCursor = FindObjectOfType<ARCursor>();
+        if (ARCursor.Instance != null)
         {
-            arCursor.ActivatePlacementMode();
+            ARCursor.Instance.ActivatePlacementMode();
         }
     }
 

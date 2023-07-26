@@ -16,14 +16,16 @@ public class DiceNumberTextScript : MonoBehaviour
     public static int diceNumber2 = 0; // Para el segundo dado
     public static GameObject dice1; // Para el primer dado
     public static GameObject dice2; // Para el segundo dado
-    private int previousTotalDiceNumber = 0;
+    //private int previousTotalDiceNumber = 0;
     public static int totalDiceNumber=0;
+    //public static int totalDados = 0;
 
     //public PlayerNetwork playerNetwork;
 
     public int TotalDiceNumber { get; private set; }
 
     public int randomDiceNumber;
+    //private int contador = 0;
 
     // Use this for initialization
     void Start()
@@ -46,31 +48,59 @@ public class DiceNumberTextScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    // Update is called once per frame
     void Update()
     {
-        if (!diceScript1.IsDiceRolling && !diceScript2.IsDiceRolling)
+        bool isAnyDiceRolling = diceScript1.IsDiceRolling || diceScript2.IsDiceRolling;
+
+        if (!isAnyDiceRolling)
         {
-            
+            if (diceScript1.Dice1HasJustStopped || diceScript2.Dice2HasJustStopped)
+            {
+                totalDiceNumber = diceNumber1 + diceNumber2;
+                TotalDiceNumber = totalDiceNumber;
+                text.text = totalDiceNumber.ToString();
+
+                // Resetea HasJustStopped en ambos scripts de dados
+                diceScript1.Dice1HasJustStopped = false;
+                diceScript2.Dice2HasJustStopped = false;
+            }
+        }
+    }
+    // Update is called once per frame
+    /*void Update()
+    {
+        if (!diceScript1.IsDiceRolling && !diceScript2.IsDiceRolling)
+        {           
             totalDiceNumber = diceNumber1 + diceNumber2;
             if (totalDiceNumber != previousTotalDiceNumber)
             {
                 //Debug.Log("Dado1:  " + diceNumber1);
-               // Debug.Log("Dado2:  " + diceNumber2);
+                //Debug.Log("Dado2:  " + diceNumber2);
                 //Debug.Log("La suma:  " + totalDiceNumber);
                 previousTotalDiceNumber = totalDiceNumber;
-            }
-            //text.text = totalDiceNumber.ToString();
-            Debug.Log("La suma:  " + totalDiceNumber);
+                totalDados = totalDiceNumber;
+                Debug.Log("TotalDados;  " + totalDados);
+                //contador++;
+                //Debug.Log("Contador: " + contador);
 
-        }
-    }
-    public void DarResultadoRandom()
+            }
+            text.text = totalDiceNumber.ToString();
+            //Debug.Log("La suma:  " + totalDiceNumber);            
+            /*if(contador >= 10)
+            {
+                Debug.Log("Llego a 10");
+                TotalDiceNumber = totalDiceNumber;
+                Debug.Log("TotalDiceNumber:  " + TotalDiceNumber);
+                contador = 0;
+            }
+
+    }*/
+    /*public void DarResultadoRandom()
     {
         Debug.Log("Entre a dar resultado random");
         randomDiceNumber = Random.Range(2, 13); // Genera un número aleatorio del 1 al 12
         text.text = randomDiceNumber.ToString();
         Debug.Log("Resultado random es " + randomDiceNumber.ToString());
-    }
+    }*/
 }
 

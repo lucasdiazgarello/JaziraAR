@@ -120,16 +120,12 @@ using UnityEngine.UIElements;
 
 public class DiceScript : MonoBehaviour
 {
-    Rigidbody rb;
-    Rigidbody rb1;
-    Rigidbody rb2;
     public Vector3 diceVelocity;
     private Vector3 posicion1;
     private Vector3 posicion2;
     // Almacena una referencia al script ARCursor para acceder a dicesThrown
-    private ARCursor arCursor;
-    // Propiedad pública para verificar si el dado está rodando
-    //public bool IsDiceRolling { get; private set; }
+    //private ARCursor arCursor;
+
     // Propiedad pública para verificar si el dado está rodando
     public bool IsDice1Rolling { get; private set; }
     public bool IsDice2Rolling { get; private set; }
@@ -138,7 +134,9 @@ public class DiceScript : MonoBehaviour
 
     public Vector3 Dice1Velocity { get; private set; }
     public Vector3 Dice2Velocity { get; private set; }
-    //private Vector3 dice1Velocity;
+    // Propiedades para verificar si un dado acaba de detenerse
+    public bool Dice1HasJustStopped;
+    public bool Dice2HasJustStopped;
     //private Vector3 dice2Velocity;
 
     void Start()
@@ -151,20 +149,16 @@ public class DiceScript : MonoBehaviour
         IsDice1Rolling = IsDice2Rolling = true;
 
     }
-
     // Método público para lanzar el dado
     public void RollDice(GameObject dado, Vector3 initialPosition)
     {
         //Debug.Log("Entró a RollDice");
-
         Rigidbody rb = dado.GetComponent<Rigidbody>();
-
         if (rb == null)
         {
             Debug.Log("Rigidbody not found");
             return;
         }
-
         if (dado == DiceNumberTextScript.dice1)
         {
             DiceNumberTextScript.diceNumber1 = 0;
@@ -175,15 +169,10 @@ public class DiceScript : MonoBehaviour
             DiceNumberTextScript.diceNumber2 = 0;
             IsDice2Rolling = true; // Modificación aquí
         }
-
         Vector3 randomTorque = new Vector3(Random.Range(-50, 50), Random.Range(-50, 50), Random.Range(-50, 50));
-
         dado.transform.SetPositionAndRotation(initialPosition, Quaternion.identity);
-
         rb.AddTorque(randomTorque);
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (DiceNumberTextScript.dice1 != null)
@@ -195,10 +184,12 @@ public class DiceScript : MonoBehaviour
                 if (Dice1Velocity.magnitude == 0)
                 {
                     IsDice1Rolling = false;
+                    Dice1HasJustStopped = true;
                 }
-                else if (arCursor != null)
+                else if (ARCursor.Instance != null)
                 {
-                    arCursor.dicesThrown = false;
+                    ARCursor.Instance.dicesThrown = false;
+                    Dice1HasJustStopped = false;
                 }
             }
         }
@@ -211,10 +202,12 @@ public class DiceScript : MonoBehaviour
                 if (Dice2Velocity.magnitude == 0)
                 {
                     IsDice2Rolling = false;
+                    Dice2HasJustStopped = true;
                 }
-                else if (arCursor != null)
+                else if (ARCursor.Instance != null)
                 {
-                    arCursor.dicesThrown = false;
+                    ARCursor.Instance.dicesThrown = false;
+                    Dice2HasJustStopped = false;
                 }
             }
         }
