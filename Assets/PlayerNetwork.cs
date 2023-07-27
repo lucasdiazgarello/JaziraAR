@@ -134,10 +134,64 @@ public class PlayerNetwork : NetworkBehaviour
             Destroy(gameObject);
         }
     }
-    private void Start()
+    void Start()
     {
-
+        if (NetworkManager.Singleton)
+        {
+            NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
+            NetworkManager.Singleton.OnClientDisconnectCallback += OnClientDisconnect;
+        }
     }
+
+    public override void OnDestroy()
+    {
+        if (NetworkManager.Singleton)
+        {
+            NetworkManager.Singleton.OnClientConnectedCallback -= OnClientConnected;
+            NetworkManager.Singleton.OnClientDisconnectCallback -= OnClientDisconnect;
+        }
+    }
+
+    void OnClientConnected(ulong clientId)
+    {
+        Debug.Log($"Client {clientId} connected.");
+    }
+
+    void OnClientDisconnect(ulong clientId)
+    {
+        Debug.Log($"Client {clientId} disconnected.");
+    }
+
+    /*private void Start()
+    {
+        if (NetworkManager.Singleton != null)
+        {
+            NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
+        }
+    }
+    public override void OnDestroy()
+    {
+        if (NetworkManager.Singleton != null)
+        {
+            NetworkManager.Singleton.OnClientConnectedCallback -= OnClientConnected;
+        }
+        base.OnDestroy(); // Esto llama al método OnDestroy() en la clase base.
+        playerIDs.Dispose();
+        playerData.Dispose();
+    }
+
+    void OnClientConnected(ulong clientId)
+    {
+        // Este es el código que se ejecutará cuando un cliente se conecte.
+        // Aquí es donde podrías llamar a tu función para agregar el jugador al servidor.
+        if (clientId == NetworkManager.Singleton.LocalClientId)
+        {
+            Debug.Log("Id CLIENTE A CONECTAR: " + Unirse.Instance.clientePlayerID);
+            AddPlayerServerRpc(Unirse.Instance.clientePlayerID, Unirse.Instance.nombreTemporal.Value, Unirse.Instance.nombreTemporal.Value);
+            Debug.Log("POST AddPlayerServerRpc");
+            ImprimirTodosLosJugadores();
+        }
+    }*/
     public void AgregarJugador(int jugadorId, FixedString64Bytes nomJugador, int puntaje, bool gano, bool turno, int cantidadCasa, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, FixedString64Bytes colorJugador)
     {
         Debug.Log($"AgregarJugador: {jugadorId}, {nomJugador}, {puntaje}, {gano}, {turno}, {cantidadCasa}, {maderaCount}, {ladrilloCount}, {ovejaCount}, {piedraCount}, {trigoCount}, {colorJugador}");
@@ -417,7 +471,7 @@ public class PlayerNetwork : NetworkBehaviour
         Debug.Log("TestClientRpc ");
         //aca irian las funciones que pasa el puntaje o cantidad de recursos por ejemplo
     }
-
+/*
 #pragma warning disable CS0114 // El miembro oculta el miembro heredado. Falta una contraseña de invalidación
     private void OnDestroy()
 #pragma warning restore CS0114 // El miembro oculta el miembro heredado. Falta una contraseña de invalidación
@@ -426,7 +480,7 @@ public class PlayerNetwork : NetworkBehaviour
         playerIDs.Dispose();
         playerData.Dispose();
     }
-
+*/
     // Esta función necesita ser implementada para buscar los datos del jugador basado en su ID.
     private bool TryObtenerDatosJugadorPorId(int idJugador, out DatosJugador datosJugador)
     {
