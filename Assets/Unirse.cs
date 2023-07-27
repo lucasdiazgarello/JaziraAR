@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class Unirse : NetworkBehaviour
 {
+    public static Unirse Instance { get; private set; } // Instancia Singleton
     // Start is called before the first frame update
     public TestRelay relay;
     //private string nombreJugador;
@@ -19,13 +20,15 @@ public class Unirse : NetworkBehaviour
     public NetworkVariable<FixedString64Bytes> colorSeleccionado = new NetworkVariable<FixedString64Bytes>();
 
     // Variables temporales para almacenar el nombre y el color
-    private FixedString64Bytes nombreTemporal;
-    private FixedString64Bytes colorTemporal;
+    public FixedString64Bytes nombreTemporal;
+    public FixedString64Bytes colorTemporal;
+    public int clientePlayerID;
+
     void Start()
     {
         
     }
-    public static Unirse Instance; // Instancia Singleton
+    
 
     private void Awake()
     {
@@ -59,10 +62,12 @@ public class Unirse : NetworkBehaviour
         try
         {
             relay.JoinRelay(code);
-            int currentPlayerID = PlayerPrefs.GetInt("jugadorId");
+            clientePlayerID = PlayerPrefs.GetInt("jugadorId");
             //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
-            Debug.Log("Id Jugador Unido: " + currentPlayerID);
-            PlayerNetwork.Instance.AddPlayerServerRpc(currentPlayerID, nombreTemporal.Value, nombreTemporal.Value);
+            Debug.Log("Id Jugador a unir: " + clientePlayerID);
+            PlayerNetwork.Instance.AddPlayerServerRpc(clientePlayerID, nombreTemporal.Value, nombreTemporal.Value);
+            Debug.Log("PASO el ADDplayer " + clientePlayerID);
+            PlayerNetwork.Instance.ImprimirTodosLosJugadores();
             // Comprueba si el objeto ya ha sido generado antes de llamar a Spawn()
             /*if (!NetworkObject.IsSpawned)
             {
@@ -76,9 +81,10 @@ public class Unirse : NetworkBehaviour
         Debug.Log("despues de join relay");
     }
 
-    public override void OnNetworkSpawn() //Se activará para todos los clientes cuando se cree un objeto en la red
+    /*public override void OnNetworkSpawn() //Se activará para todos los clientes cuando se cree un objeto en la red
     {
-        if (IsOwner)
+        //if (IsOwner)
+        if (IsServer)
         {
             Debug.Log("Entre a OnNetworkSpawn");
             // Asigna los valores temporales a las NetworkVariables
@@ -86,7 +92,8 @@ public class Unirse : NetworkBehaviour
             colorSeleccionado.Value = colorTemporal;
 
             // Obtiene el ID del jugador
-            int myPlayerId = (int)NetworkManager.Singleton.LocalClientId;
+            //int myPlayerId = (int)NetworkManager.Singleton.LocalClientId;
+            int myPlayerId 
 
             // Llama a los métodos ServerRpc para actualizar los datos del jugador en el servidor
             playerNetwork.UpdatePlayerColorServerRpc(myPlayerId, colorSeleccionado.Value);
@@ -95,7 +102,7 @@ public class Unirse : NetworkBehaviour
             // Supongo que este es otro método ServerRpc que tienes para notificar al servidor de que un jugador se ha unido
             playerNetwork.NotifyServerOfJoinServerRpc();
         }
-    }
+    }*/
 
     // Update is called once per frame
     void Update()

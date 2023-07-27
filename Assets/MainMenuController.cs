@@ -15,4 +15,9 @@ public class MainMenuController : MonoBehaviour
     {
         SceneManager.LoadScene("BuscarPartidaScene");
     }
+
+    public void LoadJugarScene()
+    {
+        SceneManager.LoadScene("JugarScene");
+    }
 }

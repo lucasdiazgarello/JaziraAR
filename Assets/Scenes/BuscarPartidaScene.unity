@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708984, g: 0.37837017, b: 0.35722524, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -399,8 +399,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28907fc35424c29468a463adf6c4d473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  relay: {fileID: 0}
-  unirse: {fileID: 1502792025}
 --- !u!114 &107416604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1393,8 +1391,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28907fc35424c29468a463adf6c4d473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  relay: {fileID: 0}
-  unirse: {fileID: 1502792025}
 --- !u!114 &616121802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1494,8 +1490,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28907fc35424c29468a463adf6c4d473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  relay: {fileID: 0}
-  unirse: {fileID: 1502792025}
 --- !u!114 &663576711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2261,7 +2255,7 @@ GameObject:
   - component: {fileID: 1323394907}
   - component: {fileID: 1323394906}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Canvas BP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2767,8 +2761,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28907fc35424c29468a463adf6c4d473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  relay: {fileID: 0}
-  unirse: {fileID: 1502792025}
 --- !u!114 &1491845889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2828,6 +2820,7 @@ GameObject:
   - component: {fileID: 1502792024}
   - component: {fileID: 1502792025}
   - component: {fileID: 1502792026}
+  - component: {fileID: 1502792027}
   m_Layer: 0
   m_Name: Unirse
   m_TagString: Untagged
@@ -2865,6 +2858,7 @@ MonoBehaviour:
   relay: {fileID: 1763495471}
   nombreJugadorinput: {fileID: 104970322}
   codigo: {fileID: 1662886807}
+  playerNetwork: {fileID: 0}
   nombreJugador:
     m_InternalValue:
       utf8LengthInBytes: 0
@@ -3023,6 +3017,36 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!114 &1502792027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502792022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2868252ab5c4d1da357e8f11f1b524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 1
+  SyncScaleY: 1
+  SyncScaleZ: 1
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
+  InLocalSpace: 0
+  Interpolate: 1
+  SlerpPosition: 0
 --- !u!1 &1605260274
 GameObject:
   m_ObjectHideFlags: 0

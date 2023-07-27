@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using Unity.Collections;
 using Unity.Netcode;
+using UnityEditor;
 //using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -99,6 +100,7 @@ public class PlayerNetwork : NetworkBehaviour
         //playerData = new NetworkList<DatosJugador>();
         if (Instance == null)
         {
+            Debug.Log("Instancia de PlayerNetwork");
             Instance = this;
             DontDestroyOnLoad(gameObject); // Para mantener el objeto al cambiar de escena
             // Inicializar los jugadores aquí
@@ -288,12 +290,30 @@ public class PlayerNetwork : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        
+        if (IsServer)
+        {
+            Debug.Log("Entre a OnNetworkSpawn");
+            // Asigna los valores temporales a las NetworkVariables
+            Unirse.Instance.nombreJugador.Value = Unirse.Instance.nombreTemporal;
+            Unirse.Instance.colorSeleccionado.Value = Unirse.Instance.colorTemporal;
+
+            // Obtiene el ID del jugador
+            //int myPlayerId = (int)NetworkManager.Singleton.LocalClientId;
+            int myPlayerId = PlayerPrefs.GetInt("jugadorId");
+            //AddPlayerServerRpc(currentPlayerID, nombreTemporal.Value, nombreTemporal.Value);
+            // Llama a los métodos ServerRpc para actualizar los datos del jugador en el servidor
+            UpdatePlayerColorServerRpc(myPlayerId, Unirse.Instance.colorSeleccionado.Value);
+            UpdatePlayerNameServerRpc(myPlayerId, Unirse.Instance.nombreJugador.Value);
+
+            // Supongo que este es otro método ServerRpc que tienes para notificar al servidor de que un jugador se ha unido
+            NotifyServerOfJoinServerRpc();
+        }
     }
     private void Update()
     {
         if (!IsOwner) // si es cliente
         {
+            //Debug.Log("Soy cliente");
             /*
             var nombre = "prueba";
             var color = "magenta";
@@ -318,19 +338,26 @@ public class PlayerNetwork : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     public void AddPlayerServerRpc(int jugadorId, string nomJugador, FixedString64Bytes colorJugador, ServerRpcParams rpcParams = default)
     {
-        Debug.Log("Entre a AddPlayerServerRpc");
-        // Verificar que solo el host puede ejecutar este código
-        if (!IsServer) return;
+        try
+        {
+            Debug.Log("Entre a AddPlayerServerRpc");
+            // Verificar que solo el host puede ejecutar este código
+            if (!IsServer) return;
 
-        // Agrega al jugador a la lista de jugadores
-        DatosJugador newPlayer = new DatosJugador();
-        newPlayer.jugadorId = jugadorId;
-        newPlayer.nomJugador = new FixedString64Bytes(nomJugador);
-        newPlayer.colorJugador = colorJugador;
-        // ... y puedes agregar los demás valores predeterminados aquí
-        playerData.Add(newPlayer);
-        playerIDs.Add(newPlayer.jugadorId);
-        Debug.Log("Termino AddPlayerServerRpc");
+            // Agrega al jugador a la lista de jugadores
+            DatosJugador newPlayer = new DatosJugador();
+            newPlayer.jugadorId = jugadorId;
+            newPlayer.nomJugador = new FixedString64Bytes(nomJugador);
+            newPlayer.colorJugador = colorJugador;
+            // ... y puedes agregar los demás valores predeterminados aquí
+            playerData.Add(newPlayer);
+            playerIDs.Add(newPlayer.jugadorId);
+            Debug.Log("Termino AddPlayerServerRpc");
+        }
+        catch (Exception e)
+        {
+            Debug.Log("Error en AddPlayerServerRpc: " + e);
+        }
     }
 
     [ServerRpc]

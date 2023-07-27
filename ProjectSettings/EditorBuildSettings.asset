@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main menu.unity
     guid: 052a2a7d15855c2419cdd82ee752f982
   - enabled: 1
-    path: Assets/Scenes/NuevaPartidaScene.unity
+    path: Assets/Scenes/JugarScene.unity
     guid: 8fe46b8d6f7f1674d9628eb48b035a88
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BuscarPartidaScene.unity
     guid: bc59ca280788f8e419fb33b8a9807836
   - enabled: 1

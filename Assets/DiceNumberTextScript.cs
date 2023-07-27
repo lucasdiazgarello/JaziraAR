@@ -95,12 +95,12 @@ public class DiceNumberTextScript : MonoBehaviour
             }
 
     }*/
-    /*public void DarResultadoRandom()
+    public void DarResultadoRandom()
     {
         Debug.Log("Entre a dar resultado random");
         randomDiceNumber = Random.Range(2, 13); // Genera un número aleatorio del 1 al 12
         text.text = randomDiceNumber.ToString();
         Debug.Log("Resultado random es " + randomDiceNumber.ToString());
-    }*/
+    }
 }
 

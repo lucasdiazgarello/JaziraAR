@@ -221,9 +221,8 @@ public class ARCursor : NetworkBehaviour
         }
         // Ajustar dicesThrown a true luego de lanzar los dados
         dicesThrown = true;
-        //DiceNumberTextScript.Instance.DarResultadoRandom();
-        //BoardManager.Instance.ManejoParcelas(DiceNumberTextScript.totalDiceNumber);
-        BoardManager.Instance.ManejoParcelas(DiceNumberTextScript.totalDiceNumber);
+        DiceNumberTextScript.Instance.DarResultadoRandom();
+        BoardManager.Instance.ManejoParcelas(DiceNumberTextScript.Instance.randomDiceNumber);
         //tirarDadoButton.interactable = false;
     }
 
