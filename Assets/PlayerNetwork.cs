@@ -103,6 +103,7 @@ public class PlayerNetwork : NetworkBehaviour
             Debug.Log("Instancia de PlayerNetwork");
             Instance = this;
             DontDestroyOnLoad(gameObject); // Para mantener el objeto al cambiar de escena
+            Debug.Log("Id de esta instancia de PlayerNetwork"+ this.NetworkObjectId);
             // Inicializar los jugadores aquí
             //CrearJugadores();
             // Mover inicializaciones aquí
