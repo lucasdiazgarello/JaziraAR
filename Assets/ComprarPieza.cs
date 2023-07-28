@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static PlayerNetwork;
+//using static PlayerNetwork;
 
 public class ComprarPieza : MonoBehaviour
 {
@@ -170,7 +170,7 @@ public class ComprarPieza : MonoBehaviour
         int id = PlayerPrefs.GetInt("jugadorId");
         //PlayerNetwork.Instance.ImprimirPlayerIDs();
         //Debug.Log("ID CB: " + id);
-        DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
+        PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
         //Debug.Log("El JUGADOR CB es: ");
         PlayerNetwork.Instance.ImprimirJugador(jugador);
 
@@ -201,7 +201,7 @@ public class ComprarPieza : MonoBehaviour
         int id = PlayerPrefs.GetInt("jugadorId");
         PlayerNetwork.Instance.ImprimirPlayerIDs();
         Debug.Log("ID CB: " + id);
-        DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
+        PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
         Debug.Log("El JUGADOR CB es: ");
         PlayerNetwork.Instance.ImprimirJugador(jugador);
 
@@ -238,7 +238,7 @@ public class ComprarPieza : MonoBehaviour
         int id = PlayerPrefs.GetInt("jugadorId");
         PlayerNetwork.Instance.ImprimirPlayerIDs();
         Debug.Log("ID CB: " + id);
-        DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
+        PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
         Debug.Log("El JUGADOR CB es: ");
         PlayerNetwork.Instance.ImprimirJugador(jugador);
 

@@ -15,25 +15,10 @@ using UnityEngine.UI;
 
 public class PlayerNetwork : NetworkBehaviour
 {
-    //public List<NetworkVariable<DatosJugador>> jugadores = new List<NetworkVariable<DatosJugador>>();
-
     public bool IsInitialized { get; private set; } = false; // Añade este campo de estado
-    public Button buttonToPress;
-    public Button buttonPrint;
-    public Button buttonLoad;
-
-
 
     private Dictionary<int, Dictionary<string, int>> recursosPorJugador = new Dictionary<int, Dictionary<string, int>>();
-    //private int myInt;
 
-    /*public NetworkVariable<Dictionary<int, DatosJugador>> jugadores =
-        new NetworkVariable<Dictionary<int, DatosJugador>>(new NetworkVariableSettings
-        {
-            WritePermission = NetworkVariablePermission.Everyone,
-            ReadPermission = NetworkVariablePermission.Everyone
-        });
-    */
     // Singleton instance
     public static PlayerNetwork Instance { get; private set; }
     public object NetworkVariablePermission { get; private set; }
@@ -103,7 +88,7 @@ public class PlayerNetwork : NetworkBehaviour
             Debug.Log("Instancia de PlayerNetwork");
             Instance = this;
             DontDestroyOnLoad(gameObject); // Para mantener el objeto al cambiar de escena
-            Debug.Log("Id de esta instancia de PlayerNetwork"+ this.NetworkObjectId);
+            Debug.Log("Id de esta instancia de PlayerNetwork "+ NetworkObjectId);
             // Inicializar los jugadores aquí
             //CrearJugadores();
             // Mover inicializaciones aquí
@@ -128,6 +113,7 @@ public class PlayerNetwork : NetworkBehaviour
 
             playerIDs = new NetworkList<int>();
             playerData = new NetworkList<PlayerNetwork.DatosJugador>();
+
         }
         else
         {
@@ -142,6 +128,19 @@ public class PlayerNetwork : NetworkBehaviour
             NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
             NetworkManager.Singleton.OnClientDisconnectCallback += OnClientDisconnect;
         }
+        //playerNetworkObject = GetComponent<NetworkObject>();
+        /*if (IsServer)
+        {
+            Debug.Log("Entre al Start siendo Server");
+            int playerId = PlayerPrefs.GetInt("PlayerId");
+            FixedString64Bytes nombreHost = new FixedString64Bytes(PlayerPrefs.GetString("PlayerName"));
+            FixedString64Bytes colorHost = new FixedString64Bytes(PlayerPrefs.GetString("PlayerColor"));
+            Debug.Log("el jugador con id:" + playerId + "se llama " + nombreHost + " es el color " + colorHost);
+            AgregarJugador(playerId, nombreHost, 100, false, true, 2, 10, 10, 10, 10, 10, colorHost);
+            Debug.Log("se agrego jugador");
+            ImprimirTodosLosJugadores();
+        }*/
+
     }
 
     public override void OnDestroy()
@@ -347,7 +346,16 @@ public class PlayerNetwork : NetworkBehaviour
     {
         if (IsServer)
         {
+
             Debug.Log("Entre a OnNetworkSpawn");
+            int playerId = PlayerPrefs.GetInt("PlayerId");
+            FixedString64Bytes nombreHost = new FixedString64Bytes(PlayerPrefs.GetString("PlayerName"));
+            FixedString64Bytes colorHost = new FixedString64Bytes(PlayerPrefs.GetString("PlayerColor"));
+            Debug.Log("el jugador con id:" + playerId + "se llama " + nombreHost + " es el color " + colorHost);
+            AgregarJugador(playerId, nombreHost, 100, false, true, 2, 10, 10, 10, 10, 10, colorHost);
+            Debug.Log("se agrego jugador");
+            ImprimirTodosLosJugadores();
+            /*
             // Asigna los valores temporales a las NetworkVariables
             Unirse.Instance.nombreJugador.Value = Unirse.Instance.nombreTemporal;
             Unirse.Instance.colorSeleccionado.Value = Unirse.Instance.colorTemporal;
@@ -362,6 +370,7 @@ public class PlayerNetwork : NetworkBehaviour
 
             // Supongo que este es otro método ServerRpc que tienes para notificar al servidor de que un jugador se ha unido
             NotifyServerOfJoinServerRpc();
+            */
         }
     }
     private void Update()
@@ -377,6 +386,7 @@ public class PlayerNetwork : NetworkBehaviour
         }
         else // si es host
         {
+
             /*var nombre = "prueba";
             var color = "magenta";
             TestServerRpc(nombre, color);*/

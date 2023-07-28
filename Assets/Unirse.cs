@@ -15,7 +15,7 @@ public class Unirse : NetworkBehaviour
     public InputField nombreJugadorinput;
     public InputField codigo;
     //public string colorSeleccionado;
-    public PlayerNetwork playerNetwork;
+    //public PlayerNetwork playerNetwork;
     public NetworkVariable<FixedString64Bytes> nombreJugador = new NetworkVariable<FixedString64Bytes>();
     public NetworkVariable<FixedString64Bytes> colorSeleccionado = new NetworkVariable<FixedString64Bytes>();
 
@@ -67,7 +67,7 @@ public class Unirse : NetworkBehaviour
             Debug.Log("Id Jugador a unir: " + clientePlayerID);
             //PlayerNetwork.Instance.AddPlayerServerRpc(clientePlayerID, nombreTemporal.Value, nombreTemporal.Value);
             //Debug.Log("PASO el ADDplayer " + clientePlayerID);
-            PlayerNetwork.Instance.ImprimirTodosLosJugadores();
+            //PlayerNetwork.Instance.ImprimirTodosLosJugadores();
             // Comprueba si el objeto ya ha sido generado antes de llamar a Spawn()
             /*if (!NetworkObject.IsSpawned)
             {
