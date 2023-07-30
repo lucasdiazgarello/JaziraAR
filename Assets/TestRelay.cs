@@ -12,6 +12,7 @@ using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TestRelay : NetworkBehaviour
@@ -33,6 +34,7 @@ public class TestRelay : NetworkBehaviour
         };
 
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
+        SceneManager.sceneLoaded += OnSceneLoaded;
 
     }
     private List<string> coloresDisponibles = new List<string>() { "Rojo", "Azul", "Violeta", "Naranja" };
@@ -76,6 +78,7 @@ public class TestRelay : NetworkBehaviour
                 allocation.ConnectionData
                 );
             NetworkManager.Singleton.StartHost();
+            Debug.Log("Inicio Host");
             //Guardar el ID del jugador en PlayerPrefs cuando se selecciona el jugador
             //PlayerPrefs.SetString("jugadorId", AuthenticationService.Instance.PlayerId);
             int num = ConvertirAlfaNumericoAInt(AuthenticationService.Instance.PlayerId);
@@ -84,14 +87,15 @@ public class TestRelay : NetworkBehaviour
             Debug.Log("Inicio el host");
             Debug.Log("antes de cargar");
             Debug.Log("color antes de agregarjugador " + colorSeleccionado.Value);
-            //PlayerNetwork.Instance.ImprimirDatosJugador();
-            //PlayerNetwork.Instance.AgregarJugador(num, nombreHost, 100, false, true, 2, 10, 10, 10, 10, 10, colorSeleccionado.Value);
+            /*
+            PlayerNetwork.Instance.ImprimirDatosJugador();
+            PlayerNetwork.Instance.AgregarJugador(num, nombreHost, 100, false, true, 2, 10, 10, 10, 10, 10, colorSeleccionado.Value);
             //PlayerNetwork.Instance.AgregarJugador(1, "Juancho", 100, false, true, 2, 10, 10, 10, 10, 10,colorSeleccionado);
             //PlayerNetwork.Instance.AgregarJugador(1, "Pepe", 100, false, true, 2, 10, 10, 10, 10, 10, colorSeleccionado);
             //RemoverColor(colorSeleccionado);
-            Debug.Log("despues de cargar");
-            //PlayerNetwork.Instance.ImprimirTodosLosJugadores();
-
+            Debug.Log("Termino CreateRelay");
+            PlayerNetwork.Instance.ImprimirTodosLosJugadores();
+            */
         }
         catch (RelayServiceException e)
         {
@@ -178,6 +182,42 @@ public class TestRelay : NetworkBehaviour
         else
         {
             throw new Exception("No se pudo convertir la cadena a un número entero.");
+        }
+    }
+    IEnumerator waiter()
+    {
+        //Wait for 4 seconds
+        Debug.Log("Entre al waiter, espero 4 segundos");
+        yield return new WaitForSeconds(4);
+        Debug.Log("Volvi al waiter");
+        int num = ConvertirAlfaNumericoAInt(AuthenticationService.Instance.PlayerId);
+        PlayerPrefs.SetInt("jugadorId", num);
+
+        if (PlayerNetwork.Instance != null)
+        {
+            PlayerNetwork.Instance.AgregarJugador(num, nombreHost, 100, false, true, 2, 10, 10, 10, 10, 10, colorSeleccionado.Value);
+            Debug.Log("Agregue al host");
+            PlayerNetwork.Instance.ImprimirTodosLosJugadores();
+        }
+        else
+        {
+            Debug.Log("Instancia PlayerNetwork no encontrada");
+        }
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "SampleScene")
+        {
+            Debug.Log("Entre al cambio de escena");
+            StartCoroutine(waiter());
+            //int num = ConvertirAlfaNumericoAInt(AuthenticationService.Instance.PlayerId);
+            //PlayerPrefs.SetInt("jugadorId", num);
+            ////PlayerNetwork.Instance.AgregarJugador(num, nombreHost, 100, false, true, 2, 10, 10, 10, 10, 10, colorSeleccionado.Value);
+            //PlayerNetwork.Instance.AgregarJugadorWaiter(num, nombreHost, 100, false, true, 2, 10, 10, 10, 10, 10, colorSeleccionado.Value);
+            //Debug.Log("Agregue al host");
+            //PlayerNetwork.Instance.ImprimirTodosLosJugadoresWaiter();
+            ////PlayerNetwork.Instance.ImprimirTodosLosJugadores();
         }
     }
 }

@@ -16,7 +16,9 @@ using UnityEngine.UI;
 public class PlayerNetwork : NetworkBehaviour
 {
     public bool IsInitialized { get; private set; } = false; // Añade este campo de estado
-
+    public NetworkList<int> playerIDs;
+    private int myInt;
+    public NetworkList<PlayerNetwork.DatosJugador> playerData;
     private Dictionary<int, Dictionary<string, int>> recursosPorJugador = new Dictionary<int, Dictionary<string, int>>();
 
     // Singleton instance
@@ -68,9 +70,7 @@ public class PlayerNetwork : NetworkBehaviour
         }
     }
 
-    public NetworkList<int> playerIDs;
-    private int myInt;
-    public NetworkList<PlayerNetwork.DatosJugador> playerData;
+;
 
     /*public NetworkList<int> playerIDs = new NetworkList<int>();
     private int myInt;
@@ -86,9 +86,10 @@ public class PlayerNetwork : NetworkBehaviour
         if (Instance == null)
         {
             Debug.Log("Instancia de PlayerNetwork");
+            
             Instance = this;
             DontDestroyOnLoad(gameObject); // Para mantener el objeto al cambiar de escena
-            Debug.Log("Id de esta instancia de PlayerNetwork "+ NetworkObjectId);
+            Debug.Log("Id de esta instancia de PlayerNetwork "+ this.NetworkObjectId);
             // Inicializar los jugadores aquí
             //CrearJugadores();
             // Mover inicializaciones aquí
@@ -111,8 +112,7 @@ public class PlayerNetwork : NetworkBehaviour
 
                 }, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
-            playerIDs = new NetworkList<int>();
-            playerData = new NetworkList<PlayerNetwork.DatosJugador>();
+
 
         }
         else
@@ -123,24 +123,31 @@ public class PlayerNetwork : NetworkBehaviour
     }
     void Start()
     {
+        Debug.Log("Creo playerIDs y playerData");
+        playerIDs = new NetworkList<int>();
+        playerData = new NetworkList<PlayerNetwork.DatosJugador>();
+        //Debug.Log("playerIDs y playerData"+playerIDs.Count +":"+ playerData.Count);
+
         if (NetworkManager.Singleton)
         {
             NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
             NetworkManager.Singleton.OnClientDisconnectCallback += OnClientDisconnect;
         }
+        /*
+        Debug.Log("Estoy en el Start de PN, es server? :" + IsServer + ", Soy Owner? :" + IsOwner);
+        int playerId = PlayerPrefs.GetInt("PlayerId");
+        FixedString64Bytes nombreHost = new FixedString64Bytes(PlayerPrefs.GetString("PlayerName"));
+        FixedString64Bytes colorHost = new FixedString64Bytes(PlayerPrefs.GetString("PlayerColor"));
+        Debug.Log("el jugador con id:" + playerId + "se llama " + nombreHost + " es el color " + colorHost);
+        AgregarJugador(playerId, nombreHost, 100, false, true, 2, 10, 10, 10, 10, 10, colorHost);
+        Debug.Log("se agrego jugador");
+        ImprimirTodosLosJugadores();
         //playerNetworkObject = GetComponent<NetworkObject>();
-        /*if (IsServer)
+        if (IsServer)
         {
-            Debug.Log("Entre al Start siendo Server");
-            int playerId = PlayerPrefs.GetInt("PlayerId");
-            FixedString64Bytes nombreHost = new FixedString64Bytes(PlayerPrefs.GetString("PlayerName"));
-            FixedString64Bytes colorHost = new FixedString64Bytes(PlayerPrefs.GetString("PlayerColor"));
-            Debug.Log("el jugador con id:" + playerId + "se llama " + nombreHost + " es el color " + colorHost);
-            AgregarJugador(playerId, nombreHost, 100, false, true, 2, 10, 10, 10, 10, 10, colorHost);
-            Debug.Log("se agrego jugador");
-            ImprimirTodosLosJugadores();
-        }*/
-
+           
+        }
+        */
     }
 
     public override void OnDestroy()
@@ -150,6 +157,7 @@ public class PlayerNetwork : NetworkBehaviour
             NetworkManager.Singleton.OnClientConnectedCallback -= OnClientConnected;
             NetworkManager.Singleton.OnClientDisconnectCallback -= OnClientDisconnect;
         }
+
     }
 
     void OnClientConnected(ulong clientId)
@@ -195,6 +203,17 @@ public class PlayerNetwork : NetworkBehaviour
     public void AgregarJugador(int jugadorId, FixedString64Bytes nomJugador, int puntaje, bool gano, bool turno, int cantidadCasa, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, FixedString64Bytes colorJugador)
     {
         Debug.Log($"AgregarJugador: {jugadorId}, {nomJugador}, {puntaje}, {gano}, {turno}, {cantidadCasa}, {maderaCount}, {ladrilloCount}, {ovejaCount}, {piedraCount}, {trigoCount}, {colorJugador}");
+        Debug.Log("playerId:" + playerIDs.Count);
+        Debug.Log("playerData:" + playerData.Count);
+
+        /* este codigo hace que se listen TODAS LAS INTANCIAS CARGADAS
+        UnityEngine.Object[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
+
+        foreach (GameObject go in allObjects)
+        {
+            Debug.Log(go + " is an active object " + go.GetInstanceID());
+        }
+        */
         DatosJugador newDatos = new DatosJugador();
         newDatos.jugadorId = jugadorId;
         //newDatos.nomJugador = new FixedString64Bytes(nomJugador ?? string.Empty);
@@ -211,9 +230,11 @@ public class PlayerNetwork : NetworkBehaviour
         newDatos.trigoCount = trigoCount;
         //newDatos.colorJugador = new FixedString64Bytes(colorJugador ?? string.Empty);
         newDatos.colorJugador = colorJugador;
-
+        Debug.Log("Cargue newDatos");
         playerIDs.Add(jugadorId);
+        Debug.Log("agregue a PlayerIDs");
         playerData.Add(newDatos);
+        Debug.Log("agregue a playerData");
     }
 
     /*public void ImprimirDatosJugador()
@@ -346,7 +367,6 @@ public class PlayerNetwork : NetworkBehaviour
     {
         if (IsServer)
         {
-
             Debug.Log("Entre a OnNetworkSpawn");
             int playerId = PlayerPrefs.GetInt("PlayerId");
             FixedString64Bytes nombreHost = new FixedString64Bytes(PlayerPrefs.GetString("PlayerName"));
@@ -611,6 +631,27 @@ public class PlayerNetwork : NetworkBehaviour
         }
     }
     */
+
+    public IEnumerator AgregarJugadorWaiter(int jugadorId, FixedString64Bytes nomJugador, int puntaje, bool gano, bool turno, int cantidadCasa, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, FixedString64Bytes colorJugador)
+    {
+        //Wait for 4 seconds
+        Debug.Log("Entre a AgregarJugador, espero 4 segundos");
+        yield return new WaitForSeconds(4);
+        Debug.Log("Volvi a AgregarJugador");
+        AgregarJugador( jugadorId,  nomJugador,  puntaje,  gano,  turno,  cantidadCasa,  maderaCount,  ladrilloCount,  ovejaCount,  piedraCount,  trigoCount,  colorJugador);
+
+
+    }
+    public IEnumerator ImprimirTodosLosJugadoresWaiter()
+    {
+        Debug.Log("Entre a ImprimirTodosLosJugadores, espero 4 segundos");
+        //Wait for 4 seconds
+        yield return new WaitForSeconds(4);
+        Debug.Log("Volvi a ImprimirTodosLosJugadores");
+        ImprimirTodosLosJugadores();
+
+
+    }
 
 }
 
