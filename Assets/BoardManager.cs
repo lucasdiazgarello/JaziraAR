@@ -40,7 +40,7 @@ public class BoardManager : MonoBehaviour
         // Obtén el ID del jugador desde donde lo tengas almacenado.
         // En este ejemplo, simplemente lo he establecido como 1.
         int currentPlayerID = PlayerPrefs.GetInt("jugadorId");
-        Instance.UpdateResourceTexts(currentPlayerID);
+        //Instance.UpdateResourceTexts(currentPlayerID);
         // Actualiza los textos de recursos para el jugador al inicio.
         //UpdateResourceTexts(jugadorId);
     }
