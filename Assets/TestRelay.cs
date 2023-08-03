@@ -82,8 +82,14 @@ public class TestRelay : NetworkBehaviour
             //Guardar el ID del jugador en PlayerPrefs cuando se selecciona el jugador
             //PlayerPrefs.SetString("jugadorId", AuthenticationService.Instance.PlayerId);
             int num = ConvertirAlfaNumericoAInt(AuthenticationService.Instance.PlayerId);
+            var nombre = nombreHost.ToString();
+            var color = colorSeleccionado.Value.ToString();
+            Debug.Log("el color es : " + color + " y el nombre es : " + nombre);
             PlayerPrefs.SetInt("jugadorId", num);
+            PlayerPrefs.SetString("nomJugador",nombre);
+            PlayerPrefs.SetString("colorJugador",color);
             Debug.Log("ID NUEVO" + num);
+            
             Debug.Log("Inicio el host");
             Debug.Log("antes de cargar");
             Debug.Log("color antes de agregarjugador " + colorSeleccionado.Value);
@@ -210,7 +216,7 @@ public class TestRelay : NetworkBehaviour
         if (scene.name == "SampleScene")
         {
             Debug.Log("Entre al cambio de escena");
-            StartCoroutine(waiter());
+            //StartCoroutine(waiter());
             //int num = ConvertirAlfaNumericoAInt(AuthenticationService.Instance.PlayerId);
             //PlayerPrefs.SetInt("jugadorId", num);
             ////PlayerNetwork.Instance.AgregarJugador(num, nombreHost, 100, false, true, 2, 10, 10, 10, 10, 10, colorSeleccionado.Value);

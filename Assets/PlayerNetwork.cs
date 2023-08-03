@@ -150,16 +150,25 @@ public class PlayerNetwork : NetworkBehaviour
     }
     void Start()
     {
-        Debug.Log("entre al Start de PlayerNetwork");
-        try
+        if(IsServer)
         {
-            playerIDs.Add(0);
+            Debug.Log("entre al is server del Start de PlayerNetwork");
+            try
+            {
+                int playerId = PlayerPrefs.GetInt("PlayerId");
+                playerIDs.Add(playerId);
+                Debug.Log("Imprimo lista de Ids");
+                ImprimirPlayerIDs();
+
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("Error al intentar agregar a la lista: " + e.Message);
+            }
+            Debug.Log("playerId:" + playerIDs.Count); //.Count dice la cantidad de elementos qeu tiene la lista
         }
-        catch (Exception e)
-        {
-            Debug.LogError("Error al intentar agregar a la lista: " + e.Message);
-        }
-        Debug.Log("playerId:" + playerIDs.Count); //.Count dice la cantidad de elementos qeu tiene la lista
+            
+       
         /*Debug.Log("Creo playerIDs y playerData");
         playerIDs = new NetworkList<int>();
         ImprimirPlayerIDs();
@@ -472,10 +481,10 @@ public class PlayerNetwork : NetworkBehaviour
         if (IsServer)
         {
             Debug.Log("Entre a OnNetworkSpawn");
-            int playerId = PlayerPrefs.GetInt("PlayerId");
-            FixedString64Bytes nombreHost = new FixedString64Bytes(PlayerPrefs.GetString("PlayerName"));
-            FixedString64Bytes colorHost = new FixedString64Bytes(PlayerPrefs.GetString("PlayerColor"));
-            Debug.Log("el jugador con id:" + playerId + "se llama " + nombreHost + " es el color " + colorHost);
+            int playerId = PlayerPrefs.GetInt("jugadorId");
+            FixedString64Bytes nombreHost = new FixedString64Bytes(PlayerPrefs.GetString("nomJugador"));
+            FixedString64Bytes colorHost = new FixedString64Bytes(PlayerPrefs.GetString("colorJugador"));
+            Debug.Log("el jugador con id:" + playerId + "se llama " + nombreHost + " y es el color " + colorHost);
             AgregarJugador(playerId, nombreHost, 100, false, true, 2, 10, 10, 10, 10, 10, colorHost);
             Debug.Log("se agrego jugador");
             ImprimirTodosLosJugadores();
@@ -539,8 +548,10 @@ public class PlayerNetwork : NetworkBehaviour
             newPlayer.nomJugador = new FixedString64Bytes(nomJugador);
             newPlayer.colorJugador = colorJugador;
             // ... y puedes agregar los demás valores predeterminados aquí
+            Debug.Log("Se va a unir usando AddPlayerServerRpc");
             playerData.Add(newPlayer);
             playerIDs.Add(newPlayer.jugadorId);
+            ImprimirPlayerIDs();
             Debug.Log("Termino AddPlayerServerRpc");
         }
         catch (Exception e)
