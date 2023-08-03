@@ -115,10 +115,11 @@ public class TestRelay : NetworkBehaviour
         {
             Debug.Log("Joining Relay with " + codigo);
             JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(codigo);
-
+            Debug.Log("Debug 1 ");
             // Check if joinAllocation is not null before attempting to access its properties
             if (joinAllocation != null)
             {
+                Debug.Log("Debug 2 ");
                 NetworkManager.Singleton.GetComponent<UnityTransport>().SetClientRelayData(
                     joinAllocation.RelayServer.IpV4,
                     (ushort)joinAllocation.RelayServer.Port,
@@ -127,13 +128,15 @@ public class TestRelay : NetworkBehaviour
                     joinAllocation.ConnectionData,
                     joinAllocation.HostConnectionData
                     );
+                Debug.Log("Debug 3 ");
                 //List<string> coloresDisponibles = ObtenerColoresDisponibles();
                 NetworkManager.Singleton.StartClient();
+                Debug.Log("Debug 4 ");
                 //Guardar el ID del jugador en PlayerPrefs cuando se selecciona el jugador
                 //PlayerPrefs.SetString("jugadorId", AuthenticationService.Instance.PlayerId);
                 int num = ConvertirAlfaNumericoAInt(AuthenticationService.Instance.PlayerId);
                 PlayerPrefs.SetInt("jugadorId", num);
-                Debug.Log("MI ID ES" + num);
+                Debug.Log("MI ID ES " + num);
                 Debug.Log("Se unio " + codigo);
             }
             else
@@ -190,7 +193,7 @@ public class TestRelay : NetworkBehaviour
             throw new Exception("No se pudo convertir la cadena a un número entero.");
         }
     }
-    IEnumerator waiter()
+    /*IEnumerator waiter()
     {
         //Wait for 4 seconds
         Debug.Log("Entre al waiter, espero 4 segundos");
@@ -209,7 +212,7 @@ public class TestRelay : NetworkBehaviour
         {
             Debug.Log("Instancia PlayerNetwork no encontrada");
         }
-    }
+    }*/
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {

@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections;
 using Unity.Netcode;
+using Unity.Services.Authentication;
 using Unity.Services.Relay;
 using UnityEngine;
 using UnityEngine.UI;
@@ -62,10 +64,18 @@ public class Unirse : NetworkBehaviour
         try
         {
             relay.JoinRelay(code);
-            clientePlayerID = PlayerPrefs.GetInt("jugadorId");
+            int num = ConvertirAlfaNumericoAInt(AuthenticationService.Instance.PlayerId);
+            var nombre = nombreTemporal.ToString();
+            var color = colorTemporal.Value.ToString();
+            Debug.Log("El cliente con id " + num + " se llama " + nombre + " y su color es " + color );
+            PlayerPrefs.SetInt("jugadorId", num);
+            PlayerPrefs.SetString("nomJugador", nombre);
+            PlayerPrefs.SetString("colorJugador", color);
+            //clientePlayerID = PlayerPrefs.GetInt("jugadorId");
             //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
-            Debug.Log("Id Jugador a unir: " + clientePlayerID);
-            PlayerNetwork.Instance.AddPlayerServerRpc(clientePlayerID, nombreTemporal.Value, nombreTemporal.Value);
+            //Debug.Log("Id Jugador a unir: " + clientePlayerID);
+            //PlayerNetwork.Instance.AddPlayerServerRpc(clientePlayerID, nombreTemporal.Value, nombreTemporal.Value);
+            PlayerNetwork.Instance.AddPlayerServerRpc(num, nombre, color);
             //Debug.Log("PASO el ADDplayer " + clientePlayerID);
             //PlayerNetwork.Instance.ImprimirTodosLosJugadores();
             // Comprueba si el objeto ya ha sido generado antes de llamar a Spawn()
@@ -80,7 +90,27 @@ public class Unirse : NetworkBehaviour
         }
         Debug.Log("despues de join relay");
     }
+    public int ConvertirAlfaNumericoAInt(string texto)
+    {
+        string soloNumeros = string.Empty;
 
+        foreach (char c in texto)
+        {
+            if (Char.IsDigit(c))
+            {
+                soloNumeros += c;
+            }
+        }
+
+        if (Int32.TryParse(soloNumeros, out int resultado))
+        {
+            return resultado;
+        }
+        else
+        {
+            throw new Exception("No se pudo convertir la cadena a un número entero.");
+        }
+    }
     /*public override void OnNetworkSpawn() //Se activará para todos los clientes cuando se cree un objeto en la red
     {
         //if (IsOwner)
