@@ -27,7 +27,7 @@ public class ARCursor : NetworkBehaviour
     public Button tirarDadoButton;
     public bool dicesThrown = false;
 
-    //private ColocarPieza colocarPieza;
+    public ColocarPieza colocarPieza;
 
     private Vector3 initialDadoPosition; // Para guardar la posición inicial del dado
     private GameObject tableromInstance;
@@ -135,6 +135,7 @@ public class ARCursor : NetworkBehaviour
         // Activar la colocación de las piezas en los marcadores invisibles
         foreach (ColocarPieza colocarPieza in GetComponentsInChildren<ColocarPieza>())
         {
+            Debug.Log("entro al foreach de colocar pieza");
             colocarPieza.enabled = true;
         }
         EnableRecursos();

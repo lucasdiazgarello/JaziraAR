@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 //using static PlayerNetwork;
 
-public class BoardManager : MonoBehaviour
+public class BoardManager : NetworkBehaviour
 {
     private GameObject parcela;
     private GameObject parcela2;

@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI; // Para manejar los botones
 
-public class ColocarPieza : MonoBehaviour
+public class ColocarPieza : NetworkBehaviour
 {
     //public static ColocarPieza Instance { get; private set; }
     public GameObject prefabCamino;
