@@ -75,7 +75,7 @@ public class Unirse : NetworkBehaviour
             //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
             //Debug.Log("Id Jugador a unir: " + clientePlayerID);
             //PlayerNetwork.Instance.AddPlayerServerRpc(clientePlayerID, nombreTemporal.Value, nombreTemporal.Value);
-            PlayerNetwork.Instance.AddPlayerServerRpc(num, nombre, color);
+            //PlayerNetwork.Instance.AddPlayerServerRpc(num, nombre, color);
             //Debug.Log("PASO el ADDplayer " + clientePlayerID);
             //PlayerNetwork.Instance.ImprimirTodosLosJugadores();
             // Comprueba si el objeto ya ha sido generado antes de llamar a Spawn()

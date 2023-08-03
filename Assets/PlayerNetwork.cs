@@ -203,7 +203,6 @@ public class PlayerNetwork : NetworkBehaviour
         }
         */
     }
-
     public override void OnDestroy()
     {
         if (NetworkManager.Singleton)
@@ -213,12 +212,10 @@ public class PlayerNetwork : NetworkBehaviour
         }
 
     }
-
     /*void OnClientConnected(ulong clientId)
     {
         Debug.Log($"Client {clientId} connected.");
     }*/
-
     void OnClientDisconnect(ulong clientId)
     {
         Debug.Log($"Client {clientId} disconnected.");
@@ -227,7 +224,7 @@ public class PlayerNetwork : NetworkBehaviour
     {
         if (IsServer)
         {
-            Debug.Log("Entre a OnNetworkSpawn");
+            Debug.Log("Entre al IsServer de OnNetworkSpawn");
             int playerId = PlayerPrefs.GetInt("jugadorId");
             FixedString64Bytes nombreHost = new FixedString64Bytes(PlayerPrefs.GetString("nomJugador"));
             FixedString64Bytes colorHost = new FixedString64Bytes(PlayerPrefs.GetString("colorJugador"));
@@ -251,6 +248,18 @@ public class PlayerNetwork : NetworkBehaviour
             // Supongo que este es otro método ServerRpc que tienes para notificar al servidor de que un jugador se ha unido
             NotifyServerOfJoinServerRpc();
             */
+        }
+        else
+        {
+            Debug.Log("Entre como cliente de OnNetworkSpawn");
+            int playerId = PlayerPrefs.GetInt("jugadorId");
+            FixedString64Bytes nombreCliente = new FixedString64Bytes(PlayerPrefs.GetString("nomJugador"));
+            FixedString64Bytes colorCliente = new FixedString64Bytes(PlayerPrefs.GetString("colorJugador"));
+            Debug.Log("el cliente con id:" + playerId + "se llama " + nombreCliente + " y es el color " + colorCliente);
+            //AgregarJugador(playerId, nombreCliente, 100, false, true, 2, 10, 10, 10, 10, 10, colorCliente); //EL CLIENTE NO DEBE AGREGARJUGADOR, DEBE MANDAR SU DATA AL HOST
+            AddPlayerServerRpc(playerId, nombreCliente, colorCliente);
+            Debug.Log("se agrego jugador cliente");
+            ImprimirTodosLosJugadores();
         }
     }
     /*private void Start()
@@ -288,10 +297,10 @@ public class PlayerNetwork : NetworkBehaviour
     }
     public void AgregarJugador(int jugadorId, FixedString64Bytes nomJugador, int puntaje, bool gano, bool turno, int cantidadCasa, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, FixedString64Bytes colorJugador)
     {
-        Debug.Log($"playerIDs es {(playerIDs == null ? "null" : "no null")}");
-        Debug.Log($"playerData es {(playerData == null ? "null" : "no null")}");
+        //Debug.Log($"playerIDs es {(playerIDs == null ? "null" : "no null")}");
+        //Debug.Log($"playerData es {(playerData == null ? "null" : "no null")}");
         ImprimirPlayerIDs();
-        Debug.Log($"AgregarJugador: {jugadorId}, {nomJugador}, {puntaje}, {gano}, {turno}, {cantidadCasa}, {maderaCount}, {ladrilloCount}, {ovejaCount}, {piedraCount}, {trigoCount}, {colorJugador}");
+        Debug.Log($"AgregarJugador: {jugadorId}, {nomJugador}, {puntaje}, {gano}, {turno}, {cantidadCasa}, {maderaCount}, {ladrilloCount}, {ovejaCount}, {piedraCount}, {trigoCount}, {colorJugador}");       
         Debug.Log("playerId:" + playerIDs.Count); //.Count dice la cantidad de elementos qeu tiene la lista
         Debug.Log("playerData:" + playerData.Count);
 
@@ -541,7 +550,7 @@ public class PlayerNetwork : NetworkBehaviour
     
     // Este es tu nuevo método RPC para agregar un jugador
     [ServerRpc(RequireOwnership = false)]
-    public void AddPlayerServerRpc(int jugadorId, string nomJugador, FixedString64Bytes colorJugador, ServerRpcParams rpcParams = default)
+    public void AddPlayerServerRpc(int jugadorId, FixedString64Bytes nomJugador, FixedString64Bytes colorJugador, ServerRpcParams rpcParams = default)
     {
         try
         {
@@ -552,13 +561,14 @@ public class PlayerNetwork : NetworkBehaviour
             // Agrega al jugador a la lista de jugadores
             DatosJugador newPlayer = new DatosJugador();
             newPlayer.jugadorId = jugadorId;
-            newPlayer.nomJugador = new FixedString64Bytes(nomJugador);
+            newPlayer.nomJugador = nomJugador;
             newPlayer.colorJugador = colorJugador;
             // ... y puedes agregar los demás valores predeterminados aquí
             Debug.Log("Se va a unir usando AddPlayerServerRpc");
             playerData.Add(newPlayer);
             playerIDs.Add(newPlayer.jugadorId);
             ImprimirPlayerIDs();
+            ImprimirTodosLosJugadores();
             Debug.Log("Termino AddPlayerServerRpc");
         }
         catch (Exception e)
