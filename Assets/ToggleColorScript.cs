@@ -3,7 +3,7 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ToggleColorScript : NetworkBehaviour
+public class ToggleColorScript : MonoBehaviour
 {
     Toggle m_Toggle;
     //public TestRelay relay;// Asigna esto en el Inspector a la instancia de tu script TestRelay
