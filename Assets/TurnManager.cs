@@ -63,6 +63,7 @@ public class TurnManager : NetworkBehaviour
     private void OnEnable()
     {
         NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
+
         NetworkManager.Singleton.OnClientDisconnectCallback += OnClientDisconnected;
     }
 

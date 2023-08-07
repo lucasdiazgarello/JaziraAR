@@ -216,6 +216,11 @@ public class TestRelay : NetworkBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if (NetworkManager.Singleton.IsServer)
+        {
+            Debug.Log("SOY EL HOST, SOY EL SERVER");
+            // El jugador es el servidor. Puedes ejecutar lógica específica aquí.
+        }
         if (scene.name == "SampleScene")
         {
             Debug.Log("Entre al cambio de escena");
@@ -229,4 +234,19 @@ public class TestRelay : NetworkBehaviour
             ////PlayerNetwork.Instance.ImprimirTodosLosJugadores();
         }
     }
+    private void OnEnable()
+    {
+        NetworkManager.Singleton.OnServerStarted += HandleServerStarted;
+    }
+
+    private void OnDisable()
+    {
+        NetworkManager.Singleton.OnServerStarted -= HandleServerStarted;
+    }
+
+    private void HandleServerStarted()
+    {
+        PlayerPrefs.SetInt("ServerStarted", 1);
+    }
+
 }

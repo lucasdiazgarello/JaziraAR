@@ -35,6 +35,10 @@ public class ARCursor : NetworkBehaviour
 
     void Start()
     {
+        Debug.Log("Is this player the server? " + IsServer);
+        // Configurar los botones dependiendo de si el jugador es el host o un cliente
+        SetupButtonsBasedOnPlayerType();
+
         placeButton.onClick.AddListener(ActivatePlacementMode);
         confirmButton.onClick.AddListener(ConfirmPlacement);
         confirmButton.gameObject.SetActive(false); // Desactivar el botón de confirmación al inicio
@@ -44,6 +48,21 @@ public class ARCursor : NetworkBehaviour
         //tirarDadoButton.onClick.AddListener(OnDiceRollButtonPressed);
         //colocarPieza = GetComponentInChildren<ColocarPieza>();
         //playerNetwork = PlayerNetwork.Instance;
+    }
+    void SetupButtonsBasedOnPlayerType()
+    {
+        if (IsServer) // Si es el host
+        {
+            Debug.Log("Is Server y activo botones ");
+            placeButton.gameObject.SetActive(true);
+            confirmButton.gameObject.SetActive(true);
+        }
+        else // Si es un cliente
+        {
+            Debug.Log("NO Is Server y desactivo botones ");
+            placeButton.gameObject.SetActive(false);
+            confirmButton.gameObject.SetActive(false);
+        }
     }
     private void Awake()
     {
@@ -59,48 +78,52 @@ public class ARCursor : NetworkBehaviour
     }
     void Update()
     {
-        //colocar tablero
-        if (isPlacementModeActive && !isBoardPlaced && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        // Solo el host puede colocar el tablero
+        if (IsServer)
         {
-            // Comprobar si el toque está sobre un elemento de la interfaz de usuario
-            if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+            //colocar tablero
+            if (isPlacementModeActive && !isBoardPlaced && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
-                return; // No colocar el tablero si el toque está sobre un elemento de la interfaz de usuario
-            }
-            List<ARRaycastHit> hits = new List<ARRaycastHit>();
-            raycastManager.Raycast(Input.GetTouch(0).position, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
-            if (hits.Count > 0)
-            {
-                // Primero, eliminar el tablero actual si existe
-                if (tableromInstance != null)
+                // Comprobar si el toque está sobre un elemento de la interfaz de usuario
+                if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
                 {
-                    var networkObject = tableromInstance.GetComponent<NetworkObject>();
-                    if (networkObject != null && networkObject.IsSpawned)
-                    {
-                        networkObject.Despawn();
-                    }
+                    return; // No colocar el tablero si el toque está sobre un elemento de la interfaz de usuario
                 }
-                // Luego, crear un nuevo tablero y guardarlo como currentObject
-                tableromInstance = Instantiate(objectToPlace, hits[0].pose.position, hits[0].pose.rotation);
-                Debug.Log("Antes De tableroInstance");
-                tableromInstance.GetComponent<NetworkObject>().Spawn();
-                Debug.Log("Despues De tableroInstance");
-                placeButton.gameObject.SetActive(false); // Desactivar el botón de colocación después de colocar el tablero
-                confirmButton.gameObject.SetActive(true); // Activar el botón de confirmación después de colocar el tablero
+                List<ARRaycastHit> hits = new List<ARRaycastHit>();
+                raycastManager.Raycast(Input.GetTouch(0).position, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
+                if (hits.Count > 0)
+                {
+                    // Primero, eliminar el tablero actual si existe
+                    if (tableromInstance != null)
+                    {
+                        var networkObject = tableromInstance.GetComponent<NetworkObject>();
+                        if (networkObject != null && networkObject.IsSpawned)
+                        {
+                            networkObject.Despawn();
+                        }
+                    }
+                    // Luego, crear un nuevo tablero y guardarlo como currentObject
+                    tableromInstance = Instantiate(objectToPlace, hits[0].pose.position, hits[0].pose.rotation);
+                    Debug.Log("Antes De tableroInstance");
+                    tableromInstance.GetComponent<NetworkObject>().Spawn();
+                    Debug.Log("Despues De tableroInstance");
+                    placeButton.gameObject.SetActive(false); // Desactivar el botón de colocación después de colocar el tablero
+                    confirmButton.gameObject.SetActive(true); // Activar el botón de confirmación después de colocar el tablero
+                }
             }
+            /*if (colocarPieza != null && colocarPieza.enabled)
+            {
+                if (colocarPieza.tipoActual == TipoObjeto.Base)
+                {
+                    Debug.Log("Voy a llamar a colocar base");
+                    colocarPieza.ColocarBase();
+                }
+                else if (colocarPieza.tipoActual == TipoObjeto.Camino)
+                {
+                    colocarPieza.ColocarCamino();
+                }
+            }*/
         }
-        /*if (colocarPieza != null && colocarPieza.enabled)
-        {
-            if (colocarPieza.tipoActual == TipoObjeto.Base)
-            {
-                Debug.Log("Voy a llamar a colocar base");
-                colocarPieza.ColocarBase();
-            }
-            else if (colocarPieza.tipoActual == TipoObjeto.Camino)
-            {
-                colocarPieza.ColocarCamino();
-            }
-        }*/
     }
 
     public void ActivatePlacementMode()
