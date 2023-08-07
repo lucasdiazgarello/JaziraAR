@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Unity.Services.Authentication;
 using Unity.Netcode;
+using System;
 
 public class ARCursor : NetworkBehaviour
 {
@@ -31,12 +33,14 @@ public class ARCursor : NetworkBehaviour
 
     private Vector3 initialDadoPosition; // Para guardar la posición inicial del dado
     private GameObject tableromInstance;
+    private int currentPlayerId;
 
 
     void Start()
     {
-        Debug.Log("Is this player the server? " + IsServer);
         // Configurar los botones dependiendo de si el jugador es el host o un cliente
+        int currentPlayerId = ConvertirAlfaNumericoAInt(AuthenticationService.Instance.PlayerId);
+        
         SetupButtonsBasedOnPlayerType();
 
         placeButton.onClick.AddListener(ActivatePlacementMode);
@@ -51,7 +55,9 @@ public class ARCursor : NetworkBehaviour
     }
     void SetupButtonsBasedOnPlayerType()
     {
-        if (IsServer) // Si es el host
+        int num = PlayerPrefs.GetInt("jugadorId");
+        Debug.Log("num es " + num + " y currentplayerid es " + currentPlayerId);
+        if (currentPlayerId == num) // Si es el host
         {
             Debug.Log("Is Server y activo botones ");
             placeButton.gameObject.SetActive(true);
@@ -249,7 +255,27 @@ public class ARCursor : NetworkBehaviour
         BoardManager.Instance.ManejoParcelas(DiceNumberTextScript.Instance.randomDiceNumber);
         //tirarDadoButton.interactable = false;
     }
+    public int ConvertirAlfaNumericoAInt(string texto)
+    {
+        string soloNumeros = string.Empty;
 
+        foreach (char c in texto)
+        {
+            if (Char.IsDigit(c))
+            {
+                soloNumeros += c;
+            }
+        }
+
+        if (Int32.TryParse(soloNumeros, out int resultado))
+        {
+            return resultado;
+        }
+        else
+        {
+            throw new Exception("No se pudo convertir la cadena a un número entero.");
+        }
+    }
     private void ResetDicePosition()
     {
         // Restablecer la posición del dado a la inicial
