@@ -21,6 +21,7 @@ public class TestRelay : NetworkBehaviour
     private FixedString64Bytes nombreHost;
     public InputField cantidadJugadores;
     public InputField nombreHostinput;
+    public bool isRelayCreated = false;
     //public PlayerNetwork playernetwork;
     //public string colorSeleccionado;
     public NetworkVariable<FixedString64Bytes> colorSeleccionado = new NetworkVariable<FixedString64Bytes>();
@@ -89,19 +90,7 @@ public class TestRelay : NetworkBehaviour
             PlayerPrefs.SetString("nomJugador",nombre);
             PlayerPrefs.SetString("colorJugador",color);
             Debug.Log("ID NUEVO" + num);
-            
-            Debug.Log("Inicio el host");
-            Debug.Log("antes de cargar");
-            Debug.Log("color antes de agregarjugador " + colorSeleccionado.Value);
-            /*
-            PlayerNetwork.Instance.ImprimirDatosJugador();
-            PlayerNetwork.Instance.AgregarJugador(num, nombreHost, 100, false, true, 2, 10, 10, 10, 10, 10, colorSeleccionado.Value);
-            //PlayerNetwork.Instance.AgregarJugador(1, "Juancho", 100, false, true, 2, 10, 10, 10, 10, 10,colorSeleccionado);
-            //PlayerNetwork.Instance.AgregarJugador(1, "Pepe", 100, false, true, 2, 10, 10, 10, 10, 10, colorSeleccionado);
-            //RemoverColor(colorSeleccionado);
-            Debug.Log("Termino CreateRelay");
-            PlayerNetwork.Instance.ImprimirTodosLosJugadores();
-            */
+            isRelayCreated = true;
         }
         catch (RelayServiceException e)
         {

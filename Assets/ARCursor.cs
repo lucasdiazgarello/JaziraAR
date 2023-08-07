@@ -38,22 +38,48 @@ public class ARCursor : NetworkBehaviour
 
     void Start()
     {
+        Debug.Log("Empezo el start de ARCursor");
+        StartCoroutine(WaitForRelay());
+        if (NetworkManager.Singleton.IsServer)
+        {
+            Debug.Log("SOY EL HOST de ARCUROSr");
+            Debug.Log("Is Server y activo botones ");
+            //placeButton.gameObject.SetActive(true);
+            //confirmButton.gameObject.SetActive(true);
+            // El jugador es el servidor. Puedes ejecutar lógica específica aquí.
+            placeButton.onClick.AddListener(ActivatePlacementMode);
+            confirmButton.onClick.AddListener(ConfirmPlacement);
+            confirmButton.gameObject.SetActive(false); // Desactivar el botón de confirmación al inicio
+            DisableRecursos();
+
+            objectToPlace = Resources.Load("TableroCC 2") as GameObject;
+            //tirarDadoButton.onClick.AddListener(OnDiceRollButtonPressed);
+            //colocarPieza = GetComponentInChildren<ColocarPieza>();
+            //playerNetwork = PlayerNetwork.Instance;
+        }
+        else // Si es un cliente
+        {
+            Debug.Log("NO Is Server y desactivo botones ");
+            placeButton.gameObject.SetActive(false);
+            confirmButton.gameObject.SetActive(false);
+        }
         // Configurar los botones dependiendo de si el jugador es el host o un cliente
-        int currentPlayerId = ConvertirAlfaNumericoAInt(AuthenticationService.Instance.PlayerId);
-        
-        SetupButtonsBasedOnPlayerType();
+        //int currentPlayerId = ConvertirAlfaNumericoAInt(AuthenticationService.Instance.PlayerId);        
+        //SetupButtonsBasedOnPlayerType();
 
-        placeButton.onClick.AddListener(ActivatePlacementMode);
-        confirmButton.onClick.AddListener(ConfirmPlacement);
-        confirmButton.gameObject.SetActive(false); // Desactivar el botón de confirmación al inicio
-        DisableRecursos();
 
-        objectToPlace = Resources.Load("TableroCC 2") as GameObject;
-        //tirarDadoButton.onClick.AddListener(OnDiceRollButtonPressed);
-        //colocarPieza = GetComponentInChildren<ColocarPieza>();
-        //playerNetwork = PlayerNetwork.Instance;
     }
-    void SetupButtonsBasedOnPlayerType()
+    IEnumerator WaitForRelay()
+    {
+        while (!TestRelay.Instance.isRelayCreated)
+        {
+            yield return null;  // Wait for next frame
+        }
+        Debug.Log("Termine de esperar");
+
+        // Tu código aquí...
+    }
+    /*void SetupButtonsBasedOnPlayerType()
     {
         int num = PlayerPrefs.GetInt("jugadorId");
         Debug.Log("num es " + num + " y currentplayerid es " + currentPlayerId);
@@ -69,7 +95,7 @@ public class ARCursor : NetworkBehaviour
             placeButton.gameObject.SetActive(false);
             confirmButton.gameObject.SetActive(false);
         }
-    }
+    }*/
     private void Awake()
     {
         if (Instance == null)
@@ -85,8 +111,9 @@ public class ARCursor : NetworkBehaviour
     void Update()
     {
         // Solo el host puede colocar el tablero
-        if (IsServer)
+        if (NetworkManager.Singleton.IsServer)
         {
+            //Debug.Log("is server update");
             //colocar tablero
             if (isPlacementModeActive && !isBoardPlaced && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
