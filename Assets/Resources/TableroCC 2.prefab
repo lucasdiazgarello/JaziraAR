@@ -60,11 +60,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &8368692331992175862
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -158,11 +154,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &8965297634370420901
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -256,11 +248,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &1326678333395282388
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -434,11 +422,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &5965225512426401455
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -532,11 +516,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &1621766478347865705
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -710,11 +690,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &4747599580141442953
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -808,11 +784,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &2239680829754532109
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1226,11 +1198,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &7593888786245658833
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1324,11 +1292,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &8467704301161506403
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1422,11 +1386,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &971817316532721381
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1520,11 +1480,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &1764584311039485487
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1618,11 +1574,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &3059708826200840017
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1796,11 +1748,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &1812369604261074823
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2214,11 +2162,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &915672277269339068
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2552,11 +2496,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &8079146254609961781
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2650,11 +2590,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &7669757612694569097
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2988,11 +2924,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &1781061531889940298
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3086,11 +3018,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &955544246512177673
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3184,11 +3112,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &8952768183919588620
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3362,11 +3286,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &6443691557947094456
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3700,11 +3620,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &8057662367259814981
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3798,11 +3714,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &8122564258893595527
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3896,11 +3808,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &4333417826635222534
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4174,7 +4082,7 @@ MonoBehaviour:
   GlobalObjectIdHash: 951099334
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 1
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -4319,11 +4227,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &2910889638422345707
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4577,11 +4481,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &6974240479582360567
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4675,11 +4575,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &4343534693461011134
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4773,11 +4669,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &1222202081264929274
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4951,11 +4843,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &7500437835668088533
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5049,11 +4937,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &5422292476175898907
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5147,11 +5031,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &1348807662148434478
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5245,11 +5125,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &3926362042874263856
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5343,11 +5219,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &6894581548229876251
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5441,11 +5313,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &3207620609375774137
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5619,11 +5487,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &1907717898541149199
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5797,11 +5661,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &1864452271183755317
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5895,11 +5755,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &9196808272473493023
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5993,11 +5849,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &3644213264651356018
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6171,11 +6023,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &3487201533927293949
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6429,11 +6277,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &2016019436978022501
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6527,11 +6371,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &8620113345584839999
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6785,11 +6625,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &7291817553034625182
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7612,11 +7448,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &2810704076440149726
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7710,11 +7542,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &8677584871931811994
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7808,11 +7636,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &2971837801876918105
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7906,11 +7730,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &9132302825770781634
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8004,11 +7824,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &3751480713126871092
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8280,11 +8096,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &6885711391940138977
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8378,11 +8190,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &191538337840580232
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8476,11 +8284,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &6068372612439092345
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8654,11 +8458,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &8385218980812095597
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8752,11 +8552,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &148533790221368480
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8850,11 +8646,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &7801270302195919552
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8948,11 +8740,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &3589293539626056365
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9046,11 +8834,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &6621282596276179248
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9304,11 +9088,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &6241143881788439629
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9402,11 +9182,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &290319245675087914
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9740,11 +9516,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &3465459804019544993
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9838,11 +9610,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &6899045425131664899
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10016,11 +9784,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &6250346599870497930
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10114,11 +9878,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &872229848287519656
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10212,11 +9972,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &7182770462461758548
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10390,11 +10146,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &678357250760598600
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10488,11 +10240,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &8007681052292546212
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10586,11 +10334,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &6095513120443157319
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10764,11 +10508,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &7646826812334889470
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10862,11 +10602,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &796760431396941854
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10960,11 +10696,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &1047878826040142905
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11138,11 +10870,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &7107609173416705303
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11236,11 +10964,7 @@ MonoBehaviour:
   confirmBaseButton: {fileID: 0}
   confirmCaminoButton: {fileID: 0}
   confirmPuebloButton: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
   tipoActual: 0
-  identificadorParcela: {fileID: 0}
 --- !u!65 &1857466996502815065
 BoxCollider:
   m_ObjectHideFlags: 0
