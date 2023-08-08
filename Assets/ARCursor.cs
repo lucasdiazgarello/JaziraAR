@@ -56,6 +56,7 @@ public class ARCursor : NetworkBehaviour
             //tirarDadoButton.onClick.AddListener(OnDiceRollButtonPressed);
             //colocarPieza = GetComponentInChildren<ColocarPieza>();
             //playerNetwork = PlayerNetwork.Instance;
+            PlayerNetwork.Instance.currentTurnIndex = 0;
         }
         else // Si es un cliente
         {
@@ -142,6 +143,7 @@ public class ARCursor : NetworkBehaviour
                     Debug.Log("Despues De tableroInstance");
                     placeButton.gameObject.SetActive(false); // Desactivar el botón de colocación después de colocar el tablero
                     confirmButton.gameObject.SetActive(true); // Activar el botón de confirmación después de colocar el tablero
+
                 }
             }
             /*if (colocarPieza != null && colocarPieza.enabled)
