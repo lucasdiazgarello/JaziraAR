@@ -84,6 +84,7 @@ public class TurnManager : NetworkBehaviour
         // El cliente se ha desconectado, eliminar de la lista de jugadores
         TurnManager.Instance.PlayerIds.Remove((int)clientId);
     }
+
 }
 
 

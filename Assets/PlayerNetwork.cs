@@ -17,7 +17,7 @@ public class PlayerNetwork : NetworkBehaviour
 {
     public bool IsInitialized { get; private set; } = false; // Añade este campo de estado
     public NetworkList<int> playerIDs;
-    //private int myInt;
+    public int currentTurnIndex = 0;
     public NetworkList<PlayerNetwork.DatosJugador> playerData;
     private Dictionary<int, Dictionary<string, int>> recursosPorJugador = new Dictionary<int, Dictionary<string, int>>();
 
@@ -724,67 +724,50 @@ public class PlayerNetwork : NetworkBehaviour
         // Podemos usar un Debug.Log para ver los resultados.
         Debug.Log("Jugador " + playerData[indexJugador].jugadorId + " ahora tiene " + playerData[indexJugador].piedraCount + "piedras ");
     }
-
-    /*
-    public void BuscarElementosDeUI()
+    public void EndTurn()
     {
-        // Buscar la escena por nombre
-        Scene escenaDeJuego = SceneManager.GetSceneByName("SampleScene");
-
-        // Asegurarse de que la escena esté cargada antes de intentar buscar objetos en ella
-        if (escenaDeJuego.isLoaded)
+        Debug.Log("Entre al End Turn");
+        if (NetworkManager.Singleton.IsServer)  // Asegúrate de que solo el servidor modifique el turno actual.
         {
-            // Buscar los objetos de texto en la escena
-            foreach (GameObject obj in escenaDeJuego.GetRootGameObjects())
+            Debug.Log("Entre al is server de End Turn");
+            currentTurnIndex++;
+            if (currentTurnIndex >= playerIDs.Count)
             {
-                switch (obj.name)
-                {
-                    case "NombreDelObjetoDeTextoDeMadera":
-                        MaderaCountText = obj.GetComponent<Text>();
-                        break;
-                    case "NombreDelObjetoDeTextoDeLadrillo":
-                        LadrilloCountText = obj.GetComponent<Text>();
-                        break;
-                    case "NombreDelObjetoDeTextoDeOveja":
-                        OvejaCountText = obj.GetComponent<Text>();
-                        break;
-                    case "NombreDelObjetoDeTextoDePiedra":
-                        PiedraCountText = obj.GetComponent<Text>();
-                        break;
-                    case "NombreDelObjetoDeTextoDeTrigo":
-                        TrigoCountText = obj.GetComponent<Text>();
-                        break;
-                }
+                currentTurnIndex = 0;
             }
+            // Notifica a todos los jugadores sobre el cambio de turno.
+            NotifyTurnChangeClientRpc(currentTurnIndex);
         }
         else
         {
-            Debug.LogWarning("La escena de juego no está cargada.");
+            Debug.Log("Entre como cliente al End Turn");
+            currentTurnIndex++;
+            if (currentTurnIndex >= playerIDs.Count)
+            {
+                currentTurnIndex = 0;
+            }
+            // Notifica a todos los jugadores sobre el cambio de turno.
+            NotifyTurnChangeServerRpc(currentTurnIndex);
         }
     }
-    */
-
-    /*public IEnumerator AgregarJugadorWaiter(int jugadorId, FixedString64Bytes nomJugador, int puntaje, bool gano, bool turno, int cantidadCasa, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, FixedString64Bytes colorJugador)
+    [ClientRpc]
+    public void NotifyTurnChangeClientRpc(int newTurnIndex)
     {
-        //Wait for 4 seconds
-        Debug.Log("Entre a AgregarJugador, espero 4 segundos");
-        yield return new WaitForSeconds(4);
-        Debug.Log("Volvi a AgregarJugador");
-        //AgregarJugador( jugadorId,  nomJugador,  puntaje,  gano,  turno,  cantidadCasa,  maderaCount,  ladrilloCount,  ovejaCount,  piedraCount,  trigoCount,  colorJugador);
-
-
+        currentTurnIndex = newTurnIndex;
+        // Aquí puedes implementar lógica adicional como mostrar un mensaje indicando quién es el próximo.
+        Debug.Log("C - Cambio el turno a " + currentTurnIndex);
     }
-    public IEnumerator ImprimirTodosLosJugadoresWaiter()
+    [ServerRpc(RequireOwnership = false)]
+    public void NotifyTurnChangeServerRpc(int newTurnIndex)
     {
-        Debug.Log("Entre a ImprimirTodosLosJugadores, espero 4 segundos");
-        //Wait for 4 seconds
-        yield return new WaitForSeconds(4);
-        Debug.Log("Volvi a ImprimirTodosLosJugadores");
-        ImprimirTodosLosJugadores();
-
-
-    }*/
-
+        currentTurnIndex = newTurnIndex;
+        // Aquí puedes implementar lógica adicional como mostrar un mensaje indicando quién es el próximo.
+        Debug.Log("S - Cambio el turno a " + currentTurnIndex);
+    }
+    public bool IsMyTurn(ulong clientId)
+    {
+        return (playerIDs[currentTurnIndex] == (int) clientId);
+    }
 }
 
 

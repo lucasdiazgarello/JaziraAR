@@ -322,5 +322,11 @@ public class ARCursor : NetworkBehaviour
             rb.isKinematic = false;
         }
     }
+    public void BotonEndTurn()
+    {
+        Debug.Log("Toque boton terminar turno ");
+        PlayerNetwork.Instance.EndTurn();
+
+    }
 }
 
