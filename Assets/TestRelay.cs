@@ -78,14 +78,14 @@ public class TestRelay : NetworkBehaviour
                 allocation.Key,
                 allocation.ConnectionData
                 );
-            NetworkManager.Singleton.StartHost();
+            NetworkManager.Singleton.StartServer();
             Debug.Log("Inicio Host");
             //Guardar el ID del jugador en PlayerPrefs cuando se selecciona el jugador
             //PlayerPrefs.SetString("jugadorId", AuthenticationService.Instance.PlayerId);
             int num = ConvertirAlfaNumericoAInt(AuthenticationService.Instance.PlayerId);
             var nombre = nombreHost.ToString();
             var color = colorSeleccionado.Value.ToString();
-            Debug.Log("el color es : " + color + " y el nombre es : " + nombre);
+            Debug.Log("el id " + num + "es de  color : " + color + " y el nombre es : " + nombre);
             PlayerPrefs.SetInt("jugadorId", num);
             PlayerPrefs.SetString("nomJugador",nombre);
             PlayerPrefs.SetString("colorJugador",color);
@@ -235,7 +235,7 @@ public class TestRelay : NetworkBehaviour
 
     private void HandleServerStarted()
     {
-        PlayerPrefs.SetInt("ServerStarted", 1);
+        //PlayerPrefs.SetInt("ServerStarted", 1);
     }
 
 }
