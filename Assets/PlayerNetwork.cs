@@ -7,6 +7,7 @@ using System.Text;
 using Unity.Collections;
 using Unity.Netcode;
 using UnityEditor;
+using Unity.Services.Lobbies.Models;
 //using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -123,7 +124,6 @@ public class PlayerNetwork : NetworkBehaviour
                     trigoCount = 0,
                     colorJugador = new FixedString64Bytes(),
                 }, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
-            //NetworkManager.Singleton.OnServerStarted += HandleServerStarted;
         }
         else
         {
@@ -131,23 +131,7 @@ public class PlayerNetwork : NetworkBehaviour
             Destroy(gameObject);
         }
     }
-    private void HandleServerStarted()
-    {
-        Debug.Log("es Server");
-        //playerIDs = new NetworkList<int>();
-        //playerData = new NetworkList<PlayerNetwork.DatosJugador>();
-        try
-        {
-            Debug.Log("1 playerId:" + playerIDs.Count);
-            playerIDs.Add(0);
-            Debug.Log("2 playerId:" + playerIDs.Count);
-        }
-        catch (Exception e)
-        {
-            Debug.LogError("Error al intentar agregar a la lista: " + e.Message);
-        }
-        Debug.Log("3 playerId:" + playerIDs.Count);
-    }
+
     void Start()
     {
         if(IsServer)
@@ -764,9 +748,10 @@ public class PlayerNetwork : NetworkBehaviour
         // Aquí puedes implementar lógica adicional como mostrar un mensaje indicando quién es el próximo.
         Debug.Log("S - Cambio el turno a " + currentTurnIndex);
     }
-    public bool IsMyTurn(ulong clientId)
+    public bool IsMyTurn(int clientId)
     {
-        return (playerIDs[currentTurnIndex] == (int) clientId);
+        Debug.Log("Index " + currentTurnIndex + "y es turno de " + playerIDs[currentTurnIndex] + " Y " + clientId);
+        return (playerIDs[currentTurnIndex] == clientId);
     }
 }
 
