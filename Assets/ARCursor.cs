@@ -27,10 +27,9 @@ public class ARCursor : NetworkBehaviour
     private GameObject currentDado; // Dado actualmente en proceso de colocación
     private GameObject currentDado2;
     public Button tirarDadoButton;
+    public Button terminarTurnoButton;
     public bool dicesThrown = false;
-
     public ColocarPieza colocarPieza;
-
     private Vector3 initialDadoPosition; // Para guardar la posición inicial del dado
     private GameObject tableromInstance;
     private int currentPlayerId;
@@ -51,11 +50,7 @@ public class ARCursor : NetworkBehaviour
             confirmButton.onClick.AddListener(ConfirmPlacement);
             confirmButton.gameObject.SetActive(false); // Desactivar el botón de confirmación al inicio
             DisableRecursos();
-
             objectToPlace = Resources.Load("TableroCC 2") as GameObject;
-            //tirarDadoButton.onClick.AddListener(OnDiceRollButtonPressed);
-            //colocarPieza = GetComponentInChildren<ColocarPieza>();
-            //playerNetwork = PlayerNetwork.Instance;
         }
         else // Si es un cliente
         {
@@ -144,18 +139,19 @@ public class ARCursor : NetworkBehaviour
                     confirmButton.gameObject.SetActive(true); // Activar el botón de confirmación después de colocar el tablero
                 }
             }
-            /*if (colocarPieza != null && colocarPieza.enabled)
-            {
-                if (colocarPieza.tipoActual == TipoObjeto.Base)
-                {
-                    Debug.Log("Voy a llamar a colocar base");
-                    colocarPieza.ColocarBase();
-                }
-                else if (colocarPieza.tipoActual == TipoObjeto.Camino)
-                {
-                    colocarPieza.ColocarCamino();
-                }
-            }*/
+        }
+        //Debug.Log("llego y el id es " + PlayerPrefs.GetInt("jugadorId"));
+
+        if (PlayerNetwork.Instance.IsMyTurn(PlayerPrefs.GetInt("jugadorId")))
+        {
+            Debug.Log("Es mi TURNO");
+            tirarDadoButton.interactable = true;
+            //terminarTurnoButton.interactable = true; // esto da null reference 
+        }
+        else
+        {
+            tirarDadoButton.interactable = false;
+            //terminarTurnoButton.interactable = false;
         }
     }
 

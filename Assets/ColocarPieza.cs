@@ -46,9 +46,9 @@ public class ColocarPieza : NetworkBehaviour
     void Start()
     {
         //arCursor = GetComponentInParent<ARCursor>();
-        prefabBase = Resources.Load("TR Casa Azul") as GameObject;
-        prefabCamino = Resources.Load("TR Camino Azul  1") as GameObject;
-        prefabPueblo = Resources.Load("TR Pueblo Azul") as GameObject;
+        prefabBase = Resources.Load("Base Azul") as GameObject;
+        prefabCamino = Resources.Load("Camino Azul") as GameObject;
+        prefabPueblo = Resources.Load("Pueblo Azul") as GameObject;
         // para la busqueda del null reference verifico que arcursor no es null
         if (ARCursor.Instance == null)
         {
@@ -76,37 +76,11 @@ public class ColocarPieza : NetworkBehaviour
             canPlace = true;
         });
 
-        /*confirmBaseButton.onClick.AddListener(() => {
-            //canPlace = true;
-            ConfirmarBase();
-            //canPlace = false;
-        });*/
-        /*confirmCaminoButton.onClick.AddListener(() => {
-            //canPlace = true;
-            ConfirmarCamino();
-            //canPlace = false;
-        });
-        confirmPuebloButton.onClick.AddListener(() => {
-            //canPlace = true;
-            ConfirmarPueblo();
-            //canPlace = false;
-        });*/
         confirmBaseButton.gameObject.SetActive(false);
         confirmCaminoButton.gameObject.SetActive(false);
         confirmPuebloButton.gameObject.SetActive(false);
     }
-    /*private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); // Esto garantiza que el objeto no se destruirá al cargar una nueva escena
-        }
-        else
-        {
-            Destroy(gameObject); // Si ya hay una instancia, destruye esta
-        }
-    }*/
+
     void Update()
     {
         if (canPlace && Input.touchCount == 1 && !_isTouching && Input.GetTouch(0).phase == TouchPhase.Began)
@@ -189,7 +163,6 @@ public class ColocarPieza : NetworkBehaviour
         tipoActual = TipoObjeto.Ninguno;
         //Debug.Log("Termino EjecutarColocarBase");
     }
-
     public void EjecutarColocarBase(RaycastHit hit)
     {
         Debug.Log("EntroColocar 2");

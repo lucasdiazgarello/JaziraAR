@@ -178,26 +178,6 @@ public class TestRelay : NetworkBehaviour
             throw new Exception("No se pudo convertir la cadena a un número entero.");
         }
     }
-    /*IEnumerator waiter()
-    {
-        //Wait for 4 seconds
-        Debug.Log("Entre al waiter, espero 4 segundos");
-        yield return new WaitForSeconds(4);
-        Debug.Log("Volvi al waiter");
-        int num = ConvertirAlfaNumericoAInt(AuthenticationService.Instance.PlayerId);
-        PlayerPrefs.SetInt("jugadorId", num);
-
-        if (PlayerNetwork.Instance != null)
-        {
-            PlayerNetwork.Instance.AgregarJugador(num, nombreHost, 100, false, true, 2, 10, 10, 10, 10, 10, colorSeleccionado.Value);
-            Debug.Log("Agregue al host");
-            PlayerNetwork.Instance.ImprimirTodosLosJugadores();
-        }
-        else
-        {
-            Debug.Log("Instancia PlayerNetwork no encontrada");
-        }
-    }*/
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -209,14 +189,7 @@ public class TestRelay : NetworkBehaviour
         if (scene.name == "SampleScene")
         {
             Debug.Log("Entre al cambio de escena");
-            //StartCoroutine(waiter());
-            //int num = ConvertirAlfaNumericoAInt(AuthenticationService.Instance.PlayerId);
-            //PlayerPrefs.SetInt("jugadorId", num);
-            ////PlayerNetwork.Instance.AgregarJugador(num, nombreHost, 100, false, true, 2, 10, 10, 10, 10, 10, colorSeleccionado.Value);
-            //PlayerNetwork.Instance.AgregarJugadorWaiter(num, nombreHost, 100, false, true, 2, 10, 10, 10, 10, 10, colorSeleccionado.Value);
-            //Debug.Log("Agregue al host");
-            //PlayerNetwork.Instance.ImprimirTodosLosJugadoresWaiter();
-            ////PlayerNetwork.Instance.ImprimirTodosLosJugadores();
+
         }
     }
     private void OnEnable()

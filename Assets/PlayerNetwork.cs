@@ -325,22 +325,6 @@ public class PlayerNetwork : NetworkBehaviour
         }
     }
 
-    /*public void ImprimirDatosJugador()
-    {
-        Debug.Log("ID Jugador: " + jugador.Value.jugadorId);
-        Debug.Log("Nombre Jugador: " + jugador.Value.nomJugador.ToString());
-        Debug.Log("Puntaje: " + jugador.Value.puntaje);
-        Debug.Log("Cantidad de Jugadores: " + jugador.Value.cantidadJugadores);
-        Debug.Log("Ganó?: " + jugador.Value.gano);
-        Debug.Log("Turno?: " + jugador.Value.turno);
-        Debug.Log("Cantidad de Casas: " + jugador.Value.cantidadCasa);
-        Debug.Log("Cuenta de Madera: " + jugador.Value.maderaCount);
-        Debug.Log("Cuenta de Ladrillos: " + jugador.Value.ladrilloCount);
-        Debug.Log("Cuenta de Ovejas: " + jugador.Value.ovejaCount);
-        Debug.Log("Cuenta de Piedras: " + jugador.Value.piedraCount);
-        Debug.Log("Cuenta de Trigo: " + jugador.Value.trigoCount);
-        Debug.Log("Color de Jugador: " + jugador.Value.colorJugador.ToString());
-    }*/
     public void ImprimirPlayerIDs()
     {
         if (playerIDs == null)
@@ -618,16 +602,7 @@ public class PlayerNetwork : NetworkBehaviour
         Debug.Log("TestClientRpc ");
         //aca irian las funciones que pasa el puntaje o cantidad de recursos por ejemplo
     }
-/*
-#pragma warning disable CS0114 // El miembro oculta el miembro heredado. Falta una contraseña de invalidación
-    private void OnDestroy()
-#pragma warning restore CS0114 // El miembro oculta el miembro heredado. Falta una contraseña de invalidación
-    {
-        // Reemplaza esto con las listas de red que estás utilizando.
-        playerIDs.Dispose();
-        playerData.Dispose();
-    }
-*/
+
     // Esta función necesita ser implementada para buscar los datos del jugador basado en su ID.
     private bool TryObtenerDatosJugadorPorId(int idJugador, out DatosJugador datosJugador)
     {
@@ -641,7 +616,6 @@ public class PlayerNetwork : NetworkBehaviour
                 return true;
             }
         }
-
         // Si no se encontró ningún jugador con el ID proporcionado, devuelve false
         datosJugador = default(DatosJugador);
         return false;
