@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Collections;
 using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -10,9 +9,9 @@ using UnityEngine.UI; // Para manejar los botones
 public class ColocarPieza : NetworkBehaviour
 {
     //public static ColocarPieza Instance { get; private set; }
-    private GameObject prefabCamino;
-    private GameObject prefabBase; // Cambiado Casa por Base
-    private GameObject prefabPueblo; // Nuevo prefab para el pueblo
+    public GameObject prefabCamino;
+    public GameObject prefabBase; // Cambiado Casa por Base
+    public GameObject prefabPueblo; // Nuevo prefab para el pueblo
     private GameObject currentBase;
     private GameObject currentCamino;
     private GameObject currentPueblo;
@@ -32,7 +31,6 @@ public class ColocarPieza : NetworkBehaviour
     public Button confirmBaseButton; // Asegúrate de asignar este botón en el inspector de Unity
     public Button confirmCaminoButton;
     public Button confirmPuebloButton;
-    //public FixedString64Bytes currentPlayerColor;
     // Agrega esta propiedad para almacenar el identificador de la parcela
     //public string identificadorParcela;
 
@@ -44,27 +42,14 @@ public class ColocarPieza : NetworkBehaviour
     //public bool tieneBase;
     //public bool tienePueblo;
     public TipoObjeto tipoActual;
-    private int previousTurnIndex = -1; // -1 indica que no se ha establecido aún
+
     void Start()
     {
-        /*FixedString64Bytes currentPlayerColor = PlayerNetwork.Instance.GetCurrentPlayerColor();
-        Debug.Log("El color del jugador actual es: " + currentPlayerColor.ToString());
-
-        // Construye el nombre del recurso con el color del jugador
-        string baseResourceName = "Base " + currentPlayerColor.ToString();
-        string caminoResourceName = "Camino " + currentPlayerColor.ToString(); // Asumiendo que el camino sigue un patrón similar
-        string puebloResourceName = "Pueblo " + currentPlayerColor.ToString(); // Asumiendo que el pueblo sigue un patrón similar
-
-        // Cargar el recurso correspondiente
-        prefabBase = Resources.Load(baseResourceName) as GameObject;
-        prefabCamino = Resources.Load(caminoResourceName) as GameObject;
-        prefabPueblo = Resources.Load(puebloResourceName) as GameObject;
-
-        //prefabBase = Resources.Load("TR Casa Azul") as GameObject;
-        //prefabCamino = Resources.Load("TR Camino Azul  1") as GameObject;
-        //prefabPueblo = Resources.Load("TR Pueblo Azul") as GameObject;
+        //arCursor = GetComponentInParent<ARCursor>();
+        prefabBase = Resources.Load("TR Casa Azul") as GameObject;
+        prefabCamino = Resources.Load("TR Camino Azul  1") as GameObject;
+        prefabPueblo = Resources.Load("TR Pueblo Azul") as GameObject;
         // para la busqueda del null reference verifico que arcursor no es null
-        */
         if (ARCursor.Instance == null)
         {
             //Debug.LogError("ARCursor is null in object " + gameObject.name);
@@ -91,33 +76,39 @@ public class ColocarPieza : NetworkBehaviour
             canPlace = true;
         });
 
+        /*confirmBaseButton.onClick.AddListener(() => {
+            //canPlace = true;
+            ConfirmarBase();
+            //canPlace = false;
+        });*/
+        /*confirmCaminoButton.onClick.AddListener(() => {
+            //canPlace = true;
+            ConfirmarCamino();
+            //canPlace = false;
+        });
+        confirmPuebloButton.onClick.AddListener(() => {
+            //canPlace = true;
+            ConfirmarPueblo();
+            //canPlace = false;
+        });*/
         confirmBaseButton.gameObject.SetActive(false);
         confirmCaminoButton.gameObject.SetActive(false);
         confirmPuebloButton.gameObject.SetActive(false);
     }
-
+    /*private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Esto garantiza que el objeto no se destruirá al cargar una nueva escena
+        }
+        else
+        {
+            Destroy(gameObject); // Si ya hay una instancia, destruye esta
+        }
+    }*/
     void Update()
     {
-        // Detectar cambio de turno
-        if (PlayerNetwork.Instance.currentTurnIndex != previousTurnIndex)
-        {
-            // Actualizar previousTurnIndex
-            previousTurnIndex = PlayerNetwork.Instance.currentTurnIndex;
-
-            // Cargar los prefabs dependiendo del color de quien sea el turno
-            FixedString64Bytes currentPlayerColor = PlayerNetwork.Instance.GetCurrentPlayerColor();
-            Debug.Log("El color del jugador actual es: " + currentPlayerColor.ToString());
-
-            // Construye el nombre del recurso con el color del jugador
-            string baseResourceName = "Base " + currentPlayerColor.ToString();
-            string caminoResourceName = "Camino " + currentPlayerColor.ToString();
-            string puebloResourceName = "Pueblo " + currentPlayerColor.ToString();
-
-            // Cargar el recurso correspondiente
-            prefabBase = Resources.Load(baseResourceName) as GameObject;
-            prefabCamino = Resources.Load(caminoResourceName) as GameObject;
-            prefabPueblo = Resources.Load(puebloResourceName) as GameObject;
-        }
         if (canPlace && Input.touchCount == 1 && !_isTouching && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             _isTouching = true;
@@ -125,10 +116,12 @@ public class ColocarPieza : NetworkBehaviour
             eventData.position = Input.GetTouch(0).position;
             List<RaycastResult> results = new List<RaycastResult>();
             EventSystem.current.RaycastAll(eventData, results);
+
             if (results.Count > 0)  // Si hay algún resultado, el toque está sobre un elemento de la interfaz de usuario
             {
                 return;
             }
+            
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
@@ -293,6 +286,7 @@ public class ColocarPieza : NetworkBehaviour
             ARCursor.Instance.ActivatePlacementMode();
         }
     }
+
     public void ColocarBase()
     {
         Debug.Log("EntroColocar 1");

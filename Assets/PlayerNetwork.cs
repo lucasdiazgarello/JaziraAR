@@ -124,6 +124,7 @@ public class PlayerNetwork : NetworkBehaviour
                     trigoCount = 0,
                     colorJugador = new FixedString64Bytes(),
                 }, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+            //NetworkManager.Singleton.OnServerStarted += HandleServerStarted;
         }
         else
         {
@@ -131,14 +132,76 @@ public class PlayerNetwork : NetworkBehaviour
             Destroy(gameObject);
         }
     }
-
+    /*private void HandleServerStarted()
+    {
+        Debug.Log("es Server");
+        //playerIDs = new NetworkList<int>();
+        //playerData = new NetworkList<PlayerNetwork.DatosJugador>();
+        try
+        {
+            Debug.Log("1 playerId:" + playerIDs.Count);
+            playerIDs.Add(0);
+            Debug.Log("2 playerId:" + playerIDs.Count);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Error al intentar agregar a la lista: " + e.Message);
+        }
+        Debug.Log("3 playerId:" + playerIDs.Count);
+    }*/
     void Start()
     {
+        if(IsServer) // ESTO NO CORRE porque se instancia playernetwork antes qeu se cree el host
+        {
+            Debug.Log("entre al is server del Start de PlayerNetwork");
+            try
+            {
+                int playerId = PlayerPrefs.GetInt("PlayerId");
+                playerIDs.Add(playerId);
+                Debug.Log("Imprimo lista de Ids");
+                ImprimirPlayerIDs();
+
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("Error al intentar agregar a la lista: " + e.Message);
+            }
+            Debug.Log("playerId:" + playerIDs.Count); //.Count dice la cantidad de elementos qeu tiene la lista
+        }
+        else
+        {
+
+        }
+
+        /*Debug.Log("Creo playerIDs y playerData");
+        playerIDs = new NetworkList<int>();
+        ImprimirPlayerIDs();
+        //PrintPlayerIDs();
+        playerData = new NetworkList<PlayerNetwork.DatosJugador>();
+        PrintPlayerData();
+        */
+        //Debug.Log("playerIDs y playerData"+playerIDs.Count +":"+ playerData.Count);
+
         if (NetworkManager.Singleton)
         {
             NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
             NetworkManager.Singleton.OnClientDisconnectCallback += OnClientDisconnect;
         }
+        /*
+        Debug.Log("Estoy en el Start de PN, es server? :" + IsServer + ", Soy Owner? :" + IsOwner);
+        int playerId = PlayerPrefs.GetInt("PlayerId");
+        FixedString64Bytes nombreHost = new FixedString64Bytes(PlayerPrefs.GetString("PlayerName"));
+        FixedString64Bytes colorHost = new FixedString64Bytes(PlayerPrefs.GetString("PlayerColor"));
+        Debug.Log("el jugador con id:" + playerId + "se llama " + nombreHost + " es el color " + colorHost);
+        AgregarJugador(playerId, nombreHost, 100, false, true, 2, 10, 10, 10, 10, 10, colorHost);
+        Debug.Log("se agrego jugador");
+        ImprimirTodosLosJugadores();
+        //playerNetworkObject = GetComponent<NetworkObject>();
+        if (IsServer)
+        {
+           
+        }
+        */
     }
     public override void OnDestroy()
     {
@@ -149,10 +212,10 @@ public class PlayerNetwork : NetworkBehaviour
         }
 
     }
-    void OnClientConnected(ulong clientId)
+    /*void OnClientConnected(ulong clientId)
     {
         Debug.Log($"Client {clientId} connected.");
-    }
+    }*/
     void OnClientDisconnect(ulong clientId)
     {
         Debug.Log($"Client {clientId} disconnected.");
@@ -219,6 +282,21 @@ public class PlayerNetwork : NetworkBehaviour
         playerData.Dispose();
     }*/
 
+    void OnClientConnected(ulong clientId)
+    {
+        Debug.Log($"Client {clientId} connected.");
+        /*Debug.Log("LocalClientId es " + NetworkManager.Singleton.LocalClientId);
+        // Este es el código que se ejecutará cuando un cliente se conecte.
+        // Aquí es donde podrías llamar a tu función para agregar el jugador al servidor.
+        if (clientId == NetworkManager.Singleton.LocalClientId)
+        {
+            Debug.Log("IF  que no entiendo");
+            Debug.Log("Id CLIENTE A CONECTAR: " + Unirse.Instance.clientePlayerID);
+            AddPlayerServerRpc(Unirse.Instance.clientePlayerID, Unirse.Instance.nombreTemporal.Value, Unirse.Instance.nombreTemporal.Value);
+            Debug.Log("POST AddPlayerServerRpc");
+            ImprimirTodosLosJugadores();
+        }*/
+    }
     public void AgregarJugador(int jugadorId, FixedString64Bytes nomJugador, int puntaje, bool gano, bool turno, int cantidadCasa, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, FixedString64Bytes colorJugador)
     {
         //Debug.Log($"playerIDs es {(playerIDs == null ? "null" : "no null")}");
@@ -266,6 +344,22 @@ public class PlayerNetwork : NetworkBehaviour
         }
     }
 
+    /*public void ImprimirDatosJugador()
+    {
+        Debug.Log("ID Jugador: " + jugador.Value.jugadorId);
+        Debug.Log("Nombre Jugador: " + jugador.Value.nomJugador.ToString());
+        Debug.Log("Puntaje: " + jugador.Value.puntaje);
+        Debug.Log("Cantidad de Jugadores: " + jugador.Value.cantidadJugadores);
+        Debug.Log("Ganó?: " + jugador.Value.gano);
+        Debug.Log("Turno?: " + jugador.Value.turno);
+        Debug.Log("Cantidad de Casas: " + jugador.Value.cantidadCasa);
+        Debug.Log("Cuenta de Madera: " + jugador.Value.maderaCount);
+        Debug.Log("Cuenta de Ladrillos: " + jugador.Value.ladrilloCount);
+        Debug.Log("Cuenta de Ovejas: " + jugador.Value.ovejaCount);
+        Debug.Log("Cuenta de Piedras: " + jugador.Value.piedraCount);
+        Debug.Log("Cuenta de Trigo: " + jugador.Value.trigoCount);
+        Debug.Log("Color de Jugador: " + jugador.Value.colorJugador.ToString());
+    }*/
     public void ImprimirPlayerIDs()
     {
         if (playerIDs == null)
@@ -634,20 +728,6 @@ public class PlayerNetwork : NetworkBehaviour
         // Podemos usar un Debug.Log para ver los resultados.
         Debug.Log("Jugador " + playerData[indexJugador].jugadorId + " ahora tiene " + playerData[indexJugador].piedraCount + "piedras ");
     }
-    public FixedString64Bytes GetCurrentPlayerColor()
-    {
-        // Asegúrate de que hay jugadores y de que el índice es válido.
-        if (playerData.Count > 0 && currentTurnIndex < playerData.Count)
-        {
-            return playerData[currentTurnIndex].colorJugador;
-        }
-        else
-        {
-            Debug.LogError("No se pudo obtener el color del jugador porque el índice del turno actual es inválido o no hay datos de jugador.");
-            return new FixedString64Bytes(); // Devuelve una cadena vacía como valor predeterminado en caso de error.
-        }
-    }
-
     public void EndTurn()
     {
         Debug.Log("Entre al End Turn");
