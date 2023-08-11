@@ -6,7 +6,6 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using Unity.Collections;
 using Unity.Netcode;
-using Unity.Services.Lobbies.Models;
 using UnityEditor;
 //using UnityEditor;
 using UnityEngine;
@@ -132,7 +131,7 @@ public class PlayerNetwork : NetworkBehaviour
             Destroy(gameObject);
         }
     }
-    /*private void HandleServerStarted()
+    private void HandleServerStarted()
     {
         Debug.Log("es Server");
         //playerIDs = new NetworkList<int>();
@@ -148,10 +147,10 @@ public class PlayerNetwork : NetworkBehaviour
             Debug.LogError("Error al intentar agregar a la lista: " + e.Message);
         }
         Debug.Log("3 playerId:" + playerIDs.Count);
-    }*/
+    }
     void Start()
     {
-        if(IsServer) // ESTO NO CORRE porque se instancia playernetwork antes qeu se cree el host
+        if(IsServer)
         {
             Debug.Log("entre al is server del Start de PlayerNetwork");
             try
@@ -172,7 +171,8 @@ public class PlayerNetwork : NetworkBehaviour
         {
 
         }
-
+            
+       
         /*Debug.Log("Creo playerIDs y playerData");
         playerIDs = new NetworkList<int>();
         ImprimirPlayerIDs();
@@ -253,8 +253,6 @@ public class PlayerNetwork : NetworkBehaviour
         {
             Debug.Log("Entre como cliente de OnNetworkSpawn");
             int playerId = PlayerPrefs.GetInt("jugadorId");
-            Debug.Log("id jugador 1 ="+ playerId);
-
             FixedString64Bytes nombreCliente = new FixedString64Bytes(PlayerPrefs.GetString("nomJugador"));
             FixedString64Bytes colorCliente = new FixedString64Bytes(PlayerPrefs.GetString("colorJugador"));
             Debug.Log("el cliente con id:" + playerId + "se llama " + nombreCliente + " y es el color " + colorCliente);
@@ -332,7 +330,6 @@ public class PlayerNetwork : NetworkBehaviour
         Debug.Log("Cargue newDatos");
         try
         {
-            Debug.Log("id jugador 2 =" + jugadorId);
             playerIDs.Add(jugadorId);
             Debug.Log("Cant elementos de playerId:" + playerIDs.Count);
             playerData.Add(newDatos);
@@ -568,7 +565,6 @@ public class PlayerNetwork : NetworkBehaviour
             newPlayer.colorJugador = colorJugador;
             // ... y puedes agregar los demás valores predeterminados aquí
             Debug.Log("Se va a unir usando AddPlayerServerRpc");
-
             playerData.Add(newPlayer);
             playerIDs.Add(newPlayer.jugadorId);
             ImprimirPlayerIDs();
@@ -760,7 +756,6 @@ public class PlayerNetwork : NetworkBehaviour
         currentTurnIndex = newTurnIndex;
         // Aquí puedes implementar lógica adicional como mostrar un mensaje indicando quién es el próximo.
         Debug.Log("C - Cambio el turno a " + currentTurnIndex);
-        ImprimirPlayerIDs();
     }
     [ServerRpc(RequireOwnership = false)]
     public void NotifyTurnChangeServerRpc(int newTurnIndex)
@@ -768,12 +763,10 @@ public class PlayerNetwork : NetworkBehaviour
         currentTurnIndex = newTurnIndex;
         // Aquí puedes implementar lógica adicional como mostrar un mensaje indicando quién es el próximo.
         Debug.Log("S - Cambio el turno a " + currentTurnIndex);
-        ImprimirPlayerIDs();
     }
-    public bool IsMyTurn(int clientId)
+    public bool IsMyTurn(ulong clientId)
     {
-        Debug.Log("Index " + currentTurnIndex + "y es turno de " + playerIDs[currentTurnIndex] + " Y " + clientId);
-        return (playerIDs[currentTurnIndex] == clientId);
+        return (playerIDs[currentTurnIndex] == (int) clientId);
     }
 }
 
