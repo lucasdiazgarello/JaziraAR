@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
@@ -9,46 +10,74 @@ using UnityEngine.UI; // Para manejar los botones
 public class ColocarPieza : NetworkBehaviour
 {
     //public static ColocarPieza Instance { get; private set; }
-    public GameObject prefabCamino;
-    public GameObject prefabBase; // Cambiado Casa por Base
-    public GameObject prefabPueblo; // Nuevo prefab para el pueblo
+    private GameObject prefabCamino;
+    private GameObject prefabBase; // Cambiado Casa por Base
+    private GameObject prefabPueblo; // Nuevo prefab para el pueblo
     private GameObject currentBase;
     private GameObject currentCamino;
     private GameObject currentPueblo;
     private bool _isTouching = false;
     private bool canPlace = false;
-
     public ComprobarObjeto comprobarObjeto;
-    // Declaración de una máscara de capa.
     public LayerMask myLayerMask;
-    //private ARCursor arCursor;
-    //private bool _isTouching;
-
-    // Botones para las acciones de colocar camino y base
     public Button buttonCamino;
     public Button buttonBase;
     public Button buttonPueblo;
     public Button confirmBaseButton; // Asegúrate de asignar este botón en el inspector de Unity
     public Button confirmCaminoButton;
     public Button confirmPuebloButton;
-    // Agrega esta propiedad para almacenar el identificador de la parcela
-    //public string identificadorParcela;
-
-    // Referencia al script ComprarPieza
-    //public ComprarPieza comprarPieza;
-    //public IdentificadorParcela identificadorParcela;
-
-    // Variable booleana para indicar si tiene una base colocada
-    //public bool tieneBase;
-    //public bool tienePueblo;
     public TipoObjeto tipoActual;
+    public enum PlayerColor
+    {
+        Azul,
+        Rojo,
+        Violeta,
+        Naranja
+    }
+
+    [System.Serializable]
+    public class PlayerPrefabs
+    {
+        public GameObject Camino;
+        public GameObject Base;
+        public GameObject Pueblo;
+    }
+
+    public Dictionary<PlayerColor, PlayerPrefabs> colorPrefabs = new Dictionary<PlayerColor, PlayerPrefabs>();
+
+    private PlayerColor currentPlayerColor;
 
     void Start()
     {
-        //arCursor = GetComponentInParent<ARCursor>();
-        prefabBase = Resources.Load("Base Azul") as GameObject;
-        prefabCamino = Resources.Load("Camino Azul") as GameObject;
-        prefabPueblo = Resources.Load("Pueblo Azul") as GameObject;
+        // Inicializa el diccionario con los prefabs para cada jugador
+        colorPrefabs[PlayerColor.Azul] = new PlayerPrefabs
+        {
+            Camino = Resources.Load<GameObject>("Camino Azul"),
+            Base = Resources.Load<GameObject>("Base Azul"),
+            Pueblo = Resources.Load<GameObject>("Pueblo Azul")
+        };
+        colorPrefabs[PlayerColor.Rojo] = new PlayerPrefabs
+        {
+            Camino = Resources.Load<GameObject>("Camino Rojo"),
+            Base = Resources.Load<GameObject>("Base Rojo"),
+            Pueblo = Resources.Load<GameObject>("Pueblo Rojo")
+        };
+        colorPrefabs[PlayerColor.Violeta] = new PlayerPrefabs
+        {
+            Camino = Resources.Load<GameObject>("Camino Violeta"),
+            Base = Resources.Load<GameObject>("Base Violeta"),
+            Pueblo = Resources.Load<GameObject>("Pueblo Violeta")
+        };
+        colorPrefabs[PlayerColor.Naranja] = new PlayerPrefabs
+        {
+            Camino = Resources.Load<GameObject>("Camino Naranja"),
+            Base = Resources.Load<GameObject>("Base Naranja"),
+            Pueblo = Resources.Load<GameObject>("Pueblo Naranja")
+        };
+
+        //prefabBase = Resources.Load("Base Azul") as GameObject;
+        //prefabCamino = Resources.Load("Camino Azul") as GameObject;
+        //prefabPueblo = Resources.Load("Pueblo Azul") as GameObject;
         // para la busqueda del null reference verifico que arcursor no es null
         if (ARCursor.Instance == null)
         {
@@ -83,6 +112,12 @@ public class ColocarPieza : NetworkBehaviour
 
     void Update()
     {
+        // Obtener el jugador actual (esto puede ser una función que retorna el color del jugador en turno)
+        currentPlayerColor = GetCurrentPlayerColor();
+        //Debug.Log("color del jugador actual " + currentPlayerColor);
+        prefabCamino = colorPrefabs[currentPlayerColor].Camino;
+        prefabBase = colorPrefabs[currentPlayerColor].Base;
+        prefabPueblo = colorPrefabs[currentPlayerColor].Pueblo;
         if (canPlace && Input.touchCount == 1 && !_isTouching && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             _isTouching = true;
@@ -354,7 +389,35 @@ public class ColocarPieza : NetworkBehaviour
             currentPueblo = null;
         }
     }
-   
+    public PlayerColor GetCurrentPlayerColor()
+    {
+        // Asegúrate de que hay jugadores y de que el índice es válido.
+        if (PlayerNetwork.Instance.playerData.Count > 0 && PlayerNetwork.Instance.currentTurnIndex < PlayerNetwork.Instance.playerData.Count)
+        {
+            // Convierte el FixedString64Bytes a string
+            string colorString = PlayerNetwork.Instance.playerData[PlayerNetwork.Instance.currentTurnIndex].colorJugador.ToString();
+            Debug.Log("Color obtenido del jugador: " + colorString);
+
+            // Intenta convertir la cadena al valor enum PlayerColor
+            if (Enum.TryParse(colorString, true, out PlayerColor parsedColor))
+            {
+                Debug.Log("El color se convirtió exitosamente al enum: " + parsedColor.ToString());
+                return parsedColor;
+            }
+            else
+            {
+                Debug.LogError("El color del jugador en playerData no corresponde a un valor en PlayerColor. Color problemático: " + colorString);
+            }
+        }
+        else
+        {
+            Debug.LogError("No se pudo obtener el color del jugador porque el índice del turno actual es inválido o no hay datos de jugador.");
+        }
+
+        return PlayerColor.Azul; // Devuelve un valor predeterminado en caso de error.
+    }
+
+
     /*public void ActivarColocacion(TipoObjeto tipo)
     {
         tipoActual = tipo;

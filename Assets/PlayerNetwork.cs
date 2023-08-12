@@ -206,7 +206,7 @@ public class PlayerNetwork : NetworkBehaviour
     }
     public override void OnNetworkSpawn()
     {
-        if (IsServer)
+        if (NetworkManager.Singleton.IsServer)
         {
             Debug.Log("Entre al IsServer de OnNetworkSpawn");
             int playerId = PlayerPrefs.GetInt("jugadorId");
@@ -682,6 +682,20 @@ public class PlayerNetwork : NetworkBehaviour
         // Podemos usar un Debug.Log para ver los resultados.
         Debug.Log("Jugador " + playerData[indexJugador].jugadorId + " ahora tiene " + playerData[indexJugador].piedraCount + "piedras ");
     }
+    /*public FixedString64Bytes GetCurrentPlayerColor()
+    {
+        // Asegúrate de que hay jugadores y de que el índice es válido.
+        if (playerData.Count > 0 && currentTurnIndex < playerData.Count)
+        {
+            return playerData[currentTurnIndex].colorJugador;
+        }
+        else
+        {
+            Debug.LogError("No se pudo obtener el color del jugador porque el índice del turno actual es inválido o no hay datos de jugador.");
+            return new FixedString64Bytes(); // Devuelve una cadena vacía como valor predeterminado en caso de error.
+        }
+    }*/
+    
     public void EndTurn()
     {
         Debug.Log("Entre al End Turn");
@@ -724,7 +738,7 @@ public class PlayerNetwork : NetworkBehaviour
     }
     public bool IsMyTurn(int clientId)
     {
-        Debug.Log("Index " + currentTurnIndex + "y es turno de " + playerIDs[currentTurnIndex] + " Y " + clientId);
+        //Debug.Log("Index " + currentTurnIndex + "y es turno de " + playerIDs[currentTurnIndex] + " Y " + clientId);
         return (playerIDs[currentTurnIndex] == clientId);
     }
 }

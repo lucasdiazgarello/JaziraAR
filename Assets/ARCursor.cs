@@ -144,7 +144,7 @@ public class ARCursor : NetworkBehaviour
 
         if (PlayerNetwork.Instance.IsMyTurn(PlayerPrefs.GetInt("jugadorId")))
         {
-            Debug.Log("Es mi TURNO");
+            //Debug.Log("Es mi TURNO");
             tirarDadoButton.interactable = true;
             //terminarTurnoButton.interactable = true; // esto da null reference 
         }

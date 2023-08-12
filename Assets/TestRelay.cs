@@ -88,7 +88,7 @@ public class TestRelay : NetworkBehaviour
             Debug.Log("el color es : " + color + " y el nombre es : " + nombre);
             PlayerPrefs.SetInt("jugadorId", num);
             PlayerPrefs.SetString("nomJugador",nombre);
-            PlayerPrefs.SetString("colorJugador",color);
+            PlayerPrefs.SetString("colorJugador", color);
             Debug.Log("ID NUEVO" + num);
             isRelayCreated = true;
         }
