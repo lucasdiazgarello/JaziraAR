@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -9,12 +10,19 @@ using UnityEngine.UI; // Para manejar los botones
 public class ColocarPieza : NetworkBehaviour
 {
     //public static ColocarPieza Instance { get; private set; }
-    public GameObject prefabCamino;
-    public GameObject prefabBase; // Cambiado Casa por Base
-    public GameObject prefabPueblo; // Nuevo prefab para el pueblo
+    public GameObject prefabCaminoA;
+    public GameObject prefabBaseA; // Cambiado Casa por Base
+    public GameObject prefabPuebloA; // Nuevo prefab para el pueblo
+    public GameObject prefabCaminoR;
+    public GameObject prefabBaseR; // Cambiado Casa por Base
+    public GameObject prefabPuebloR; // Nuevo prefab para el pueblo
+    private GameObject currentPrefabBase;
+    private GameObject currentPrefabCamino;
+    private GameObject currentPrefabPueblo;
     private GameObject currentBase;
     private GameObject currentCamino;
     private GameObject currentPueblo;
+
     private bool _isTouching = false;
     private bool canPlace = false;
 
@@ -46,9 +54,12 @@ public class ColocarPieza : NetworkBehaviour
     void Start()
     {
         //arCursor = GetComponentInParent<ARCursor>();
-        prefabBase = Resources.Load("TR Casa Azul") as GameObject;
-        prefabCamino = Resources.Load("TR Camino Azul  1") as GameObject;
-        prefabPueblo = Resources.Load("TR Pueblo Azul") as GameObject;
+        prefabBaseA = Resources.Load("TR Casa Azul") as GameObject;
+        prefabCaminoA = Resources.Load("TR Camino Azul") as GameObject;
+        prefabPuebloA = Resources.Load("TR Pueblo Azul") as GameObject;
+        prefabBaseR = Resources.Load("TR Casa Rojo") as GameObject;
+        prefabCaminoR = Resources.Load("TR Camino Rojo") as GameObject;
+        prefabPuebloR = Resources.Load("TR Pueblo Rojo") as GameObject;
         // para la busqueda del null reference verifico que arcursor no es null
         if (ARCursor.Instance == null)
         {
@@ -126,20 +137,23 @@ public class ColocarPieza : NetworkBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
             {
+                var color =PlayerPrefs.GetString("colorJugador");
+
                 if (hit.collider.gameObject.CompareTag("Arista") && tipoActual == TipoObjeto.Camino)
                 {
-                    ColocarCamino();
+
+                    ColocarCamino(color);
                 }
                 else if (hit.collider.gameObject.CompareTag("Esquina") && tipoActual == TipoObjeto.Base)
                 {
-                    ColocarBase();
+                    ColocarBase(color);
                     //EjecutarColocarBase(hit);
                     //canPlace = false; // Desactivar la capacidad de colocar después de que se ha colocado la base
                 }
                 // Nuevo if para manejar el caso de TipoObjeto.Pueblo
                 else if (hit.collider.gameObject.CompareTag("Esquina") && tipoActual == TipoObjeto.Pueblo)
                 {
-                    ColocarPueblo();
+                    ColocarPueblo(color);
                 }
             }
         }
@@ -166,12 +180,21 @@ public class ColocarPieza : NetworkBehaviour
         return tipo;
     }
 
-    public void EjecutarColocarCamino(RaycastHit hit)
+    public void EjecutarColocarCamino(RaycastHit hit,string color)
     {
+        switch (color)
+        {
+            case "Rojo":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                currentPrefabCamino = prefabCaminoR;
+                break;
+            case "Azul":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                currentPrefabCamino = prefabCaminoA;
+                break;
+        }
         Debug.Log("EjecutarColocarCamino");
         // El objeto golpeado es una esquina.
         //currentCamino = Instantiate(prefabCamino, hit.collider.gameObject.transform.position, Quaternion.identity);
-        currentCamino = Instantiate(prefabCamino, hit.collider.gameObject.transform.position, hit.collider.gameObject.transform.rotation); //con rotacion
+        currentCamino = Instantiate(currentPrefabCamino, hit.collider.gameObject.transform.position, hit.collider.gameObject.transform.rotation); //con rotacion
         currentCamino.GetComponent<NetworkObject>().Spawn();
         comprobarObjeto = hit.collider.gameObject.GetComponent<ComprobarObjeto>();
 
@@ -190,12 +213,21 @@ public class ColocarPieza : NetworkBehaviour
         //Debug.Log("Termino EjecutarColocarBase");
     }
 
-    public void EjecutarColocarBase(RaycastHit hit)
+    public void EjecutarColocarBase(RaycastHit hit, string color)
     {
+        switch (color)
+        {
+            case "Rojo":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                currentPrefabBase = prefabBaseR;
+                break;
+            case "Azul":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                currentPrefabBase = prefabBaseA;
+                break;
+        }
         Debug.Log("EntroColocar 2");
 
         // El objeto golpeado es una esquina.
-        currentBase = Instantiate(prefabBase, hit.collider.gameObject.transform.position, Quaternion.identity);
+        currentBase = Instantiate(currentPrefabBase, hit.collider.gameObject.transform.position, Quaternion.identity);
         //Debug.Log("Luego de instatiate");
         currentBase.GetComponent<NetworkObject>().Spawn();
 
@@ -224,11 +256,21 @@ public class ColocarPieza : NetworkBehaviour
         Debug.Log("el tipo de la base colocada es " + tipoActual);
         tipoActual = TipoObjeto.Ninguno;
     }
-    public void EjecutarColocarPueblo(RaycastHit hit)
+    public void EjecutarColocarPueblo(RaycastHit hit, string color)
     {
+
+        switch (color)
+        {
+            case "Rojo":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                currentPrefabPueblo = prefabPuebloR;
+                break;
+            case "Azul":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                currentPrefabPueblo = prefabPuebloA;
+                break;
+        }
         //Debug.Log("EntroColocar 2");
         // El objeto golpeado es una esquina.
-        currentPueblo = Instantiate(prefabPueblo, hit.collider.gameObject.transform.position, Quaternion.identity);
+        currentPueblo = Instantiate(currentPrefabPueblo, hit.collider.gameObject.transform.position, Quaternion.identity);
         //currentPueblo = Instantiate(prefabPueblo, hit.collider.gameObject.transform.position, hit.collider.gameObject.transform.rotation); //con rotacion
         currentPueblo.GetComponent<NetworkObject>().Spawn();
         comprobarObjeto = hit.collider.gameObject.GetComponent<ComprobarObjeto>();
@@ -269,7 +311,7 @@ public class ColocarPieza : NetworkBehaviour
         tipoActual = TipoObjeto.Ninguno;
         //Debug.Log("Termino EjecutarColocarBase");
     }*/
-    public void ColocarCamino()
+    public void ColocarCamino(string color)
     {
         AllowPlace();
         //Debug.Log("EntroColocar 1");
@@ -277,7 +319,7 @@ public class ColocarPieza : NetworkBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
         {
-            EjecutarColocarCamino(hit);
+            EjecutarColocarCamino(hit,color);
             confirmCaminoButton.gameObject.SetActive(true);
         }
         //ARCursor arCursor = FindObjectOfType<ARCursor>();
@@ -287,7 +329,7 @@ public class ColocarPieza : NetworkBehaviour
         }
     }
 
-    public void ColocarBase()
+    public void ColocarBase(string color)
     {
         Debug.Log("EntroColocar 1");
         AllowPlace();
@@ -298,7 +340,7 @@ public class ColocarPieza : NetworkBehaviour
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
         {
             //Debug.Log("Antes EjecutarColocarBase");
-            EjecutarColocarBase(hit);
+            EjecutarColocarBase(hit, color);
             //Debug.Log("Despues EjecutarColocarBase");
             confirmBaseButton.gameObject.SetActive(true); // Habilita el botón de confirmación
         }
@@ -309,7 +351,7 @@ public class ColocarPieza : NetworkBehaviour
         }
     }
     
-    public void ColocarPueblo()
+    public void ColocarPueblo(string color)
     {
         AllowPlace();
         RaycastHit hit;
@@ -317,7 +359,7 @@ public class ColocarPieza : NetworkBehaviour
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
         {
             //Debug.Log("Antes EjecutarColocarBase");
-            EjecutarColocarPueblo(hit);
+            EjecutarColocarPueblo(hit, color);
             //Debug.Log("Despues EjecutarColocarBase");
             confirmPuebloButton.gameObject.SetActive(true); // Habilita el botón de confirmación
         }

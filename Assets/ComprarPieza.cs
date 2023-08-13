@@ -71,6 +71,8 @@ public class ComprarPieza : MonoBehaviour
     {
         if (esperandoColocarBase && Input.touchCount > 0)
         {
+            
+
             colocarPieza.AllowPlace();
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
@@ -83,7 +85,8 @@ public class ComprarPieza : MonoBehaviour
                     //Debug.Log("Tag: " + hit.collider.gameObject.tag);
                     if (hit.collider.gameObject.CompareTag("Esquina"))
                     {
-                        colocarPieza.EjecutarColocarBase(hit);
+                        var color = PlayerPrefs.GetString("colorJugador");
+                        colocarPieza.EjecutarColocarBase(hit, color);
                         esperandoColocarBase = false;
 
                     }
@@ -114,7 +117,8 @@ public class ComprarPieza : MonoBehaviour
                     Debug.Log("Antes EjecutarColocarCamino");
                     if (hit.collider.gameObject.CompareTag("Arista"))
                     {
-                        colocarPieza.EjecutarColocarCamino(hit);
+                        var color = PlayerPrefs.GetString("colorJugador");
+                        colocarPieza.EjecutarColocarCamino(hit,color);
                         esperandoColocarCamino = false;
 
                     }
@@ -143,7 +147,8 @@ public class ComprarPieza : MonoBehaviour
                     Debug.Log("Antes EjecutarColocarPueblo");
                     if (hit.collider.gameObject.CompareTag("Esquina"))
                     {
-                        colocarPieza.EjecutarColocarPueblo(hit);
+                        var color = PlayerPrefs.GetString("colorJugador");
+                        colocarPieza.EjecutarColocarPueblo(hit, color);
                         esperandoColocarPueblo = false;
                     }
 
