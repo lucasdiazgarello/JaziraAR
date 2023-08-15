@@ -118,98 +118,95 @@ public class ARCursor : NetworkBehaviour
     }
     void Update()
     {
-        // Solo el host puede colocar el tablero
-        if (NetworkManager.Singleton.IsServer)
+        try
         {
-            //Debug.Log("is server update");
-            //colocar tablero
-            if (isPlacementModeActive && !isBoardPlaced && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+            // Solo el host puede colocar el tablero
+            if (NetworkManager.Singleton.IsServer)
             {
-                // Comprobar si el toque está sobre un elemento de la interfaz de usuario
-                if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+                //Debug.Log("is server update");
+                //colocar tablero
+                if (isPlacementModeActive && !isBoardPlaced && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
                 {
-                    return; // No colocar el tablero si el toque está sobre un elemento de la interfaz de usuario
+                    // Comprobar si el toque está sobre un elemento de la interfaz de usuario
+                    if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+                    {
+                        return; // No colocar el tablero si el toque está sobre un elemento de la interfaz de usuario
+                    }
+                    List<ARRaycastHit> hits = new List<ARRaycastHit>();
+                    raycastManager.Raycast(Input.GetTouch(0).position, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
+                    if (hits.Count > 0)
+                    {
+                        // Primero, eliminar el tablero actual si existe
+                        if (tableromInstance != null)
+                        {
+                            var networkObject = tableromInstance.GetComponent<NetworkObject>();
+                            if (networkObject != null && networkObject.IsSpawned)
+                            {
+                                networkObject.Despawn();
+                            }
+                        }
+                        Debug.Log("Antes De tableroInstance");
+                        // Luego, crear un nuevo tablero y guardarlo como currentObject
+                        tableromInstance = Instantiate(objectToPlace, hits[0].pose.position, hits[0].pose.rotation);
+                        Debug.Log("Despues De tableroInstance");
+                        //ACa esta el error de Nested NETworkObjects
+                        tableromInstance.GetComponent<NetworkObject>().Spawn();
+                        // Buscar el collider específico por su nombre.
+                        Transform childCollider = tableromInstance.transform.Find("Empty camino rot der (5)");
+                        Debug.Log("Encontre el collider " + childCollider.name);
+                        if (childCollider)
+                        {
+                            NetworkObject childNetworkObject = childCollider.GetComponent<NetworkObject>();
+                            if (childNetworkObject)
+                            {
+                                Debug.Log("spawn " + childNetworkObject.name);
+                                // Instanciar y spawnea el collider específico.
+                                GameObject childInstance = Instantiate(childCollider.gameObject, tableromInstance.transform);
+                                childInstance.GetComponent<NetworkObject>().Spawn();
+                            }
+                        }
+                        else
+                        {
+                            Debug.Log("ColliderEspecifico no encontrado.");
+                        }
+                        /*// PONER ESTO PARA QUE SPAWNEE TODOS LOS COLLIDERS NO SOLO UNO
+                        // Ahora, para cada hijo que sea un NetworkObject:
+                        foreach (Transform child in tableromInstance.transform)
+                        {
+                            // Comprobar si el hijo es un NetworkObject.
+                            NetworkObject childNetworkObject = child.GetComponent<NetworkObject>();
+                            Debug.Log("el collider se llama " + childNetworkObject.name);
+                            if (childNetworkObject)
+                            {
+                                // Instanciar y spawnea cada collider que sea un NetworkObject.
+                                GameObject childInstance = Instantiate(child.gameObject, tableromInstance.transform);
+                                Debug.Log("Instancio " + childInstance.name);
+                                childInstance.GetComponent<NetworkObject>().Spawn();
+                            }
+                        }*/
+                        Debug.Log("Despues De tableroInstance y de spawnear el collider específico");
+                        placeButton.gameObject.SetActive(false); // Desactivar el botón de colocación después de colocar el tablero
+                        confirmButton.gameObject.SetActive(true); // Activar el botón de confirmación después de colocar el tablero
+                    }
                 }
-                List<ARRaycastHit> hits = new List<ARRaycastHit>();
-                raycastManager.Raycast(Input.GetTouch(0).position, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
-                if (hits.Count > 0)
-                {
-                    // Primero, eliminar el tablero actual si existe
-                    if (tableromInstance != null)
-                    {
-                        var networkObject = tableromInstance.GetComponent<NetworkObject>();
-                        if (networkObject != null && networkObject.IsSpawned)
-                        {
-                            networkObject.Despawn();
-                        }
-                    }
-                    // Luego, crear un nuevo tablero y guardarlo como currentObject
-                    tableromInstance = Instantiate(objectToPlace, hits[0].pose.position, hits[0].pose.rotation);
-                    Debug.Log("Antes De tableroInstance");
-                    tableromInstance.GetComponent<NetworkObject>().Spawn();
-                    // Buscar el collider específico por su nombre.
-                    Transform childCollider = tableromInstance.transform.Find("Empty camino rot der (5)");
-                    Debug.Log("Encontre el collider " + childCollider.name);
-                    if (childCollider)
-                    {
-                        NetworkObject childNetworkObject = childCollider.GetComponent<NetworkObject>();
-                        if (childNetworkObject)
-                        {
-                            Debug.Log("spawn " + childNetworkObject.name);
-                            // Instanciar y spawnea el collider específico.
-                            GameObject childInstance = Instantiate(childCollider.gameObject, tableromInstance.transform);
-                            childInstance.GetComponent<NetworkObject>().Spawn();
-                        }
-                    }
-                    else
-                    {
-                        Debug.Log("ColliderEspecifico no encontrado.");
-                    }
-                    /* PONER ESTO PARA QUE SPAWNEE TODOS LOS COLLIDERS NO SOLO UNO
-                    // Ahora, para cada hijo que sea un NetworkObject:
-                    foreach (Transform child in tableromInstance.transform)
-                    {
-                        // Comprobar si el hijo es un NetworkObject.
-                        NetworkObject childNetworkObject = child.GetComponent<NetworkObject>();
-                        if (childNetworkObject)
-                        {
-                            // Instanciar y spawnea cada collider que sea un NetworkObject.
-                            GameObject childInstance = Instantiate(child.gameObject, tableromInstance.transform);
-                            childInstance.GetComponent<NetworkObject>().Spawn();
-                        }
-                    }*/
-                    Debug.Log("Despues De tableroInstance y de spawnear el collider específico");
-                    placeButton.gameObject.SetActive(false); // Desactivar el botón de colocación después de colocar el tablero
-                    confirmButton.gameObject.SetActive(true); // Activar el botón de confirmación después de colocar el tablero
-                }
+            }          
+            //Debug.Log("llego y el id es " + PlayerPrefs.GetInt("jugadorId"));
+            if (PlayerNetwork.Instance.IsMyTurn(PlayerPrefs.GetInt("jugadorId")))
+            {
+                //Debug.Log("Es mi TURNO");
+                tirarDadoButton.interactable = true;
+                //terminarTurnoButton.interactable = true;
             }
-
-            /*if (colocarPieza != null && colocarPieza.enabled)
+            else
             {
-                if (colocarPieza.tipoActual == TipoObjeto.Base)
-                {
-                    Debug.Log("Voy a llamar a colocar base");
-                    colocarPieza.ColocarBase();
-                }
-                else if (colocarPieza.tipoActual == TipoObjeto.Camino)
-                {
-                    colocarPieza.ColocarCamino();
-                }
-            }*/
+                tirarDadoButton.interactable = false;
+                //terminarTurnoButton.interactable = false;
+            }
         }
-       
-       
-        //Debug.Log("llego y el id es " + PlayerPrefs.GetInt("jugadorId"));
-        if (PlayerNetwork.Instance.IsMyTurn(PlayerPrefs.GetInt("jugadorId")))
+        catch (Exception ex)
         {
-            //Debug.Log("Es mi TURNO");
-            tirarDadoButton.interactable = true;
-            //terminarTurnoButton.interactable = true;
-        }
-        else
-        {
-            tirarDadoButton.interactable = false;
-            //terminarTurnoButton.interactable = false;
+            Debug.LogError("Error en Update: " + ex.Message);
+            Debug.LogError(ex.StackTrace);
         }
     }
 
