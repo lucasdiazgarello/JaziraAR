@@ -147,7 +147,38 @@ public class ARCursor : NetworkBehaviour
                     tableromInstance = Instantiate(objectToPlace, hits[0].pose.position, hits[0].pose.rotation);
                     Debug.Log("Antes De tableroInstance");
                     tableromInstance.GetComponent<NetworkObject>().Spawn();
-                    Debug.Log("Despues De tableroInstance");
+                    // Buscar el collider específico por su nombre.
+                    Transform childCollider = tableromInstance.transform.Find("Empty camino rot der (5)");
+                    Debug.Log("Encontre el collider " + childCollider.name);
+                    if (childCollider)
+                    {
+                        NetworkObject childNetworkObject = childCollider.GetComponent<NetworkObject>();
+                        if (childNetworkObject)
+                        {
+                            Debug.Log("spawn " + childNetworkObject.name);
+                            // Instanciar y spawnea el collider específico.
+                            GameObject childInstance = Instantiate(childCollider.gameObject, tableromInstance.transform);
+                            childInstance.GetComponent<NetworkObject>().Spawn();
+                        }
+                    }
+                    else
+                    {
+                        Debug.Log("ColliderEspecifico no encontrado.");
+                    }
+                    /* PONER ESTO PARA QUE SPAWNEE TODOS LOS COLLIDERS NO SOLO UNO
+                    // Ahora, para cada hijo que sea un NetworkObject:
+                    foreach (Transform child in tableromInstance.transform)
+                    {
+                        // Comprobar si el hijo es un NetworkObject.
+                        NetworkObject childNetworkObject = child.GetComponent<NetworkObject>();
+                        if (childNetworkObject)
+                        {
+                            // Instanciar y spawnea cada collider que sea un NetworkObject.
+                            GameObject childInstance = Instantiate(child.gameObject, tableromInstance.transform);
+                            childInstance.GetComponent<NetworkObject>().Spawn();
+                        }
+                    }*/
+                    Debug.Log("Despues De tableroInstance y de spawnear el collider específico");
                     placeButton.gameObject.SetActive(false); // Desactivar el botón de colocación después de colocar el tablero
                     confirmButton.gameObject.SetActive(true); // Activar el botón de confirmación después de colocar el tablero
                 }

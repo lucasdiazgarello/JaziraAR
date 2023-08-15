@@ -48,13 +48,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -189,13 +182,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -330,13 +316,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -596,13 +575,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -737,13 +709,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -955,147 +920,6 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
---- !u!1 &605201819428216734
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5487028681643639214}
-  - component: {fileID: 702487409184054933}
-  - component: {fileID: 4747599580141442953}
-  - component: {fileID: 8840752975131634952}
-  - component: {fileID: 9149254892639001666}
-  - component: {fileID: 8320710049689811946}
-  m_Layer: 3
-  m_Name: Empty camino rot der (5)
-  m_TagString: Arista
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5487028681643639214
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 605201819428216734}
-  m_LocalRotation: {x: -0, y: 0.86309624, z: -0, w: 0.5050396}
-  m_LocalPosition: {x: 0.66, y: 1.4360046, z: -5.63}
-  m_LocalScale: {x: 0.6, y: 0.7, z: 0.6}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3813611934402495106}
-  m_RootOrder: 141
-  m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
---- !u!114 &702487409184054933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 605201819428216734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
-  myLayerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  buttonCamino: {fileID: 0}
-  buttonBase: {fileID: 0}
-  buttonPueblo: {fileID: 0}
-  confirmBaseButton: {fileID: 0}
-  confirmCaminoButton: {fileID: 0}
-  confirmPuebloButton: {fileID: 0}
-  tipoActual: 0
---- !u!65 &4747599580141442953
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 605201819428216734}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0178207, y: 0.8314103, z: 2.2287898}
-  m_Center: {x: 0.013754334, y: -0.08429492, z: 0.09460706}
---- !u!114 &8840752975131634952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 605201819428216734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 951099334
-  AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  SpawnWithObservers: 1
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
---- !u!114 &9149254892639001666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 605201819428216734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f49bca53b85c2549b5d8489ebab0a19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tipoObjeto: 0
---- !u!114 &8320710049689811946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 605201819428216734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df2868252ab5c4d1da357e8f11f1b524, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SyncPositionX: 1
-  SyncPositionY: 1
-  SyncPositionZ: 1
-  SyncRotAngleX: 1
-  SyncRotAngleY: 1
-  SyncRotAngleZ: 1
-  SyncScaleX: 0
-  SyncScaleY: 0
-  SyncScaleZ: 0
-  PositionThreshold: 0.001
-  RotAngleThreshold: 0.01
-  ScaleThreshold: 0.01
-  UseQuaternionSynchronization: 0
-  UseQuaternionCompression: 0
-  UseHalfFloatPrecision: 0
-  InLocalSpace: 0
-  Interpolate: 1
-  SlerpPosition: 0
 --- !u!1 &646899990204383702
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,13 +968,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -1785,13 +1602,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -1926,13 +1736,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -2067,13 +1870,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -2208,13 +2004,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -2349,13 +2138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -2615,13 +2397,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -3256,13 +3031,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -3772,13 +3540,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -3913,13 +3674,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -4429,13 +4183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -4570,13 +4317,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -4711,13 +4451,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -4977,13 +4710,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -5493,13 +5219,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -5634,13 +5353,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -5775,13 +5487,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -6286,13 +5991,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -6677,13 +6375,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -6818,13 +6509,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -6959,13 +6643,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -7225,13 +6902,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -7366,13 +7036,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -7507,13 +7170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -7648,13 +7304,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -7789,13 +7438,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -7930,13 +7572,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -8196,13 +7831,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -8462,13 +8090,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -8603,13 +8224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -8744,13 +8358,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -9010,13 +8617,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -9401,13 +9001,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -9542,13 +9135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -9933,13 +9519,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -11163,13 +10742,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -11304,13 +10876,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -11445,13 +11010,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -11586,13 +11144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -11727,13 +11278,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -12091,13 +11635,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -12232,13 +11769,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -12373,13 +11903,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -12639,13 +12162,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -12780,13 +12296,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -12921,13 +12430,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -13062,13 +12564,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -13203,13 +12698,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -13594,13 +13082,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -13735,13 +13216,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -14251,13 +13725,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -14392,13 +13859,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -14658,13 +14118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -14799,13 +14252,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -14940,13 +14386,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -15206,13 +14645,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -15347,13 +14779,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -15488,13 +14913,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -15754,13 +15172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -15895,13 +15306,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -16036,13 +15440,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -16302,13 +15699,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -16443,13 +15833,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -21629,6 +21012,86 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1670185482592440088, guid: 54b7a9de3fe677c4394b9f628a0f7f32,
     type: 3}
   m_PrefabInstance: {fileID: 8058221562001117555}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8333895972826954195
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3813611934402495106}
+    m_Modifications:
+    - target: {fileID: 655093180707525851, guid: aacab3252fc27f840b71f243cfdd4053,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 951099334
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576261647036283005, guid: aacab3252fc27f840b71f243cfdd4053,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 141
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576261647036283005, guid: aacab3252fc27f840b71f243cfdd4053,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576261647036283005, guid: aacab3252fc27f840b71f243cfdd4053,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.4360046
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576261647036283005, guid: aacab3252fc27f840b71f243cfdd4053,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576261647036283005, guid: aacab3252fc27f840b71f243cfdd4053,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5050396
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576261647036283005, guid: aacab3252fc27f840b71f243cfdd4053,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576261647036283005, guid: aacab3252fc27f840b71f243cfdd4053,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.86309624
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576261647036283005, guid: aacab3252fc27f840b71f243cfdd4053,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576261647036283005, guid: aacab3252fc27f840b71f243cfdd4053,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576261647036283005, guid: aacab3252fc27f840b71f243cfdd4053,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 119.332
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576261647036283005, guid: aacab3252fc27f840b71f243cfdd4053,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8917665895503423053, guid: aacab3252fc27f840b71f243cfdd4053,
+        type: 3}
+      propertyPath: m_Name
+      value: Empty camino rot der (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aacab3252fc27f840b71f243cfdd4053, type: 3}
+--- !u!4 &5487028681643639214 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4576261647036283005, guid: aacab3252fc27f840b71f243cfdd4053,
+    type: 3}
+  m_PrefabInstance: {fileID: 8333895972826954195}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8997736210595430965
 PrefabInstance:

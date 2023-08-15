@@ -212,17 +212,9 @@ public class ColocarPieza : NetworkBehaviour
         Debug.Log("EjecutarColocarCamino");
         // El objeto golpeado es una esquina.
         //currentCamino = Instantiate(prefabCamino, hit.collider.gameObject.transform.position, Quaternion.identity);
-        if (NetworkManager.Singleton.IsServer)
-        {
-            Debug.Log("Soy server y oy a poner un camino");
-            currentCamino = Instantiate(currentPrefabCamino, hit.collider.gameObject.transform.position, hit.collider.gameObject.transform.rotation); //con rotacion
-            currentCamino.GetComponent<NetworkObject>().Spawn();
-        }
-        
         comprobarObjeto = hit.collider.gameObject.GetComponent<ComprobarObjeto>();
         var nombreCol = hit.collider.gameObject.GetComponent<ComprobarObjeto>().name;
         Debug.Log("El col se llama " + nombreCol);
-
         if (comprobarObjeto != null)
         {
             // Almacenar el tipo de objeto que acabamos de colocar
@@ -233,13 +225,19 @@ public class ColocarPieza : NetworkBehaviour
         {
             Debug.LogError("El objeto " + hit.collider.gameObject.name + " no tiene un script ComprobarObjeto.");
         }
-        Debug.Log("el tipo del camino es " + tipoActual);
-        tipoActual = TipoObjeto.Ninguno;
-        if (!NetworkManager.Singleton.IsServer)
+        if (NetworkManager.Singleton.IsServer)
+        {
+            Debug.Log("Soy server y voy a poner un camino");
+            currentCamino = Instantiate(currentPrefabCamino, hit.collider.gameObject.transform.position, hit.collider.gameObject.transform.rotation); //con rotacion
+            currentCamino.GetComponent<NetworkObject>().Spawn();
+        }
+        else // es un cliente
         {
             Debug.Log("Soy cliente q va a poner camino");
             ColocarCaminoServerRpc(color, nombreCol);
         }
+        Debug.Log("el tipo del camino es " + tipoActual);
+        tipoActual = TipoObjeto.Ninguno;
         //Debug.Log("Termino EjecutarColocarBase");
     }
 
