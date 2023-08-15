@@ -65,6 +65,12 @@ public class ARCursor : NetworkBehaviour
             placeButton.gameObject.SetActive(false);
             confirmButton.gameObject.SetActive(false);
         }
+        //activo colocar pieza por si es esto qeu el cliente no puede colocar
+        foreach (ColocarPieza colocarPieza in GetComponentsInChildren<ColocarPieza>())
+        {
+            Debug.Log("entro al foreach de colocar pieza");
+            colocarPieza.enabled = true;
+        }
         // Configurar los botones dependiendo de si el jugador es el host o un cliente
         //int currentPlayerId = ConvertirAlfaNumericoAInt(AuthenticationService.Instance.PlayerId);        
         //SetupButtonsBasedOnPlayerType();
@@ -165,14 +171,14 @@ public class ARCursor : NetworkBehaviour
         //Debug.Log("llego y el id es " + PlayerPrefs.GetInt("jugadorId"));
         if (PlayerNetwork.Instance.IsMyTurn(PlayerPrefs.GetInt("jugadorId")))
         {
-            Debug.Log("Es mi TURNO");
+            //Debug.Log("Es mi TURNO");
             tirarDadoButton.interactable = true;
-            terminarTurnoButton.interactable = true;
+            //terminarTurnoButton.interactable = true;
         }
         else
         {
             tirarDadoButton.interactable = false;
-            terminarTurnoButton.interactable = false;
+            //terminarTurnoButton.interactable = false;
         }
     }
 
@@ -190,27 +196,13 @@ public class ARCursor : NetworkBehaviour
         // Confirmar la colocación del tablero y desactivar el modo de colocación
         isBoardPlaced = true;
         isPlacementModeActive = false;
-
-        //Debug.Log("nombre host 1");
-        //Debug.Log("nombre host 2" + playerNetwork.GetNomJugador(0));
-        //Debug.Log("nombre host 3");
-        /*
-        if (playerNetwork != null)
-        {
-            Debug.Log("nombre host 2" + playerNetwork.GetNomJugador(0));
-        }
-        else
-        {
-            Debug.Log("PlayerNetwork instance is null");
-        }
-        */
         confirmButton.gameObject.SetActive(false); // Desactivar el botón de confirmación
         // Activar la colocación de las piezas en los marcadores invisibles
-        foreach (ColocarPieza colocarPieza in GetComponentsInChildren<ColocarPieza>())
+        /*foreach (ColocarPieza colocarPieza in GetComponentsInChildren<ColocarPieza>())
         {
             Debug.Log("entro al foreach de colocar pieza");
             colocarPieza.enabled = true;
-        }
+        }*/
         EnableRecursos();
         // Desactivar la detección de planos al confirmar la colocación del tablero
         if (planeManager)

@@ -10,12 +10,18 @@ using UnityEngine.UI; // Para manejar los botones
 public class ColocarPieza : NetworkBehaviour
 {
     //public static ColocarPieza Instance { get; private set; }
-    public GameObject prefabCaminoA;
-    public GameObject prefabBaseA; // Cambiado Casa por Base
-    public GameObject prefabPuebloA; // Nuevo prefab para el pueblo
-    public GameObject prefabCaminoR;
-    public GameObject prefabBaseR; // Cambiado Casa por Base
-    public GameObject prefabPuebloR; // Nuevo prefab para el pueblo
+    private GameObject prefabCaminoA;
+    private GameObject prefabBaseA; // Cambiado Casa por Base
+    private GameObject prefabPuebloA; // Nuevo prefab para el pueblo
+    private GameObject prefabCaminoR;
+    private GameObject prefabBaseR; // Cambiado Casa por Base
+    private GameObject prefabPuebloR; // Nuevo prefab para el pueblo
+    private GameObject prefabCaminoV;
+    private GameObject prefabBaseV; // Cambiado Casa por Base
+    private GameObject prefabPuebloV; // Nuevo prefab para el pueblo
+    private GameObject prefabCaminoN;
+    private GameObject prefabBaseN; // Cambiado Casa por Base
+    private GameObject prefabPuebloN; // Nuevo prefab para el pueblo
     private GameObject currentPrefabBase;
     private GameObject currentPrefabCamino;
     private GameObject currentPrefabPueblo;
@@ -26,7 +32,7 @@ public class ColocarPieza : NetworkBehaviour
     private bool _isTouching = false;
     private bool canPlace = false;
 
-    public ComprobarObjeto comprobarObjeto;
+    private ComprobarObjeto comprobarObjeto;
     // Declaración de una máscara de capa.
     public LayerMask myLayerMask;
     //private ARCursor arCursor;
@@ -54,12 +60,18 @@ public class ColocarPieza : NetworkBehaviour
     void Start()
     {
         //arCursor = GetComponentInParent<ARCursor>();
-        prefabBaseA = Resources.Load("TR Casa Azul") as GameObject;
-        prefabCaminoA = Resources.Load("TR Camino Azul") as GameObject;
-        prefabPuebloA = Resources.Load("TR Pueblo Azul") as GameObject;
-        prefabBaseR = Resources.Load("TR Casa Rojo") as GameObject;
-        prefabCaminoR = Resources.Load("TR Camino Rojo") as GameObject;
-        prefabPuebloR = Resources.Load("TR Pueblo Rojo") as GameObject;
+        prefabBaseA = Resources.Load("Base Azul") as GameObject;
+        prefabCaminoA = Resources.Load("Camino Azul") as GameObject;
+        prefabPuebloA = Resources.Load("Pueblo Azul") as GameObject;
+        prefabBaseR = Resources.Load("Base Rojo") as GameObject;
+        prefabCaminoR = Resources.Load("Camino Rojo") as GameObject;
+        prefabPuebloR = Resources.Load("Pueblo Rojo") as GameObject;
+        prefabBaseV = Resources.Load("Base Azul") as GameObject;
+        prefabCaminoV = Resources.Load("Camino Azul") as GameObject;
+        prefabPuebloV = Resources.Load("Pueblo Azul") as GameObject;
+        prefabBaseN = Resources.Load("Base Rojo") as GameObject;
+        prefabCaminoN = Resources.Load("Camino Rojo") as GameObject;
+        prefabPuebloN = Resources.Load("Pueblo Rojo") as GameObject;
         // para la busqueda del null reference verifico que arcursor no es null
         if (ARCursor.Instance == null)
         {
@@ -190,13 +202,26 @@ public class ColocarPieza : NetworkBehaviour
             case "Azul":  // Aquí se hace uso del tipo enumerado TipoObjeto
                 currentPrefabCamino = prefabCaminoA;
                 break;
+            case "Violeta":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                currentPrefabCamino = prefabCaminoV;
+                break;
+            case "Naranja":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                currentPrefabCamino = prefabCaminoN;
+                break;
         }
         Debug.Log("EjecutarColocarCamino");
         // El objeto golpeado es una esquina.
         //currentCamino = Instantiate(prefabCamino, hit.collider.gameObject.transform.position, Quaternion.identity);
-        currentCamino = Instantiate(currentPrefabCamino, hit.collider.gameObject.transform.position, hit.collider.gameObject.transform.rotation); //con rotacion
-        currentCamino.GetComponent<NetworkObject>().Spawn();
+        if (NetworkManager.Singleton.IsServer)
+        {
+            Debug.Log("Soy server y oy a poner un camino");
+            currentCamino = Instantiate(currentPrefabCamino, hit.collider.gameObject.transform.position, hit.collider.gameObject.transform.rotation); //con rotacion
+            currentCamino.GetComponent<NetworkObject>().Spawn();
+        }
+        
         comprobarObjeto = hit.collider.gameObject.GetComponent<ComprobarObjeto>();
+        var nombreCol = hit.collider.gameObject.GetComponent<ComprobarObjeto>().name;
+        Debug.Log("El col se llama " + nombreCol);
 
         if (comprobarObjeto != null)
         {
@@ -210,7 +235,36 @@ public class ColocarPieza : NetworkBehaviour
         }
         Debug.Log("el tipo del camino es " + tipoActual);
         tipoActual = TipoObjeto.Ninguno;
+        if (!NetworkManager.Singleton.IsServer)
+        {
+            Debug.Log("Soy cliente q va a poner camino");
+            ColocarCaminoServerRpc(color, nombreCol);
+        }
         //Debug.Log("Termino EjecutarColocarBase");
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void ColocarCaminoServerRpc(string color, string collider)
+    {
+        Debug.Log("Entre a ColocarCaminoServerRpc");
+        var objetoCollider = GameObject.Find(collider);
+        switch (color)
+        {
+            case "Rojo":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                currentPrefabCamino = prefabCaminoR;
+                break;
+            case "Azul":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                currentPrefabCamino = prefabCaminoA;
+                break;
+            case "Violeta":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                currentPrefabCamino = prefabCaminoV;
+                break;
+            case "Naranja":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                currentPrefabCamino = prefabCaminoN;
+                break;
+        }
+        currentCamino = Instantiate(currentPrefabCamino, objetoCollider.transform.position, objetoCollider.transform.rotation); //con rotacion
+        currentCamino.GetComponent<NetworkObject>().Spawn();
     }
 
     public void EjecutarColocarBase(RaycastHit hit, string color)
@@ -223,6 +277,13 @@ public class ColocarPieza : NetworkBehaviour
             case "Azul":  // Aquí se hace uso del tipo enumerado TipoObjeto
                 currentPrefabBase = prefabBaseA;
                 break;
+            case "Violeta":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                currentPrefabBase = prefabBaseV;
+                break;
+            case "Naranja":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                currentPrefabBase = prefabBaseN;
+                break;
+
         }
         Debug.Log("EntroColocar 2");
 
@@ -266,6 +327,12 @@ public class ColocarPieza : NetworkBehaviour
                 break;
             case "Azul":  // Aquí se hace uso del tipo enumerado TipoObjeto
                 currentPrefabPueblo = prefabPuebloA;
+                break;
+            case "Violeta":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                currentPrefabPueblo = prefabPuebloV;
+                break;
+            case "Naranja":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                currentPrefabPueblo = prefabPuebloN;
                 break;
         }
         //Debug.Log("EntroColocar 2");

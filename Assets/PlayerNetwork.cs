@@ -772,7 +772,7 @@ public class PlayerNetwork : NetworkBehaviour
     }
     public bool IsMyTurn(int clientId)
     {
-        Debug.Log("Index " + currentTurnIndex + "y es turno de " + playerIDs[currentTurnIndex] + " Y " + clientId);
+        //Debug.Log("Index " + currentTurnIndex + "y es turno de " + playerIDs[currentTurnIndex] + " Y " + clientId);
         return (playerIDs[currentTurnIndex] == clientId);
     }
 }
