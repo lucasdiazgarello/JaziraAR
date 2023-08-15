@@ -1698,13 +1698,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCaminoA: {fileID: 0}
-  prefabBaseA: {fileID: 0}
-  prefabPuebloA: {fileID: 0}
-  prefabCaminoR: {fileID: 0}
-  prefabBaseR: {fileID: 0}
-  prefabPuebloR: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8

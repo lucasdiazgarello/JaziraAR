@@ -31,7 +31,8 @@ public class ARCursor : NetworkBehaviour
     public bool dicesThrown = false;
 
     public ColocarPieza colocarPieza;
-
+    private GameObject[] colliderPrefabs;
+    //public GameObject colliderPrefab; // Agrega esto en la parte superior de tu script
     private Vector3 initialDadoPosition; // Para guardar la posición inicial del dado
     private GameObject tableromInstance;
     private int currentPlayerId;
@@ -58,6 +59,7 @@ public class ARCursor : NetworkBehaviour
             //tirarDadoButton.onClick.AddListener(OnDiceRollButtonPressed);
             //colocarPieza = GetComponentInChildren<ColocarPieza>();
             //playerNetwork = PlayerNetwork.Instance;
+            colliderPrefabs = Resources.LoadAll<GameObject>("Colliders");
         }
         else // Si es un cliente
         {
@@ -149,9 +151,26 @@ public class ARCursor : NetworkBehaviour
                         // Luego, crear un nuevo tablero y guardarlo como currentObject
                         tableromInstance = Instantiate(objectToPlace, hits[0].pose.position, hits[0].pose.rotation);
                         Debug.Log("Despues De tableroInstance");
-                        //ACa esta el error de Nested NETworkObjects
                         tableromInstance.GetComponent<NetworkObject>().Spawn();
-                        // Buscar el collider específico por su nombre.
+                        foreach (GameObject colliderPrefab in colliderPrefabs)
+                        {
+                            Debug.Log("el coll es " + colliderPrefab.name);
+                            GameObject childInstance = Instantiate(colliderPrefab, tableromInstance.transform);
+                            Debug.Log("Despues De Instantiate");
+                            // Ajusta su posición/rotación local si es necesario. Esto puede depender de cómo hayas configurado tus prefabs.
+                            childInstance.GetComponent<NetworkObject>().Spawn();
+                            Debug.Log("Despues De Spawn");
+                        }
+
+                        // Instancia el collider desde el prefab y colócalo como hijo del tableromInstance
+                        //GameObject childInstance = Instantiate(colliderPrefab, tableromInstance.transform);
+
+                        // Ajusta su posición/rotación local si es necesario, basado en valores previamente guardados o establecidos
+                        // Por ejemplo: childInstance.transform.localPosition = new Vector3(x, y, z);
+                        // childInstance.transform.localRotation = Quaternion.Euler(rx, ry, rz);
+
+                        //childInstance.GetComponent<NetworkObject>().Spawn();
+                        /*// Buscar el collider específico por su nombre.
                         Transform childCollider = tableromInstance.transform.Find("Empty camino rot der (5)");
                         Debug.Log("Encontre el collider " + childCollider.name);
                         if (childCollider)
@@ -169,6 +188,7 @@ public class ARCursor : NetworkBehaviour
                         {
                             Debug.Log("ColliderEspecifico no encontrado.");
                         }
+                        */
                         /*// PONER ESTO PARA QUE SPAWNEE TODOS LOS COLLIDERS NO SOLO UNO
                         // Ahora, para cada hijo que sea un NetworkObject:
                         foreach (Transform child in tableromInstance.transform)
