@@ -28,15 +28,10 @@ public class ColocarPieza : NetworkBehaviour
     private GameObject currentBase;
     private GameObject currentCamino;
     private GameObject currentPueblo;
-
     private bool _isTouching = false;
     private bool canPlace = false;
-
     private ComprobarObjeto comprobarObjeto;
-    // Declaración de una máscara de capa.
     public LayerMask myLayerMask;
-    //private ARCursor arCursor;
-    //private bool _isTouching;
 
     // Botones para las acciones de colocar camino y base
     public Button buttonCamino;
@@ -45,21 +40,11 @@ public class ColocarPieza : NetworkBehaviour
     public Button confirmBaseButton; // Asegúrate de asignar este botón en el inspector de Unity
     public Button confirmCaminoButton;
     public Button confirmPuebloButton;
-    // Agrega esta propiedad para almacenar el identificador de la parcela
-    //public string identificadorParcela;
 
-    // Referencia al script ComprarPieza
-    //public ComprarPieza comprarPieza;
-    //public IdentificadorParcela identificadorParcela;
-
-    // Variable booleana para indicar si tiene una base colocada
-    //public bool tieneBase;
-    //public bool tienePueblo;
     public TipoObjeto tipoActual;
 
     void Start()
     {
-        //arCursor = GetComponentInParent<ARCursor>();
         prefabBaseA = Resources.Load("Base Azul") as GameObject;
         prefabCaminoA = Resources.Load("Camino Azul") as GameObject;
         prefabPuebloA = Resources.Load("Pueblo Azul") as GameObject;
@@ -72,31 +57,10 @@ public class ColocarPieza : NetworkBehaviour
         prefabBaseN = Resources.Load("Base Naranja") as GameObject;
         prefabCaminoN = Resources.Load("Camino Naranja") as GameObject;
         prefabPuebloN = Resources.Load("Pueblo Naranja") as GameObject;
-        if (prefabBaseA == null) Debug.LogError("prefabBaseA is null");
-        if (buttonCamino == null) Debug.LogError("buttonCamino is null");
-        if (prefabPuebloA == null) Debug.LogError("prefabBaseA is null");
-        if (prefabBaseR == null) Debug.LogError("buttonCamino is null");
-        if (prefabCaminoR == null) Debug.LogError("prefabBaseA is null");
-        if (prefabPuebloR == null) Debug.LogError("prefabBaseA is null");
-        if (prefabBaseV == null) Debug.LogError("buttonCamino is null");
-        if (prefabCaminoV == null) Debug.LogError("prefabBaseA is null");
-        if (prefabPuebloV == null) Debug.LogError("buttonCamino is null");
-        if (prefabBaseN == null) Debug.LogError("buttonCamino is null");
-        if (prefabCaminoN == null) Debug.LogError("buttonCamino is null");
-        if (prefabPuebloN == null) Debug.LogError("buttonCamino is null");
-        // para la busqueda del null reference verifico que arcursor no es null
-        if (ARCursor.Instance == null)
-        {
-            //Debug.LogError("ARCursor is null in object " + gameObject.name);
-        }
-        else
-        {
-            //Debug.Log("ARCursor is not null in object " + gameObject.name);
-        }
+
         enabled = false; // Desactivar la colocación de piezas al inicio
         //tipoActual = new TipoObjeto();
         tipoActual = TipoObjeto.Ninguno;
-
         // Agregar los listeners a los botones
         buttonCamino.onClick.AddListener(() => {
             tipoActual = TipoObjeto.Camino;
@@ -110,38 +74,11 @@ public class ColocarPieza : NetworkBehaviour
             tipoActual = TipoObjeto.Pueblo;
             canPlace = true;
         });
-
-        /*confirmBaseButton.onClick.AddListener(() => {
-            //canPlace = true;
-            ConfirmarBase();
-            //canPlace = false;
-        });*/
-        /*confirmCaminoButton.onClick.AddListener(() => {
-            //canPlace = true;
-            ConfirmarCamino();
-            //canPlace = false;
-        });
-        confirmPuebloButton.onClick.AddListener(() => {
-            //canPlace = true;
-            ConfirmarPueblo();
-            //canPlace = false;
-        });*/
         confirmBaseButton.gameObject.SetActive(false);
         confirmCaminoButton.gameObject.SetActive(false);
         confirmPuebloButton.gameObject.SetActive(false);
     }
-    /*private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); // Esto garantiza que el objeto no se destruirá al cargar una nueva escena
-        }
-        else
-        {
-            Destroy(gameObject); // Si ya hay una instancia, destruye esta
-        }
-    }*/
+
     void Update()
     {
         if (canPlace && Input.touchCount == 1 && !_isTouching && Input.GetTouch(0).phase == TouchPhase.Began)
@@ -321,15 +258,56 @@ public class ColocarPieza : NetworkBehaviour
         {
             Debug.LogError("El objeto " + hit.collider.gameObject.name + " no tiene un script ComprobarObjeto.");
         }
-        //Debug.Log("Antes de la asignación");
-        //tipoActual = TipoObjeto.Base;
-        //Debug.Log("Después de la asignación");
+        Debug.Log("el tipo de la base colocada es " + tipoActual);
+        tipoActual = TipoObjeto.Ninguno;
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void ColocarBaseServerRpc(string color, string collider)
+    {
+        Debug.Log("Entre a la BaseServerRpc");
+        var objetoCollider = GameObject.Find(collider);
+        switch (color)
+        {
+            case "Rojo":
+                currentPrefabBase = prefabBaseR;
+                break;
+            case "Azul":
+                currentPrefabBase = prefabBaseA;
+                break;
+            case "Violeta":
+                currentPrefabBase = prefabBaseV;
+                break;
+            case "Naranja":
+                currentPrefabBase = prefabBaseN;
+                break;
+        }
+        currentBase = Instantiate(currentPrefabBase, objetoCollider.transform.position, objetoCollider.transform.rotation);
+        currentBase.GetComponent<NetworkObject>().Spawn();
+        // Obtener el componente ComprobarObjeto del objeto golpeado
+        comprobarObjeto = objetoCollider.gameObject.GetComponent<ComprobarObjeto>();
+        //Debug.Log("el collider es : " + hit.collider.gameObject.name);
+        //Debug.Log("comprobarobjeto al poner la base: " + comprobarObjeto);
+        // Asegurarse de que el componente existe
+        if (comprobarObjeto != null)
+        {
+            // Guardar una referencia a la pieza que acabamos de colocar
+            //comprobarObjeto.objetoColocado = this; // esto pone ControldorColocarPieza
+            //Debug.Log("EL OBJETO colocado es: " + comprobarObjeto.objetoColocado);
+
+            // Almacenar el tipo de objeto que acabamos de colocar
+            comprobarObjeto.tipoObjeto = TipoObjeto.Base; // Puedes cambiar esto al tipo de objeto que corresponda
+            Debug.Log("puse el tipo de la base a: " + comprobarObjeto.tipoObjeto);
+        }
+        else
+        {
+            Debug.LogError("El objeto " + objetoCollider.gameObject.name + " no tiene un script ComprobarObjeto.");
+        }
         Debug.Log("el tipo de la base colocada es " + tipoActual);
         tipoActual = TipoObjeto.Ninguno;
     }
     public void EjecutarColocarPueblo(RaycastHit hit, string color)
     {
-
         switch (color)
         {
             case "Rojo":  // Aquí se hace uso del tipo enumerado TipoObjeto
@@ -366,28 +344,7 @@ public class ColocarPieza : NetworkBehaviour
         tipoActual = TipoObjeto.Ninguno;
         //Debug.Log("Termino EjecutarColocarBase");
     }
-    /*public void ColocarPueblo(RaycastHit hit)
-    {
-        //Debug.Log("EntroColocar 2");
-        // El objeto golpeado es una esquina.
-        currentPueblo = Instantiate(prefabPueblo, hit.collider.gameObject.transform.position, Quaternion.identity);
-        currentPueblo.GetComponent<NetworkObject>().Spawn();
-        comprobarObjeto = hit.collider.gameObject.GetComponent<ComprobarObjeto>();
 
-        if (comprobarObjeto != null)
-        {
-            // Almacenar el tipo de objeto que acabamos de colocar
-            comprobarObjeto.tipoObjeto = TipoObjeto.Pueblo; // Puedes cambiar esto al tipo de objeto que corresponda
-            Debug.Log("puse el tipo del pueblo a: " + comprobarObjeto.tipoObjeto);
-        }
-        else
-        {
-            Debug.LogError("El objeto " + hit.collider.gameObject.name + " no tiene un script ComprobarObjeto.");
-        }
-        Debug.Log("el tipo de la base colocada es " + tipoActual);
-        tipoActual = TipoObjeto.Ninguno;
-        //Debug.Log("Termino EjecutarColocarBase");
-    }*/
     public void ColocarCamino(string color)
     {
         AllowPlace();
@@ -410,24 +367,38 @@ public class ColocarPieza : NetworkBehaviour
     {
         Debug.Log("EntroColocar 1");
         AllowPlace();
+        PruebaServerRpc();
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-        //Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
-        //Debug.Log("Lanzando raycast");
+        PruebaServerRpc();
+        //if (ray == null) Debug.LogError("RAY is null");
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
         {
-            //Debug.Log("Antes EjecutarColocarBase");
-            EjecutarColocarBase(hit, color);
-            //Debug.Log("Despues EjecutarColocarBase");
+            if (NetworkManager.Singleton.IsServer)
+            {
+                EjecutarColocarBase(hit, color);
+            }
+            else // si es un cliente
+            {
+                string colliderName = hit.collider.gameObject.name;
+                Debug.Log("colliderName: " + colliderName);
+                PruebaServerRpc();
+                ColocarBaseServerRpc(color, colliderName);
+            }
+
             confirmBaseButton.gameObject.SetActive(true); // Habilita el botón de confirmación
         }
-        //ARCursor arCursor = FindObjectOfType<ARCursor>();
         if (ARCursor.Instance != null)
         {
             ARCursor.Instance.ActivatePlacementMode();
         }
     }
-    
+    [ServerRpc(RequireOwnership = false)]
+    public void PruebaServerRpc()
+    {
+        Debug.Log("Entre a la prueba");
+    }
+
     public void ColocarPueblo(string color)
     {
         AllowPlace();

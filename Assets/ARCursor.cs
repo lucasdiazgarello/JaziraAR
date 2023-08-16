@@ -46,12 +46,11 @@ public class ARCursor : NetworkBehaviour
         {
             Debug.Log("SOY EL HOST de ARCUROSr");
             Debug.Log("Is Server y activo botones ");
-            //placeButton.gameObject.SetActive(true);
-            //confirmButton.gameObject.SetActive(true);
-            // El jugador es el servidor. Puedes ejecutar lógica específica aquí.
             placeButton.onClick.AddListener(ActivatePlacementMode);
+            if (placeButton == null) Debug.LogError("confirmButton HOST is null");
             confirmButton.onClick.AddListener(ConfirmPlacement);
             confirmButton.gameObject.SetActive(false); // Desactivar el botón de confirmación al inicio
+            if (confirmButton == null) Debug.LogError("confirmButton HOST is null");
             //tirarDadoButton.interactable = false;
             DisableRecursos();
 
@@ -65,19 +64,17 @@ public class ARCursor : NetworkBehaviour
         {
             Debug.Log("NO Is Server y desactivo botones ");
             placeButton.gameObject.SetActive(false);
+            if(placeButton==null) Debug.LogError("placeButton is null");
             confirmButton.gameObject.SetActive(false);
+            if (confirmButton == null) Debug.LogError("confirmButton is null");
         }
         //activo colocar pieza por si es esto qeu el cliente no puede colocar
         foreach (ColocarPieza colocarPieza in GetComponentsInChildren<ColocarPieza>())
         {
             Debug.Log("entro al foreach de colocar pieza");
             colocarPieza.enabled = true;
+            Debug.Log("Termino el foreach");
         }
-        // Configurar los botones dependiendo de si el jugador es el host o un cliente
-        //int currentPlayerId = ConvertirAlfaNumericoAInt(AuthenticationService.Instance.PlayerId);        
-        //SetupButtonsBasedOnPlayerType();
-
-
     }
     IEnumerator WaitForRelay()
     {
@@ -89,23 +86,7 @@ public class ARCursor : NetworkBehaviour
 
         // Tu código aquí...
     }
-    /*void SetupButtonsBasedOnPlayerType()
-    {
-        int num = PlayerPrefs.GetInt("jugadorId");
-        Debug.Log("num es " + num + " y currentplayerid es " + currentPlayerId);
-        if (currentPlayerId == num) // Si es el host
-        {
-            Debug.Log("Is Server y activo botones ");
-            placeButton.gameObject.SetActive(true);
-            confirmButton.gameObject.SetActive(true);
-        }
-        else // Si es un cliente
-        {
-            Debug.Log("NO Is Server y desactivo botones ");
-            placeButton.gameObject.SetActive(false);
-            confirmButton.gameObject.SetActive(false);
-        }
-    }*/
+
     private void Awake()
     {
         if (Instance == null)
@@ -147,64 +128,21 @@ public class ARCursor : NetworkBehaviour
                                 networkObject.Despawn();
                             }
                         }
-                        Debug.Log("Antes De tableroInstance");
+                        //Debug.Log("Antes De tableroInstance");
                         // Luego, crear un nuevo tablero y guardarlo como currentObject
                         tableromInstance = Instantiate(objectToPlace, hits[0].pose.position, hits[0].pose.rotation);
-                        Debug.Log("Despues De tableroInstance");
+                        //Debug.Log("Despues De tableroInstance");
                         tableromInstance.GetComponent<NetworkObject>().Spawn();
                         foreach (GameObject colliderPrefab in colliderPrefabs)
                         {
-                            Debug.Log("el coll es " + colliderPrefab.name);
+                            //Debug.Log("el coll es " + colliderPrefab.name);
                             GameObject childInstance = Instantiate(colliderPrefab, tableromInstance.transform);
-                            Debug.Log("Despues De Instantiate");
+                            //Debug.Log("Despues De Instantiate");
                             // Ajusta su posición/rotación local si es necesario. Esto puede depender de cómo hayas configurado tus prefabs.
                             childInstance.GetComponent<NetworkObject>().Spawn();
-                            Debug.Log("Despues De Spawn");
+                            //Debug.Log("Despues De Spawn");
                         }
-                        
-                        // Instancia el collider desde el prefab y colócalo como hijo del tableromInstance
-                        //GameObject childInstance = Instantiate(colliderPrefab, tableromInstance.transform);
-
-                        // Ajusta su posición/rotación local si es necesario, basado en valores previamente guardados o establecidos
-                        // Por ejemplo: childInstance.transform.localPosition = new Vector3(x, y, z);
-                        // childInstance.transform.localRotation = Quaternion.Euler(rx, ry, rz);
-
-                        //childInstance.GetComponent<NetworkObject>().Spawn();
-                        /*// Buscar el collider específico por su nombre.
-                        Transform childCollider = tableromInstance.transform.Find("Empty camino rot der (5)");
-                        Debug.Log("Encontre el collider " + childCollider.name);
-                        if (childCollider)
-                        {
-                            NetworkObject childNetworkObject = childCollider.GetComponent<NetworkObject>();
-                            if (childNetworkObject)
-                            {
-                                Debug.Log("spawn " + childNetworkObject.name);
-                                // Instanciar y spawnea el collider específico.
-                                GameObject childInstance = Instantiate(childCollider.gameObject, tableromInstance.transform);
-                                childInstance.GetComponent<NetworkObject>().Spawn();
-                            }
-                        }
-                        else
-                        {
-                            Debug.Log("ColliderEspecifico no encontrado.");
-                        }
-                        */
-                        /*// PONER ESTO PARA QUE SPAWNEE TODOS LOS COLLIDERS NO SOLO UNO
-                        // Ahora, para cada hijo que sea un NetworkObject:
-                        foreach (Transform child in tableromInstance.transform)
-                        {
-                            // Comprobar si el hijo es un NetworkObject.
-                            NetworkObject childNetworkObject = child.GetComponent<NetworkObject>();
-                            Debug.Log("el collider se llama " + childNetworkObject.name);
-                            if (childNetworkObject)
-                            {
-                                // Instanciar y spawnea cada collider que sea un NetworkObject.
-                                GameObject childInstance = Instantiate(child.gameObject, tableromInstance.transform);
-                                Debug.Log("Instancio " + childInstance.name);
-                                childInstance.GetComponent<NetworkObject>().Spawn();
-                            }
-                        }*/
-                        Debug.Log("Despues De tableroInstance y de spawnear el collider específico");
+                        Debug.Log("Se spawneo tablero y colliders");
                         placeButton.gameObject.SetActive(false); // Desactivar el botón de colocación después de colocar el tablero
                         confirmButton.gameObject.SetActive(true); // Activar el botón de confirmación después de colocar el tablero
                     }
