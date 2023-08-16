@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1263948070055653068}
-  - component: {fileID: 4330006437469328532}
   - component: {fileID: 8726304745106553292}
   - component: {fileID: 7250483751935434558}
   - component: {fileID: 876001863367273333}
@@ -36,28 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
---- !u!114 &4330006437469328532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7273805389628781246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myLayerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  buttonCamino: {fileID: 0}
-  buttonBase: {fileID: 0}
-  buttonPueblo: {fileID: 0}
-  confirmBaseButton: {fileID: 0}
-  confirmCaminoButton: {fileID: 0}
-  confirmPuebloButton: {fileID: 0}
-  tipoActual: 0
 --- !u!65 &8726304745106553292
 BoxCollider:
   m_ObjectHideFlags: 0
