@@ -161,7 +161,7 @@ public class ARCursor : NetworkBehaviour
                             childInstance.GetComponent<NetworkObject>().Spawn();
                             Debug.Log("Despues De Spawn");
                         }
-
+                        
                         // Instancia el collider desde el prefab y colócalo como hijo del tableromInstance
                         //GameObject childInstance = Instantiate(colliderPrefab, tableromInstance.transform);
 

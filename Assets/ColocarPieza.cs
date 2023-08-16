@@ -66,12 +66,24 @@ public class ColocarPieza : NetworkBehaviour
         prefabBaseR = Resources.Load("Base Rojo") as GameObject;
         prefabCaminoR = Resources.Load("Camino Rojo") as GameObject;
         prefabPuebloR = Resources.Load("Pueblo Rojo") as GameObject;
-        prefabBaseV = Resources.Load("Base Azul") as GameObject;
-        prefabCaminoV = Resources.Load("Camino Azul") as GameObject;
-        prefabPuebloV = Resources.Load("Pueblo Azul") as GameObject;
-        prefabBaseN = Resources.Load("Base Rojo") as GameObject;
-        prefabCaminoN = Resources.Load("Camino Rojo") as GameObject;
-        prefabPuebloN = Resources.Load("Pueblo Rojo") as GameObject;
+        prefabBaseV = Resources.Load("Base Violeta") as GameObject;
+        prefabCaminoV = Resources.Load("Camino Violeta") as GameObject;
+        prefabPuebloV = Resources.Load("Pueblo Violeta") as GameObject;
+        prefabBaseN = Resources.Load("Base Naranja") as GameObject;
+        prefabCaminoN = Resources.Load("Camino Naranja") as GameObject;
+        prefabPuebloN = Resources.Load("Pueblo Naranja") as GameObject;
+        if (prefabBaseA == null) Debug.LogError("prefabBaseA is null");
+        if (buttonCamino == null) Debug.LogError("buttonCamino is null");
+        if (prefabPuebloA == null) Debug.LogError("prefabBaseA is null");
+        if (prefabBaseR == null) Debug.LogError("buttonCamino is null");
+        if (prefabCaminoR == null) Debug.LogError("prefabBaseA is null");
+        if (prefabPuebloR == null) Debug.LogError("prefabBaseA is null");
+        if (prefabBaseV == null) Debug.LogError("buttonCamino is null");
+        if (prefabCaminoV == null) Debug.LogError("prefabBaseA is null");
+        if (prefabPuebloV == null) Debug.LogError("buttonCamino is null");
+        if (prefabBaseN == null) Debug.LogError("buttonCamino is null");
+        if (prefabCaminoN == null) Debug.LogError("buttonCamino is null");
+        if (prefabPuebloN == null) Debug.LogError("buttonCamino is null");
         // para la busqueda del null reference verifico que arcursor no es null
         if (ARCursor.Instance == null)
         {
