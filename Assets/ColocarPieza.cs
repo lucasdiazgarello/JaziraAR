@@ -38,7 +38,7 @@ public class ColocarPieza : NetworkBehaviour
     public Button buttonCamino;
     public Button buttonBase;
     public Button buttonPueblo;
-    public Button confirmBaseButton; // Asegúrate de asignar este botón en el inspector de Unity
+    //public Button confirmBaseButton; // Asegúrate de asignar este botón en el inspector de Unity
     public Button confirmCaminoButton;
     public Button confirmPuebloButton;
 
@@ -75,7 +75,7 @@ public class ColocarPieza : NetworkBehaviour
             tipoActual = TipoObjeto.Pueblo;
             canPlace = true;
         });
-        confirmBaseButton.gameObject.SetActive(false);
+        //confirmBaseButton.gameObject.SetActive(false);
         confirmCaminoButton.gameObject.SetActive(false);
         confirmPuebloButton.gameObject.SetActive(false);
     }
@@ -252,44 +252,6 @@ public class ColocarPieza : NetworkBehaviour
         tipoActual = TipoObjeto.Ninguno;
     }
 
- /*   [ServerRpc(RequireOwnership = false)]
-    public void ColocarBaseServerRpc(string color, string currentbase, Vector3 posititon)
-    {
-        try
-        {
-            Debug.Log("Entre a la BaseServerRpc");
-            var objetoBase = GameObject.Find(currentbase);
-
-            currentBase = Instantiate(objetoBase, posititon, Quaternion.identity);
-            currentBase.GetComponent<NetworkObject>().Spawn();
-            // Obtener el componente ComprobarObjeto del objeto golpeado
-            comprobarObjeto = objetoBase.gameObject.GetComponent<ComprobarObjeto>();
-            //Debug.Log("el collider es : " + hit.collider.gameObject.name);
-            //Debug.Log("comprobarobjeto al poner la base: " + comprobarObjeto);
-            // Asegurarse de que el componente existe
-            if (comprobarObjeto != null)
-            {
-                // Guardar una referencia a la pieza que acabamos de colocar
-                //comprobarObjeto.objetoColocado = this; // esto pone ControldorColocarPieza
-                //Debug.Log("EL OBJETO colocado es: " + comprobarObjeto.objetoColocado);
-
-                // Almacenar el tipo de objeto que acabamos de colocar
-                comprobarObjeto.tipoObjeto = TipoObjeto.Base; // Puedes cambiar esto al tipo de objeto que corresponda
-                Debug.Log("puse el tipo de la base a: " + comprobarObjeto.tipoObjeto);
-            }
-            else
-            {
-                //Debug.LogError("El objeto " + objetoCollider.gameObject.name + " no tiene un script ComprobarObjeto.");
-            }
-            Debug.Log("el tipo de la base colocada es " + tipoActual);
-            tipoActual = TipoObjeto.Ninguno;
-        }
-        catch (Exception e)
-        {
-            Debug.Log("Error en ColocarBaseServerRpc: " + e);
-        }
-
-    }*/
     public void EjecutarColocarPueblo(RaycastHit hit, string color)
     {
         switch (color)
@@ -390,8 +352,22 @@ public class ColocarPieza : NetworkBehaviour
 
                 PlayerNetwork.Instance.ColocarBaseServerRpc(color, currPrefBase, position);
             }
+            // Inclusión de la funcionalidad de ConfirmarBase()
+            if (currentBase == null)
+            {
+                Debug.Log("currentBase es null");
+            }
 
-            confirmBaseButton.gameObject.SetActive(true); // Habilita el botón de confirmación
+            if (currentBase != null)
+            {
+                //confirmBaseButton.gameObject.SetActive(false);  // Deshabilita el botón de confirmación
+                canPlace = false;  // Desactiva la capacidad de mover la base
+                currentBase = null;  // Borra la referencia a la base actual
+            }
+            else
+            {
+                Debug.Log("La base no puede ser confirmada");
+            }
         }
         if (ARCursor.Instance != null)
         {
@@ -420,7 +396,7 @@ public class ColocarPieza : NetworkBehaviour
         }
     }
 
-    public void ConfirmarBase()
+    /*public void ConfirmarBase()
     {
         if (currentBase == null)
         {
@@ -443,7 +419,7 @@ public class ColocarPieza : NetworkBehaviour
             // Puedes mostrar algún mensaje o realizar alguna acción si la base no puede ser confirmada
             Debug.Log("La base no puede ser confirmada");
         }
-    }
+    }*/
     public void ConfirmarCamino()
     {
         if (currentCamino == null)

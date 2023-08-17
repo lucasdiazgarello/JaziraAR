@@ -36,6 +36,8 @@ public class PlayerNetwork : NetworkBehaviour
     private GameObject currentPueblo;
     public TipoObjeto tipoActual;
     private ComprobarObjeto comprobarObjeto;
+    public Button confirmBaseButton;
+    private bool canPlace = false;
     public bool IsInitialized { get; private set; } = false; // Añade este campo de estado
     public NetworkList<int> playerIDs;
     public int currentTurnIndex = 0;
@@ -839,6 +841,31 @@ public class PlayerNetwork : NetworkBehaviour
             Debug.Log("Error en ColocarBaseServerRpc: " + e);
         }
 
+    }
+    [ServerRpc(RequireOwnership = false)]
+    public void ConfirmarBaseServerRpc()
+    {
+        if (currentBase == null)
+        {
+            Debug.Log("currentBase es null");
+        }
+        // Verifica si la base actual no es nula y se puede colocar
+        if (currentBase != null && canPlace)
+        {
+            // Deshabilita el botón de confirmación
+            confirmBaseButton.gameObject.SetActive(false);
+
+            // Desactiva la capacidad de mover la base
+            canPlace = false;
+
+            // Borra la referencia a la base actual
+            currentBase = null;
+        }
+        else
+        {
+            // Puedes mostrar algún mensaje o realizar alguna acción si la base no puede ser confirmada
+            Debug.Log("La base no puede ser confirmada");
+        }
     }
 }
 
