@@ -86,7 +86,7 @@ public class ComprarPieza : MonoBehaviour
                     if (hit.collider.gameObject.CompareTag("Esquina"))
                     {
                         var color = PlayerPrefs.GetString("colorJugador");
-                        colocarPieza.EjecutarColocarBase(hit, color);
+                        //colocarPieza.EjecutarColocarBase(hit, color);
                         esperandoColocarBase = false;
 
                     }

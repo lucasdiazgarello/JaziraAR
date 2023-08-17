@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
@@ -81,6 +82,7 @@ public class ColocarPieza : NetworkBehaviour
 
     void Update()
     {
+        //PruebaServerRpc();
         if (canPlace && Input.touchCount == 1 && !_isTouching && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             _isTouching = true;
@@ -88,7 +90,7 @@ public class ColocarPieza : NetworkBehaviour
             eventData.position = Input.GetTouch(0).position;
             List<RaycastResult> results = new List<RaycastResult>();
             EventSystem.current.RaycastAll(eventData, results);
-
+            //PruebaServerRpc();
             if (results.Count > 0)  // Si hay algún resultado, el toque está sobre un elemento de la interfaz de usuario
             {
                 return;
@@ -98,6 +100,7 @@ public class ColocarPieza : NetworkBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
             {
+                //PruebaServerRpc();
                 var color =PlayerPrefs.GetString("colorJugador");
 
                 if (hit.collider.gameObject.CompareTag("Arista") && tipoActual == TipoObjeto.Camino)
@@ -183,7 +186,8 @@ public class ColocarPieza : NetworkBehaviour
         else // es un cliente
         {
             Debug.Log("Soy cliente q va a poner camino");
-            ColocarCaminoServerRpc(color, nombreCol);
+            var currPrefabBase = currentPrefabBase.name;
+            ColocarCaminoServerRpc(color, nombreCol, currPrefabBase);
         }
         Debug.Log("el tipo del camino es " + tipoActual);
         tipoActual = TipoObjeto.Ninguno;
@@ -191,7 +195,7 @@ public class ColocarPieza : NetworkBehaviour
     }
 
     [ServerRpc(RequireOwnership = false)]
-    public void ColocarCaminoServerRpc(string color, string collider)
+    public void ColocarCaminoServerRpc(string color, string collider, string currentPrefabBase)
     {
         Debug.Log("Entre a ColocarCaminoServerRpc");
         var objetoCollider = GameObject.Find(collider);
@@ -214,28 +218,14 @@ public class ColocarPieza : NetworkBehaviour
         currentCamino.GetComponent<NetworkObject>().Spawn();
     }
 
-    public void EjecutarColocarBase(RaycastHit hit, string color)
+    public void EjecutarColocarBase(RaycastHit hit, string color, string currentPrefabBase)
     {
-        switch (color)
-        {
-            case "Rojo":  // Aquí se hace uso del tipo enumerado TipoObjeto
-                currentPrefabBase = prefabBaseR;
-                break;
-            case "Azul":  // Aquí se hace uso del tipo enumerado TipoObjeto
-                currentPrefabBase = prefabBaseA;
-                break;
-            case "Violeta":  // Aquí se hace uso del tipo enumerado TipoObjeto
-                currentPrefabBase = prefabBaseV;
-                break;
-            case "Naranja":  // Aquí se hace uso del tipo enumerado TipoObjeto
-                currentPrefabBase = prefabBaseN;
-                break;
-
-        }
         Debug.Log("EntroColocar 2");
 
+        var objetoBase = Resources.Load(currentPrefabBase) as GameObject;
+        Debug.Log("2 preafb base es " + objetoBase.name);
         // El objeto golpeado es una esquina.
-        currentBase = Instantiate(currentPrefabBase, hit.collider.gameObject.transform.position, Quaternion.identity);
+        currentBase = Instantiate(objetoBase, hit.collider.gameObject.transform.position, Quaternion.identity);
         //Debug.Log("Luego de instatiate");
         currentBase.GetComponent<NetworkObject>().Spawn();
 
@@ -262,50 +252,44 @@ public class ColocarPieza : NetworkBehaviour
         tipoActual = TipoObjeto.Ninguno;
     }
 
-    [ServerRpc(RequireOwnership = false)]
-    public void ColocarBaseServerRpc(string color, string collider)
+ /*   [ServerRpc(RequireOwnership = false)]
+    public void ColocarBaseServerRpc(string color, string currentbase, Vector3 posititon)
     {
-        Debug.Log("Entre a la BaseServerRpc");
-        var objetoCollider = GameObject.Find(collider);
-        switch (color)
+        try
         {
-            case "Rojo":
-                currentPrefabBase = prefabBaseR;
-                break;
-            case "Azul":
-                currentPrefabBase = prefabBaseA;
-                break;
-            case "Violeta":
-                currentPrefabBase = prefabBaseV;
-                break;
-            case "Naranja":
-                currentPrefabBase = prefabBaseN;
-                break;
-        }
-        currentBase = Instantiate(currentPrefabBase, objetoCollider.transform.position, objetoCollider.transform.rotation);
-        currentBase.GetComponent<NetworkObject>().Spawn();
-        // Obtener el componente ComprobarObjeto del objeto golpeado
-        comprobarObjeto = objetoCollider.gameObject.GetComponent<ComprobarObjeto>();
-        //Debug.Log("el collider es : " + hit.collider.gameObject.name);
-        //Debug.Log("comprobarobjeto al poner la base: " + comprobarObjeto);
-        // Asegurarse de que el componente existe
-        if (comprobarObjeto != null)
-        {
-            // Guardar una referencia a la pieza que acabamos de colocar
-            //comprobarObjeto.objetoColocado = this; // esto pone ControldorColocarPieza
-            //Debug.Log("EL OBJETO colocado es: " + comprobarObjeto.objetoColocado);
+            Debug.Log("Entre a la BaseServerRpc");
+            var objetoBase = GameObject.Find(currentbase);
 
-            // Almacenar el tipo de objeto que acabamos de colocar
-            comprobarObjeto.tipoObjeto = TipoObjeto.Base; // Puedes cambiar esto al tipo de objeto que corresponda
-            Debug.Log("puse el tipo de la base a: " + comprobarObjeto.tipoObjeto);
+            currentBase = Instantiate(objetoBase, posititon, Quaternion.identity);
+            currentBase.GetComponent<NetworkObject>().Spawn();
+            // Obtener el componente ComprobarObjeto del objeto golpeado
+            comprobarObjeto = objetoBase.gameObject.GetComponent<ComprobarObjeto>();
+            //Debug.Log("el collider es : " + hit.collider.gameObject.name);
+            //Debug.Log("comprobarobjeto al poner la base: " + comprobarObjeto);
+            // Asegurarse de que el componente existe
+            if (comprobarObjeto != null)
+            {
+                // Guardar una referencia a la pieza que acabamos de colocar
+                //comprobarObjeto.objetoColocado = this; // esto pone ControldorColocarPieza
+                //Debug.Log("EL OBJETO colocado es: " + comprobarObjeto.objetoColocado);
+
+                // Almacenar el tipo de objeto que acabamos de colocar
+                comprobarObjeto.tipoObjeto = TipoObjeto.Base; // Puedes cambiar esto al tipo de objeto que corresponda
+                Debug.Log("puse el tipo de la base a: " + comprobarObjeto.tipoObjeto);
+            }
+            else
+            {
+                //Debug.LogError("El objeto " + objetoCollider.gameObject.name + " no tiene un script ComprobarObjeto.");
+            }
+            Debug.Log("el tipo de la base colocada es " + tipoActual);
+            tipoActual = TipoObjeto.Ninguno;
         }
-        else
+        catch (Exception e)
         {
-            Debug.LogError("El objeto " + objetoCollider.gameObject.name + " no tiene un script ComprobarObjeto.");
+            Debug.Log("Error en ColocarBaseServerRpc: " + e);
         }
-        Debug.Log("el tipo de la base colocada es " + tipoActual);
-        tipoActual = TipoObjeto.Ninguno;
-    }
+
+    }*/
     public void EjecutarColocarPueblo(RaycastHit hit, string color)
     {
         switch (color)
@@ -367,23 +351,44 @@ public class ColocarPieza : NetworkBehaviour
     {
         Debug.Log("EntroColocar 1");
         AllowPlace();
-        PruebaServerRpc();
+        //PruebaServerRpc();
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-        PruebaServerRpc();
+        //PruebaServerRpc();
         //if (ray == null) Debug.LogError("RAY is null");
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
         {
+            switch (color)
+            {
+                case "Rojo":
+                    currentPrefabBase = prefabBaseR;
+                    break;
+                case "Azul":
+                    currentPrefabBase = prefabBaseA;
+                    break;
+                case "Violeta":
+                    currentPrefabBase = prefabBaseV;
+                    break;
+                case "Naranja":
+                    currentPrefabBase = prefabBaseN;
+                    break;
+            }
+            var currPrefBase = currentPrefabBase.name;
+            Debug.Log("el prefab base se llama " + currPrefBase);
             if (NetworkManager.Singleton.IsServer)
             {
-                EjecutarColocarBase(hit, color);
+
+                EjecutarColocarBase(hit, color, currPrefBase);
             }
             else // si es un cliente
             {
                 string colliderName = hit.collider.gameObject.name;
                 Debug.Log("colliderName: " + colliderName);
-                PruebaServerRpc();
-                ColocarBaseServerRpc(color, colliderName);
+                //PlayerPrefs.SetString(colliderName, "collider");
+                //PlayerNetwork.Instance.PruebaServerRpc();
+                var position = hit.collider.gameObject.transform.position;
+
+                PlayerNetwork.Instance.ColocarBaseServerRpc(color, currPrefBase, position);
             }
 
             confirmBaseButton.gameObject.SetActive(true); // Habilita el botón de confirmación
@@ -393,11 +398,8 @@ public class ColocarPieza : NetworkBehaviour
             ARCursor.Instance.ActivatePlacementMode();
         }
     }
-    [ServerRpc(RequireOwnership = false)]
-    public void PruebaServerRpc()
-    {
-        Debug.Log("Entre a la prueba");
-    }
+
+
 
     public void ColocarPueblo(string color)
     {

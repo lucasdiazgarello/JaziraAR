@@ -16,6 +16,26 @@ using UnityEngine.UI;
 
 public class PlayerNetwork : NetworkBehaviour
 {
+    private GameObject prefabCaminoA;
+    private GameObject prefabBaseA; // Cambiado Casa por Base
+    private GameObject prefabPuebloA; // Nuevo prefab para el pueblo
+    private GameObject prefabCaminoR;
+    private GameObject prefabBaseR; // Cambiado Casa por Base
+    private GameObject prefabPuebloR; // Nuevo prefab para el pueblo
+    private GameObject prefabCaminoV;
+    private GameObject prefabBaseV; // Cambiado Casa por Base
+    private GameObject prefabPuebloV; // Nuevo prefab para el pueblo
+    private GameObject prefabCaminoN;
+    private GameObject prefabBaseN; // Cambiado Casa por Base
+    private GameObject prefabPuebloN; // Nuevo prefab para el pueblo
+    private GameObject currentPrefabBase;
+    private GameObject currentPrefabCamino;
+    private GameObject currentPrefabPueblo;
+    private GameObject currentBase;
+    private GameObject currentCamino;
+    private GameObject currentPueblo;
+    public TipoObjeto tipoActual;
+    private ComprobarObjeto comprobarObjeto;
     public bool IsInitialized { get; private set; } = false; // Añade este campo de estado
     public NetworkList<int> playerIDs;
     public int currentTurnIndex = 0;
@@ -774,6 +794,51 @@ public class PlayerNetwork : NetworkBehaviour
     {
         //Debug.Log("Index " + currentTurnIndex + "y es turno de " + playerIDs[currentTurnIndex] + " Y " + clientId);
         return (playerIDs[currentTurnIndex] == clientId);
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void PruebaServerRpc()
+    {
+        Debug.Log("Entre a la prueba");
+    }
+    [ServerRpc(RequireOwnership = false)]
+    public void ColocarBaseServerRpc(string color, string currentbase, Vector3 posititon)
+    {
+        try
+        {
+            Debug.Log("Entre a la BaseServerRpc");
+            var objetoBase = Resources.Load(currentbase) as GameObject;
+            Debug.Log("2 preafb base es " + objetoBase.name);
+            //PlayerPrefs.SetString(colliderName, "collider");
+            currentBase = Instantiate(objetoBase, posititon, Quaternion.identity);
+            currentBase.GetComponent<NetworkObject>().Spawn();
+            // Obtener el componente ComprobarObjeto del objeto golpeado
+            comprobarObjeto = objetoBase.gameObject.GetComponent<ComprobarObjeto>();
+            //Debug.Log("el collider es : " + hit.collider.gameObject.name);
+            //Debug.Log("comprobarobjeto al poner la base: " + comprobarObjeto);
+            // Asegurarse de que el componente existe
+            if (comprobarObjeto != null)
+            {
+                // Guardar una referencia a la pieza que acabamos de colocar
+                //comprobarObjeto.objetoColocado = this; // esto pone ControldorColocarPieza
+                //Debug.Log("EL OBJETO colocado es: " + comprobarObjeto.objetoColocado);
+
+                // Almacenar el tipo de objeto que acabamos de colocar
+                comprobarObjeto.tipoObjeto = TipoObjeto.Base; // Puedes cambiar esto al tipo de objeto que corresponda
+                Debug.Log("puse el tipo de la base a: " + comprobarObjeto.tipoObjeto);
+            }
+            else
+            {
+                //Debug.LogError("El objeto " + objetoCollider.gameObject.name + " no tiene un script ComprobarObjeto.");
+            }
+            Debug.Log("el tipo de la base colocada es " + tipoActual);
+            tipoActual = TipoObjeto.Ninguno;
+        }
+        catch (Exception e)
+        {
+            Debug.Log("Error en ColocarBaseServerRpc: " + e);
+        }
+
     }
 }
 

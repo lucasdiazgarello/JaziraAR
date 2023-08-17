@@ -130,6 +130,7 @@ public class ARCursor : NetworkBehaviour
                         }
                         //Debug.Log("Antes De tableroInstance");
                         // Luego, crear un nuevo tablero y guardarlo como currentObject
+                        if (objectToPlace == null) Debug.Log("object to place is null");
                         tableromInstance = Instantiate(objectToPlace, hits[0].pose.position, hits[0].pose.rotation);
                         //Debug.Log("Despues De tableroInstance");
                         tableromInstance.GetComponent<NetworkObject>().Spawn();
@@ -137,6 +138,7 @@ public class ARCursor : NetworkBehaviour
                         {
                             //Debug.Log("el coll es " + colliderPrefab.name);
                             GameObject childInstance = Instantiate(colliderPrefab, tableromInstance.transform);
+                            if (childInstance == null) Debug.Log("childInstance is null");
                             //Debug.Log("Despues De Instantiate");
                             // Ajusta su posición/rotación local si es necesario. Esto puede depender de cómo hayas configurado tus prefabs.
                             childInstance.GetComponent<NetworkObject>().Spawn();
