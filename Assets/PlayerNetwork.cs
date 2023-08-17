@@ -281,7 +281,7 @@ public class PlayerNetwork : NetworkBehaviour
             FixedString64Bytes colorCliente = new FixedString64Bytes(PlayerPrefs.GetString("colorJugador"));
             Debug.Log("el cliente con id:" + playerId + "se llama " + nombreCliente + " y es el color " + colorCliente);
             //AgregarJugador(playerId, nombreCliente, 100, false, true, 2, 10, 10, 10, 10, 10, colorCliente); //EL CLIENTE NO DEBE AGREGARJUGADOR, DEBE MANDAR SU DATA AL HOST
-            AddPlayerServerRpc(playerId, nombreCliente, colorCliente);
+            AddPlayerServerRpc(playerId, nombreCliente, 100, false, false, 2 , 10, 10, 10, 10, 10, colorCliente);
             Debug.Log("se agrego jugador cliente");
             ImprimirTodosLosJugadores();
         }
@@ -575,7 +575,7 @@ public class PlayerNetwork : NetworkBehaviour
     
     // Este es tu nuevo método RPC para agregar un jugador
     [ServerRpc(RequireOwnership = false)]
-    public void AddPlayerServerRpc(int jugadorId, FixedString64Bytes nomJugador, FixedString64Bytes colorJugador, ServerRpcParams rpcParams = default)
+    public void AddPlayerServerRpc(int jugadorId, FixedString64Bytes nomJugador, int puntaje, bool gano, bool turno, int cantidadCasa,  int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, FixedString64Bytes colorJugador)
     {
         try
         {
@@ -587,6 +587,15 @@ public class PlayerNetwork : NetworkBehaviour
             DatosJugador newPlayer = new DatosJugador();
             newPlayer.jugadorId = jugadorId;
             newPlayer.nomJugador = nomJugador;
+            newPlayer.puntaje = puntaje;
+            newPlayer.gano = gano;
+            newPlayer.turno = turno;
+            newPlayer.cantidadCasa = cantidadCasa;
+            newPlayer.maderaCount = maderaCount;
+            newPlayer.ladrilloCount = ladrilloCount;
+            newPlayer.ovejaCount = ovejaCount;
+            newPlayer.piedraCount = piedraCount;
+            newPlayer.trigoCount = trigoCount;
             newPlayer.colorJugador = colorJugador;
             // ... y puedes agregar los demás valores predeterminados aquí
             Debug.Log("Se va a unir usando AddPlayerServerRpc");
@@ -991,9 +1000,62 @@ public class PlayerNetwork : NetworkBehaviour
         {
             Debug.Log("Error en ColocarPuebloServerRpc: " + e);
         }
+    }
+    [ServerRpc(RequireOwnership = false)]
+    public void ComprarCaminoServerRpc(int jugadorId)
+    {
+        Debug.Log("Entro a comprarCaminoServerRpc");
+        PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(jugadorId);
 
+        if (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1)
+        {
+            // Restar recursos
+            BoardManager.Instance.UpdateResourcesCamino(jugador);
+
+            // Actualizar la UI del cliente con la nueva cantidad de recursos
+            UpdateClientResourcesClientRpc(jugadorId);
+
+        }
     }
 
+    [ServerRpc(RequireOwnership = false)]
+    public void ComprarBaseServerRpc(int jugadorId)
+    {
+        Debug.Log("Entro a comprarBaseServerRpc");
+        PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(jugadorId);
+
+        if (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1 && jugador.trigoCount >= 1 && jugador.ovejaCount >= 1)
+        {
+            // Restar recursos
+            BoardManager.Instance.UpdateResourcesBase(jugador);
+
+            // Actualizar la UI del cliente con la nueva cantidad de recursos
+            UpdateClientResourcesClientRpc(jugadorId);
+        }
+    }
+    [ServerRpc(RequireOwnership = false)]
+    public void ComprarPuebloServerRpc(int jugadorId)
+    {
+        Debug.Log("Entro a comprarPuebloServerRpc");
+        PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(jugadorId);
+
+        if (jugador.trigoCount >= 3 && jugador.piedraCount >= 2)
+        {
+            // Restar recursos
+            BoardManager.Instance.UpdateResourcesPueblo(jugador);
+
+            // Actualizar la UI del cliente con la nueva cantidad de recursos
+            UpdateClientResourcesClientRpc(jugadorId);
+        }
+    }
+    [ClientRpc]
+    public void UpdateClientResourcesClientRpc(int jugadorId)
+    {
+        if (PlayerPrefs.GetInt("jugadorId") == jugadorId)
+        {
+            BoardManager.Instance.UpdateResourceTexts(jugadorId);
+        }
+    }
 }
 
 

@@ -10,7 +10,7 @@ public class BoardManager : NetworkBehaviour
 {
     private GameObject parcela;
     private GameObject parcela2;
-    public string recurso1;
+    private string recurso1;
     private string recurso2;
     public Text MaderaCountText;
     public Text LadrilloCountText;
@@ -18,8 +18,8 @@ public class BoardManager : NetworkBehaviour
     public Text PiedraCountText;
     public Text TrigoCountText;
 
-    public IdentificadorParcela identificadorParcela;
-    public ComprobarObjeto comprobarObjeto;
+    private IdentificadorParcela identificadorParcela;
+    private ComprobarObjeto comprobarObjeto;
     public static BoardManager Instance; // Instancia Singleton
 
     private void Awake()
@@ -266,6 +266,7 @@ public class BoardManager : NetworkBehaviour
             foreach (var empty in collidersParcela2)
             {
                 comprobarObjeto = empty.gameObject.GetComponent<ComprobarObjeto>();
+                Debug.Log("el collider es" + empty.name);
                 if (comprobarObjeto == null)
                 {
                     Debug.LogError("No se pudo obtener el componente ComprobarObjeto de " + empty.gameObject.name);
@@ -426,7 +427,7 @@ public class BoardManager : NetworkBehaviour
     }
     public void UpdateResourceTexts(int jugadorId)
     {
-        //Debug.Log("Entre a UpdateResourceTexts");
+        Debug.Log("Entre a UpdateResourceTexts");
         PlayerNetwork.DatosJugador datosJugador = default;
         // Itera sobre los elementos de playerData para encontrar los datos del jugador
         for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)

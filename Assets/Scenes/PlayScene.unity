@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -281,14 +281,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6190f9f6e2b5b884cb4d4acf2300892f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recurso: 
   MaderaCountText: {fileID: 224838995}
   LadrilloCountText: {fileID: 806327759}
   OvejaCountText: {fileID: 974871198}
   PiedraCountText: {fileID: 619308359}
   TrigoCountText: {fileID: 1346219318}
-  identificadorParcela: {fileID: 0}
-  comprobarObjeto: {fileID: 0}
 --- !u!4 &40919616
 Transform:
   m_ObjectHideFlags: 0
