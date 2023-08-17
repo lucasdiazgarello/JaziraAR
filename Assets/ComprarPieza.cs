@@ -118,7 +118,7 @@ public class ComprarPieza : MonoBehaviour
                     if (hit.collider.gameObject.CompareTag("Arista"))
                     {
                         var color = PlayerPrefs.GetString("colorJugador");
-                        colocarPieza.EjecutarColocarCamino(hit,color);
+                        //colocarPieza.EjecutarColocarCamino(hit,color);
                         esperandoColocarCamino = false;
 
                     }
@@ -148,7 +148,7 @@ public class ComprarPieza : MonoBehaviour
                     if (hit.collider.gameObject.CompareTag("Esquina"))
                     {
                         var color = PlayerPrefs.GetString("colorJugador");
-                        colocarPieza.EjecutarColocarPueblo(hit, color);
+                        //colocarPieza.EjecutarColocarPueblo(hit, color);
                         esperandoColocarPueblo = false;
                     }
 

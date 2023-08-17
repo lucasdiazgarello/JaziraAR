@@ -39,8 +39,8 @@ public class ColocarPieza : NetworkBehaviour
     public Button buttonBase;
     public Button buttonPueblo;
     //public Button confirmBaseButton; // Asegúrate de asignar este botón en el inspector de Unity
-    public Button confirmCaminoButton;
-    public Button confirmPuebloButton;
+    //public Button confirmCaminoButton;
+    //public Button confirmPuebloButton;
 
     public TipoObjeto tipoActual;
 
@@ -76,8 +76,8 @@ public class ColocarPieza : NetworkBehaviour
             canPlace = true;
         });
         //confirmBaseButton.gameObject.SetActive(false);
-        confirmCaminoButton.gameObject.SetActive(false);
-        confirmPuebloButton.gameObject.SetActive(false);
+        //confirmCaminoButton.gameObject.SetActive(false);
+        //confirmPuebloButton.gameObject.SetActive(false);
     }
 
     void Update()
@@ -144,7 +144,7 @@ public class ColocarPieza : NetworkBehaviour
         return tipo;
     }
 
-    public void EjecutarColocarCamino(RaycastHit hit,string color)
+    /*public void EjecutarColocarCamino(RaycastHit hit,string color)
     {
         switch (color)
         {
@@ -186,14 +186,14 @@ public class ColocarPieza : NetworkBehaviour
         else // es un cliente
         {
             Debug.Log("Soy cliente q va a poner camino");
-            var currPrefabBase = currentPrefabBase.name;
-            ColocarCaminoServerRpc(color, nombreCol, currPrefabBase);
+            var currPrefabCamino = currentPrefabBase.name;
+            PlayerNetwork.Instance.ColocarCaminoServerRpc(color, nombreCol, currPrefabCamino);
         }
         Debug.Log("el tipo del camino es " + tipoActual);
         tipoActual = TipoObjeto.Ninguno;
         //Debug.Log("Termino EjecutarColocarBase");
-    }
-
+    }*/
+    /*
     [ServerRpc(RequireOwnership = false)]
     public void ColocarCaminoServerRpc(string color, string collider, string currentPrefabBase)
     {
@@ -217,7 +217,40 @@ public class ColocarPieza : NetworkBehaviour
         currentCamino = Instantiate(currentPrefabCamino, objetoCollider.transform.position, objetoCollider.transform.rotation); //con rotacion
         currentCamino.GetComponent<NetworkObject>().Spawn();
     }
+    */
+    public void EjecutarColocarCamino(RaycastHit hit, string color, string currentPrefabCamino)
+    {
+        Debug.Log("EntroColocar 2");
 
+        var objetoCamino = Resources.Load(currentPrefabCamino) as GameObject;
+        Debug.Log("2 preafb base es " + objetoCamino.name);
+        // El objeto golpeado es una esquina.
+        currentCamino = Instantiate(objetoCamino, hit.collider.gameObject.transform.position, hit.collider.gameObject.transform.rotation);
+        //Debug.Log("Luego de instatiate");
+        currentCamino.GetComponent<NetworkObject>().Spawn();
+
+        // Obtener el componente ComprobarObjeto del objeto golpeado
+        comprobarObjeto = hit.collider.gameObject.GetComponent<ComprobarObjeto>();
+        //Debug.Log("el collider es : " + hit.collider.gameObject.name);
+        //Debug.Log("comprobarobjeto al poner la base: " + comprobarObjeto);
+        // Asegurarse de que el componente existe
+        if (comprobarObjeto != null)
+        {
+            // Guardar una referencia a la pieza que acabamos de colocar
+            //comprobarObjeto.objetoColocado = this; // esto pone ControldorColocarPieza
+            //Debug.Log("EL OBJETO colocado es: " + comprobarObjeto.objetoColocado);
+
+            // Almacenar el tipo de objeto que acabamos de colocar
+            comprobarObjeto.tipoObjeto = TipoObjeto.Camino; // Puedes cambiar esto al tipo de objeto que corresponda
+            Debug.Log("puse el tipo del camino a: " + comprobarObjeto.tipoObjeto);
+        }
+        else
+        {
+            Debug.LogError("El objeto " + hit.collider.gameObject.name + " no tiene un script ComprobarObjeto.");
+        }
+        Debug.Log("el tipo del camino colocado es " + tipoActual);
+        tipoActual = TipoObjeto.Ninguno;
+    }
     public void EjecutarColocarBase(RaycastHit hit, string color, string currentPrefabBase)
     {
         Debug.Log("EntroColocar 2");
@@ -252,43 +285,38 @@ public class ColocarPieza : NetworkBehaviour
         tipoActual = TipoObjeto.Ninguno;
     }
 
-    public void EjecutarColocarPueblo(RaycastHit hit, string color)
+    public void EjecutarColocarPueblo(RaycastHit hit, string color, string currentPrefabPueblo)
     {
-        switch (color)
-        {
-            case "Rojo":  // Aquí se hace uso del tipo enumerado TipoObjeto
-                currentPrefabPueblo = prefabPuebloR;
-                break;
-            case "Azul":  // Aquí se hace uso del tipo enumerado TipoObjeto
-                currentPrefabPueblo = prefabPuebloA;
-                break;
-            case "Violeta":  // Aquí se hace uso del tipo enumerado TipoObjeto
-                currentPrefabPueblo = prefabPuebloV;
-                break;
-            case "Naranja":  // Aquí se hace uso del tipo enumerado TipoObjeto
-                currentPrefabPueblo = prefabPuebloN;
-                break;
-        }
-        //Debug.Log("EntroColocar 2");
-        // El objeto golpeado es una esquina.
-        currentPueblo = Instantiate(currentPrefabPueblo, hit.collider.gameObject.transform.position, Quaternion.identity);
-        //currentPueblo = Instantiate(prefabPueblo, hit.collider.gameObject.transform.position, hit.collider.gameObject.transform.rotation); //con rotacion
-        currentPueblo.GetComponent<NetworkObject>().Spawn();
-        comprobarObjeto = hit.collider.gameObject.GetComponent<ComprobarObjeto>();
+        Debug.Log("EntroColocar 2");
 
+        var objetoPueblo = Resources.Load(currentPrefabPueblo) as GameObject;
+        Debug.Log("2 preafb pueblo es " + objetoPueblo.name);
+        // El objeto golpeado es una esquina.
+        currentPueblo = Instantiate(objetoPueblo, hit.collider.gameObject.transform.position, Quaternion.identity);
+        //Debug.Log("Luego de instatiate");
+        currentPueblo.GetComponent<NetworkObject>().Spawn();
+
+        // Obtener el componente ComprobarObjeto del objeto golpeado
+        comprobarObjeto = hit.collider.gameObject.GetComponent<ComprobarObjeto>();
+        //Debug.Log("el collider es : " + hit.collider.gameObject.name);
+        //Debug.Log("comprobarobjeto al poner la base: " + comprobarObjeto);
+        // Asegurarse de que el componente existe
         if (comprobarObjeto != null)
         {
+            // Guardar una referencia a la pieza que acabamos de colocar
+            //comprobarObjeto.objetoColocado = this; // esto pone ControldorColocarPieza
+            //Debug.Log("EL OBJETO colocado es: " + comprobarObjeto.objetoColocado);
+
             // Almacenar el tipo de objeto que acabamos de colocar
             comprobarObjeto.tipoObjeto = TipoObjeto.Pueblo; // Puedes cambiar esto al tipo de objeto que corresponda
-            Debug.Log("puse el tipo del pueblo a: " + comprobarObjeto.tipoObjeto);
+            Debug.Log("puse el tipo de la base a: " + comprobarObjeto.tipoObjeto);
         }
         else
         {
             Debug.LogError("El objeto " + hit.collider.gameObject.name + " no tiene un script ComprobarObjeto.");
         }
-        Debug.Log("el tipo del camino es " + tipoActual);
+        Debug.Log("el tipo del pueblo colocado es " + tipoActual);
         tipoActual = TipoObjeto.Ninguno;
-        //Debug.Log("Termino EjecutarColocarBase");
     }
 
     public void ColocarCamino(string color)
@@ -299,10 +327,56 @@ public class ColocarPieza : NetworkBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
         {
-            EjecutarColocarCamino(hit,color);
-            confirmCaminoButton.gameObject.SetActive(true);
+            switch (color)
+            {
+                case "Rojo":
+                    currentPrefabCamino = prefabCaminoR;
+                    break;
+                case "Azul":
+                    currentPrefabCamino = prefabCaminoA;
+                    break;
+                case "Violeta":
+                    currentPrefabCamino = prefabCaminoV;
+                    break;
+                case "Naranja":
+                    currentPrefabCamino = prefabCaminoN;
+                    break;
+            }
+            var currPrefCamino = currentPrefabCamino.name;
+            Debug.Log("el prefab camino se llama " + currPrefCamino);
+            if (NetworkManager.Singleton.IsServer)
+            {
+
+                EjecutarColocarCamino(hit, color, currPrefCamino);
+            }
+            else // si es un cliente
+            {
+                string colliderName = hit.collider.gameObject.name;
+                Debug.Log("colliderName: " + colliderName);
+                //PlayerPrefs.SetString(colliderName, "collider");
+                //PlayerNetwork.Instance.PruebaServerRpc();
+                var position = hit.collider.gameObject.transform.position;
+                var rotation = hit.collider.gameObject.transform.rotation;
+
+                PlayerNetwork.Instance.ColocarCaminoServerRpc(color, currPrefCamino, position, rotation);
+            }
+            // Inclusión de la funcionalidad de ConfirmarBase()
+            if (currentCamino == null)
+            {
+                Debug.Log("currentCamino es null");
+            }
+
+            if (currentCamino != null)
+            {
+                //confirmBaseButton.gameObject.SetActive(false);  // Deshabilita el botón de confirmación
+                canPlace = false;  // Desactiva la capacidad de mover la base
+                currentCamino = null;  // Borra la referencia a la base actual
+            }
+            else
+            {
+                Debug.Log("El Camino no puede ser confirmada");
+            }
         }
-        //ARCursor arCursor = FindObjectOfType<ARCursor>();
         if (ARCursor.Instance != null)
         {
             ARCursor.Instance.ActivatePlacementMode();
@@ -374,10 +448,73 @@ public class ColocarPieza : NetworkBehaviour
             ARCursor.Instance.ActivatePlacementMode();
         }
     }
-
-
-
     public void ColocarPueblo(string color)
+    {
+        Debug.Log("EntroColocar 1");
+        AllowPlace();
+        //PruebaServerRpc();
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+        //PruebaServerRpc();
+        //if (ray == null) Debug.LogError("RAY is null");
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
+        {
+            switch (color)
+            {
+                case "Rojo":
+                    currentPrefabPueblo = prefabPuebloR;
+                    break;
+                case "Azul":
+                    currentPrefabPueblo = prefabPuebloA;
+                    break;
+                case "Violeta":
+                    currentPrefabPueblo = prefabPuebloV;
+                    break;
+                case "Naranja":
+                    currentPrefabPueblo = prefabPuebloN;
+                    break;
+            }
+            var currPrefPueblo = currentPrefabPueblo.name;
+            Debug.Log("el prefab pueblo se llama " + currPrefPueblo);
+            if (NetworkManager.Singleton.IsServer)
+            {
+                EjecutarColocarPueblo(hit, color, currPrefPueblo);
+            }
+            else // si es un cliente
+            {
+                string colliderName = hit.collider.gameObject.name;
+                Debug.Log("colliderName: " + colliderName);
+                //PlayerPrefs.SetString(colliderName, "collider");
+                //PlayerNetwork.Instance.PruebaServerRpc();
+                var position = hit.collider.gameObject.transform.position;
+
+                PlayerNetwork.Instance.ColocarPuebloServerRpc(color, currPrefPueblo, position);
+            }
+            // Inclusión de la funcionalidad de ConfirmarBase()
+            if (currentPueblo == null)
+            {
+                Debug.Log("currentPueblo es null");
+            }
+
+            if (currentPueblo != null)
+            {
+                //confirmBaseButton.gameObject.SetActive(false);  // Deshabilita el botón de confirmación
+                canPlace = false;  // Desactiva la capacidad de mover la base
+                currentPueblo = null;  // Borra la referencia a la base actual
+            }
+            else
+            {
+                Debug.Log("El Pueblo no puede ser confirmado");
+            }
+        }
+        if (ARCursor.Instance != null)
+        {
+            ARCursor.Instance.ActivatePlacementMode();
+        }
+    }
+
+
+    /*public void ColocarPueblo(string color)
     {
         AllowPlace();
         RaycastHit hit;
@@ -420,7 +557,7 @@ public class ColocarPieza : NetworkBehaviour
             Debug.Log("La base no puede ser confirmada");
         }
     }*/
-    public void ConfirmarCamino()
+    /*public void ConfirmarCamino()
     {
         if (currentCamino == null)
         {
@@ -429,7 +566,7 @@ public class ColocarPieza : NetworkBehaviour
         // Verifica si la base actual no es nula y se puede colocar
         if (currentCamino != null && canPlace)
         {
-            confirmCaminoButton.gameObject.SetActive(false);
+            //confirmCaminoButton.gameObject.SetActive(false);
             canPlace = false;
             currentCamino = null;
         }

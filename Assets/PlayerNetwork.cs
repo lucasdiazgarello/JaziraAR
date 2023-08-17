@@ -37,7 +37,7 @@ public class PlayerNetwork : NetworkBehaviour
     public TipoObjeto tipoActual;
     private ComprobarObjeto comprobarObjeto;
     public Button confirmBaseButton;
-    private bool canPlace = false;
+    //private bool canPlace = false;
     public bool IsInitialized { get; private set; } = false; // Añade este campo de estado
     public NetworkList<int> playerIDs;
     public int currentTurnIndex = 0;
@@ -804,6 +804,45 @@ public class PlayerNetwork : NetworkBehaviour
         Debug.Log("Entre a la prueba");
     }
     [ServerRpc(RequireOwnership = false)]
+    public void ColocarCaminoServerRpc(string color, string currentcamino, Vector3 posititon, Quaternion rotation)
+    {
+        try
+        {
+            Debug.Log("Entre a la BaseServerRpc");
+            var objetoCamino = Resources.Load(currentcamino) as GameObject;
+            Debug.Log("2 preafb base es " + objetoCamino.name);
+            //PlayerPrefs.SetString(colliderName, "collider");
+            currentCamino = Instantiate(objetoCamino, posititon, rotation);
+            currentCamino.GetComponent<NetworkObject>().Spawn();
+            // Obtener el componente ComprobarObjeto del objeto golpeado
+            comprobarObjeto = objetoCamino.gameObject.GetComponent<ComprobarObjeto>();
+            //Debug.Log("el collider es : " + hit.collider.gameObject.name);
+            //Debug.Log("comprobarobjeto al poner la base: " + comprobarObjeto);
+            // Asegurarse de que el componente existe
+            if (comprobarObjeto != null)
+            {
+                // Guardar una referencia a la pieza que acabamos de colocar
+                //comprobarObjeto.objetoColocado = this; // esto pone ControldorColocarPieza
+                //Debug.Log("EL OBJETO colocado es: " + comprobarObjeto.objetoColocado);
+
+                // Almacenar el tipo de objeto que acabamos de colocar
+                comprobarObjeto.tipoObjeto = TipoObjeto.Camino; // Puedes cambiar esto al tipo de objeto que corresponda
+                Debug.Log("puse el tipo del camino a: " + comprobarObjeto.tipoObjeto);
+            }
+            else
+            {
+                //Debug.LogError("El objeto " + objetoCollider.gameObject.name + " no tiene un script ComprobarObjeto.");
+            }
+            Debug.Log("el tipo del camino colocado es " + tipoActual);
+            tipoActual = TipoObjeto.Ninguno;
+        }
+        catch (Exception e)
+        {
+            Debug.Log("Error en ColocarCaminoServerRpc: " + e);
+        }
+
+    }
+    [ServerRpc(RequireOwnership = false)]
     public void ColocarBaseServerRpc(string color, string currentbase, Vector3 posititon)
     {
         try
@@ -843,30 +882,45 @@ public class PlayerNetwork : NetworkBehaviour
 
     }
     [ServerRpc(RequireOwnership = false)]
-    public void ConfirmarBaseServerRpc()
+    public void ColocarPuebloServerRpc(string color, string currentpueblo, Vector3 posititon)
     {
-        if (currentBase == null)
+        try
         {
-            Debug.Log("currentBase es null");
-        }
-        // Verifica si la base actual no es nula y se puede colocar
-        if (currentBase != null && canPlace)
-        {
-            // Deshabilita el botón de confirmación
-            confirmBaseButton.gameObject.SetActive(false);
+            Debug.Log("Entre a la PuebloServerRpc");
+            var objetoPueblo = Resources.Load(currentpueblo) as GameObject;
+            Debug.Log("2 preafb pueblo es " + objetoPueblo.name);
+            //PlayerPrefs.SetString(colliderName, "collider");
+            currentPueblo = Instantiate(objetoPueblo, posititon, Quaternion.identity);
+            currentPueblo.GetComponent<NetworkObject>().Spawn();
+            // Obtener el componente ComprobarObjeto del objeto golpeado
+            comprobarObjeto = objetoPueblo.gameObject.GetComponent<ComprobarObjeto>();
+            //Debug.Log("el collider es : " + hit.collider.gameObject.name);
+            //Debug.Log("comprobarobjeto al poner la base: " + comprobarObjeto);
+            // Asegurarse de que el componente existe
+            if (comprobarObjeto != null)
+            {
+                // Guardar una referencia a la pieza que acabamos de colocar
+                //comprobarObjeto.objetoColocado = this; // esto pone ControldorColocarPieza
+                //Debug.Log("EL OBJETO colocado es: " + comprobarObjeto.objetoColocado);
 
-            // Desactiva la capacidad de mover la base
-            canPlace = false;
-
-            // Borra la referencia a la base actual
-            currentBase = null;
+                // Almacenar el tipo de objeto que acabamos de colocar
+                comprobarObjeto.tipoObjeto = TipoObjeto.Pueblo; // Puedes cambiar esto al tipo de objeto que corresponda
+                Debug.Log("puse el tipo del pueblo a: " + comprobarObjeto.tipoObjeto);
+            }
+            else
+            {
+                //Debug.LogError("El objeto " + objetoCollider.gameObject.name + " no tiene un script ComprobarObjeto.");
+            }
+            Debug.Log("el tipo del pueblo colocado es " + tipoActual);
+            tipoActual = TipoObjeto.Ninguno;
         }
-        else
+        catch (Exception e)
         {
-            // Puedes mostrar algún mensaje o realizar alguna acción si la base no puede ser confirmada
-            Debug.Log("La base no puede ser confirmada");
+            Debug.Log("Error en ColocarPuebloServerRpc: " + e);
         }
+
     }
+
 }
 
 
