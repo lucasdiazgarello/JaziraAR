@@ -10,7 +10,7 @@ public class BoardManager : NetworkBehaviour
 {
     private GameObject parcela;
     private GameObject parcela2;
-    public string recurso;
+    public string recurso1;
     private string recurso2;
     public Text MaderaCountText;
     public Text LadrilloCountText;
@@ -56,121 +56,266 @@ public class BoardManager : NetworkBehaviour
             case "Parcela 2":
                 Debug.Log("Busque parcela 2");
                 parcela = GameObject.Find("Parcela 2 Trigo");
-                recurso = "Trigo";
+                if (parcela == null) Debug.Log("parcela vacia");
+                recurso1 = "Trigo";
                 break;
             case "Parcela 3":
                 Debug.Log("Busque parcela 3");
                 parcela = GameObject.Find("Parcela 3 Trigo");
+                if (parcela == null) Debug.Log("parcela vacia");
                 parcela2 = GameObject.Find("Parcela 3 Madera");
+                recurso1 = "Trigo";
+                recurso2 = "Madera";
                 break;
             case "Parcela 4":
                 Debug.Log("Busque parcela 4");
                 parcela = GameObject.Find("Parcela 4 Ladrillo");
+                if (parcela == null) Debug.Log("parcela vacia");
                 parcela2 = GameObject.Find("Parcela 4 Madera");
+                recurso1 = "Ladrillo";
+                recurso2 = "Madera";
                 break;
             case "Parcela 5":
                 Debug.Log("Busque parcela 5");
                 parcela = GameObject.Find("Parcela 5 Ladrillo");
+                if (parcela == null) Debug.Log("parcela vacia");
                 parcela2 = GameObject.Find("Parcela 5 Piedra");
-                recurso = "Piedra";
+                recurso1 = "Ladrillo";
+                recurso2 = "Piedra";
                 break;
             case "Parcela 6":
                 Debug.Log("Busque parcela 6");
                 parcela = GameObject.Find("Parcela 6 Piedra");
+                if (parcela == null) Debug.Log("parcela vacia");
                 parcela2 = GameObject.Find("Parcela 6 Madera");
+                recurso1 = "Piedra";
+                recurso2 = "Madera";
                 break;
             case "Parcela 8":
                 Debug.Log("Busque parcela 8");
                 parcela = GameObject.Find("Parcela 8 Trigo");
+                if (parcela == null) Debug.Log("parcela vacia");
                 parcela2 = GameObject.Find("Parcela 8 Ladrillo");
+                recurso1 = "Trigo";
+                recurso2 = "Ladrillo";
                 break;
             case "Parcela 9":
                 Debug.Log("Busque parcela 9");
                 parcela = GameObject.Find("Parcela 9 Trigo");
+                if (parcela == null) Debug.Log("parcela vacia");
                 parcela2 = GameObject.Find("Parcela 9 Oveja");
+                recurso1 = "Trigo";
+                recurso2 = "Oveja";
                 break;
             case "Parcela 10":
                 Debug.Log("Busque parcela 10");
                 parcela = GameObject.Find("Parcela 10 Oveja");
+                if (parcela == null) Debug.Log("parcela vacia");
                 parcela2 = GameObject.Find("Parcela 10 Oveja");
+                recurso1 = "Oveja";
+                recurso2 = "Oveja";
                 break;
             case "Parcela 11":
                 Debug.Log("Busque parcela 11");
                 parcela = GameObject.Find("Parcela 11 Trigo");
+                if (parcela == null) Debug.Log("parcela vacia");
                 parcela2 = GameObject.Find("Parcela 11 Madera");
+                recurso1 = "Trigo";
+                recurso2 = "Madera";
                 break;
             case "Parcela 12":
                 Debug.Log("Busque parcela 12");
                 parcela = GameObject.Find("Parcela 12 Oveja");
+                if (parcela == null) Debug.Log("parcela vacia");
+                recurso1 = "Oveja";
                 break;
 
         }
-        parcela = GameObject.Find("Parcela 5 Piedra");
-        recurso = "Piedra";
-        Debug.Log("parcela 5: " + parcela);
-        identificadorParcela = parcela.GetComponent<IdentificadorParcela>();
-        //Debug.Log("identificadorParcela: " + identificadorParcela);
-        List<Collider> collidersParcela = identificadorParcela.GetCollidersParcela(parcela.name);
-        //Debug.Log("collidersParcela count: " + collidersParcela.Count); // Ver el tamaño de la lista
-
-        if (collidersParcela.Count > 0)
+        if(recurso2 == null)
         {
-            //Debug.Log("First item in collidersParcela: " + collidersParcela[0]); // Ver el primer elemento
-            comprobarObjeto = collidersParcela[0].gameObject.GetComponent<ComprobarObjeto>();
-            //Debug.Log("comprobarObjeto de la [0] es " + comprobarObjeto);
-        }
-        foreach (var empty in collidersParcela)
-        {
-           // Debug.Log("entre al foreach");
-            //Debug.Log("Empty GameObject: " + empty.gameObject.name);
-            // Obtener el script ComprobarObjeto del objeto.
-            comprobarObjeto = empty.gameObject.GetComponent<ComprobarObjeto>();
-            if (comprobarObjeto == null)
+            //parcela = GameObject.Find("Parcela 5 Piedra");
+            //recurso1 = "Piedra";
+            //Debug.Log("parcela 5: " + parcela);
+            identificadorParcela = parcela.GetComponent<IdentificadorParcela>();
+            List<Collider> collidersParcela = identificadorParcela.GetCollidersParcela(parcela.name);
+            if (collidersParcela.Count > 0)
             {
-                Debug.LogError("No se pudo obtener el componente ComprobarObjeto de " + empty.gameObject.name);
+                comprobarObjeto = collidersParcela[0].gameObject.GetComponent<ComprobarObjeto>();
             }
-            //Debug.Log("comprobarObjeto es " + comprobarObjeto);
-            // Si el script existe, invocar la función DarTipo().
-            if (comprobarObjeto != null)
+            foreach (var empty in collidersParcela)
             {
-                Debug.Log("comprobarObjeto no es null");
-                TipoObjeto tipo = comprobarObjeto.tipoObjeto; // Aquí utilizas la variable tipoObjeto de tu instancia comprobarObjeto
-                Debug.Log("el tipo es " + tipo);
-                switch (tipo)
+                comprobarObjeto = empty.gameObject.GetComponent<ComprobarObjeto>();
+                if (comprobarObjeto == null)
                 {
-                    case TipoObjeto.Ninguno:  // Aquí se hace uso del tipo enumerado TipoObjeto
-                        Debug.Log("Ninguno");
-                        break;
-                    case TipoObjeto.Camino:  // Aquí se hace uso del tipo enumerado TipoObjeto
-                        Debug.Log("Camino");
-                        break;
-                    case TipoObjeto.Base:    // Aquí se hace uso del tipo enumerado TipoObjeto
-                        Debug.Log("Sumar a la Base 1 de " + recurso);
-                        int currentPlayerID = PlayerPrefs.GetInt("jugadorId");
-                        //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
-                        Debug.Log("CurrentPlayerID es " + currentPlayerID);
-                        PlayerNetwork.Instance.AumentarRecursos(currentPlayerID, recurso, 1);
-                        Instance.UpdateResourceTexts(currentPlayerID);
-                        Debug.Log("ya sumo recurso "+ recurso);
-                        break;
-                    case TipoObjeto.Pueblo:  // Aquí se hace uso del tipo enumerado TipoObjeto
-                        Debug.Log("Pueblo");
-                        //PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso, 2);
-                        Debug.Log("sumo 2 " + recurso);
-                        break;
+                    Debug.LogError("No se pudo obtener el componente ComprobarObjeto de " + empty.gameObject.name);
+                }
+                if (comprobarObjeto != null)
+                {
+                    Debug.Log("comprobarObjeto no es null");
+                    TipoObjeto tipo = comprobarObjeto.tipoObjeto; // Aquí utilizas la variable tipoObjeto de tu instancia comprobarObjeto
+                    Debug.Log("el tipo es " + tipo);
+                    switch (tipo)
+                    {
+                        case TipoObjeto.Ninguno:  // Aquí se hace uso del tipo enumerado TipoObjeto
+                            Debug.Log("Ninguno");
+                            break;
+                        case TipoObjeto.Camino:  // Aquí se hace uso del tipo enumerado TipoObjeto
+                            Debug.Log("Camino");
+                            break;
+                        case TipoObjeto.Base:    // Aquí se hace uso del tipo enumerado TipoObjeto
+                            Debug.Log("Sumar a la Base 1 de " + recurso1);
+                            int currentPlayerID = PlayerPrefs.GetInt("jugadorId");
+                            //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
+                            Debug.Log("CurrentPlayerID es " + currentPlayerID);
+                            if (NetworkManager.Singleton.IsServer)
+                            {
+                                Debug.Log("Soy server aumentando recursos");
+                                PlayerNetwork.Instance.AumentarRecursos(currentPlayerID, recurso1, 1);
+                                Instance.UpdateResourceTexts(currentPlayerID);
+                                Debug.Log("ya sumo recurso " + recurso1);
+                            }
+                            else
+                            {
+                                Debug.Log("Soy cliente aumentando recursos");
+                                PlayerNetwork.Instance.AumentarRecursosServerRpc(currentPlayerID, recurso1, 1);
+                                PlayerNetwork.Instance.UpdateResourceTextsServerRpc(currentPlayerID);
+                                Debug.Log("ya sumo recurso " + recurso1);
+                            }
+                            break;
+                        case TipoObjeto.Pueblo:  // Aquí se hace uso del tipo enumerado TipoObjeto
+                            Debug.Log("Pueblo");
+                            //PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso, 2);
+                            Debug.Log("sumo 2 " + recurso1);
+                            break;
+                    }
+                }
+                else
+                {
+                    Debug.LogError("El objeto " + empty.name + " no tiene un script de ComprobarObjeto.");
                 }
             }
-            else
+        }
+        else
+        {
+            Debug.Log("Primera parte");
+            identificadorParcela = parcela.GetComponent<IdentificadorParcela>();
+            List<Collider> collidersParcela = identificadorParcela.GetCollidersParcela(parcela.name);
+            if (collidersParcela.Count > 0)
             {
-                Debug.LogError("El objeto " + empty.name + " no tiene un script de ComprobarObjeto.");
+                comprobarObjeto = collidersParcela[0].gameObject.GetComponent<ComprobarObjeto>();
+            }
+            foreach (var empty in collidersParcela)
+            {
+                comprobarObjeto = empty.gameObject.GetComponent<ComprobarObjeto>();
+                if (comprobarObjeto == null)
+                {
+                    Debug.LogError("No se pudo obtener el componente ComprobarObjeto de " + empty.gameObject.name);
+                }
+                if (comprobarObjeto != null)
+                {
+                    Debug.Log("comprobarObjeto no es null");
+                    TipoObjeto tipo = comprobarObjeto.tipoObjeto; // Aquí utilizas la variable tipoObjeto de tu instancia comprobarObjeto
+                    Debug.Log("el tipo es " + tipo);
+                    switch (tipo)
+                    {
+                        case TipoObjeto.Ninguno:  // Aquí se hace uso del tipo enumerado TipoObjeto
+                            Debug.Log("Ninguno");
+                            break;
+                        case TipoObjeto.Camino:  // Aquí se hace uso del tipo enumerado TipoObjeto
+                            Debug.Log("Camino");
+                            break;
+                        case TipoObjeto.Base:    // Aquí se hace uso del tipo enumerado TipoObjeto
+                            Debug.Log("Sumar a la Base 1 de " + recurso1);
+                            int currentPlayerID = PlayerPrefs.GetInt("jugadorId");
+                            //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
+                            Debug.Log("CurrentPlayerID es " + currentPlayerID);
+                            if (NetworkManager.Singleton.IsServer)
+                            {
+                                Debug.Log("Soy server aumentando recursos");
+                                PlayerNetwork.Instance.AumentarRecursos(currentPlayerID, recurso1, 1);
+                                Instance.UpdateResourceTexts(currentPlayerID);
+                                Debug.Log("ya sumo recurso " + recurso1);
+                            }
+                            else
+                            {
+                                Debug.Log("Soy cliente aumentando recursos");
+                                PlayerNetwork.Instance.AumentarRecursosServerRpc(currentPlayerID, recurso1, 1);
+                                PlayerNetwork.Instance.UpdateResourceTextsServerRpc(currentPlayerID);
+                                Debug.Log("ya sumo recurso " + recurso1);
+                            }
+                            break;
+                        case TipoObjeto.Pueblo:  // Aquí se hace uso del tipo enumerado TipoObjeto
+                            Debug.Log("Pueblo");
+                            //PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso, 2);
+                            Debug.Log("sumo 2 " + recurso1);
+                            break;
+                    }
+                }
+                else
+                {
+                    Debug.LogError("El objeto " + empty.name + " no tiene un script de ComprobarObjeto.");
+                }
+            }
+            Debug.Log("Segunda parte");
+            identificadorParcela = parcela2.GetComponent<IdentificadorParcela>();
+            List<Collider> collidersParcela2 = identificadorParcela.GetCollidersParcela(parcela2.name);
+            if (collidersParcela.Count > 0)
+            {
+                comprobarObjeto = collidersParcela2[0].gameObject.GetComponent<ComprobarObjeto>();
+            }
+            foreach (var empty in collidersParcela2)
+            {
+                comprobarObjeto = empty.gameObject.GetComponent<ComprobarObjeto>();
+                if (comprobarObjeto == null)
+                {
+                    Debug.LogError("No se pudo obtener el componente ComprobarObjeto de " + empty.gameObject.name);
+                }
+                if (comprobarObjeto != null)
+                {
+                    Debug.Log("comprobarObjeto no es null");
+                    TipoObjeto tipo = comprobarObjeto.tipoObjeto; // Aquí utilizas la variable tipoObjeto de tu instancia comprobarObjeto
+                    Debug.Log("el tipo es " + tipo);
+                    switch (tipo)
+                    {
+                        case TipoObjeto.Ninguno:  // Aquí se hace uso del tipo enumerado TipoObjeto
+                            Debug.Log("Ninguno");
+                            break;
+                        case TipoObjeto.Camino:  // Aquí se hace uso del tipo enumerado TipoObjeto
+                            Debug.Log("Camino");
+                            break;
+                        case TipoObjeto.Base:    // Aquí se hace uso del tipo enumerado TipoObjeto
+                            Debug.Log("Sumar a la Base 1 de " + recurso2);
+                            int currentPlayerID = PlayerPrefs.GetInt("jugadorId");
+                            //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
+                            Debug.Log("CurrentPlayerID es " + currentPlayerID);
+                            if (NetworkManager.Singleton.IsServer)
+                            {
+                                Debug.Log("Soy server aumentando recursos");
+                                PlayerNetwork.Instance.AumentarRecursos(currentPlayerID, recurso2, 1);
+                                Instance.UpdateResourceTexts(currentPlayerID);
+                                Debug.Log("ya sumo recurso " + recurso2);
+                            }
+                            else
+                            {
+                                Debug.Log("Soy cliente aumentando recursos");
+                                PlayerNetwork.Instance.AumentarRecursosServerRpc(currentPlayerID, recurso2, 1);
+                                PlayerNetwork.Instance.UpdateResourceTextsServerRpc(currentPlayerID);
+                                Debug.Log("ya sumo recurso " + recurso2);
+                            }
+                            break;
+                        case TipoObjeto.Pueblo:  // Aquí se hace uso del tipo enumerado TipoObjeto
+                            Debug.Log("Pueblo");
+                            //PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso, 2);
+                            Debug.Log("sumo 2 " + recurso2);
+                            break;
+                    }
+                }
+                else
+                {
+                    Debug.LogError("El objeto " + empty.name + " no tiene un script de ComprobarObjeto.");
+                }
             }
         }
-
-        if (parcela2 == null)
-        {
-
-        }
-
     }
     public void UpdateResourcesCamino(PlayerNetwork.DatosJugador jugador) //se usa para disminuir los recursos solamente
     {
@@ -304,42 +449,7 @@ public class BoardManager : NetworkBehaviour
         PiedraCountText.text = datosJugador.piedraCount.ToString();
         TrigoCountText.text = datosJugador.trigoCount.ToString();
     }
-    /*public void UpdateResourceTexts(int jugadorId)
-    {
-        Debug.Log("Entre a UpdateResourceTexts");
-        Debug.Log("id es" + jugadorId);
-        DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(jugadorId);
-        Debug.Log("el jugador con id " + jugadorId + " es :" + jugador);
-        //DatosJugador datosJugador = default;
-        /*DatosJugador datosJugador = PlayerNetwork.Instance.GetPlayerData(jugadorId);
 
-        PlayerNetwork.Instance.ImprimirJugadorPorId(jugadorId);
-        // Itera sobre los elementos de playerData para encontrar los datos del jugador
-        for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
-        {
-            if (PlayerNetwork.Instance.playerData[i].jugadorId == jugadorId)
-            {
-                Debug.Log("Imprimir 1 ");
-                PlayerNetwork.Instance.ImprimirJugadorPorId(jugadorId);
-                datosJugador = PlayerNetwork.Instance.playerData[i];
-                Debug.Log("Imprimir 2 ");
-                PlayerNetwork.Instance.ImprimirJugadorPorId(jugadorId);
-                break;
-            }
-        }*/
 
-    /* if (jugador.jugadorId == 0)  // Suponiendo que 0 no es un ID de jugador válido
-     {
-         Debug.LogError("Jugador con ID " + jugadorId + " no encontrado.");
-         return;
-     }
-
-     // Actualiza los textos de los recursos
-     MaderaCountText.text = jugador.maderaCount.ToString();
-     LadrilloCountText.text = jugador.ladrilloCount.ToString();
-     OvejaCountText.text = jugador.ovejaCount.ToString();
-     PiedraCountText.text = jugador.piedraCount.ToString();
-     TrigoCountText.text = jugador.trigoCount.ToString();
- }*/
 
 }

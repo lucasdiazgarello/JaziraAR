@@ -833,12 +833,12 @@ MonoBehaviour:
   - numeroficha: 10
     nombreRecurso: Oveja
   collidersParcela:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7474985277205529631, guid: ca6eb3f4c74933d429c3a6ea8e850930, type: 3}
+  - {fileID: 5132767448900859724, guid: 26f486e29e9114a45a19b759522d9ae1, type: 3}
+  - {fileID: 4069568550950791383, guid: 5b36c4163d682eb4783a5fc2f83d2d01, type: 3}
+  - {fileID: 6332598345523937974, guid: 0bd551e196a45fc4f9616ec132ad1e85, type: 3}
+  - {fileID: 8203708833107413182, guid: 68b604e5cd0a2414ca048a822fb24af3, type: 3}
+  - {fileID: 6954463897081705379, guid: 0d1c66397b2adca4386e757bbe7badba, type: 3}
 --- !u!1001 &796254296144334982
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -986,12 +986,12 @@ MonoBehaviour:
   - numeroficha: 3
     nombreRecurso: Piedra
   collidersParcela:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 538657820575085445, guid: 0717c2e4604198a4483d28f76f666728, type: 3}
+  - {fileID: 2853790986985798412, guid: 9667e98d652cef4448dfc66bdf165e49, type: 3}
+  - {fileID: 7494497972471994524, guid: be60be7d58c806242a4d8e780c9bcbfc, type: 3}
+  - {fileID: 8432278263892376892, guid: a4d7529bf6aa18746a23043e09d8a801, type: 3}
+  - {fileID: 3763273988057931390, guid: 9f4d52a1857a2f942ae296d5982a6b4e, type: 3}
+  - {fileID: 504076577185990966, guid: 8e5cc4be110681d44a8385141bef41cc, type: 3}
 --- !u!1001 &1072670724830761426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1599,12 +1599,12 @@ MonoBehaviour:
   - numeroficha: 2
     nombreRecurso: Trigo
   collidersParcela:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7474985277205529631, guid: ca6eb3f4c74933d429c3a6ea8e850930, type: 3}
+  - {fileID: 5530290049334776, guid: a007d144dd6c29c41b684a82cca1d6fd, type: 3}
+  - {fileID: 4069568550950791383, guid: 5b36c4163d682eb4783a5fc2f83d2d01, type: 3}
+  - {fileID: 5818290651779045464, guid: cfffb36d9274ecc448c71bb4270790c6, type: 3}
+  - {fileID: 1129860667731185785, guid: 97c395b96b1be1d4ab0cfa97108ab78d, type: 3}
+  - {fileID: 11466430019835028, guid: 36879353657eee541ae37bc1a3da44f8, type: 3}
 --- !u!1001 &2036889348404182327
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1867,12 +1867,12 @@ MonoBehaviour:
   - numeroficha: 4
     nombreRecurso: Ladrillo
   collidersParcela:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2545111441023748641, guid: 7008ff1a935d97e41a1970bc5166b16b, type: 3}
+  - {fileID: 2697679804513499595, guid: 9e6927dee9b76bc43af4c90deb626f93, type: 3}
+  - {fileID: 4054652963116127295, guid: a6ac063a4d1b71a418dfe779c7197fb4, type: 3}
+  - {fileID: 57013160290838526, guid: be3534affe0eba94891d488ea377dbaf, type: 3}
+  - {fileID: 7148709569834373981, guid: bcdeebd6638424149b973301de69ce7e, type: 3}
+  - {fileID: 8051494394278950188, guid: ee314cad8d8870c49bacfbb48cb114ce, type: 3}
 --- !u!1001 &3207679811317012797
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2020,12 +2020,12 @@ MonoBehaviour:
   - numeroficha: 3
     nombreRecurso: Madera
   collidersParcela:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1786299303960781900, guid: 6d1ab28aa81a2e3469bd4ba3b0e7f239, type: 3}
+  - {fileID: 6332598345523937974, guid: 0bd551e196a45fc4f9616ec132ad1e85, type: 3}
+  - {fileID: 6954463897081705379, guid: 0d1c66397b2adca4386e757bbe7badba, type: 3}
+  - {fileID: 4054652963116127295, guid: a6ac063a4d1b71a418dfe779c7197fb4, type: 3}
+  - {fileID: 8010272695671542131, guid: e7e50631c601471468c8b7bb10be5c19, type: 3}
+  - {fileID: 7148709569834373981, guid: bcdeebd6638424149b973301de69ce7e, type: 3}
 --- !u!1001 &3330723960897631009
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2403,12 +2403,12 @@ MonoBehaviour:
   - numeroficha: 12
     nombreRecurso: Oveja
   collidersParcela:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7399912362759371876, guid: bd8581a85ba85464ab5793d9258cde90, type: 3}
+  - {fileID: 5038767414761371578, guid: da78653e62533044984967d08c80e8bd, type: 3}
+  - {fileID: 8728667014577021551, guid: 2023fd566b104e94c9a681500a578c43, type: 3}
+  - {fileID: 4415858084084482599, guid: 208043d48db6d524bbccc77c914be4e7, type: 3}
+  - {fileID: 2370568444741765473, guid: 8d070949ae9c6b149add92d209d44369, type: 3}
+  - {fileID: 8483326209933321142, guid: d459087093dfa7c488ac25baa92a9476, type: 3}
 --- !u!1001 &4132998143142623718
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3355,12 +3355,12 @@ MonoBehaviour:
   - numeroficha: 5
     nombreRecurso: Ladrillo
   collidersParcela:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7399912362759371876, guid: bd8581a85ba85464ab5793d9258cde90, type: 3}
+  - {fileID: 1067045189178733169, guid: 45b76be362c90134f94fdbf3999b3b8b, type: 3}
+  - {fileID: 8728667014577021551, guid: 2023fd566b104e94c9a681500a578c43, type: 3}
+  - {fileID: 5650106673473268819, guid: 889e18907843d5c4d97bdf1a728c81da, type: 3}
+  - {fileID: 8578281095151461896, guid: 6b81b9adc08f88443bc50346611103a1, type: 3}
+  - {fileID: 983593956415936334, guid: 13abd47ed2152d7468bc08b91cb32def, type: 3}
 --- !u!4 &6725848405438292730 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1670185482592440088, guid: 54b7a9de3fe677c4394b9f628a0f7f32,
@@ -3508,12 +3508,12 @@ MonoBehaviour:
   - numeroficha: 5
     nombreRecurso: Piedra
   collidersParcela:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8521921380350310186, guid: ccc8e5395f56c4544977691ad6383845, type: 3}
+  - {fileID: 7474985277205529631, guid: ca6eb3f4c74933d429c3a6ea8e850930, type: 3}
+  - {fileID: 5132767448900859724, guid: 26f486e29e9114a45a19b759522d9ae1, type: 3}
+  - {fileID: 5530290049334776, guid: a007d144dd6c29c41b684a82cca1d6fd, type: 3}
+  - {fileID: 2488132814641459079, guid: 277feb282c561c5488282d968f7f0ebf, type: 3}
+  - {fileID: 1924754906008690733, guid: b3d826f395f207144be26b3430d4f539, type: 3}
 --- !u!4 &6625803542360727892 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1670185482592440088, guid: 54b7a9de3fe677c4394b9f628a0f7f32,
@@ -3776,12 +3776,12 @@ MonoBehaviour:
   - numeroficha: 4
     nombreRecurso: Madera
   collidersParcela:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8029956529110939161, guid: a243091912f5e9d4b8ebb79e27234ab6, type: 3}
+  - {fileID: 7494497972471994524, guid: be60be7d58c806242a4d8e780c9bcbfc, type: 3}
+  - {fileID: 504076577185990966, guid: 8e5cc4be110681d44a8385141bef41cc, type: 3}
+  - {fileID: 5650106673473268819, guid: 889e18907843d5c4d97bdf1a728c81da, type: 3}
+  - {fileID: 8578281095151461896, guid: 6b81b9adc08f88443bc50346611103a1, type: 3}
+  - {fileID: 3651832329464018040, guid: 6ed44fc8f6bbf4e419fdbe007da62eb6, type: 3}
 --- !u!4 &6366801523758107810 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1670185482592440088, guid: 54b7a9de3fe677c4394b9f628a0f7f32,
@@ -3929,12 +3929,12 @@ MonoBehaviour:
   - numeroficha: 9
     nombreRecurso: Oveja
   collidersParcela:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4069568550950791383, guid: 5b36c4163d682eb4783a5fc2f83d2d01, type: 3}
+  - {fileID: 5818290651779045464, guid: cfffb36d9274ecc448c71bb4270790c6, type: 3}
+  - {fileID: 538657820575085445, guid: 0717c2e4604198a4483d28f76f666728, type: 3}
+  - {fileID: 8203708833107413182, guid: 68b604e5cd0a2414ca048a822fb24af3, type: 3}
+  - {fileID: 8029956529110939161, guid: a243091912f5e9d4b8ebb79e27234ab6, type: 3}
+  - {fileID: 7494497972471994524, guid: be60be7d58c806242a4d8e780c9bcbfc, type: 3}
 --- !u!4 &5070539848957034856 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1670185482592440088, guid: 54b7a9de3fe677c4394b9f628a0f7f32,
@@ -4082,12 +4082,12 @@ MonoBehaviour:
   - numeroficha: 10
     nombreRecurso: Oveja
   collidersParcela:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1067045189178733169, guid: 45b76be362c90134f94fdbf3999b3b8b, type: 3}
+  - {fileID: 3356527236363180290, guid: b368553e17388874fb9835eda829981d, type: 3}
+  - {fileID: 7989747587822936955, guid: 7b8c97ab5d0eda54199d19dedb4bf13c, type: 3}
+  - {fileID: 8578281095151461896, guid: 6b81b9adc08f88443bc50346611103a1, type: 3}
+  - {fileID: 3651832329464018040, guid: 6ed44fc8f6bbf4e419fdbe007da62eb6, type: 3}
+  - {fileID: 8322914362276567717, guid: 8c3a3e61aa3ad4e4ea674df28e0f73fa, type: 3}
 --- !u!4 &5572041792712991574 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1670185482592440088, guid: 54b7a9de3fe677c4394b9f628a0f7f32,
@@ -4350,12 +4350,12 @@ MonoBehaviour:
   - numeroficha: 8
     nombreRecurso: Ladrillo
   collidersParcela:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8521921380350310186, guid: ccc8e5395f56c4544977691ad6383845, type: 3}
+  - {fileID: 7474985277205529631, guid: ca6eb3f4c74933d429c3a6ea8e850930, type: 3}
+  - {fileID: 4676112173215305318, guid: 7f06100323303c34b9c12002cb4b12c3, type: 3}
+  - {fileID: 1786299303960781900, guid: 6d1ab28aa81a2e3469bd4ba3b0e7f239, type: 3}
+  - {fileID: 6332598345523937974, guid: 0bd551e196a45fc4f9616ec132ad1e85, type: 3}
+  - {fileID: 2928356875081805800, guid: 959e30cd5efd5874aa84eecc626e1756, type: 3}
 --- !u!4 &5260521915438837244 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1670185482592440088, guid: 54b7a9de3fe677c4394b9f628a0f7f32,
@@ -4503,12 +4503,12 @@ MonoBehaviour:
   - numeroficha: 11
     nombreRecurso: Madera
   collidersParcela:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 5038767414761371578, guid: da78653e62533044984967d08c80e8bd, type: 3}
+  - {fileID: 2545111441023748641, guid: 7008ff1a935d97e41a1970bc5166b16b, type: 3}
+  - {fileID: 2697679804513499595, guid: 9e6927dee9b76bc43af4c90deb626f93, type: 3}
+  - {fileID: 6927437131452434913, guid: 5b0d1cf5ec369d5419b877566b62f0dd, type: 3}
+  - {fileID: 8483326209933321142, guid: d459087093dfa7c488ac25baa92a9476, type: 3}
+  - {fileID: 4870331973838316447, guid: 0bbcfa6271a95704a823ce4ee173fb24, type: 3}
 --- !u!4 &8535446630924248904 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1670185482592440088, guid: 54b7a9de3fe677c4394b9f628a0f7f32,
@@ -4656,12 +4656,12 @@ MonoBehaviour:
   - numeroficha: 9
     nombreRecurso: Trigo
   collidersParcela:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7399912362759371876, guid: bd8581a85ba85464ab5793d9258cde90, type: 3}
+  - {fileID: 1067045189178733169, guid: 45b76be362c90134f94fdbf3999b3b8b, type: 3}
+  - {fileID: 3356527236363180290, guid: b368553e17388874fb9835eda829981d, type: 3}
+  - {fileID: 5484792013849622557, guid: d29ee8d7fcfa8ea4d8c11165201dbeee, type: 3}
+  - {fileID: 7739271966731889058, guid: 70937ad6ae0c41e468b05097035e17fe, type: 3}
+  - {fileID: 2370568444741765473, guid: 8d070949ae9c6b149add92d209d44369, type: 3}
 --- !u!4 &9174003961522091848 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1670185482592440088, guid: 54b7a9de3fe677c4394b9f628a0f7f32,
@@ -4809,12 +4809,12 @@ MonoBehaviour:
   - numeroficha: 6
     nombreRecurso: Madera
   collidersParcela:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 538657820575085445, guid: 0717c2e4604198a4483d28f76f666728, type: 3}
+  - {fileID: 2853790986985798412, guid: 9667e98d652cef4448dfc66bdf165e49, type: 3}
+  - {fileID: 8959253453208442771, guid: c14f7a67b08efb2419fb9e1b00d450bb, type: 3}
+  - {fileID: 2146563541613422163, guid: ea4c187518d941d48bddfed17fe993cc, type: 3}
+  - {fileID: 1129860667731185785, guid: 97c395b96b1be1d4ab0cfa97108ab78d, type: 3}
+  - {fileID: 5818290651779045464, guid: cfffb36d9274ecc448c71bb4270790c6, type: 3}
 --- !u!4 &9064956353938534168 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1670185482592440088, guid: 54b7a9de3fe677c4394b9f628a0f7f32,
@@ -4962,12 +4962,12 @@ MonoBehaviour:
   - numeroficha: 8
     nombreRecurso: Trigo
   collidersParcela:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 3651832329464018040, guid: 6ed44fc8f6bbf4e419fdbe007da62eb6, type: 3}
+  - {fileID: 8322914362276567717, guid: 8c3a3e61aa3ad4e4ea674df28e0f73fa, type: 3}
+  - {fileID: 2077443191229192245, guid: e88dcd2939b78ab419ca2ff1af088e46, type: 3}
+  - {fileID: 4843414169163456062, guid: e24eb7fd6f9be5342af1fae6f75c0d4d, type: 3}
+  - {fileID: 504076577185990966, guid: 8e5cc4be110681d44a8385141bef41cc, type: 3}
+  - {fileID: 3763273988057931390, guid: 9f4d52a1857a2f942ae296d5982a6b4e, type: 3}
 --- !u!4 &8770549177713694891 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1670185482592440088, guid: 54b7a9de3fe677c4394b9f628a0f7f32,
@@ -5115,12 +5115,12 @@ MonoBehaviour:
   - numeroficha: 6
     nombreRecurso: Piedra
   collidersParcela:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4054652963116127295, guid: a6ac063a4d1b71a418dfe779c7197fb4, type: 3}
+  - {fileID: 8010272695671542131, guid: e7e50631c601471468c8b7bb10be5c19, type: 3}
+  - {fileID: 983593956415936334, guid: 13abd47ed2152d7468bc08b91cb32def, type: 3}
+  - {fileID: 2697679804513499595, guid: 9e6927dee9b76bc43af4c90deb626f93, type: 3}
+  - {fileID: 8728667014577021551, guid: 2023fd566b104e94c9a681500a578c43, type: 3}
+  - {fileID: 5038767414761371578, guid: da78653e62533044984967d08c80e8bd, type: 3}
 --- !u!4 &8664263534118134297 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1670185482592440088, guid: 54b7a9de3fe677c4394b9f628a0f7f32,
@@ -5268,12 +5268,12 @@ MonoBehaviour:
   - numeroficha: 11
     nombreRecurso: Trigo
   collidersParcela:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8203708833107413182, guid: 68b604e5cd0a2414ca048a822fb24af3, type: 3}
+  - {fileID: 8029956529110939161, guid: a243091912f5e9d4b8ebb79e27234ab6, type: 3}
+  - {fileID: 6954463897081705379, guid: 0d1c66397b2adca4386e757bbe7badba, type: 3}
+  - {fileID: 5650106673473268819, guid: 889e18907843d5c4d97bdf1a728c81da, type: 3}
+  - {fileID: 8010272695671542131, guid: e7e50631c601471468c8b7bb10be5c19, type: 3}
+  - {fileID: 983593956415936334, guid: 13abd47ed2152d7468bc08b91cb32def, type: 3}
 --- !u!4 &8717065658633264747 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1670185482592440088, guid: 54b7a9de3fe677c4394b9f628a0f7f32,

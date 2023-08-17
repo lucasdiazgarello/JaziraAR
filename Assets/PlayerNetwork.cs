@@ -750,6 +750,79 @@ public class PlayerNetwork : NetworkBehaviour
         // Podemos usar un Debug.Log para ver los resultados.
         Debug.Log("Jugador " + playerData[indexJugador].jugadorId + " ahora tiene " + playerData[indexJugador].piedraCount + "piedras ");
     }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void AumentarRecursosServerRpc(int idJugador, string recurso, int cantidad)
+    {
+        Debug.Log("Entre a AumentarRecursoServerRpc");
+        AumentarRecursos(idJugador, recurso, cantidad);
+        Debug.Log("Termino AumentarRecursoServerRpc");
+        /*Debug.Log("id jugador: " + idJugador);
+        Debug.Log("Recurso: " + recurso);
+        Debug.Log("Cantidad: " + cantidad);
+
+        bool jugadorEncontrado = false;
+        int indexJugador = -1;
+
+        // Búsqueda del jugador en la lista playerData
+        for (int i = 0; i < playerData.Count; i++)
+        {
+            Debug.Log("La lista Ids es " + playerData[i].jugadorId);
+            if (playerData[i].jugadorId == idJugador)
+            {
+                jugadorEncontrado = true;
+                indexJugador = i;
+                Debug.Log("Jugador encontrado en la posición: " + i);
+                break;
+            }
+        }
+
+        if (!jugadorEncontrado)
+        {
+            Debug.Log("Jugador no encontrado en la lista playerData");
+            return;
+        }
+
+        // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
+        DatosJugador jugador = playerData[indexJugador];
+        Debug.Log("piedra antes de sumar: " + playerData[indexJugador].piedraCount);
+        // Aumentar el recurso correspondiente
+        switch (recurso)
+        {
+            case "Madera":
+                jugador.maderaCount += cantidad;
+                break;
+            case "Ladrillo":
+                jugador.ladrilloCount += cantidad;
+                break;
+            case "Oveja":
+                jugador.ovejaCount += cantidad;
+                break;
+            case "Piedra":
+                jugador.piedraCount += cantidad;
+                break;
+            case "Trigo":
+                jugador.trigoCount += cantidad;
+                break;
+            default:
+                Debug.Log("Tipo de recurso desconocido");
+                return;
+        }
+
+        // Reemplazar el jugador en la lista con la versión modificada
+        playerData[indexJugador] = jugador;
+
+        // Podemos usar un Debug.Log para ver los resultados.
+        Debug.Log("Jugador " + playerData[indexJugador].jugadorId + " ahora tiene " + playerData[indexJugador].piedraCount + "piedras ");
+        */
+    }
+    [ServerRpc(RequireOwnership = false)]
+    public void UpdateResourceTextsServerRpc(int jugadorId)
+    {
+        Debug.Log("Entre a UpdateResourceTextsServerRpc");
+        BoardManager.Instance.UpdateResourceTexts(jugadorId);
+        Debug.Log("Termino UpdateResourceTextsServerRpc");
+    }
     public void EndTurn()
     {
         Debug.Log("Entre al End Turn");
