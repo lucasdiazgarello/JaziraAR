@@ -189,6 +189,7 @@ public class PlayerNetwork : NetworkBehaviour
                 Debug.LogError("Error al intentar agregar a la lista: " + e.Message);
             }
             Debug.Log("playerId:" + playerIDs.Count); //.Count dice la cantidad de elementos qeu tiene la lista
+
         }
         else
         {
@@ -254,6 +255,7 @@ public class PlayerNetwork : NetworkBehaviour
             AgregarJugador(playerId, nombreHost, 100, false, true, 2, 10, 10, 10, 10, 10, colorHost);
             Debug.Log("se agrego jugador host");
             ImprimirTodosLosJugadores();
+            BoardManager.Instance.UpdateResourceTexts(playerId);
             /*
             // Asigna los valores temporales a las NetworkVariables
             Unirse.Instance.nombreJugador.Value = Unirse.Instance.nombreTemporal;
