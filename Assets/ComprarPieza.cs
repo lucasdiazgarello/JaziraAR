@@ -2,7 +2,6 @@ using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
-//using static PlayerNetwork;
 
 public class ComprarPieza : NetworkBehaviour
 {
@@ -13,7 +12,6 @@ public class ComprarPieza : NetworkBehaviour
     public ColocarPieza colocarPieza;
     public LayerMask myLayerMask;
 
-    // Start is called before the first frame update
     void Start()
     {
         // Desactivamos los botones por defecto al inicio.
@@ -28,7 +26,6 @@ public class ComprarPieza : NetworkBehaviour
         UpdateComprarBaseButton();
         UpdateComprarPuebloButton();
     }
-
     public void ComprarCamino()
     {
         Debug.Log("ComprarCamino");
@@ -40,8 +37,6 @@ public class ComprarPieza : NetworkBehaviour
             if (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1)
             {
                 BoardManager.Instance.UpdateResourcesCamino(jugador);
-                //Debug.Log("Jugador " + jugador.jugadorId + " ahora tiene " + jugador.maderaCount + " maderas ");
-                //Debug.Log("Jugador " + jugador.jugadorId + " ahora tiene " + jugador.ladrilloCount + " ladrillos ");
                 BoardManager.Instance.UpdateResourceTexts(id);
 
                 Debug.Log("Imprimir jugador por ID post ");
@@ -51,9 +46,10 @@ public class ComprarPieza : NetworkBehaviour
         else
         {
             PlayerNetwork.Instance.ComprarCaminoServerRpc(PlayerPrefs.GetInt("jugadorId"));
-        }  
+        }
+        colocarPieza.caminosRestantes++;
+        colocarPieza.buttonCamino.interactable = true;
     }
-
     public void ComprarBase()
     {
         Debug.Log("ComprarBase");
@@ -74,8 +70,9 @@ public class ComprarPieza : NetworkBehaviour
         {
             PlayerNetwork.Instance.ComprarBaseServerRpc(PlayerPrefs.GetInt("jugadorId"));
         }
+        colocarPieza.basesRestantes++;
+        colocarPieza.buttonBase.interactable = true;
     }
-
     public void ComprarPueblo()
     {
         Debug.Log("ComprarPueblo");
@@ -96,19 +93,16 @@ public class ComprarPieza : NetworkBehaviour
         {
             PlayerNetwork.Instance.ComprarPuebloServerRpc(PlayerPrefs.GetInt("jugadorId"));
         }
+        colocarPieza.pueblosRestantes++;
+        colocarPieza.buttonPueblo.interactable = true;
     }
-
-
-
-// método para actualizar el estado del botón de comprar camino
-void UpdateComprarCaminoButton()
+    void UpdateComprarCaminoButton()
     {
         int id = PlayerPrefs.GetInt("jugadorId");
         PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
 
         comprarCaminoButton.interactable = (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1);
     }
-
     void UpdateComprarBaseButton()
     {
         int id = PlayerPrefs.GetInt("jugadorId");
@@ -122,5 +116,4 @@ void UpdateComprarCaminoButton()
 
         comprarPuebloButton.interactable = (jugador.piedraCount >= 2 && jugador.trigoCount >= 3);
     }
-
 }

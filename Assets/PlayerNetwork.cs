@@ -55,7 +55,6 @@ public class PlayerNetwork : NetworkBehaviour
         public int jugadorId;
         public FixedString64Bytes nomJugador;
         public int puntaje;
-        //public int cantidadJugadores;
         public bool gano;
         public bool turno;
         public int cantidadCasa;
@@ -66,10 +65,6 @@ public class PlayerNetwork : NetworkBehaviour
         public int trigoCount;
         public FixedString64Bytes colorJugador;
 
-        /*public bool Equals(DatosJugador other)
-        {
-            throw new NotImplementedException();
-        }*/
         public bool Equals(DatosJugador other)
         {
             return jugadorId == other.jugadorId && nomJugador.Equals(other.nomJugador) && colorJugador.Equals(other.colorJugador);
@@ -92,13 +87,6 @@ public class PlayerNetwork : NetworkBehaviour
             serializer.SerializeValue(ref colorJugador);
         }
     };
-
-    //public NetworkList<int> playerIDs = new NetworkList<int>();
-
-    //public NetworkList<DatosJugador> playerData = new NetworkList<DatosJugador>();
-    //public NetworkList<PlayerNetwork.DatosJugador> playerData { get; set; } = new NetworkList<PlayerNetwork.DatosJugador>();
-    
-
 
     private void Awake()
     {
@@ -146,7 +134,6 @@ public class PlayerNetwork : NetworkBehaviour
                     trigoCount = 0,
                     colorJugador = new FixedString64Bytes(),
                 }, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
-            //NetworkManager.Singleton.OnServerStarted += HandleServerStarted;
         }
         else
         {
@@ -154,77 +141,14 @@ public class PlayerNetwork : NetworkBehaviour
             Destroy(gameObject);
         }
     }
-    /*private void HandleServerStarted()
-    {
-        Debug.Log("es Server");
-        //playerIDs = new NetworkList<int>();
-        //playerData = new NetworkList<PlayerNetwork.DatosJugador>();
-        try
-        {
-            Debug.Log("1 playerId:" + playerIDs.Count);
-            playerIDs.Add(0);
-            Debug.Log("2 playerId:" + playerIDs.Count);
-        }
-        catch (Exception e)
-        {
-            Debug.LogError("Error al intentar agregar a la lista: " + e.Message);
-        }
-        Debug.Log("3 playerId:" + playerIDs.Count);
-    }*/
+
     void Start()
     {
-        if(IsServer) // ESTO NO CORRE porque se instancia playernetwork antes qeu se cree el host
-        {
-            Debug.Log("entre al is server del Start de PlayerNetwork");
-            try
-            {
-                int playerId = PlayerPrefs.GetInt("PlayerId");
-                playerIDs.Add(playerId);
-                Debug.Log("Imprimo lista de Ids");
-                ImprimirPlayerIDs();
-
-            }
-            catch (Exception e)
-            {
-                Debug.LogError("Error al intentar agregar a la lista: " + e.Message);
-            }
-            Debug.Log("playerId:" + playerIDs.Count); //.Count dice la cantidad de elementos qeu tiene la lista
-
-        }
-        else
-        {
-
-        }
-
-        /*Debug.Log("Creo playerIDs y playerData");
-        playerIDs = new NetworkList<int>();
-        ImprimirPlayerIDs();
-        //PrintPlayerIDs();
-        playerData = new NetworkList<PlayerNetwork.DatosJugador>();
-        PrintPlayerData();
-        */
-        //Debug.Log("playerIDs y playerData"+playerIDs.Count +":"+ playerData.Count);
-
         if (NetworkManager.Singleton)
         {
             NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
             NetworkManager.Singleton.OnClientDisconnectCallback += OnClientDisconnect;
         }
-        /*
-        Debug.Log("Estoy en el Start de PN, es server? :" + IsServer + ", Soy Owner? :" + IsOwner);
-        int playerId = PlayerPrefs.GetInt("PlayerId");
-        FixedString64Bytes nombreHost = new FixedString64Bytes(PlayerPrefs.GetString("PlayerName"));
-        FixedString64Bytes colorHost = new FixedString64Bytes(PlayerPrefs.GetString("PlayerColor"));
-        Debug.Log("el jugador con id:" + playerId + "se llama " + nombreHost + " es el color " + colorHost);
-        AgregarJugador(playerId, nombreHost, 100, false, true, 2, 10, 10, 10, 10, 10, colorHost);
-        Debug.Log("se agrego jugador");
-        ImprimirTodosLosJugadores();
-        //playerNetworkObject = GetComponent<NetworkObject>();
-        if (IsServer)
-        {
-           
-        }
-        */
     }
     public override void OnDestroy()
     {
@@ -235,10 +159,10 @@ public class PlayerNetwork : NetworkBehaviour
         }
 
     }
-    /*void OnClientConnected(ulong clientId)
+    void OnClientConnected(ulong clientId)
     {
         Debug.Log($"Client {clientId} connected.");
-    }*/
+    }
     void OnClientDisconnect(ulong clientId)
     {
         Debug.Log($"Client {clientId} disconnected.");
@@ -256,22 +180,6 @@ public class PlayerNetwork : NetworkBehaviour
             Debug.Log("se agrego jugador host");
             ImprimirTodosLosJugadores();
             BoardManager.Instance.UpdateResourceTexts(playerId);
-            /*
-            // Asigna los valores temporales a las NetworkVariables
-            Unirse.Instance.nombreJugador.Value = Unirse.Instance.nombreTemporal;
-            Unirse.Instance.colorSeleccionado.Value = Unirse.Instance.colorTemporal;
-
-            // Obtiene el ID del jugador
-            //int myPlayerId = (int)NetworkManager.Singleton.LocalClientId;
-            int myPlayerId = PlayerPrefs.GetInt("jugadorId");
-            //AddPlayerServerRpc(currentPlayerID, nombreTemporal.Value, nombreTemporal.Value);
-            // Llama a los métodos ServerRpc para actualizar los datos del jugador en el servidor
-            UpdatePlayerColorServerRpc(myPlayerId, Unirse.Instance.colorSeleccionado.Value);
-            UpdatePlayerNameServerRpc(myPlayerId, Unirse.Instance.nombreJugador.Value);
-
-            // Supongo que este es otro método ServerRpc que tienes para notificar al servidor de que un jugador se ha unido
-            NotifyServerOfJoinServerRpc();
-            */
         }
         else
         {
@@ -286,41 +194,10 @@ public class PlayerNetwork : NetworkBehaviour
             AddPlayerServerRpc(playerId, nombreCliente, 100, false, false, 2 , 10, 10, 10, 10, 10, colorCliente);
             Debug.Log("se agrego jugador cliente");
             ImprimirTodosLosJugadores();
+            UpdateResourceTextsServerRpc(playerId);
         }
     }
-    /*private void Start()
-    {
-        if (NetworkManager.Singleton != null)
-        {
-            NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
-        }
-    }
-    public override void OnDestroy()
-    {
-        if (NetworkManager.Singleton != null)
-        {
-            NetworkManager.Singleton.OnClientConnectedCallback -= OnClientConnected;
-        }
-        base.OnDestroy(); // Esto llama al método OnDestroy() en la clase base.
-        playerIDs.Dispose();
-        playerData.Dispose();
-    }*/
 
-    void OnClientConnected(ulong clientId)
-    {
-        Debug.Log($"Client {clientId} connected.");
-        /*Debug.Log("LocalClientId es " + NetworkManager.Singleton.LocalClientId);
-        // Este es el código que se ejecutará cuando un cliente se conecte.
-        // Aquí es donde podrías llamar a tu función para agregar el jugador al servidor.
-        if (clientId == NetworkManager.Singleton.LocalClientId)
-        {
-            Debug.Log("IF  que no entiendo");
-            Debug.Log("Id CLIENTE A CONECTAR: " + Unirse.Instance.clientePlayerID);
-            AddPlayerServerRpc(Unirse.Instance.clientePlayerID, Unirse.Instance.nombreTemporal.Value, Unirse.Instance.nombreTemporal.Value);
-            Debug.Log("POST AddPlayerServerRpc");
-            ImprimirTodosLosJugadores();
-        }*/
-    }
     public void AgregarJugador(int jugadorId, FixedString64Bytes nomJugador, int puntaje, bool gano, bool turno, int cantidadCasa, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, FixedString64Bytes colorJugador)
     {
         //Debug.Log($"playerIDs es {(playerIDs == null ? "null" : "no null")}");
@@ -895,20 +772,11 @@ public class PlayerNetwork : NetworkBehaviour
             Debug.Log("Entre a la BaseServerRpc");
             var objetoCamino = Resources.Load(currentcamino) as GameObject;
             Debug.Log("2 preafb base es " + objetoCamino.name);
-            //PlayerPrefs.SetString(colliderName, "collider");
             currentCamino = Instantiate(objetoCamino, posititon, rotation);
             currentCamino.GetComponent<NetworkObject>().Spawn();
-            // Obtener el componente ComprobarObjeto del objeto golpeado
             comprobarObjeto = objetoCamino.gameObject.GetComponent<ComprobarObjeto>();
-            //Debug.Log("el collider es : " + hit.collider.gameObject.name);
-            //Debug.Log("comprobarobjeto al poner la base: " + comprobarObjeto);
-            // Asegurarse de que el componente existe
             if (comprobarObjeto != null)
             {
-                // Guardar una referencia a la pieza que acabamos de colocar
-                //comprobarObjeto.objetoColocado = this; // esto pone ControldorColocarPieza
-                //Debug.Log("EL OBJETO colocado es: " + comprobarObjeto.objetoColocado);
-
                 // Almacenar el tipo de objeto que acabamos de colocar
                 comprobarObjeto.tipoObjeto = TipoObjeto.Camino; // Puedes cambiar esto al tipo de objeto que corresponda
                 Debug.Log("puse el tipo del camino a: " + comprobarObjeto.tipoObjeto);
@@ -919,6 +787,7 @@ public class PlayerNetwork : NetworkBehaviour
             }
             Debug.Log("el tipo del camino colocado es " + tipoActual);
             tipoActual = TipoObjeto.Ninguno;
+
         }
         catch (Exception e)
         {
