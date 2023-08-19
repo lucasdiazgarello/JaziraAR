@@ -1701,6 +1701,11 @@ MonoBehaviour:
   buttonCamino: {fileID: 1696437140}
   buttonBase: {fileID: 1039472799}
   buttonPueblo: {fileID: 882450493}
+  caminosRestantes: 2
+  basesRestantes: 2
+  pueblosRestantes: 0
+  primerasPiezas: 0
+  yaEjecutado: 0
   tipoActual: 0
 --- !u!114 &572302049
 MonoBehaviour:
@@ -2632,7 +2637,7 @@ MonoBehaviour:
   tirarDadoButton: {fileID: 180662478}
   terminarTurnoButton: {fileID: 331329133}
   dicesThrown: 0
-  colocarPieza: {fileID: 0}
+  colocarPieza: {fileID: 572302048}
 --- !u!4 &782628377
 Transform:
   m_ObjectHideFlags: 0

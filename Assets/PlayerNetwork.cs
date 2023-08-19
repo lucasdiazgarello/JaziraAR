@@ -185,39 +185,41 @@ public class PlayerNetwork : NetworkBehaviour
         {
             Debug.Log("Entre como cliente de OnNetworkSpawn");
             int playerId = PlayerPrefs.GetInt("jugadorId");
-            Debug.Log("id jugador 1 ="+ playerId);
+            Debug.Log("id jugador 1 =" + playerId);
 
             FixedString64Bytes nombreCliente = new FixedString64Bytes(PlayerPrefs.GetString("nomJugador"));
             FixedString64Bytes colorCliente = new FixedString64Bytes(PlayerPrefs.GetString("colorJugador"));
             Debug.Log("el cliente con id:" + playerId + "se llama " + nombreCliente + " y es el color " + colorCliente);
             //AgregarJugador(playerId, nombreCliente, 100, false, true, 2, 10, 10, 10, 10, 10, colorCliente); //EL CLIENTE NO DEBE AGREGARJUGADOR, DEBE MANDAR SU DATA AL HOST
-            AddPlayerServerRpc(playerId, nombreCliente, 100, false, false, 2 , 10, 10, 10, 10, 10, colorCliente);
+            AddPlayerServerRpc(playerId, nombreCliente, 100, false, false, 2, 10, 10, 10, 10, 10, colorCliente);
             Debug.Log("se agrego jugador cliente");
             ImprimirTodosLosJugadores();
+            ARCursor.Instance.EnableRecursos();
+            // Desactivar la detección de planos al confirmar la colocación del tablero
+            if (ARCursor.Instance.planeManager)
+            {
+                ARCursor.Instance.planeManager.enabled = false;
+                // Y esto eliminará todos los planos existentes
+                foreach (var plane in ARCursor.Instance.planeManager.trackables)
+                {
+                    Destroy(plane.gameObject);
+                }
+                // Esto también funcionaría:
+                // planeManager.planeDetectionMode = PlaneDetectionMode.None;
+            }
             UpdateResourceTextsServerRpc(playerId);
         }
     }
 
     public void AgregarJugador(int jugadorId, FixedString64Bytes nomJugador, int puntaje, bool gano, bool turno, int cantidadCasa, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, FixedString64Bytes colorJugador)
     {
-        //Debug.Log($"playerIDs es {(playerIDs == null ? "null" : "no null")}");
-        //Debug.Log($"playerData es {(playerData == null ? "null" : "no null")}");
         ImprimirPlayerIDs();
         Debug.Log($"AgregarJugador: {jugadorId}, {nomJugador}, {puntaje}, {gano}, {turno}, {cantidadCasa}, {maderaCount}, {ladrilloCount}, {ovejaCount}, {piedraCount}, {trigoCount}, {colorJugador}");       
         Debug.Log("playerId:" + playerIDs.Count); //.Count dice la cantidad de elementos qeu tiene la lista
         Debug.Log("playerData:" + playerData.Count);
 
-        /* este codigo hace que se listen TODAS LAS INTANCIAS CARGADAS
-        UnityEngine.Object[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
-
-        foreach (GameObject go in allObjects)
-        {
-            Debug.Log(go + " is an active object " + go.GetInstanceID());
-        }
-        */
         DatosJugador newDatos = new DatosJugador();
         newDatos.jugadorId = jugadorId;
-        //newDatos.nomJugador = new FixedString64Bytes(nomJugador ?? string.Empty);
         newDatos.nomJugador = nomJugador;
         newDatos.puntaje = puntaje;
         newDatos.gano = gano;
@@ -228,7 +230,6 @@ public class PlayerNetwork : NetworkBehaviour
         newDatos.ovejaCount = ovejaCount;
         newDatos.piedraCount = piedraCount;
         newDatos.trigoCount = trigoCount;
-        //newDatos.colorJugador = new FixedString64Bytes(colorJugador ?? string.Empty);
         newDatos.colorJugador = colorJugador;
         Debug.Log("Cargue newDatos");
         try
@@ -245,22 +246,6 @@ public class PlayerNetwork : NetworkBehaviour
         }
     }
 
-    /*public void ImprimirDatosJugador()
-    {
-        Debug.Log("ID Jugador: " + jugador.Value.jugadorId);
-        Debug.Log("Nombre Jugador: " + jugador.Value.nomJugador.ToString());
-        Debug.Log("Puntaje: " + jugador.Value.puntaje);
-        Debug.Log("Cantidad de Jugadores: " + jugador.Value.cantidadJugadores);
-        Debug.Log("Ganó?: " + jugador.Value.gano);
-        Debug.Log("Turno?: " + jugador.Value.turno);
-        Debug.Log("Cantidad de Casas: " + jugador.Value.cantidadCasa);
-        Debug.Log("Cuenta de Madera: " + jugador.Value.maderaCount);
-        Debug.Log("Cuenta de Ladrillos: " + jugador.Value.ladrilloCount);
-        Debug.Log("Cuenta de Ovejas: " + jugador.Value.ovejaCount);
-        Debug.Log("Cuenta de Piedras: " + jugador.Value.piedraCount);
-        Debug.Log("Cuenta de Trigo: " + jugador.Value.trigoCount);
-        Debug.Log("Color de Jugador: " + jugador.Value.colorJugador.ToString());
-    }*/
     public void ImprimirPlayerIDs()
     {
         if (playerIDs == null)
@@ -368,7 +353,6 @@ public class PlayerNetwork : NetworkBehaviour
             Debug.Log("ID Jugador: " + jugadorActual.jugadorId);
             Debug.Log("Nombre Jugador: " + jugadorActual.nomJugador.ToString());
             Debug.Log("Puntaje: " + jugadorActual.puntaje);
-            //Debug.Log("Cantidad de Jugadores: " + jugadorActual.cantidadJugadores);
             Debug.Log("Ganó?: " + jugadorActual.gano);
             Debug.Log("Turno?: " + jugadorActual.turno);
             Debug.Log("Cantidad de Casas: " + jugadorActual.cantidadCasa);
@@ -377,7 +361,6 @@ public class PlayerNetwork : NetworkBehaviour
             Debug.Log("Cuenta de Ovejas: " + jugadorActual.ovejaCount);
             Debug.Log("Cuenta de Piedras: " + jugadorActual.piedraCount);
             Debug.Log("Cuenta de Trigo: " + jugadorActual.trigoCount);
-            //Debug.Log("Color de Jugador: " + jugadorActual.colorJugador.ToString(Encoding.UTF8));
             Debug.Log("Color de Jugador: " + jugadorActual.colorJugador.ToString());
             Debug.Log("----------------------------------------------------");
         }
@@ -388,7 +371,6 @@ public class PlayerNetwork : NetworkBehaviour
         newDatos.jugadorId = jugadorId;
         newDatos.nomJugador = new FixedString64Bytes(nomJugador ?? string.Empty); // si es null, asigna una cadena vacía
         newDatos.puntaje = puntaje;
-        //newDatos.cantidadJugadores = cantidadJugadores;
         newDatos.gano = gano;
         newDatos.turno = turno;
         newDatos.cantidadCasa = cantidadCasa;
@@ -416,40 +398,18 @@ public class PlayerNetwork : NetworkBehaviour
         }
     }
 
-    /*public void CargarDatosColorJugador(string colorSeleccionado)
-    {
-        Debug.Log("CargarDatosColorJugador fue llamado con: " + colorSeleccionado);
-        DatosJugador datosActuales = jugador.Value;
-        datosActuales.colorJugador = colorSeleccionado;
-        jugador.Value = datosActuales;
-        Debug.Log("color neuvo es: " + jugador.Value.colorJugador);
-    }*/
-
     
     private void Update()
     {
         if (!IsOwner) // si es cliente
         {
-            //Debug.Log("Soy cliente");
-            /*
-            var nombre = "prueba";
-            var color = "magenta";
-            TestServerRpc(nombre,color); 
-            */
+
         }
         else // si es host
         {
 
-            /*var nombre = "prueba";
-            var color = "magenta";
-            TestServerRpc(nombre, color);*/
         }
         return;
-        //ACA HAY QUE HACER TODAS LAS FUNCIONES QUE TRANSMITEN AL CLIENTE DATA
-        //El cliente no agrega jugadores, solo le pasa los datos para que el host lo agregue y a menos que invoque a una funcion que traiga info del host no se entera de nada 
-        //mirar min 35, COMPLETE Unity Multiplayer Tutorial (Netcode for Game Objects)
-        // Resto del código... 
-        //TestServerRpc(nombre, color); //de alguna manera hay que traer las variables de testrelay para usarlas aca
     }
     
     // Este es tu nuevo método RPC para agregar un jugador

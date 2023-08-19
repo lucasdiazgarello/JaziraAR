@@ -41,6 +41,8 @@ public class ColocarPieza : NetworkBehaviour
     public int caminosRestantes = 2;
     public int basesRestantes = 2;
     public int pueblosRestantes =0;
+    public bool primerasPiezas = false;
+    public bool yaEjecutado = false;
     //public Button confirmBaseButton; // Asegúrate de asignar este botón en el inspector de Unity
     //public Button confirmCaminoButton;
     //public Button confirmPuebloButton;
@@ -92,7 +94,11 @@ public class ColocarPieza : NetworkBehaviour
 
     void Update()
     {
-        //PruebaServerRpc();
+        if (!yaEjecutado && caminosRestantes == 0 && basesRestantes == 0)
+        {
+            primerasPiezas = true;
+            yaEjecutado = true;
+        }
         if (canPlace && Input.touchCount == 1 && !_isTouching && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             _isTouching = true;
