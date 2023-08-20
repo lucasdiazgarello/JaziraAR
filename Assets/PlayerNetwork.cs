@@ -179,6 +179,7 @@ public class PlayerNetwork : NetworkBehaviour
             AgregarJugador(playerId, nombreHost, 100, false, true, 2, 10, 10, 10, 10, 10, colorHost);
             Debug.Log("se agrego jugador host");
             ImprimirTodosLosJugadores();
+            ARCursor.Instance.EnableRecursos();
             BoardManager.Instance.UpdateResourceTexts(playerId);
         }
         else
@@ -729,7 +730,7 @@ public class PlayerNetwork : NetworkBehaviour
     {
         try
         {
-            Debug.Log("Entre a la BaseServerRpc");
+            Debug.Log("Entre a ColocarCaminoServerRpc");
             var objetoCamino = Resources.Load(currentcamino) as GameObject;
             Debug.Log("2 preafb base es " + objetoCamino.name);
             currentCamino = Instantiate(objetoCamino, posititon, rotation);
@@ -756,7 +757,7 @@ public class PlayerNetwork : NetworkBehaviour
 
     }
     [ServerRpc(RequireOwnership = false)]
-    public void ColocarBaseServerRpc(string color, string currentbase, Vector3 posititon)
+    public void ColocarBaseServerRpc(string color, string currentbase, string nombreCollider, Vector3 posititon)
     {
         try
         {
@@ -767,25 +768,37 @@ public class PlayerNetwork : NetworkBehaviour
             currentBase = Instantiate(objetoBase, posititon, Quaternion.identity);
             currentBase.GetComponent<NetworkObject>().Spawn();
             // Obtener el componente ComprobarObjeto del objeto golpeado
-            comprobarObjeto = objetoBase.gameObject.GetComponent<ComprobarObjeto>();
+            var nombresinClone = ListaColliders.Instance.RemoverCloneDeNombre(nombreCollider);
+            Debug.Log("CPC PlayerNetwo" + nombresinClone);
+            ListaColliders.Instance.ModificarTipoPorNombre(nombresinClone, "Base");
+            ListaColliders.Instance.ImprimirListaColliders();
+            //comprobarObjeto = currentBase.GetComponent<ComprobarObjeto>();
+            //comprobarObjeto = objetoBase.gameObject.GetComponent<ComprobarObjeto>();
             //Debug.Log("el collider es : " + hit.collider.gameObject.name);
-            //Debug.Log("comprobarobjeto al poner la base: " + comprobarObjeto);
+            //Debug.Log("comprobarobjeto base Cliente: " + comprobarObjeto.name);
             // Asegurarse de que el componente existe
-            if (comprobarObjeto != null)
-            {
-                // Guardar una referencia a la pieza que acabamos de colocar
-                //comprobarObjeto.objetoColocado = this; // esto pone ControldorColocarPieza
-                //Debug.Log("EL OBJETO colocado es: " + comprobarObjeto.objetoColocado);
 
-                // Almacenar el tipo de objeto que acabamos de colocar
-                comprobarObjeto.tipoObjeto = TipoObjeto.Base; // Puedes cambiar esto al tipo de objeto que corresponda
+            /*if (comprobarObjeto != null)
+            {
+                var nombreSinClone = ListaColliders.Instance.RemoverCloneDeNombre(comprobarObjeto.name);
+                Debug.Log("nombreSinClone = " + nombreSinClone);
+
+                ListaColliders.Instance.ModificarTipoPorNombre(nombreSinClone, "Base");
+                ListaColliders.Instance.ImprimirListaColliders();
+                //comprobarObjeto.tipoObjeto = TipoObjeto.Base; // Puedes cambiar esto al tipo de objeto que corresponda
+                //comprobarObjeto2 = hit.collider.gameObject.GetComponent<ComprobarObjeto>();
                 Debug.Log("puse el tipo de la base a: " + comprobarObjeto.tipoObjeto);
+                //Debug.Log("LA BASE ES BASE? : " + comprobarObjeto2.tipoObjeto);
+                Debug.Log("CP Nombre de collider" + comprobarObjeto.name);
+                //Debug.Log("CP SC Nombre de collider" + hit.collider.gameObject.GetComponent<ComprobarObjeto>().name); 
+                //Debug.Log("Asignando tipo a: " + hit.collider.gameObject.name + " - Instancia: " + hit.collider.gameObject.GetInstanceID());
             }
             else
             {
-                //Debug.LogError("El objeto " + objetoCollider.gameObject.name + " no tiene un script ComprobarObjeto.");
+                Debug.LogError("El objeto " + objetoBase.gameObject.name + " no tiene un script ComprobarObjeto.");
             }
-            Debug.Log("el tipo de la base colocada es " + tipoActual);
+            */
+            //Debug.Log("el tipo de la base colocada es " + tipoActual);
             tipoActual = TipoObjeto.Ninguno;
         }
         catch (Exception e)
@@ -824,7 +837,7 @@ public class PlayerNetwork : NetworkBehaviour
             {
                 //Debug.LogError("El objeto " + objetoCollider.gameObject.name + " no tiene un script ComprobarObjeto.");
             }
-            Debug.Log("el tipo del pueblo colocado es " + tipoActual);
+            //Debug.Log("el tipo del pueblo colocado es " + tipoActual);
             tipoActual = TipoObjeto.Ninguno;
         }
         catch (Exception e)
@@ -887,6 +900,64 @@ public class PlayerNetwork : NetworkBehaviour
             BoardManager.Instance.UpdateResourceTexts(jugadorId);
         }
     }
-}
+    [ServerRpc(RequireOwnership = false)]
+    public void TirarDadosServerRpc()
+    {
+        Debug.Log("Entro a TirarDadosServerRpc");
+        // NO BORRAR ESTO COMENTADO POR SI SURGE DENUEVO EL TEMA DE LOS DADOS
+        // Si el tablero no está colocado, regresar
+        if (!ARCursor.Instance.isBoardPlaced) return;
 
+        // Comprobar si dadoToPlace o tableromInstance son null antes de proceder
+        if (ARCursor.Instance.dadoToPlace == null || ARCursor.Instance.tableromInstance == null) return;
+
+        // Si el dado no existe, crearlo
+        if (ARCursor.Instance.currentDado == null)
+        {
+            // Crear un nuevo dado en la posición por encima del tablero
+            ARCursor.Instance.currentDado = Instantiate(ARCursor.Instance.dadoToPlace, ARCursor.Instance.tableromInstance.transform.position + Vector3.up * ARCursor.Instance.dadoDistance + Vector3.right * ARCursor.Instance.dadoDistance / 4, Quaternion.identity);
+            ARCursor.Instance.currentDado.GetComponent<NetworkObject>().Spawn();
+            DiceNumberTextScript.dice1 = ARCursor.Instance.currentDado;
+            //Destroy(currentDado2, 5f);
+        }
+        else
+        {
+            // Si el dado existe, reposicionarlo para el nuevo lanzamiento
+            ARCursor.Instance.currentDado.transform.position = ARCursor.Instance.tableromInstance.transform.position + Vector3.up * ARCursor.Instance.dadoDistance;
+        }
+
+        if (ARCursor.Instance.currentDado2 == null)
+        {
+            // Crear un segundo dado al costado del primero
+            ARCursor.Instance.currentDado2 = Instantiate(ARCursor.Instance.dadoToPlace, ARCursor.Instance.tableromInstance.transform.position + Vector3.up * ARCursor.Instance.dadoDistance + Vector3.right * ARCursor.Instance.dadoDistance / 2, Quaternion.identity);
+            ARCursor.Instance.currentDado2.GetComponent<NetworkObject>().Spawn();
+            DiceNumberTextScript.dice2 = ARCursor.Instance.currentDado2;
+            //Destroy(currentDado2, 5f);
+        }
+        else
+        {
+            // Si el segundo dado existe, reposicionarlo para el nuevo lanzamiento
+            ARCursor.Instance.currentDado2.transform.position = ARCursor.Instance.tableromInstance.transform.position + Vector3.up * ARCursor.Instance.dadoDistance + Vector3.right * ARCursor.Instance.dadoDistance;
+        }
+
+        // Obtén el DiceScript del dado actual y lanza el dado
+        DiceScript diceScript = ARCursor.Instance.currentDado.GetComponent<DiceScript>();
+        if (diceScript != null)
+        {
+            diceScript.RollDice(ARCursor.Instance.currentDado, ARCursor.Instance.tableromInstance.transform.position + Vector3.up * ARCursor.Instance.dadoDistance);
+        }
+
+        // Obtén el DiceScript del segundo dado y lanza el dado
+        DiceScript diceScript2 = ARCursor.Instance.currentDado2.GetComponent<DiceScript>();
+        if (diceScript2 != null)
+        {
+            diceScript2.RollDice(ARCursor.Instance.currentDado2, ARCursor.Instance.tableromInstance.transform.position + Vector3.up * ARCursor.Instance.dadoDistance + Vector3.right * ARCursor.Instance.dadoDistance / 2);
+        }
+        // Ajustar dicesThrown a true luego de lanzar los dados
+        ARCursor.Instance.dicesThrown = true;
+        DiceNumberTextScript.Instance.DarResultadoRandom();
+        BoardManager.Instance.ManejoParcelas(DiceNumberTextScript.Instance.randomDiceNumber);
+        //tirarDadoButton.interactable = false;
+    }
+}
 

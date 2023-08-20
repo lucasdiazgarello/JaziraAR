@@ -32,6 +32,7 @@ public class ColocarPieza : NetworkBehaviour
     private bool _isTouching = false;
     private bool canPlace = false;
     private ComprobarObjeto comprobarObjeto;
+    private ComprobarObjeto comprobarObjeto2;
     public LayerMask myLayerMask;
 
     // Botones para las acciones de colocar camino y base
@@ -143,6 +144,7 @@ public class ColocarPieza : NetworkBehaviour
         }
     }
 
+
     public void ColocarCamino(string color)
     {
         AllowPlace();
@@ -246,7 +248,7 @@ public class ColocarPieza : NetworkBehaviour
                 string colliderName = hit.collider.gameObject.name;
                 Debug.Log("colliderName: " + colliderName);
                 var position = hit.collider.gameObject.transform.position;
-                PlayerNetwork.Instance.ColocarBaseServerRpc(color, currPrefBase, position);
+                PlayerNetwork.Instance.ColocarBaseServerRpc(color, currPrefBase, colliderName, position);
             }
             basesRestantes--;
             Debug.Log("Bases restantes POST: " + basesRestantes);
@@ -352,14 +354,15 @@ public class ColocarPieza : NetworkBehaviour
         Debug.Log("el collider del comprobarobjeto es " + hit.collider.gameObject.name);
         if (comprobarObjeto != null)
         {
-            comprobarObjeto.tipoObjeto = TipoObjeto.Camino; // Puedes cambiar esto al tipo de objeto que corresponda
+            comprobarObjeto.CambiarTipoObjeto("Camino");
+            //comprobarObjeto.tipoObjeto = TipoObjeto.Camino; // Puedes cambiar esto al tipo de objeto que corresponda
             Debug.Log("puse el tipo del camino a: " + comprobarObjeto.tipoObjeto);
         }
         else
         {
             Debug.LogError("El objeto " + hit.collider.gameObject.name + " no tiene un script ComprobarObjeto.");
         }
-        Debug.Log("el tipo del camino colocado es " + tipoActual);
+        //Debug.Log("el tipo del camino colocado es " + tipoActual);
         tipoActual = TipoObjeto.Ninguno;
     }
     public void EjecutarColocarBase(RaycastHit hit, string color, string currentPrefabBase)
@@ -369,21 +372,39 @@ public class ColocarPieza : NetworkBehaviour
         Debug.Log("2 preafb base es " + objetoBase.name);
         currentBase = Instantiate(objetoBase, hit.collider.gameObject.transform.position, Quaternion.identity);
         currentBase.GetComponent<NetworkObject>().Spawn();
+        Debug.Log("CP SC Nombre de collider" + hit.collider.gameObject.GetComponent<ComprobarObjeto>().name);
         comprobarObjeto = hit.collider.gameObject.GetComponent<ComprobarObjeto>();
+        
         Debug.Log("el collider del comprobarobjeto es " + hit.collider.gameObject.name);
         if (comprobarObjeto != null)
         {
-            comprobarObjeto.tipoObjeto = TipoObjeto.Base; // Puedes cambiar esto al tipo de objeto que corresponda
+            //comprobarObjeto.CambiarTipoObjeto("Base");
+  
+            var nombreSinClone = ListaColliders.Instance.RemoverCloneDeNombre(comprobarObjeto.name);
+            Debug.Log("nombreSinClone = " + nombreSinClone);
+
+            ListaColliders.Instance.ModificarTipoPorNombre(nombreSinClone, "Base");
+            ListaColliders.Instance.ImprimirListaColliders();
+            //comprobarObjeto.tipoObjeto = TipoObjeto.Base; // Puedes cambiar esto al tipo de objeto que corresponda
+            //comprobarObjeto2 = hit.collider.gameObject.GetComponent<ComprobarObjeto>();
             Debug.Log("puse el tipo de la base a: " + comprobarObjeto.tipoObjeto);
+            //Debug.Log("LA BASE ES BASE? : " + comprobarObjeto2.tipoObjeto);
+            Debug.Log("CP Nombre de collider" + comprobarObjeto.name);
+            //Debug.Log("CP SC Nombre de collider" + hit.collider.gameObject.GetComponent<ComprobarObjeto>().name); 
+            Debug.Log("Asignando tipo a: " + hit.collider.gameObject.name + " - Instancia: " + hit.collider.gameObject.GetInstanceID());
+
         }
         else
         {
             Debug.LogError("El objeto " + hit.collider.gameObject.name + " no tiene un script ComprobarObjeto.");
         }
-        Debug.Log("el tipo de la base colocada es " + tipoActual);
+        //Debug.Log("el tipo de la base colocada es " + tipoActual);
         tipoActual = TipoObjeto.Ninguno;
     }
+    public void SetTipoCollider (Collider collider, Collider tipo)
+    {
 
+    }
     public void EjecutarColocarPueblo(RaycastHit hit, string color, string currentPrefabPueblo)
     {
         Debug.Log("EntroColocar 2");
@@ -396,14 +417,15 @@ public class ColocarPieza : NetworkBehaviour
         Debug.Log("el collider del comprobarobjeto es " + hit.collider.gameObject.name);
         if (comprobarObjeto != null)
         {
-            comprobarObjeto.tipoObjeto = TipoObjeto.Pueblo; // Puedes cambiar esto al tipo de objeto que corresponda
-            Debug.Log("puse el tipo de la base a: " + comprobarObjeto.tipoObjeto);
+            comprobarObjeto.CambiarTipoObjeto("Pueblo");
+            //comprobarObjeto.tipoObjeto = TipoObjeto.Pueblo; // Puedes cambiar esto al tipo de objeto que corresponda
+            Debug.Log("puse el tipo del pueblo a: " + comprobarObjeto.tipoObjeto);
         }
         else
         {
             Debug.LogError("El objeto " + hit.collider.gameObject.name + " no tiene un script ComprobarObjeto.");
         }
-        Debug.Log("el tipo del pueblo colocado es " + tipoActual);
+        //Debug.Log("el tipo del pueblo colocado es " + tipoActual);
         tipoActual = TipoObjeto.Ninguno;
     }
     public void AllowPlace() // Método que permitiría colocar una base, podría ser llamado por un botón

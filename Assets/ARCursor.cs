@@ -20,12 +20,12 @@ public class ARCursor : NetworkBehaviour
 
     private GameObject currentObject; // Guarda una referencia al objeto colocado actualmente
     private bool isPlacementModeActive = false; // Para rastrear si el modo de colocación está activo o no
-    private bool isBoardPlaced = false; // Para rastrear si el tablero ya ha sido colocado o no
+    public bool isBoardPlaced = false; // Para rastrear si el tablero ya ha sido colocado o no
 
     public GameObject dadoToPlace; // Prefab del dado
     public float dadoDistance = 0.3f; // Distancia de desplazamiento del dado (en metros)
-    private GameObject currentDado; // Dado actualmente en proceso de colocación
-    private GameObject currentDado2;
+    public GameObject currentDado; // Dado actualmente en proceso de colocación
+    public GameObject currentDado2;
     public Button tirarDadoButton;
     public Button terminarTurnoButton;
     public bool dicesThrown = false;
@@ -34,7 +34,7 @@ public class ARCursor : NetworkBehaviour
     private GameObject[] colliderPrefabs;
     //public GameObject colliderPrefab; // Agrega esto en la parte superior de tu script
     private Vector3 initialDadoPosition; // Para guardar la posición inicial del dado
-    private GameObject tableromInstance;
+    public GameObject tableromInstance;
     private int currentPlayerId;
 
 
@@ -132,7 +132,7 @@ public class ARCursor : NetworkBehaviour
                         // Luego, crear un nuevo tablero y guardarlo como currentObject
                         if (objectToPlace == null) Debug.Log("object to place is null");
                         tableromInstance = Instantiate(objectToPlace, hits[0].pose.position, hits[0].pose.rotation);
-                        //Debug.Log("Despues De tableroInstance");
+                        Debug.Log("Nombre de la instancia del tablero" + tableromInstance.name);
                         tableromInstance.GetComponent<NetworkObject>().Spawn();
                         foreach (GameObject colliderPrefab in colliderPrefabs)
                         {
@@ -224,60 +224,69 @@ public class ARCursor : NetworkBehaviour
     private void OnDiceRollButtonPressed() //Boton Tirar Dados
     {
         Debug.Log("Diste click en el boton");
-        // NO BORRAR ESTO COMENTADO POR SI SURGE DENUEVO EL TEMA DE LOS DADOS
-        // Si el tablero no está colocado, regresar
-        if (!isBoardPlaced) return;
-
-        // Comprobar si dadoToPlace o tableromInstance son null antes de proceder
-        if (dadoToPlace == null || tableromInstance == null) return;
-
-        // Si el dado no existe, crearlo
-        if (currentDado == null)
+        if(NetworkManager.Singleton.IsServer)
         {
-            // Crear un nuevo dado en la posición por encima del tablero
-            currentDado = Instantiate(dadoToPlace, tableromInstance.transform.position + Vector3.up * dadoDistance + Vector3.right * dadoDistance / 4, Quaternion.identity);
-            currentDado.GetComponent<NetworkObject>().Spawn();
-            DiceNumberTextScript.dice1 = currentDado;
-            //Destroy(currentDado2, 5f);
+            // NO BORRAR ESTO COMENTADO POR SI SURGE DENUEVO EL TEMA DE LOS DADOS
+            // Si el tablero no está colocado, regresar
+            if (!isBoardPlaced) return;
+
+            // Comprobar si dadoToPlace o tableromInstance son null antes de proceder
+            if (dadoToPlace == null || tableromInstance == null) return;
+
+            // Si el dado no existe, crearlo
+            if (currentDado == null)
+            {
+                // Crear un nuevo dado en la posición por encima del tablero
+                currentDado = Instantiate(dadoToPlace, tableromInstance.transform.position + Vector3.up * dadoDistance + Vector3.right * dadoDistance / 4, Quaternion.identity);
+                currentDado.GetComponent<NetworkObject>().Spawn();
+                DiceNumberTextScript.dice1 = currentDado;
+                //Destroy(currentDado2, 5f);
+            }
+            else
+            {
+                // Si el dado existe, reposicionarlo para el nuevo lanzamiento
+                currentDado.transform.position = tableromInstance.transform.position + Vector3.up * dadoDistance;
+            }
+
+            if (currentDado2 == null)
+            {
+                // Crear un segundo dado al costado del primero
+                currentDado2 = Instantiate(dadoToPlace, tableromInstance.transform.position + Vector3.up * dadoDistance + Vector3.right * dadoDistance / 2, Quaternion.identity);
+                currentDado2.GetComponent<NetworkObject>().Spawn();
+                DiceNumberTextScript.dice2 = currentDado2;
+                //Destroy(currentDado2, 5f);
+            }
+            else
+            {
+                // Si el segundo dado existe, reposicionarlo para el nuevo lanzamiento
+                currentDado2.transform.position = tableromInstance.transform.position + Vector3.up * dadoDistance + Vector3.right * dadoDistance;
+            }
+
+            // Obtén el DiceScript del dado actual y lanza el dado
+            DiceScript diceScript = currentDado.GetComponent<DiceScript>();
+            if (diceScript != null)
+            {
+                diceScript.RollDice(currentDado, tableromInstance.transform.position + Vector3.up * dadoDistance);
+            }
+
+            // Obtén el DiceScript del segundo dado y lanza el dado
+            DiceScript diceScript2 = currentDado2.GetComponent<DiceScript>();
+            if (diceScript2 != null)
+            {
+                diceScript2.RollDice(currentDado2, tableromInstance.transform.position + Vector3.up * dadoDistance + Vector3.right * dadoDistance / 2);
+            }
+            // Ajustar dicesThrown a true luego de lanzar los dados
+            dicesThrown = true;
+            DiceNumberTextScript.Instance.DarResultadoRandom();
+            BoardManager.Instance.ManejoParcelas(DiceNumberTextScript.Instance.randomDiceNumber);
+            //tirarDadoButton.interactable = false;
         }
         else
         {
-            // Si el dado existe, reposicionarlo para el nuevo lanzamiento
-            currentDado.transform.position = tableromInstance.transform.position + Vector3.up * dadoDistance;
+            Debug.Log("Tiro dados como cliente");
+            PlayerNetwork.Instance.TirarDadosServerRpc();
         }
 
-        if (currentDado2 == null)
-        {
-            // Crear un segundo dado al costado del primero
-            currentDado2 = Instantiate(dadoToPlace, tableromInstance.transform.position + Vector3.up * dadoDistance + Vector3.right * dadoDistance / 2, Quaternion.identity);
-            currentDado2.GetComponent<NetworkObject>().Spawn();
-            DiceNumberTextScript.dice2 = currentDado2;
-            //Destroy(currentDado2, 5f);
-        }
-        else
-        {
-            // Si el segundo dado existe, reposicionarlo para el nuevo lanzamiento
-            currentDado2.transform.position = tableromInstance.transform.position + Vector3.up * dadoDistance + Vector3.right * dadoDistance;
-        }
-
-        // Obtén el DiceScript del dado actual y lanza el dado
-        DiceScript diceScript = currentDado.GetComponent<DiceScript>();
-        if (diceScript != null)
-        {
-            diceScript.RollDice(currentDado, tableromInstance.transform.position + Vector3.up * dadoDistance);
-        }
-
-        // Obtén el DiceScript del segundo dado y lanza el dado
-        DiceScript diceScript2 = currentDado2.GetComponent<DiceScript>();
-        if (diceScript2 != null)
-        {
-            diceScript2.RollDice(currentDado2, tableromInstance.transform.position + Vector3.up * dadoDistance + Vector3.right * dadoDistance / 2);
-        }
-        // Ajustar dicesThrown a true luego de lanzar los dados
-        dicesThrown = true;
-        DiceNumberTextScript.Instance.DarResultadoRandom();
-        BoardManager.Instance.ManejoParcelas(DiceNumberTextScript.Instance.randomDiceNumber);
-        //tirarDadoButton.interactable = false;
     }
     public int ConvertirAlfaNumericoAInt(string texto)
     {

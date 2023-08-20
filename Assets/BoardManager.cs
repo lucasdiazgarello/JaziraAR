@@ -39,7 +39,7 @@ public class BoardManager : NetworkBehaviour
     {
         // Obtén el ID del jugador desde donde lo tengas almacenado.
         // En este ejemplo, simplemente lo he establecido como 1.
-        int currentPlayerID = PlayerPrefs.GetInt("jugadorId");
+        //int currentPlayerID = PlayerPrefs.GetInt("jugadorId");
         //Instance.UpdateResourceTexts(currentPlayerID);
         // Actualiza los textos de recursos para el jugador al inicio.
         //UpdateResourceTexts(jugadorId);
@@ -131,11 +131,11 @@ public class BoardManager : NetworkBehaviour
                 break;
 
         }
-        if(recurso2 == null)
+        parcela = GameObject.Find("Parcela 5 Piedra");
+        recurso1 = "Piedra";
+        recurso2 = null;
+        if (recurso2 == null)
         {
-            //parcela = GameObject.Find("Parcela 5 Piedra");
-            //recurso1 = "Piedra";
-            //Debug.Log("parcela 5: " + parcela);
             identificadorParcela = parcela.GetComponent<IdentificadorParcela>();
             List<Collider> collidersParcela = identificadorParcela.GetCollidersParcela(parcela.name);
             if (collidersParcela.Count > 0)
@@ -151,20 +151,22 @@ public class BoardManager : NetworkBehaviour
                 }
                 if (comprobarObjeto != null)
                 {
-                    Debug.Log("comprobarObjeto no es null");
-                    TipoObjeto tipo = comprobarObjeto.tipoObjeto; // Aquí utilizas la variable tipoObjeto de tu instancia comprobarObjeto
-                    Debug.Log("el tipo es " + tipo);
-                    switch (tipo)
+                    Debug.Log("comprobarObjeto no es null");                   
+                    Debug.Log("Nombre de collider " + comprobarObjeto.name);
+
+                    var tipocolider = ListaColliders.Instance.GetTipoPorNombre(comprobarObjeto.name).ToString();
+                    Debug.Log("tipocollider es " + tipocolider);
+                    switch (tipocolider)
                     {
-                        case TipoObjeto.Ninguno:  // Aquí se hace uso del tipo enumerado TipoObjeto
+                        case "Ninguno":  // Aquí se hace uso del tipo enumerado TipoObjeto
                             Debug.Log("Ninguno");
                             break;
-                        case TipoObjeto.Camino:  // Aquí se hace uso del tipo enumerado TipoObjeto
+                        case "Camino":  // Aquí se hace uso del tipo enumerado TipoObjeto
                             Debug.Log("Camino");
                             break;
-                        case TipoObjeto.Base:    // Aquí se hace uso del tipo enumerado TipoObjeto
+                        case "Base":    // Aquí se hace uso del tipo enumerado TipoObjeto
                             Debug.Log("Sumar a la Base 1 de " + recurso1);
-                            int currentPlayerID = PlayerPrefs.GetInt("jugadorId");
+                            int currentPlayerID = PlayerPrefs.GetInt("jugadorId");// esto siempre va a ser el del host. Necesitamos traer el id del jugador que llama a la funcion de cuandoio se tira dados
                             //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
                             Debug.Log("CurrentPlayerID es " + currentPlayerID);
                             if (NetworkManager.Singleton.IsServer)
@@ -182,7 +184,7 @@ public class BoardManager : NetworkBehaviour
                                 Debug.Log("ya sumo recurso " + recurso1);
                             }
                             break;
-                        case TipoObjeto.Pueblo:  // Aquí se hace uso del tipo enumerado TipoObjeto
+                        case "Pueblo":  // Aquí se hace uso del tipo enumerado TipoObjeto
                             Debug.Log("Pueblo");
                             //PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso, 2);
                             Debug.Log("sumo 2 " + recurso1);
@@ -214,17 +216,19 @@ public class BoardManager : NetworkBehaviour
                 if (comprobarObjeto != null)
                 {
                     Debug.Log("comprobarObjeto no es null");
-                    TipoObjeto tipo = comprobarObjeto.tipoObjeto; // Aquí utilizas la variable tipoObjeto de tu instancia comprobarObjeto
-                    Debug.Log("el tipo es " + tipo);
-                    switch (tipo)
+                    Debug.Log("Nombre de collider " + comprobarObjeto.name);
+
+                    var tipocolider = ListaColliders.Instance.GetTipoPorNombre(comprobarObjeto.name).ToString();
+                    Debug.Log("tipocollider es " + tipocolider);
+                    switch (tipocolider)
                     {
-                        case TipoObjeto.Ninguno:  // Aquí se hace uso del tipo enumerado TipoObjeto
+                        case "Ninguno":  // Aquí se hace uso del tipo enumerado TipoObjeto
                             Debug.Log("Ninguno");
                             break;
-                        case TipoObjeto.Camino:  // Aquí se hace uso del tipo enumerado TipoObjeto
+                        case "Camino":  // Aquí se hace uso del tipo enumerado TipoObjeto
                             Debug.Log("Camino");
                             break;
-                        case TipoObjeto.Base:    // Aquí se hace uso del tipo enumerado TipoObjeto
+                        case "Base":    // Aquí se hace uso del tipo enumerado TipoObjeto
                             Debug.Log("Sumar a la Base 1 de " + recurso1);
                             int currentPlayerID = PlayerPrefs.GetInt("jugadorId");
                             //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
@@ -244,7 +248,7 @@ public class BoardManager : NetworkBehaviour
                                 Debug.Log("ya sumo recurso " + recurso1);
                             }
                             break;
-                        case TipoObjeto.Pueblo:  // Aquí se hace uso del tipo enumerado TipoObjeto
+                        case "Pueblo":  // Aquí se hace uso del tipo enumerado TipoObjeto
                             Debug.Log("Pueblo");
                             //PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso, 2);
                             Debug.Log("sumo 2 " + recurso1);
@@ -257,16 +261,15 @@ public class BoardManager : NetworkBehaviour
                 }
             }
             Debug.Log("Segunda parte");
-            identificadorParcela = parcela2.GetComponent<IdentificadorParcela>();
-            List<Collider> collidersParcela2 = identificadorParcela.GetCollidersParcela(parcela2.name);
-            if (collidersParcela.Count > 0)
+            identificadorParcela = parcela.GetComponent<IdentificadorParcela>();
+            List<Collider> collidersParcela2 = identificadorParcela.GetCollidersParcela(parcela.name);
+            if (collidersParcela2.Count > 0)
             {
                 comprobarObjeto = collidersParcela2[0].gameObject.GetComponent<ComprobarObjeto>();
             }
             foreach (var empty in collidersParcela2)
             {
                 comprobarObjeto = empty.gameObject.GetComponent<ComprobarObjeto>();
-                Debug.Log("el collider es" + empty.name);
                 if (comprobarObjeto == null)
                 {
                     Debug.LogError("No se pudo obtener el componente ComprobarObjeto de " + empty.gameObject.name);
@@ -274,17 +277,19 @@ public class BoardManager : NetworkBehaviour
                 if (comprobarObjeto != null)
                 {
                     Debug.Log("comprobarObjeto no es null");
-                    TipoObjeto tipo = comprobarObjeto.tipoObjeto; // Aquí utilizas la variable tipoObjeto de tu instancia comprobarObjeto
-                    Debug.Log("el tipo es " + tipo);
-                    switch (tipo)
+                    Debug.Log("Nombre de collider " + comprobarObjeto.name);
+
+                    var tipocolider = ListaColliders.Instance.GetTipoPorNombre(comprobarObjeto.name).ToString();
+                    Debug.Log("tipocollider es " + tipocolider);
+                    switch (tipocolider)
                     {
-                        case TipoObjeto.Ninguno:  // Aquí se hace uso del tipo enumerado TipoObjeto
+                        case "Ninguno":  // Aquí se hace uso del tipo enumerado TipoObjeto
                             Debug.Log("Ninguno");
                             break;
-                        case TipoObjeto.Camino:  // Aquí se hace uso del tipo enumerado TipoObjeto
+                        case "Camino":  // Aquí se hace uso del tipo enumerado TipoObjeto
                             Debug.Log("Camino");
                             break;
-                        case TipoObjeto.Base:    // Aquí se hace uso del tipo enumerado TipoObjeto
+                        case "Base":    // Aquí se hace uso del tipo enumerado TipoObjeto
                             Debug.Log("Sumar a la Base 1 de " + recurso2);
                             int currentPlayerID = PlayerPrefs.GetInt("jugadorId");
                             //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
@@ -304,7 +309,7 @@ public class BoardManager : NetworkBehaviour
                                 Debug.Log("ya sumo recurso " + recurso2);
                             }
                             break;
-                        case TipoObjeto.Pueblo:  // Aquí se hace uso del tipo enumerado TipoObjeto
+                        case "Pueblo":  // Aquí se hace uso del tipo enumerado TipoObjeto
                             Debug.Log("Pueblo");
                             //PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso, 2);
                             Debug.Log("sumo 2 " + recurso2);

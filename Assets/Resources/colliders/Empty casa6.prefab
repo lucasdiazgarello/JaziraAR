@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1924754906008690733}
   - component: {fileID: 1105113898737406817}
   - component: {fileID: 7956514440918896896}
-  - component: {fileID: 1286316481427628811}
   - component: {fileID: 2499320780135505455}
   m_Layer: 3
   m_Name: Empty casa6
@@ -82,19 +81,6 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &1286316481427628811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1283671560716520916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f49bca53b85c2549b5d8489ebab0a19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tipoObjeto: 0
 --- !u!114 &2499320780135505455
 MonoBehaviour:
   m_ObjectHideFlags: 0
