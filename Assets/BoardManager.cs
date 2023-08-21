@@ -45,7 +45,7 @@ public class BoardManager : NetworkBehaviour
         //UpdateResourceTexts(jugadorId);
     }
 
-    public void ManejoParcelas(int diceNumber)
+    public void ManejoParcelas(int diceNumber, int idJugador)
     {
         Debug.Log("Entre a manejo parcelas");
         // Obtener las parcelas correspondientes al número del dado.
@@ -166,19 +166,25 @@ public class BoardManager : NetworkBehaviour
                             break;
                         case "Base":    // Aquí se hace uso del tipo enumerado TipoObjeto
                             Debug.Log("Sumar a la Base 1 de " + recurso1);
-                            int currentPlayerID = PlayerPrefs.GetInt("jugadorId");// esto siempre va a ser el del host. Necesitamos traer el id del jugador que llama a la funcion de cuandoio se tira dados
+                            //int currentPlayerID = PlayerPrefs.GetInt("jugadorId");
                             //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
-                            Debug.Log("CurrentPlayerID es " + currentPlayerID);
+                            //Debug.Log("CurrentPlayerID es " + currentPlayerID);
                             if (NetworkManager.Singleton.IsServer)
                             {
                                 Debug.Log("Soy server aumentando recursos");
-                                PlayerNetwork.Instance.AumentarRecursos(currentPlayerID, recurso1, 1);
-                                Instance.UpdateResourceTexts(currentPlayerID);
+                                int hostPlayerID = PlayerPrefs.GetInt("jugadorId");
+                                //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
+                                Debug.Log("CurrentPlayerID es " + hostPlayerID);
+                                PlayerNetwork.Instance.AumentarRecursos(hostPlayerID, recurso1, 1);
+                                Instance.UpdateResourceTexts(hostPlayerID);
                                 Debug.Log("ya sumo recurso " + recurso1);
                             }
                             else
                             {
                                 Debug.Log("Soy cliente aumentando recursos");
+                                int currentPlayerID = PlayerPrefs.GetInt("jugadorId");
+                                //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
+                                Debug.Log("CurrentPlayerID es " + currentPlayerID);
                                 PlayerNetwork.Instance.AumentarRecursosServerRpc(currentPlayerID, recurso1, 1);
                                 PlayerNetwork.Instance.UpdateResourceTextsServerRpc(currentPlayerID);
                                 Debug.Log("ya sumo recurso " + recurso1);
@@ -230,19 +236,25 @@ public class BoardManager : NetworkBehaviour
                             break;
                         case "Base":    // Aquí se hace uso del tipo enumerado TipoObjeto
                             Debug.Log("Sumar a la Base 1 de " + recurso1);
-                            int currentPlayerID = PlayerPrefs.GetInt("jugadorId");
+                            //int currentPlayerID = PlayerPrefs.GetInt("jugadorId");
                             //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
-                            Debug.Log("CurrentPlayerID es " + currentPlayerID);
+                            //Debug.Log("CurrentPlayerID es " + currentPlayerID);
                             if (NetworkManager.Singleton.IsServer)
                             {
                                 Debug.Log("Soy server aumentando recursos");
-                                PlayerNetwork.Instance.AumentarRecursos(currentPlayerID, recurso1, 1);
-                                Instance.UpdateResourceTexts(currentPlayerID);
+                                int hostPlayerID = PlayerPrefs.GetInt("jugadorId");
+                                //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
+                                Debug.Log("CurrentPlayerID es " + hostPlayerID);
+                                PlayerNetwork.Instance.AumentarRecursos(hostPlayerID, recurso1, 1);
+                                Instance.UpdateResourceTexts(hostPlayerID);
                                 Debug.Log("ya sumo recurso " + recurso1);
                             }
                             else
                             {
                                 Debug.Log("Soy cliente aumentando recursos");
+                                int currentPlayerID = PlayerPrefs.GetInt("jugadorId");
+                                //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
+                                Debug.Log("CurrentPlayerID es " + currentPlayerID);
                                 PlayerNetwork.Instance.AumentarRecursosServerRpc(currentPlayerID, recurso1, 1);
                                 PlayerNetwork.Instance.UpdateResourceTextsServerRpc(currentPlayerID);
                                 Debug.Log("ya sumo recurso " + recurso1);
@@ -291,19 +303,25 @@ public class BoardManager : NetworkBehaviour
                             break;
                         case "Base":    // Aquí se hace uso del tipo enumerado TipoObjeto
                             Debug.Log("Sumar a la Base 1 de " + recurso2);
-                            int currentPlayerID = PlayerPrefs.GetInt("jugadorId");
+                            //int currentPlayerID = PlayerPrefs.GetInt("jugadorId");
                             //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
-                            Debug.Log("CurrentPlayerID es " + currentPlayerID);
+                            //Debug.Log("CurrentPlayerID es " + currentPlayerID);
                             if (NetworkManager.Singleton.IsServer)
                             {
                                 Debug.Log("Soy server aumentando recursos");
-                                PlayerNetwork.Instance.AumentarRecursos(currentPlayerID, recurso2, 1);
-                                Instance.UpdateResourceTexts(currentPlayerID);
+                                int hostPlayerID = PlayerPrefs.GetInt("jugadorId");
+                                //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
+                                Debug.Log("HostPlayerID es " + hostPlayerID);
+                                PlayerNetwork.Instance.AumentarRecursos(hostPlayerID, recurso2, 1);
+                                Instance.UpdateResourceTexts(hostPlayerID);
                                 Debug.Log("ya sumo recurso " + recurso2);
                             }
                             else
                             {
                                 Debug.Log("Soy cliente aumentando recursos");
+                                int currentPlayerID = PlayerPrefs.GetInt("jugadorId");
+                                //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
+                                Debug.Log("CurrentPlayerID es " + currentPlayerID);
                                 PlayerNetwork.Instance.AumentarRecursosServerRpc(currentPlayerID, recurso2, 1);
                                 PlayerNetwork.Instance.UpdateResourceTextsServerRpc(currentPlayerID);
                                 Debug.Log("ya sumo recurso " + recurso2);
@@ -432,7 +450,7 @@ public class BoardManager : NetworkBehaviour
     }
     public void UpdateResourceTexts(int jugadorId)
     {
-        Debug.Log("Entre a UpdateResourceTexts");
+        Debug.Log("Entre a UpdateResourceTexts con ID "+ jugadorId);
         PlayerNetwork.DatosJugador datosJugador = default;
         // Itera sobre los elementos de playerData para encontrar los datos del jugador
         for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
@@ -443,11 +461,11 @@ public class BoardManager : NetworkBehaviour
                 break;
             }
         }
-        if (datosJugador.jugadorId == 0)  // Suponiendo que 0 no es un ID de jugador v�lido
+        /*if (datosJugador.jugadorId == 0)  // Suponiendo que 0 no es un ID de jugador v�lido
         {
             Debug.LogError("Jugador con ID " + jugadorId + " no encontrado.");
             return;
-        }
+        }*/
         // Actualiza los textos de los recursos
         MaderaCountText.text = datosJugador.maderaCount.ToString();
         LadrilloCountText.text = datosJugador.ladrilloCount.ToString();

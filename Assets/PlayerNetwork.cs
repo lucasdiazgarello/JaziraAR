@@ -901,7 +901,7 @@ public class PlayerNetwork : NetworkBehaviour
         }
     }
     [ServerRpc(RequireOwnership = false)]
-    public void TirarDadosServerRpc()
+    public void TirarDadosServerRpc(int idJugador)
     {
         Debug.Log("Entro a TirarDadosServerRpc");
         // NO BORRAR ESTO COMENTADO POR SI SURGE DENUEVO EL TEMA DE LOS DADOS
@@ -956,7 +956,10 @@ public class PlayerNetwork : NetworkBehaviour
         // Ajustar dicesThrown a true luego de lanzar los dados
         ARCursor.Instance.dicesThrown = true;
         DiceNumberTextScript.Instance.DarResultadoRandom();
-        BoardManager.Instance.ManejoParcelas(DiceNumberTextScript.Instance.randomDiceNumber);
+        //int playerId = PlayerPrefs.GetInt("jugadorId");
+        //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
+        //Debug.Log("el id que toco TirarDados es" + currentPlayerID);
+        BoardManager.Instance.ManejoParcelas(DiceNumberTextScript.Instance.randomDiceNumber, idJugador);
         //tirarDadoButton.interactable = false;
     }
 }

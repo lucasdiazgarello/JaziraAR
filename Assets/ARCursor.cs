@@ -278,13 +278,18 @@ public class ARCursor : NetworkBehaviour
             // Ajustar dicesThrown a true luego de lanzar los dados
             dicesThrown = true;
             DiceNumberTextScript.Instance.DarResultadoRandom();
-            BoardManager.Instance.ManejoParcelas(DiceNumberTextScript.Instance.randomDiceNumber);
+            int hostPlayerID = PlayerPrefs.GetInt("jugadorId"); // Este en este caso por ser server esta bien tomar este id asi
+            Debug.Log("el id que toco TirarDados es" + hostPlayerID);
+            BoardManager.Instance.ManejoParcelas(DiceNumberTextScript.Instance.randomDiceNumber, hostPlayerID);
             //tirarDadoButton.interactable = false;
         }
         else
         {
             Debug.Log("Tiro dados como cliente");
-            PlayerNetwork.Instance.TirarDadosServerRpc();
+            //obtener id del jugador cliente qeu toco el boton 
+            int idJugador = PlayerPrefs.GetInt("jugadorId");
+            Debug.Log("el id que toco TirarDados es" + idJugador);
+            PlayerNetwork.Instance.TirarDadosServerRpc(idJugador);
         }
 
     }
