@@ -26,7 +26,8 @@ public class ComprarPieza : NetworkBehaviour
         //UpdateComprarBaseButton();
         //UpdateComprarPuebloButton();
     }
-    public void ComprarCamino()
+
+    /*public void ComprarCamino()
     {
         Debug.Log("ComprarCamino");
         if (NetworkManager.Singleton.IsServer)
@@ -51,7 +52,37 @@ public class ComprarPieza : NetworkBehaviour
         }
         colocarPieza.caminosRestantes++;
         colocarPieza.buttonCamino.interactable = true;
+    }*/
+    public void ComprarCamino()
+    {
+        Debug.Log("ComprarCamino");
+        if (NetworkManager.Singleton.IsServer)
+        {
+            int id = PlayerPrefs.GetInt("jugadorId");
+            // Utilizar las NetworkVariable aquí:
+            int madera = PlayerNetwork.Instance.maderaCount.Value;
+            int ladrillo = PlayerNetwork.Instance.ladrilloCount.Value;
+
+            if (madera >= 1 && ladrillo >= 1)
+            {
+                PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
+                BoardManager.Instance.UpdateResourcesCamino(jugador); // Asegúrate de que UpdateResourcesCamino también esté actualizado para usar NetworkVariable
+                BoardManager.Instance.UpdateResourceTexts(id);
+                Debug.Log("Imprimir jugador por ID post ");
+                PlayerNetwork.Instance.ImprimirJugadorPorId(id);
+                UpdateComprarCaminoButton();
+            }
+        }
+        else
+        {
+            PlayerNetwork.Instance.ComprarCaminoServerRpc(PlayerPrefs.GetInt("jugadorId"));
+            UpdateComprarCaminoButtonClientRpc();
+        }
+        colocarPieza.caminosRestantes++;
+        colocarPieza.buttonCamino.interactable = true;
     }
+
+
     public void ComprarBase()
     {
         Debug.Log("ComprarBase");

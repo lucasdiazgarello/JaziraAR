@@ -47,9 +47,22 @@ public class PlayerNetwork : NetworkBehaviour
     // Singleton instance
     public static PlayerNetwork Instance { get; private set; }
     public object NetworkVariablePermission { get; private set; }
-
     public NetworkVariable<DatosJugador> jugador;
-
+    /*public Dictionary<int, PlayerResources> recursosPorJugador = new Dictionary<int, PlayerResources>();
+    public class PlayerResources
+    {
+        public NetworkVariable<int> maderaCount = new NetworkVariable<int>(0);
+        public NetworkVariable<int> ladrilloCount = new NetworkVariable<int>(0);
+        public NetworkVariable<int> ovejaCount = new NetworkVariable<int>(0);
+        public NetworkVariable<int> piedraCount = new NetworkVariable<int>(0);
+        public NetworkVariable<int> trigoCount = new NetworkVariable<int>(0);
+    }
+    */
+    public NetworkVariable<int> maderaCount = new NetworkVariable<int>(0);
+    public NetworkVariable<int> ladrilloCount = new NetworkVariable<int>(0);
+    public NetworkVariable<int> ovejaCount = new NetworkVariable<int>(0);
+    public NetworkVariable<int> piedraCount = new NetworkVariable<int>(0);
+    public NetworkVariable<int> trigoCount = new NetworkVariable<int>(0);
     public struct DatosJugador : INetworkSerializable, IEquatable<DatosJugador>
     {
         public int jugadorId;
@@ -62,7 +75,7 @@ public class PlayerNetwork : NetworkBehaviour
         public int ladrilloCount;
         public int ovejaCount;
         public int piedraCount;
-        public int trigoCount;
+        public int trigoCount;       
         public FixedString64Bytes colorJugador;
 
         public bool Equals(DatosJugador other)
@@ -159,6 +172,17 @@ public class PlayerNetwork : NetworkBehaviour
         }
 
     }
+    public int GetMaderaRecursos() => maderaCount.Value;
+    public void SetMaderaRecursos(int value) => maderaCount.Value = value;
+    public int GetLadrilloRecursos() => ladrilloCount.Value;
+    public void SetLadrilloRecursos(int value) => ladrilloCount.Value = value;
+    public int GetOvejaRecursos() => maderaCount.Value;
+    public void SetOvejaRecursos(int value) => maderaCount.Value = value;
+    public int GetPiedraRecursos() => ladrilloCount.Value;
+    public void SetPiedraRecursos(int value) => ladrilloCount.Value = value;
+    public int GetTrigoRecursos() => maderaCount.Value;
+    public void SetTrigoRecursos(int value) => maderaCount.Value = value;
+
     void OnClientConnected(ulong clientId)
     {
         Debug.Log($"Client {clientId} connected.");
@@ -875,16 +899,20 @@ public class PlayerNetwork : NetworkBehaviour
     public void ComprarCaminoServerRpc(int jugadorId)
     {
         Debug.Log("Entro a comprarCaminoServerRpc");
-        PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(jugadorId);
 
-        if (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1)
+        // Utilizar las NetworkVariable aquí:
+        int madera = PlayerNetwork.Instance.maderaCount.Value;
+        int ladrillo = PlayerNetwork.Instance.ladrilloCount.Value;
+
+        if (madera >= 1 && ladrillo >= 1)
         {
+            PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(jugadorId);
             // Restar recursos
+            // Aquí asumo que UpdateResourcesCamino también está actualizado para aceptar el jugadorId y usar NetworkVariable dentro de él.
             BoardManager.Instance.UpdateResourcesCamino(jugador);
 
             // Actualizar la UI del cliente con la nueva cantidad de recursos
             UpdateClientResourcesClientRpc(jugadorId);
-
         }
     }
 

@@ -368,8 +368,12 @@ public class BoardManager : NetworkBehaviour
         // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
         PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
         // Aquí es donde actualizarías los recursos del jugador en tu juego.
-        jugadorcopia.maderaCount -= 1;
-        jugadorcopia.ladrilloCount -= 1;
+        //jugadorcopia.maderaCount -= 1;
+        //jugadorcopia.ladrilloCount -= 1;
+        // Reducir los recursos usando NetworkVariable
+
+        PlayerNetwork.Instance.maderaCount.Value -= 1;
+        PlayerNetwork.Instance.ladrilloCount.Value -= 1;
 
         PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
         //PlayerNetwork.Instance.playerData[jugador.jugadorId] = jugador;
