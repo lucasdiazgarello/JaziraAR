@@ -386,6 +386,11 @@ public class PlayerNetwork : NetworkBehaviour
         jugador.Value = newDatos;
     }
 
+    public int GetPlayerId(DatosJugador jugador)
+    {
+        return jugador.jugadorId;
+    }
+
     public DatosJugador GetPlayerData(int jugadorId)
     {
         int index = playerIDs.IndexOf(jugadorId);
@@ -682,10 +687,15 @@ public class PlayerNetwork : NetworkBehaviour
         }*/
         // Actualiza los textos de los recursos
         BoardManager.Instance.MaderaCountText.text = datosJugador.maderaCount.ToString();
+        Debug.Log("madera: " + datosJugador.maderaCount.ToString());
         BoardManager.Instance.LadrilloCountText.text = datosJugador.ladrilloCount.ToString();
+        Debug.Log("ladrillo: " + datosJugador.ladrilloCount.ToString());
         BoardManager.Instance.OvejaCountText.text = datosJugador.ovejaCount.ToString();
+        Debug.Log("oveja: " + datosJugador.ovejaCount.ToString());
         BoardManager.Instance.PiedraCountText.text = datosJugador.piedraCount.ToString();
+        Debug.Log("piedra: " + datosJugador.piedraCount.ToString());
         BoardManager.Instance.TrigoCountText.text = datosJugador.trigoCount.ToString();
+        Debug.Log("trigo: " + datosJugador.trigoCount.ToString());
         Debug.Log("Termino UpdateResourceTextsServerRpc");
     }
     public void EndTurn()
@@ -786,8 +796,8 @@ public class PlayerNetwork : NetworkBehaviour
             // Obtener el componente ComprobarObjeto del objeto golpeado
             var nombresinClone = ListaColliders.Instance.RemoverCloneDeNombre(nombreCollider);
             Debug.Log("CPC PlayerNetwo" + nombresinClone);
-            ListaColliders.Instance.ModificarTipoPorNombre(nombresinClone, "Base");
-            ListaColliders.Instance.ImprimirListaColliders();
+            ListaColliders.Instance.ModificarTipoPorNombre(nombresinClone, "Base"); // Aca se debe llamar una serverRpc o como ya es el servidor corriendo no?
+            ListaColliders.Instance.ImprimirColliderPorNombre(nombresinClone);
             //comprobarObjeto = currentBase.GetComponent<ComprobarObjeto>();
             //comprobarObjeto = objetoBase.gameObject.GetComponent<ComprobarObjeto>();
             //Debug.Log("el collider es : " + hit.collider.gameObject.name);
@@ -983,6 +993,19 @@ public class PlayerNetwork : NetworkBehaviour
     {
         Debug.Log("Cliente - ManejoParcelasServerRpcs ID "+jugadorId);
         BoardManager.Instance.ManejoParcelas(num, jugadorId);
+
+    }
+
+    public DatosJugador? GetPlayerByColor(FixedString64Bytes color)
+    {
+        foreach (DatosJugador jugador in playerData)
+        {
+            if (jugador.colorJugador.Equals(color))
+            {
+                return jugador;
+            }
+        }
+        return null; // devuelve null si no se encontró un jugador con ese color
     }
 
 }

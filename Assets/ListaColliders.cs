@@ -14,15 +14,17 @@ public class ListaColliders : NetworkBehaviour
     {
         public FixedString64Bytes nombreCollider;
         public FixedString64Bytes tipo;
+        public FixedString64Bytes color;
 
         public bool Equals(Colliders other)
         {
-            return nombreCollider == other.nombreCollider && tipo == other.tipo;
+            return nombreCollider == other.nombreCollider && tipo == other.tipo && color == other.color;
         }
         public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
         {
             serializer.SerializeValue(ref nombreCollider);
             serializer.SerializeValue(ref tipo);
+            serializer.SerializeValue(ref color);
         }
     };
 
@@ -52,6 +54,7 @@ public class ListaColliders : NetworkBehaviour
                 {
                     nombreCollider = new FixedString64Bytes(),
                     tipo = new FixedString64Bytes(),
+                    color = new FixedString64Bytes(),
 
                 }, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
         }
@@ -61,12 +64,13 @@ public class ListaColliders : NetworkBehaviour
             Destroy(gameObject);
         }
     }
-    public void AgregarCollider(FixedString64Bytes nombre, FixedString64Bytes tipo)
+    public void AgregarCollider(FixedString64Bytes nombre, FixedString64Bytes tipo, FixedString64Bytes color)
     {
         //Debug.Log("el nombre a agregar es " + nombre + " y el  tipo " + tipo);
         Colliders nuevoCollider = new Colliders();
         nuevoCollider.nombreCollider = nombre;
         nuevoCollider.tipo = tipo;
+        nuevoCollider.color = color;
         try
         {
             //Debug.Log("Cant elementos de Colliders:" + listaColliders.Count);
@@ -99,7 +103,7 @@ public class ListaColliders : NetworkBehaviour
         if (IsServer)
         {
             Debug.Log("OnNetworkSpawn de ListaColliders");
-            AgregarCollider("Empty casa1", "Ninguno");
+            AgregarCollider("Empty casa1", "Ninguno", "Vacio");
             AgregarCollider("Empty casa2", "Ninguno");
             AgregarCollider("Empty casa3", "Ninguno");
             AgregarCollider("Empty casa4", "Ninguno");
@@ -193,6 +197,39 @@ public class ListaColliders : NetworkBehaviour
             }
         }
     }
+    public void ModificarColorPorNombre(FixedString64Bytes nombre, FixedString64Bytes nuevoColor)
+    {
+        for (int i = 0; i < listaColliders.Count; i++)
+        {
+            if (listaColliders[i].nombreCollider.Equals(nombre))
+            {
+                Debug.Log("Encontre a " + nombre + " en la lista");
+                // Encontrado! Cambiemos el tipo
+                var colliderModificado = listaColliders[i]; // Copia el struct
+                colliderModificado.color = nuevoColor; // Cambia el tipo
+                Debug.Log("El nuevo color es " + nuevoColor);
+                listaColliders[i] = colliderModificado; // Reemplaza el struct en la lista
+                return; // Omitir esto si es posible que haya más de una entrada con el mismo nombre
+            }
+        }
+    }
+    [ServerRpc(RequireOwnership = false)]
+    public void ModificarColorPorNombreServerRpc(FixedString64Bytes nombre, FixedString64Bytes nuevoColor)
+    {
+        for (int i = 0; i < listaColliders.Count; i++)
+        {
+            if (listaColliders[i].nombreCollider.Equals(nombre))
+            {
+                Debug.Log("Encontre a " + nombre + " en la lista");
+                // Encontrado! Cambiemos el tipo
+                var colliderModificado = listaColliders[i]; // Copia el struct
+                colliderModificado.color = nuevoColor; // Cambia el tipo
+                Debug.Log("El nuevo Color es " + nuevoColor);
+                listaColliders[i] = colliderModificado; // Reemplaza el struct en la lista
+                return; // Omitir esto si es posible que haya más de una entrada con el mismo nombre
+            }
+        }
+    }
     public FixedString64Bytes GetTipoPorNombre(FixedString64Bytes nombre)
     {
         //ImprimirListaColliders();
@@ -207,6 +244,43 @@ public class ListaColliders : NetworkBehaviour
         }
 
         return new FixedString64Bytes(); // Devuelve una cadena vacía si no se encontró
+    }
+    public FixedString64Bytes GetColorPorNombre(FixedString64Bytes nombre)
+    {
+        //ImprimirListaColliders();
+        foreach (var collider in listaColliders)
+        {
+            //Debug.Log("Estoy buscando a " + nombre + " en la lista");
+            //Debug.Log("Encontre a " + collider.nombreCollider);
+            if (collider.nombreCollider.Equals(nombre))
+            {
+                return collider.color;
+            }
+        }
+
+        return new FixedString64Bytes(); // Devuelve una cadena vacía si no se encontró
+    }
+    public void ImprimirColliderPorNombre(FixedString64Bytes nombre)
+    {
+        if (listaColliders == null)
+        {
+            Debug.Log("La lista listaColliders no ha sido inicializada.");
+            return;
+        }
+
+        foreach (var data in listaColliders)
+        {
+            if (data.nombreCollider.Equals(nombre))
+            {
+                var datosColliderInfo = $"NombreCollider: {data.nombreCollider}, " +
+                                        $"Tipo: {data.tipo}, " +
+                                        $"Color: {data.color}";
+                Debug.Log(datosColliderInfo);
+                return;  // Si solo esperas que haya un Collider con ese nombre, entonces puedes salir del bucle inmediatamente después de imprimirlo.
+            }
+        }
+
+        Debug.Log($"Collider con nombre {nombre} no encontrado en la lista.");
     }
     public void ImprimirListaColliders()
     {

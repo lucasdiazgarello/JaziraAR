@@ -384,10 +384,12 @@ public class ColocarPieza : NetworkBehaviour
             Debug.Log("nombreSinClone = " + nombreSinClone);
 
             ListaColliders.Instance.ModificarTipoPorNombre(nombreSinClone, "Base");
-            ListaColliders.Instance.ImprimirListaColliders();
+            ListaColliders.Instance.ModificarColorPorNombre(nombreSinClone, color);
+            ListaColliders.Instance.ImprimirColliderPorNombre(nombreSinClone);
             //comprobarObjeto.tipoObjeto = TipoObjeto.Base; // Puedes cambiar esto al tipo de objeto que corresponda
             //comprobarObjeto2 = hit.collider.gameObject.GetComponent<ComprobarObjeto>();
             Debug.Log("puse el tipo de la base a: " + comprobarObjeto.tipoObjeto);
+
             //Debug.Log("LA BASE ES BASE? : " + comprobarObjeto2.tipoObjeto);
             Debug.Log("CP Nombre de collider" + comprobarObjeto.name);
             //Debug.Log("CP SC Nombre de collider" + hit.collider.gameObject.GetComponent<ComprobarObjeto>().name); 

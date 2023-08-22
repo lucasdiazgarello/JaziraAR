@@ -154,9 +154,14 @@ public class BoardManager : NetworkBehaviour
                     Debug.Log("comprobarObjeto no es null");                   
                     Debug.Log("Nombre de collider " + comprobarObjeto.name);
 
-                    var tipocolider = ListaColliders.Instance.GetTipoPorNombre(comprobarObjeto.name).ToString();
-                    Debug.Log("tipocollider es " + tipocolider);
-                    switch (tipocolider)
+                    var tipoCollider = ListaColliders.Instance.GetTipoPorNombre(comprobarObjeto.name).ToString();
+                    var colorCollider = ListaColliders.Instance.GetColorPorNombre(comprobarObjeto.name).ToString();
+                    Debug.Log("tipocollider es " + tipoCollider);
+                    Debug.Log("colorcollider es " + colorCollider);
+                    //OBTENER COLOR DE LA PIEZA COLOCADA EN ESE COLLIDER
+                    PlayerNetwork.DatosJugador jugador = (PlayerNetwork.DatosJugador)PlayerNetwork.Instance.GetPlayerByColor(colorCollider);
+                    int id = PlayerNetwork.Instance.GetPlayerId(jugador); //USAR ESTE ID PARA QUE AUMETNE RECURSO. Pero como hace para aumentar a mas de un jugador?
+                    switch (tipoCollider)
                     {
                         case "Ninguno":  // Aquí se hace uso del tipo enumerado TipoObjeto
                             Debug.Log("Ninguno");
@@ -497,7 +502,5 @@ public class BoardManager : NetworkBehaviour
             PlayerNetwork.Instance.UpdateResourceTextsServerRpc(jugadorId);
         }     
     }
-
-
 
 }
