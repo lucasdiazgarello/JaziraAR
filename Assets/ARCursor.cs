@@ -336,16 +336,16 @@ public class ARCursor : NetworkBehaviour
     public void BotonEndTurn()
     {
         Debug.Log("Toque boton terminar turno ");
-        //PlayerNetwork.Instance.EndTurn();
-     
-        if (colocarPieza.yaEjecutado)
+        PlayerNetwork.Instance.EndTurn();
+        //NO BORRAR, dejar comentado hasta que los turnos funcionen bien 
+        /*if (colocarPieza.yaEjecutado) 
         {
             PlayerNetwork.Instance.EndTurn();
         }
         else
         {
             Debug.Log("Colocar las 4 piezas para pasar turno");
-        }
+        }*/
         
     }
 }

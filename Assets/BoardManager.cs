@@ -47,7 +47,7 @@ public class BoardManager : NetworkBehaviour
 
     public void ManejoParcelas(int diceNumber, int idJugador)
     {
-        Debug.Log("Entre a manejo parcelas");
+        Debug.Log("Manejo Parcelas ID: " + idJugador);
         // Obtener las parcelas correspondientes al número del dado.
         string parcelName = "Parcela " + diceNumber.ToString();
         Debug.Log("parcelaName: " + parcelName);
@@ -169,7 +169,12 @@ public class BoardManager : NetworkBehaviour
                             //int currentPlayerID = PlayerPrefs.GetInt("jugadorId");
                             //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
                             //Debug.Log("CurrentPlayerID es " + currentPlayerID);
-                            if (NetworkManager.Singleton.IsServer)
+                            Debug.Log("Id jugador que va a AumentarRecursos " + idJugador);
+                            PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso1, 1);
+                            Instance.UpdateResourceTexts(idJugador);
+                            PlayerNetwork.Instance.ImprimirJugadorPorId(idJugador);
+                            Debug.Log("ya sumo recurso " + recurso1);
+                            /*if (NetworkManager.Singleton.IsServer)
                             {
                                 Debug.Log("Soy server aumentando recursos");
                                 int hostPlayerID = PlayerPrefs.GetInt("jugadorId");
@@ -188,7 +193,7 @@ public class BoardManager : NetworkBehaviour
                                 PlayerNetwork.Instance.AumentarRecursosServerRpc(currentPlayerID, recurso1, 1);
                                 PlayerNetwork.Instance.UpdateResourceTextsServerRpc(currentPlayerID);
                                 Debug.Log("ya sumo recurso " + recurso1);
-                            }
+                            }*/
                             break;
                         case "Pueblo":  // Aquí se hace uso del tipo enumerado TipoObjeto
                             Debug.Log("Pueblo");
@@ -239,7 +244,12 @@ public class BoardManager : NetworkBehaviour
                             //int currentPlayerID = PlayerPrefs.GetInt("jugadorId");
                             //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
                             //Debug.Log("CurrentPlayerID es " + currentPlayerID);
-                            if (NetworkManager.Singleton.IsServer)
+                            Debug.Log("Id jugador que va a AumentarRecursos " + idJugador);
+                            PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso1, 1);
+                            Instance.UpdateResourceTexts(idJugador);
+                            PlayerNetwork.Instance.ImprimirJugadorPorId(idJugador);
+                            Debug.Log("ya sumo recurso " + recurso1);
+                            /*if (NetworkManager.Singleton.IsServer)
                             {
                                 Debug.Log("Soy server aumentando recursos");
                                 int hostPlayerID = PlayerPrefs.GetInt("jugadorId");
@@ -258,7 +268,7 @@ public class BoardManager : NetworkBehaviour
                                 PlayerNetwork.Instance.AumentarRecursosServerRpc(currentPlayerID, recurso1, 1);
                                 PlayerNetwork.Instance.UpdateResourceTextsServerRpc(currentPlayerID);
                                 Debug.Log("ya sumo recurso " + recurso1);
-                            }
+                            }*/
                             break;
                         case "Pueblo":  // Aquí se hace uso del tipo enumerado TipoObjeto
                             Debug.Log("Pueblo");
@@ -306,7 +316,13 @@ public class BoardManager : NetworkBehaviour
                             //int currentPlayerID = PlayerPrefs.GetInt("jugadorId");
                             //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
                             //Debug.Log("CurrentPlayerID es " + currentPlayerID);
-                            if (NetworkManager.Singleton.IsServer)
+                            Debug.Log("Id jugador que va a AumentarRecursos " + idJugador);
+                            PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso2, 1);
+                            Debug.Log("Id jugador que va a UpdatearTextos " + idJugador);
+                            Instance.UpdateResourceTexts(idJugador);
+                            PlayerNetwork.Instance.ImprimirJugadorPorId(idJugador);
+                            Debug.Log("ya sumo recurso " + recurso1);
+                            /*if (NetworkManager.Singleton.IsServer)
                             {
                                 Debug.Log("Soy server aumentando recursos");
                                 int hostPlayerID = PlayerPrefs.GetInt("jugadorId");
@@ -325,7 +341,7 @@ public class BoardManager : NetworkBehaviour
                                 PlayerNetwork.Instance.AumentarRecursosServerRpc(currentPlayerID, recurso2, 1);
                                 PlayerNetwork.Instance.UpdateResourceTextsServerRpc(currentPlayerID);
                                 Debug.Log("ya sumo recurso " + recurso2);
-                            }
+                            }*/
                             break;
                         case "Pueblo":  // Aquí se hace uso del tipo enumerado TipoObjeto
                             Debug.Log("Pueblo");
@@ -450,28 +466,36 @@ public class BoardManager : NetworkBehaviour
     }
     public void UpdateResourceTexts(int jugadorId)
     {
-        Debug.Log("Entre a UpdateResourceTexts con ID "+ jugadorId);
-        PlayerNetwork.DatosJugador datosJugador = default;
-        // Itera sobre los elementos de playerData para encontrar los datos del jugador
-        for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+        if (NetworkManager.Singleton.IsServer)
         {
-            if (PlayerNetwork.Instance.playerData[i].jugadorId == jugadorId)
+            Debug.Log("Server a UpdateResourceTexts con ID " + jugadorId);
+            PlayerNetwork.DatosJugador datosJugador = default;
+            // Itera sobre los elementos de playerData para encontrar los datos del jugador
+            for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
             {
-                datosJugador = PlayerNetwork.Instance.playerData[i];
-                break;
+                if (PlayerNetwork.Instance.playerData[i].jugadorId == jugadorId)
+                {
+                    datosJugador = PlayerNetwork.Instance.playerData[i];
+                    break;
+                }
             }
+            /*if (datosJugador.jugadorId == 0)  // Suponiendo que 0 no es un ID de jugador v�lido
+            {
+                Debug.LogError("Jugador con ID " + jugadorId + " no encontrado.");
+                return;
+            }*/
+            // Actualiza los textos de los recursos
+            MaderaCountText.text = datosJugador.maderaCount.ToString();
+            LadrilloCountText.text = datosJugador.ladrilloCount.ToString();
+            OvejaCountText.text = datosJugador.ovejaCount.ToString();
+            PiedraCountText.text = datosJugador.piedraCount.ToString();
+            TrigoCountText.text = datosJugador.trigoCount.ToString();
         }
-        /*if (datosJugador.jugadorId == 0)  // Suponiendo que 0 no es un ID de jugador v�lido
+        else
         {
-            Debug.LogError("Jugador con ID " + jugadorId + " no encontrado.");
-            return;
-        }*/
-        // Actualiza los textos de los recursos
-        MaderaCountText.text = datosJugador.maderaCount.ToString();
-        LadrilloCountText.text = datosJugador.ladrilloCount.ToString();
-        OvejaCountText.text = datosJugador.ovejaCount.ToString();
-        PiedraCountText.text = datosJugador.piedraCount.ToString();
-        TrigoCountText.text = datosJugador.trigoCount.ToString();
+            Debug.Log("Cliente a UpdateResourceTexts con ID " + jugadorId);
+            PlayerNetwork.Instance.UpdateResourceTextsServerRpc(jugadorId);
+        }     
     }
 
 

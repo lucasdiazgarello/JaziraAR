@@ -63,17 +63,17 @@ public class ListaColliders : NetworkBehaviour
     }
     public void AgregarCollider(FixedString64Bytes nombre, FixedString64Bytes tipo)
     {
-        Debug.Log("el nombre a agregar es " + nombre + " y el  tipo " + tipo);
+        //Debug.Log("el nombre a agregar es " + nombre + " y el  tipo " + tipo);
         Colliders nuevoCollider = new Colliders();
         nuevoCollider.nombreCollider = nombre;
         nuevoCollider.tipo = tipo;
         try
         {
-            Debug.Log("Cant elementos de Colliders:" + listaColliders.Count);
+            //Debug.Log("Cant elementos de Colliders:" + listaColliders.Count);
             Instance.listaColliders.Add(nuevoCollider);
-            Debug.Log("Cant elementos de Colliders:" + listaColliders.Count);
-            Debug.Log("Va a imprimir la lista");
-            ImprimirListaColliders();
+            //Debug.Log("Cant elementos de Colliders:" + listaColliders.Count);
+            //Debug.Log("Va a imprimir la lista");
+            //ImprimirListaColliders();
         }
         catch (Exception e)
         {

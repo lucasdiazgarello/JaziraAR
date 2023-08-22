@@ -208,7 +208,8 @@ public class PlayerNetwork : NetworkBehaviour
                 // Esto también funcionaría:
                 // planeManager.planeDetectionMode = PlaneDetectionMode.None;
             }
-            UpdateResourceTextsServerRpc(playerId);
+            //UpdateResourceTextsServerRpc(playerId);
+            BoardManager.Instance.UpdateResourceTexts(playerId);
         }
     }
 
@@ -540,76 +541,72 @@ public class PlayerNetwork : NetworkBehaviour
 
     public void AumentarRecursos(int idJugador, string recurso, int cantidad)
     {
-        Debug.Log("Entre a AumentarRecurso");
-        Debug.Log("id jugador: " + idJugador);
-        Debug.Log("Recurso: " + recurso);
-        Debug.Log("Cantidad: " + cantidad);
-
-        bool jugadorEncontrado = false;
-        int indexJugador = -1;
-
-        // Búsqueda del jugador en la lista playerData
-        for (int i = 0; i < playerData.Count; i++)
+        if (NetworkManager.Singleton.IsServer)
         {
-            Debug.Log("La lista Ids es " + playerData[i].jugadorId);
-            if (playerData[i].jugadorId == idJugador)
+            Debug.Log("Entre a AumentarRecurso");
+            Debug.Log("id jugador: " + idJugador + " Recurso: " + recurso + " Cantidad: " + cantidad);
+            bool jugadorEncontrado = false;
+            int indexJugador = -1;
+            // Búsqueda del jugador en la lista playerData
+            for (int i = 0; i < playerData.Count; i++)
             {
-                jugadorEncontrado = true;
-                indexJugador = i;
-                Debug.Log("Jugador encontrado en la posición: " + i);
-                break;
+                Debug.Log("La lista Ids es " + playerData[i].jugadorId);
+                if (playerData[i].jugadorId == idJugador)
+                {
+                    jugadorEncontrado = true;
+                    indexJugador = i;
+                    Debug.Log("Jugador encontrado en la posición: " + i);
+                    break;
+                }
             }
-        }
-
-        if (!jugadorEncontrado)
-        {
-            Debug.Log("Jugador no encontrado en la lista playerData");
-            return;
-        }
-
-        // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
-        DatosJugador jugador = playerData[indexJugador];
-        Debug.Log("piedra antes de sumar: " + playerData[indexJugador].piedraCount);
-        // Aumentar el recurso correspondiente
-        switch (recurso)
-        {
-            case "Madera":
-                jugador.maderaCount += cantidad;
-                break;
-            case "Ladrillo":
-                jugador.ladrilloCount += cantidad;
-                break;
-            case "Oveja":
-                jugador.ovejaCount += cantidad;
-                break;
-            case "Piedra":
-                jugador.piedraCount += cantidad;
-                break;
-            case "Trigo":
-                jugador.trigoCount += cantidad;
-                break;
-            default:
-                Debug.Log("Tipo de recurso desconocido");
+            if (!jugadorEncontrado)
+            {
+                Debug.Log("Jugador no encontrado en la lista playerData");
                 return;
+            }
+            // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
+            DatosJugador jugador = playerData[indexJugador];
+            Debug.Log("piedra antes de sumar: " + playerData[indexJugador].piedraCount);
+            // Aumentar el recurso correspondiente
+            switch (recurso)
+            {
+                case "Madera":
+                    jugador.maderaCount += cantidad;
+                    break;
+                case "Ladrillo":
+                    jugador.ladrilloCount += cantidad;
+                    break;
+                case "Oveja":
+                    jugador.ovejaCount += cantidad;
+                    break;
+                case "Piedra":
+                    jugador.piedraCount += cantidad;
+                    break;
+                case "Trigo":
+                    jugador.trigoCount += cantidad;
+                    break;
+                default:
+                    Debug.Log("Tipo de recurso desconocido");
+                    return;
+            }
+            // Reemplazar el jugador en la lista con la versión modificada
+            playerData[indexJugador] = jugador;
+            // Podemos usar un Debug.Log para ver los resultados.
+            Debug.Log("Jugador " + playerData[indexJugador].jugadorId + " ahora tiene " + playerData[indexJugador].piedraCount + "piedras ");
         }
-
-        // Reemplazar el jugador en la lista con la versión modificada
-        playerData[indexJugador] = jugador;
-
-        // Podemos usar un Debug.Log para ver los resultados.
-        Debug.Log("Jugador " + playerData[indexJugador].jugadorId + " ahora tiene " + playerData[indexJugador].piedraCount + "piedras ");
+        else
+        {
+            AumentarRecursosServerRpc(idJugador, recurso, cantidad);
+        } 
     }
 
     [ServerRpc(RequireOwnership = false)]
     public void AumentarRecursosServerRpc(int idJugador, string recurso, int cantidad)
     {
         Debug.Log("Entre a AumentarRecursoServerRpc");
-        AumentarRecursos(idJugador, recurso, cantidad);
-        Debug.Log("Termino AumentarRecursoServerRpc");
-        /*Debug.Log("id jugador: " + idJugador);
-        Debug.Log("Recurso: " + recurso);
-        Debug.Log("Cantidad: " + cantidad);
-
+        //AumentarRecursos(idJugador, recurso, cantidad);
+        //Debug.Log("Termino AumentarRecursoServerRpc");
+        Debug.Log("id jugador: " + idJugador+ " Recurso: " + recurso + " Cantidad: " + cantidad);
         bool jugadorEncontrado = false;
         int indexJugador = -1;
 
@@ -625,13 +622,11 @@ public class PlayerNetwork : NetworkBehaviour
                 break;
             }
         }
-
         if (!jugadorEncontrado)
         {
             Debug.Log("Jugador no encontrado en la lista playerData");
             return;
         }
-
         // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
         DatosJugador jugador = playerData[indexJugador];
         Debug.Log("piedra antes de sumar: " + playerData[indexJugador].piedraCount);
@@ -657,19 +652,40 @@ public class PlayerNetwork : NetworkBehaviour
                 Debug.Log("Tipo de recurso desconocido");
                 return;
         }
-
         // Reemplazar el jugador en la lista con la versión modificada
         playerData[indexJugador] = jugador;
-
         // Podemos usar un Debug.Log para ver los resultados.
-        Debug.Log("Jugador " + playerData[indexJugador].jugadorId + " ahora tiene " + playerData[indexJugador].piedraCount + "piedras ");
-        */
+        Debug.Log("Jugador " + playerData[indexJugador].jugadorId + " ahora tiene " + playerData[indexJugador].piedraCount + "piedras ");    
     }
+
     [ServerRpc(RequireOwnership = false)]
     public void UpdateResourceTextsServerRpc(int jugadorId)
     {
-        Debug.Log("Entre a UpdateResourceTextsServerRpc");
-        BoardManager.Instance.UpdateResourceTexts(jugadorId);
+        Debug.Log("Entre a UpdateResourceTextsServerRpc con ID "+ jugadorId);
+        //BoardManager.Instance.UpdateResourceTexts(jugadorId);
+        //Debug.Log("Termino UpdateResourceTextsServerRpc");
+        //Debug.Log("Entre a UpdateResourceTexts con ID " + jugadorId);
+        PlayerNetwork.DatosJugador datosJugador = default;
+        // Itera sobre los elementos de playerData para encontrar los datos del jugador
+        for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+        {
+            if (PlayerNetwork.Instance.playerData[i].jugadorId == jugadorId)
+            {
+                datosJugador = PlayerNetwork.Instance.playerData[i];
+                break;
+            }
+        }
+        /*if (datosJugador.jugadorId == 0)  // Suponiendo que 0 no es un ID de jugador v�lido
+        {
+            Debug.LogError("Jugador con ID " + jugadorId + " no encontrado.");
+            return;
+        }*/
+        // Actualiza los textos de los recursos
+        BoardManager.Instance.MaderaCountText.text = datosJugador.maderaCount.ToString();
+        BoardManager.Instance.LadrilloCountText.text = datosJugador.ladrilloCount.ToString();
+        BoardManager.Instance.OvejaCountText.text = datosJugador.ovejaCount.ToString();
+        BoardManager.Instance.PiedraCountText.text = datosJugador.piedraCount.ToString();
+        BoardManager.Instance.TrigoCountText.text = datosJugador.trigoCount.ToString();
         Debug.Log("Termino UpdateResourceTextsServerRpc");
     }
     public void EndTurn()
@@ -903,7 +919,7 @@ public class PlayerNetwork : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     public void TirarDadosServerRpc(int idJugador)
     {
-        Debug.Log("Entro a TirarDadosServerRpc");
+        Debug.Log("Entro a TirarDadosServerRpc con ID "+idJugador);
         // NO BORRAR ESTO COMENTADO POR SI SURGE DENUEVO EL TEMA DE LOS DADOS
         // Si el tablero no está colocado, regresar
         if (!ARCursor.Instance.isBoardPlaced) return;
@@ -959,8 +975,15 @@ public class PlayerNetwork : NetworkBehaviour
         //int playerId = PlayerPrefs.GetInt("jugadorId");
         //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
         //Debug.Log("el id que toco TirarDados es" + currentPlayerID);
-        BoardManager.Instance.ManejoParcelas(DiceNumberTextScript.Instance.randomDiceNumber, idJugador);
+        ManejoParcelasServerRpc(DiceNumberTextScript.Instance.randomDiceNumber, idJugador);
         //tirarDadoButton.interactable = false;
     }
+    [ServerRpc(RequireOwnership = false)]
+    public void ManejoParcelasServerRpc(int num, int jugadorId)
+    {
+        Debug.Log("Cliente - ManejoParcelasServerRpcs ID "+jugadorId);
+        BoardManager.Instance.ManejoParcelas(num, jugadorId);
+    }
+
 }
 
