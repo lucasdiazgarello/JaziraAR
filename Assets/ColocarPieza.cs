@@ -369,13 +369,12 @@ public class ColocarPieza : NetworkBehaviour
     {
         Debug.Log("EntroColocar 2");
         var objetoBase = Resources.Load(currentPrefabBase) as GameObject;
-        Debug.Log("2 preafb base es " + objetoBase.name);
+        //Debug.Log("2 preafb base es " + objetoBase.name);
         currentBase = Instantiate(objetoBase, hit.collider.gameObject.transform.position, Quaternion.identity);
         currentBase.GetComponent<NetworkObject>().Spawn();
-        Debug.Log("CP SC Nombre de collider" + hit.collider.gameObject.GetComponent<ComprobarObjeto>().name);
-        comprobarObjeto = hit.collider.gameObject.GetComponent<ComprobarObjeto>();
-        
-        Debug.Log("el collider del comprobarobjeto es " + hit.collider.gameObject.name);
+        //Debug.Log("CP SC Nombre de collider" + hit.collider.gameObject.GetComponent<ComprobarObjeto>().name);
+        comprobarObjeto = hit.collider.gameObject.GetComponent<ComprobarObjeto>();      
+        //Debug.Log("el collider del comprobarobjeto es " + hit.collider.gameObject.name);
         if (comprobarObjeto != null)
         {
             //comprobarObjeto.CambiarTipoObjeto("Base");
@@ -388,12 +387,12 @@ public class ColocarPieza : NetworkBehaviour
             ListaColliders.Instance.ImprimirColliderPorNombre(nombreSinClone);
             //comprobarObjeto.tipoObjeto = TipoObjeto.Base; // Puedes cambiar esto al tipo de objeto que corresponda
             //comprobarObjeto2 = hit.collider.gameObject.GetComponent<ComprobarObjeto>();
-            Debug.Log("puse el tipo de la base a: " + comprobarObjeto.tipoObjeto);
+            //Debug.Log("puse el tipo de la base a: " + comprobarObjeto.tipoObjeto);
 
             //Debug.Log("LA BASE ES BASE? : " + comprobarObjeto2.tipoObjeto);
-            Debug.Log("CP Nombre de collider" + comprobarObjeto.name);
+            //Debug.Log("CP Nombre de collider" + comprobarObjeto.name);
             //Debug.Log("CP SC Nombre de collider" + hit.collider.gameObject.GetComponent<ComprobarObjeto>().name); 
-            Debug.Log("Asignando tipo a: " + hit.collider.gameObject.name + " - Instancia: " + hit.collider.gameObject.GetInstanceID());
+            //Debug.Log("Asignando tipo a: " + hit.collider.gameObject.name + " - Instancia: " + hit.collider.gameObject.GetInstanceID());
 
         }
         else

@@ -144,6 +144,7 @@ public class BoardManager : NetworkBehaviour
             }
             foreach (var empty in collidersParcela)
             {
+                
                 comprobarObjeto = empty.gameObject.GetComponent<ComprobarObjeto>();
                 if (comprobarObjeto == null)
                 {
@@ -153,59 +154,38 @@ public class BoardManager : NetworkBehaviour
                 {
                     Debug.Log("comprobarObjeto no es null");                   
                     Debug.Log("Nombre de collider " + comprobarObjeto.name);
-
                     var tipoCollider = ListaColliders.Instance.GetTipoPorNombre(comprobarObjeto.name).ToString();
+                    //OBTENER COLOR DE LA PIEZA COLOCADA EN ESE COLLIDER
                     var colorCollider = ListaColliders.Instance.GetColorPorNombre(comprobarObjeto.name).ToString();
                     Debug.Log("tipocollider es " + tipoCollider);
                     Debug.Log("colorcollider es " + colorCollider);
-                    //OBTENER COLOR DE LA PIEZA COLOCADA EN ESE COLLIDER
-                    PlayerNetwork.DatosJugador jugador = (PlayerNetwork.DatosJugador)PlayerNetwork.Instance.GetPlayerByColor(colorCollider);
-                    int id = PlayerNetwork.Instance.GetPlayerId(jugador); //USAR ESTE ID PARA QUE AUMETNE RECURSO. Pero como hace para aumentar a mas de un jugador?
-                    switch (tipoCollider)
+                    if (colorCollider != "Vacio")
                     {
-                        case "Ninguno":  // Aquí se hace uso del tipo enumerado TipoObjeto
-                            Debug.Log("Ninguno");
-                            break;
-                        case "Camino":  // Aquí se hace uso del tipo enumerado TipoObjeto
-                            Debug.Log("Camino");
-                            break;
-                        case "Base":    // Aquí se hace uso del tipo enumerado TipoObjeto
-                            Debug.Log("Sumar a la Base 1 de " + recurso1);
-                            //int currentPlayerID = PlayerPrefs.GetInt("jugadorId");
-                            //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
-                            //Debug.Log("CurrentPlayerID es " + currentPlayerID);
-                            Debug.Log("Id jugador que va a AumentarRecursos " + idJugador);
-                            PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso1, 1);
-                            Instance.UpdateResourceTexts(idJugador);
-                            PlayerNetwork.Instance.ImprimirJugadorPorId(idJugador);
-                            Debug.Log("ya sumo recurso " + recurso1);
-                            /*if (NetworkManager.Singleton.IsServer)
-                            {
-                                Debug.Log("Soy server aumentando recursos");
-                                int hostPlayerID = PlayerPrefs.GetInt("jugadorId");
-                                //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
-                                Debug.Log("CurrentPlayerID es " + hostPlayerID);
-                                PlayerNetwork.Instance.AumentarRecursos(hostPlayerID, recurso1, 1);
-                                Instance.UpdateResourceTexts(hostPlayerID);
+                        PlayerNetwork.DatosJugador jugador = (PlayerNetwork.DatosJugador)PlayerNetwork.Instance.GetPlayerByColor(colorCollider);
+                        int id = PlayerNetwork.Instance.GetPlayerId(jugador); //USAR ESTE ID PARA QUE AUMETNE RECURSO. 
+                        switch (tipoCollider)
+                        {
+                            case "Ninguno":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                                Debug.Log("Ninguno");
+                                break;
+                            case "Camino":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                                Debug.Log("Camino");
+                                break;
+                            case "Base":    // Aquí se hace uso del tipo enumerado TipoObjeto
+                                Debug.Log("Sumar a la Base 1 de " + recurso1);
+                                Debug.Log("Id jugador que va a AumentarRecursos " + id);
+                                PlayerNetwork.Instance.AumentarRecursos(id, recurso1, 1);
+                                Instance.UpdateResourceTexts(id);
+                                PlayerNetwork.Instance.ImprimirJugadorPorId(id);
                                 Debug.Log("ya sumo recurso " + recurso1);
-                            }
-                            else
-                            {
-                                Debug.Log("Soy cliente aumentando recursos");
-                                int currentPlayerID = PlayerPrefs.GetInt("jugadorId");
-                                //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
-                                Debug.Log("CurrentPlayerID es " + currentPlayerID);
-                                PlayerNetwork.Instance.AumentarRecursosServerRpc(currentPlayerID, recurso1, 1);
-                                PlayerNetwork.Instance.UpdateResourceTextsServerRpc(currentPlayerID);
-                                Debug.Log("ya sumo recurso " + recurso1);
-                            }*/
-                            break;
-                        case "Pueblo":  // Aquí se hace uso del tipo enumerado TipoObjeto
-                            Debug.Log("Pueblo");
-                            //PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso, 2);
-                            Debug.Log("sumo 2 " + recurso1);
-                            break;
-                    }
+                                break;
+                            case "Pueblo":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                                Debug.Log("Pueblo");
+                                //PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso, 2);
+                                Debug.Log("sumo 2 " + recurso1);
+                                break;
+                        }
+                    }                                                       
                 }
                 else
                 {
