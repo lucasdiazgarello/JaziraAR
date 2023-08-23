@@ -34,8 +34,8 @@ public class PlayerNetwork : NetworkBehaviour
     private GameObject currentBase;
     private GameObject currentCamino;
     private GameObject currentPueblo;
-    public TipoObjeto tipoActual;
-    private ComprobarObjeto comprobarObjeto;
+    //public TipoObjeto tipoActual;
+    public string tipoActual;
     public Button confirmBaseButton;
     //private bool canPlace = false;
     public bool IsInitialized { get; private set; } = false; // Añade este campo de estado
@@ -776,7 +776,7 @@ public class PlayerNetwork : NetworkBehaviour
         Debug.Log("Entre a la prueba");
     }
     [ServerRpc(RequireOwnership = false)]
-    public void ColocarCaminoServerRpc(string color, string currentcamino, Vector3 posititon, Quaternion rotation)
+    public void ColocarCaminoServerRpc(string color, string currentcamino, string nombreCollider, Vector3 posititon, Quaternion rotation)
     {
         try
         {
@@ -785,19 +785,31 @@ public class PlayerNetwork : NetworkBehaviour
             Debug.Log("2 preafb base es " + objetoCamino.name);
             currentCamino = Instantiate(objetoCamino, posititon, rotation);
             currentCamino.GetComponent<NetworkObject>().Spawn();
-            comprobarObjeto = objetoCamino.gameObject.GetComponent<ComprobarObjeto>();
+            // Obtener el componente ComprobarObjeto del objeto golpeado
+            var nombresinClone = ListaColliders.Instance.RemoverCloneDeNombre(nombreCollider);
+            Debug.Log("CPC PlayerNetwo" + nombresinClone);
+            ListaColliders.Instance.ModificarTipoPorNombre(nombresinClone, "Camino"); // Aca se debe llamar una serverRpc o como ya es el servidor corriendo no?
+            ListaColliders.Instance.ModificarColorPorNombre(nombresinClone, color);
+            ListaColliders.Instance.ImprimirColliderPorNombre(nombresinClone);
+            /*comprobarObjeto = objetoCamino.gameObject.GetComponent<ComprobarObjeto>();
             if (comprobarObjeto != null)
             {
+                var nombreSinClone = ListaColliders.Instance.RemoverCloneDeNombre(comprobarObjeto.name);
+                Debug.Log("nombreSinClone = " + nombreSinClone);
+                ListaColliders.Instance.ModificarTipoPorNombre(nombreSinClone, "Camino");
+                ListaColliders.Instance.ModificarColorPorNombre(nombreSinClone, color);
+                ListaColliders.Instance.ImprimirColliderPorNombre(nombreSinClone);
                 // Almacenar el tipo de objeto que acabamos de colocar
-                comprobarObjeto.tipoObjeto = TipoObjeto.Camino; // Puedes cambiar esto al tipo de objeto que corresponda
-                Debug.Log("puse el tipo del camino a: " + comprobarObjeto.tipoObjeto);
+                //comprobarObjeto.tipoObjeto = TipoObjeto.Camino; // Puedes cambiar esto al tipo de objeto que corresponda
+                //Debug.Log("puse el tipo del camino a: " + comprobarObjeto.tipoObjeto);
             }
             else
             {
                 //Debug.LogError("El objeto " + objetoCollider.gameObject.name + " no tiene un script ComprobarObjeto.");
             }
             Debug.Log("el tipo del camino colocado es " + tipoActual);
-            tipoActual = TipoObjeto.Ninguno;
+            */
+            tipoActual = "Ninguno";
 
         }
         catch (Exception e)
@@ -821,6 +833,7 @@ public class PlayerNetwork : NetworkBehaviour
             var nombresinClone = ListaColliders.Instance.RemoverCloneDeNombre(nombreCollider);
             Debug.Log("CPC PlayerNetwo" + nombresinClone);
             ListaColliders.Instance.ModificarTipoPorNombre(nombresinClone, "Base"); // Aca se debe llamar una serverRpc o como ya es el servidor corriendo no?
+            ListaColliders.Instance.ModificarColorPorNombre(nombresinClone, color);
             ListaColliders.Instance.ImprimirColliderPorNombre(nombresinClone);
             //comprobarObjeto = currentBase.GetComponent<ComprobarObjeto>();
             //comprobarObjeto = objetoBase.gameObject.GetComponent<ComprobarObjeto>();
@@ -849,7 +862,7 @@ public class PlayerNetwork : NetworkBehaviour
             }
             */
             //Debug.Log("el tipo de la base colocada es " + tipoActual);
-            tipoActual = TipoObjeto.Ninguno;
+            tipoActual = "Ninguno";
         }
         catch (Exception e)
         {
@@ -858,7 +871,7 @@ public class PlayerNetwork : NetworkBehaviour
 
     }
     [ServerRpc(RequireOwnership = false)]
-    public void ColocarPuebloServerRpc(string color, string currentpueblo, Vector3 posititon)
+    public void ColocarPuebloServerRpc(string color, string currentpueblo, string nombreCollider, Vector3 posititon)
     {
         try
         {
@@ -868,7 +881,12 @@ public class PlayerNetwork : NetworkBehaviour
             //PlayerPrefs.SetString(colliderName, "collider");
             currentPueblo = Instantiate(objetoPueblo, posititon, Quaternion.identity);
             currentPueblo.GetComponent<NetworkObject>().Spawn();
-            // Obtener el componente ComprobarObjeto del objeto golpeado
+            var nombresinClone = ListaColliders.Instance.RemoverCloneDeNombre(nombreCollider);
+            Debug.Log("CPC PlayerNetwo" + nombresinClone);
+            ListaColliders.Instance.ModificarTipoPorNombre(nombresinClone, "Pueblo"); // Aca se debe llamar una serverRpc o como ya es el servidor corriendo no?
+            ListaColliders.Instance.ModificarColorPorNombre(nombresinClone, color);
+            ListaColliders.Instance.ImprimirColliderPorNombre(nombresinClone);
+            /*// Obtener el componente ComprobarObjeto del objeto golpeado
             comprobarObjeto = objetoPueblo.gameObject.GetComponent<ComprobarObjeto>();
             //Debug.Log("el collider es : " + hit.collider.gameObject.name);
             //Debug.Log("comprobarobjeto al poner la base: " + comprobarObjeto);
@@ -887,8 +905,8 @@ public class PlayerNetwork : NetworkBehaviour
             {
                 //Debug.LogError("El objeto " + objetoCollider.gameObject.name + " no tiene un script ComprobarObjeto.");
             }
-            //Debug.Log("el tipo del pueblo colocado es " + tipoActual);
-            tipoActual = TipoObjeto.Ninguno;
+            //Debug.Log("el tipo del pueblo colocado es " + tipoActual);*/
+            tipoActual = "Ninguno";
         }
         catch (Exception e)
         {

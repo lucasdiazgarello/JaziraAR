@@ -7,7 +7,7 @@ public class ComprobarObjeto : NetworkBehaviour
     //public ColocarPieza objetoColocado; // la referencia al objeto colocado
     public TipoObjeto tipoObjeto; // el tipo de objeto que está colocado
     //public bool esArista;
-    public void CambiarTipoObjeto(string nombre)
+    /*public void CambiarTipoObjeto(string nombre)
     {
         switch (nombre)
         {
@@ -21,5 +21,5 @@ public class ComprobarObjeto : NetworkBehaviour
                 tipoObjeto = TipoObjeto.Pueblo;
                 break;
         }
-    }
+    }*/
 }
