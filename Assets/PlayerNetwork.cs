@@ -205,7 +205,8 @@ public class PlayerNetwork : NetworkBehaviour
             Debug.Log("el jugador con id:" + playerId + "se llama " + nombreHost + " y es el color " + colorHost);
             AgregarJugador(playerId, nombreHost, 100, false, true, 2, 10, 10, 10, 10, 10, colorHost);
             Debug.Log("se agrego jugador host");
-            ImprimirTodosLosJugadores();
+            ImprimirJugadorPorId(playerId);
+            //ImprimirTodosLosJugadores();
             ARCursor.Instance.EnableRecursos();
             BoardManager.Instance.UpdateResourceTexts(playerId);
         }
@@ -220,7 +221,8 @@ public class PlayerNetwork : NetworkBehaviour
             //AgregarJugador(playerId, nombreCliente, 100, false, true, 2, 10, 10, 10, 10, 10, colorCliente); //EL CLIENTE NO DEBE AGREGARJUGADOR, DEBE MANDAR SU DATA AL HOST
             AddPlayerServerRpc(playerId, nombreCliente, 100, false, false, 2, 10, 10, 10, 10, 10, colorCliente);
             Debug.Log("se agrego jugador cliente");
-            ImprimirTodosLosJugadores();
+            ImprimirJugadorPorId(playerId);
+            //ImprimirTodosLosJugadores();
             ARCursor.Instance.EnableRecursos();
             // Desactivar la detección de planos al confirmar la colocación del tablero
             if (ARCursor.Instance.planeManager)
@@ -242,8 +244,9 @@ public class PlayerNetwork : NetworkBehaviour
 
     public void AgregarJugador(int jugadorId, FixedString64Bytes nomJugador, int puntaje, bool gano, bool turno, int cantidadCasa, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, FixedString64Bytes colorJugador)
     {
+
         ImprimirPlayerIDs();
-        Debug.Log($"AgregarJugador: {jugadorId}, {nomJugador}, {puntaje}, {gano}, {turno}, {cantidadCasa}, {maderaCount}, {ladrilloCount}, {ovejaCount}, {piedraCount}, {trigoCount}, {colorJugador}");       
+        Debug.Log($"AgregarJugador: {jugadorId}, {nomJugador}, {puntaje}, {gano}, {turno}, {cantidadCasa}, {maderaCount}, {ladrilloCount}, {ovejaCount}, {piedraCount}, {trigoCount}, {colorJugador}");
         Debug.Log("playerId:" + playerIDs.Count); //.Count dice la cantidad de elementos qeu tiene la lista
         Debug.Log("playerData:" + playerData.Count);
 
@@ -263,11 +266,12 @@ public class PlayerNetwork : NetworkBehaviour
         Debug.Log("Cargue newDatos");
         try
         {
-            Debug.Log("id jugador 2 =" + jugadorId);
-            playerIDs.Add(jugadorId);
-            Debug.Log("Cant elementos de playerId:" + playerIDs.Count);
-            playerData.Add(newDatos);
-            Debug.Log("Cant elementos de playerId:" + playerIDs.Count);         
+            if (!playerIDs.Contains(jugadorId) && jugadorId != 0)
+            {
+                playerIDs.Add(jugadorId);
+                Debug.Log("Cant elementos de playerId:" + playerIDs.Count);
+                playerData.Add(newDatos);
+            }       
         }
         catch (Exception e)
         {
@@ -354,7 +358,7 @@ public class PlayerNetwork : NetworkBehaviour
     }
     public void ImprimirJugadorPorId(int idJugador)
     {
-        Debug.Log("Buscando al jugador con ID: " + idJugador);
+        //Debug.Log("Buscando al jugador con ID: " + idJugador);
         bool encontrado = false;
 
         for (int i = 0; i < playerData.Count; i++)
@@ -466,9 +470,14 @@ public class PlayerNetwork : NetworkBehaviour
             newPlayer.colorJugador = colorJugador;
             // ... y puedes agregar los demás valores predeterminados aquí
             Debug.Log("Se va a unir usando AddPlayerServerRpc");
-
-            playerData.Add(newPlayer);
-            playerIDs.Add(newPlayer.jugadorId);
+            if (!playerIDs.Contains(jugadorId) && jugadorId != 0)
+            {
+                playerIDs.Add(jugadorId);
+                Debug.Log("Cant elementos de playerId:" + playerIDs.Count);
+                playerData.Add(newPlayer);
+            }
+            //playerData.Add(newPlayer);
+            //playerIDs.Add(newPlayer.jugadorId);
             ImprimirPlayerIDs();
             ImprimirTodosLosJugadores();
             Debug.Log("Termino AddPlayerServerRpc");
@@ -762,11 +771,6 @@ public class PlayerNetwork : NetworkBehaviour
         return (playerIDs[currentTurnIndex] == clientId);
     }
 
-    [ServerRpc(RequireOwnership = false)]
-    public void PruebaServerRpc()
-    {
-        Debug.Log("Entre a la prueba");
-    }
     [ServerRpc(RequireOwnership = false)]
     public void ColocarCaminoServerRpc(string color, string currentcamino, string nombreCollider, Vector3 posititon, Quaternion rotation)
     {
