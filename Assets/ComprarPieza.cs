@@ -14,7 +14,6 @@ public class ComprarPieza : NetworkBehaviour
 
     void Start()
     {
-        // Desactivamos los botones por defecto al inicio.
         UpdateComprarCaminoButton();
         UpdateComprarBaseButton();
         UpdateComprarPuebloButton();
@@ -73,7 +72,6 @@ public class ComprarPieza : NetworkBehaviour
         else
         {
             PlayerNetwork.Instance.ComprarCaminoServerRpc(PlayerPrefs.GetInt("jugadorId"));
-            UpdateComprarCaminoButtonClientRpc();
         }
         colocarPieza.caminosRestantes++;
         colocarPieza.buttonCamino.interactable = true;
@@ -100,7 +98,6 @@ public class ComprarPieza : NetworkBehaviour
         else
         {
             PlayerNetwork.Instance.ComprarBaseServerRpc(PlayerPrefs.GetInt("jugadorId"));
-            UpdateComprarBaseButtonClientRpc();
         }
         colocarPieza.basesRestantes++;
         colocarPieza.buttonBase.interactable = true;
@@ -125,7 +122,6 @@ public class ComprarPieza : NetworkBehaviour
         else
         {
             PlayerNetwork.Instance.ComprarPuebloServerRpc(PlayerPrefs.GetInt("jugadorId"));
-            UpdateComprarPuebloButtonClientRpc();
         }
         colocarPieza.pueblosRestantes++;
         colocarPieza.buttonPueblo.interactable = true;

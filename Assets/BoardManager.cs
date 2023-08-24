@@ -1,9 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Drawing;
 using TMPro;
+using Unity.Collections;
 using Unity.Netcode;
 using Unity.Services.Authentication;
 using UnityEngine;
 using UnityEngine.UI;
+using static PlayerNetwork;
 //using static PlayerNetwork;
 
 public class BoardManager : NetworkBehaviour
@@ -42,10 +45,19 @@ public class BoardManager : NetworkBehaviour
         // Actualiza los textos de recursos para el jugador al inicio.
         //UpdateResourceTexts(jugadorId);
     }
-
-    public void ManejoParcelas(int diceNumber, int idJugador)
+    public override void OnNetworkSpawn()
     {
-        Debug.Log("Manejo Parcelas ID: " + idJugador);
+        if (IsServer)
+        {
+
+        }
+        else
+        {
+
+        }
+    }
+    public void ManejoParcelas(int diceNumber)
+    {
         // Obtener las parcelas correspondientes al número del dado.
         string parcelName = "Parcela " + diceNumber.ToString();
         Debug.Log("parcelaName: " + parcelName);
@@ -144,6 +156,7 @@ public class BoardManager : NetworkBehaviour
                 var colorCollider = ListaColliders.Instance.GetColorPorNombre(empty.name).ToString();
                 Debug.Log("tipocollider es " + tipoCollider);
                 Debug.Log("colorcollider es " + colorCollider);
+                int idJugador = PlayerNetwork.Instance.GetPlayerByColor(colorCollider);
                 if (colorCollider != "Vacio")
                 {
                     switch (tipoCollider)
@@ -155,10 +168,10 @@ public class BoardManager : NetworkBehaviour
                             Debug.Log("Camino");
                             break;
                         case "Base":    // Aquí se hace uso del tipo enumerado TipoObjeto
-                            Debug.Log("Sumar a la Base 1 de " + recurso1);
-                            Debug.Log("Id jugador que va a AumentarRecursos " + idJugador);
+                            Debug.Log("Sumar a la Base 1 de " + recurso1);                           
                             PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso1, 1);
-                            Instance.UpdateResourceTexts(idJugador);
+                            //UpdateResourceTexts(idJugador);
+                            UpdateResources(idJugador);
                             PlayerNetwork.Instance.ImprimirJugadorPorId(idJugador);
                             Debug.Log("ya sumo recurso " + recurso1);
                             break;
@@ -166,7 +179,8 @@ public class BoardManager : NetworkBehaviour
                             Debug.Log("Sumar Pueblo 2 de " + recurso1);
                             Debug.Log("Id jugador que va a AumentarRecursos " + idJugador);
                             PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso1, 2);
-                            Instance.UpdateResourceTexts(idJugador);
+                            //UpdateResourceTexts(idJugador);
+                            UpdateResources(idJugador);
                             PlayerNetwork.Instance.ImprimirJugadorPorId(idJugador);
                             Debug.Log("ya sumo recurso " + recurso1);
                             break;
@@ -187,6 +201,7 @@ public class BoardManager : NetworkBehaviour
                 var colorCollider = ListaColliders.Instance.GetColorPorNombre(empty.name).ToString();
                 Debug.Log("tipocollider es " + tipoCollider);
                 Debug.Log("colorcollider es " + colorCollider);
+                int idJugador = PlayerNetwork.Instance.GetPlayerByColor(colorCollider);
                 if (colorCollider != "Vacio")
                 {
                     switch (tipoCollider)
@@ -199,9 +214,9 @@ public class BoardManager : NetworkBehaviour
                             break;
                         case "Base":    // Aquí se hace uso del tipo enumerado TipoObjeto
                             Debug.Log("Sumar a la Base 1 de " + recurso1);
-                            Debug.Log("Id jugador que va a AumentarRecursos " + idJugador);
                             PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso1, 1);
-                            Instance.UpdateResourceTexts(idJugador);
+                            //Instance.UpdateResourceTexts(idJugador);
+                            UpdateResources(idJugador);
                             PlayerNetwork.Instance.ImprimirJugadorPorId(idJugador);
                             Debug.Log("ya sumo recurso " + recurso1);
                             break;
@@ -209,7 +224,8 @@ public class BoardManager : NetworkBehaviour
                             Debug.Log("Sumar Pueblo 2 de " + recurso1);
                             Debug.Log("Id jugador que va a AumentarRecursos " + idJugador);
                             PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso1, 2);
-                            Instance.UpdateResourceTexts(idJugador);
+                            //Instance.UpdateResourceTexts(idJugador);
+                            UpdateResources(idJugador);
                             PlayerNetwork.Instance.ImprimirJugadorPorId(idJugador);
                             Debug.Log("ya sumo recurso " + recurso1);
                             break;
@@ -227,6 +243,7 @@ public class BoardManager : NetworkBehaviour
                 var colorCollider = ListaColliders.Instance.GetColorPorNombre(empty.name).ToString();
                 Debug.Log("tipocollider es " + tipoCollider);
                 Debug.Log("colorcollider es " + colorCollider);
+                int idJugador = PlayerNetwork.Instance.GetPlayerByColor(colorCollider);
                 if (colorCollider != "Vacio")
                 {
                     switch (tipoCollider)
@@ -241,7 +258,8 @@ public class BoardManager : NetworkBehaviour
                             Debug.Log("Sumar a la Base 1 de " + recurso2);
                             Debug.Log("Id jugador que va a AumentarRecursos " + idJugador);
                             PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso2, 1);
-                            Instance.UpdateResourceTexts(idJugador);
+                            //Instance.UpdateResourceTexts(idJugador);
+                            UpdateResources(idJugador);
                             PlayerNetwork.Instance.ImprimirJugadorPorId(idJugador);
                             Debug.Log("ya sumo recurso " + recurso2);
                             break;
@@ -249,7 +267,8 @@ public class BoardManager : NetworkBehaviour
                             Debug.Log("Sumar Pueblo 2 de " + recurso2);
                             Debug.Log("Id jugador que va a AumentarRecursos " + idJugador);
                             PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso2, 2);
-                            Instance.UpdateResourceTexts(idJugador);
+                            //Instance.UpdateResourceTexts(idJugador);
+                            UpdateResources(idJugador);
                             PlayerNetwork.Instance.ImprimirJugadorPorId(idJugador);
                             Debug.Log("ya sumo recurso " + recurso2);
                             break;
@@ -292,7 +311,7 @@ public class BoardManager : NetworkBehaviour
         //PlayerNetwork.Instance.playerData[jugador.jugadorId] = jugador;
         //Debug.Log("Impimir del UpdateResourceBase");
         //PlayerNetwork.Instance.ImprimirJugador(PlayerNetwork.Instance.playerData[indexJugador]);
-        UpdateResourceTexts(indexJugador);
+        UpdateResources(indexJugador);
     }
     public void UpdateResourcesBase(PlayerNetwork.DatosJugador jugador) //se usa para disminuir los recursos solamente
     {
@@ -329,7 +348,7 @@ public class BoardManager : NetworkBehaviour
         //PlayerNetwork.Instance.playerData[jugador.jugadorId] = jugador;
         //Debug.Log("Impimir del UpdateResourceBase");
         //PlayerNetwork.Instance.ImprimirJugador(PlayerNetwork.Instance.playerData[indexJugador]);
-        UpdateResourceTexts(indexJugador);
+        UpdateResources(indexJugador);
     }
     public void UpdateResourcesPueblo(PlayerNetwork.DatosJugador jugador) //se usa para disminuir los recursos solamente
     {
@@ -364,7 +383,15 @@ public class BoardManager : NetworkBehaviour
         //PlayerNetwork.Instance.playerData[jugador.jugadorId] = jugador;
         //Debug.Log("Impimir del UpdateResourceBase");
         //PlayerNetwork.Instance.ImprimirJugador(PlayerNetwork.Instance.playerData[indexJugador]);
-        UpdateResourceTexts(indexJugador);
+        UpdateResources(indexJugador);
+    }
+    public void UpdateResources(int jugadorId)
+    {
+        UpdateResourceTexts(jugadorId);
+        foreach (PlayerNetwork.DatosJugador player in PlayerNetwork.Instance.playerData)
+        {
+            PlayerNetwork.Instance.UpdateResourcesTextClientRpc(player);
+        }
     }
     public void UpdateResourceTexts(int jugadorId)
     {
@@ -396,8 +423,33 @@ public class BoardManager : NetworkBehaviour
         else
         {
             Debug.Log("Cliente a UpdateResourceTexts con ID " + jugadorId);
-            PlayerNetwork.Instance.UpdateResourceTextsServerRpc(jugadorId);
+            PlayerNetwork.Instance.UpdateResourceTextsClientRpc(jugadorId); //Esto deberia ser client?
         }     
     }
+    /*[ClientRpc]
+    public void UpdateResourceTextsClientRpc(int jugadorId)
+    {
+        Debug.Log("Entre a UpdateResourceTextsClientRpc con ID " + jugadorId);
+        //BoardManager.Instance.UpdateResourceTexts(jugadorId);
+        //Debug.Log("Termino UpdateResourceTextsServerRpc");
+        //Debug.Log("Entre a UpdateResourceTexts con ID " + jugadorId);
+        PlayerNetwork.DatosJugador datosJugador = default;
+        // Itera sobre los elementos de playerData para encontrar los datos del jugador
+        for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+        {
+            if (PlayerNetwork.Instance.playerData[i].jugadorId == jugadorId)
+            {
+                datosJugador = PlayerNetwork.Instance.playerData[i];
+                break;
+            }
+        }
+        // Actualiza los textos de los recursos
+        MaderaCountText.text = datosJugador.maderaCount.ToString();
+        LadrilloCountText.text = datosJugador.ladrilloCount.ToString();
+        OvejaCountText.text = datosJugador.ovejaCount.ToString();
+        PiedraCountText.text = datosJugador.piedraCount.ToString();
+        TrigoCountText.text = datosJugador.trigoCount.ToString();
+        Debug.Log("Termino UpdateResourceTextsServerRpc");
+    }*/
 
 }

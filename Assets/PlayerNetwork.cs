@@ -13,6 +13,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 //using UnityEngine.InputSystem.OSX;
 using UnityEngine.UI;
+using static PlayerNetwork;
 
 public class PlayerNetwork : NetworkBehaviour
 {
@@ -211,7 +212,6 @@ public class PlayerNetwork : NetworkBehaviour
             Debug.Log("Entre como cliente de OnNetworkSpawn");
             int playerId = PlayerPrefs.GetInt("jugadorId");
             Debug.Log("id jugador 1 =" + playerId);
-
             FixedString64Bytes nombreCliente = new FixedString64Bytes(PlayerPrefs.GetString("nomJugador"));
             FixedString64Bytes colorCliente = new FixedString64Bytes(PlayerPrefs.GetString("colorJugador"));
             Debug.Log("el cliente con id:" + playerId + "se llama " + nombreCliente + " y es el color " + colorCliente);
@@ -233,7 +233,8 @@ public class PlayerNetwork : NetworkBehaviour
                 // planeManager.planeDetectionMode = PlaneDetectionMode.None;
             }
             //UpdateResourceTextsServerRpc(playerId);
-            BoardManager.Instance.UpdateResourceTexts(playerId);
+            PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(playerId);
+            PlayerNetwork.Instance.UpdateResourcesTextClientRpc(jugador);
         }
     }
 
@@ -391,23 +392,17 @@ public class PlayerNetwork : NetworkBehaviour
             Debug.Log("----------------------------------------------------");
         }
     }
-    public void CargarDatosJugador(int jugadorId, string nomJugador, int puntaje, int cantidadJugadores, bool gano, bool turno, int cantidadCasa, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, string colorJugador)
+    public int GetPlayerByColor(string color)
     {
-        DatosJugador newDatos = new DatosJugador();
-        newDatos.jugadorId = jugadorId;
-        newDatos.nomJugador = new FixedString64Bytes(nomJugador ?? string.Empty); // si es null, asigna una cadena vacía
-        newDatos.puntaje = puntaje;
-        newDatos.gano = gano;
-        newDatos.turno = turno;
-        newDatos.cantidadCasa = cantidadCasa;
-        newDatos.maderaCount = maderaCount;
-        newDatos.ladrilloCount = ladrilloCount;
-        newDatos.ovejaCount = ovejaCount;
-        newDatos.piedraCount = piedraCount;
-        newDatos.trigoCount = trigoCount;
-        newDatos.colorJugador = new FixedString64Bytes(colorJugador ?? string.Empty); // si es null, asigna una cadena vacía
-
-        jugador.Value = newDatos;
+        var id = 0;
+        foreach (DatosJugador jugador in playerData)
+        {
+            if (jugador.colorJugador.ToString() == color)
+            {
+                id = jugador.jugadorId;
+            }
+        }
+        return id;
     }
 
     public int GetPlayerId(DatosJugador jugador)
@@ -687,10 +682,10 @@ public class PlayerNetwork : NetworkBehaviour
         Debug.Log("Jugador " + playerData[indexJugador].jugadorId + " ahora tiene " + playerData[indexJugador].piedraCount + "piedras ");    
     }
 
-    [ServerRpc(RequireOwnership = false)]
-    public void UpdateResourceTextsServerRpc(int jugadorId)
+    [ClientRpc]
+    public void UpdateResourceTextsClientRpc(int jugadorId)
     {
-        Debug.Log("Entre a UpdateResourceTextsServerRpc con ID "+ jugadorId);
+        Debug.Log("Entre a UpdateResourceTextsClientRpc con ID "+ jugadorId);
         //BoardManager.Instance.UpdateResourceTexts(jugadorId);
         //Debug.Log("Termino UpdateResourceTextsServerRpc");
         //Debug.Log("Entre a UpdateResourceTexts con ID " + jugadorId);
@@ -704,11 +699,6 @@ public class PlayerNetwork : NetworkBehaviour
                 break;
             }
         }
-        /*if (datosJugador.jugadorId == 0)  // Suponiendo que 0 no es un ID de jugador v�lido
-        {
-            Debug.LogError("Jugador con ID " + jugadorId + " no encontrado.");
-            return;
-        }*/
         // Actualiza los textos de los recursos
         BoardManager.Instance.MaderaCountText.text = datosJugador.maderaCount.ToString();
         Debug.Log("madera: " + datosJugador.maderaCount.ToString());
@@ -917,65 +907,133 @@ public class PlayerNetwork : NetworkBehaviour
     public void ComprarCaminoServerRpc(int jugadorId)
     {
         Debug.Log("Entro a comprarCaminoServerRpc");
-
-        // Utilizar las NetworkVariable aquí:
-        int madera = PlayerNetwork.Instance.maderaCount.Value;
-        int ladrillo = PlayerNetwork.Instance.ladrilloCount.Value;
-
-        if (madera >= 1 && ladrillo >= 1)
+        PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(jugadorId);
+        if (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1 )
         {
-            PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(jugadorId);
             // Restar recursos
-            // Aquí asumo que UpdateResourcesCamino también está actualizado para aceptar el jugadorId y usar NetworkVariable dentro de él.
-            BoardManager.Instance.UpdateResourcesCamino(jugador);
+            int indexJugador = -1;
+            bool jugadorEncontrado = false;
 
-            // Actualizar la UI del cliente con la nueva cantidad de recursos
-            UpdateClientResourcesClientRpc(jugadorId);
+            // Búsqueda del jugador en la lista playerData
+            for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+            {
+                //Debug.Log("La lista Ids es " + playerData[i].jugadorId);
+                if (PlayerNetwork.Instance.playerData[i].jugadorId == jugador.jugadorId)
+                {
+                    jugadorEncontrado = true;
+                    indexJugador = i;
+                    Debug.Log("Jugador encontrado en la posición: " + i);
+                    break;
+                }
+            }
+            if (!jugadorEncontrado)
+            {
+                Debug.Log("Jugador no encontrado en la lista playerData");
+                return;
+            }
+            // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
+            PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
+            // Aquí es donde actualizarías los recursos del jugador en tu juego.
+            jugadorcopia.maderaCount -= 1;
+            jugadorcopia.ladrilloCount -= 1;
+            PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+            PlayerNetwork.Instance.UpdateResourcesTextClientRpc(jugador);
         }
     }
 
     [ServerRpc(RequireOwnership = false)]
     public void ComprarBaseServerRpc(int jugadorId)
     {
-        Debug.Log("Entro a comprarBaseServerRpc");
+        Debug.Log("Entro a comprarBaseServerRpc con ID " + jugadorId);
         PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(jugadorId);
-
         if (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1 && jugador.trigoCount >= 1 && jugador.ovejaCount >= 1)
         {
             // Restar recursos
-            BoardManager.Instance.UpdateResourcesBase(jugador);
+            int indexJugador = -1;
+            bool jugadorEncontrado = false;
 
-            // Actualizar la UI del cliente con la nueva cantidad de recursos
-            UpdateClientResourcesClientRpc(jugadorId);
+            // Búsqueda del jugador en la lista playerData
+            for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+            {
+                //Debug.Log("La lista Ids es " + playerData[i].jugadorId);
+                if (PlayerNetwork.Instance.playerData[i].jugadorId == jugador.jugadorId)
+                {
+                    jugadorEncontrado = true;
+                    indexJugador = i;
+                    Debug.Log("Jugador encontrado en la posición: " + i);
+                    break;
+                }
+            }
+            if (!jugadorEncontrado)
+            {
+                Debug.Log("Jugador no encontrado en la lista playerData");
+                return;
+            }
+            // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
+            PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
+            // Aquí es donde actualizarías los recursos del jugador en tu juego.
+            jugadorcopia.maderaCount -= 1;
+            jugadorcopia.ladrilloCount -= 1;
+            jugadorcopia.trigoCount -= 1;
+            jugadorcopia.ovejaCount -= 1;
+            PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+            PlayerNetwork.Instance.UpdateResourcesTextClientRpc(jugador);
         }
     }
+
     [ServerRpc(RequireOwnership = false)]
     public void ComprarPuebloServerRpc(int jugadorId)
     {
-        Debug.Log("Entro a comprarPuebloServerRpc");
+        Debug.Log("Entro a comprarBaseServerRpc con ID " + jugadorId);
         PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(jugadorId);
-
         if (jugador.trigoCount >= 3 && jugador.piedraCount >= 2)
         {
             // Restar recursos
-            BoardManager.Instance.UpdateResourcesPueblo(jugador);
+            int indexJugador = -1;
+            bool jugadorEncontrado = false;
 
-            // Actualizar la UI del cliente con la nueva cantidad de recursos
-            UpdateClientResourcesClientRpc(jugadorId);
+            // Búsqueda del jugador en la lista playerData
+            for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+            {
+                //Debug.Log("La lista Ids es " + playerData[i].jugadorId);
+                if (PlayerNetwork.Instance.playerData[i].jugadorId == jugador.jugadorId)
+                {
+                    jugadorEncontrado = true;
+                    indexJugador = i;
+                    Debug.Log("Jugador encontrado en la posición: " + i);
+                    break;
+                }
+            }
+            if (!jugadorEncontrado)
+            {
+                Debug.Log("Jugador no encontrado en la lista playerData");
+                return;
+            }
+            // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
+            PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
+            // Aquí es donde actualizarías los recursos del jugador en tu juego.
+            jugadorcopia.trigoCount -= 3;
+            jugadorcopia.piedraCount -= 2;
+            PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+            PlayerNetwork.Instance.UpdateResourcesTextClientRpc(jugador);
         }
     }
     [ClientRpc]
-    public void UpdateClientResourcesClientRpc(int jugadorId)
+    public void UpdateResourcesTextClientRpc(DatosJugador jugador)
     {
-        if (PlayerPrefs.GetInt("jugadorId") == jugadorId)
-        {
-            BoardManager.Instance.UpdateResourceTexts(jugadorId);
-        }
+        Debug.Log("Entre a UpdateResourcesTextClientRpc");
+        BoardManager.Instance.MaderaCountText.text = jugador.maderaCount.ToString();
+        BoardManager.Instance.LadrilloCountText.text = jugador.ladrilloCount.ToString();
+        BoardManager.Instance.OvejaCountText.text = jugador.ovejaCount.ToString();
+        BoardManager.Instance.PiedraCountText.text = jugador.piedraCount.ToString();
+        BoardManager.Instance.TrigoCountText.text = jugador.trigoCount.ToString();
     }
+
+
     [ServerRpc(RequireOwnership = false)]
-    public void TirarDadosServerRpc(int idJugador)
+    public void TirarDadosServerRpc()
     {
-        Debug.Log("Entro a TirarDadosServerRpc con ID "+idJugador);
+        Debug.Log("Entro a TirarDadosServerRpc");
         // NO BORRAR ESTO COMENTADO POR SI SURGE DENUEVO EL TEMA DE LOS DADOS
         // Si el tablero no está colocado, regresar
         if (!ARCursor.Instance.isBoardPlaced) return;
@@ -1031,15 +1089,8 @@ public class PlayerNetwork : NetworkBehaviour
         //int playerId = PlayerPrefs.GetInt("jugadorId");
         //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
         //Debug.Log("el id que toco TirarDados es" + currentPlayerID);
-        ManejoParcelasServerRpc(DiceNumberTextScript.Instance.randomDiceNumber, idJugador);
+        BoardManager.Instance.ManejoParcelas(DiceNumberTextScript.Instance.randomDiceNumber);
         //tirarDadoButton.interactable = false;
-    }
-    [ServerRpc(RequireOwnership = false)]
-    public void ManejoParcelasServerRpc(int num, int jugadorId)
-    {
-        Debug.Log("Cliente - ManejoParcelasServerRpcs ID "+jugadorId);
-        BoardManager.Instance.ManejoParcelas(num, jugadorId);
-
     }
 
     public DatosJugador? GetPlayerByColor(FixedString64Bytes color)

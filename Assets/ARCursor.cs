@@ -192,6 +192,8 @@ public class ARCursor : NetworkBehaviour
             colocarPieza.enabled = true;
         }*/
         EnableRecursos();
+        int playerId = PlayerPrefs.GetInt("jugadorId");
+        BoardManager.Instance.UpdateResources(playerId);
         // Desactivar la detección de planos al confirmar la colocación del tablero
         if (planeManager)
         {
@@ -280,7 +282,8 @@ public class ARCursor : NetworkBehaviour
             DiceNumberTextScript.Instance.DarResultadoRandom();
             int hostPlayerID = PlayerPrefs.GetInt("jugadorId"); // Este en este caso por ser server esta bien tomar este id asi
             Debug.Log("el id que toco TirarDados es" + hostPlayerID);
-            BoardManager.Instance.ManejoParcelas(DiceNumberTextScript.Instance.randomDiceNumber, hostPlayerID);
+            BoardManager.Instance.ManejoParcelas(DiceNumberTextScript.Instance.randomDiceNumber);
+            
             //tirarDadoButton.interactable = false;
         }
         else
@@ -288,10 +291,11 @@ public class ARCursor : NetworkBehaviour
             Debug.Log("Tiro dados como cliente");
             //obtener id del jugador cliente qeu toco el boton 
             int idJugador = PlayerPrefs.GetInt("jugadorId");
+            PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(idJugador);
             Debug.Log("Cliente va a UpdateResourceTexts con ID antes de tirar dados" + idJugador);
-            PlayerNetwork.Instance.UpdateResourceTextsServerRpc(idJugador);
+            PlayerNetwork.Instance.UpdateResourcesTextClientRpc(jugador);
             Debug.Log("el id que toco TirarDados es" + idJugador);
-            PlayerNetwork.Instance.TirarDadosServerRpc(idJugador);
+            PlayerNetwork.Instance.TirarDadosServerRpc();
         }
 
     }
