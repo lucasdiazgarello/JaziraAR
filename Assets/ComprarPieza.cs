@@ -26,32 +26,6 @@ public class ComprarPieza : NetworkBehaviour
         //UpdateComprarPuebloButton();
     }
 
-    /*public void ComprarCamino()
-    {
-        Debug.Log("ComprarCamino");
-        if (NetworkManager.Singleton.IsServer)
-        {
-            int id = PlayerPrefs.GetInt("jugadorId");
-            PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
-            PlayerNetwork.Instance.ImprimirJugador(jugador);
-            if (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1)
-            {
-                BoardManager.Instance.UpdateResourcesCamino(jugador);
-                BoardManager.Instance.UpdateResourceTexts(id);
-
-                Debug.Log("Imprimir jugador por ID post ");
-                PlayerNetwork.Instance.ImprimirJugadorPorId(id);
-                UpdateComprarCaminoButton();
-            }
-        }
-        else
-        {
-            PlayerNetwork.Instance.ComprarCaminoServerRpc(PlayerPrefs.GetInt("jugadorId"));
-            UpdateComprarCaminoButtonClientRpc();
-        }
-        colocarPieza.caminosRestantes++;
-        colocarPieza.buttonCamino.interactable = true;
-    }*/
     public void ComprarCamino()
     {
         Debug.Log("ComprarCamino");
@@ -137,7 +111,7 @@ public class ComprarPieza : NetworkBehaviour
         }
         else
         {
-            UpdateComprarCaminoButtonClientRpc();
+            PlayerNetwork.Instance.UpdateComprarCaminoButtonClientRpc();
         }
     }
     void UpdateComprarBaseButton()
@@ -150,7 +124,7 @@ public class ComprarPieza : NetworkBehaviour
         }
         else
         {
-            UpdateComprarBaseButtonClientRpc();
+            PlayerNetwork.Instance.UpdateComprarBaseButtonClientRpc();
         }
     }
     void UpdateComprarPuebloButton()
@@ -163,33 +137,8 @@ public class ComprarPieza : NetworkBehaviour
         }
         else
         {
-            UpdateComprarPuebloButtonClientRpc();
+            PlayerNetwork.Instance.UpdateComprarPuebloButtonClientRpc();
         }
     }
-    [ClientRpc]
-    void UpdateComprarCaminoButtonClientRpc()
-    {
-        Debug.Log("UpdateComprarCaminoButtonClientRpc");
-        int id = PlayerPrefs.GetInt("jugadorId");
-        PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
-
-        comprarCaminoButton.interactable = (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1);
-    }
-    [ClientRpc]
-    void UpdateComprarBaseButtonClientRpc()
-    {
-        Debug.Log("UpdateBaseCaminoButtonClientRpc");
-        int id = PlayerPrefs.GetInt("jugadorId");
-        PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
-
-        comprarBaseButton.interactable = (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1 && jugador.trigoCount >= 1 && jugador.ovejaCount >= 1);
-    }
-    [ClientRpc]
-    void UpdateComprarPuebloButtonClientRpc()
-    {
-        Debug.Log("UpdatePuebloCaminoButtonClientRpc");
-        int id = PlayerPrefs.GetInt("jugadorId");
-        PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
-        comprarPuebloButton.interactable = (jugador.piedraCount >= 2 && jugador.trigoCount >= 3);
-    }
+    
 }

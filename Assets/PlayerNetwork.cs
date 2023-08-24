@@ -35,7 +35,9 @@ public class PlayerNetwork : NetworkBehaviour
     private GameObject currentBase;
     private GameObject currentCamino;
     private GameObject currentPueblo;
-    //public TipoObjeto tipoActual;
+    private GameObject comprarCaminoButton;
+    private GameObject comprarBaseButton;
+    private GameObject comprarPuebloButton;
     public string tipoActual;
     public Button confirmBaseButton;
     //private bool canPlace = false;
@@ -1103,6 +1105,36 @@ public class PlayerNetwork : NetworkBehaviour
             }
         }
         return null; // devuelve null si no se encontró un jugador con ese color
+    }
+    [ClientRpc]
+    public void UpdateComprarCaminoButtonClientRpc()
+    {
+        Debug.Log("UpdateComprarCaminoButtonClientRpc");
+        int id = PlayerPrefs.GetInt("jugadorId");
+        PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
+        comprarCaminoButton = GameObject.Find("Comprar Camino");
+        Button componente = comprarCaminoButton.GetComponent<Button>();
+        componente.interactable = (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1);
+    }
+    [ClientRpc]
+    public void UpdateComprarBaseButtonClientRpc()
+    {
+        Debug.Log("UpdateBaseCaminoButtonClientRpc");
+        int id = PlayerPrefs.GetInt("jugadorId");
+        PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
+        comprarBaseButton = GameObject.Find("Comprar Base");
+        Button componente = comprarCaminoButton.GetComponent<Button>();
+        componente.interactable = (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1 && jugador.trigoCount >= 1 && jugador.ovejaCount >= 1);
+    }
+    [ClientRpc]
+    public void UpdateComprarPuebloButtonClientRpc()
+    {
+        Debug.Log("UpdatePuebloCaminoButtonClientRpc");
+        int id = PlayerPrefs.GetInt("jugadorId");
+        PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
+        comprarPuebloButton = GameObject.Find("Comprar Pueblo");
+        Button componente = comprarCaminoButton.GetComponent<Button>();
+        componente.interactable = (jugador.piedraCount >= 2 && jugador.trigoCount >= 3);
     }
 
 }
