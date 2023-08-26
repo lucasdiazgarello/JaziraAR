@@ -203,7 +203,7 @@ public class PlayerNetwork : NetworkBehaviour
             FixedString64Bytes nombreHost = new FixedString64Bytes(PlayerPrefs.GetString("nomJugador"));
             FixedString64Bytes colorHost = new FixedString64Bytes(PlayerPrefs.GetString("colorJugador"));
             Debug.Log("el jugador con id:" + playerId + "se llama " + nombreHost + " y es el color " + colorHost);
-            AgregarJugador(playerId, nombreHost, 100, false, false, 2, 10, 10, 10, 10, 10, colorHost);
+            AgregarJugador(playerId, nombreHost, 0, false, true, 2, 10, 10, 10, 10, 10, colorHost);
             Debug.Log("se agrego jugador host");
             ImprimirJugadorPorId(playerId);
             //ImprimirTodosLosJugadores();
@@ -219,7 +219,7 @@ public class PlayerNetwork : NetworkBehaviour
             FixedString64Bytes colorCliente = new FixedString64Bytes(PlayerPrefs.GetString("colorJugador"));
             Debug.Log("el cliente con id:" + playerId + "se llama " + nombreCliente + " y es el color " + colorCliente);
             //AgregarJugador(playerId, nombreCliente, 100, false, true, 2, 10, 10, 10, 10, 10, colorCliente); //EL CLIENTE NO DEBE AGREGARJUGADOR, DEBE MANDAR SU DATA AL HOST
-            AddPlayerServerRpc(playerId, nombreCliente, 100, false, false, 2, 10, 10, 10, 10, 10, colorCliente);
+            AddPlayerServerRpc(playerId, nombreCliente, 0, false, false, 2, 10, 10, 10, 10, 10, colorCliente);
             Debug.Log("se agrego jugador cliente");
             ImprimirJugadorPorId(playerId);
             //ImprimirTodosLosJugadores();
@@ -396,6 +396,27 @@ public class PlayerNetwork : NetworkBehaviour
             Debug.Log("Cuenta de Trigo: " + jugadorActual.trigoCount);
             Debug.Log("Color de Jugador: " + jugadorActual.colorJugador.ToString());
             Debug.Log("----------------------------------------------------");
+        }        if (PlayerNetwork.Instance.IsMyTurn(PlayerPrefs.GetInt("jugadorId")))
+        {
+            //Debug.Log("Es mi TURNO");
+
+            var caminoButton = comprarCaminoButton.GetComponent<Button>();
+            var baseButton = comprarCaminoButton.GetComponent<Button>();
+            var puebloButton = comprarCaminoButton.GetComponent<Button>();
+            caminoButton.interactable = true;
+            baseButton.interactable = true;
+            puebloButton.interactable = true;
+            //terminarTurnoButton.interactable = true;
+        }
+        else
+        {
+            var caminoButton = comprarCaminoButton.GetComponent<Button>();
+            var baseButton = comprarCaminoButton.GetComponent<Button>();
+            var puebloButton = comprarCaminoButton.GetComponent<Button>();
+            caminoButton.interactable = false;
+            baseButton.interactable = false;
+            puebloButton.interactable = false;
+            //terminarTurnoButton.interactable = false;
         }
     }
     public int GetPlayerByColor(string color)
@@ -1115,7 +1136,54 @@ public class PlayerNetwork : NetworkBehaviour
         return null; // devuelve null si no se encontró un jugador con ese color
     }
 
-    public bool GetTurnByPlayerId(int id)
+
+    public void SetPuntajebyId(int id, int pieza)
+    {
+        Debug.Log("Entre a SetPuntajebyId");
+        int indexJugador = -1;
+        bool jugadorEncontrado = false;
+
+        // Búsqueda del jugador en la lista playerData
+        for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+        {
+            //Debug.Log("La lista Ids es " + playerData[i].jugadorId);
+            if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
+            {
+                jugadorEncontrado = true;
+                indexJugador = i;
+                Debug.Log("Jugador encontrado en la posición: " + i);
+                break;
+            }
+        }
+        if (!jugadorEncontrado)
+        {
+            Debug.Log("Jugador no encontrado en la lista playerData");
+            return;
+        }
+        // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
+        PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
+        // Aquí es donde actualizarías los recursos del jugador en tu juego.
+        if (pieza == 1)
+        {
+            jugadorcopia.puntaje = jugadorcopia.puntaje + 1;
+        }
+        else if (pieza == 2)
+        {
+            jugadorcopia.puntaje = jugadorcopia.puntaje + 2;
+        }
+
+        PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+        Debug.Log("Imprimo jugador luego de sumar puntos");
+        ImprimirJugadorPorId(id);
+
+    }
+    [ServerRpc(RequireOwnership = false)]
+    public void SetPuntajebyIdServerRpc(int id,int pieza)
+    {
+        SetPuntajebyId(id,pieza);
+
+    }
+   /* public bool GetTurnByPlayerId(int id)
     {
         var esturno = false;
         foreach (DatosJugador jugador in playerData)
@@ -1126,7 +1194,7 @@ public class PlayerNetwork : NetworkBehaviour
             }
         }
         return esturno; // devuelve null si no se encontró un jugador con ese color
-    }
+    }*/
     [ClientRpc]
     public void UpdateComprarCaminoButtonClientRpc()
     {

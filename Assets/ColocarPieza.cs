@@ -353,6 +353,7 @@ public class ColocarPieza : NetworkBehaviour
     public void EjecutarColocarBase(RaycastHit hit, string color, string currentPrefabBase)
     {
         Debug.Log("EntroColocar 2");
+        int id = PlayerPrefs.GetInt("jugadorId");
         var objetoBase = Resources.Load(currentPrefabBase) as GameObject;
         currentBase = Instantiate(objetoBase, hit.collider.gameObject.transform.position, Quaternion.identity);
         currentBase.GetComponent<NetworkObject>().Spawn();
@@ -363,6 +364,18 @@ public class ColocarPieza : NetworkBehaviour
         ListaColliders.Instance.ModificarTipoPorNombre(nombreSinClone, "Base");
         ListaColliders.Instance.ModificarColorPorNombre(nombreSinClone, color);
         ListaColliders.Instance.ImprimirColliderPorNombre(nombreSinClone);
+        if (NetworkManager.Singleton.IsServer)
+        {
+            PlayerNetwork.Instance.SetPuntajebyId(id, 1);
+        }
+        else // si es un cliente
+        {
+            Debug.Log("Antes de SetPuntajebyIdServerRpc");
+            PlayerNetwork.Instance.SetPuntajebyIdServerRpc(id, 1);
+            Debug.Log("Despues de SetPuntajebyIdServerRpc");
+        }
+
+
         /*comprobarObjeto = hit.collider.gameObject.GetComponent<ComprobarObjeto>();      
         if (comprobarObjeto != null)
         { 
@@ -382,7 +395,7 @@ public class ColocarPieza : NetworkBehaviour
     public void EjecutarColocarPueblo(RaycastHit hit, string color, string currentPrefabPueblo)
     {
         Debug.Log("EntroColocar 2");
-
+        int id = PlayerPrefs.GetInt("jugadorId");
         var objetoPueblo = Resources.Load(currentPrefabPueblo) as GameObject;
         Debug.Log("2 preafb pueblo es " + objetoPueblo.name);
         currentPueblo = Instantiate(objetoPueblo, hit.collider.gameObject.transform.position, Quaternion.identity);
@@ -394,6 +407,17 @@ public class ColocarPieza : NetworkBehaviour
         ListaColliders.Instance.ModificarTipoPorNombre(nombreSinClone, "Pueblo");
         ListaColliders.Instance.ModificarColorPorNombre(nombreSinClone, color);
         ListaColliders.Instance.ImprimirColliderPorNombre(nombreSinClone);
+
+        if (NetworkManager.Singleton.IsServer)
+        {
+            PlayerNetwork.Instance.SetPuntajebyId(id, 2);
+        }
+        else // si es un cliente
+        {
+            Debug.Log("Antes de SetPuntajebyIdServerRpc");
+            PlayerNetwork.Instance.SetPuntajebyIdServerRpc(id, 2);
+            Debug.Log("Despues de SetPuntajebyIdServerRpc");
+        }
         /*comprobarObjeto = hit.collider.gameObject.GetComponent<ComprobarObjeto>();
         Debug.Log("el collider del comprobarobjeto es " + hit.collider.gameObject.name);
         if (comprobarObjeto != null)
