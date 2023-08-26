@@ -21,6 +21,28 @@ public class ComprarPieza : NetworkBehaviour
     }
     private void Update()
     {
+        if (PlayerNetwork.Instance.IsMyTurn(PlayerPrefs.GetInt("jugadorId")))
+        {
+            //Debug.Log("Es mi TURNO");
+
+            var caminoButton = comprarCaminoButton.GetComponent<Button>();
+            var baseButton = comprarCaminoButton.GetComponent<Button>();
+            var puebloButton = comprarCaminoButton.GetComponent<Button>();
+            caminoButton.interactable = true;
+            baseButton.interactable = true;
+            puebloButton.interactable = true;
+            //terminarTurnoButton.interactable = true;
+        }
+        else
+        {
+            var caminoButton = comprarCaminoButton.GetComponent<Button>();
+            var baseButton = comprarCaminoButton.GetComponent<Button>();
+            var puebloButton = comprarCaminoButton.GetComponent<Button>();
+            caminoButton.interactable = false;
+            baseButton.interactable = false;
+            puebloButton.interactable = false;
+            //terminarTurnoButton.interactable = false;
+        }
         //UpdateComprarCaminoButton();
         //UpdateComprarBaseButton();
         //UpdateComprarPuebloButton();

@@ -203,7 +203,7 @@ public class PlayerNetwork : NetworkBehaviour
             FixedString64Bytes nombreHost = new FixedString64Bytes(PlayerPrefs.GetString("nomJugador"));
             FixedString64Bytes colorHost = new FixedString64Bytes(PlayerPrefs.GetString("colorJugador"));
             Debug.Log("el jugador con id:" + playerId + "se llama " + nombreHost + " y es el color " + colorHost);
-            AgregarJugador(playerId, nombreHost, 100, false, true, 2, 10, 10, 10, 10, 10, colorHost);
+            AgregarJugador(playerId, nombreHost, 100, false, false, 2, 10, 10, 10, 10, 10, colorHost);
             Debug.Log("se agrego jugador host");
             ImprimirJugadorPorId(playerId);
             //ImprimirTodosLosJugadores();
@@ -433,6 +433,9 @@ public class PlayerNetwork : NetworkBehaviour
     
     private void Update()
     {
+
+
+
         if (!IsOwner) // si es cliente
         {
 
@@ -729,6 +732,7 @@ public class PlayerNetwork : NetworkBehaviour
         if (NetworkManager.Singleton.IsServer)  // Asegúrate de que solo el servidor modifique el turno actual.
         {
             Debug.Log("Entre al is server de End Turn");
+            ImprimirPlayerIDs();
             currentTurnIndex++;
             if (currentTurnIndex >= playerIDs.Count)
             {
@@ -1109,6 +1113,19 @@ public class PlayerNetwork : NetworkBehaviour
             }
         }
         return null; // devuelve null si no se encontró un jugador con ese color
+    }
+
+    public bool GetTurnByPlayerId(int id)
+    {
+        var esturno = false;
+        foreach (DatosJugador jugador in playerData)
+        {
+            if (jugador.jugadorId.Equals(id))
+            {
+                esturno = jugador.turno;
+            }
+        }
+        return esturno; // devuelve null si no se encontró un jugador con ese color
     }
     [ClientRpc]
     public void UpdateComprarCaminoButtonClientRpc()
