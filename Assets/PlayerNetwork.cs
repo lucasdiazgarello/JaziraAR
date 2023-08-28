@@ -753,7 +753,7 @@ public class PlayerNetwork : NetworkBehaviour
         if (NetworkManager.Singleton.IsServer)  // Asegúrate de que solo el servidor modifique el turno actual.
         {
             Debug.Log("Entre al is server de End Turn");
-            ImprimirPlayerIDs();
+            //ImprimirPlayerIDs();
             currentTurnIndex++;
             if (currentTurnIndex >= playerIDs.Count)
             {
@@ -761,6 +761,9 @@ public class PlayerNetwork : NetworkBehaviour
             }
             // Notifica a todos los jugadores sobre el cambio de turno.
             NotifyTurnChangeClientRpc(currentTurnIndex);
+            CheckifWon();
+
+
         }
         else
         {
@@ -772,8 +775,34 @@ public class PlayerNetwork : NetworkBehaviour
             }
             // Notifica a todos los jugadores sobre el cambio de turno.
             NotifyTurnChangeServerRpc(currentTurnIndex);
+            CheckifWonServerRpc();
+
         }
     }
+
+    public void CheckifWon()
+    {
+        Debug.Log("Entre a checkifwon como server");
+
+        for (int i = 0; i < playerData.Count; i++)
+        {
+            if (PlayerNetwork.Instance.playerData[i].gano == true)
+            {
+
+                Debug.Log("El jugador "+ PlayerNetwork.Instance.playerData[i].nomJugador + " es el gandor");
+            }
+
+
+        }
+
+
+    }
+    [ServerRpc(RequireOwnership = false)]
+    public void CheckifWonServerRpc()
+    {
+         CheckifWon();
+    }
+
     [ClientRpc]
     public void NotifyTurnChangeClientRpc(int newTurnIndex)
     {
@@ -1151,7 +1180,6 @@ public class PlayerNetwork : NetworkBehaviour
             {
                 jugadorEncontrado = true;
                 indexJugador = i;
-                Debug.Log("Jugador encontrado en la posición: " + i);
                 break;
             }
         }
@@ -1170,6 +1198,10 @@ public class PlayerNetwork : NetworkBehaviour
         else if (pieza == 2)
         {
             jugadorcopia.puntaje = jugadorcopia.puntaje + 2;
+        }
+        if(jugadorcopia.puntaje>=9)
+        {
+            jugadorcopia.gano = true;
         }
 
         PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
