@@ -13,25 +13,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 //using UnityEngine.InputSystem.OSX;
 using UnityEngine.UI;
-using static PlayerNetwork;
+
 
 public class PlayerNetwork : NetworkBehaviour
 {
-    private GameObject prefabCaminoA;
-    private GameObject prefabBaseA; // Cambiado Casa por Base
-    private GameObject prefabPuebloA; // Nuevo prefab para el pueblo
-    private GameObject prefabCaminoR;
-    private GameObject prefabBaseR; // Cambiado Casa por Base
-    private GameObject prefabPuebloR; // Nuevo prefab para el pueblo
-    private GameObject prefabCaminoV;
-    private GameObject prefabBaseV; // Cambiado Casa por Base
-    private GameObject prefabPuebloV; // Nuevo prefab para el pueblo
-    private GameObject prefabCaminoN;
-    private GameObject prefabBaseN; // Cambiado Casa por Base
-    private GameObject prefabPuebloN; // Nuevo prefab para el pueblo
-    private GameObject currentPrefabBase;
-    private GameObject currentPrefabCamino;
-    private GameObject currentPrefabPueblo;
     private GameObject currentBase;
     private GameObject currentCamino;
     private GameObject currentPueblo;
@@ -175,16 +160,6 @@ public class PlayerNetwork : NetworkBehaviour
         }
 
     }
-    public int GetMaderaRecursos() => maderaCount.Value;
-    public void SetMaderaRecursos(int value) => maderaCount.Value = value;
-    public int GetLadrilloRecursos() => ladrilloCount.Value;
-    public void SetLadrilloRecursos(int value) => ladrilloCount.Value = value;
-    public int GetOvejaRecursos() => maderaCount.Value;
-    public void SetOvejaRecursos(int value) => maderaCount.Value = value;
-    public int GetPiedraRecursos() => ladrilloCount.Value;
-    public void SetPiedraRecursos(int value) => ladrilloCount.Value = value;
-    public int GetTrigoRecursos() => maderaCount.Value;
-    public void SetTrigoRecursos(int value) => maderaCount.Value = value;
 
     void OnClientConnected(ulong clientId)
     {
@@ -716,37 +691,7 @@ public class PlayerNetwork : NetworkBehaviour
         // Podemos usar un Debug.Log para ver los resultados.
         Debug.Log("Jugador " + playerData[indexJugador].jugadorId + " ahora tiene " + playerData[indexJugador].piedraCount + "piedras ");    
     }
-
-    [ClientRpc]
-    public void UpdateResourceTextsClientRpc(int jugadorId)
-    {
-        Debug.Log("Entre a UpdateResourceTextsClientRpc con ID "+ jugadorId);
-        //BoardManager.Instance.UpdateResourceTexts(jugadorId);
-        //Debug.Log("Termino UpdateResourceTextsServerRpc");
-        //Debug.Log("Entre a UpdateResourceTexts con ID " + jugadorId);
-        PlayerNetwork.DatosJugador datosJugador = default;
-        // Itera sobre los elementos de playerData para encontrar los datos del jugador
-        for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
-        {
-            if (PlayerNetwork.Instance.playerData[i].jugadorId == jugadorId)
-            {
-                datosJugador = PlayerNetwork.Instance.playerData[i];
-                break;
-            }
-        }
-        // Actualiza los textos de los recursos
-        BoardManager.Instance.MaderaCountText.text = datosJugador.maderaCount.ToString();
-        Debug.Log("madera: " + datosJugador.maderaCount.ToString());
-        BoardManager.Instance.LadrilloCountText.text = datosJugador.ladrilloCount.ToString();
-        Debug.Log("ladrillo: " + datosJugador.ladrilloCount.ToString());
-        BoardManager.Instance.OvejaCountText.text = datosJugador.ovejaCount.ToString();
-        Debug.Log("oveja: " + datosJugador.ovejaCount.ToString());
-        BoardManager.Instance.PiedraCountText.text = datosJugador.piedraCount.ToString();
-        Debug.Log("piedra: " + datosJugador.piedraCount.ToString());
-        BoardManager.Instance.TrigoCountText.text = datosJugador.trigoCount.ToString();
-        Debug.Log("trigo: " + datosJugador.trigoCount.ToString());
-        Debug.Log("Termino UpdateResourceTextsServerRpc");
-    }
+    
     public void EndTurn()
     {
         Debug.Log("Entre al End Turn");
@@ -762,8 +707,6 @@ public class PlayerNetwork : NetworkBehaviour
             // Notifica a todos los jugadores sobre el cambio de turno.
             NotifyTurnChangeClientRpc(currentTurnIndex);
             CheckifWon();
-
-
         }
         else
         {
@@ -776,7 +719,6 @@ public class PlayerNetwork : NetworkBehaviour
             // Notifica a todos los jugadores sobre el cambio de turno.
             NotifyTurnChangeServerRpc(currentTurnIndex);
             CheckifWonServerRpc();
-
         }
     }
 
@@ -788,19 +730,22 @@ public class PlayerNetwork : NetworkBehaviour
         {
             if (PlayerNetwork.Instance.playerData[i].gano == true)
             {
-
                 Debug.Log("El jugador "+ PlayerNetwork.Instance.playerData[i].nomJugador + " es el gandor");
             }
-
-
         }
-
-
     }
     [ServerRpc(RequireOwnership = false)]
     public void CheckifWonServerRpc()
     {
-         CheckifWon();
+        Debug.Log("CheckifWonServerRpc");
+
+        for (int i = 0; i < playerData.Count; i++)
+        {
+            if (PlayerNetwork.Instance.playerData[i].gano == true)
+            {
+                Debug.Log("El jugador " + PlayerNetwork.Instance.playerData[i].nomJugador + " es el gandor");
+            }
+        }
     }
 
     [ClientRpc]
@@ -869,7 +814,7 @@ public class PlayerNetwork : NetworkBehaviour
 
     }
     [ServerRpc(RequireOwnership = false)]
-    public void ColocarBaseServerRpc(string color, string currentbase, string nombreCollider, Vector3 posititon)
+    public void ColocarBaseServerRpc(int id, string color, string currentbase, string nombreCollider, Vector3 posititon)
     {
         try
         {
@@ -885,33 +830,9 @@ public class PlayerNetwork : NetworkBehaviour
             ListaColliders.Instance.ModificarTipoPorNombre(nombresinClone, "Base"); // Aca se debe llamar una serverRpc o como ya es el servidor corriendo no?
             ListaColliders.Instance.ModificarColorPorNombre(nombresinClone, color);
             ListaColliders.Instance.ImprimirColliderPorNombre(nombresinClone);
-            //comprobarObjeto = currentBase.GetComponent<ComprobarObjeto>();
-            //comprobarObjeto = objetoBase.gameObject.GetComponent<ComprobarObjeto>();
-            //Debug.Log("el collider es : " + hit.collider.gameObject.name);
-            //Debug.Log("comprobarobjeto base Cliente: " + comprobarObjeto.name);
-            // Asegurarse de que el componente existe
-
-            /*if (comprobarObjeto != null)
-            {
-                var nombreSinClone = ListaColliders.Instance.RemoverCloneDeNombre(comprobarObjeto.name);
-                Debug.Log("nombreSinClone = " + nombreSinClone);
-
-                ListaColliders.Instance.ModificarTipoPorNombre(nombreSinClone, "Base");
-                ListaColliders.Instance.ImprimirListaColliders();
-                //comprobarObjeto.tipoObjeto = TipoObjeto.Base; // Puedes cambiar esto al tipo de objeto que corresponda
-                //comprobarObjeto2 = hit.collider.gameObject.GetComponent<ComprobarObjeto>();
-                Debug.Log("puse el tipo de la base a: " + comprobarObjeto.tipoObjeto);
-                //Debug.Log("LA BASE ES BASE? : " + comprobarObjeto2.tipoObjeto);
-                Debug.Log("CP Nombre de collider" + comprobarObjeto.name);
-                //Debug.Log("CP SC Nombre de collider" + hit.collider.gameObject.GetComponent<ComprobarObjeto>().name); 
-                //Debug.Log("Asignando tipo a: " + hit.collider.gameObject.name + " - Instancia: " + hit.collider.gameObject.GetInstanceID());
-            }
-            else
-            {
-                Debug.LogError("El objeto " + objetoBase.gameObject.name + " no tiene un script ComprobarObjeto.");
-            }
-            */
-            //Debug.Log("el tipo de la base colocada es " + tipoActual);
+            Debug.Log("Va a sumar puntaje");
+            SetPuntajebyId(id, 1);
+            Debug.Log("Termino SetPuntajebyID");
             tipoActual = "Ninguno";
         }
         catch (Exception e)
@@ -921,7 +842,7 @@ public class PlayerNetwork : NetworkBehaviour
 
     }
     [ServerRpc(RequireOwnership = false)]
-    public void ColocarPuebloServerRpc(string color, string currentpueblo, string nombreCollider, Vector3 posititon)
+    public void ColocarPuebloServerRpc(int id, string color, string currentpueblo, string nombreCollider, Vector3 posititon)
     {
         try
         {
@@ -936,26 +857,9 @@ public class PlayerNetwork : NetworkBehaviour
             ListaColliders.Instance.ModificarTipoPorNombre(nombresinClone, "Pueblo"); // Aca se debe llamar una serverRpc o como ya es el servidor corriendo no?
             ListaColliders.Instance.ModificarColorPorNombre(nombresinClone, color);
             ListaColliders.Instance.ImprimirColliderPorNombre(nombresinClone);
-            /*// Obtener el componente ComprobarObjeto del objeto golpeado
-            comprobarObjeto = objetoPueblo.gameObject.GetComponent<ComprobarObjeto>();
-            //Debug.Log("el collider es : " + hit.collider.gameObject.name);
-            //Debug.Log("comprobarobjeto al poner la base: " + comprobarObjeto);
-            // Asegurarse de que el componente existe
-            if (comprobarObjeto != null)
-            {
-                // Guardar una referencia a la pieza que acabamos de colocar
-                //comprobarObjeto.objetoColocado = this; // esto pone ControldorColocarPieza
-                //Debug.Log("EL OBJETO colocado es: " + comprobarObjeto.objetoColocado);
-
-                // Almacenar el tipo de objeto que acabamos de colocar
-                comprobarObjeto.tipoObjeto = TipoObjeto.Pueblo; // Puedes cambiar esto al tipo de objeto que corresponda
-                Debug.Log("puse el tipo del pueblo a: " + comprobarObjeto.tipoObjeto);
-            }
-            else
-            {
-                //Debug.LogError("El objeto " + objetoCollider.gameObject.name + " no tiene un script ComprobarObjeto.");
-            }
-            //Debug.Log("el tipo del pueblo colocado es " + tipoActual);*/
+            Debug.Log("Va a sumar puntaje");
+            SetPuntajebyId(id, 2);
+            Debug.Log("Termino SetPuntajebyID");
             tipoActual = "Ninguno";
         }
         catch (Exception e)
@@ -1168,7 +1072,7 @@ public class PlayerNetwork : NetworkBehaviour
 
     public void SetPuntajebyId(int id, int pieza)
     {
-        Debug.Log("Entre a SetPuntajebyId");
+        Debug.Log("Entre a SetPuntajebyId con id " + id );
         int indexJugador = -1;
         bool jugadorEncontrado = false;
 
@@ -1199,7 +1103,7 @@ public class PlayerNetwork : NetworkBehaviour
         {
             jugadorcopia.puntaje = jugadorcopia.puntaje + 2;
         }
-        if(jugadorcopia.puntaje>=9)
+        if(jugadorcopia.puntaje>=10)
         {
             jugadorcopia.gano = true;
         }
@@ -1212,21 +1116,60 @@ public class PlayerNetwork : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     public void SetPuntajebyIdServerRpc(int id,int pieza)
     {
-        SetPuntajebyId(id,pieza);
+        Debug.Log("SetPuntajebyIdServerRpc");
+        int indexJugador = -1;
+        bool jugadorEncontrado = false;
 
-    }
-   /* public bool GetTurnByPlayerId(int id)
-    {
-        var esturno = false;
-        foreach (DatosJugador jugador in playerData)
+        // Búsqueda del jugador en la lista playerData
+        for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
         {
-            if (jugador.jugadorId.Equals(id))
+            //Debug.Log("La lista Ids es " + playerData[i].jugadorId);
+            if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
             {
-                esturno = jugador.turno;
+                jugadorEncontrado = true;
+                indexJugador = i;
+                break;
             }
         }
-        return esturno; // devuelve null si no se encontró un jugador con ese color
-    }*/
+        if (!jugadorEncontrado)
+        {
+            Debug.Log("Jugador no encontrado en la lista playerData");
+            return;
+        }
+        // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
+        PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
+        // Aquí es donde actualizarías los recursos del jugador en tu juego.
+        if (pieza == 1)
+        {
+            jugadorcopia.puntaje = jugadorcopia.puntaje + 1;
+        }
+        else if (pieza == 2)
+        {
+            jugadorcopia.puntaje = jugadorcopia.puntaje + 2;
+        }
+        if (jugadorcopia.puntaje >= 10)
+        {
+            jugadorcopia.gano = true;
+        }
+
+        PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+        Debug.Log("Imprimo jugador luego de sumar puntos");
+        ImprimirJugadorPorId(id);
+
+
+    }
+    /* public bool GetTurnByPlayerId(int id)
+     {
+         var esturno = false;
+         foreach (DatosJugador jugador in playerData)
+         {
+             if (jugador.jugadorId.Equals(id))
+             {
+                 esturno = jugador.turno;
+             }
+         }
+         return esturno; // devuelve null si no se encontró un jugador con ese color
+     }*/
     [ClientRpc]
     public void UpdateComprarCaminoButtonClientRpc()
     {

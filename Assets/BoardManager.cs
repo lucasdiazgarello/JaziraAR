@@ -423,7 +423,8 @@ public class BoardManager : NetworkBehaviour
         else
         {
             Debug.Log("Cliente a UpdateResourceTexts con ID " + jugadorId);
-            PlayerNetwork.Instance.UpdateResourceTextsClientRpc(jugadorId); //Esto deberia ser client?
+            PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(jugadorId);
+            PlayerNetwork.Instance.UpdateResourcesTextClientRpc(jugador); //Esto deberia ser client?
         }     
     }
     /*[ClientRpc]

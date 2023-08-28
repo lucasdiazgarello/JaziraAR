@@ -232,7 +232,8 @@ public class ColocarPieza : NetworkBehaviour
                 string colliderName = hit.collider.gameObject.name;
                 Debug.Log("colliderName: " + colliderName);
                 var position = hit.collider.gameObject.transform.position;
-                PlayerNetwork.Instance.ColocarBaseServerRpc(color, currPrefBase, colliderName, position);
+                int id = PlayerPrefs.GetInt("jugadorId");
+                PlayerNetwork.Instance.ColocarBaseServerRpc(id, color, currPrefBase, colliderName, position);
             }
             basesRestantes--;
             Debug.Log("Bases restantes POST: " + basesRestantes);
@@ -294,7 +295,8 @@ public class ColocarPieza : NetworkBehaviour
                 string colliderName = hit.collider.gameObject.name;
                 Debug.Log("colliderName: " + colliderName);
                 var position = hit.collider.gameObject.transform.position;
-                PlayerNetwork.Instance.ColocarPuebloServerRpc(color, currPrefPueblo, colliderName, position);
+                int id = PlayerPrefs.GetInt("jugadorId");
+                PlayerNetwork.Instance.ColocarPuebloServerRpc(id, color, currPrefPueblo, colliderName, position);
             }
             pueblosRestantes--;
             Debug.Log("Pueblos restantes POST: " + pueblosRestantes);
