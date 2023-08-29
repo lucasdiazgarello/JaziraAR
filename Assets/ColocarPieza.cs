@@ -42,7 +42,7 @@ public class ColocarPieza : NetworkBehaviour
     public int pueblosRestantes =0;
     public bool primerasPiezas = false;
     public bool yaEjecutado = false;
-
+    
     //public TipoObjeto tipoActual;
     private string tipoActual;
 
@@ -90,6 +90,23 @@ public class ColocarPieza : NetworkBehaviour
 
     void Update()
     {
+        //primero desactivo botones si no es mi turno
+        if (PlayerNetwork.Instance.IsMyTurn(PlayerPrefs.GetInt("jugadorId")))
+        {
+            //Debug.Log("Es mi TURNO");
+            buttonCamino.interactable = true;
+            buttonBase.interactable = true;
+            buttonPueblo.interactable = true;
+            //terminarTurnoButton.interactable = true;
+        }
+        else
+        {
+            buttonCamino.interactable = false;
+            buttonBase.interactable = false;
+            buttonPueblo.interactable = false;
+            //terminarTurnoButton.interactable = false;
+        }
+        //luego el update de siempre
         if (!yaEjecutado && caminosRestantes == 0 && basesRestantes == 0)
         {
             primerasPiezas = true;
@@ -376,7 +393,7 @@ public class ColocarPieza : NetworkBehaviour
             PlayerNetwork.Instance.SetPuntajebyIdServerRpc(id, 1);
             Debug.Log("Despues de SetPuntajebyIdServerRpc");
         }
-
+        
 
         /*comprobarObjeto = hit.collider.gameObject.GetComponent<ComprobarObjeto>();      
         if (comprobarObjeto != null)

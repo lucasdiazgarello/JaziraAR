@@ -51,6 +51,8 @@ public class PlayerNetwork : NetworkBehaviour
     public NetworkVariable<int> ovejaCount = new NetworkVariable<int>(0);
     public NetworkVariable<int> piedraCount = new NetworkVariable<int>(0);
     public NetworkVariable<int> trigoCount = new NetworkVariable<int>(0);
+    private object basesRestantes;
+
     public struct DatosJugador : INetworkSerializable, IEquatable<DatosJugador>
     {
         public int jugadorId;
@@ -899,7 +901,7 @@ public class PlayerNetwork : NetworkBehaviour
             PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
             // Aquí es donde actualizarías los recursos del jugador en tu juego.
             jugadorcopia.maderaCount -= 1;
-            jugadorcopia.ladrilloCount -= 1;
+            jugadorcopia.ladrilloCount -= 1;  
             PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
             PlayerNetwork.Instance.UpdateResourcesTextClientRpc(jugador);
         }
@@ -948,7 +950,7 @@ public class PlayerNetwork : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     public void ComprarPuebloServerRpc(int jugadorId)
     {
-        Debug.Log("Entro a comprarBaseServerRpc con ID " + jugadorId);
+        Debug.Log("Entro a comprarPuebloServerRpc con ID " + jugadorId);
         PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(jugadorId);
         if (jugador.trigoCount >= 3 && jugador.piedraCount >= 2)
         {
@@ -1170,6 +1172,36 @@ public class PlayerNetwork : NetworkBehaviour
          }
          return esturno; // devuelve null si no se encontró un jugador con ese color
      }*/
+    [ServerRpc(RequireOwnership = false)]
+    public void UpdateComprarCaminoButtonServerRpc()
+    {
+        Debug.Log("UpdateComprarCaminoButtonServerRpc");
+        int id = PlayerPrefs.GetInt("jugadorId");
+        PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
+        comprarCaminoButton = GameObject.Find("Comprar Camino");
+        Button componente = comprarCaminoButton.GetComponent<Button>();
+        componente.interactable = (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1);
+    }
+    [ServerRpc(RequireOwnership = false)]
+    public void UpdateComprarBaseButtonServerRpc()
+    {
+        Debug.Log("UpdateBaseCaminoButtonServerRpc");
+        int id = PlayerPrefs.GetInt("jugadorId");
+        PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
+        comprarBaseButton = GameObject.Find("Comprar Base");
+        Button componente = comprarCaminoButton.GetComponent<Button>();
+        componente.interactable = (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1 && jugador.trigoCount >= 1 && jugador.ovejaCount >= 1);
+    }
+    [ServerRpc(RequireOwnership = false)]
+    public void UpdateComprarPuebloButtonServerRpc()
+    {
+        Debug.Log("UpdatePuebloCaminoButtonServerRpc");
+        int id = PlayerPrefs.GetInt("jugadorId");
+        PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
+        comprarPuebloButton = GameObject.Find("Comprar Pueblo");
+        Button componente = comprarCaminoButton.GetComponent<Button>();
+        componente.interactable = (jugador.piedraCount >= 2 && jugador.trigoCount >= 3);
+    }
     [ClientRpc]
     public void UpdateComprarCaminoButtonClientRpc()
     {

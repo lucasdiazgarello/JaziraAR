@@ -13,10 +13,14 @@ public class ComprarPieza : NetworkBehaviour
     public LayerMask myLayerMask;
 
     void Start()
-    {
+    {   
+        //comprarCaminoButton.interactable = false;
+        //comprarBaseButton.interactable = false;
+        //comprarPuebloButton.interactable = false;
         UpdateComprarCaminoButton();
         UpdateComprarBaseButton();
         UpdateComprarPuebloButton();
+
 
     }
     private void Update()
@@ -24,23 +28,16 @@ public class ComprarPieza : NetworkBehaviour
         if (PlayerNetwork.Instance.IsMyTurn(PlayerPrefs.GetInt("jugadorId")))
         {
             //Debug.Log("Es mi TURNO");
-
-            var caminoButton = comprarCaminoButton.GetComponent<Button>();
-            var baseButton = comprarCaminoButton.GetComponent<Button>();
-            var puebloButton = comprarCaminoButton.GetComponent<Button>();
-            caminoButton.interactable = true;
-            baseButton.interactable = true;
-            puebloButton.interactable = true;
+            comprarCaminoButton.interactable = true;
+            comprarBaseButton.interactable = true;
+            comprarPuebloButton.interactable = true;
             //terminarTurnoButton.interactable = true;
         }
         else
         {
-            var caminoButton = comprarCaminoButton.GetComponent<Button>();
-            var baseButton = comprarCaminoButton.GetComponent<Button>();
-            var puebloButton = comprarCaminoButton.GetComponent<Button>();
-            caminoButton.interactable = false;
-            baseButton.interactable = false;
-            puebloButton.interactable = false;
+            comprarCaminoButton.interactable = false;
+            comprarBaseButton.interactable = false;
+            comprarPuebloButton.interactable = false;
             //terminarTurnoButton.interactable = false;
         }
         //UpdateComprarCaminoButton();
@@ -89,6 +86,7 @@ public class ComprarPieza : NetworkBehaviour
                 Debug.Log("Imprimir jugador por ID post ");
                 PlayerNetwork.Instance.ImprimirJugadorPorId(id);
                 UpdateComprarBaseButton();
+                
             }
         }
         else
@@ -128,12 +126,19 @@ public class ComprarPieza : NetworkBehaviour
         {
             int id = PlayerPrefs.GetInt("jugadorId");
             PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
-
-            comprarCaminoButton.interactable = (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1);
+            if (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1)
+            {
+                comprarCaminoButton.interactable = true;
+            }
+            else
+            {
+                comprarCaminoButton.interactable = false;
+            }
         }
         else
         {
-            PlayerNetwork.Instance.UpdateComprarCaminoButtonClientRpc();
+            //PlayerNetwork.Instance.UpdateComprarCaminoButtonClientRpc();
+            PlayerNetwork.Instance.UpdateComprarCaminoButtonServerRpc();
         }
     }
     void UpdateComprarBaseButton()
@@ -142,11 +147,19 @@ public class ComprarPieza : NetworkBehaviour
         {
             int id = PlayerPrefs.GetInt("jugadorId");
             PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
-            comprarBaseButton.interactable = (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1 && jugador.trigoCount >= 1 && jugador.ovejaCount >= 1);
+            if (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1 && jugador.trigoCount >= 1 && jugador.ovejaCount >= 1)
+            {
+                comprarCaminoButton.interactable = true;
+            }
+            else
+            {
+                comprarCaminoButton.interactable = false;
+            }
         }
         else
         {
-            PlayerNetwork.Instance.UpdateComprarBaseButtonClientRpc();
+            //PlayerNetwork.Instance.UpdateComprarBaseButtonClientRpc();
+            PlayerNetwork.Instance.UpdateComprarBaseButtonServerRpc();
         }
     }
     void UpdateComprarPuebloButton()
@@ -155,11 +168,19 @@ public class ComprarPieza : NetworkBehaviour
         {
             int id = PlayerPrefs.GetInt("jugadorId");
             PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
-            comprarPuebloButton.interactable = (jugador.piedraCount >= 2 && jugador.trigoCount >= 3);
+            if (jugador.piedraCount >= 2 && jugador.trigoCount >= 3)
+            {
+                comprarCaminoButton.interactable = true;
+            }
+            else
+            {
+                comprarCaminoButton.interactable = false;
+            }
         }
         else
         {
-            PlayerNetwork.Instance.UpdateComprarPuebloButtonClientRpc();
+            //PlayerNetwork.Instance.UpdateComprarPuebloButtonClientRpc();
+            PlayerNetwork.Instance.UpdateComprarPuebloButtonServerRpc();
         }
     }
     
