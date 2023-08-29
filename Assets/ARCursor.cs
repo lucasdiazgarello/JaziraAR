@@ -27,12 +27,6 @@ public class ARCursor : NetworkBehaviour
     public GameObject currentDado; // Dado actualmente en proceso de colocación
     public GameObject currentDado2;
     public Button tirarDadoButton;
-    public Button colocarCaminoButton;
-    public Button colocarBaseButton;
-    public Button colocarPuebloButton;
-    public Button comprarCaminoButton;
-    public Button comprarBaseButton;
-    public Button comprarPuebloButton;
     public Button terminarTurnoButton;
     public bool dicesThrown = false;
 
@@ -161,25 +155,12 @@ public class ARCursor : NetworkBehaviour
             {
                 //Debug.Log("Es mi TURNO");
                 tirarDadoButton.interactable = true;
-                //terminarTurnoButton.interactable = true;  //CUANDO SE VAYA EL FANTASMA HAY QUE DESCOMENTAR ESTO
-                colocarCaminoButton.interactable = true;
-                colocarBaseButton.interactable = true;
-                colocarPuebloButton.interactable = true;
-                comprarCaminoButton.interactable = true;
-                comprarBaseButton.interactable = true;
-                comprarPuebloButton.interactable = true;
-
+                //terminarTurnoButton.interactable = true;
             }
             else
             {
                 tirarDadoButton.interactable = false;
                 //terminarTurnoButton.interactable = false;
-                colocarCaminoButton.interactable = false;
-                colocarBaseButton.interactable = false;
-                colocarPuebloButton.interactable = false;
-                comprarCaminoButton.interactable = false;
-                comprarBaseButton.interactable = false;
-                comprarPuebloButton.interactable = false;
             }
         }
         catch (Exception ex)
