@@ -993,6 +993,37 @@ public class PlayerNetwork : NetworkBehaviour
         BoardManager.Instance.TrigoCountText.text = jugador.trigoCount.ToString();
     }
 
+    [ServerRpc(RequireOwnership = false)]
+    public void UpdateResourcesServerRpc(int jugadorId)
+    {
+        //BoardManager.Instance.UpdateResourceTexts(jugadorId);
+        /*foreach (PlayerNetwork.DatosJugador player in PlayerNetwork.Instance.playerData)
+        {
+            PlayerNetwork.Instance.UpdateResourcesTextClientRpc(player);
+        }*/
+        Debug.Log("Server a UpdateResourceTexts con ID " + jugadorId);
+        PlayerNetwork.DatosJugador datosJugador = default;
+        // Itera sobre los elementos de playerData para encontrar los datos del jugador
+        for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+        {
+            if (PlayerNetwork.Instance.playerData[i].jugadorId == jugadorId)
+            {
+                datosJugador = PlayerNetwork.Instance.playerData[i];
+                break;
+            }
+        }
+        /*if (datosJugador.jugadorId == 0)  // Suponiendo que 0 no es un ID de jugador v�lido
+        {
+            Debug.LogError("Jugador con ID " + jugadorId + " no encontrado.");
+            return;
+        }*/
+        // Actualiza los textos de los recursos
+        BoardManager.Instance.MaderaCountText.text = datosJugador.maderaCount.ToString();
+        BoardManager.Instance.LadrilloCountText.text = datosJugador.ladrilloCount.ToString();
+        BoardManager.Instance.OvejaCountText.text = datosJugador.ovejaCount.ToString();
+        BoardManager.Instance.PiedraCountText.text = datosJugador.piedraCount.ToString();
+        BoardManager.Instance.TrigoCountText.text = datosJugador.trigoCount.ToString();
+    }
 
     [ServerRpc(RequireOwnership = false)]
     public void TirarDadosServerRpc()

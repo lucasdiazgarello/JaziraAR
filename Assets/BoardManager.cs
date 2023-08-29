@@ -393,6 +393,8 @@ public class BoardManager : NetworkBehaviour
             PlayerNetwork.Instance.UpdateResourcesTextClientRpc(player);
         }
     }
+
+
     public void UpdateResourceTexts(int jugadorId)
     {
         if (NetworkManager.Singleton.IsServer)
