@@ -25,6 +25,7 @@ public class TestRelay : NetworkBehaviour
     //public PlayerNetwork playernetwork;
     //public string colorSeleccionado;
     public NetworkVariable<FixedString64Bytes> colorSeleccionado = new NetworkVariable<FixedString64Bytes>();
+    public Text codigoText;
     private async void Start()
     {
 
@@ -68,8 +69,9 @@ public class TestRelay : NetworkBehaviour
             Allocation allocation = await RelayService.Instance.CreateAllocationAsync(cantJugadores - 1); // el host y 3 mas
 
             string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
-
+            
             Debug.Log("El codigo es:" + joinCode);
+            codigoText.text = joinCode;
             Debug.Log("Va a iniciar el host");
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetHostRelayData(
                 allocation.RelayServer.IpV4,
