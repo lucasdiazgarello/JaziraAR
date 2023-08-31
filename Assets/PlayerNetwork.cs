@@ -673,8 +673,8 @@ public class PlayerNetwork : NetworkBehaviour
     public void EndTurn()
     {
         Debug.Log("Entre al End Turn");
-        //if (NetworkManager.Singleton.IsServer)  // Asegúrate de que solo el servidor modifique el turno actual.
-        //{
+        if (NetworkManager.Singleton.IsServer)  // Asegúrate de que solo el servidor modifique el turno actual.
+        {
             Debug.Log("Entre al is server de End Turn");
             //ImprimirPlayerIDs();
             currentTurnIndex++;
@@ -685,7 +685,7 @@ public class PlayerNetwork : NetworkBehaviour
             // Notifica a todos los jugadores sobre el cambio de turno.
             NotifyTurnChangeClientRpc(currentTurnIndex);
             CheckifWon();
-        /*}
+        }
         else
         {
             Debug.Log("Entre como cliente al End Turn");
@@ -697,22 +697,7 @@ public class PlayerNetwork : NetworkBehaviour
             // Notifica a todos los jugadores sobre el cambio de turno.
             NotifyTurnChangeServerRpc(currentTurnIndex);
             CheckifWonServerRpc();
-        }*/
-    }
-    [ServerRpc(RequireOwnership = false)]
-    public void EndTurnServerRpc()
-    {
-        Debug.Log("Entre al End TurnServerRpc");
-
-            Debug.Log("Entre como cliente al End Turn");
-            currentTurnIndex++;
-            if (currentTurnIndex >= playerIDs.Count)
-            {
-                currentTurnIndex = 0;
-            }
-            // Notifica a todos los jugadores sobre el cambio de turno.
-            NotifyTurnChangeServerRpc(currentTurnIndex);
-            CheckifWonServerRpc();
+        }
     }
     [ServerRpc(RequireOwnership = false)]
     public void PrimerasPiezasServerRpc()
