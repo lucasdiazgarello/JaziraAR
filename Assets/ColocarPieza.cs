@@ -92,11 +92,13 @@ public class ColocarPieza : NetworkBehaviour
 
     void Update()
     {
+        int id = PlayerPrefs.GetInt("jugadorId");
+        PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
         //primero desactivo botones si no es mi turno
         if (PlayerNetwork.Instance.IsMyTurn(PlayerPrefs.GetInt("jugadorId")))
         {
-            int id = PlayerPrefs.GetInt("jugadorId");
-            PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
+            //int id = PlayerPrefs.GetInt("jugadorId");
+            //PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
             //Debug.Log("Es mi TURNO");
             if (jugador.cantidadCaminos > 0)
             {
@@ -122,22 +124,18 @@ public class ColocarPieza : NetworkBehaviour
             {
                 buttonPueblo.interactable = false;
             }
-            //buttonCamino.interactable = true;
-            //buttonBase.interactable = true;
-            //buttonPueblo.interactable = true;
         }
         else
         {
             buttonCamino.interactable = false;
             buttonBase.interactable = false;
             buttonPueblo.interactable = false;
-            //terminarTurnoButton.interactable = false;
         }
         //luego el update de siempre
         if (NetworkManager.Singleton.IsServer)
         {
-            int id = PlayerPrefs.GetInt("jugadorId");
-            PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
+            //int id = PlayerPrefs.GetInt("jugadorId");
+            //PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
             if (!jugador.primerasPiezas && jugador.cantidadCaminos == 0 && jugador.cantidadBases == 0)
             {
                 //primerasPiezas = true;
@@ -256,14 +254,16 @@ public class ColocarPieza : NetworkBehaviour
             }
             // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
             PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
-
-
-
             var currPrefCamino = currentPrefabCamino.name;
             Debug.Log("el prefab camino se llama " + currPrefCamino);
             if (NetworkManager.Singleton.IsServer)
             {
                 EjecutarColocarCamino(hit, color, currPrefCamino);
+                // Luego de colocar un camino, disminuyes el contador y verificas si desactivar el botón.
+                jugadorcopia.cantidadCaminos = jugadorcopia.cantidadCaminos - 1;
+                PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+                //jugador.cantidadCaminos--;
+                Debug.Log("Caminos restantes POST: " + PlayerNetwork.Instance.playerData[indexJugador].cantidadCaminos);
             }
             else // si es un cliente
             {
@@ -273,13 +273,9 @@ public class ColocarPieza : NetworkBehaviour
                 var rotation = hit.collider.gameObject.transform.rotation;
                 PlayerNetwork.Instance.ColocarCaminoServerRpc(color, currPrefCamino, colliderName, position, rotation);
             }
-            // Luego de colocar un camino, disminuyes el contador y verificas si desactivar el botón.
-            jugadorcopia.cantidadCaminos = jugadorcopia.cantidadCaminos - 1;
-            PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
-            //jugador.cantidadCaminos--;
-            Debug.Log("Caminos restantes POST: " + PlayerNetwork.Instance.playerData[indexJugador].cantidadCaminos);
             if (PlayerNetwork.Instance.playerData[indexJugador].cantidadCaminos <= 0)
                 buttonCamino.interactable = false;
+
             // Inclusión de la funcionalidad de ConfirmarBase()
             if (currentCamino == null)
             {
@@ -353,6 +349,11 @@ public class ColocarPieza : NetworkBehaviour
             if (NetworkManager.Singleton.IsServer)
             {
                 EjecutarColocarBase(hit, color, currPrefBase);
+                // Luego de colocar una base, disminuyes el contador y verificas si desactivar el botón.
+                jugadorcopia.cantidadBases = jugadorcopia.cantidadBases - 1;
+                PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+                //jugador.cantidadBases--;
+                Debug.Log("Bases restantes POST: " + PlayerNetwork.Instance.playerData[indexJugador].cantidadBases);
             }
             else // si es un cliente
             {
@@ -361,11 +362,6 @@ public class ColocarPieza : NetworkBehaviour
                 var position = hit.collider.gameObject.transform.position;
                 PlayerNetwork.Instance.ColocarBaseServerRpc(id, color, currPrefBase, colliderName, position);
             }
-            // Luego de colocar una base, disminuyes el contador y verificas si desactivar el botón.
-            jugadorcopia.cantidadBases = jugadorcopia.cantidadBases - 1;
-            PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
-            //jugador.cantidadBases--;
-            Debug.Log("Bases restantes POST: " + PlayerNetwork.Instance.playerData[indexJugador].cantidadBases);
             if (PlayerNetwork.Instance.playerData[indexJugador].cantidadBases <= 0)
                 buttonBase.interactable = false;
             // Inclusión de la funcionalidad de ConfirmarBase()
@@ -441,6 +437,11 @@ public class ColocarPieza : NetworkBehaviour
             if (NetworkManager.Singleton.IsServer)
             {
                 EjecutarColocarPueblo(hit, color, currPrefPueblo);
+                // Luego de colocar una base, disminuyes el contador y verificas si desactivar el botón.
+                jugadorcopia.cantidadPueblos = jugadorcopia.cantidadPueblos - 1;
+                PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+                //jugador.cantidadPueblos--;
+                Debug.Log("Pueblos restantes POST: " + PlayerNetwork.Instance.playerData[indexJugador].cantidadPueblos);
             }
             else // si es un cliente
             {
@@ -449,19 +450,13 @@ public class ColocarPieza : NetworkBehaviour
                 var position = hit.collider.gameObject.transform.position;
                 PlayerNetwork.Instance.ColocarPuebloServerRpc(id, color, currPrefPueblo, colliderName, position);
             }
-            // Luego de colocar una base, disminuyes el contador y verificas si desactivar el botón.
-            jugadorcopia.cantidadPueblos = jugadorcopia.cantidadPueblos - 1;
-            PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
-            //jugador.cantidadPueblos--;
-            Debug.Log("Bases restantes POST: " + PlayerNetwork.Instance.playerData[indexJugador].cantidadPueblos);
-            if (PlayerNetwork.Instance.playerData[indexJugador].cantidadPueblos <= 0)
+            if (PlayerNetwork.Instance.playerData[indexJugador].cantidadPueblos <= 0) // CHEQUEAR QUE EL CLIENTE PUEDA DESACTIVAR EL BOTON TAMBIEN
                 buttonPueblo.interactable = false;
             // Inclusión de la funcionalidad de ConfirmarBase()
             if (currentPueblo == null)
             {
                 Debug.Log("currentPueblo es null");
             }
-
             if (currentPueblo != null)
             {
                 //confirmBaseButton.gameObject.SetActive(false);  // Deshabilita el botón de confirmación

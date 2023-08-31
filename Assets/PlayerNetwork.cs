@@ -732,10 +732,11 @@ public class PlayerNetwork : NetworkBehaviour
             jugadorcopia.primerasPiezas = true;
             PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
         }
+        UpdateCantidadPiezadClientRpc(jugador, jugador.cantidadCaminos, jugador.cantidadBases, jugador.cantidadPueblos, jugador.primerasPiezas);
     }
 
 
-public void CheckifWon()
+    public void CheckifWon()
     {
         Debug.Log("Entre a checkifwon como server");
 
@@ -800,7 +801,36 @@ public void CheckifWon()
             ListaColliders.Instance.ModificarColorPorNombre(nombresinClone, color);
             ListaColliders.Instance.ImprimirColliderPorNombre(nombresinClone);
             tipoActual = "Ninguno";
+            int  id = GetPlayerByColor(color);
+            //Actualizar recursos:
+            int indexJugador = -1;
+            bool jugadorEncontrado = false;
 
+            // Búsqueda del jugador en la lista playerData
+            for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+            {
+                //Debug.Log("La lista Ids es " + playerData[i].jugadorId);
+                if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
+                {
+                    jugadorEncontrado = true;
+                    indexJugador = i;
+                    break;
+                }
+            }
+            if (!jugadorEncontrado)
+            {
+                Debug.Log("Jugador no encontrado en la lista playerData");
+                return;
+            }
+            // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
+            PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
+            // Luego de colocar una base, disminuyes el contador y verificas si desactivar el botón.
+            jugadorcopia.cantidadCaminos = jugadorcopia.cantidadCaminos - 1;
+            PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+            //jugador.cantidadCaminos--;
+            Debug.Log("Caminos restantes POST: " + PlayerNetwork.Instance.playerData[indexJugador].cantidadCaminos);
+            DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
+            UpdateCantidadPiezadClientRpc(jugador, jugador.cantidadCaminos, jugador.cantidadBases, jugador.cantidadPueblos, jugador.primerasPiezas);
         }
         catch (Exception e)
         {
@@ -829,6 +859,35 @@ public void CheckifWon()
             SetPuntajebyId(id, 1);
             Debug.Log("Termino SetPuntajebyID");
             tipoActual = "Ninguno";
+            //Actualizar recursos:
+            int indexJugador = -1;
+            bool jugadorEncontrado = false;
+
+            // Búsqueda del jugador en la lista playerData
+            for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+            {
+                //Debug.Log("La lista Ids es " + playerData[i].jugadorId);
+                if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
+                {
+                    jugadorEncontrado = true;
+                    indexJugador = i;
+                    break;
+                }
+            }
+            if (!jugadorEncontrado)
+            {
+                Debug.Log("Jugador no encontrado en la lista playerData");
+                return;
+            }
+            // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
+            PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
+            // Luego de colocar una base, disminuyes el contador y verificas si desactivar el botón.
+            jugadorcopia.cantidadBases = jugadorcopia.cantidadBases - 1;
+            PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+            //jugador.cantidadBasess--;
+            Debug.Log("Bases restantes POST: " + PlayerNetwork.Instance.playerData[indexJugador].cantidadPueblos);
+            DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
+            UpdateCantidadPiezadClientRpc(jugador, jugador.cantidadCaminos, jugador.cantidadBases, jugador.cantidadPueblos, jugador.primerasPiezas);
         }
         catch (Exception e)
         {
@@ -856,6 +915,35 @@ public void CheckifWon()
             SetPuntajebyId(id, 2);
             Debug.Log("Termino SetPuntajebyID");
             tipoActual = "Ninguno";
+            //Actualizar recursos:
+            int indexJugador = -1;
+            bool jugadorEncontrado = false;
+
+            // Búsqueda del jugador en la lista playerData
+            for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+            {
+                //Debug.Log("La lista Ids es " + playerData[i].jugadorId);
+                if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
+                {
+                    jugadorEncontrado = true;
+                    indexJugador = i;
+                    break;
+                }
+            }
+            if (!jugadorEncontrado)
+            {
+                Debug.Log("Jugador no encontrado en la lista playerData");
+                return;
+            }
+            // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
+            PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
+            // Luego de colocar una base, disminuyes el contador y verificas si desactivar el botón.
+            jugadorcopia.cantidadPueblos = jugadorcopia.cantidadPueblos - 1;
+            PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+            //jugador.cantidadPueblos--;
+            Debug.Log("Pueblos restantes POST: " + PlayerNetwork.Instance.playerData[indexJugador].cantidadPueblos);          
+            DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
+            UpdateCantidadPiezadClientRpc(jugador, jugador.cantidadCaminos, jugador.cantidadBases, jugador.cantidadPueblos, jugador.primerasPiezas);
         }
         catch (Exception e)
         {
@@ -894,9 +982,11 @@ public void CheckifWon()
             PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
             // Aquí es donde actualizarías los recursos del jugador en tu juego.
             jugadorcopia.maderaCount -= 1;
-            jugadorcopia.ladrilloCount -= 1;  
+            jugadorcopia.ladrilloCount -= 1;
+            jugadorcopia.cantidadCaminos += 1;
             PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
             PlayerNetwork.Instance.UpdateResourcesTextClientRpc(jugador);
+            UpdateComprarCaminoButtonServerRpc();
         }
     }
 
@@ -935,8 +1025,10 @@ public void CheckifWon()
             jugadorcopia.ladrilloCount -= 1;
             jugadorcopia.trigoCount -= 1;
             jugadorcopia.ovejaCount -= 1;
+            jugadorcopia.cantidadBases += 1;
             PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
             PlayerNetwork.Instance.UpdateResourcesTextClientRpc(jugador);
+            UpdateComprarBaseButtonServerRpc();
         }
     }
 
@@ -973,8 +1065,10 @@ public void CheckifWon()
             // Aquí es donde actualizarías los recursos del jugador en tu juego.
             jugadorcopia.trigoCount -= 3;
             jugadorcopia.piedraCount -= 2;
+            jugadorcopia.cantidadPueblos += 1;
             PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
             PlayerNetwork.Instance.UpdateResourcesTextClientRpc(jugador);
+            UpdateComprarPuebloButtonServerRpc();
         }
     }
     [ClientRpc]
@@ -988,6 +1082,53 @@ public void CheckifWon()
         BoardManager.Instance.TrigoCountText.text = jugador.trigoCount.ToString();
     }
 
+    public void UpdateCantidadPiezad(DatosJugador jugador, int caminos, int bases, int pueblos, bool priPiezas)
+    {
+        //Debug.Log("Entre a UpdateCantidadPiezadClientRpc");
+        jugador.cantidadCaminos = caminos;
+        jugador.cantidadBases = bases;
+        jugador.cantidadPueblos = pueblos;
+        jugador.primerasPiezas = priPiezas;
+    }
+    [ClientRpc]
+    public void UpdateCantidadPiezadClientRpc(DatosJugador jugador, int caminos, int bases, int pueblos, bool priPiezas)
+    {
+        //Debug.Log("Entre a UpdateCantidadPiezadClientRpc");
+        jugador.cantidadCaminos = caminos;
+        jugador.cantidadBases = bases;
+        jugador.cantidadPueblos = pueblos;
+        jugador.primerasPiezas = priPiezas;
+    }
+    [ServerRpc(RequireOwnership = false)]
+    public void UpdateCantidadPiezadServerRpc(int id, int caminos, int bases, int pueblos, bool priPiezas)
+    {
+        int indexJugador = -1;
+        bool jugadorEncontrado = false;
+
+        // Búsqueda del jugador en la lista playerData
+        for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+        {
+            //Debug.Log("La lista Ids es " + playerData[i].jugadorId);
+            if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
+            {
+                jugadorEncontrado = true;
+                indexJugador = i;
+                break;
+            }
+        }
+        if (!jugadorEncontrado)
+        {
+            Debug.Log("Jugador no encontrado en la lista playerData");
+            return;
+        }
+        // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
+        PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
+        jugadorcopia.cantidadCaminos = caminos;
+        jugadorcopia.cantidadBases = bases;
+        jugadorcopia.cantidadPueblos = pueblos;
+        jugadorcopia.primerasPiezas = priPiezas;
+        PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+    }
 
     [ServerRpc(RequireOwnership = false)]
     public void TirarDadosServerRpc()
@@ -996,10 +1137,8 @@ public void CheckifWon()
         // NO BORRAR ESTO COMENTADO POR SI SURGE DENUEVO EL TEMA DE LOS DADOS
         // Si el tablero no está colocado, regresar
         if (!ARCursor.Instance.isBoardPlaced) return;
-
         // Comprobar si dadoToPlace o tableromInstance son null antes de proceder
         if (ARCursor.Instance.dadoToPlace == null || ARCursor.Instance.tableromInstance == null) return;
-
         // Si el dado no existe, crearlo
         if (ARCursor.Instance.currentDado == null)
         {
@@ -1014,7 +1153,6 @@ public void CheckifWon()
             // Si el dado existe, reposicionarlo para el nuevo lanzamiento
             ARCursor.Instance.currentDado.transform.position = ARCursor.Instance.tableromInstance.transform.position + Vector3.up * ARCursor.Instance.dadoDistance;
         }
-
         if (ARCursor.Instance.currentDado2 == null)
         {
             // Crear un segundo dado al costado del primero
@@ -1028,14 +1166,12 @@ public void CheckifWon()
             // Si el segundo dado existe, reposicionarlo para el nuevo lanzamiento
             ARCursor.Instance.currentDado2.transform.position = ARCursor.Instance.tableromInstance.transform.position + Vector3.up * ARCursor.Instance.dadoDistance + Vector3.right * ARCursor.Instance.dadoDistance;
         }
-
         // Obtén el DiceScript del dado actual y lanza el dado
         DiceScript diceScript = ARCursor.Instance.currentDado.GetComponent<DiceScript>();
         if (diceScript != null)
         {
             diceScript.RollDice(ARCursor.Instance.currentDado, ARCursor.Instance.tableromInstance.transform.position + Vector3.up * ARCursor.Instance.dadoDistance);
         }
-
         // Obtén el DiceScript del segundo dado y lanza el dado
         DiceScript diceScript2 = ARCursor.Instance.currentDado2.GetComponent<DiceScript>();
         if (diceScript2 != null)
@@ -1045,11 +1181,7 @@ public void CheckifWon()
         // Ajustar dicesThrown a true luego de lanzar los dados
         ARCursor.Instance.dicesThrown = true;
         DiceNumberTextScript.Instance.DarResultadoRandom();
-        //int playerId = PlayerPrefs.GetInt("jugadorId");
-        //int currentPlayerID = TurnManager.Instance.CurrentPlayerID;
-        //Debug.Log("el id que toco TirarDados es" + currentPlayerID);
         BoardManager.Instance.ManejoParcelas(DiceNumberTextScript.Instance.randomDiceNumber);
-        //tirarDadoButton.interactable = false;
     }
 
     public DatosJugador? GetPlayerByColor(FixedString64Bytes color)
@@ -1063,7 +1195,6 @@ public void CheckifWon()
         }
         return null; // devuelve null si no se encontró un jugador con ese color
     }
-
 
     public void SetPuntajebyId(int id, int pieza)
     {
@@ -1146,25 +1277,11 @@ public void CheckifWon()
         {
             jugadorcopia.gano = true;
         }
-
         PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
         Debug.Log("Imprimo jugador luego de sumar puntos");
         ImprimirJugadorPorId(id);
-
-
     }
-    /* public bool GetTurnByPlayerId(int id)
-     {
-         var esturno = false;
-         foreach (DatosJugador jugador in playerData)
-         {
-             if (jugador.jugadorId.Equals(id))
-             {
-                 esturno = jugador.turno;
-             }
-         }
-         return esturno; // devuelve null si no se encontró un jugador con ese color
-     }*/
+
     [ServerRpc(RequireOwnership = false)]
     public void UpdateComprarCaminoButtonServerRpc()
     {
