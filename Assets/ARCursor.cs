@@ -345,7 +345,9 @@ public class ARCursor : NetworkBehaviour
         Debug.Log("Toque boton terminar turno ");
         //PlayerNetwork.Instance.EndTurn();
         //NO BORRAR, dejar comentado hasta que los turnos funcionen bien 
-        if (colocarPieza.yaEjecutado) 
+        int id = PlayerPrefs.GetInt("jugadorId");
+        PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
+        if (jugador.primerasPiezas) 
         {
             PlayerNetwork.Instance.EndTurn();
         }
@@ -353,7 +355,6 @@ public class ARCursor : NetworkBehaviour
         {
             Debug.Log("Colocar las 4 piezas para pasar turno");
         }
-        PlayerNetwork.Instance.ImprimirTodosLosJugadores();
     }
 }
 

@@ -37,11 +37,11 @@ public class ColocarPieza : NetworkBehaviour
     public Button buttonCamino;
     public Button buttonBase;
     public Button buttonPueblo;
-    public int caminosRestantes = 2;
-    public int basesRestantes = 2;
-    public int pueblosRestantes =0;
+    //public int caminosRestantes = 2;
+    //public int basesRestantes = 2;
+    //public int pueblosRestantes =0;
     //public bool primerasPiezas = false;
-    public bool yaEjecutado = false;
+    //public bool yaEjecutado = false;
     
     //public TipoObjeto tipoActual;
     private string tipoActual;
@@ -82,9 +82,11 @@ public class ColocarPieza : NetworkBehaviour
             canPlace = true;
         });
 
+        int id = PlayerPrefs.GetInt("jugadorId");
+        PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
         // Al principio, solo permitir la colocación de dos caminos y bases.
-        buttonCamino.interactable = caminosRestantes > 0;
-        buttonBase.interactable = basesRestantes > 0;
+        buttonCamino.interactable = jugador.cantidadCaminos > 0;
+        buttonBase.interactable = jugador.cantidadBases > 0;
         buttonPueblo.interactable = false;
     }
 
@@ -93,8 +95,10 @@ public class ColocarPieza : NetworkBehaviour
         //primero desactivo botones si no es mi turno
         if (PlayerNetwork.Instance.IsMyTurn(PlayerPrefs.GetInt("jugadorId")))
         {
+            int id = PlayerPrefs.GetInt("jugadorId");
+            PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
             //Debug.Log("Es mi TURNO");
-            if (caminosRestantes > 0)
+            if (jugador.cantidadCaminos > 0)
             {
                 buttonCamino.interactable = true;
             }
@@ -102,7 +106,7 @@ public class ColocarPieza : NetworkBehaviour
             {
                 buttonCamino.interactable = false;
             }
-            if (basesRestantes > 0)
+            if (jugador.cantidadBases > 0)
             {
                 buttonBase.interactable = true;
             }
@@ -110,7 +114,7 @@ public class ColocarPieza : NetworkBehaviour
             {
                 buttonBase.interactable = false;
             }
-            if (pueblosRestantes > 0)
+            if (jugador.cantidadPueblos > 0)
             {
                 buttonPueblo.interactable = true;
             }
@@ -132,15 +136,40 @@ public class ColocarPieza : NetworkBehaviour
         //luego el update de siempre
         if (NetworkManager.Singleton.IsServer)
         {
-            if (!yaEjecutado && caminosRestantes == 0 && basesRestantes == 0)
+            int id = PlayerPrefs.GetInt("jugadorId");
+            PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
+            if (!jugador.primerasPiezas && jugador.cantidadCaminos == 0 && jugador.cantidadBases == 0)
             {
                 //primerasPiezas = true;
-                yaEjecutado = true;
+                int indexJugador = -1;
+                bool jugadorEncontrado = false;
+
+                // Búsqueda del jugador en la lista playerData
+                for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+                {
+                    //Debug.Log("La lista Ids es " + playerData[i].jugadorId);
+                    if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
+                    {
+                        jugadorEncontrado = true;
+                        indexJugador = i;
+                        break;
+                    }
+                }
+                if (!jugadorEncontrado)
+                {
+                    Debug.Log("Jugador no encontrado en la lista playerData");
+                    return;
+                }
+                // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
+                PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
+                // Aquí es donde actualizarías los recursos del jugador en tu juego.
+                jugadorcopia.primerasPiezas = true;
+                PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
             }
         }
         else
         {
-            //PlayerNetwork.Instance.PrimerasPiezasClientRpc();
+            PlayerNetwork.Instance.PrimerasPiezasServerRpc();
         }
         
         if (canPlace && Input.touchCount == 1 && !_isTouching && Input.GetTouch(0).phase == TouchPhase.Began)
@@ -185,7 +214,6 @@ public class ColocarPieza : NetworkBehaviour
     public void ColocarCamino(string color)
     {
         AllowPlace();
-        Debug.Log("Caminos restantes PRE: " + caminosRestantes);
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, myLayerMask))
@@ -205,6 +233,32 @@ public class ColocarPieza : NetworkBehaviour
                     currentPrefabCamino = prefabCaminoN;
                     break;
             }
+            int id = PlayerPrefs.GetInt("jugadorId");
+            //PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
+            int indexJugador = -1;
+            bool jugadorEncontrado = false;
+
+            // Búsqueda del jugador en la lista playerData
+            for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+            {
+                //Debug.Log("La lista Ids es " + playerData[i].jugadorId);
+                if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
+                {
+                    jugadorEncontrado = true;
+                    indexJugador = i;
+                    break;
+                }
+            }
+            if (!jugadorEncontrado)
+            {
+                Debug.Log("Jugador no encontrado en la lista playerData");
+                return;
+            }
+            // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
+            PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
+
+
+
             var currPrefCamino = currentPrefabCamino.name;
             Debug.Log("el prefab camino se llama " + currPrefCamino);
             if (NetworkManager.Singleton.IsServer)
@@ -220,9 +274,11 @@ public class ColocarPieza : NetworkBehaviour
                 PlayerNetwork.Instance.ColocarCaminoServerRpc(color, currPrefCamino, colliderName, position, rotation);
             }
             // Luego de colocar un camino, disminuyes el contador y verificas si desactivar el botón.
-            caminosRestantes--;
-            Debug.Log("Caminos restantes POST: " + caminosRestantes);
-            if (caminosRestantes <= 0)
+            jugadorcopia.cantidadCaminos = jugadorcopia.cantidadCaminos - 1;
+            PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+            //jugador.cantidadCaminos--;
+            Debug.Log("Caminos restantes POST: " + PlayerNetwork.Instance.playerData[indexJugador].cantidadCaminos);
+            if (PlayerNetwork.Instance.playerData[indexJugador].cantidadCaminos <= 0)
                 buttonCamino.interactable = false;
             // Inclusión de la funcionalidad de ConfirmarBase()
             if (currentCamino == null)
@@ -269,6 +325,29 @@ public class ColocarPieza : NetworkBehaviour
                     currentPrefabBase = prefabBaseN;
                     break;
             }
+            int id = PlayerPrefs.GetInt("jugadorId");
+            //PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
+            int indexJugador = -1;
+            bool jugadorEncontrado = false;
+
+            // Búsqueda del jugador en la lista playerData
+            for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+            {
+                //Debug.Log("La lista Ids es " + playerData[i].jugadorId);
+                if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
+                {
+                    jugadorEncontrado = true;
+                    indexJugador = i;
+                    break;
+                }
+            }
+            if (!jugadorEncontrado)
+            {
+                Debug.Log("Jugador no encontrado en la lista playerData");
+                return;
+            }
+            // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
+            PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
             var currPrefBase = currentPrefabBase.name;
             Debug.Log("el prefab base se llama " + currPrefBase);
             if (NetworkManager.Singleton.IsServer)
@@ -280,12 +359,14 @@ public class ColocarPieza : NetworkBehaviour
                 string colliderName = hit.collider.gameObject.name;
                 Debug.Log("colliderName: " + colliderName);
                 var position = hit.collider.gameObject.transform.position;
-                int id = PlayerPrefs.GetInt("jugadorId");
                 PlayerNetwork.Instance.ColocarBaseServerRpc(id, color, currPrefBase, colliderName, position);
             }
-            basesRestantes--;
-            Debug.Log("Bases restantes POST: " + basesRestantes);
-            if (basesRestantes <= 0)
+            // Luego de colocar una base, disminuyes el contador y verificas si desactivar el botón.
+            jugadorcopia.cantidadBases = jugadorcopia.cantidadBases - 1;
+            PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+            //jugador.cantidadBases--;
+            Debug.Log("Bases restantes POST: " + PlayerNetwork.Instance.playerData[indexJugador].cantidadBases);
+            if (PlayerNetwork.Instance.playerData[indexJugador].cantidadBases <= 0)
                 buttonBase.interactable = false;
             // Inclusión de la funcionalidad de ConfirmarBase()
             if (currentBase == null)
@@ -332,6 +413,29 @@ public class ColocarPieza : NetworkBehaviour
                     currentPrefabPueblo = prefabPuebloN;
                     break;
             }
+            int id = PlayerPrefs.GetInt("jugadorId");
+            //PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
+            int indexJugador = -1;
+            bool jugadorEncontrado = false;
+
+            // Búsqueda del jugador en la lista playerData
+            for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+            {
+                //Debug.Log("La lista Ids es " + playerData[i].jugadorId);
+                if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
+                {
+                    jugadorEncontrado = true;
+                    indexJugador = i;
+                    break;
+                }
+            }
+            if (!jugadorEncontrado)
+            {
+                Debug.Log("Jugador no encontrado en la lista playerData");
+                return;
+            }
+            // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
+            PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
             var currPrefPueblo = currentPrefabPueblo.name;
             Debug.Log("el prefab pueblo se llama " + currPrefPueblo);
             if (NetworkManager.Singleton.IsServer)
@@ -343,12 +447,14 @@ public class ColocarPieza : NetworkBehaviour
                 string colliderName = hit.collider.gameObject.name;
                 Debug.Log("colliderName: " + colliderName);
                 var position = hit.collider.gameObject.transform.position;
-                int id = PlayerPrefs.GetInt("jugadorId");
                 PlayerNetwork.Instance.ColocarPuebloServerRpc(id, color, currPrefPueblo, colliderName, position);
             }
-            pueblosRestantes--;
-            Debug.Log("Pueblos restantes POST: " + pueblosRestantes);
-            if (pueblosRestantes <= 0)
+            // Luego de colocar una base, disminuyes el contador y verificas si desactivar el botón.
+            jugadorcopia.cantidadPueblos = jugadorcopia.cantidadPueblos - 1;
+            PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+            //jugador.cantidadPueblos--;
+            Debug.Log("Bases restantes POST: " + PlayerNetwork.Instance.playerData[indexJugador].cantidadPueblos);
+            if (PlayerNetwork.Instance.playerData[indexJugador].cantidadPueblos <= 0)
                 buttonPueblo.interactable = false;
             // Inclusión de la funcionalidad de ConfirmarBase()
             if (currentPueblo == null)

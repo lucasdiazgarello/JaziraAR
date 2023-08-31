@@ -60,13 +60,17 @@ public class PlayerNetwork : NetworkBehaviour
         public int puntaje;
         public bool gano;
         public bool turno;
-        public int cantidadCasa;
+        public bool primerasPiezas;
         public int maderaCount;
         public int ladrilloCount;
         public int ovejaCount;
         public int piedraCount;
         public int trigoCount;       
         public FixedString64Bytes colorJugador;
+        public int cantidadCaminos;
+        public int cantidadBases;
+        public int cantidadPueblos;
+
 
         public bool Equals(DatosJugador other)
         {
@@ -77,17 +81,19 @@ public class PlayerNetwork : NetworkBehaviour
         {
             serializer.SerializeValue(ref jugadorId);
             serializer.SerializeValue(ref puntaje);
-            //serializer.SerializeValue(ref cantidadJugadores);
             serializer.SerializeValue(ref gano);
             serializer.SerializeValue(ref turno);
+            serializer.SerializeValue(ref primerasPiezas);
             serializer.SerializeValue(ref maderaCount);
             serializer.SerializeValue(ref ladrilloCount);
             serializer.SerializeValue(ref ovejaCount);
             serializer.SerializeValue(ref piedraCount);
-            serializer.SerializeValue(ref trigoCount);
-            serializer.SerializeValue(ref cantidadCasa);
+            serializer.SerializeValue(ref trigoCount);            
             serializer.SerializeValue(ref nomJugador);
             serializer.SerializeValue(ref colorJugador);
+            serializer.SerializeValue(ref cantidadCaminos);
+            serializer.SerializeValue(ref cantidadBases);
+            serializer.SerializeValue(ref cantidadPueblos);
         }
     };
 
@@ -129,13 +135,17 @@ public class PlayerNetwork : NetworkBehaviour
                     puntaje = 0,
                     gano = false,
                     turno = false,
-                    cantidadCasa = 0,
+                    primerasPiezas = false,
                     maderaCount = 0,
                     ladrilloCount = 0,
                     ovejaCount = 0,
                     piedraCount = 0,
                     trigoCount = 0,
                     colorJugador = new FixedString64Bytes(),
+                    cantidadCaminos = 0,
+                    cantidadBases = 0,
+                    cantidadPueblos = 0,
+
                 }, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
         }
         else
@@ -180,7 +190,7 @@ public class PlayerNetwork : NetworkBehaviour
             FixedString64Bytes nombreHost = new FixedString64Bytes(PlayerPrefs.GetString("nomJugador"));
             FixedString64Bytes colorHost = new FixedString64Bytes(PlayerPrefs.GetString("colorJugador"));
             Debug.Log("el jugador con id:" + playerId + "se llama " + nombreHost + " y es el color " + colorHost);
-            AgregarJugador(playerId, nombreHost, 0, false, true, 2, 10, 10, 10, 10, 10, colorHost);
+            AgregarJugador(playerId, nombreHost, 0, false, true, false, 10, 10, 10, 10, 10, colorHost, 2, 2, 0);
             Debug.Log("se agrego jugador host");
             ImprimirJugadorPorId(playerId);
             //ImprimirTodosLosJugadores();
@@ -196,7 +206,7 @@ public class PlayerNetwork : NetworkBehaviour
             FixedString64Bytes colorCliente = new FixedString64Bytes(PlayerPrefs.GetString("colorJugador"));
             Debug.Log("el cliente con id:" + playerId + "se llama " + nombreCliente + " y es el color " + colorCliente);
             //AgregarJugador(playerId, nombreCliente, 100, false, true, 2, 10, 10, 10, 10, 10, colorCliente); //EL CLIENTE NO DEBE AGREGARJUGADOR, DEBE MANDAR SU DATA AL HOST
-            AddPlayerServerRpc(playerId, nombreCliente, 0, false, false, 2, 10, 10, 10, 10, 10, colorCliente);
+            AddPlayerServerRpc(playerId, nombreCliente, 0, false, false,false, 10, 10, 10, 10, 10, colorCliente, 2, 2, 0);
             Debug.Log("se agrego jugador cliente");
             ImprimirJugadorPorId(playerId);
             //ImprimirTodosLosJugadores();
@@ -219,11 +229,11 @@ public class PlayerNetwork : NetworkBehaviour
         }
     }
 
-    public void AgregarJugador(int jugadorId, FixedString64Bytes nomJugador, int puntaje, bool gano, bool turno, int cantidadCasa, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, FixedString64Bytes colorJugador)
+    public void AgregarJugador(int jugadorId, FixedString64Bytes nomJugador, int puntaje, bool gano, bool turno, bool primerasPiezas, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, FixedString64Bytes colorJugador, int cantidadCaminos, int cantidadBases, int cantidadPueblos)
     {
 
         ImprimirPlayerIDs();
-        Debug.Log($"AgregarJugador: {jugadorId}, {nomJugador}, {puntaje}, {gano}, {turno}, {cantidadCasa}, {maderaCount}, {ladrilloCount}, {ovejaCount}, {piedraCount}, {trigoCount}, {colorJugador}");
+        Debug.Log($"AgregarJugador: {jugadorId}, {nomJugador}, {puntaje}, {gano}, {turno}, {primerasPiezas}, {maderaCount}, {ladrilloCount}, {ovejaCount}, {piedraCount}, {trigoCount}, {colorJugador}, {cantidadCaminos}, {cantidadBases}, {cantidadPueblos}");
         Debug.Log("playerId:" + playerIDs.Count); //.Count dice la cantidad de elementos qeu tiene la lista
         Debug.Log("playerData:" + playerData.Count);
 
@@ -233,13 +243,16 @@ public class PlayerNetwork : NetworkBehaviour
         newDatos.puntaje = puntaje;
         newDatos.gano = gano;
         newDatos.turno = turno;
-        newDatos.cantidadCasa = cantidadCasa;
+        newDatos.primerasPiezas = primerasPiezas;
         newDatos.maderaCount = maderaCount;
         newDatos.ladrilloCount = ladrilloCount;
         newDatos.ovejaCount = ovejaCount;
         newDatos.piedraCount = piedraCount;
         newDatos.trigoCount = trigoCount;
         newDatos.colorJugador = colorJugador;
+        newDatos.cantidadCaminos = cantidadCaminos;
+        newDatos.cantidadBases = cantidadBases;
+        newDatos.cantidadPueblos = cantidadPueblos;
         Debug.Log("Cargue newDatos");
         try
         {
@@ -306,14 +319,16 @@ public class PlayerNetwork : NetworkBehaviour
                                    $"Puntaje: {data.puntaje}, " +
                                    $"Ganó: {data.gano}, " +
                                    $"Turno: {data.turno}, " +
-                                   $"Cantidad de Casas: {data.cantidadCasa}, " +
+                                   $"PrimerasPiezas: {data.primerasPiezas}, " +
                                    $"Madera: {data.maderaCount}, " +
                                    $"Ladrillo: {data.ladrilloCount}, " +
                                    $"Oveja: {data.ovejaCount}, " +
                                    $"Piedra: {data.piedraCount}, " +
                                    $"Trigo: {data.trigoCount}, " +
-                                   $"Color: {data.colorJugador.ToString()}";
-
+                                   $"Color: {data.colorJugador.ToString()}" +
+                                   $"CantCaminos: {data.cantidadCaminos}, " +
+                                   $"CantBases: {data.cantidadBases}, " +
+                                   $"CantPueblos: {data.cantidadPueblos}, ";
             Debug.Log(datosJugadorInfo);
         }
     }
@@ -325,13 +340,16 @@ public class PlayerNetwork : NetworkBehaviour
         Debug.Log("puntaje: " + jugador.puntaje);
         Debug.Log("gano: " + jugador.gano);
         Debug.Log("turno: " + jugador.turno);
-        Debug.Log("cantidadCasa: " + jugador.cantidadCasa);
+        Debug.Log("primerasPiezas: " + jugador.primerasPiezas);
         Debug.Log("maderaCount: " + jugador.maderaCount);
         Debug.Log("ladrilloCount: " + jugador.ladrilloCount);
         Debug.Log("ovejaCount: " + jugador.ovejaCount);
         Debug.Log("piedraCount: " + jugador.piedraCount);
         Debug.Log("trigoCount: " + jugador.trigoCount);
         Debug.Log("colorJugador: " + jugador.colorJugador.ToString());
+        Debug.Log("CantCaminos: " + jugador.cantidadCaminos);
+        Debug.Log("CantBases: " + jugador.cantidadBases);
+        Debug.Log("CantPueblos: " + jugador.cantidadPueblos);
     }
     public void ImprimirJugadorPorId(int idJugador)
     {
@@ -414,7 +432,7 @@ public class PlayerNetwork : NetworkBehaviour
     
     // Este es tu nuevo método RPC para agregar un jugador
     [ServerRpc(RequireOwnership = false)]
-    public void AddPlayerServerRpc(int jugadorId, FixedString64Bytes nomJugador, int puntaje, bool gano, bool turno, int cantidadCasa,  int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, FixedString64Bytes colorJugador)
+    public void AddPlayerServerRpc(int jugadorId, FixedString64Bytes nomJugador, int puntaje, bool gano, bool turno, bool primerasPiezas, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, FixedString64Bytes colorJugador, int cantidadCaminos, int cantidadBases, int cantidadPueblos)
     {
         try
         {
@@ -429,13 +447,16 @@ public class PlayerNetwork : NetworkBehaviour
             newPlayer.puntaje = puntaje;
             newPlayer.gano = gano;
             newPlayer.turno = turno;
-            newPlayer.cantidadCasa = cantidadCasa;
+            newPlayer.primerasPiezas = primerasPiezas;
             newPlayer.maderaCount = maderaCount;
             newPlayer.ladrilloCount = ladrilloCount;
             newPlayer.ovejaCount = ovejaCount;
             newPlayer.piedraCount = piedraCount;
             newPlayer.trigoCount = trigoCount;
             newPlayer.colorJugador = colorJugador;
+            newPlayer.cantidadCaminos = cantidadCaminos;
+            newPlayer.cantidadBases = cantidadBases;
+            newPlayer.cantidadPueblos = cantidadPueblos;
             // ... y puedes agregar los demás valores predeterminados aquí
             Debug.Log("Se va a unir usando AddPlayerServerRpc");
             if (!playerIDs.Contains(jugadorId) && jugadorId != 0)
@@ -444,8 +465,6 @@ public class PlayerNetwork : NetworkBehaviour
                 Debug.Log("Cant elementos de playerId:" + playerIDs.Count);
                 playerData.Add(newPlayer);
             }
-            //playerData.Add(newPlayer);
-            //playerIDs.Add(newPlayer.jugadorId);
             ImprimirPlayerIDs();
             ImprimirTodosLosJugadores();
             Debug.Log("Termino AddPlayerServerRpc");
@@ -513,16 +532,6 @@ public class PlayerNetwork : NetworkBehaviour
         Debug.Log("TestClientRpc ");
         //aca irian las funciones que pasa el puntaje o cantidad de recursos por ejemplo
     }
-/*
-#pragma warning disable CS0114 // El miembro oculta el miembro heredado. Falta una contraseña de invalidación
-    private void OnDestroy()
-#pragma warning restore CS0114 // El miembro oculta el miembro heredado. Falta una contraseña de invalidación
-    {
-        // Reemplaza esto con las listas de red que estás utilizando.
-        playerIDs.Dispose();
-        playerData.Dispose();
-    }
-*/
     // Esta función necesita ser implementada para buscar los datos del jugador basado en su ID.
     private bool TryObtenerDatosJugadorPorId(int idJugador, out DatosJugador datosJugador)
     {
@@ -690,14 +699,39 @@ public class PlayerNetwork : NetworkBehaviour
             CheckifWonServerRpc();
         }
     }
-    [ClientRpc]
-    public void PrimerasPiezasClientRpc()
+    [ServerRpc(RequireOwnership = false)]
+    public void PrimerasPiezasServerRpc()
     {
-        /*if (!yaEjecutado && caminosRestantes == 0 && basesRestantes == 0)
+        int id = PlayerPrefs.GetInt("jugadorId");
+        PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
+        if (!jugador.primerasPiezas && jugador.cantidadCaminos == 0 && jugador.cantidadBases == 0)
         {
-            primerasPiezas = true;
-            yaEjecutado = true;
-        }*/
+            //primerasPiezas = true;
+            int indexJugador = -1;
+            bool jugadorEncontrado = false;
+
+            // Búsqueda del jugador en la lista playerData
+            for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+            {
+                //Debug.Log("La lista Ids es " + playerData[i].jugadorId);
+                if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
+                {
+                    jugadorEncontrado = true;
+                    indexJugador = i;
+                    break;
+                }
+            }
+            if (!jugadorEncontrado)
+            {
+                Debug.Log("Jugador no encontrado en la lista playerData");
+                return;
+            }
+            // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
+            PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
+            // Aquí es donde actualizarías los recursos del jugador en tu juego.
+            jugadorcopia.primerasPiezas = true;
+            PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+        }
     }
 
 
@@ -765,24 +799,6 @@ public void CheckifWon()
             ListaColliders.Instance.ModificarTipoPorNombre(nombresinClone, "Camino"); // Aca se debe llamar una serverRpc o como ya es el servidor corriendo no?
             ListaColliders.Instance.ModificarColorPorNombre(nombresinClone, color);
             ListaColliders.Instance.ImprimirColliderPorNombre(nombresinClone);
-            /*comprobarObjeto = objetoCamino.gameObject.GetComponent<ComprobarObjeto>();
-            if (comprobarObjeto != null)
-            {
-                var nombreSinClone = ListaColliders.Instance.RemoverCloneDeNombre(comprobarObjeto.name);
-                Debug.Log("nombreSinClone = " + nombreSinClone);
-                ListaColliders.Instance.ModificarTipoPorNombre(nombreSinClone, "Camino");
-                ListaColliders.Instance.ModificarColorPorNombre(nombreSinClone, color);
-                ListaColliders.Instance.ImprimirColliderPorNombre(nombreSinClone);
-                // Almacenar el tipo de objeto que acabamos de colocar
-                //comprobarObjeto.tipoObjeto = TipoObjeto.Camino; // Puedes cambiar esto al tipo de objeto que corresponda
-                //Debug.Log("puse el tipo del camino a: " + comprobarObjeto.tipoObjeto);
-            }
-            else
-            {
-                //Debug.LogError("El objeto " + objetoCollider.gameObject.name + " no tiene un script ComprobarObjeto.");
-            }
-            Debug.Log("el tipo del camino colocado es " + tipoActual);
-            */
             tipoActual = "Ninguno";
 
         }
