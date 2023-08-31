@@ -347,14 +347,29 @@ public class ARCursor : NetworkBehaviour
         //NO BORRAR, dejar comentado hasta que los turnos funcionen bien 
         int id = PlayerPrefs.GetInt("jugadorId");
         PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
-        if (jugador.primerasPiezas) 
+        if (NetworkManager.Singleton.IsServer)
         {
-            PlayerNetwork.Instance.EndTurn();
+            if (jugador.primerasPiezas)
+            {
+                PlayerNetwork.Instance.EndTurn();
+            }
+            else
+            {
+                Debug.Log("Colocar las 4 piezas para pasar turno");
+            }
         }
         else
         {
-            Debug.Log("Colocar las 4 piezas para pasar turno");
+            if (jugador.primerasPiezas)
+            {
+                PlayerNetwork.Instance.EndTurnServerRpc();
+            }
+            else
+            {
+                Debug.Log("Colocar las 4 piezas para pasar turno");
+            }
         }
+        
     }
 }
 
