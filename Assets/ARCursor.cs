@@ -155,12 +155,12 @@ public class ARCursor : NetworkBehaviour
             {
                 //Debug.Log("Es mi TURNO");
                 tirarDadoButton.interactable = true;
-                //terminarTurnoButton.interactable = true;
+                terminarTurnoButton.interactable = true;
             }
             else
             {
                 tirarDadoButton.interactable = false;
-                //terminarTurnoButton.interactable = false;
+                terminarTurnoButton.interactable = false;
             }
         }
         catch (Exception ex)
@@ -206,6 +206,7 @@ public class ARCursor : NetworkBehaviour
             // Esto también funcionaría:
             // planeManager.planeDetectionMode = PlaneDetectionMode.None;
         }
+        PlayerNetwork.Instance.ImprimirTodosLosJugadores();
     }
 
     public void EnableRecursos()
@@ -342,17 +343,17 @@ public class ARCursor : NetworkBehaviour
     public void BotonEndTurn()
     {
         Debug.Log("Toque boton terminar turno ");
-        PlayerNetwork.Instance.EndTurn();
+        //PlayerNetwork.Instance.EndTurn();
         //NO BORRAR, dejar comentado hasta que los turnos funcionen bien 
-        /*if (colocarPieza.yaEjecutado) 
+        if (colocarPieza.yaEjecutado) 
         {
             PlayerNetwork.Instance.EndTurn();
         }
         else
         {
             Debug.Log("Colocar las 4 piezas para pasar turno");
-        }*/
-        
+        }
+        PlayerNetwork.Instance.ImprimirTodosLosJugadores();
     }
 }
 

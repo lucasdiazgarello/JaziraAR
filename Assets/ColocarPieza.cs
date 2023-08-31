@@ -40,7 +40,7 @@ public class ColocarPieza : NetworkBehaviour
     public int caminosRestantes = 2;
     public int basesRestantes = 2;
     public int pueblosRestantes =0;
-    public bool primerasPiezas = false;
+    //public bool primerasPiezas = false;
     public bool yaEjecutado = false;
     
     //public TipoObjeto tipoActual;
@@ -94,10 +94,33 @@ public class ColocarPieza : NetworkBehaviour
         if (PlayerNetwork.Instance.IsMyTurn(PlayerPrefs.GetInt("jugadorId")))
         {
             //Debug.Log("Es mi TURNO");
-            buttonCamino.interactable = true;
-            buttonBase.interactable = true;
-            buttonPueblo.interactable = true;
-            //terminarTurnoButton.interactable = true;
+            if (caminosRestantes > 0)
+            {
+                buttonCamino.interactable = true;
+            }
+            else
+            {
+                buttonCamino.interactable = false;
+            }
+            if (basesRestantes > 0)
+            {
+                buttonBase.interactable = true;
+            }
+            else
+            {
+                buttonBase.interactable = false;
+            }
+            if (pueblosRestantes > 0)
+            {
+                buttonPueblo.interactable = true;
+            }
+            else
+            {
+                buttonPueblo.interactable = false;
+            }
+            //buttonCamino.interactable = true;
+            //buttonBase.interactable = true;
+            //buttonPueblo.interactable = true;
         }
         else
         {
@@ -107,11 +130,19 @@ public class ColocarPieza : NetworkBehaviour
             //terminarTurnoButton.interactable = false;
         }
         //luego el update de siempre
-        if (!yaEjecutado && caminosRestantes == 0 && basesRestantes == 0)
+        if (NetworkManager.Singleton.IsServer)
         {
-            primerasPiezas = true;
-            yaEjecutado = true;
+            if (!yaEjecutado && caminosRestantes == 0 && basesRestantes == 0)
+            {
+                //primerasPiezas = true;
+                yaEjecutado = true;
+            }
         }
+        else
+        {
+            //PlayerNetwork.Instance.PrimerasPiezasClientRpc();
+        }
+        
         if (canPlace && Input.touchCount == 1 && !_isTouching && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             _isTouching = true;

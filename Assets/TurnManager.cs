@@ -59,6 +59,7 @@ public class TurnManager : NetworkBehaviour
             TurnManager.Instance.AdvanceTurn();
         }
     }
+    /*
 
     private void OnEnable()
     {
@@ -76,15 +77,15 @@ public class TurnManager : NetworkBehaviour
     private void OnClientConnected(ulong clientId)
     {
         // El cliente se ha conectado, agregar a la lista de jugadores
-        TurnManager.Instance.PlayerIds.Add((int)clientId);
+        //TurnManager.Instance.PlayerIds.Add((int)clientId);
     }
 
     private void OnClientDisconnected(ulong clientId)
     {
         // El cliente se ha desconectado, eliminar de la lista de jugadores
-        TurnManager.Instance.PlayerIds.Remove((int)clientId);
+        //TurnManager.Instance.PlayerIds.Remove((int)clientId);
     }
-
+    */
 }
 
 

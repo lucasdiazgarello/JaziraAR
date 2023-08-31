@@ -243,7 +243,7 @@ public class PlayerNetwork : NetworkBehaviour
         Debug.Log("Cargue newDatos");
         try
         {
-            if (!playerIDs.Contains(jugadorId) && jugadorId != 0)
+            if (!playerIDs.Contains(jugadorId) && jugadorId != 1)
             {
                 playerIDs.Add(jugadorId);
                 Debug.Log("Cant elementos de playerId:" + playerIDs.Count);
@@ -358,43 +358,10 @@ public class PlayerNetwork : NetworkBehaviour
     {
         for (int i = 0; i < playerData.Count; i++)
         {
-            Debug.Log("Información del jugador número " + (i + 1));
-            DatosJugador jugadorActual = playerData[i];
-            Debug.Log("ID Jugador: " + jugadorActual.jugadorId);
-            Debug.Log("Nombre Jugador: " + jugadorActual.nomJugador.ToString());
-            Debug.Log("Puntaje: " + jugadorActual.puntaje);
-            Debug.Log("Ganó?: " + jugadorActual.gano);
-            Debug.Log("Turno?: " + jugadorActual.turno);
-            Debug.Log("Cantidad de Casas: " + jugadorActual.cantidadCasa);
-            Debug.Log("Cuenta de Madera: " + jugadorActual.maderaCount);
-            Debug.Log("Cuenta de Ladrillos: " + jugadorActual.ladrilloCount);
-            Debug.Log("Cuenta de Ovejas: " + jugadorActual.ovejaCount);
-            Debug.Log("Cuenta de Piedras: " + jugadorActual.piedraCount);
-            Debug.Log("Cuenta de Trigo: " + jugadorActual.trigoCount);
-            Debug.Log("Color de Jugador: " + jugadorActual.colorJugador.ToString());
-            Debug.Log("----------------------------------------------------");
-        }        if (PlayerNetwork.Instance.IsMyTurn(PlayerPrefs.GetInt("jugadorId")))
-        {
-            //Debug.Log("Es mi TURNO");
-
-            var caminoButton = comprarCaminoButton.GetComponent<Button>();
-            var baseButton = comprarCaminoButton.GetComponent<Button>();
-            var puebloButton = comprarCaminoButton.GetComponent<Button>();
-            caminoButton.interactable = true;
-            baseButton.interactable = true;
-            puebloButton.interactable = true;
-            //terminarTurnoButton.interactable = true;
-        }
-        else
-        {
-            var caminoButton = comprarCaminoButton.GetComponent<Button>();
-            var baseButton = comprarCaminoButton.GetComponent<Button>();
-            var puebloButton = comprarCaminoButton.GetComponent<Button>();
-            caminoButton.interactable = false;
-            baseButton.interactable = false;
-            puebloButton.interactable = false;
-            //terminarTurnoButton.interactable = false;
-        }
+            Debug.Log("Jugador " + i);
+            ImprimirJugador(playerData[i]);
+            Debug.Log("----------------------------------");
+        }      
     }
     public int GetPlayerByColor(string color)
     {
@@ -723,8 +690,18 @@ public class PlayerNetwork : NetworkBehaviour
             CheckifWonServerRpc();
         }
     }
+    [ClientRpc]
+    public void PrimerasPiezasClientRpc()
+    {
+        /*if (!yaEjecutado && caminosRestantes == 0 && basesRestantes == 0)
+        {
+            primerasPiezas = true;
+            yaEjecutado = true;
+        }*/
+    }
 
-    public void CheckifWon()
+
+public void CheckifWon()
     {
         Debug.Log("Entre a checkifwon como server");
 
