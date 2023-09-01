@@ -534,7 +534,6 @@ public class ColocarPieza : NetworkBehaviour
         Debug.Log("2 preafb pueblo es " + objetoPueblo.name);
         currentPueblo = Instantiate(objetoPueblo, hit.collider.gameObject.transform.position, Quaternion.identity);
         currentPueblo.GetComponent<NetworkObject>().Spawn();
-
         Debug.Log("nombre collider Pueblo " + hit.collider.gameObject.name);
         var nombrecollider = hit.collider.gameObject.name;
         var nombreSinClone = ListaColliders.Instance.RemoverCloneDeNombre(nombrecollider);

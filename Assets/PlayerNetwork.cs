@@ -25,6 +25,7 @@ public class PlayerNetwork : NetworkBehaviour
     private GameObject comprarPuebloButton;
     public string tipoActual;
     public Button confirmBaseButton;
+    Dictionary<int, GameObject> gameObjectsByIDServer = new Dictionary<int, GameObject>();
     //private bool canPlace = false;
     public bool IsInitialized { get; private set; } = false; // Añade este campo de estado
     public NetworkList<int> playerIDs;
@@ -848,12 +849,15 @@ public class PlayerNetwork : NetworkBehaviour
             Debug.Log("2 preafb base es " + objetoBase.name);
             //PlayerPrefs.SetString(colliderName, "collider");
             currentBase = Instantiate(objetoBase, posititon, Quaternion.identity);
+            gameObjectsByIDServer.Add(currentBase.GetInstanceID(), currentBase);
             currentBase.GetComponent<NetworkObject>().Spawn();
+            int idBase = currentBase.GetInstanceID();
             // Obtener el componente ComprobarObjeto del objeto golpeado
             var nombresinClone = ListaColliders.Instance.RemoverCloneDeNombre(nombreCollider);
             Debug.Log("CPC PlayerNetwo" + nombresinClone);
             ListaColliders.Instance.ModificarTipoPorNombre(nombresinClone, "Base"); // Aca se debe llamar una serverRpc o como ya es el servidor corriendo no?
             ListaColliders.Instance.ModificarColorPorNombre(nombresinClone, color);
+            ListaColliders.Instance.ModificarIdPiezaPorNombre(nombresinClone, idBase);
             ListaColliders.Instance.ImprimirColliderPorNombre(nombresinClone);
             Debug.Log("Va a sumar puntaje");
             SetPuntajebyId(id, 1);
@@ -908,6 +912,14 @@ public class PlayerNetwork : NetworkBehaviour
             currentPueblo.GetComponent<NetworkObject>().Spawn();
             var nombresinClone = ListaColliders.Instance.RemoverCloneDeNombre(nombreCollider);
             Debug.Log("CPC PlayerNetwo" + nombresinClone);
+            int idbase = ListaColliders.Instance.GetIdPiezaPorNombre(nombresinClone);
+            if (gameObjectsByIDServer.ContainsKey(idbase))
+            {
+                GameObject baseToDespawn = gameObjectsByIDServer[idbase];
+                baseToDespawn.GetComponent<NetworkObject>().Despawn(); // Despawn using your networking library
+                Destroy(baseToDespawn); // Destroy the object if needed
+                gameObjectsByIDServer.Remove(idbase);
+            }
             ListaColliders.Instance.ModificarTipoPorNombre(nombresinClone, "Pueblo"); // Aca se debe llamar una serverRpc o como ya es el servidor corriendo no?
             ListaColliders.Instance.ModificarColorPorNombre(nombresinClone, color);
             ListaColliders.Instance.ImprimirColliderPorNombre(nombresinClone);
