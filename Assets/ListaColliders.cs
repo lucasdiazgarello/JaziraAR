@@ -1,6 +1,5 @@
-﻿
-
-using System;
+﻿using System;
+using System.Collections.Generic;
 using Unity.Collections;
 using Unity.Netcode;
 using UnityEngine;
@@ -8,6 +7,7 @@ using UnityEngine;
 public class ListaColliders : NetworkBehaviour
 {
     public NetworkList<ListaColliders.Colliders> listaColliders;
+    //Dictionary<int, GameObject> gameObjectsByID = new Dictionary<int, GameObject>();
     public static ListaColliders Instance { get; private set; }
     public NetworkVariable<Colliders> listaColls;
     public struct Colliders : INetworkSerializable, IEquatable<Colliders>
@@ -15,22 +15,22 @@ public class ListaColliders : NetworkBehaviour
         public FixedString64Bytes nombreCollider;
         public FixedString64Bytes tipo;
         public FixedString64Bytes color;
-
+        public int idInstancia;
         public bool Equals(Colliders other)
         {
-            return nombreCollider == other.nombreCollider && tipo == other.tipo && color == other.color;
+            return nombreCollider == other.nombreCollider && tipo == other.tipo && color == other.color && idInstancia == other.idInstancia;
         }
         public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
         {
             serializer.SerializeValue(ref nombreCollider);
             serializer.SerializeValue(ref tipo);
             serializer.SerializeValue(ref color);
+            serializer.SerializeValue(ref idInstancia);
         }
     };
 
     private void Awake()
     {
-        //listaColliders = new NetworkList<Colliders>();
         if (Instance == null)
         {
             Instance = this;
@@ -55,6 +55,7 @@ public class ListaColliders : NetworkBehaviour
                     nombreCollider = new FixedString64Bytes(),
                     tipo = new FixedString64Bytes(),
                     color = new FixedString64Bytes(),
+                    idInstancia = new int(),
 
                 }, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
         }
@@ -64,103 +65,86 @@ public class ListaColliders : NetworkBehaviour
             Destroy(gameObject);
         }
     }
-    public void AgregarCollider(FixedString64Bytes nombre, FixedString64Bytes tipo, FixedString64Bytes color)
+    public void AgregarCollider(FixedString64Bytes nombre, FixedString64Bytes tipo, FixedString64Bytes color, int id)
     {
         //Debug.Log("el nombre a agregar es " + nombre + " y el  tipo " + tipo);
         Colliders nuevoCollider = new Colliders();
         nuevoCollider.nombreCollider = nombre;
         nuevoCollider.tipo = tipo;
         nuevoCollider.color = color;
+        nuevoCollider.idInstancia = id;
         try
         {
-            //Debug.Log("Cant elementos de Colliders:" + listaColliders.Count);
             Instance.listaColliders.Add(nuevoCollider);
-            //Debug.Log("Cant elementos de Colliders:" + listaColliders.Count);
-            //Debug.Log("Va a imprimir la lista");
-            //ImprimirListaColliders();
         }
         catch (Exception e)
         {
             Debug.LogError("Error al intentar agregar datos a la lista: " + e);
         }
     }
-    void Start()
-    {
-        /*Debug.Log("Empezo el start de ListaColliders");
-        FixedString64Bytes nombre = "Empty casa1";
-        FixedString64Bytes tipo = "Ninguno";
-        AgregarCollider(nombre, tipo);
-        //AgregarCollider("Empty casa2", "Ninguno");
-        // AgregarCollider("Empty casa3", "Ninguno");
-        //AgregarCollider("Empty casa4", "Ninguno");
-        // AgregarCollider("Empty casa5", "Ninguno");
-        //AgregarCollider("Empty casa6", "Ninguno");
-        ImprimirListaColliders();
-        */
-    }
+
     public override void OnNetworkSpawn()
     {
         if (IsServer)
         {
             Debug.Log("OnNetworkSpawn de ListaColliders");
-            AgregarCollider("Empty casa1", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa2", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa3", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa4", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa5", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa6", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa7", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa8", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa9", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa10", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa11", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa12", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa13", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa14", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa15", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa16", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa17", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa18", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa19", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa20", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa21", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa22", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa23", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa24", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa25", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa26", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa27", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa28", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa29", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa30", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa31", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa32", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa33", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa34", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa35", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa36", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa37", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa37", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa39", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa40", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa41", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa42", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa43", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa44", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa45", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa46", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa47", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa48", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa49", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa50", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa51", "Ninguno", "Vacio");
-            AgregarCollider("Empty casa52", "Ninguno", "Vacio");
+            AgregarCollider("Empty casa1", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa2", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa3", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa4", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa5", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa6", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa7", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa8", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa9", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa10", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa11", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa12", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa13", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa14", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa15", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa16", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa17", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa18", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa19", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa20", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa21", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa22", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa23", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa24", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa25", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa26", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa27", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa28", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa29", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa30", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa31", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa32", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa33", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa34", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa35", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa36", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa37", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa37", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa39", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa40", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa41", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa42", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa43", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa44", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa45", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa46", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa47", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa48", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa49", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa50", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa51", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa52", "Ninguno", "Vacio", 0);
             ImprimirListaColliders();
         }
         else
         {
             Debug.Log("cliente de OnNetworkSpawn de ListaColliders");
-
         }
     }
 
@@ -245,6 +229,21 @@ public class ListaColliders : NetworkBehaviour
 
         return new FixedString64Bytes(); // Devuelve una cadena vacía si no se encontró
     }
+    public void ModificarIdPiezaPorNombre(FixedString64Bytes nombre, int nuevoId)
+    {
+        for (int i = 0; i < listaColliders.Count; i++)
+        {
+            if (listaColliders[i].nombreCollider.Equals(nombre))
+            {
+                Debug.Log("Encontre a " + nombre + " en la lista");
+                var colliderModificado = listaColliders[i]; // Copia el struct
+                colliderModificado.idInstancia = nuevoId; // Cambia el tipo
+                Debug.Log("El nuevo idInstania es " + nuevoId);
+                listaColliders[i] = colliderModificado; // Reemplaza el struct en la lista
+                return; // Omitir esto si es posible que haya más de una entrada con el mismo nombre
+            }
+        }
+    }
     public FixedString64Bytes GetColorPorNombre(FixedString64Bytes nombre)
     {
         //ImprimirListaColliders();
@@ -257,8 +256,21 @@ public class ListaColliders : NetworkBehaviour
                 return collider.color;
             }
         }
-
         return new FixedString64Bytes(); // Devuelve una cadena vacía si no se encontró
+    }
+    public int GetIdPiezaPorNombre(FixedString64Bytes nombre)
+    {
+        //ImprimirListaColliders();
+        foreach (var collider in listaColliders)
+        {
+            //Debug.Log("Estoy buscando a " + nombre + " en la lista");
+            //Debug.Log("Encontre a " + collider.nombreCollider);
+            if (collider.nombreCollider.Equals(nombre))
+            {
+                return collider.idInstancia;
+            }
+        }
+        return new int(); // no se que int da sino encuentra...
     }
     public void ImprimirColliderPorNombre(FixedString64Bytes nombre)
     {

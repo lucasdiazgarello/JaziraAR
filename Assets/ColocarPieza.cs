@@ -32,20 +32,11 @@ public class ColocarPieza : NetworkBehaviour
     private bool _isTouching = false;
     private bool canPlace = false;
     public LayerMask myLayerMask;
-
-    // Botones para las acciones de colocar camino y base
     public Button buttonCamino;
     public Button buttonBase;
     public Button buttonPueblo;
-    //public int caminosRestantes = 2;
-    //public int basesRestantes = 2;
-    //public int pueblosRestantes =0;
-    //public bool primerasPiezas = false;
-    //public bool yaEjecutado = false;
-    
-    //public TipoObjeto tipoActual;
     private string tipoActual;
-
+    Dictionary<int, GameObject> gameObjectsByID = new Dictionary<int, GameObject>();
 
     void Start()
     {
@@ -63,21 +54,17 @@ public class ColocarPieza : NetworkBehaviour
         prefabPuebloN = Resources.Load("Pueblo Naranja") as GameObject;
 
         enabled = false; // Desactivar la colocación de piezas al inicio
-        //tipoActual = TipoObjeto.Ninguno;
         tipoActual = "Ninguno";
         // Agregar los listeners a los botones
         buttonCamino.onClick.AddListener(() => {
-            //tipoActual = TipoObjeto.Camino;
             tipoActual = "Camino";
             canPlace = true;
         });
         buttonBase.onClick.AddListener(() => {
-            //tipoActual = TipoObjeto.Base;
             tipoActual = "Base";
             canPlace = true;
         });
         buttonPueblo.onClick.AddListener(() => {
-            //tipoActual = TipoObjeto.Pueblo;
             tipoActual = "Pueblo";
             canPlace = true;
         });
@@ -97,9 +84,6 @@ public class ColocarPieza : NetworkBehaviour
         //primero desactivo botones si no es mi turno
         if (PlayerNetwork.Instance.IsMyTurn(PlayerPrefs.GetInt("jugadorId")))
         {
-            //int id = PlayerPrefs.GetInt("jugadorId");
-            //PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
-            //Debug.Log("Es mi TURNO");
             if (jugador.cantidadCaminos > 0)
             {
                 buttonCamino.interactable = true;
@@ -134,14 +118,11 @@ public class ColocarPieza : NetworkBehaviour
         //luego el update de siempre
         if (NetworkManager.Singleton.IsServer)
         {
-            //int id = PlayerPrefs.GetInt("jugadorId");
-            //PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
             if (!jugador.primerasPiezas && jugador.cantidadCaminos == 0 && jugador.cantidadBases == 0)
             {
                 //primerasPiezas = true;
                 int indexJugador = -1;
                 bool jugadorEncontrado = false;
-
                 // Búsqueda del jugador en la lista playerData
                 for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
                 {
@@ -434,14 +415,27 @@ public class ColocarPieza : NetworkBehaviour
             PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
             var currPrefPueblo = currentPrefabPueblo.name;
             Debug.Log("el prefab pueblo se llama " + currPrefPueblo);
+
             if (NetworkManager.Singleton.IsServer)
             {
-                EjecutarColocarPueblo(hit, color, currPrefPueblo);
-                // Luego de colocar una base, disminuyes el contador y verificas si desactivar el botón.
-                jugadorcopia.cantidadPueblos = jugadorcopia.cantidadPueblos - 1;
-                PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
-                //jugador.cantidadPueblos--;
-                Debug.Log("Pueblos restantes POST: " + PlayerNetwork.Instance.playerData[indexJugador].cantidadPueblos);
+                var nombrecollider = hit.collider.gameObject.name;
+                var nombreSinClone = ListaColliders.Instance.RemoverCloneDeNombre(nombrecollider);
+                var tipo = ListaColliders.Instance.GetTipoPorNombre(nombreSinClone);
+                Debug.Log("El tipo del collider es " + tipo);
+                if (tipo == "Base")
+                {
+                    EjecutarColocarPueblo(hit, color, currPrefPueblo);
+                    // Luego de colocar una base, disminuyes el contador y verificas si desactivar el botón.
+                    jugadorcopia.cantidadPueblos = jugadorcopia.cantidadPueblos - 1;
+                    PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+                    //jugador.cantidadPueblos--;
+                    Debug.Log("Pueblos restantes POST: " + PlayerNetwork.Instance.playerData[indexJugador].cantidadPueblos);
+                }
+                else
+                {
+                    Debug.Log("El pueblo se debe colocar sobre una Base");
+                }
+                    
             }
             else // si es un cliente
             {
@@ -507,13 +501,17 @@ public class ColocarPieza : NetworkBehaviour
         int id = PlayerPrefs.GetInt("jugadorId");
         var objetoBase = Resources.Load(currentPrefabBase) as GameObject;
         currentBase = Instantiate(objetoBase, hit.collider.gameObject.transform.position, Quaternion.identity);
+        gameObjectsByID.Add(currentBase.GetInstanceID(), currentBase);
         currentBase.GetComponent<NetworkObject>().Spawn();
+        int idBase = currentBase.GetInstanceID();
+        //Debug.Log("id base INSTANCIADA " + idBase);       
         Debug.Log("nombre collider BASE " + hit.collider.gameObject.name);
         var nombrecollider = hit.collider.gameObject.name;
         var nombreSinClone = ListaColliders.Instance.RemoverCloneDeNombre(nombrecollider);
         Debug.Log("nombreSinClone = " + nombreSinClone);
         ListaColliders.Instance.ModificarTipoPorNombre(nombreSinClone, "Base");
         ListaColliders.Instance.ModificarColorPorNombre(nombreSinClone, color);
+        ListaColliders.Instance.ModificarIdPiezaPorNombre(nombreSinClone, idBase);
         ListaColliders.Instance.ImprimirColliderPorNombre(nombreSinClone);
         if (NetworkManager.Singleton.IsServer)
         {
@@ -525,21 +523,6 @@ public class ColocarPieza : NetworkBehaviour
             PlayerNetwork.Instance.SetPuntajebyIdServerRpc(id, 1);
             Debug.Log("Despues de SetPuntajebyIdServerRpc");
         }
-        
-
-        /*comprobarObjeto = hit.collider.gameObject.GetComponent<ComprobarObjeto>();      
-        if (comprobarObjeto != null)
-        { 
-            var nombreSinClone = ListaColliders.Instance.RemoverCloneDeNombre(comprobarObjeto.name);
-            Debug.Log("nombreSinClone = " + nombreSinClone);
-            ListaColliders.Instance.ModificarTipoPorNombre(nombreSinClone, "Base");
-            ListaColliders.Instance.ModificarColorPorNombre(nombreSinClone, color);
-            ListaColliders.Instance.ImprimirColliderPorNombre(nombreSinClone);
-        }
-        else
-        {
-            Debug.LogError("El objeto " + hit.collider.gameObject.name + " no tiene un script ComprobarObjeto.");
-        }*/
         tipoActual = "Ninguno";
     }
 
@@ -551,14 +534,22 @@ public class ColocarPieza : NetworkBehaviour
         Debug.Log("2 preafb pueblo es " + objetoPueblo.name);
         currentPueblo = Instantiate(objetoPueblo, hit.collider.gameObject.transform.position, Quaternion.identity);
         currentPueblo.GetComponent<NetworkObject>().Spawn();
+
         Debug.Log("nombre collider Pueblo " + hit.collider.gameObject.name);
         var nombrecollider = hit.collider.gameObject.name;
         var nombreSinClone = ListaColliders.Instance.RemoverCloneDeNombre(nombrecollider);
         Debug.Log("nombreSinClone = " + nombreSinClone);
+        int idbase = ListaColliders.Instance.GetIdPiezaPorNombre(nombreSinClone);
+        if (gameObjectsByID.ContainsKey(idbase))
+        {
+            GameObject baseToDespawn = gameObjectsByID[idbase];
+            baseToDespawn.GetComponent<NetworkObject>().Despawn(); // Despawn using your networking library
+            Destroy(baseToDespawn); // Destroy the object if needed
+            gameObjectsByID.Remove(idbase);
+        }
         ListaColliders.Instance.ModificarTipoPorNombre(nombreSinClone, "Pueblo");
         ListaColliders.Instance.ModificarColorPorNombre(nombreSinClone, color);
-        ListaColliders.Instance.ImprimirColliderPorNombre(nombreSinClone);
-
+        ListaColliders.Instance.ImprimirColliderPorNombre(nombreSinClone);           
         if (NetworkManager.Singleton.IsServer)
         {
             PlayerNetwork.Instance.SetPuntajebyId(id, 2);
@@ -569,22 +560,7 @@ public class ColocarPieza : NetworkBehaviour
             PlayerNetwork.Instance.SetPuntajebyIdServerRpc(id, 2);
             Debug.Log("Despues de SetPuntajebyIdServerRpc");
         }
-        /*comprobarObjeto = hit.collider.gameObject.GetComponent<ComprobarObjeto>();
-        Debug.Log("el collider del comprobarobjeto es " + hit.collider.gameObject.name);
-        if (comprobarObjeto != null)
-        {
-            var nombreSinClone = ListaColliders.Instance.RemoverCloneDeNombre(comprobarObjeto.name);
-            Debug.Log("nombreSinClone = " + nombreSinClone);
-            ListaColliders.Instance.ModificarTipoPorNombre(nombreSinClone, "Pueblo");
-            ListaColliders.Instance.ModificarColorPorNombre(nombreSinClone, color);
-            ListaColliders.Instance.ImprimirColliderPorNombre(nombreSinClone);
-        }
-        else
-        {
-            Debug.LogError("El objeto " + hit.collider.gameObject.name + " no tiene un script ComprobarObjeto.");
-        }
-        //Debug.Log("el tipo del pueblo colocado es " + tipoActual);*/
-        tipoActual = "Ninguno";
+        tipoActual = "Ninguno";                             
     }
     public void AllowPlace() // Método que permitiría colocar una base, podría ser llamado por un botón
     {
