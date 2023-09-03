@@ -141,9 +141,9 @@ public class BoardManager : NetworkBehaviour
                 break;
 
         }
-        parcela = GameObject.Find("Parcela 5 Piedra");
-        recurso1 = "Piedra";
-        recurso2 = null;
+        //parcela = GameObject.Find("Parcela 5 Piedra");
+        //recurso1 = "Piedra";
+        //recurso2 = null;
         if (recurso2 == null)
         {
             identificadorParcela = parcela.GetComponent<IdentificadorParcela>();

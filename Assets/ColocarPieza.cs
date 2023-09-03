@@ -527,7 +527,7 @@ public class ColocarPieza : NetworkBehaviour
         ListaColliders.Instance.ModificarColorPorNombre(nombreSinClone, color);
         ListaColliders.Instance.ModificarIdPiezaPorNombre(nombreSinClone, idBase);
         ListaColliders.Instance.ImprimirColliderPorNombre(nombreSinClone);
-        if (NetworkManager.Singleton.IsServer)
+        /*if (NetworkManager.Singleton.IsServer)
         {
             PlayerNetwork.Instance.SetPuntajebyId(id, 1);
         }
@@ -536,7 +536,7 @@ public class ColocarPieza : NetworkBehaviour
             Debug.Log("Antes de SetPuntajebyIdServerRpc");
             PlayerNetwork.Instance.SetPuntajebyIdServerRpc(id, 1);
             Debug.Log("Despues de SetPuntajebyIdServerRpc");
-        }
+        }*/
         tipoActual = "Ninguno";
     }
 
@@ -565,7 +565,7 @@ public class ColocarPieza : NetworkBehaviour
         ListaColliders.Instance.ModificarTipoPorNombre(nombreSinClone, "Pueblo");
         ListaColliders.Instance.ModificarColorPorNombre(nombreSinClone, color);
         ListaColliders.Instance.ImprimirColliderPorNombre(nombreSinClone);           
-        if (NetworkManager.Singleton.IsServer)
+        /*if (NetworkManager.Singleton.IsServer)
         {
             PlayerNetwork.Instance.SetPuntajebyId(id, 2);
         }
@@ -574,7 +574,7 @@ public class ColocarPieza : NetworkBehaviour
             Debug.Log("Antes de SetPuntajebyIdServerRpc");
             PlayerNetwork.Instance.SetPuntajebyIdServerRpc(id, 2);
             Debug.Log("Despues de SetPuntajebyIdServerRpc");
-        }
+        }*/
         tipoActual = "Ninguno";                             
     }
     public void AllowPlace() // Método que permitiría colocar una base, podría ser llamado por un botón

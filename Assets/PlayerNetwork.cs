@@ -191,7 +191,7 @@ public class PlayerNetwork : NetworkBehaviour
             FixedString64Bytes nombreHost = new FixedString64Bytes(PlayerPrefs.GetString("nomJugador"));
             FixedString64Bytes colorHost = new FixedString64Bytes(PlayerPrefs.GetString("colorJugador"));
             Debug.Log("el jugador con id:" + playerId + "se llama " + nombreHost + " y es el color " + colorHost);
-            AgregarJugador(playerId, nombreHost, 0, false, true, false, 10, 10, 10, 10, 10, colorHost, 2, 2, 0);
+            AgregarJugador(playerId, nombreHost, 0, false, true, false, 50, 50, 50, 50, 50, colorHost, 2, 2, 0);
             Debug.Log("se agrego jugador host");
             ImprimirJugadorPorId(playerId);
             //ImprimirTodosLosJugadores();
@@ -207,7 +207,7 @@ public class PlayerNetwork : NetworkBehaviour
             FixedString64Bytes colorCliente = new FixedString64Bytes(PlayerPrefs.GetString("colorJugador"));
             Debug.Log("el cliente con id:" + playerId + "se llama " + nombreCliente + " y es el color " + colorCliente);
             //AgregarJugador(playerId, nombreCliente, 100, false, true, 2, 10, 10, 10, 10, 10, colorCliente); //EL CLIENTE NO DEBE AGREGARJUGADOR, DEBE MANDAR SU DATA AL HOST
-            AddPlayerServerRpc(playerId, nombreCliente, 0, false, false,false, 10, 10, 10, 10, 10, colorCliente, 2, 2, 0);
+            AddPlayerServerRpc(playerId, nombreCliente, 0, false, false,false, 50, 50, 50, 50, 50, colorCliente, 2, 2, 0);
             Debug.Log("se agrego jugador cliente");
             ImprimirJugadorPorId(playerId);
             //ImprimirTodosLosJugadores();
@@ -736,7 +736,42 @@ public class PlayerNetwork : NetworkBehaviour
         //UpdateCantidadPiezadClientRpc(jugador, jugador.cantidadCaminos, jugador.cantidadBases, jugador.cantidadPueblos, jugador.primerasPiezas);
     }
 
+    public void SetGano()
+    {
+        if (NetworkManager.Singleton.IsServer)
+        {
+            int id = PlayerPrefs.GetInt("jugadorId");
+            //poner gano igual true a ese jugador
+            int indexJugador = -1;
+            bool jugadorEncontrado = false;
 
+            // Búsqueda del jugador en la lista playerData
+            for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+            {
+                //Debug.Log("La lista Ids es " + playerData[i].jugadorId);
+                if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
+                {
+                    jugadorEncontrado = true;
+                    indexJugador = i;
+                    break;
+                }
+            }
+            if (!jugadorEncontrado)
+            {
+                Debug.Log("Jugador no encontrado en la lista playerData");
+                return;
+            }
+            // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
+            PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
+            // Aquí es donde actualizarías los recursos del jugador en tu juego.
+            int puntaje = (jugadorcopia.cantidadBases * 1) + (jugadorcopia.cantidadBases * 2);
+            Debug.Log("puntaje = " + puntaje);
+            if (puntaje == 10)
+                jugadorcopia.gano = true;
+                jugadorcopia.puntaje = puntaje;
+            PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+        }       
+    }
     public void CheckifWon()
     {
         Debug.Log("Entre a checkifwon como server");
@@ -746,6 +781,7 @@ public class PlayerNetwork : NetworkBehaviour
             if (PlayerNetwork.Instance.playerData[i].gano == true)
             {
                 Debug.Log("El jugador "+ PlayerNetwork.Instance.playerData[i].nomJugador + " es el gandor");
+                SceneManager.LoadScene("EscenaFinal");
             }
         }
     }
@@ -859,9 +895,9 @@ public class PlayerNetwork : NetworkBehaviour
             ListaColliders.Instance.ModificarColorPorNombre(nombresinClone, color);
             ListaColliders.Instance.ModificarIdPiezaPorNombre(nombresinClone, idBase);
             ListaColliders.Instance.ImprimirColliderPorNombre(nombresinClone);
-            Debug.Log("Va a sumar puntaje");
+            /*Debug.Log("Va a sumar puntaje");
             SetPuntajebyId(id, 1);
-            Debug.Log("Termino SetPuntajebyID");
+            Debug.Log("Termino SetPuntajebyID");*/
             tipoActual = "Ninguno";
             //Actualizar recursos:
             int indexJugador = -1;
@@ -925,9 +961,9 @@ public class PlayerNetwork : NetworkBehaviour
             ListaColliders.Instance.ModificarTipoPorNombre(nombresinClone, "Pueblo"); // Aca se debe llamar una serverRpc o como ya es el servidor corriendo no?
             ListaColliders.Instance.ModificarColorPorNombre(nombresinClone, color);
             ListaColliders.Instance.ImprimirColliderPorNombre(nombresinClone);
-            Debug.Log("Va a sumar puntaje");
+            /*Debug.Log("Va a sumar puntaje");
             SetPuntajebyId(id, 2);
-            Debug.Log("Termino SetPuntajebyID");
+            Debug.Log("Termino SetPuntajebyID");*/
             tipoActual = "Ninguno";
             //Actualizar recursos:
             int indexJugador = -1;
@@ -1213,7 +1249,7 @@ public class PlayerNetwork : NetworkBehaviour
         return null; // devuelve null si no se encontró un jugador con ese color
     }
 
-    public void SetPuntajebyId(int id, int pieza)
+    /*public void SetPuntajebyId(int id, int pieza)
     {
         Debug.Log("Entre a SetPuntajebyId con id " + id );
         int indexJugador = -1;
@@ -1297,7 +1333,7 @@ public class PlayerNetwork : NetworkBehaviour
         PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
         Debug.Log("Imprimo jugador luego de sumar puntos");
         ImprimirJugadorPorId(id);
-    }
+    }*/
 
     [ServerRpc(RequireOwnership = false)]
     public void UpdateComprarCaminoButtonServerRpc(int id)

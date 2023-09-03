@@ -168,6 +168,7 @@ public class ARCursor : NetworkBehaviour
                 terminarTurnoButton.interactable = false;
                 //botonPulsado = false;
             }
+            PlayerNetwork.Instance.SetGano();
         }
         catch (Exception ex)
         {
