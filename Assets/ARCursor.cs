@@ -29,6 +29,7 @@ public class ARCursor : NetworkBehaviour
     public Button tirarDadoButton;
     public Button terminarTurnoButton;
     public bool dicesThrown = false;
+    //private bool botonPulsado = false;
 
     public ColocarPieza colocarPieza;
     private GameObject[] colliderPrefabs;
@@ -154,13 +155,18 @@ public class ARCursor : NetworkBehaviour
             if (PlayerNetwork.Instance.IsMyTurn(PlayerPrefs.GetInt("jugadorId")))
             {
                 //Debug.Log("Es mi TURNO");
-                tirarDadoButton.interactable = true;
+                //if (!botonPulsado)
+                //{
+                    tirarDadoButton.interactable = true;
+                    //botonPulsado= true;
+                //}
                 terminarTurnoButton.interactable = true;
             }
             else
             {
                 tirarDadoButton.interactable = false;
                 terminarTurnoButton.interactable = false;
+                //botonPulsado = false;
             }
         }
         catch (Exception ex)
@@ -227,7 +233,8 @@ public class ARCursor : NetworkBehaviour
     private void OnDiceRollButtonPressed() //Boton Tirar Dados
     {
         Debug.Log("Diste click en el boton");
-        if(NetworkManager.Singleton.IsServer)
+        tirarDadoButton.interactable = false;
+        if (NetworkManager.Singleton.IsServer)
         {
             // NO BORRAR ESTO COMENTADO POR SI SURGE DENUEVO EL TEMA DE LOS DADOS
             // Si el tablero no está colocado, regresar

@@ -701,9 +701,9 @@ public class PlayerNetwork : NetworkBehaviour
         }
     }
     [ServerRpc(RequireOwnership = false)]
-    public void PrimerasPiezasServerRpc()
+    public void PrimerasPiezasServerRpc(int id)
     {
-        int id = PlayerPrefs.GetInt("jugadorId");
+
         PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
         if (!jugador.primerasPiezas && jugador.cantidadCaminos == 0 && jugador.cantidadBases == 0)
         {
@@ -733,7 +733,7 @@ public class PlayerNetwork : NetworkBehaviour
             jugadorcopia.primerasPiezas = true;
             PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
         }
-        UpdateCantidadPiezadClientRpc(jugador, jugador.cantidadCaminos, jugador.cantidadBases, jugador.cantidadPueblos, jugador.primerasPiezas);
+        //UpdateCantidadPiezadClientRpc(jugador, jugador.cantidadCaminos, jugador.cantidadBases, jugador.cantidadPueblos, jugador.primerasPiezas);
     }
 
 
@@ -781,7 +781,7 @@ public class PlayerNetwork : NetworkBehaviour
     }
     public bool IsMyTurn(int clientId)
     {
-        //Debug.Log("Index " + currentTurnIndex + "y es turno de " + playerIDs[currentTurnIndex] + " Y " + clientId);
+        //Debug.Log("Index " + currentTurnIndex + "y es turno de " + playerIDs[currentTurnIndex] + " Y " + clientId);        
         return (playerIDs[currentTurnIndex] == clientId);
     }
 
@@ -913,7 +913,9 @@ public class PlayerNetwork : NetworkBehaviour
             var nombresinClone = ListaColliders.Instance.RemoverCloneDeNombre(nombreCollider);
             Debug.Log("CPC PlayerNetwo" + nombresinClone);
             int idbase = ListaColliders.Instance.GetIdPiezaPorNombre(nombresinClone);
-            if (gameObjectsByIDServer.ContainsKey(idbase))
+            var colorCollider = ListaColliders.Instance.GetColorPorNombre(nombresinClone);
+            Debug.Log("color es : " + color + " y colorcollider es:" + colorCollider);
+            if (gameObjectsByIDServer.ContainsKey(idbase) && color == colorCollider)
             {
                 GameObject baseToDespawn = gameObjectsByIDServer[idbase];
                 baseToDespawn.GetComponent<NetworkObject>().Despawn(); // Despawn using your networking library

@@ -148,7 +148,8 @@ public class ColocarPieza : NetworkBehaviour
         }
         else
         {
-            PlayerNetwork.Instance.PrimerasPiezasServerRpc();
+            int idcliente = PlayerPrefs.GetInt("jugadorId");
+            PlayerNetwork.Instance.PrimerasPiezasServerRpc(idcliente);
         }
         
         if (canPlace && Input.touchCount == 1 && !_isTouching && Input.GetTouch(0).phase == TouchPhase.Began)
@@ -329,6 +330,7 @@ public class ColocarPieza : NetworkBehaviour
             Debug.Log("el prefab base se llama " + currPrefBase);
             if (NetworkManager.Singleton.IsServer)
             {
+
                 EjecutarColocarBase(hit, color, currPrefBase);
                 // Luego de colocar una base, disminuyes el contador y verificas si desactivar el botón.
                 jugadorcopia.cantidadBases = jugadorcopia.cantidadBases - 1;
@@ -422,7 +424,8 @@ public class ColocarPieza : NetworkBehaviour
                 var nombreSinClone = ListaColliders.Instance.RemoverCloneDeNombre(nombrecollider);
                 var tipo = ListaColliders.Instance.GetTipoPorNombre(nombreSinClone);
                 Debug.Log("El tipo del collider es " + tipo);
-                if (tipo == "Base")
+                var colorCollider = ListaColliders.Instance.GetColorPorNombre(nombreSinClone);
+                if (tipo == "Base" && color == colorCollider)
                 {
                     EjecutarColocarPueblo(hit, color, currPrefPueblo);
                     // Luego de colocar una base, disminuyes el contador y verificas si desactivar el botón.
@@ -442,7 +445,18 @@ public class ColocarPieza : NetworkBehaviour
                 string colliderName = hit.collider.gameObject.name;
                 Debug.Log("colliderName: " + colliderName);
                 var position = hit.collider.gameObject.transform.position;
-                PlayerNetwork.Instance.ColocarPuebloServerRpc(id, color, currPrefPueblo, colliderName, position);
+                ;
+                var nombresinClone = ListaColliders.Instance.RemoverCloneDeNombre(colliderName);
+                var colorCollider = ListaColliders.Instance.GetColorPorNombre(nombresinClone);
+                Debug.Log("color es : " + color + " y colorcollider es:" + colorCollider);
+                if (color == colorCollider)
+                {
+                    PlayerNetwork.Instance.ColocarPuebloServerRpc(id, color, currPrefPueblo, colliderName, position);
+                }
+                else
+                {
+                    Debug.Log("Esa base no es tuya");
+                }
             }
             if (PlayerNetwork.Instance.playerData[indexJugador].cantidadPueblos <= 0) // CHEQUEAR QUE EL CLIENTE PUEDA DESACTIVAR EL BOTON TAMBIEN
                 buttonPueblo.interactable = false;
@@ -539,7 +553,9 @@ public class ColocarPieza : NetworkBehaviour
         var nombreSinClone = ListaColliders.Instance.RemoverCloneDeNombre(nombrecollider);
         Debug.Log("nombreSinClone = " + nombreSinClone);
         int idbase = ListaColliders.Instance.GetIdPiezaPorNombre(nombreSinClone);
-        if (gameObjectsByID.ContainsKey(idbase))
+        var colorCollider = ListaColliders.Instance.GetColorPorNombre(nombreSinClone);
+        Debug.Log("color es : " + color + " y colorcollider es:" + colorCollider);
+        if (gameObjectsByID.ContainsKey(idbase) && color == colorCollider)
         {
             GameObject baseToDespawn = gameObjectsByID[idbase];
             baseToDespawn.GetComponent<NetworkObject>().Despawn(); // Despawn using your networking library
