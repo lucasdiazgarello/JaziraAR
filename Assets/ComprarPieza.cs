@@ -20,7 +20,43 @@ public class ComprarPieza : NetworkBehaviour
     }
     private void Update()
     {
+        int id = PlayerPrefs.GetInt("jugadorId");
+        PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
+        //primero desactivo botones si no es mi turno
         if (PlayerNetwork.Instance.IsMyTurn(PlayerPrefs.GetInt("jugadorId")))
+        {
+            if (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1)
+            {
+                comprarCaminoButton.interactable = true;
+            }
+            else
+            {
+                comprarCaminoButton.interactable = false;
+            }
+            if (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1 && jugador.ovejaCount >= 1 && jugador.trigoCount >= 1)
+            {
+                comprarBaseButton.interactable = true;
+            }
+            else
+            {
+                comprarBaseButton.interactable = false;
+            }
+            if (jugador.piedraCount >= 2 && jugador.trigoCount >= 3)
+            {
+                comprarPuebloButton.interactable = true;
+            }
+            else
+            {
+                comprarPuebloButton.interactable = false;
+            }
+        }
+        else
+        {
+            comprarCaminoButton.interactable = false;
+            comprarBaseButton.interactable = false;
+            comprarPuebloButton.interactable = false;
+        }
+        /*if (PlayerNetwork.Instance.IsMyTurn(PlayerPrefs.GetInt("jugadorId")))
         {
             //Debug.Log("Es mi TURNO");
             comprarCaminoButton.interactable = true;
@@ -34,7 +70,7 @@ public class ComprarPieza : NetworkBehaviour
             comprarBaseButton.interactable = false;
             comprarPuebloButton.interactable = false;
             //terminarTurnoButton.interactable = false;
-        }
+        }*/
     }
 
     public void ComprarCamino()
@@ -44,40 +80,39 @@ public class ComprarPieza : NetworkBehaviour
         PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
         if (NetworkManager.Singleton.IsServer)
         {
-
             if (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1)
             {
+                int indexJugador = -1;
+                bool jugadorEncontrado = false;
+                // Búsqueda del jugador en la lista playerData
+                for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+                {
+                    //Debug.Log("La lista Ids es " + playerData[i].jugadorId);
+                    if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
+                    {
+                        jugadorEncontrado = true;
+                        indexJugador = i;
+                        break;
+                    }
+                }
+                if (!jugadorEncontrado)
+                {
+                    Debug.Log("Jugador no encontrado en la lista playerData");
+                    return;
+                }
+                // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
+                PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
+                jugadorcopia.cantidadCaminos = jugadorcopia.cantidadCaminos + 1;
+                PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+                //jugador.cantidadCaminos++;
+                UpdateComprarCaminoButton();
+                Debug.Log("Caminos Restantes:" + PlayerNetwork.Instance.playerData[indexJugador].cantidadCaminos);
                 BoardManager.Instance.UpdateResourcesCamino(jugador);
-                BoardManager.Instance.UpdateResourceTexts(id);
+                //BoardManager.Instance.UpdateResourceTexts(id);
                 Debug.Log("Imprimir jugador por ID post ");
                 PlayerNetwork.Instance.ImprimirJugadorPorId(id);
-                UpdateComprarCaminoButton();
-            }
-            int indexJugador = -1;
-            bool jugadorEncontrado = false;
-            // Búsqueda del jugador en la lista playerData
-            for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
-            {
-                //Debug.Log("La lista Ids es " + playerData[i].jugadorId);
-                if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
-                {
-                    jugadorEncontrado = true;
-                    indexJugador = i;
-                    break;
-                }
-            }
-            if (!jugadorEncontrado)
-            {
-                Debug.Log("Jugador no encontrado en la lista playerData");
-                return;
-            }
-            // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
-            PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
-            jugadorcopia.cantidadCaminos = jugadorcopia.cantidadCaminos + 1;
-            PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
-            //jugador.cantidadBases++;
-            Debug.Log("Caminos Restantes:" + PlayerNetwork.Instance.playerData[indexJugador].cantidadCaminos);
-            colocarPieza.buttonCamino.interactable = true;
+                colocarPieza.buttonCamino.interactable = true;
+            }           
         }
         else
         {
@@ -95,44 +130,42 @@ public class ComprarPieza : NetworkBehaviour
         {
             if (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1 && jugador.trigoCount >= 1 && jugador.ovejaCount >= 1)
             {
+                int indexJugador = -1;
+                bool jugadorEncontrado = false;
+                // Búsqueda del jugador en la lista playerData
+                for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+                {
+                    //Debug.Log("La lista Ids es " + playerData[i].jugadorId);
+                    if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
+                    {
+                        jugadorEncontrado = true;
+                        indexJugador = i;
+                        break;
+                    }
+                }
+                if (!jugadorEncontrado)
+                {
+                    Debug.Log("Jugador no encontrado en la lista playerData");
+                    return;
+                }
+                // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
+                PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
+                jugadorcopia.cantidadBases = jugadorcopia.cantidadBases + 1;
+                PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+                //jugador.cantidadBases++;
+                Debug.Log("Bases Restantes:" + PlayerNetwork.Instance.playerData[indexJugador].cantidadBases);
+                UpdateComprarBaseButton();
                 BoardManager.Instance.UpdateResourcesBase(jugador);
                 BoardManager.Instance.UpdateResourceTexts(id);
                 Debug.Log("Imprimir jugador por ID post ");
                 PlayerNetwork.Instance.ImprimirJugadorPorId(id);
-                UpdateComprarBaseButton();              
-            }
-            //Actualizacion cantidad de bases
-            int indexJugador = -1;
-            bool jugadorEncontrado = false;
-            // Búsqueda del jugador en la lista playerData
-            for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
-            {
-                //Debug.Log("La lista Ids es " + playerData[i].jugadorId);
-                if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
-                {
-                    jugadorEncontrado = true;
-                    indexJugador = i;
-                    break;
-                }
-            }
-            if (!jugadorEncontrado)
-            {
-                Debug.Log("Jugador no encontrado en la lista playerData");
-                return;
-            }
-            // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
-            PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
-            jugadorcopia.cantidadBases = jugadorcopia.cantidadBases + 1;
-            PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
-            //jugador.cantidadBases++;
-            Debug.Log("Bases Restantes:" + PlayerNetwork.Instance.playerData[indexJugador].cantidadBases);
-            colocarPieza.buttonBase.interactable = true;
+                colocarPieza.buttonBase.interactable = true;
+            }                        
         }
         else
         {
             PlayerNetwork.Instance.ComprarBaseServerRpc(id);
-        }       
-        
+        }              
     }
     public void ComprarPueblo()
     {
@@ -143,35 +176,35 @@ public class ComprarPieza : NetworkBehaviour
         {
             if (jugador.trigoCount >= 3 && jugador.piedraCount >= 2)
             {
+                //Actualizacion de cantidad de pueblos:
+                int indexJugador = -1;
+                bool jugadorEncontrado = false;
+                for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+                {
+                    if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
+                    {
+                        jugadorEncontrado = true;
+                        indexJugador = i;
+                        break;
+                    }
+                }
+                if (!jugadorEncontrado)
+                {
+                    Debug.Log("Jugador no encontrado en la lista playerData");
+                    return;
+                }
+                PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
+                jugadorcopia.cantidadPueblos = jugadorcopia.cantidadPueblos + 1;
+                PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+                //jugador.cantidadPueblos++;
+                Debug.Log("Pueblos Restantes:" + PlayerNetwork.Instance.playerData[indexJugador].cantidadPueblos);
+                UpdateComprarPuebloButton();
                 BoardManager.Instance.UpdateResourcesPueblo(jugador);
                 BoardManager.Instance.UpdateResourceTexts(id);
                 Debug.Log("Imprimir jugador por ID post ");
                 PlayerNetwork.Instance.ImprimirJugadorPorId(id);
-                UpdateComprarPuebloButton();
-            }
-            //Actualizacion de cantidad de pueblos:
-            int indexJugador = -1;
-            bool jugadorEncontrado = false;
-            for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
-            {
-                if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
-                {
-                    jugadorEncontrado = true;
-                    indexJugador = i;
-                    break;
-                }
-            }
-            if (!jugadorEncontrado)
-            {
-                Debug.Log("Jugador no encontrado en la lista playerData");
-                return;
-            }
-            PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
-            jugadorcopia.cantidadPueblos = jugadorcopia.cantidadPueblos + 1;
-            PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
-            //jugador.cantidadPueblos++;
-            Debug.Log("Pueblos Restantes:" + PlayerNetwork.Instance.playerData[indexJugador].cantidadPueblos);
-            colocarPieza.buttonPueblo.interactable = true;
+                colocarPieza.buttonPueblo.interactable = true;
+            }                     
         }
         else
         {
@@ -181,9 +214,9 @@ public class ComprarPieza : NetworkBehaviour
     }
     void UpdateComprarCaminoButton()
     {
+        int id = PlayerPrefs.GetInt("jugadorId");
         if (NetworkManager.Singleton.IsServer)
-        {
-            int id = PlayerPrefs.GetInt("jugadorId");
+        {           
             PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
             if (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1)
             {
@@ -194,17 +227,12 @@ public class ComprarPieza : NetworkBehaviour
                 comprarCaminoButton.interactable = false;
             }
         }
-        else
-        {
-            //PlayerNetwork.Instance.UpdateComprarCaminoButtonClientRpc();
-            PlayerNetwork.Instance.UpdateComprarCaminoButtonServerRpc();
-        }
     }
     void UpdateComprarBaseButton()
     {
+        int id = PlayerPrefs.GetInt("jugadorId");
         if (NetworkManager.Singleton.IsServer)
         {
-            int id = PlayerPrefs.GetInt("jugadorId");
             PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
             if (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1 && jugador.trigoCount >= 1 && jugador.ovejaCount >= 1)
             {
@@ -215,17 +243,12 @@ public class ComprarPieza : NetworkBehaviour
                 comprarCaminoButton.interactable = false;
             }
         }
-        else
-        {
-            //PlayerNetwork.Instance.UpdateComprarBaseButtonClientRpc();
-            PlayerNetwork.Instance.UpdateComprarBaseButtonServerRpc();
-        }
     }
     void UpdateComprarPuebloButton()
     {
+        int id = PlayerPrefs.GetInt("jugadorId");
         if (NetworkManager.Singleton.IsServer)
         {
-            int id = PlayerPrefs.GetInt("jugadorId");
             PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
             if (jugador.piedraCount >= 2 && jugador.trigoCount >= 3)
             {
@@ -235,11 +258,6 @@ public class ComprarPieza : NetworkBehaviour
             {
                 comprarCaminoButton.interactable = false;
             }
-        }
-        else
-        {
-            //PlayerNetwork.Instance.UpdateComprarPuebloButtonClientRpc();
-            PlayerNetwork.Instance.UpdateComprarPuebloButtonServerRpc();
         }
     }
     
