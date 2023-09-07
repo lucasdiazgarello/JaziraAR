@@ -13,6 +13,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 //using UnityEngine.InputSystem.OSX;
 using UnityEngine.UI;
+using static PlayerNetwork;
 
 
 public class PlayerNetwork : NetworkBehaviour
@@ -579,7 +580,7 @@ public class PlayerNetwork : NetworkBehaviour
             }
             // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
             DatosJugador jugador = playerData[indexJugador];
-            Debug.Log("piedra antes de sumar: " + playerData[indexJugador].piedraCount);
+            //Debug.Log("piedra antes de sumar: " + playerData[indexJugador].piedraCount);
             // Aumentar el recurso correspondiente
             switch (recurso)
             {
@@ -604,13 +605,25 @@ public class PlayerNetwork : NetworkBehaviour
             }
             // Reemplazar el jugador en la lista con la versión modificada
             playerData[indexJugador] = jugador;
-            // Podemos usar un Debug.Log para ver los resultados.
-            Debug.Log("Jugador " + playerData[indexJugador].jugadorId + " ahora tiene " + playerData[indexJugador].piedraCount + "piedras ");
+            // Actualiza los textos
+            BoardManager.Instance.UpdateResourceTextsHost(idJugador);
+            PlayerNetwork.DatosJugador datosJugador = default;
+            // Itera sobre los elementos de playerData para encontrar los datos del jugador
+            for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+            {
+                if (PlayerNetwork.Instance.playerData[i].jugadorId == idJugador)
+                {
+                    datosJugador = PlayerNetwork.Instance.playerData[i];
+                    break;
+                }
+            }
+            UpdateResourcesTextClientRpc(datosJugador);
         }
-        else
+        /*else
         {
             AumentarRecursosServerRpc(idJugador, recurso, cantidad);
-        } 
+            UpdateResourcesTextServerRpc(idJugador);
+        } */
     }
 
     [ServerRpc(RequireOwnership = false)]
@@ -642,7 +655,7 @@ public class PlayerNetwork : NetworkBehaviour
         }
         // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
         DatosJugador jugador = playerData[indexJugador];
-        Debug.Log("piedra antes de sumar: " + playerData[indexJugador].piedraCount);
+        //Debug.Log("piedra antes de sumar: " + playerData[indexJugador].piedraCount);
         // Aumentar el recurso correspondiente
         switch (recurso)
         {
@@ -668,7 +681,7 @@ public class PlayerNetwork : NetworkBehaviour
         // Reemplazar el jugador en la lista con la versión modificada
         playerData[indexJugador] = jugador;
         // Podemos usar un Debug.Log para ver los resultados.
-        Debug.Log("Jugador " + playerData[indexJugador].jugadorId + " ahora tiene " + playerData[indexJugador].piedraCount + "piedras ");    
+        //Debug.Log("Jugador " + playerData[indexJugador].jugadorId + " ahora tiene " + playerData[indexJugador].piedraCount + "piedras ");    
     }
     
     public void EndTurn()
@@ -764,8 +777,8 @@ public class PlayerNetwork : NetworkBehaviour
             // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
             PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
             // Aquí es donde actualizarías los recursos del jugador en tu juego.
-            int puntaje = (jugadorcopia.cantidadBases * 1) + (jugadorcopia.cantidadBases * 2);
-            Debug.Log("puntaje = " + puntaje);
+            int puntaje = (jugadorcopia.cantidadBases * 1) + (jugadorcopia.cantidadPueblos * 2);
+            //Debug.Log("puntaje = " + puntaje);
             if (puntaje == 10)
                 jugadorcopia.gano = true;
                 jugadorcopia.puntaje = puntaje;
@@ -1123,6 +1136,29 @@ public class PlayerNetwork : NetworkBehaviour
             UpdateComprarPuebloButtonServerRpc(jugadorId);
             UpdateComprarPuebloButtonClientRpc(jugadorId);
         }
+    }
+    [ServerRpc(RequireOwnership = false)]
+    public void UpdateResourcesTextServerRpc(int jugadorId)
+    {
+
+        //Debug.Log("Server a UpdateResourceTexts con ID " + jugadorId);
+        PlayerNetwork.DatosJugador datosJugador = default;
+        // Itera sobre los elementos de playerData para encontrar los datos del jugador
+        for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+        {
+            if (PlayerNetwork.Instance.playerData[i].jugadorId == jugadorId)
+            {
+                datosJugador = PlayerNetwork.Instance.playerData[i];
+                break;
+            }
+        }
+        /*if (datosJugador.jugadorId == 0)  // Suponiendo que 0 no es un ID de jugador v�lido
+        {
+            Debug.LogError("Jugador con ID " + jugadorId + " no encontrado.");
+            return;
+        }*/
+        // Actualiza los textos de los recursos
+        UpdateResourcesTextClientRpc(datosJugador);
     }
     [ClientRpc]
     public void UpdateResourcesTextClientRpc(DatosJugador jugador)

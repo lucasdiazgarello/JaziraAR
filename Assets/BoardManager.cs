@@ -61,6 +61,11 @@ public class BoardManager : NetworkBehaviour
         // Obtener las parcelas correspondientes al número del dado.
         string parcelName = "Parcela " + diceNumber.ToString();
         Debug.Log("parcelaName: " + parcelName);
+        parcela = null;
+        parcela2 = null;
+        recurso1 = null;
+        recurso2 = null;
+
         switch (parcelName)
         {
             case "Parcela 2":
@@ -141,6 +146,15 @@ public class BoardManager : NetworkBehaviour
                 break;
 
         }
+
+        Debug.Log("Parcela 1 es: " + parcela);
+        Debug.Log("Recurso 1 es: " + recurso1);
+        if (parcela2 != null)
+        {
+            Debug.Log("Parcela 2 es: " + parcela2);
+            Debug.Log("Recurso 2 es: " + recurso2);
+        }
+        
         //parcela = GameObject.Find("Parcela 5 Piedra");
         //recurso1 = "Piedra";
         //recurso2 = null;
@@ -150,39 +164,41 @@ public class BoardManager : NetworkBehaviour
             List<Collider> collidersParcela = identificadorParcela.GetCollidersParcela(parcela.name);
             foreach (var empty in collidersParcela)
             {
+                int idJugador = 0;
                 Debug.Log("el collider de la parcela se llama " + empty.name);
                 var tipoCollider = ListaColliders.Instance.GetTipoPorNombre(empty.name).ToString();
                 //OBTENER COLOR DE LA PIEZA COLOCADA EN ESE COLLIDER
                 var colorCollider = ListaColliders.Instance.GetColorPorNombre(empty.name).ToString();
                 Debug.Log("tipocollider es " + tipoCollider);
                 Debug.Log("colorcollider es " + colorCollider);
-                int idJugador = PlayerNetwork.Instance.GetPlayerByColor(colorCollider);
+
+                idJugador = PlayerNetwork.Instance.GetPlayerByColor(colorCollider);
                 if (colorCollider != "Vacio")
                 {
                     switch (tipoCollider)
                     {
                         case "Ninguno":  // Aquí se hace uso del tipo enumerado TipoObjeto
-                            //Debug.Log("Ninguno");
+                            Debug.Log("Ninguno");
                             break;
                         case "Camino":  // Aquí se hace uso del tipo enumerado TipoObjeto
-                            //Debug.Log("Camino");
+                            Debug.Log("Camino");
                             break;
                         case "Base":    // Aquí se hace uso del tipo enumerado TipoObjeto
-                            //Debug.Log("Sumar a la Base 1 de " + recurso1);                           
+                            Debug.Log("Sumar a la Base 1 de " + recurso1+" al id "+idJugador);                           
                             PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso1, 1);
                             //UpdateResourceTexts(idJugador);
-                            UpdateResources(idJugador);
+                            //UpdateResources(idJugador);
                             //PlayerNetwork.Instance.ImprimirJugadorPorId(idJugador);
-                            //Debug.Log("ya sumo recurso " + recurso1);
+                            Debug.Log("ya sumo recurso " + recurso1);
                             break;
                         case "Pueblo":  // Aquí se hace uso del tipo enumerado TipoObjeto
-                            //Debug.Log("Sumar Pueblo 2 de " + recurso1);
+                            Debug.Log("Sumar Pueblo 2 de " + recurso1 + " al id " + idJugador);
                             //Debug.Log("Id jugador que va a AumentarRecursos " + idJugador);
                             PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso1, 2);
                             //UpdateResourceTexts(idJugador);
-                            UpdateResources(idJugador);
+                            //UpdateResources(idJugador);
                             //PlayerNetwork.Instance.ImprimirJugadorPorId(idJugador);
-                            //Debug.Log("ya sumo recurso " + recurso1);
+                            Debug.Log("ya sumo recurso " + recurso1);
                             break;
                     }
                 }
@@ -195,39 +211,40 @@ public class BoardManager : NetworkBehaviour
             List<Collider> collidersParcela = identificadorParcela.GetCollidersParcela(parcela.name);
             foreach (var empty in collidersParcela)
             {
+                int idJugador = 0;
                 //Debug.Log("el collider de la parcela se llama " + empty.name);
                 var tipoCollider = ListaColliders.Instance.GetTipoPorNombre(empty.name).ToString();
                 //OBTENER COLOR DE LA PIEZA COLOCADA EN ESE COLLIDER
                 var colorCollider = ListaColliders.Instance.GetColorPorNombre(empty.name).ToString();
                 //Debug.Log("tipocollider es " + tipoCollider);
                 //Debug.Log("colorcollider es " + colorCollider);
-                int idJugador = PlayerNetwork.Instance.GetPlayerByColor(colorCollider);
+                idJugador = PlayerNetwork.Instance.GetPlayerByColor(colorCollider);
                 if (colorCollider != "Vacio")
                 {
                     switch (tipoCollider)
                     {
                         case "Ninguno":  // Aquí se hace uso del tipo enumerado TipoObjeto
-                            //Debug.Log("Ninguno");
+                            Debug.Log("Ninguno");
                             break;
                         case "Camino":  // Aquí se hace uso del tipo enumerado TipoObjeto
-                            //Debug.Log("Camino");
+                            Debug.Log("Camino");
                             break;
                         case "Base":    // Aquí se hace uso del tipo enumerado TipoObjeto
-                            //Debug.Log("Sumar a la Base 1 de " + recurso1);
+                            Debug.Log("Sumar a la Base 1 de " + recurso1 + " al id " + idJugador);
                             PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso1, 1);
-                            //Instance.UpdateResourceTexts(idJugador);
-                            UpdateResources(idJugador);
+                            //UpdateResourceTexts(idJugador);
+                            //UpdateResources(idJugador);
                             //PlayerNetwork.Instance.ImprimirJugadorPorId(idJugador);
-                            //Debug.Log("ya sumo recurso " + recurso1);
+                            Debug.Log("ya sumo recurso " + recurso1);
                             break;
                         case "Pueblo":  // Aquí se hace uso del tipo enumerado TipoObjeto
-                            //Debug.Log("Sumar Pueblo 2 de " + recurso1);
+                            Debug.Log("Sumar Pueblo 2 de " + recurso1 + " al id " + idJugador);
                             //Debug.Log("Id jugador que va a AumentarRecursos " + idJugador);
                             PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso1, 2);
-                            //Instance.UpdateResourceTexts(idJugador);
-                            UpdateResources(idJugador);
+                            //UpdateResourceTexts(idJugador);
+                            //UpdateResources(idJugador);
                             //PlayerNetwork.Instance.ImprimirJugadorPorId(idJugador);
-                            //Debug.Log("ya sumo recurso " + recurso1);
+                            Debug.Log("ya sumo recurso " + recurso1);
                             break;
                     }
                 }
@@ -237,40 +254,41 @@ public class BoardManager : NetworkBehaviour
             List<Collider> collidersParcela2 = identificadorParcela.GetCollidersParcela(parcela2.name);
             foreach (var empty in collidersParcela2)
             {
+                int idJugador = 0;
                 Debug.Log("el collider de la parcela se llama " + empty.name);
                 var tipoCollider = ListaColliders.Instance.GetTipoPorNombre(empty.name).ToString();
                 //OBTENER COLOR DE LA PIEZA COLOCADA EN ESE COLLIDER
                 var colorCollider = ListaColliders.Instance.GetColorPorNombre(empty.name).ToString();
                 //Debug.Log("tipocollider es " + tipoCollider);
                 //Debug.Log("colorcollider es " + colorCollider);
-                int idJugador = PlayerNetwork.Instance.GetPlayerByColor(colorCollider);
+                idJugador = PlayerNetwork.Instance.GetPlayerByColor(colorCollider);
                 if (colorCollider != "Vacio")
                 {
                     switch (tipoCollider)
                     {
                         case "Ninguno":  // Aquí se hace uso del tipo enumerado TipoObjeto
-                            //Debug.Log("Ninguno");
+                            Debug.Log("Ninguno");
                             break;
                         case "Camino":  // Aquí se hace uso del tipo enumerado TipoObjeto
-                            //Debug.Log("Camino");
+                            Debug.Log("Camino");
                             break;
                         case "Base":    // Aquí se hace uso del tipo enumerado TipoObjeto
-                            //Debug.Log("Sumar a la Base 1 de " + recurso2);
+                            Debug.Log("Sumar a la Base 1 de " + recurso2 + " al id " + idJugador);
                             //Debug.Log("Id jugador que va a AumentarRecursos " + idJugador);
                             PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso2, 1);
-                            //Instance.UpdateResourceTexts(idJugador);
-                            UpdateResources(idJugador);
+                            //UpdateResourceTexts(idJugador);
+                            //UpdateResources(idJugador);
                             //PlayerNetwork.Instance.ImprimirJugadorPorId(idJugador);
-                            //Debug.Log("ya sumo recurso " + recurso2);
+                            Debug.Log("ya sumo recurso " + recurso2);
                             break;
                         case "Pueblo":  // Aquí se hace uso del tipo enumerado TipoObjeto
-                            //Debug.Log("Sumar Pueblo 2 de " + recurso2);
+                            Debug.Log("Sumar Pueblo 2 de " + recurso2 + " al id " + idJugador);
                             //Debug.Log("Id jugador que va a AumentarRecursos " + idJugador);
                             PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso2, 2);
-                            //Instance.UpdateResourceTexts(idJugador);
-                            UpdateResources(idJugador);
+                            //UpdateResourceTexts(idJugador);
+                            //UpdateResources(idJugador);
                             //PlayerNetwork.Instance.ImprimirJugadorPorId(idJugador);
-                            //Debug.Log("ya sumo recurso " + recurso2);
+                            Debug.Log("ya sumo recurso " + recurso2);
                             break;
                     }
                 }
@@ -387,24 +405,59 @@ public class BoardManager : NetworkBehaviour
     }
     public void UpdateResources(int jugadorId)
     {
-        UpdateResourceTexts(jugadorId);
-        foreach (PlayerNetwork.DatosJugador player in PlayerNetwork.Instance.playerData)
+        if (NetworkManager.Singleton.IsServer)
         {
-            PlayerNetwork.Instance.UpdateResourcesTextClientRpc(player);
+            UpdateResourceTexts(jugadorId);
+            foreach (PlayerNetwork.DatosJugador player in PlayerNetwork.Instance.playerData)
+            {
+                PlayerNetwork.Instance.UpdateResourcesTextClientRpc(player);
+            }
         }
+        else
+        {
+            UpdateResourceTexts(jugadorId);
+        }
+            
+
+    }
+    public void UpdateResourceTextsHost(int jugadorId)
+    {
+        Debug.Log("Server a UpdateResourceTexts con ID " + jugadorId);
+        PlayerNetwork.DatosJugador jugador = default;
+        // Itera sobre los elementos de playerData para encontrar los datos del jugador
+        for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+        {
+            if (PlayerNetwork.Instance.playerData[i].jugadorId == jugadorId)
+            {
+                jugador = PlayerNetwork.Instance.playerData[i];
+                break;
+            }
+        }
+        /*if (datosJugador.jugadorId == 0)  // Suponiendo que 0 no es un ID de jugador v�lido
+        {
+            Debug.LogError("Jugador con ID " + jugadorId + " no encontrado.");
+            return;
+        }*/
+        // Actualiza los textos de los recursos
+        MaderaCountText.text = jugador.maderaCount.ToString();
+        LadrilloCountText.text = jugador.ladrilloCount.ToString();
+        OvejaCountText.text = jugador.ovejaCount.ToString();
+        PiedraCountText.text = jugador.piedraCount.ToString();
+        TrigoCountText.text = jugador.trigoCount.ToString();      
     }
     public void UpdateResourceTexts(int jugadorId)
     {
+
         if (NetworkManager.Singleton.IsServer)
         {
             Debug.Log("Server a UpdateResourceTexts con ID " + jugadorId);
-            PlayerNetwork.DatosJugador datosJugador = default;
+            PlayerNetwork.DatosJugador jugador = default;
             // Itera sobre los elementos de playerData para encontrar los datos del jugador
             for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
             {
                 if (PlayerNetwork.Instance.playerData[i].jugadorId == jugadorId)
                 {
-                    datosJugador = PlayerNetwork.Instance.playerData[i];
+                    jugador = PlayerNetwork.Instance.playerData[i];
                     break;
                 }
             }
@@ -414,17 +467,21 @@ public class BoardManager : NetworkBehaviour
                 return;
             }*/
             // Actualiza los textos de los recursos
-            MaderaCountText.text = datosJugador.maderaCount.ToString();
-            LadrilloCountText.text = datosJugador.ladrilloCount.ToString();
-            OvejaCountText.text = datosJugador.ovejaCount.ToString();
-            PiedraCountText.text = datosJugador.piedraCount.ToString();
-            TrigoCountText.text = datosJugador.trigoCount.ToString();
+            MaderaCountText.text = jugador.maderaCount.ToString();
+            LadrilloCountText.text = jugador.ladrilloCount.ToString();
+            OvejaCountText.text = jugador.ovejaCount.ToString();
+            PiedraCountText.text = jugador.piedraCount.ToString();
+            TrigoCountText.text = jugador.trigoCount.ToString();
         }
         else
         {
-            Debug.Log("Cliente a UpdateResourceTexts con ID " + jugadorId);
-            PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(jugadorId);
-            PlayerNetwork.Instance.UpdateResourcesTextClientRpc(jugador); //Esto deberia ser client?
+            if(PlayerPrefs.GetInt("jugadorId") == jugadorId)
+            {
+                Debug.Log("Cliente a UpdateResourceTexts con ID " + jugadorId);
+                //PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(jugadorId);
+                PlayerNetwork.Instance.UpdateResourcesTextServerRpc(jugadorId);
+            }
+
         }     
     }
     /*[ClientRpc]
