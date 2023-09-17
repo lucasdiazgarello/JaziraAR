@@ -606,18 +606,25 @@ public class PlayerNetwork : NetworkBehaviour
             // Reemplazar el jugador en la lista con la versión modificada
             playerData[indexJugador] = jugador;
             // Actualiza los textos
-            BoardManager.Instance.UpdateResourceTextsHost(idJugador);
-            PlayerNetwork.DatosJugador datosJugador = default;
-            // Itera sobre los elementos de playerData para encontrar los datos del jugador
-            for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+            if( PlayerPrefs.GetInt("jugadorId") == idJugador)
             {
-                if (PlayerNetwork.Instance.playerData[i].jugadorId == idJugador)
-                {
-                    datosJugador = PlayerNetwork.Instance.playerData[i];
-                    break;
-                }
+                BoardManager.Instance.UpdateResourceTextsHost(idJugador);
             }
-            UpdateResourcesTextClientRpc(datosJugador);
+            else
+            {
+                PlayerNetwork.DatosJugador datosJugador = default;
+                // Itera sobre los elementos de playerData para encontrar los datos del jugador
+                for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+                {
+                    if (PlayerNetwork.Instance.playerData[i].jugadorId == idJugador)
+                    {
+                        datosJugador = PlayerNetwork.Instance.playerData[i];
+                        break;
+                    }
+                }
+                UpdateResourcesTextClientRpc(datosJugador);
+            }
+
         }
         /*else
         {
