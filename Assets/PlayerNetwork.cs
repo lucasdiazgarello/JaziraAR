@@ -608,19 +608,40 @@ public class PlayerNetwork : NetworkBehaviour
             // Actualiza los textos
             if( PlayerPrefs.GetInt("jugadorId") == idJugador)
             {
+                Debug.Log("ENTRE ACA ANTES HOST");
                 BoardManager.Instance.UpdateResourceTextsHost(idJugador);
             }
             else
             {
+                Debug.Log("ENTRE ACA ANTES CLIENTE");
                 PlayerNetwork.DatosJugador datosJugador = default;
+                var posicion = -1;
                 // Itera sobre los elementos de playerData para encontrar los datos del jugador
                 for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
                 {
                     if (PlayerNetwork.Instance.playerData[i].jugadorId == idJugador)
                     {
                         datosJugador = PlayerNetwork.Instance.playerData[i];
+                        posicion = i;
                         break;
                     }
+                }
+                var puntaje = "Puntaje" + (posicion + 1).ToString();
+                Debug.Log("string puntaje es; " + puntaje);
+                switch (puntaje)
+                {
+                    case "Puntaje1":
+                        UpdatePuntaje1TextClientRpc(jugador);
+                        break;
+                    case "Puntaje2":
+                        UpdatePuntaje2TextClientRpc(jugador);
+                        break;
+                    case "Puntaje3":
+                        UpdatePuntaje3TextClientRpc(jugador);
+                        break;
+                    case "Puntaje4":
+                        UpdatePuntaje4TextClientRpc(jugador);
+                        break;
                 }
                 UpdateResourcesTextClientRpc(datosJugador);
             }
@@ -1176,6 +1197,35 @@ public class PlayerNetwork : NetworkBehaviour
         BoardManager.Instance.OvejaCountText.text = jugador.ovejaCount.ToString();
         BoardManager.Instance.PiedraCountText.text = jugador.piedraCount.ToString();
         BoardManager.Instance.TrigoCountText.text = jugador.trigoCount.ToString();
+    }
+
+    [ClientRpc]
+    public void UpdatePuntaje1TextClientRpc(DatosJugador jugador)
+    {
+        Debug.Log("Entre a UpdatePuntaje1TextClientRpc");
+        BoardManager.Instance.Puntaje1.text = jugador.puntaje.ToString();
+        BoardManager.Instance.Nombre1.text = jugador.nomJugador.ToString();
+    }
+    [ClientRpc]
+    public void UpdatePuntaje2TextClientRpc(DatosJugador jugador)
+    {
+        Debug.Log("Entre a UpdatePuntaje2TextClientRpc");
+        BoardManager.Instance.Puntaje2.text = jugador.puntaje.ToString();
+        BoardManager.Instance.Nombre2.text = jugador.nomJugador.ToString();
+    }
+    [ClientRpc]
+    public void UpdatePuntaje3TextClientRpc(DatosJugador jugador)
+    {
+        Debug.Log("Entre a UpdatePuntaje3TextClientRpc");
+        BoardManager.Instance.Puntaje3.text = jugador.puntaje.ToString();
+        BoardManager.Instance.Nombre3.text = jugador.nomJugador.ToString();
+    }
+    [ClientRpc]
+    public void UpdatePuntaje4TextClientRpc(DatosJugador jugador)
+    {
+        Debug.Log("Entre a UpdatePuntaje4TextClientRpc");
+        BoardManager.Instance.Puntaje4.text = jugador.puntaje.ToString();
+        BoardManager.Instance.Nombre4.text = jugador.nomJugador.ToString();
     }
 
     public void UpdateCantidadPiezad(DatosJugador jugador, int caminos, int bases, int pueblos, bool priPiezas)

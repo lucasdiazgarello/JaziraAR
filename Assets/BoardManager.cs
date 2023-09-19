@@ -20,6 +20,14 @@ public class BoardManager : NetworkBehaviour
     public Text OvejaCountText;
     public Text PiedraCountText;
     public Text TrigoCountText;
+    public Text Puntaje1;
+    public Text Puntaje2;
+    public Text Puntaje3;
+    public Text Puntaje4;
+    public Text Nombre1;
+    public Text Nombre2;
+    public Text Nombre3;
+    public Text Nombre4;
     private IdentificadorParcela identificadorParcela;
     public static BoardManager Instance; // Instancia Singleton
 
@@ -144,7 +152,6 @@ public class BoardManager : NetworkBehaviour
                 if (parcela == null) Debug.Log("parcela vacia");
                 recurso1 = "Oveja";
                 break;
-
         }
 
         Debug.Log("Parcela 1 es: " + parcela);
@@ -427,10 +434,32 @@ public class BoardManager : NetworkBehaviour
         // Itera sobre los elementos de playerData para encontrar los datos del jugador
         for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
         {
+            Debug.Log("ENTRE ACA 1");
             if (PlayerNetwork.Instance.playerData[i].jugadorId == jugadorId)
             {
+                Debug.Log("ENTRE ACA 2");
                 jugador = PlayerNetwork.Instance.playerData[i];
-                break;
+                var puntaje = "Puntaje" + (i+1).ToString();
+                Debug.Log("string puntaje es: " + puntaje);
+                switch (puntaje)
+                {
+                    case "Puntaje1":
+                        Puntaje1.text = jugador.puntaje.ToString();
+                        Nombre1.text = jugador.nomJugador.ToString();
+                        break;
+                    case "Puntaje2":
+                        Puntaje2.text = jugador.puntaje.ToString();
+                        Nombre2.text = jugador.nomJugador.ToString();
+                        break;
+                    case "Puntaje3":
+                        Puntaje3.text = jugador.puntaje.ToString();
+                        Nombre3.text = jugador.nomJugador.ToString();
+                        break;
+                    case "Puntaje4":
+                        Puntaje4.text = jugador.puntaje.ToString();
+                        Nombre4.text = jugador.nomJugador.ToString();
+                        break;
+                }
             }
         }
         /*if (datosJugador.jugadorId == 0)  // Suponiendo que 0 no es un ID de jugador v�lido
@@ -443,7 +472,8 @@ public class BoardManager : NetworkBehaviour
         LadrilloCountText.text = jugador.ladrilloCount.ToString();
         OvejaCountText.text = jugador.ovejaCount.ToString();
         PiedraCountText.text = jugador.piedraCount.ToString();
-        TrigoCountText.text = jugador.trigoCount.ToString();      
+        TrigoCountText.text = jugador.trigoCount.ToString();   
+        
     }
     public void UpdateResourceTexts(int jugadorId)
     {

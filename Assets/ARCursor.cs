@@ -303,6 +303,7 @@ public class ARCursor : NetworkBehaviour
             PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(idJugador);
             Debug.Log("Cliente va a UpdateResourceTexts con ID antes de tirar dados" + idJugador);
             PlayerNetwork.Instance.UpdateResourcesTextClientRpc(jugador);
+
             Debug.Log("el id que toco TirarDados es" + idJugador);
             PlayerNetwork.Instance.TirarDadosServerRpc();
         }
