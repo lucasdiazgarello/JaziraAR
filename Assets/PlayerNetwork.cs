@@ -606,7 +606,11 @@ public class PlayerNetwork : NetworkBehaviour
             // Reemplazar el jugador en la lista con la versión modificada
             playerData[indexJugador] = jugador;
             // Actualiza los textos
-            if( PlayerPrefs.GetInt("jugadorId") == idJugador)
+            DatosJugador juga1 = new DatosJugador();
+            DatosJugador juga2 = new DatosJugador();
+            DatosJugador juga3 = new DatosJugador();
+            DatosJugador juga4 = new DatosJugador();
+            if ( PlayerPrefs.GetInt("jugadorId") == idJugador)
             {
                 Debug.Log("ENTRE ACA ANTES HOST");
                 BoardManager.Instance.UpdateResourceTextsHost(idJugador);
@@ -616,9 +620,28 @@ public class PlayerNetwork : NetworkBehaviour
                 Debug.Log("ENTRE ACA ANTES CLIENTE");
                 PlayerNetwork.DatosJugador datosJugador = default;
                 var posicion = -1;
+
                 // Itera sobre los elementos de playerData para encontrar los datos del jugador
                 for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
                 {
+
+                    switch (i)
+                    {
+                        case 0:
+                            juga1 = PlayerNetwork.Instance.playerData[i];
+                            break;
+                        case 1:
+                             juga2 = PlayerNetwork.Instance.playerData[i];
+                            break;
+                        case 2:
+                             juga3 = PlayerNetwork.Instance.playerData[i];
+                            break;
+                        case 3:
+                             juga4 = PlayerNetwork.Instance.playerData[i];
+                            break;
+
+                    }
+
                     if (PlayerNetwork.Instance.playerData[i].jugadorId == idJugador)
                     {
                         datosJugador = PlayerNetwork.Instance.playerData[i];
@@ -626,8 +649,11 @@ public class PlayerNetwork : NetworkBehaviour
                         break;
                     }
                 }
+                UpdatePuntajeTextServerRpc(juga1, juga2, juga3, juga4);
+                UpdatePuntajeTextClientRpc(juga1, juga2, juga3, juga4);
                 var puntaje = "Puntaje" + (posicion + 1).ToString();
                 Debug.Log("string puntaje es; " + puntaje);
+                /*
                 switch (puntaje)
                 {
                     case "Puntaje1":
@@ -643,6 +669,7 @@ public class PlayerNetwork : NetworkBehaviour
                         UpdatePuntaje4TextClientRpc(jugador);
                         break;
                 }
+                */
                 UpdateResourcesTextClientRpc(datosJugador);
             }
 
@@ -1188,6 +1215,20 @@ public class PlayerNetwork : NetworkBehaviour
         // Actualiza los textos de los recursos
         UpdateResourcesTextClientRpc(datosJugador);
     }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void UpdatePuntajeTextServerRpc(DatosJugador jugador1, DatosJugador jugador2, DatosJugador jugador3, DatosJugador jugador4)
+    {
+        Debug.Log("Entre a UpdatePuntaje1TextServerRpc");
+        BoardManager.Instance.Puntaje1.text = jugador1.puntaje.ToString();
+        BoardManager.Instance.Nombre1.text = jugador1.nomJugador.ToString();
+        BoardManager.Instance.Puntaje2.text = jugador2.puntaje.ToString();
+        BoardManager.Instance.Nombre2.text = jugador2.nomJugador.ToString();
+        BoardManager.Instance.Puntaje3.text = jugador3.puntaje.ToString();
+        BoardManager.Instance.Nombre3.text = jugador3.nomJugador.ToString();
+        BoardManager.Instance.Puntaje4.text = jugador4.puntaje.ToString();
+        BoardManager.Instance.Nombre4.text = jugador4.nomJugador.ToString();
+    }
     [ClientRpc]
     public void UpdateResourcesTextClientRpc(DatosJugador jugador)
     {
@@ -1197,6 +1238,20 @@ public class PlayerNetwork : NetworkBehaviour
         BoardManager.Instance.OvejaCountText.text = jugador.ovejaCount.ToString();
         BoardManager.Instance.PiedraCountText.text = jugador.piedraCount.ToString();
         BoardManager.Instance.TrigoCountText.text = jugador.trigoCount.ToString();
+    }
+
+    [ClientRpc]
+    public void UpdatePuntajeTextClientRpc(DatosJugador jugador1, DatosJugador jugador2, DatosJugador jugador3, DatosJugador jugador4)
+    {
+        Debug.Log("Entre a UpdatePuntaje1TextClientRpc");
+        BoardManager.Instance.Puntaje1.text = jugador1.puntaje.ToString();
+        BoardManager.Instance.Nombre1.text = jugador1.nomJugador.ToString();
+        BoardManager.Instance.Puntaje2.text = jugador2.puntaje.ToString();
+        BoardManager.Instance.Nombre2.text = jugador2.nomJugador.ToString();
+        BoardManager.Instance.Puntaje3.text = jugador3.puntaje.ToString();
+        BoardManager.Instance.Nombre3.text = jugador3.nomJugador.ToString();
+        BoardManager.Instance.Puntaje4.text = jugador4.puntaje.ToString();
+        BoardManager.Instance.Nombre4.text = jugador4.nomJugador.ToString();
     }
 
     [ClientRpc]

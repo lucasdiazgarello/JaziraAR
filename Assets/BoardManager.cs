@@ -441,6 +441,7 @@ public class BoardManager : NetworkBehaviour
                 jugador = PlayerNetwork.Instance.playerData[i];
                 var puntaje = "Puntaje" + (i+1).ToString();
                 Debug.Log("string puntaje es: " + puntaje);
+
                 switch (puntaje)
                 {
                     case "Puntaje1":
