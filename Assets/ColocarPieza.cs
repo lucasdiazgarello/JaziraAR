@@ -334,6 +334,7 @@ public class ColocarPieza : NetworkBehaviour
                 EjecutarColocarBase(hit, color, currPrefBase);
                 // Luego de colocar una base, disminuyes el contador y verificas si desactivar el botón.
                 jugadorcopia.cantidadBases = jugadorcopia.cantidadBases - 1;
+                jugadorcopia.puntaje = jugadorcopia.puntaje + 1;
                 PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
                 //jugador.cantidadBases--;
                 Debug.Log("Bases restantes POST: " + PlayerNetwork.Instance.playerData[indexJugador].cantidadBases);
@@ -430,6 +431,7 @@ public class ColocarPieza : NetworkBehaviour
                     EjecutarColocarPueblo(hit, color, currPrefPueblo);
                     // Luego de colocar una base, disminuyes el contador y verificas si desactivar el botón.
                     jugadorcopia.cantidadPueblos = jugadorcopia.cantidadPueblos - 1;
+                    jugadorcopia.puntaje = jugadorcopia.puntaje + 2;
                     PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
                     //jugador.cantidadPueblos--;
                     Debug.Log("Pueblos restantes POST: " + PlayerNetwork.Instance.playerData[indexJugador].cantidadPueblos);

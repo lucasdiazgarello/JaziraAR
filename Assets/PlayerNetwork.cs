@@ -606,25 +606,64 @@ public class PlayerNetwork : NetworkBehaviour
             // Reemplazar el jugador en la lista con la versión modificada
             playerData[indexJugador] = jugador;
             // Actualiza los textos
-            DatosJugador juga1 = new DatosJugador();
-            DatosJugador juga2 = new DatosJugador();
-            DatosJugador juga3 = new DatosJugador();
-            DatosJugador juga4 = new DatosJugador();
+
+
             if ( PlayerPrefs.GetInt("jugadorId") == idJugador)
             {
+                PlayerNetwork.DatosJugador datosJugador = default;
+                var posicion = -1;
                 Debug.Log("ENTRE ACA ANTES HOST");
+                DatosJugador juga1 = new DatosJugador();
+                DatosJugador juga2 = new DatosJugador();
+                DatosJugador juga3 = new DatosJugador();
+                DatosJugador juga4 = new DatosJugador();
                 BoardManager.Instance.UpdateResourceTextsHost(idJugador);
+                // Itera sobre los elementos de playerData para encontrar los datos del jugador
+                for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            juga1 = PlayerNetwork.Instance.playerData[i];
+                            Debug.Log("el puntaje del jugador1 es " + juga1.puntaje);
+                            break;
+                        case 1:
+                            juga2 = PlayerNetwork.Instance.playerData[i];
+                            Debug.Log("el puntaje del jugador2 es " + juga2.puntaje);
+                            break;
+                        case 2:
+                            juga3 = PlayerNetwork.Instance.playerData[i];
+                            break;
+                        case 3:
+                            juga4 = PlayerNetwork.Instance.playerData[i];
+                            break;
+                    }
+                    if (PlayerNetwork.Instance.playerData[i].jugadorId == idJugador)
+                    {
+                        datosJugador = PlayerNetwork.Instance.playerData[i];
+                        posicion = i;
+                        break;
+                    }
+                }
+                //Debug.Log("el puntaje del jugador1 es " + juga1.puntaje);
+                //Debug.Log("el puntaje del jugador2 es " + juga2.puntaje);
+
+                //UpdatePuntajeTextServerRpc(juga1, juga2, juga3, juga4);
+                UpdatePuntajeTextClientRpc(juga1, juga2, juga3, juga4);
+
             }
             else
             {
                 Debug.Log("ENTRE ACA ANTES CLIENTE");
                 PlayerNetwork.DatosJugador datosJugador = default;
                 var posicion = -1;
-
+                DatosJugador juga1 = new DatosJugador();
+                DatosJugador juga2 = new DatosJugador();
+                DatosJugador juga3 = new DatosJugador();
+                DatosJugador juga4 = new DatosJugador();
                 // Itera sobre los elementos de playerData para encontrar los datos del jugador
                 for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
                 {
-
                     switch (i)
                     {
                         case 0:
@@ -639,9 +678,7 @@ public class PlayerNetwork : NetworkBehaviour
                         case 3:
                              juga4 = PlayerNetwork.Instance.playerData[i];
                             break;
-
                     }
-
                     if (PlayerNetwork.Instance.playerData[i].jugadorId == idJugador)
                     {
                         datosJugador = PlayerNetwork.Instance.playerData[i];
@@ -651,9 +688,10 @@ public class PlayerNetwork : NetworkBehaviour
                 }
                 UpdatePuntajeTextServerRpc(juga1, juga2, juga3, juga4);
                 UpdatePuntajeTextClientRpc(juga1, juga2, juga3, juga4);
+                /*
                 var puntaje = "Puntaje" + (posicion + 1).ToString();
                 Debug.Log("string puntaje es; " + puntaje);
-                /*
+                
                 switch (puntaje)
                 {
                     case "Puntaje1":
@@ -832,12 +870,13 @@ public class PlayerNetwork : NetworkBehaviour
             // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
             PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
             // Aquí es donde actualizarías los recursos del jugador en tu juego.
-            int puntaje = (jugadorcopia.cantidadBases * 1) + (jugadorcopia.cantidadPueblos * 2);
+            int puntajejugador = (jugadorcopia.puntaje);
             //Debug.Log("puntaje = " + puntaje);
-            if (puntaje == 10)
+            if (puntajejugador == 10)
                 jugadorcopia.gano = true;
-                jugadorcopia.puntaje = puntaje;
+                jugadorcopia.puntaje = puntajejugador;
             PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+            //Debug.Log("el puntaje del jugador es " + PlayerNetwork.Instance.playerData[indexJugador].puntaje);
         }       
     }
     public void CheckifWon()
