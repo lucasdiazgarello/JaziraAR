@@ -338,6 +338,53 @@ public class ColocarPieza : NetworkBehaviour
                 PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
                 //jugador.cantidadBases--;
                 Debug.Log("Bases restantes POST: " + PlayerNetwork.Instance.playerData[indexJugador].cantidadBases);
+                //Actualizar textos puntajes
+                int idJugador = PlayerNetwork.Instance.GetPlayerId(PlayerNetwork.Instance.playerData[indexJugador]);
+                // Itera sobre los elementos de playerData para encontrar los datos del jugador
+                PlayerNetwork.DatosJugador juga1 = new PlayerNetwork.DatosJugador();
+                PlayerNetwork.DatosJugador juga2 = new PlayerNetwork.DatosJugador();
+                PlayerNetwork.DatosJugador juga3 = new PlayerNetwork.DatosJugador();
+                PlayerNetwork.DatosJugador juga4 = new PlayerNetwork.DatosJugador();
+                PlayerNetwork.DatosJugador datosJugador = default;
+                var posicion = -1;
+                for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            juga1 = PlayerNetwork.Instance.playerData[i];
+                            Debug.Log("el puntaje del jugador1 es " + juga1.puntaje);
+                            break;
+                        case 1:
+                            juga2 = PlayerNetwork.Instance.playerData[i];
+                            Debug.Log("el puntaje del jugador2 es " + juga2.puntaje);
+                            break;
+                        case 2:
+                            juga3 = PlayerNetwork.Instance.playerData[i];
+                            break;
+                        case 3:
+                            juga4 = PlayerNetwork.Instance.playerData[i];
+                            break;
+                    }
+                    if (PlayerNetwork.Instance.playerData[i].jugadorId == idJugador)
+                    {
+                        datosJugador = PlayerNetwork.Instance.playerData[i];
+                        posicion = i;
+                        break;
+                    }
+                }
+                //Debug.Log("el puntaje del jugador1 es " + juga1.puntaje);
+                //Debug.Log("el puntaje del jugador2 es " + juga2.puntaje);
+
+                BoardManager.Instance.Puntaje1.text = juga1.puntaje.ToString();
+                BoardManager.Instance.Nombre1.text = juga1.nomJugador.ToString();
+                BoardManager.Instance.Puntaje2.text = juga2.puntaje.ToString();
+                BoardManager.Instance.Nombre2.text = juga2.nomJugador.ToString();
+                BoardManager.Instance.Puntaje3.text = juga3.puntaje.ToString();
+                BoardManager.Instance.Nombre3.text = juga3.nomJugador.ToString();
+                BoardManager.Instance.Puntaje4.text = juga4.puntaje.ToString();
+                BoardManager.Instance.Nombre4.text = juga4.nomJugador.ToString();
+                PlayerNetwork.Instance.UpdatePuntajeTextClientRpc(juga1, juga2, juga3, juga4);
             }
             else // si es un cliente
             {
@@ -431,7 +478,7 @@ public class ColocarPieza : NetworkBehaviour
                     EjecutarColocarPueblo(hit, color, currPrefPueblo);
                     // Luego de colocar una base, disminuyes el contador y verificas si desactivar el botón.
                     jugadorcopia.cantidadPueblos = jugadorcopia.cantidadPueblos - 1;
-                    jugadorcopia.puntaje = jugadorcopia.puntaje + 2;
+                    jugadorcopia.puntaje = jugadorcopia.puntaje + 1;
                     PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
                     //jugador.cantidadPueblos--;
                     Debug.Log("Pueblos restantes POST: " + PlayerNetwork.Instance.playerData[indexJugador].cantidadPueblos);
@@ -440,7 +487,53 @@ public class ColocarPieza : NetworkBehaviour
                 {
                     Debug.Log("El pueblo se debe colocar sobre una Base");
                 }
-                    
+                //Actualizar textos puntajes
+                int idJugador = PlayerNetwork.Instance.GetPlayerId(PlayerNetwork.Instance.playerData[indexJugador]);
+                // Itera sobre los elementos de playerData para encontrar los datos del jugador
+                PlayerNetwork.DatosJugador juga1 = new PlayerNetwork.DatosJugador();
+                PlayerNetwork.DatosJugador juga2 = new PlayerNetwork.DatosJugador();
+                PlayerNetwork.DatosJugador juga3 = new PlayerNetwork.DatosJugador();
+                PlayerNetwork.DatosJugador juga4 = new PlayerNetwork.DatosJugador();
+                PlayerNetwork.DatosJugador datosJugador = default;
+                var posicion = -1;
+                for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            juga1 = PlayerNetwork.Instance.playerData[i];
+                            Debug.Log("el puntaje del jugador1 es " + juga1.puntaje);
+                            break;
+                        case 1:
+                            juga2 = PlayerNetwork.Instance.playerData[i];
+                            Debug.Log("el puntaje del jugador2 es " + juga2.puntaje);
+                            break;
+                        case 2:
+                            juga3 = PlayerNetwork.Instance.playerData[i];
+                            break;
+                        case 3:
+                            juga4 = PlayerNetwork.Instance.playerData[i];
+                            break;
+                    }
+                    if (PlayerNetwork.Instance.playerData[i].jugadorId == idJugador)
+                    {
+                        datosJugador = PlayerNetwork.Instance.playerData[i];
+                        posicion = i;
+                        break;
+                    }
+                }
+                //Debug.Log("el puntaje del jugador1 es " + juga1.puntaje);
+                //Debug.Log("el puntaje del jugador2 es " + juga2.puntaje);
+
+                BoardManager.Instance.Puntaje1.text = juga1.puntaje.ToString();
+                BoardManager.Instance.Nombre1.text = juga1.nomJugador.ToString();
+                BoardManager.Instance.Puntaje2.text = juga2.puntaje.ToString();
+                BoardManager.Instance.Nombre2.text = juga2.nomJugador.ToString();
+                BoardManager.Instance.Puntaje3.text = juga3.puntaje.ToString();
+                BoardManager.Instance.Nombre3.text = juga3.nomJugador.ToString();
+                BoardManager.Instance.Puntaje4.text = juga4.puntaje.ToString();
+                BoardManager.Instance.Nombre4.text = juga4.nomJugador.ToString();
+                PlayerNetwork.Instance.UpdatePuntajeTextClientRpc(juga1, juga2, juga3, juga4);
             }
             else // si es un cliente
             {

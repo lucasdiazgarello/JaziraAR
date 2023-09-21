@@ -434,12 +434,12 @@ public class BoardManager : NetworkBehaviour
         // Itera sobre los elementos de playerData para encontrar los datos del jugador
         for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
         {
-            Debug.Log("ENTRE ACA 1");
+            //Debug.Log("ENTRE ACA 1");
             if (PlayerNetwork.Instance.playerData[i].jugadorId == jugadorId)
             {
-                Debug.Log("ENTRE ACA 2");
+                //Debug.Log("ENTRE ACA 2");
                 jugador = PlayerNetwork.Instance.playerData[i];
-                var puntaje = "Puntaje" + (i+1).ToString();
+                /*var puntaje = "Puntaje" + (i+1).ToString();
                 Debug.Log("string puntaje es: " + puntaje);
 
                 switch (puntaje)
@@ -460,7 +460,7 @@ public class BoardManager : NetworkBehaviour
                         Puntaje4.text = jugador.puntaje.ToString();
                         Nombre4.text = jugador.nomJugador.ToString();
                         break;
-                }
+                }*/
             }
         }
         /*if (datosJugador.jugadorId == 0)  // Suponiendo que 0 no es un ID de jugador v�lido

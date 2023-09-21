@@ -610,14 +610,14 @@ public class PlayerNetwork : NetworkBehaviour
 
             if ( PlayerPrefs.GetInt("jugadorId") == idJugador)
             {
-                PlayerNetwork.DatosJugador datosJugador = default;
+                BoardManager.Instance.UpdateResourceTextsHost(idJugador);
+                /*PlayerNetwork.DatosJugador datosJugador = default;
                 var posicion = -1;
                 Debug.Log("ENTRE ACA ANTES HOST");
                 DatosJugador juga1 = new DatosJugador();
                 DatosJugador juga2 = new DatosJugador();
                 DatosJugador juga3 = new DatosJugador();
-                DatosJugador juga4 = new DatosJugador();
-                BoardManager.Instance.UpdateResourceTextsHost(idJugador);
+                DatosJugador juga4 = new DatosJugador();               
                 // Itera sobre los elementos de playerData para encontrar los datos del jugador
                 for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
                 {
@@ -650,21 +650,23 @@ public class PlayerNetwork : NetworkBehaviour
 
                 //UpdatePuntajeTextServerRpc(juga1, juga2, juga3, juga4);
                 UpdatePuntajeTextClientRpc(juga1, juga2, juga3, juga4);
-
+                */
             }
             else
             {
                 Debug.Log("ENTRE ACA ANTES CLIENTE");
                 PlayerNetwork.DatosJugador datosJugador = default;
                 var posicion = -1;
+                /*
                 DatosJugador juga1 = new DatosJugador();
                 DatosJugador juga2 = new DatosJugador();
                 DatosJugador juga3 = new DatosJugador();
                 DatosJugador juga4 = new DatosJugador();
+                */
                 // Itera sobre los elementos de playerData para encontrar los datos del jugador
                 for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
                 {
-                    switch (i)
+                    /*switch (i)
                     {
                         case 0:
                             juga1 = PlayerNetwork.Instance.playerData[i];
@@ -678,7 +680,7 @@ public class PlayerNetwork : NetworkBehaviour
                         case 3:
                              juga4 = PlayerNetwork.Instance.playerData[i];
                             break;
-                    }
+                    }*/
                     if (PlayerNetwork.Instance.playerData[i].jugadorId == idJugador)
                     {
                         datosJugador = PlayerNetwork.Instance.playerData[i];
@@ -686,8 +688,8 @@ public class PlayerNetwork : NetworkBehaviour
                         break;
                     }
                 }
-                UpdatePuntajeTextServerRpc(juga1, juga2, juga3, juga4);
-                UpdatePuntajeTextClientRpc(juga1, juga2, juga3, juga4);
+                //UpdatePuntajeTextServerRpc(juga1, juga2, juga3, juga4);
+                //UpdatePuntajeTextClientRpc(juga1, juga2, juga3, juga4);
                 /*
                 var puntaje = "Puntaje" + (posicion + 1).ToString();
                 Debug.Log("string puntaje es; " + puntaje);
@@ -1030,11 +1032,55 @@ public class PlayerNetwork : NetworkBehaviour
             PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
             // Luego de colocar una base, disminuyes el contador y verificas si desactivar el botón.
             jugadorcopia.cantidadBases = jugadorcopia.cantidadBases - 1;
+            jugadorcopia.puntaje = jugadorcopia.puntaje + 1;
             PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
             //jugador.cantidadBasess--;
             Debug.Log("Bases restantes POST: " + PlayerNetwork.Instance.playerData[indexJugador].cantidadPueblos);
             DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
             UpdateCantidadPiezadClientRpc(jugador, jugador.cantidadCaminos, jugador.cantidadBases, jugador.cantidadPueblos, jugador.primerasPiezas);
+            //Actualizar puntajes jugadores
+            PlayerNetwork.DatosJugador datosJugador = default;
+            var posicion = -1;
+            
+            DatosJugador juga1 = new DatosJugador();
+            DatosJugador juga2 = new DatosJugador();
+            DatosJugador juga3 = new DatosJugador();
+            DatosJugador juga4 = new DatosJugador();
+            
+            // Itera sobre los elementos de playerData para encontrar los datos del jugador
+            for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+            {
+                switch (i)
+                {
+                    case 0:
+                        juga1 = PlayerNetwork.Instance.playerData[i];
+                        break;
+                    case 1:
+                         juga2 = PlayerNetwork.Instance.playerData[i];
+                        break;
+                    case 2:
+                         juga3 = PlayerNetwork.Instance.playerData[i];
+                        break;
+                    case 3:
+                         juga4 = PlayerNetwork.Instance.playerData[i];
+                        break;
+                }
+                if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
+                {
+                    datosJugador = PlayerNetwork.Instance.playerData[i];
+                    posicion = i;
+                    break;
+                }
+            }
+            BoardManager.Instance.Puntaje1.text = juga1.puntaje.ToString();
+            BoardManager.Instance.Nombre1.text = juga1.nomJugador.ToString();
+            BoardManager.Instance.Puntaje2.text = juga2.puntaje.ToString();
+            BoardManager.Instance.Nombre2.text = juga2.nomJugador.ToString();
+            BoardManager.Instance.Puntaje3.text = juga3.puntaje.ToString();
+            BoardManager.Instance.Nombre3.text = juga3.nomJugador.ToString();
+            BoardManager.Instance.Puntaje4.text = juga4.puntaje.ToString();
+            BoardManager.Instance.Nombre4.text = juga4.nomJugador.ToString();
+            UpdatePuntajeTextClientRpc(juga1, juga2, juga3, juga4);           
         }
         catch (Exception e)
         {
@@ -1096,11 +1142,55 @@ public class PlayerNetwork : NetworkBehaviour
             PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
             // Luego de colocar una base, disminuyes el contador y verificas si desactivar el botón.
             jugadorcopia.cantidadPueblos = jugadorcopia.cantidadPueblos - 1;
+            jugadorcopia.puntaje = jugadorcopia.puntaje + 1;
             PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
             //jugador.cantidadPueblos--;
             Debug.Log("Pueblos restantes POST: " + PlayerNetwork.Instance.playerData[indexJugador].cantidadPueblos);          
             DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
             UpdateCantidadPiezadClientRpc(jugador, jugador.cantidadCaminos, jugador.cantidadBases, jugador.cantidadPueblos, jugador.primerasPiezas);
+            //Actualizar puntajes jugadores
+            PlayerNetwork.DatosJugador datosJugador = default;
+            var posicion = -1;
+
+            DatosJugador juga1 = new DatosJugador();
+            DatosJugador juga2 = new DatosJugador();
+            DatosJugador juga3 = new DatosJugador();
+            DatosJugador juga4 = new DatosJugador();
+
+            // Itera sobre los elementos de playerData para encontrar los datos del jugador
+            for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+            {
+                switch (i)
+                {
+                    case 0:
+                        juga1 = PlayerNetwork.Instance.playerData[i];
+                        break;
+                    case 1:
+                        juga2 = PlayerNetwork.Instance.playerData[i];
+                        break;
+                    case 2:
+                        juga3 = PlayerNetwork.Instance.playerData[i];
+                        break;
+                    case 3:
+                        juga4 = PlayerNetwork.Instance.playerData[i];
+                        break;
+                }
+                if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
+                {
+                    datosJugador = PlayerNetwork.Instance.playerData[i];
+                    posicion = i;
+                    break;
+                }
+            }
+            BoardManager.Instance.Puntaje1.text = juga1.puntaje.ToString();
+            BoardManager.Instance.Nombre1.text = juga1.nomJugador.ToString();
+            BoardManager.Instance.Puntaje2.text = juga2.puntaje.ToString();
+            BoardManager.Instance.Nombre2.text = juga2.nomJugador.ToString();
+            BoardManager.Instance.Puntaje3.text = juga3.puntaje.ToString();
+            BoardManager.Instance.Nombre3.text = juga3.nomJugador.ToString();
+            BoardManager.Instance.Puntaje4.text = juga4.puntaje.ToString();
+            BoardManager.Instance.Nombre4.text = juga4.nomJugador.ToString();
+            UpdatePuntajeTextClientRpc(juga1, juga2, juga3, juga4);       
         }
         catch (Exception e)
         {
