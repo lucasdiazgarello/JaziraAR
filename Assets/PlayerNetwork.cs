@@ -849,19 +849,14 @@ public class PlayerNetwork : NetworkBehaviour
         if (NetworkManager.Singleton.IsServer)
         {
             int id = PlayerPrefs.GetInt("jugadorId");
-            //poner gano igual true a ese jugador
             int indexJugador = -1;
             bool jugadorEncontrado = false;
-
-            // Búsqueda del jugador en la lista playerData
             for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
             {
-                //Debug.Log("La lista Ids es " + playerData[i].jugadorId);
                 if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
                 {
                     jugadorEncontrado = true;
                     indexJugador = i;
-                    break;
                 }
             }
             if (!jugadorEncontrado)
@@ -869,41 +864,68 @@ public class PlayerNetwork : NetworkBehaviour
                 Debug.Log("Jugador no encontrado en la lista playerData");
                 return;
             }
-            // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
             PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
-            // Aquí es donde actualizarías los recursos del jugador en tu juego.
             int puntajejugador = (jugadorcopia.puntaje);
-            //Debug.Log("puntaje = " + puntaje);
             if (puntajejugador == 10)
                 jugadorcopia.gano = true;
                 jugadorcopia.puntaje = puntajejugador;
             PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
-            //Debug.Log("el puntaje del jugador es " + PlayerNetwork.Instance.playerData[indexJugador].puntaje);
-        }       
+        }
+        else
+        {
+            int id = PlayerPrefs.GetInt("jugadorId");
+            SetGanoServerRpc(id);
+        }
+    }
+    [ServerRpc(RequireOwnership = false)]
+    public void SetGanoServerRpc(int id)
+    {
+        int indexJugador = -1;
+        bool jugadorEncontrado = false;
+        for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+        {
+            if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
+            {
+                jugadorEncontrado = true;
+                indexJugador = i;
+            }
+        }
+        if (!jugadorEncontrado)
+        {
+            Debug.Log("Jugador no encontrado en la lista playerData");
+            return;
+        }
+        PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
+        int puntajejugador = (jugadorcopia.puntaje);
+        if (puntajejugador == 10)
+            jugadorcopia.gano = true;
+        jugadorcopia.puntaje = puntajejugador;
+        PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
     }
     public void CheckifWon()
     {
         Debug.Log("Entre a checkifwon como server");
-
         for (int i = 0; i < playerData.Count; i++)
         {
-            if (PlayerNetwork.Instance.playerData[i].gano == true)
+            if (playerData[i].gano == true)
             {
-                Debug.Log("El jugador "+ PlayerNetwork.Instance.playerData[i].nomJugador + " es el gandor");
                 SceneManager.LoadScene("EscenaFinal");
+                CargarEscenaFinalClientRpc();
             }
-        }
+        }      
     }
     [ServerRpc(RequireOwnership = false)]
     public void CheckifWonServerRpc()
     {
-        Debug.Log("CheckifWonServerRpc");
-
-        for (int i = 0; i < playerData.Count; i++)
+        Debug.Log("Entre a checkifwon como Cliente");
+        for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
         {
+            Debug.Log("Entro al for");
             if (PlayerNetwork.Instance.playerData[i].gano == true)
             {
-                Debug.Log("El jugador " + PlayerNetwork.Instance.playerData[i].nomJugador + " es el gandor");
+                Debug.Log("El jugador ganador es: " + PlayerNetwork.Instance.playerData[i]);
+                SceneManager.LoadScene("EscenaFinal");
+                PlayerNetwork.Instance.CargarEscenaFinalClientRpc();
             }
         }
     }
@@ -1526,91 +1548,7 @@ public class PlayerNetwork : NetworkBehaviour
         return null; // devuelve null si no se encontró un jugador con ese color
     }
 
-    /*public void SetPuntajebyId(int id, int pieza)
-    {
-        Debug.Log("Entre a SetPuntajebyId con id " + id );
-        int indexJugador = -1;
-        bool jugadorEncontrado = false;
-
-        // Búsqueda del jugador en la lista playerData
-        for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
-        {
-            //Debug.Log("La lista Ids es " + playerData[i].jugadorId);
-            if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
-            {
-                jugadorEncontrado = true;
-                indexJugador = i;
-                break;
-            }
-        }
-        if (!jugadorEncontrado)
-        {
-            Debug.Log("Jugador no encontrado en la lista playerData");
-            return;
-        }
-        // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
-        PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
-        // Aquí es donde actualizarías los recursos del jugador en tu juego.
-        if (pieza == 1)
-        {
-            jugadorcopia.puntaje = jugadorcopia.puntaje + 1;
-        }
-        else if (pieza == 2)
-        {
-            jugadorcopia.puntaje = jugadorcopia.puntaje + 2;
-        }
-        if(jugadorcopia.puntaje>=10)
-        {
-            jugadorcopia.gano = true;
-        }
-
-        PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
-        Debug.Log("Imprimo jugador luego de sumar puntos");
-        ImprimirJugadorPorId(id);
-
-    }
-    [ServerRpc(RequireOwnership = false)]
-    public void SetPuntajebyIdServerRpc(int id,int pieza)
-    {
-        Debug.Log("SetPuntajebyIdServerRpc");
-        int indexJugador = -1;
-        bool jugadorEncontrado = false;
-
-        // Búsqueda del jugador en la lista playerData
-        for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
-        {
-            //Debug.Log("La lista Ids es " + playerData[i].jugadorId);
-            if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
-            {
-                jugadorEncontrado = true;
-                indexJugador = i;
-                break;
-            }
-        }
-        if (!jugadorEncontrado)
-        {
-            Debug.Log("Jugador no encontrado en la lista playerData");
-            return;
-        }
-        // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
-        PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
-        // Aquí es donde actualizarías los recursos del jugador en tu juego.
-        if (pieza == 1)
-        {
-            jugadorcopia.puntaje = jugadorcopia.puntaje + 1;
-        }
-        else if (pieza == 2)
-        {
-            jugadorcopia.puntaje = jugadorcopia.puntaje + 2;
-        }
-        if (jugadorcopia.puntaje >= 10)
-        {
-            jugadorcopia.gano = true;
-        }
-        PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
-        Debug.Log("Imprimo jugador luego de sumar puntos");
-        ImprimirJugadorPorId(id);
-    }*/
+   
 
     [ServerRpc(RequireOwnership = false)]
     public void UpdateComprarCaminoButtonServerRpc(int id)
@@ -1667,5 +1605,41 @@ public class PlayerNetwork : NetworkBehaviour
         componente.interactable = (jugador.piedraCount >= 2 && jugador.trigoCount >= 3);
     }
 
+    [ServerRpc(RequireOwnership = false)]
+    public void AbandonarServerRpc()
+    {
+        int puntajeMaximo = 0;
+        DatosJugador jugaMaximo = new DatosJugador();
+        for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+        {
+
+            DatosJugador jugaActual = PlayerNetwork.Instance.playerData[i];
+
+            // Compara el puntaje actual con el puntaje máximo
+            if (jugaActual.puntaje > puntajeMaximo)
+            {
+                puntajeMaximo = jugaActual.puntaje; // Actualiza el puntaje máximo si es mayor
+                jugaMaximo = jugaActual;
+            }
+        }
+        jugaMaximo.gano = true;
+        for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+        {
+            //Debug.Log("La lista Ids es " + playerData[i].jugadorId);
+            if (PlayerNetwork.Instance.playerData[i].jugadorId == jugaMaximo.jugadorId)
+            {
+                PlayerNetwork.Instance.playerData[i] = jugaMaximo;
+            }
+        }
+        Debug.Log("El jugador " + jugaMaximo.nomJugador + " es el gandor");
+        SceneManager.LoadScene("EscenaFinal");
+        PlayerNetwork.Instance.CargarEscenaFinalClientRpc();
+    }
+
+    [ClientRpc]
+    public void CargarEscenaFinalClientRpc()
+    {
+        SceneManager.LoadScene("EscenaFinal");
+    } 
 }
 
