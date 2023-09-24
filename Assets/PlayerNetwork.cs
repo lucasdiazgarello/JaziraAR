@@ -782,6 +782,8 @@ public class PlayerNetwork : NetworkBehaviour
     public void EndTurn()
     {
         Debug.Log("Entre al End Turn");
+
+
         if (NetworkManager.Singleton.IsServer)  // Asegúrate de que solo el servidor modifique el turno actual.
         {
             Debug.Log("Entre al is server de End Turn");

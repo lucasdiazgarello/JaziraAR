@@ -29,7 +29,7 @@ public class ARCursor : NetworkBehaviour
     public Button tirarDadoButton;
     public Button terminarTurnoButton;
     public bool dicesThrown = false;
-    //private bool botonPulsado = false;
+    private bool botonPulsado = false;
 
     public ColocarPieza colocarPieza;
     private GameObject[] colliderPrefabs;
@@ -150,26 +150,35 @@ public class ARCursor : NetworkBehaviour
                         confirmButton.gameObject.SetActive(true); // Activar el botón de confirmación después de colocar el tablero
                     }
                 }
-            }          
+            }
             //Debug.Log("llego y el id es " + PlayerPrefs.GetInt("jugadorId"));
-            if (PlayerNetwork.Instance.IsMyTurn(PlayerPrefs.GetInt("jugadorId")))
+
+            if (PlayerNetwork.Instance.IsMyTurn(PlayerPrefs.GetInt("jugadorId")) && !botonPulsado)
             {
+                tirarDadoButton.interactable = true;
+            }
+
+
+                if (PlayerNetwork.Instance.IsMyTurn(PlayerPrefs.GetInt("jugadorId")))
+            {
+
                 //Debug.Log("Es mi TURNO");
                 //if (!botonPulsado)
-                //{
-                    tirarDadoButton.interactable = true;
-                    //botonPulsado= true;
-                //}
+               // {
+
+              //  }
                 terminarTurnoButton.interactable = true;
             }
             else
             {
-                tirarDadoButton.interactable = false;
-                terminarTurnoButton.interactable = false;
+                terminarTurnoButton.interactable = true;
+
+
                 //botonPulsado = false;
             }
             PlayerNetwork.Instance.SetGano();
         }
+
         catch (Exception ex)
         {
             Debug.LogError("Error en Update: " + ex.Message);
@@ -233,8 +242,16 @@ public class ARCursor : NetworkBehaviour
     }
     private void OnDiceRollButtonPressed() //Boton Tirar Dados
     {
-        Debug.Log("Diste click en el boton");
+
         tirarDadoButton.interactable = false;
+        botonPulsado = true;
+        /*
+        var objetoBoton = GameObject.Find("TirarDados").GetComponent<Button>().enabled;
+        Debug.Log("El boton tiene interactable en : " + objetoBoton.GetComponent<Button>().enabled);
+        objetoBoton.GetComponent<Button>().enabled = false;
+        Debug.Log("El boton tiene interactable en : "+objetoBoton.GetComponent<Button>().enabled);
+        */
+
         if (NetworkManager.Singleton.IsServer)
         {
             // NO BORRAR ESTO COMENTADO POR SI SURGE DENUEVO EL TEMA DE LOS DADOS
@@ -352,6 +369,7 @@ public class ARCursor : NetworkBehaviour
     public void BotonEndTurn()
     {
         Debug.Log("Toque boton terminar turno ");
+        botonPulsado = false;
         //PlayerNetwork.Instance.EndTurn();
         //NO BORRAR, dejar comentado hasta que los turnos funcionen bien 
         int id = PlayerPrefs.GetInt("jugadorId");
