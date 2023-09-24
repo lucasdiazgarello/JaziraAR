@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EscenaFinal.unity
     guid: 955ccbbd2c3279e42bcd88e79039494a
+  - enabled: 1
+    path: Assets/Scenes/AbandonarScene.unity
+    guid: 4d4dded1c6a940243bb27a855cbe57a9
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 744b813df90924c169af73489b8325de,
       type: 2}

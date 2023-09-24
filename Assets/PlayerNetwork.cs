@@ -1608,6 +1608,7 @@ public class PlayerNetwork : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     public void AbandonarServerRpc()
     {
+        /*
         int puntajeMaximo = 0;
         DatosJugador jugaMaximo = new DatosJugador();
         for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
@@ -1634,12 +1635,20 @@ public class PlayerNetwork : NetworkBehaviour
         Debug.Log("El jugador " + jugaMaximo.nomJugador + " es el gandor");
         SceneManager.LoadScene("EscenaFinal");
         PlayerNetwork.Instance.CargarEscenaFinalClientRpc();
+        */
+        SceneManager.LoadScene("AbandonarScene");
+        PlayerNetwork.Instance.CargarAbandonarSceneClientRpc();
     }
 
     [ClientRpc]
     public void CargarEscenaFinalClientRpc()
     {
         SceneManager.LoadScene("EscenaFinal");
-    } 
+    }
+    [ClientRpc]
+    public void CargarAbandonarSceneClientRpc()
+    {
+        SceneManager.LoadScene("AbandonarScene");
+    }
 }
 

@@ -22,7 +22,7 @@ public class AbandonarPartida : MonoBehaviour
     {
         if(NetworkManager.Singleton.IsServer)
         {
-            int puntajeMaximo = 0;
+            /*int puntajeMaximo = 0;
             DatosJugador jugaMaximo = new DatosJugador();
             for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
             {
@@ -47,7 +47,9 @@ public class AbandonarPartida : MonoBehaviour
             }
             Debug.Log("El jugador " + jugaMaximo.nomJugador + " es el gandor");
             SceneManager.LoadScene("EscenaFinal");
-            PlayerNetwork.Instance.CargarEscenaFinalClientRpc();
+            PlayerNetwork.Instance.CargarEscenaFinalClientRpc();*/
+            SceneManager.LoadScene("AbandonarScene");
+            PlayerNetwork.Instance.CargarAbandonarSceneClientRpc();
         }
         else
         {
