@@ -68,6 +68,10 @@ public class ARCursor : NetworkBehaviour
             if(placeButton==null) Debug.LogError("placeButton is null");
             confirmButton.gameObject.SetActive(false);
             if (confirmButton == null) Debug.LogError("confirmButton is null");
+            int idStart = PlayerPrefs.GetInt("jugadorId");
+            PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(idStart);
+            //PlayerNetwork.Instance.UpdateResourcesTextClientRpc(jugador);
+            PlayerNetwork.Instance.UpdateResourcesTextServerRpc(idStart);
         }
         //activo colocar pieza por si es esto qeu el cliente no puede colocar
         foreach (ColocarPieza colocarPieza in GetComponentsInChildren<ColocarPieza>())
@@ -76,6 +80,8 @@ public class ARCursor : NetworkBehaviour
             colocarPieza.enabled = true;
             Debug.Log("Termino el foreach");
         }
+        terminarTurnoButton.interactable = false;
+        tirarDadoButton.interactable = false;
     }
     IEnumerator WaitForRelay()
     {
@@ -157,24 +163,18 @@ public class ARCursor : NetworkBehaviour
             {
                 tirarDadoButton.interactable = true;
             }
-
-
-                if (PlayerNetwork.Instance.IsMyTurn(PlayerPrefs.GetInt("jugadorId")))
+            else
+            {
+                tirarDadoButton.interactable = false;
+            }
+            if (PlayerNetwork.Instance.IsMyTurn(PlayerPrefs.GetInt("jugadorId")))
             {
 
-                //Debug.Log("Es mi TURNO");
-                //if (!botonPulsado)
-               // {
-
-              //  }
                 terminarTurnoButton.interactable = true;
             }
             else
             {
-                terminarTurnoButton.interactable = true;
-
-
-                //botonPulsado = false;
+                terminarTurnoButton.interactable = false;
             }
             PlayerNetwork.Instance.SetGano();
         }
@@ -242,16 +242,8 @@ public class ARCursor : NetworkBehaviour
     }
     private void OnDiceRollButtonPressed() //Boton Tirar Dados
     {
-
-        tirarDadoButton.interactable = false;
         botonPulsado = true;
-        /*
-        var objetoBoton = GameObject.Find("TirarDados").GetComponent<Button>().enabled;
-        Debug.Log("El boton tiene interactable en : " + objetoBoton.GetComponent<Button>().enabled);
-        objetoBoton.GetComponent<Button>().enabled = false;
-        Debug.Log("El boton tiene interactable en : "+objetoBoton.GetComponent<Button>().enabled);
-        */
-
+        tirarDadoButton.interactable = false;
         if (NetworkManager.Singleton.IsServer)
         {
             // NO BORRAR ESTO COMENTADO POR SI SURGE DENUEVO EL TEMA DE LOS DADOS
@@ -305,10 +297,14 @@ public class ARCursor : NetworkBehaviour
             }
             // Ajustar dicesThrown a true luego de lanzar los dados
             dicesThrown = true;
-            DiceNumberTextScript.Instance.DarResultadoRandom();
+            
             int hostPlayerID = PlayerPrefs.GetInt("jugadorId"); // Este en este caso por ser server esta bien tomar este id asi
             Debug.Log("el id que toco TirarDados es" + hostPlayerID);
-            BoardManager.Instance.ManejoParcelas(DiceNumberTextScript.Instance.randomDiceNumber);
+            var resu = DiceNumberTextScript.Instance.DarResultadoRandom();
+            Debug.Log("EL RESULTADO DEL DADO" + resu);
+            DiceNumberTextScript.Instance.ResultadoDadoEnPantalla(resu);
+            PlayerNetwork.Instance.ResultadoDadoClientRpc(resu);
+            BoardManager.Instance.ManejoParcelas(resu);
             
             //tirarDadoButton.interactable = false;
         }

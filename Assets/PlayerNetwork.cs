@@ -8,13 +8,14 @@ using Unity.Collections;
 using Unity.Netcode;
 using Unity.Services.Lobbies.Models;
 using UnityEditor;
+using System.Linq;
 //using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 //using UnityEngine.InputSystem.OSX;
 using UnityEngine.UI;
 using static PlayerNetwork;
-
+using Unity.VisualScripting;
 
 public class PlayerNetwork : NetworkBehaviour
 {
@@ -33,7 +34,8 @@ public class PlayerNetwork : NetworkBehaviour
     public int currentTurnIndex = 0;
     public NetworkList<PlayerNetwork.DatosJugador> playerData;
     private Dictionary<int, Dictionary<string, int>> recursosPorJugador = new Dictionary<int, Dictionary<string, int>>();
-
+    private bool todosListos = false;
+    private bool diPiezas = false;
     // Singleton instance
     public static PlayerNetwork Instance { get; private set; }
     public object NetworkVariablePermission { get; private set; }
@@ -192,7 +194,7 @@ public class PlayerNetwork : NetworkBehaviour
             FixedString64Bytes nombreHost = new FixedString64Bytes(PlayerPrefs.GetString("nomJugador"));
             FixedString64Bytes colorHost = new FixedString64Bytes(PlayerPrefs.GetString("colorJugador"));
             Debug.Log("el jugador con id:" + playerId + "se llama " + nombreHost + " y es el color " + colorHost);
-            AgregarJugador(playerId, nombreHost, 0, false, true, false, 50, 50, 50, 50, 50, colorHost, 2, 2, 0);
+            AgregarJugador(playerId, nombreHost, 0, false, true, false, 0, 0, 0, 0, 0, colorHost, 2, 2, 0);
             Debug.Log("se agrego jugador host");
             ImprimirJugadorPorId(playerId);
             //ImprimirTodosLosJugadores();
@@ -208,7 +210,7 @@ public class PlayerNetwork : NetworkBehaviour
             FixedString64Bytes colorCliente = new FixedString64Bytes(PlayerPrefs.GetString("colorJugador"));
             Debug.Log("el cliente con id:" + playerId + "se llama " + nombreCliente + " y es el color " + colorCliente);
             //AgregarJugador(playerId, nombreCliente, 100, false, true, 2, 10, 10, 10, 10, 10, colorCliente); //EL CLIENTE NO DEBE AGREGARJUGADOR, DEBE MANDAR SU DATA AL HOST
-            AddPlayerServerRpc(playerId, nombreCliente, 0, false, false,false, 50, 50, 50, 50, 50, colorCliente, 2, 2, 0);
+            AddPlayerServerRpc(playerId, nombreCliente, 0, false, false,false, 0, 0, 0, 0, 0, colorCliente, 2, 2, 0);
             Debug.Log("se agrego jugador cliente");
             ImprimirJugadorPorId(playerId);
             //ImprimirTodosLosJugadores();
@@ -778,7 +780,70 @@ public class PlayerNetwork : NetworkBehaviour
         // Podemos usar un Debug.Log para ver los resultados.
         //Debug.Log("Jugador " + playerData[indexJugador].jugadorId + " ahora tiene " + playerData[indexJugador].piedraCount + "piedras ");    
     }
-    
+    private void PrimerasPiezasEnTrue()
+    {
+        var listoo = true;
+        for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+        {
+            Debug.Log("Primeras Piezas de " + i +" es " + PlayerNetwork.Instance.playerData[i].primerasPiezas);
+            if (PlayerNetwork.Instance.playerData[i].primerasPiezas == false)
+            {
+                listoo = false;
+            }
+        }
+        if (listoo)
+        {
+            PlayerNetwork.Instance.todosListos = true;
+        }        
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void PrimerasPiezasEnTrueServerRpc()
+    {
+        var listoo = true;
+        for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+        {
+            Debug.Log("Primeras Piezas de " + i + " es " + PlayerNetwork.Instance.playerData[i].primerasPiezas);
+            if (PlayerNetwork.Instance.playerData[i].primerasPiezas == false)
+            {
+                listoo = false;
+            }
+        }
+        if (listoo)
+        {
+            PlayerNetwork.Instance.todosListos = true;
+        }
+    }
+   
+    public void DarPrimerosRecursos()
+    {
+        BoardManager.Instance.ManejoParcelas(2);
+        BoardManager.Instance.ManejoParcelas(3);
+        BoardManager.Instance.ManejoParcelas(4);
+        BoardManager.Instance.ManejoParcelas(5);
+        BoardManager.Instance.ManejoParcelas(6);
+        BoardManager.Instance.ManejoParcelas(8);
+        BoardManager.Instance.ManejoParcelas(9);
+        BoardManager.Instance.ManejoParcelas(10);
+        BoardManager.Instance.ManejoParcelas(11);
+        BoardManager.Instance.ManejoParcelas(12);
+        PlayerNetwork.Instance.diPiezas = true;
+    }
+    [ServerRpc(RequireOwnership = false)]
+    public void DarPrimerosRecursosServerRpc()
+    {
+        BoardManager.Instance.ManejoParcelas(2);
+        BoardManager.Instance.ManejoParcelas(3);
+        BoardManager.Instance.ManejoParcelas(4);
+        BoardManager.Instance.ManejoParcelas(5);
+        BoardManager.Instance.ManejoParcelas(6);
+        BoardManager.Instance.ManejoParcelas(8);
+        BoardManager.Instance.ManejoParcelas(9);
+        BoardManager.Instance.ManejoParcelas(10);
+        BoardManager.Instance.ManejoParcelas(11);
+        BoardManager.Instance.ManejoParcelas(12);
+        PlayerNetwork.Instance.diPiezas = true;
+    }
     public void EndTurn()
     {
         Debug.Log("Entre al End Turn");
@@ -796,6 +861,13 @@ public class PlayerNetwork : NetworkBehaviour
             // Notifica a todos los jugadores sobre el cambio de turno.
             NotifyTurnChangeClientRpc(currentTurnIndex);
             CheckifWon();
+            PrimerasPiezasEnTrue();
+            if (todosListos==true && diPiezas == false)
+            {
+                DarPrimerosRecursos();
+            }
+            Debug.Log("todoslistos es " + todosListos);
+            Debug.Log("diPiezas es " + diPiezas);
         }
         else
         {
@@ -808,6 +880,13 @@ public class PlayerNetwork : NetworkBehaviour
             // Notifica a todos los jugadores sobre el cambio de turno.
             NotifyTurnChangeServerRpc(currentTurnIndex);
             CheckifWonServerRpc();
+            PrimerasPiezasEnTrueServerRpc();
+            if (PlayerNetwork.Instance.todosListos == true && PlayerNetwork.Instance.diPiezas == false)
+            {
+                DarPrimerosRecursosServerRpc();
+            }
+            Debug.Log("todoslistos es " + todosListos);
+            Debug.Log("diPiezas es " + diPiezas);
         }
     }
     [ServerRpc(RequireOwnership = false)]
@@ -1534,8 +1613,15 @@ public class PlayerNetwork : NetworkBehaviour
         }
         // Ajustar dicesThrown a true luego de lanzar los dados
         ARCursor.Instance.dicesThrown = true;
-        DiceNumberTextScript.Instance.DarResultadoRandom();
-        BoardManager.Instance.ManejoParcelas(DiceNumberTextScript.Instance.randomDiceNumber);
+        var resu = DiceNumberTextScript.Instance.DarResultadoRandom();
+        ResultadoDadoClientRpc(resu);
+        DiceNumberTextScript.Instance.ResultadoDadoEnPantalla(resu);
+        BoardManager.Instance.ManejoParcelas(resu);
+    }
+    [ClientRpc]
+    public void ResultadoDadoClientRpc(int resu)
+    {
+        DiceNumberTextScript.Instance.resultadoDado.text = resu.ToString();
     }
 
     public DatosJugador? GetPlayerByColor(FixedString64Bytes color)

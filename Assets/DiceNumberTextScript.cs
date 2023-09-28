@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro; // Asegúrate de tener esta línea para utilizar TextMeshPro
+using UnityEngine.UI;
 
 public class DiceNumberTextScript : MonoBehaviour
 {
     public static DiceNumberTextScript Instance { get; private set; }
-    TextMeshProUGUI text;
+    //TextMeshProUGUI text;
+    public Text resultadoDado;
     //public static int diceNumber;
     // Agregar referencias a ambos scripts de los dados
     public DiceScript diceScript1;
@@ -31,7 +33,7 @@ public class DiceNumberTextScript : MonoBehaviour
     void Start()
     {
         //playernetwork = GameObject.FindObjectOfType<PlayerNetwork>();
-        text = GetComponent<TextMeshProUGUI>();
+        //text = GetComponent<TextMeshProUGUI>();
         // Asigna los objetos de los dados
         dice1 = diceScript1.gameObject;
         dice2 = diceScript2.gameObject;
@@ -58,7 +60,7 @@ public class DiceNumberTextScript : MonoBehaviour
             {
                 totalDiceNumber = diceNumber1 + diceNumber2;
                 TotalDiceNumber = totalDiceNumber;
-                text.text = totalDiceNumber.ToString();
+                resultadoDado.text = totalDiceNumber.ToString();
 
                 // Resetea HasJustStopped en ambos scripts de dados
                 diceScript1.Dice1HasJustStopped = false;
@@ -95,12 +97,17 @@ public class DiceNumberTextScript : MonoBehaviour
             }
 
     }*/
-    public void DarResultadoRandom()
+    public int DarResultadoRandom()
     {
         Debug.Log("Entre a dar resultado random");
         randomDiceNumber = Random.Range(2, 13); // Genera un número aleatorio del 1 al 12
-        text.text = randomDiceNumber.ToString();
         Debug.Log("Resultado random es " + randomDiceNumber.ToString());
+        return randomDiceNumber;
+    }
+    public void ResultadoDadoEnPantalla(int resu)
+    {
+        Instance.resultadoDado.text = resu.ToString();
+        Debug.Log("El resu EN PANTALLA es" + resu);
     }
 }
 
