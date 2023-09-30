@@ -50,7 +50,7 @@ public class DiceNumberTextScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    void Update()
+    /*void Update()
     {
         bool isAnyDiceRolling = diceScript1.IsDiceRolling || diceScript2.IsDiceRolling;
 
@@ -67,7 +67,7 @@ public class DiceNumberTextScript : MonoBehaviour
                 diceScript2.Dice2HasJustStopped = false;
             }
         }
-    }
+    }*/
     // Update is called once per frame
     /*void Update()
     {
@@ -107,7 +107,6 @@ public class DiceNumberTextScript : MonoBehaviour
     public void ResultadoDadoEnPantalla(int resu)
     {
         Instance.resultadoDado.text = resu.ToString();
-        Debug.Log("El resu EN PANTALLA es" + resu);
     }
 }
 
