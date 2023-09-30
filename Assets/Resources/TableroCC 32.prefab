@@ -119,6 +119,7 @@ Transform:
   - {fileID: 6872752722706041707}
   - {fileID: 8070102400313948555}
   - {fileID: 5420069535999671909}
+  - {fileID: 2543938249130860484}
   - {fileID: 171938124326497976}
   - {fileID: 4832104871660541611}
   - {fileID: 4169661909338163733}
@@ -276,7 +277,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 126
+  m_RootOrder: 127
   m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
 --- !u!114 &6606500313832122969
 MonoBehaviour:
@@ -290,20 +291,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &2207409295280719617
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -383,21 +376,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &619012359748324711
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -463,7 +447,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 99
+  m_RootOrder: 100
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3142655398083824195
 MonoBehaviour:
@@ -477,20 +461,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &5079744354323411821
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -556,7 +532,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 112
+  m_RootOrder: 113
   m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
 --- !u!114 &2913285801116324038
 MonoBehaviour:
@@ -570,20 +546,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &784929491899989740
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -649,7 +617,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 90
+  m_RootOrder: 91
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &220692982913018035
 MonoBehaviour:
@@ -663,20 +631,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &6832292429257266751
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -742,7 +702,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 151
+  m_RootOrder: 152
   m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
 --- !u!114 &6429686986326438543
 MonoBehaviour:
@@ -756,20 +716,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &2625643487666866884
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -835,7 +787,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 147
+  m_RootOrder: 148
   m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
 --- !u!114 &511577130001469234
 MonoBehaviour:
@@ -849,20 +801,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &9077040217619294705
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -928,7 +872,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 121
+  m_RootOrder: 122
   m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
 --- !u!114 &6655778757405223225
 MonoBehaviour:
@@ -942,20 +886,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &2752235840986364176
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1021,7 +957,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 114
+  m_RootOrder: 115
   m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
 --- !u!114 &6012058825596366884
 MonoBehaviour:
@@ -1035,20 +971,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &756763554296175188
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1128,21 +1056,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &3457264620197203895
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1222,21 +1141,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &5119268433786796895
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1302,7 +1212,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 97
+  m_RootOrder: 98
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5716895954609117274
 MonoBehaviour:
@@ -1316,20 +1226,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &6201104262310994717
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1409,21 +1311,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &8125685997620998731
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1503,21 +1396,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &1895858684948604971
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1597,21 +1481,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &8791543075773715466
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1677,7 +1552,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 148
+  m_RootOrder: 149
   m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
 --- !u!114 &3984514703270808398
 MonoBehaviour:
@@ -1691,20 +1566,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &3346279791760541600
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1770,7 +1637,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 138
+  m_RootOrder: 139
   m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
 --- !u!114 &1726079027876097508
 MonoBehaviour:
@@ -1784,20 +1651,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &6681009038678765667
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1877,21 +1736,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &1415415786926797622
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1957,7 +1807,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 131
+  m_RootOrder: 132
   m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
 --- !u!114 &26263085373686564
 MonoBehaviour:
@@ -1971,20 +1821,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &5105147995472094175
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2064,21 +1906,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &3137871935086287102
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2158,21 +1991,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &7494519795714473595
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2238,7 +2062,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 93
+  m_RootOrder: 94
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4789162464277919241
 MonoBehaviour:
@@ -2252,20 +2076,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &6419129753844898991
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2345,21 +2161,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &3048140810143914433
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2439,21 +2246,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &1463774086744431819
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2533,21 +2331,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &346873085923361503
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2613,7 +2402,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 116
+  m_RootOrder: 117
   m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
 --- !u!114 &4207243164711619361
 MonoBehaviour:
@@ -2627,20 +2416,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &8046616349570729298
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2706,7 +2487,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 105
+  m_RootOrder: 106
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3769450279872685214
 MonoBehaviour:
@@ -2720,20 +2501,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &5402448740913972710
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2813,21 +2586,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &2340657992562726363
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2893,7 +2657,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 107
+  m_RootOrder: 108
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1600032327977273661
 MonoBehaviour:
@@ -2907,20 +2671,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &4288838441776177891
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2986,7 +2742,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 89
+  m_RootOrder: 90
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2794521198250018219
 MonoBehaviour:
@@ -3000,20 +2756,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &3367238623071131333
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3034,6 +2782,91 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2357786124375114213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &2411240492047433694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2543938249130860484}
+  - component: {fileID: 7461988367585097026}
+  - component: {fileID: 6634578660461027610}
+  - component: {fileID: 8558557568496044796}
+  m_Layer: 3
+  m_Name: Empty casa52
+  m_TagString: Esquina
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2543938249130860484
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2411240492047433694}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.43, y: 1.4220382, z: 15.870008}
+  m_LocalScale: {x: 1.0795, y: 1.0795, z: 1.0795}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 156339980549845608}
+  m_RootOrder: 89
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7461988367585097026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2411240492047433694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  buttonCamino: {fileID: 0}
+  buttonBase: {fileID: 0}
+  buttonPueblo: {fileID: 0}
+--- !u!65 &6634578660461027610
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2411240492047433694}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1813049, y: 0.38030362, z: 1.15094}
+  m_Center: {x: -0.09065242, y: -0.12110207, z: -0.07546993}
+--- !u!114 &8558557568496044796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2411240492047433694}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
@@ -3079,7 +2912,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 100
+  m_RootOrder: 101
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1844378665425507153
 MonoBehaviour:
@@ -3093,20 +2926,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &2067575869442435003
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3172,7 +2997,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 98
+  m_RootOrder: 99
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4121129588435543940
 MonoBehaviour:
@@ -3186,20 +3011,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &4304125163967653391
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3265,7 +3082,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 106
+  m_RootOrder: 107
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7544428627862159071
 MonoBehaviour:
@@ -3279,20 +3096,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &4847159119445644937
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3358,7 +3167,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 141
+  m_RootOrder: 142
   m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
 --- !u!114 &7585618914981213781
 MonoBehaviour:
@@ -3372,20 +3181,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &4211669045236394838
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3465,21 +3266,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &5797562088324786989
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3559,21 +3351,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &72341815923641685
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3653,21 +3436,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &3856076134267856852
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3747,21 +3521,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &5662341106741337045
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3827,7 +3592,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 144
+  m_RootOrder: 145
   m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
 --- !u!114 &4828885921091958660
 MonoBehaviour:
@@ -3841,20 +3606,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &3450057714882799469
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3934,21 +3691,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &175488138928643971
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4028,21 +3776,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &4839675124605024691
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4122,21 +3861,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &1267939778204106844
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4202,7 +3932,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 135
+  m_RootOrder: 136
   m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
 --- !u!114 &5209546490849944578
 MonoBehaviour:
@@ -4216,20 +3946,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &7210114863569886789
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4295,7 +4017,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 117
+  m_RootOrder: 118
   m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
 --- !u!114 &4187076144558454736
 MonoBehaviour:
@@ -4309,20 +4031,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &2325662522802355843
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4388,7 +4102,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 156
+  m_RootOrder: 157
   m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
 --- !u!114 &8098669763354991812
 MonoBehaviour:
@@ -4402,20 +4116,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &5380929684329574479
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4481,7 +4187,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 146
+  m_RootOrder: 147
   m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
 --- !u!114 &3496320093363157889
 MonoBehaviour:
@@ -4495,20 +4201,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &2643203212674767166
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4574,7 +4272,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 118
+  m_RootOrder: 119
   m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
 --- !u!114 &1606657117328649887
 MonoBehaviour:
@@ -4588,20 +4286,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &4820070878806074396
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4667,7 +4357,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 136
+  m_RootOrder: 137
   m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
 --- !u!114 &3657679805748454071
 MonoBehaviour:
@@ -4681,20 +4371,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &6891963350614513723
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4774,21 +4456,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &3741684293600365482
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4868,21 +4541,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &4715642543993033327
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4962,21 +4626,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &1273834581821506919
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5042,7 +4697,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 125
+  m_RootOrder: 126
   m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
 --- !u!114 &4842764006821193404
 MonoBehaviour:
@@ -5056,20 +4711,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &3013810171997082087
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5135,7 +4782,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 140
+  m_RootOrder: 141
   m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
 --- !u!114 &4573538637421260415
 MonoBehaviour:
@@ -5149,20 +4796,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &8585295825851311971
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5242,21 +4881,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &3162972233299955403
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5336,21 +4966,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &4359741141189499687
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5416,7 +5037,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 104
+  m_RootOrder: 105
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6348292403264409826
 MonoBehaviour:
@@ -5430,20 +5051,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &4588543395881309346
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5509,7 +5122,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 139
+  m_RootOrder: 140
   m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
 --- !u!114 &3829411882714165695
 MonoBehaviour:
@@ -5523,20 +5136,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &4241561644950786882
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5602,7 +5207,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 130
+  m_RootOrder: 131
   m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
 --- !u!114 &7078078160867186934
 MonoBehaviour:
@@ -5616,20 +5221,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &6154615390898928830
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5695,7 +5292,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 129
+  m_RootOrder: 130
   m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
 --- !u!114 &2489053436368937602
 MonoBehaviour:
@@ -5709,20 +5306,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &6951997235169539168
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5802,21 +5391,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &3424886066824000418
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5882,7 +5462,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 120
+  m_RootOrder: 121
   m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
 --- !u!114 &694280669626465431
 MonoBehaviour:
@@ -5896,20 +5476,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &3386928880556364211
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5989,21 +5561,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &5268968723123499688
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6069,7 +5632,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 150
+  m_RootOrder: 151
   m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
 --- !u!114 &126233867177895940
 MonoBehaviour:
@@ -6083,20 +5646,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &6081136415260954109
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6176,21 +5731,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &4361974788626953050
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6256,7 +5802,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 122
+  m_RootOrder: 123
   m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
 --- !u!114 &146416432809132317
 MonoBehaviour:
@@ -6270,20 +5816,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &4056922507022408915
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6349,7 +5887,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 157
+  m_RootOrder: 158
   m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
 --- !u!114 &2965567551145738817
 MonoBehaviour:
@@ -6363,20 +5901,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &4452209411885973748
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6442,7 +5972,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 119
+  m_RootOrder: 120
   m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
 --- !u!114 &7372266253751708911
 MonoBehaviour:
@@ -6456,20 +5986,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &7084260448918469549
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6535,7 +6057,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 91
+  m_RootOrder: 92
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3814576941982078402
 MonoBehaviour:
@@ -6549,20 +6071,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &6478211213440896590
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6628,7 +6142,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 152
+  m_RootOrder: 153
   m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
 --- !u!114 &6708212233814066818
 MonoBehaviour:
@@ -6642,20 +6156,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &6690442234232989972
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6735,21 +6241,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &3711093149007132710
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6815,7 +6312,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 103
+  m_RootOrder: 104
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2441293437926546277
 MonoBehaviour:
@@ -6829,20 +6326,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &7864482092822405594
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6908,7 +6397,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 96
+  m_RootOrder: 97
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5591721426775285337
 MonoBehaviour:
@@ -6922,20 +6411,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &506794381334727239
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7015,21 +6496,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &2464950088929014480
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7109,21 +6581,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &8149635369255720623
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7189,7 +6652,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 155
+  m_RootOrder: 156
   m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
 --- !u!114 &1110896915283013898
 MonoBehaviour:
@@ -7203,20 +6666,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &6522456610683230762
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7282,7 +6737,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 94
+  m_RootOrder: 95
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4185233904937566883
 MonoBehaviour:
@@ -7296,20 +6751,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &3803420773953326154
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7375,7 +6822,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 153
+  m_RootOrder: 154
   m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
 --- !u!114 &465661967748344173
 MonoBehaviour:
@@ -7389,20 +6836,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &7600265249444103913
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7468,7 +6907,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 101
+  m_RootOrder: 102
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4805511328354078089
 MonoBehaviour:
@@ -7482,20 +6921,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &490906582711264075
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7575,21 +7006,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &3080297272094055727
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7669,21 +7091,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &5884386605294546490
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7763,21 +7176,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &685088473573569389
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7843,7 +7247,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 102
+  m_RootOrder: 103
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7013519162102443291
 MonoBehaviour:
@@ -7857,20 +7261,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &3657114675439564992
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7936,7 +7332,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 110
+  m_RootOrder: 111
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5774922162433342846
 MonoBehaviour:
@@ -7950,20 +7346,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &6943208053987019943
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8043,21 +7431,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &7885119681183849309
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8123,7 +7502,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 142
+  m_RootOrder: 143
   m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
 --- !u!114 &6426034084670966833
 MonoBehaviour:
@@ -8137,20 +7516,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &5222962479717432104
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8216,7 +7587,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 134
+  m_RootOrder: 135
   m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
 --- !u!114 &7229618917901005714
 MonoBehaviour:
@@ -8230,20 +7601,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &200456835591123166
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8309,7 +7672,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 149
+  m_RootOrder: 150
   m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
 --- !u!114 &9215313865426385335
 MonoBehaviour:
@@ -8323,20 +7686,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &2304104712056520627
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8402,7 +7757,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 123
+  m_RootOrder: 124
   m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
 --- !u!114 &2144466940246076065
 MonoBehaviour:
@@ -8416,20 +7771,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &1280823071508803124
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8495,7 +7842,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 115
+  m_RootOrder: 116
   m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
 --- !u!114 &7345558600135156577
 MonoBehaviour:
@@ -8509,20 +7856,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &5668691403087128688
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8602,21 +7941,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &5601928557539972638
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8682,7 +8012,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 127
+  m_RootOrder: 128
   m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
 --- !u!114 &6061293249625297095
 MonoBehaviour:
@@ -8696,20 +8026,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &7129467617600412819
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8789,21 +8111,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &4140351109155701716
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8869,7 +8182,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 108
+  m_RootOrder: 109
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5211771597838703325
 MonoBehaviour:
@@ -8883,20 +8196,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &4799022490556182663
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8962,7 +8267,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 143
+  m_RootOrder: 144
   m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
 --- !u!114 &4335650991024477249
 MonoBehaviour:
@@ -8976,20 +8281,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &7586651931975542539
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9055,7 +8352,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 160
+  m_RootOrder: 161
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7033124689368196692
 MeshFilter:
@@ -9153,7 +8450,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 92
+  m_RootOrder: 93
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1321281951505675772
 MonoBehaviour:
@@ -9167,20 +8464,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &3778448212734932578
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9260,21 +8549,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &2176982375043304360
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9340,7 +8620,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 154
+  m_RootOrder: 155
   m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
 --- !u!114 &7967492116777675665
 MonoBehaviour:
@@ -9354,20 +8634,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &478158823558886167
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9433,7 +8705,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 145
+  m_RootOrder: 146
   m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
 --- !u!114 &1431206910676224277
 MonoBehaviour:
@@ -9447,20 +8719,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &3393489589129627871
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9526,7 +8790,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 133
+  m_RootOrder: 134
   m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
 --- !u!114 &216715928659889608
 MonoBehaviour:
@@ -9540,20 +8804,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &312187717097273240
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9619,7 +8875,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 132
+  m_RootOrder: 133
   m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
 --- !u!114 &8424094501905392830
 MonoBehaviour:
@@ -9633,20 +8889,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &5289026819733143285
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9726,21 +8974,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &5194619728087133770
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9806,7 +9045,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 113
+  m_RootOrder: 114
   m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
 --- !u!114 &4655932172939346038
 MonoBehaviour:
@@ -9820,20 +9059,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &3224109942569835749
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9913,21 +9144,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &3750364830056463344
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9993,7 +9215,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 137
+  m_RootOrder: 138
   m_LocalEulerAnglesHint: {x: 0, y: 119.332, z: 0}
 --- !u!114 &5702241631421645373
 MonoBehaviour:
@@ -10007,20 +9229,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &52627860737083866
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10086,7 +9300,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 95
+  m_RootOrder: 96
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7955805929413985825
 MonoBehaviour:
@@ -10100,20 +9314,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &7595809884594596593
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10179,7 +9385,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 124
+  m_RootOrder: 125
   m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
 --- !u!114 &1124308969679166320
 MonoBehaviour:
@@ -10193,20 +9399,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &1892642450913989971
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10286,21 +9484,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &7731438145210789871
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10380,21 +9569,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &7117604604319866649
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10459,7 +9639,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 159
+  m_RootOrder: 160
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &6464951153182566094
 BoxCollider:
@@ -10515,7 +9695,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 158
+  m_RootOrder: 159
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8804131544988669552
 GameObject:
@@ -10563,21 +9743,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &3065566253267125311
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10657,21 +9828,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &6524251988411882769
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10751,21 +9913,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &1153039231767257731
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10831,7 +9984,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 111
+  m_RootOrder: 112
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6005565813937753616
 MonoBehaviour:
@@ -10845,20 +9998,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &3259923626505705615
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10938,21 +10083,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &9014133303706823415
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11032,21 +10168,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &1106931472190342088
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11126,21 +10253,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &1149328876335976665
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11206,7 +10324,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 128
+  m_RootOrder: 129
   m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
 --- !u!114 &324544496670122074
 MonoBehaviour:
@@ -11220,20 +10338,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &6050156007220015220
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11313,21 +10423,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &1741323194982818223
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11393,7 +10494,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 156339980549845608}
-  m_RootOrder: 109
+  m_RootOrder: 110
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8166250408677286174
 MonoBehaviour:
@@ -11407,20 +10508,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 0}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &4712751828136955349
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11500,21 +10593,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &6444491275123863541
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11594,21 +10678,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfc0bfb6d600f47981cc78d6a894f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabCamino: {fileID: 2954425994176644011, guid: 968a146ed443f5f44bd7580f7cfc058d,
-    type: 3}
-  prefabBase: {fileID: 6852733143524366665, guid: 75e3520d030fa4e41907d0b07b6f1a06,
-    type: 3}
-  prefabPueblo: {fileID: 0}
   myLayerMask:
     serializedVersion: 2
     m_Bits: 8
   buttonCamino: {fileID: 0}
   buttonBase: {fileID: 0}
   buttonPueblo: {fileID: 0}
-  comprarPieza: {fileID: 0}
-  tieneBase: 0
-  tienePueblo: 0
-  tipoActual: 0
 --- !u!65 &6044379001217254173
 BoxCollider:
   m_ObjectHideFlags: 0

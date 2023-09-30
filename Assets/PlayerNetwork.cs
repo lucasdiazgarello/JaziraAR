@@ -564,10 +564,10 @@ public class PlayerNetwork : NetworkBehaviour
             bool jugadorEncontrado = false;
             int indexJugador = -1;
             // Búsqueda del jugador en la lista playerData
-            for (int i = 0; i < playerData.Count; i++)
+            for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
             {
-                Debug.Log("La lista Ids es " + playerData[i].jugadorId);
-                if (playerData[i].jugadorId == idJugador)
+                Debug.Log("La lista Ids es " + PlayerNetwork.Instance.playerData[i].jugadorId);
+                if (PlayerNetwork.Instance.playerData[i].jugadorId == idJugador)
                 {
                     jugadorEncontrado = true;
                     indexJugador = i;
@@ -581,7 +581,7 @@ public class PlayerNetwork : NetworkBehaviour
                 return;
             }
             // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
-            DatosJugador jugador = playerData[indexJugador];
+            DatosJugador jugador = PlayerNetwork.Instance.playerData[indexJugador];
             //Debug.Log("piedra antes de sumar: " + playerData[indexJugador].piedraCount);
             // Aumentar el recurso correspondiente
             switch (recurso)
@@ -606,7 +606,7 @@ public class PlayerNetwork : NetworkBehaviour
                     return;
             }
             // Reemplazar el jugador en la lista con la versión modificada
-            playerData[indexJugador] = jugador;
+            PlayerNetwork.Instance.playerData[indexJugador] = jugador;
             // Actualiza los textos
 
 
@@ -813,10 +813,21 @@ public class PlayerNetwork : NetworkBehaviour
         {
             PlayerNetwork.Instance.todosListos = true;
         }
+        if (PlayerNetwork.Instance.todosListos == true && PlayerNetwork.Instance.diPiezas == false)
+        {
+            DarPrimerosRecursos();
+        }
+
+
+
     }
-   
+
     public void DarPrimerosRecursos()
     {
+        Debug.Log("comienza la corutina");
+        StartCoroutine(DarRecursosSecuencialmente());
+
+        /*
         BoardManager.Instance.ManejoParcelas(2);
         BoardManager.Instance.ManejoParcelas(3);
         BoardManager.Instance.ManejoParcelas(4);
@@ -828,6 +839,25 @@ public class PlayerNetwork : NetworkBehaviour
         BoardManager.Instance.ManejoParcelas(11);
         BoardManager.Instance.ManejoParcelas(12);
         PlayerNetwork.Instance.diPiezas = true;
+        */
+        Debug.Log("termina la corutina");
+    }
+
+    private IEnumerator DarRecursosSecuencialmente()
+    {
+        yield return StartCoroutine(BoardManager.Instance.ManejoParcelassecu(2));
+        yield return StartCoroutine(BoardManager.Instance.ManejoParcelassecu(3));
+        yield return StartCoroutine(BoardManager.Instance.ManejoParcelassecu(4));
+        yield return StartCoroutine(BoardManager.Instance.ManejoParcelassecu(5));
+        yield return StartCoroutine(BoardManager.Instance.ManejoParcelassecu(6));
+        yield return StartCoroutine(BoardManager.Instance.ManejoParcelassecu(8));
+        yield return StartCoroutine(BoardManager.Instance.ManejoParcelassecu(9));
+        yield return StartCoroutine(BoardManager.Instance.ManejoParcelassecu(10));
+        yield return StartCoroutine(BoardManager.Instance.ManejoParcelassecu(11));
+        yield return StartCoroutine(BoardManager.Instance.ManejoParcelassecu(12));
+
+        PlayerNetwork.Instance.diPiezas = true;
+        PlayerNetwork.Instance.ImprimirTodosLosJugadores();
     }
     [ServerRpc(RequireOwnership = false)]
     public void DarPrimerosRecursosServerRpc()
@@ -881,10 +911,10 @@ public class PlayerNetwork : NetworkBehaviour
             NotifyTurnChangeServerRpc(currentTurnIndex);
             CheckifWonServerRpc();
             PrimerasPiezasEnTrueServerRpc();
-            if (PlayerNetwork.Instance.todosListos == true && PlayerNetwork.Instance.diPiezas == false)
+           /* if (PlayerNetwork.Instance.todosListos == true && PlayerNetwork.Instance.diPiezas == false)
             {
                 DarPrimerosRecursosServerRpc();
-            }
+            }*/
             Debug.Log("todoslistos es " + todosListos);
             Debug.Log("diPiezas es " + diPiezas);
         }

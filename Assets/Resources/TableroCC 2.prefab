@@ -726,7 +726,7 @@ PrefabInstance:
     - target: {fileID: 1670185482592440088, guid: 54b7a9de3fe677c4394b9f628a0f7f32,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.8
+      value: 6.75
       objectReference: {fileID: 0}
     - target: {fileID: 1670185482592440088, guid: 54b7a9de3fe677c4394b9f628a0f7f32,
         type: 3}
@@ -1599,7 +1599,7 @@ MonoBehaviour:
   - numeroficha: 2
     nombreRecurso: Trigo
   collidersParcela:
-  - {fileID: 7474985277205529631, guid: ca6eb3f4c74933d429c3a6ea8e850930, type: 3}
+  - {fileID: 5132767448900859724, guid: 26f486e29e9114a45a19b759522d9ae1, type: 3}
   - {fileID: 5530290049334776, guid: a007d144dd6c29c41b684a82cca1d6fd, type: 3}
   - {fileID: 4069568550950791383, guid: 5b36c4163d682eb4783a5fc2f83d2d01, type: 3}
   - {fileID: 5818290651779045464, guid: cfffb36d9274ecc448c71bb4270790c6, type: 3}
