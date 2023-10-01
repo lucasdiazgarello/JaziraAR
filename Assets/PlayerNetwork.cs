@@ -194,7 +194,7 @@ public class PlayerNetwork : NetworkBehaviour
             FixedString64Bytes nombreHost = new FixedString64Bytes(PlayerPrefs.GetString("nomJugador"));
             FixedString64Bytes colorHost = new FixedString64Bytes(PlayerPrefs.GetString("colorJugador"));
             Debug.Log("el jugador con id:" + playerId + "se llama " + nombreHost + " y es el color " + colorHost);
-            AgregarJugador(playerId, nombreHost, 0, false, true, false, 0, 0, 0, 0, 0, colorHost, 2, 2, 0);
+            AgregarJugador(playerId, nombreHost, 0, false, true, false, 10, 10, 10, 10, 10, colorHost, 2, 2, 0);
             Debug.Log("se agrego jugador host");
             ImprimirJugadorPorId(playerId);
             //ImprimirTodosLosJugadores();
@@ -210,7 +210,7 @@ public class PlayerNetwork : NetworkBehaviour
             FixedString64Bytes colorCliente = new FixedString64Bytes(PlayerPrefs.GetString("colorJugador"));
             Debug.Log("el cliente con id:" + playerId + "se llama " + nombreCliente + " y es el color " + colorCliente);
             //AgregarJugador(playerId, nombreCliente, 100, false, true, 2, 10, 10, 10, 10, 10, colorCliente); //EL CLIENTE NO DEBE AGREGARJUGADOR, DEBE MANDAR SU DATA AL HOST
-            AddPlayerServerRpc(playerId, nombreCliente, 0, false, false,false, 0, 0, 0, 0, 0, colorCliente, 2, 2, 0);
+            AddPlayerServerRpc(playerId, nombreCliente, 0, false, false,false, 10, 10, 10, 10, 10, colorCliente, 2, 2, 0);
             Debug.Log("se agrego jugador cliente");
             ImprimirJugadorPorId(playerId);
             //ImprimirTodosLosJugadores();
@@ -582,7 +582,6 @@ public class PlayerNetwork : NetworkBehaviour
             }
             // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
             DatosJugador jugador = PlayerNetwork.Instance.playerData[indexJugador];
-            //Debug.Log("piedra antes de sumar: " + playerData[indexJugador].piedraCount);
             // Aumentar el recurso correspondiente
             switch (recurso)
             {
@@ -613,76 +612,17 @@ public class PlayerNetwork : NetworkBehaviour
             if ( PlayerPrefs.GetInt("jugadorId") == idJugador)
             {
                 BoardManager.Instance.UpdateResourceTextsHost(idJugador);
-                /*PlayerNetwork.DatosJugador datosJugador = default;
-                var posicion = -1;
-                Debug.Log("ENTRE ACA ANTES HOST");
-                DatosJugador juga1 = new DatosJugador();
-                DatosJugador juga2 = new DatosJugador();
-                DatosJugador juga3 = new DatosJugador();
-                DatosJugador juga4 = new DatosJugador();               
-                // Itera sobre los elementos de playerData para encontrar los datos del jugador
-                for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
-                {
-                    switch (i)
-                    {
-                        case 0:
-                            juga1 = PlayerNetwork.Instance.playerData[i];
-                            Debug.Log("el puntaje del jugador1 es " + juga1.puntaje);
-                            break;
-                        case 1:
-                            juga2 = PlayerNetwork.Instance.playerData[i];
-                            Debug.Log("el puntaje del jugador2 es " + juga2.puntaje);
-                            break;
-                        case 2:
-                            juga3 = PlayerNetwork.Instance.playerData[i];
-                            break;
-                        case 3:
-                            juga4 = PlayerNetwork.Instance.playerData[i];
-                            break;
-                    }
-                    if (PlayerNetwork.Instance.playerData[i].jugadorId == idJugador)
-                    {
-                        datosJugador = PlayerNetwork.Instance.playerData[i];
-                        posicion = i;
-                        break;
-                    }
-                }
-                //Debug.Log("el puntaje del jugador1 es " + juga1.puntaje);
-                //Debug.Log("el puntaje del jugador2 es " + juga2.puntaje);
-
-                //UpdatePuntajeTextServerRpc(juga1, juga2, juga3, juga4);
-                UpdatePuntajeTextClientRpc(juga1, juga2, juga3, juga4);
-                */
+                
             }
             else
             {
                 Debug.Log("ENTRE ACA ANTES CLIENTE");
                 PlayerNetwork.DatosJugador datosJugador = default;
                 var posicion = -1;
-                /*
-                DatosJugador juga1 = new DatosJugador();
-                DatosJugador juga2 = new DatosJugador();
-                DatosJugador juga3 = new DatosJugador();
-                DatosJugador juga4 = new DatosJugador();
-                */
+
                 // Itera sobre los elementos de playerData para encontrar los datos del jugador
                 for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
                 {
-                    /*switch (i)
-                    {
-                        case 0:
-                            juga1 = PlayerNetwork.Instance.playerData[i];
-                            break;
-                        case 1:
-                             juga2 = PlayerNetwork.Instance.playerData[i];
-                            break;
-                        case 2:
-                             juga3 = PlayerNetwork.Instance.playerData[i];
-                            break;
-                        case 3:
-                             juga4 = PlayerNetwork.Instance.playerData[i];
-                            break;
-                    }*/
                     if (PlayerNetwork.Instance.playerData[i].jugadorId == idJugador)
                     {
                         datosJugador = PlayerNetwork.Instance.playerData[i];
@@ -690,96 +630,204 @@ public class PlayerNetwork : NetworkBehaviour
                         break;
                     }
                 }
-                //UpdatePuntajeTextServerRpc(juga1, juga2, juga3, juga4);
-                //UpdatePuntajeTextClientRpc(juga1, juga2, juga3, juga4);
-                /*
-                var puntaje = "Puntaje" + (posicion + 1).ToString();
-                Debug.Log("string puntaje es; " + puntaje);
-                
-                switch (puntaje)
-                {
-                    case "Puntaje1":
-                        UpdatePuntaje1TextClientRpc(jugador);
-                        break;
-                    case "Puntaje2":
-                        UpdatePuntaje2TextClientRpc(jugador);
-                        break;
-                    case "Puntaje3":
-                        UpdatePuntaje3TextClientRpc(jugador);
-                        break;
-                    case "Puntaje4":
-                        UpdatePuntaje4TextClientRpc(jugador);
-                        break;
-                }
-                */
                 UpdateResourcesTextClientRpc(datosJugador);
             }
-
         }
-        /*else
-        {
-            AumentarRecursosServerRpc(idJugador, recurso, cantidad);
-            UpdateResourcesTextServerRpc(idJugador);
-        } */
     }
-
-    [ServerRpc(RequireOwnership = false)]
-    public void AumentarRecursosServerRpc(int idJugador, string recurso, int cantidad)
+    /*public void ManejoRecurosCon7()
     {
-        Debug.Log("Entre a AumentarRecursoServerRpc");
-        //AumentarRecursos(idJugador, recurso, cantidad);
-        //Debug.Log("Termino AumentarRecursoServerRpc");
-        Debug.Log("id jugador: " + idJugador+ " Recurso: " + recurso + " Cantidad: " + cantidad);
-        bool jugadorEncontrado = false;
-        int indexJugador = -1;
-
+        Debug.Log("Entre a ManejoRecurosCon7");
         // Búsqueda del jugador en la lista playerData
-        for (int i = 0; i < playerData.Count; i++)
+        for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
         {
-            Debug.Log("La lista Ids es " + playerData[i].jugadorId);
-            if (playerData[i].jugadorId == idJugador)
+            DatosJugador jugador = PlayerNetwork.Instance.playerData[i];
+            int idJugador = GetPlayerId(jugador);
+            int sumaRecursos = jugador.maderaCount + jugador.ladrilloCount + jugador.ovejaCount + jugador.trigoCount + jugador.piedraCount;
+            Debug.Log("sumaRecursos es " + sumaRecursos);
+            while (sumaRecursos > 7)
             {
-                jugadorEncontrado = true;
-                indexJugador = i;
-                Debug.Log("Jugador encontrado en la posición: " + i);
+                if(sumaRecursos > 7)
+                {
+                    jugador.maderaCount = jugador.maderaCount - 1;
+                    sumaRecursos = jugador.maderaCount + jugador.ladrilloCount + jugador.ovejaCount + jugador.trigoCount + jugador.piedraCount;
+                    if (sumaRecursos > 7)
+                    {
+                        jugador.ladrilloCount = jugador.ladrilloCount -1;
+                        sumaRecursos = jugador.maderaCount + jugador.ladrilloCount + jugador.ovejaCount + jugador.trigoCount + jugador.piedraCount;
+                        if (sumaRecursos > 7)
+                        {
+                            jugador.ovejaCount = jugador.ovejaCount - 1;
+                            sumaRecursos = jugador.maderaCount + jugador.ladrilloCount + jugador.ovejaCount + jugador.trigoCount + jugador.piedraCount;
+                            if (sumaRecursos > 7)
+                            {
+                                jugador.trigoCount = jugador.trigoCount - 1;
+                                sumaRecursos = jugador.maderaCount + jugador.ladrilloCount + jugador.ovejaCount + jugador.trigoCount + jugador.piedraCount;
+                                if (sumaRecursos > 7)
+                                {
+                                    jugador.piedraCount = jugador.piedraCount - 1;
+                                    sumaRecursos = jugador.maderaCount + jugador.ladrilloCount + jugador.ovejaCount + jugador.trigoCount + jugador.piedraCount;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+            PlayerNetwork.Instance.playerData[i] = jugador;
+            if (PlayerPrefs.GetInt("jugadorId") == idJugador)
+            {
+                BoardManager.Instance.UpdateResourceTextsHost(idJugador);
+            }
+            else
+            {
+                Debug.Log("ENTRE ACA ANTES CLIENTE");
+                PlayerNetwork.DatosJugador datosJugador = default;
+                var posicion = -1;
+
+                // Itera sobre los elementos de playerData para encontrar los datos del jugador
+                for (int j = 0; j < PlayerNetwork.Instance.playerData.Count; i++)
+                {
+                    if (PlayerNetwork.Instance.playerData[j].jugadorId == idJugador)
+                    {
+                        datosJugador = PlayerNetwork.Instance.playerData[i];
+                        posicion = i;
+                        break;
+                    }
+                }
+                UpdateResourcesTextClientRpc(datosJugador);
+            }
+        }
+        Debug.Log("Borre recursos del 7");
+    }*/
+    /*public void ManejoRecursosCon7()
+    {
+        Debug.Log("Entré a ManejoRecursosCon7");
+
+        for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+        {
+            DatosJugador jugador = PlayerNetwork.Instance.playerData[i];
+            int idJugador = GetPlayerId(jugador);
+            int sumaRecursos = jugador.maderaCount + jugador.ladrilloCount + jugador.ovejaCount + jugador.trigoCount + jugador.piedraCount;
+
+            while (sumaRecursos > 7)
+            {
+                int recursosPorReducir = sumaRecursos - 7;
+                int reduccionPorTipo = recursosPorReducir / 5; // Dividir equitativamente entre los 5 tipos de recursos
+
+                jugador.maderaCount -= reduccionPorTipo;
+                jugador.ladrilloCount -= reduccionPorTipo;
+                jugador.ovejaCount -= reduccionPorTipo;
+                jugador.trigoCount -= reduccionPorTipo;
+                jugador.piedraCount -= reduccionPorTipo;
+
+                sumaRecursos = jugador.maderaCount + jugador.ladrilloCount + jugador.ovejaCount + jugador.trigoCount + jugador.piedraCount;
+            }
+            PlayerNetwork.Instance.playerData[i] = jugador;
+            // Actualizar el jugador original con los cambios
+            /*for (int j = 0; j < PlayerNetwork.Instance.playerData.Count; i++)
+            {
+                if (PlayerNetwork.Instance.playerData[j].jugadorId == jugador.jugadorId)
+                {
+                    PlayerNetwork.Instance.playerData[j] = jugador;
+                    break;
+                }
+            }*/
+    /*if (PlayerPrefs.GetInt("jugadorId") == idJugador)
+    {
+        BoardManager.Instance.UpdateResourceTextsHost(idJugador);
+    }
+    else
+    {
+        Debug.Log("Entré aquí antes cliente");
+        PlayerNetwork.DatosJugador datosJugador = default;
+        var posicion = -1;
+
+        for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+        {
+            if (PlayerNetwork.Instance.playerData[i].jugadorId == idJugador)
+            {
+                datosJugador = PlayerNetwork.Instance.playerData[i];
+                posicion = i;
                 break;
             }
         }
-        if (!jugadorEncontrado)
-        {
-            Debug.Log("Jugador no encontrado en la lista playerData");
-            return;
-        }
-        // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
-        DatosJugador jugador = playerData[indexJugador];
-        //Debug.Log("piedra antes de sumar: " + playerData[indexJugador].piedraCount);
-        // Aumentar el recurso correspondiente
-        switch (recurso)
-        {
-            case "Madera":
-                jugador.maderaCount += cantidad;
-                break;
-            case "Ladrillo":
-                jugador.ladrilloCount += cantidad;
-                break;
-            case "Oveja":
-                jugador.ovejaCount += cantidad;
-                break;
-            case "Piedra":
-                jugador.piedraCount += cantidad;
-                break;
-            case "Trigo":
-                jugador.trigoCount += cantidad;
-                break;
-            default:
-                Debug.Log("Tipo de recurso desconocido");
-                return;
-        }
-        // Reemplazar el jugador en la lista con la versión modificada
-        playerData[indexJugador] = jugador;
-        // Podemos usar un Debug.Log para ver los resultados.
-        //Debug.Log("Jugador " + playerData[indexJugador].jugadorId + " ahora tiene " + playerData[indexJugador].piedraCount + "piedras ");    
+        UpdateResourcesTextClientRpc(datosJugador);
     }
+}
+
+Debug.Log("Recursos ajustados a 7 o menos");
+}*/
+    public void ManejoRecursosCon7()
+    {
+        try
+        {
+            Debug.Log("Entré a ManejoRecursosCon7");
+
+            foreach (var jugadorOriginal in PlayerNetwork.Instance.playerData)
+            {
+                DatosJugador jugador = jugadorOriginal; // Crear una copia del jugador
+
+                int sumaRecursos = jugador.maderaCount + jugador.ladrilloCount + jugador.ovejaCount + jugador.trigoCount + jugador.piedraCount;
+
+                while (sumaRecursos > 7)
+                {
+                    int recursosPorReducir = sumaRecursos - 7;
+                    int reduccionPorTipo = recursosPorReducir / 5; // Dividir equitativamente entre los 5 tipos de recursos
+
+                    jugador.maderaCount -= reduccionPorTipo;
+                    jugador.ladrilloCount -= reduccionPorTipo;
+                    jugador.ovejaCount -= reduccionPorTipo;
+                    jugador.trigoCount -= reduccionPorTipo;
+                    jugador.piedraCount -= reduccionPorTipo;
+
+                    sumaRecursos = jugador.maderaCount + jugador.ladrilloCount + jugador.ovejaCount + jugador.trigoCount + jugador.piedraCount;
+                }
+            }
+            /*
+            // Actualizar el jugador original con los cambios
+            for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+            {
+                if (PlayerNetwork.Instance.playerData[i].jugadorId == jugador.jugadorId)
+                {
+                    PlayerNetwork.Instance.playerData[i] = jugador;
+                    break;
+                }
+            }
+
+            int idJugador = GetPlayerId(jugador);
+
+            if (PlayerPrefs.GetInt("jugadorId") == idJugador)
+            {
+                BoardManager.Instance.UpdateResourceTextsHost(idJugador);
+            }
+            else
+            {
+                Debug.Log("Entré aquí antes cliente");
+                PlayerNetwork.DatosJugador datosJugador = default;
+                var posicion = -1;
+
+                for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+                {
+                    if (PlayerNetwork.Instance.playerData[i].jugadorId == idJugador)
+                    {
+                        datosJugador = PlayerNetwork.Instance.playerData[i];
+                        posicion = i;
+                        break;
+                    }
+                }
+                UpdateResourcesTextClientRpc(datosJugador);
+            }
+        }*/
+
+            Debug.Log("Recursos ajustados a 7 o menos");
+        }
+        catch (Exception e)
+        {
+            Debug.Log("Error en ManejoRecursosCon7: " + e);
+        }
+        
+    }
+
     private void PrimerasPiezasEnTrue()
     {
         var listoo = true;
@@ -817,29 +865,12 @@ public class PlayerNetwork : NetworkBehaviour
         {
             DarPrimerosRecursos();
         }
-
-
-
     }
 
     public void DarPrimerosRecursos()
     {
         Debug.Log("comienza la corutina");
         StartCoroutine(DarRecursosSecuencialmente());
-
-        /*
-        BoardManager.Instance.ManejoParcelas(2);
-        BoardManager.Instance.ManejoParcelas(3);
-        BoardManager.Instance.ManejoParcelas(4);
-        BoardManager.Instance.ManejoParcelas(5);
-        BoardManager.Instance.ManejoParcelas(6);
-        BoardManager.Instance.ManejoParcelas(8);
-        BoardManager.Instance.ManejoParcelas(9);
-        BoardManager.Instance.ManejoParcelas(10);
-        BoardManager.Instance.ManejoParcelas(11);
-        BoardManager.Instance.ManejoParcelas(12);
-        PlayerNetwork.Instance.diPiezas = true;
-        */
         Debug.Log("termina la corutina");
     }
 
@@ -859,21 +890,7 @@ public class PlayerNetwork : NetworkBehaviour
         PlayerNetwork.Instance.diPiezas = true;
         PlayerNetwork.Instance.ImprimirTodosLosJugadores();
     }
-    [ServerRpc(RequireOwnership = false)]
-    public void DarPrimerosRecursosServerRpc()
-    {
-        BoardManager.Instance.ManejoParcelas(2);
-        BoardManager.Instance.ManejoParcelas(3);
-        BoardManager.Instance.ManejoParcelas(4);
-        BoardManager.Instance.ManejoParcelas(5);
-        BoardManager.Instance.ManejoParcelas(6);
-        BoardManager.Instance.ManejoParcelas(8);
-        BoardManager.Instance.ManejoParcelas(9);
-        BoardManager.Instance.ManejoParcelas(10);
-        BoardManager.Instance.ManejoParcelas(11);
-        BoardManager.Instance.ManejoParcelas(12);
-        PlayerNetwork.Instance.diPiezas = true;
-    }
+
     public void EndTurn()
     {
         Debug.Log("Entre al End Turn");
