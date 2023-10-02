@@ -757,8 +757,79 @@ public class PlayerNetwork : NetworkBehaviour
 
 Debug.Log("Recursos ajustados a 7 o menos");
 }*/
-    public void ManejoRecursosCon7()
+    public void ManejoRecursosCon7(int id)
     {
+
+
+        int indexJugador = -1;
+        for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+        {
+            if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
+            {
+                indexJugador = i;
+            }
+        }
+        PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
+        int sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
+        while(sumaRecursos > 7)
+        {
+            if(sumaRecursos > 7)
+            {
+                jugadorcopia.maderaCount = jugadorcopia.maderaCount - 1;
+                sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
+                if (sumaRecursos > 7)
+                {
+                    jugadorcopia.ladrilloCount = jugadorcopia.ladrilloCount - 1;
+                    sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
+                    if (sumaRecursos > 7)
+                    {
+                        jugadorcopia.ovejaCount = jugadorcopia.ovejaCount - 1;
+                        sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
+                        if (sumaRecursos > 7)
+                        {
+                            jugadorcopia.trigoCount = jugadorcopia.trigoCount - 1;
+                            sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
+                            if (sumaRecursos > 7)
+                            {
+                                jugadorcopia.piedraCount = jugadorcopia.piedraCount - 1;
+                                sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
+                            }
+                        }
+                    }
+                }
+            }
+            sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
+
+        }
+        PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+        if (PlayerPrefs.GetInt("jugadorId") == id)
+        {
+            BoardManager.Instance.UpdateResourceTextsHost(id);
+
+        }
+        else
+        {
+            Debug.Log("ENTRE ACA ANTES CLIENTE");
+            PlayerNetwork.DatosJugador datosJugador = default;
+            var posicion = -1;
+
+            // Itera sobre los elementos de playerData para encontrar los datos del jugador
+            for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+            {
+                if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
+                {
+                    datosJugador = PlayerNetwork.Instance.playerData[i];
+                    posicion = i;
+                    break;
+                }
+            }
+            UpdateResourcesTextClientRpc(datosJugador);
+        }
+
+
+
+
+        /*
         try
         {
             Debug.Log("Entré a ManejoRecursosCon7");
@@ -783,7 +854,7 @@ Debug.Log("Recursos ajustados a 7 o menos");
                     sumaRecursos = jugador.maderaCount + jugador.ladrilloCount + jugador.ovejaCount + jugador.trigoCount + jugador.piedraCount;
                 }
             }
-            /*
+            
             // Actualizar el jugador original con los cambios
             for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
             {
@@ -817,15 +888,15 @@ Debug.Log("Recursos ajustados a 7 o menos");
                 }
                 UpdateResourcesTextClientRpc(datosJugador);
             }
-        }*/
+        }
 
             Debug.Log("Recursos ajustados a 7 o menos");
         }
         catch (Exception e)
         {
             Debug.Log("Error en ManejoRecursosCon7: " + e);
-        }
-        
+        }*/
+
     }
 
     private void PrimerasPiezasEnTrue()

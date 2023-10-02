@@ -118,7 +118,10 @@ public class BoardManager : NetworkBehaviour
                 break;
             case "Parcela 7":
                 recurso1 = "Siete";
-                PlayerNetwork.Instance.ManejoRecursosCon7();
+                for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+                {
+                    PlayerNetwork.Instance.ManejoRecursosCon7(PlayerNetwork.Instance.playerData[i].jugadorId);
+                }
                 break;
             case "Parcela 8":
                 Debug.Log("Busque parcela 8");
