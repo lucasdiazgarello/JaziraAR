@@ -68,8 +68,8 @@ public class BoardManager : NetworkBehaviour
     public void ManejoParcelas(int diceNumber)
     {
         // Obtener las parcelas correspondientes al número del dado.
-        //string parcelName = "Parcela " + diceNumber.ToString();
-        string parcelName = "Parcela 7";
+        string parcelName = "Parcela " + diceNumber.ToString();
+        //string parcelName = "Parcela 7";
         Debug.Log("parcelaName: " + parcelName);
         parcela = null;
         parcela2 = null;
@@ -374,8 +374,8 @@ public class BoardManager : NetworkBehaviour
         // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
         PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
         // Aquí es donde actualizarías los recursos del jugador en tu juego.
-        jugadorcopia.trigoCount -= 3;
-        jugadorcopia.piedraCount -= 2;
+        jugadorcopia.trigoCount -= 2;
+        jugadorcopia.piedraCount -= 3;
 
         PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
         UpdateResources(indexJugador);

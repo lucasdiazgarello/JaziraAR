@@ -41,7 +41,7 @@ public class ComprarPieza : NetworkBehaviour
             {
                 comprarBaseButton.interactable = false;
             }
-            if (jugador.piedraCount >= 2 && jugador.trigoCount >= 3)
+            if (jugador.piedraCount >= 3 && jugador.trigoCount >= 2)
             {
                 comprarPuebloButton.interactable = true;
             }
@@ -174,7 +174,7 @@ public class ComprarPieza : NetworkBehaviour
         PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
         if (NetworkManager.Singleton.IsServer)
         {
-            if (jugador.trigoCount >= 3 && jugador.piedraCount >= 2)
+            if (jugador.trigoCount >= 2 && jugador.piedraCount >= 3)
             {
                 //Actualizacion de cantidad de pueblos:
                 int indexJugador = -1;
@@ -250,7 +250,7 @@ public class ComprarPieza : NetworkBehaviour
         if (NetworkManager.Singleton.IsServer)
         {
             PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
-            if (jugador.piedraCount >= 2 && jugador.trigoCount >= 3)
+            if (jugador.piedraCount >= 3 && jugador.trigoCount >= 2)
             {
                 comprarCaminoButton.interactable = true;
             }

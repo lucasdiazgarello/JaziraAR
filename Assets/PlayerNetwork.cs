@@ -194,7 +194,7 @@ public class PlayerNetwork : NetworkBehaviour
             FixedString64Bytes nombreHost = new FixedString64Bytes(PlayerPrefs.GetString("nomJugador"));
             FixedString64Bytes colorHost = new FixedString64Bytes(PlayerPrefs.GetString("colorJugador"));
             Debug.Log("el jugador con id:" + playerId + "se llama " + nombreHost + " y es el color " + colorHost);
-            AgregarJugador(playerId, nombreHost, 0, false, true, false, 10, 10, 10, 10, 10, colorHost, 2, 2, 0);
+            AgregarJugador(playerId, nombreHost, 0, false, true, false, 0, 0, 0, 0, 0, colorHost, 2, 2, 0);
             Debug.Log("se agrego jugador host");
             ImprimirJugadorPorId(playerId);
             //ImprimirTodosLosJugadores();
@@ -210,7 +210,7 @@ public class PlayerNetwork : NetworkBehaviour
             FixedString64Bytes colorCliente = new FixedString64Bytes(PlayerPrefs.GetString("colorJugador"));
             Debug.Log("el cliente con id:" + playerId + "se llama " + nombreCliente + " y es el color " + colorCliente);
             //AgregarJugador(playerId, nombreCliente, 100, false, true, 2, 10, 10, 10, 10, 10, colorCliente); //EL CLIENTE NO DEBE AGREGARJUGADOR, DEBE MANDAR SU DATA AL HOST
-            AddPlayerServerRpc(playerId, nombreCliente, 0, false, false,false, 10, 10, 10, 10, 10, colorCliente, 2, 2, 0);
+            AddPlayerServerRpc(playerId, nombreCliente, 0, false, false,false, 0, 0, 0, 0, 0, colorCliente, 2, 2, 0);
             Debug.Log("se agrego jugador cliente");
             ImprimirJugadorPorId(playerId);
             //ImprimirTodosLosJugadores();
@@ -1516,7 +1516,7 @@ Debug.Log("Recursos ajustados a 7 o menos");
     {
         Debug.Log("Entro a comprarPuebloServerRpc con ID " + jugadorId);
         PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(jugadorId);
-        if (jugador.trigoCount >= 3 && jugador.piedraCount >= 2)
+        if (jugador.trigoCount >= 2 && jugador.piedraCount >= 3)
         {
             // Restar recursos
             int indexJugador = -1;
@@ -1543,8 +1543,8 @@ Debug.Log("Recursos ajustados a 7 o menos");
             PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
             // Aquí es donde actualizarías los recursos del jugador en tu juego.
             jugadorcopia.cantidadPueblos += 1;
-            jugadorcopia.trigoCount -= 3;
-            jugadorcopia.piedraCount -= 2;
+            jugadorcopia.trigoCount -= 2;
+            jugadorcopia.piedraCount -= 3;
             PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
             PlayerNetwork.Instance.UpdateResourcesTextClientRpc(jugadorcopia);
             UpdateComprarPuebloButtonServerRpc(jugadorId);
@@ -1795,7 +1795,7 @@ Debug.Log("Recursos ajustados a 7 o menos");
         PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
         comprarPuebloButton = GameObject.Find("Comprar Pueblo");
         Button componente = comprarCaminoButton.GetComponent<Button>();
-        componente.interactable = (jugador.piedraCount >= 2 && jugador.trigoCount >= 3);
+        componente.interactable = (jugador.piedraCount >= 3 && jugador.trigoCount >= 2);
     }
     [ClientRpc]
     public void UpdateComprarCaminoButtonClientRpc(int id)
@@ -1822,7 +1822,7 @@ Debug.Log("Recursos ajustados a 7 o menos");
         PlayerNetwork.DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
         comprarPuebloButton = GameObject.Find("Comprar Pueblo");
         Button componente = comprarCaminoButton.GetComponent<Button>();
-        componente.interactable = (jugador.piedraCount >= 2 && jugador.trigoCount >= 3);
+        componente.interactable = (jugador.piedraCount >= 3 && jugador.trigoCount >= 2);
     }
 
     [ServerRpc(RequireOwnership = false)]
