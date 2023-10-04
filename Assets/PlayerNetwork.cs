@@ -34,7 +34,7 @@ public class PlayerNetwork : NetworkBehaviour
     public int currentTurnIndex = 0;
     public NetworkList<PlayerNetwork.DatosJugador> playerData;
     private Dictionary<int, Dictionary<string, int>> recursosPorJugador = new Dictionary<int, Dictionary<string, int>>();
-    private bool todosListos = false;
+    public bool todosListos = false;
     private bool diPiezas = false;
     // Singleton instance
     public static PlayerNetwork Instance { get; private set; }
@@ -913,6 +913,15 @@ Debug.Log("Recursos ajustados a 7 o menos");
         if (listoo)
         {
             PlayerNetwork.Instance.todosListos = true;
+            UpdateTodosListosTextClientRpc();
+            /*
+            for (int j = 0; j < PlayerNetwork.Instance.playerData.Count; j++)
+            {
+
+              
+
+            }*/
+
         }        
     }
 
@@ -1679,6 +1688,11 @@ Debug.Log("Recursos ajustados a 7 o menos");
         jugadorcopia.cantidadPueblos = pueblos;
         jugadorcopia.primerasPiezas = priPiezas;
         PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+    }
+    [ClientRpc]
+    public void UpdateTodosListosTextClientRpc()
+    {
+        PlayerNetwork.Instance.todosListos = true;
     }
 
     [ServerRpc(RequireOwnership = false)]

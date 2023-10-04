@@ -159,7 +159,7 @@ public class ARCursor : NetworkBehaviour
             }
             //Debug.Log("llego y el id es " + PlayerPrefs.GetInt("jugadorId"));
 
-            if (PlayerNetwork.Instance.IsMyTurn(PlayerPrefs.GetInt("jugadorId")) && !botonPulsado)
+            if (PlayerNetwork.Instance.IsMyTurn(PlayerPrefs.GetInt("jugadorId")) && !botonPulsado && PlayerNetwork.Instance.todosListos)
             {
                 tirarDadoButton.interactable = true;
             }
@@ -167,15 +167,24 @@ public class ARCursor : NetworkBehaviour
             {
                 tirarDadoButton.interactable = false;
             }
-            if (PlayerNetwork.Instance.IsMyTurn(PlayerPrefs.GetInt("jugadorId")))
+            if(PlayerNetwork.Instance.IsMyTurn(PlayerPrefs.GetInt("jugadorId")) && !PlayerNetwork.Instance.todosListos)
             {
-
                 terminarTurnoButton.interactable = true;
             }
             else
             {
-                terminarTurnoButton.interactable = false;
+                if (PlayerNetwork.Instance.IsMyTurn(PlayerPrefs.GetInt("jugadorId")) && botonPulsado)
+                {
+
+                    terminarTurnoButton.interactable = true;
+                }
+                else
+                {
+                    terminarTurnoButton.interactable = false;
+                }
+
             }
+
             PlayerNetwork.Instance.SetGano();
         }
 
