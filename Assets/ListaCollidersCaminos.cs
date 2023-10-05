@@ -158,8 +158,16 @@ public class ListaCollidersCaminos : NetworkBehaviour
             AgregarColliderCaminos("Empty camino rot der (10)", false, "Vacio", "Empty camino1 (16)", "Empty camino 3 rotado (10)", "Empty camino 3 rotado (6)", "Empty camino1 (11)");
             AgregarColliderCaminos("Empty camino rot der (11)", false, "Vacio", "Empty camino1 (10)", "Empty camino 3 rotado (21)", "Empty camino 3 rotado (11)", "Empty camino1 (6)");
             AgregarColliderCaminos("Empty camino rot der (12)", false, "Vacio", "Empty camino1 (10)", "Empty camino 3 rotado (21)", "Empty camino 3 rotado (11)", "Empty camino1 (6)");
-
-
+            AgregarColliderCaminos("Empty camino rot der (13)", false, "Vacio", "Empty camino1 (20)", "Empty camino 3 rotado (17)", "Empty camino 3 rotado (13)", "Empty camino1 (16)");
+            AgregarColliderCaminos("Empty camino rot der (14)", false, "Vacio", "no", "Empty camino 3 rotado (14)", "no", "Empty camino1 (22)");
+            AgregarColliderCaminos("Empty camino rot der (15)", false, "Vacio", "Empty camino1 (21)", "Empty camino 3 rotado (13)", "Empty camino 3 rotado (15)", "Empty camino1 (17)");
+            AgregarColliderCaminos("Empty camino rot der (16)", false, "Vacio", "no", "Empty camino 3 rotado (16)", "Empty camino 3 rotado (12)", "Empty camino1 (20)");
+            AgregarColliderCaminos("Empty camino rot der (17)", false, "Vacio", "Empty camino1 (19)", "Empty camino 3 rotado (19)", "Empty camino 3 rotado (17)", "Empty camino1 (15)");
+            AgregarColliderCaminos("Empty camino rot der (18)", false, "Vacio", "Empty camino1 (15)", "Empty camino 3 rotado (18)", "Empty camino 3 rotado (10)", "Empty camino1 (10)");
+            AgregarColliderCaminos("Empty camino rot der (19)", false, "Vacio", "Empty camino1 (9)", "Empty camino 3 rotado (20)", "Empty camino 3 rotado (21)", "Empty camino1 (5)");
+            AgregarColliderCaminos("Empty camino rot der (20)", false, "Vacio", "Empty camino1 (4)", "no", "Empty camino 3 rotado (4)", "Empty camino1");
+            AgregarColliderCaminos("Empty camino rot der (21)", false, "Vacio", "Empty camino1 (14)", "no", "Empty camino 3 rotado (18)", "Empty camino1 (9)");
+            AgregarColliderCaminos("Empty camino rot der (22)", false, "Vacio", "Empty camino1 (22)", "Empty camino 3 rotado (15)", "no", "Empty camino1 (18)");
             //ImprimirListaColliders();
         }
         else
