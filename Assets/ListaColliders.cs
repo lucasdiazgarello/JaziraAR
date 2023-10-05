@@ -7,7 +7,6 @@ using UnityEngine;
 public class ListaColliders : NetworkBehaviour
 {
     public NetworkList<ListaColliders.Colliders> listaColliders;
-    //Dictionary<int, GameObject> gameObjectsByID = new Dictionary<int, GameObject>();
     public static ListaColliders Instance { get; private set; }
     public NetworkVariable<Colliders> listaColls;
     public struct Colliders : INetworkSerializable, IEquatable<Colliders>
@@ -16,9 +15,12 @@ public class ListaColliders : NetworkBehaviour
         public FixedString64Bytes tipo;
         public FixedString64Bytes color;
         public int idInstancia;
+        public FixedString64Bytes nombreCamino1;
+        public FixedString64Bytes nombreCamino2;
+        public FixedString64Bytes nombreCamino3;
         public bool Equals(Colliders other)
         {
-            return nombreCollider == other.nombreCollider && tipo == other.tipo && color == other.color && idInstancia == other.idInstancia;
+            return nombreCollider == other.nombreCollider && tipo == other.tipo && color == other.color && idInstancia == other.idInstancia && nombreCamino1 == other.nombreCamino1 && nombreCamino2 == other.nombreCamino2 && nombreCamino3 == other.nombreCamino3;
         }
         public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
         {
@@ -26,6 +28,9 @@ public class ListaColliders : NetworkBehaviour
             serializer.SerializeValue(ref tipo);
             serializer.SerializeValue(ref color);
             serializer.SerializeValue(ref idInstancia);
+            serializer.SerializeValue(ref nombreCamino1);
+            serializer.SerializeValue(ref nombreCamino2);
+            serializer.SerializeValue(ref nombreCamino3);
         }
     };
 
@@ -56,6 +61,9 @@ public class ListaColliders : NetworkBehaviour
                     tipo = new FixedString64Bytes(),
                     color = new FixedString64Bytes(),
                     idInstancia = new int(),
+                    nombreCamino1 = new FixedString64Bytes(),
+                    nombreCamino2 = new FixedString64Bytes(),
+                    nombreCamino3 = new FixedString64Bytes(),
 
                 }, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
         }
@@ -65,7 +73,7 @@ public class ListaColliders : NetworkBehaviour
             Destroy(gameObject);
         }
     }
-    public void AgregarCollider(FixedString64Bytes nombre, FixedString64Bytes tipo, FixedString64Bytes color, int id)
+    public void AgregarCollider(FixedString64Bytes nombre, FixedString64Bytes tipo, FixedString64Bytes color, int id, FixedString64Bytes nombreCamino1, FixedString64Bytes nombreCamino2, FixedString64Bytes nombreCamino3)
     {
         //Debug.Log("el nombre a agregar es " + nombre + " y el  tipo " + tipo);
         Colliders nuevoCollider = new Colliders();
@@ -73,6 +81,9 @@ public class ListaColliders : NetworkBehaviour
         nuevoCollider.tipo = tipo;
         nuevoCollider.color = color;
         nuevoCollider.idInstancia = id;
+        nuevoCollider.nombreCamino1 = nombreCamino1;
+        nuevoCollider.nombreCamino2 = nombreCamino2;
+        nuevoCollider.nombreCamino3 = nombreCamino3;
         try
         {
             Instance.listaColliders.Add(nuevoCollider);
@@ -88,8 +99,8 @@ public class ListaColliders : NetworkBehaviour
         if (IsServer)
         {
             Debug.Log("OnNetworkSpawn de ListaColliders");
-            AgregarCollider("Empty casa1", "Ninguno", "Vacio", 0);
-            AgregarCollider("Empty casa2", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa1", "Ninguno", "Vacio", 0,"Empty camino1", "Empty camino 3 rotado (4)", "Empty camino rot der (20)");
+            /*AgregarCollider("Empty casa2", "Ninguno", "Vacio", 0);
             AgregarCollider("Empty casa3", "Ninguno", "Vacio", 0);
             AgregarCollider("Empty casa4", "Ninguno", "Vacio", 0);
             AgregarCollider("Empty casa5", "Ninguno", "Vacio", 0);
@@ -139,7 +150,7 @@ public class ListaColliders : NetworkBehaviour
             AgregarCollider("Empty casa49", "Ninguno", "Vacio", 0);
             AgregarCollider("Empty casa50", "Ninguno", "Vacio", 0);
             AgregarCollider("Empty casa51", "Ninguno", "Vacio", 0);
-            AgregarCollider("Empty casa52", "Ninguno", "Vacio", 0);
+            AgregarCollider("Empty casa52", "Ninguno", "Vacio", 0);*/
             ImprimirListaColliders();
         }
         else
