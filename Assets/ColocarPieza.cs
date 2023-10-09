@@ -328,7 +328,9 @@ public class ColocarPieza : NetworkBehaviour
             PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
             var currPrefBase = currentPrefabBase.name;
             Debug.Log("el prefab base se llama " + currPrefBase);
-            if (NetworkManager.Singleton.IsServer)
+            var nombrecollider = hit.collider.gameObject.name;
+            var nombreSinClone = ListaColliders.Instance.RemoverCloneDeNombre(nombrecollider);
+            if (NetworkManager.Singleton.IsServer && ListaCollidersCaminos.Instance.VerificarHayCaminoPorNombre(nombrecollider))
             {
 
                 EjecutarColocarBase(hit, color, currPrefBase);
@@ -586,6 +588,7 @@ public class ColocarPieza : NetworkBehaviour
         var nombrecollider = hit.collider.gameObject.name;
         var nombreSinClone = ListaColliders.Instance.RemoverCloneDeNombre(nombrecollider);
         Debug.Log("nombreSinClone = " + nombreSinClone);
+        ListaCollidersCaminos.Instance.ModificarHayCaminoPorNombre(nombreSinClone,true);
         ListaColliders.Instance.ModificarTipoPorNombre(nombreSinClone, "Camino");
         ListaColliders.Instance.ModificarColorPorNombre(nombreSinClone, color);
         ListaColliders.Instance.ImprimirColliderPorNombre(nombreSinClone);

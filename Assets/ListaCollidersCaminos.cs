@@ -175,6 +175,77 @@ public class ListaCollidersCaminos : NetworkBehaviour
             Debug.Log("cliente de OnNetworkSpawn de ListaColliders");
         }
     }
+
+    public void ModificarHayCaminoPorNombre(FixedString64Bytes nombre, bool haycamino)
+    {
+        for (int i = 0; i < Instance.listaCollidersCaminos.Count; i++)
+        {
+            if (listaCollidersCaminos[i].nombreColliderCamino.Equals(nombre))
+            {
+                Debug.Log("Encontre el camino" + nombre + " en la lista");
+                // Encontrado! Cambiemos el tipo
+                var colliderModificado = listaCollidersCaminos[i]; // Copia el struct
+                colliderModificado.hayCamino = true; // Cambia el tipo
+                Debug.Log("Ahora si hay camino es" + haycamino);
+                listaCollidersCaminos[i] = colliderModificado; // Reemplaza el struct en la lista
+                return; // Omitir esto si es posible que haya más de una entrada con el mismo nombre
+            }
+        }
+    }
+    public bool VerificarHayCaminoPorNombre(FixedString64Bytes nombre)
+    {
+        FixedString64Bytes camino1;
+        FixedString64Bytes camino2;
+        FixedString64Bytes camino3;
+        var si = false;
+        for (int i = 0; i < ListaColliders.Instance.listaColliders.Count; i++)
+        {
+            if (ListaColliders.Instance.listaColliders[i].nombreCollider.Equals(nombre))
+            {
+                Debug.Log("Encontre el collider" + nombre + " en la lista");
+                // Encontrado! Cambiemos el tipo
+                 camino1 = ListaColliders.Instance.listaColliders[i].nombreCamino1;
+                 camino2 = ListaColliders.Instance.listaColliders[i].nombreCamino2;
+                 camino3 = ListaColliders.Instance.listaColliders[i].nombreCamino3;
+                for (int j = 0; j < ListaCollidersCaminos.Instance.listaCollidersCaminos.Count; j++)
+                {
+                    if (ListaCollidersCaminos.Instance.listaCollidersCaminos[i].nombreCamino1 == camino1)
+                    {
+                        if(ListaCollidersCaminos.Instance.listaCollidersCaminos[i].hayCamino)
+                        {
+                            si = true;
+                        }
+
+
+                    }
+                    if (ListaCollidersCaminos.Instance.listaCollidersCaminos[i].nombreCamino1 == camino2)
+                    {
+                        if (ListaCollidersCaminos.Instance.listaCollidersCaminos[i].hayCamino)
+                        {
+                            si = true;
+                        }
+
+
+                    }
+                    if (ListaCollidersCaminos.Instance.listaCollidersCaminos[i].nombreCamino1 == camino3)
+                    {
+                        if (ListaCollidersCaminos.Instance.listaCollidersCaminos[i].hayCamino)
+                        {
+                            si = true;
+                        }
+
+
+                    }
+
+
+
+
+                }
+            }
+            
+        }
+        return si;
+    }
     /*
     public void ModificarTipoPorNombre(FixedString64Bytes nombre, FixedString64Bytes nuevoTipo)
     {

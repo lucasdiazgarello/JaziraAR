@@ -260,6 +260,7 @@ public class ListaColliders : NetworkBehaviour
             }
         }
     }
+
     [ServerRpc(RequireOwnership = false)]
     public void ModificarColorPorNombreServerRpc(FixedString64Bytes nombre, FixedString64Bytes nuevoColor)
     {
