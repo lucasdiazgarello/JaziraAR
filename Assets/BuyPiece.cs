@@ -3,13 +3,13 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ComprarPieza : NetworkBehaviour
+public class BuyPiece : NetworkBehaviour
 {
     // referencia al botón de comprar camino
     public Button comprarCaminoButton;
     public Button comprarBaseButton;
     public Button comprarPuebloButton;
-    public ColocarPieza colocarPieza;
+    public PlacePiece colocarPieza;
     public LayerMask myLayerMask;
 
     void Start()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ComprobarObjeto : NetworkBehaviour
 {
-    //public ColocarPieza objetoColocado; // la referencia al objeto colocado
+    //public PlacePiece objetoColocado; // la referencia al objeto colocado
     public TipoObjeto tipoObjeto; // el tipo de objeto que está colocado
     //public bool esArista;
     /*public void CambiarTipoObjeto(string nombre)

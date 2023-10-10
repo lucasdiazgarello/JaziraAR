@@ -8,9 +8,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI; // Para manejar los botones
 
-public class ColocarPieza : NetworkBehaviour
+public class PlacePiece : NetworkBehaviour
 {
-    //public static ColocarPieza Instance { get; private set; }
+    //public static PlacePiece Instance { get; private set; }
     private GameObject prefabCaminoA;
     private GameObject prefabBaseA; // Cambiado Casa por Base
     private GameObject prefabPuebloA; // Nuevo prefab para el pueblo
@@ -329,8 +329,8 @@ public class ColocarPieza : NetworkBehaviour
             var currPrefBase = currentPrefabBase.name;
             Debug.Log("el prefab base se llama " + currPrefBase);
             var nombrecollider = hit.collider.gameObject.name;
-            var nombreSinClone = ListaColliders.Instance.RemoverCloneDeNombre(nombrecollider);
-            if (NetworkManager.Singleton.IsServer && ListaCollidersCaminos.Instance.VerificarHayCaminoPorNombre(nombrecollider))
+            var nombreSinClone = CollidersList.Instance.RemoverCloneDeNombre(nombrecollider);
+            if (NetworkManager.Singleton.IsServer && CollidersListCaminos.Instance.VerificarHayCaminoPorNombre(nombrecollider))
             {
 
                 EjecutarColocarBase(hit, color, currPrefBase);
@@ -471,10 +471,10 @@ public class ColocarPieza : NetworkBehaviour
             if (NetworkManager.Singleton.IsServer)
             {
                 var nombrecollider = hit.collider.gameObject.name;
-                var nombreSinClone = ListaColliders.Instance.RemoverCloneDeNombre(nombrecollider);
-                var tipo = ListaColliders.Instance.GetTipoPorNombre(nombreSinClone);
+                var nombreSinClone = CollidersList.Instance.RemoverCloneDeNombre(nombrecollider);
+                var tipo = CollidersList.Instance.GetTipoPorNombre(nombreSinClone);
                 Debug.Log("El tipo del collider es " + tipo);
-                var colorCollider = ListaColliders.Instance.GetColorPorNombre(nombreSinClone);
+                var colorCollider = CollidersList.Instance.GetColorPorNombre(nombreSinClone);
                 if (tipo == "Base" && color == colorCollider)
                 {
                     EjecutarColocarPueblo(hit, color, currPrefPueblo);
@@ -543,8 +543,8 @@ public class ColocarPieza : NetworkBehaviour
                 Debug.Log("colliderName: " + colliderName);
                 var position = hit.collider.gameObject.transform.position;
                 ;
-                var nombresinClone = ListaColliders.Instance.RemoverCloneDeNombre(colliderName);
-                var colorCollider = ListaColliders.Instance.GetColorPorNombre(nombresinClone);
+                var nombresinClone = CollidersList.Instance.RemoverCloneDeNombre(colliderName);
+                var colorCollider = CollidersList.Instance.GetColorPorNombre(nombresinClone);
                 Debug.Log("color es : " + color + " y colorcollider es:" + colorCollider);
                 if (color == colorCollider)
                 {
@@ -586,20 +586,20 @@ public class ColocarPieza : NetworkBehaviour
         currentCamino.GetComponent<NetworkObject>().Spawn();
         Debug.Log("nombre collider CAMINO " + hit.collider.gameObject.name);
         var nombrecollider = hit.collider.gameObject.name;
-        var nombreSinClone = ListaColliders.Instance.RemoverCloneDeNombre(nombrecollider);
+        var nombreSinClone = CollidersList.Instance.RemoverCloneDeNombre(nombrecollider);
         Debug.Log("nombreSinClone = " + nombreSinClone);
-        ListaCollidersCaminos.Instance.ModificarHayCaminoPorNombre(nombreSinClone,true);
-        ListaColliders.Instance.ModificarTipoPorNombre(nombreSinClone, "Camino");
-        ListaColliders.Instance.ModificarColorPorNombre(nombreSinClone, color);
-        ListaColliders.Instance.ImprimirColliderPorNombre(nombreSinClone);
+        CollidersListCaminos.Instance.ModificarHayCaminoPorNombre(nombreSinClone,true);
+        CollidersList.Instance.ModificarTipoPorNombre(nombreSinClone, "Camino");
+        CollidersList.Instance.ModificarColorPorNombre(nombreSinClone, color);
+        CollidersList.Instance.ImprimirColliderPorNombre(nombreSinClone);
         /*comprobarObjeto = hit.collider.gameObject.GetComponent<ComprobarObjeto>();
         if (comprobarObjeto != null)
         {
-            var nombreSinClone = ListaColliders.Instance.RemoverCloneDeNombre(comprobarObjeto.name);
+            var nombreSinClone = CollidersList.Instance.RemoverCloneDeNombre(comprobarObjeto.name);
             Debug.Log("nombreSinClone = " + nombreSinClone);
-            ListaColliders.Instance.ModificarTipoPorNombre(nombreSinClone, "Camino");
-            ListaColliders.Instance.ModificarColorPorNombre(nombreSinClone, color);
-            ListaColliders.Instance.ImprimirColliderPorNombre(nombreSinClone);
+            CollidersList.Instance.ModificarTipoPorNombre(nombreSinClone, "Camino");
+            CollidersList.Instance.ModificarColorPorNombre(nombreSinClone, color);
+            CollidersList.Instance.ImprimirColliderPorNombre(nombreSinClone);
         }
         else
         {
@@ -619,12 +619,12 @@ public class ColocarPieza : NetworkBehaviour
         //Debug.Log("id base INSTANCIADA " + idBase);       
         Debug.Log("nombre collider BASE " + hit.collider.gameObject.name);
         var nombrecollider = hit.collider.gameObject.name;
-        var nombreSinClone = ListaColliders.Instance.RemoverCloneDeNombre(nombrecollider);
+        var nombreSinClone = CollidersList.Instance.RemoverCloneDeNombre(nombrecollider);
         Debug.Log("nombreSinClone = " + nombreSinClone);
-        ListaColliders.Instance.ModificarTipoPorNombre(nombreSinClone, "Base");
-        ListaColliders.Instance.ModificarColorPorNombre(nombreSinClone, color);
-        ListaColliders.Instance.ModificarIdPiezaPorNombre(nombreSinClone, idBase);
-        ListaColliders.Instance.ImprimirColliderPorNombre(nombreSinClone);
+        CollidersList.Instance.ModificarTipoPorNombre(nombreSinClone, "Base");
+        CollidersList.Instance.ModificarColorPorNombre(nombreSinClone, color);
+        CollidersList.Instance.ModificarIdPiezaPorNombre(nombreSinClone, idBase);
+        CollidersList.Instance.ImprimirColliderPorNombre(nombreSinClone);
         /*if (NetworkManager.Singleton.IsServer)
         {
             PlayerNetwork.Instance.SetPuntajebyId(id, 1);
@@ -648,10 +648,10 @@ public class ColocarPieza : NetworkBehaviour
         currentPueblo.GetComponent<NetworkObject>().Spawn();
         Debug.Log("nombre collider Pueblo " + hit.collider.gameObject.name);
         var nombrecollider = hit.collider.gameObject.name;
-        var nombreSinClone = ListaColliders.Instance.RemoverCloneDeNombre(nombrecollider);
+        var nombreSinClone = CollidersList.Instance.RemoverCloneDeNombre(nombrecollider);
         Debug.Log("nombreSinClone = " + nombreSinClone);
-        int idbase = ListaColliders.Instance.GetIdPiezaPorNombre(nombreSinClone);
-        var colorCollider = ListaColliders.Instance.GetColorPorNombre(nombreSinClone);
+        int idbase = CollidersList.Instance.GetIdPiezaPorNombre(nombreSinClone);
+        var colorCollider = CollidersList.Instance.GetColorPorNombre(nombreSinClone);
         Debug.Log("color es : " + color + " y colorcollider es:" + colorCollider);
         if (gameObjectsByID.ContainsKey(idbase) && color == colorCollider)
         {
@@ -660,9 +660,9 @@ public class ColocarPieza : NetworkBehaviour
             Destroy(baseToDespawn); // Destroy the object if needed
             gameObjectsByID.Remove(idbase);
         }
-        ListaColliders.Instance.ModificarTipoPorNombre(nombreSinClone, "Pueblo");
-        ListaColliders.Instance.ModificarColorPorNombre(nombreSinClone, color);
-        ListaColliders.Instance.ImprimirColliderPorNombre(nombreSinClone);           
+        CollidersList.Instance.ModificarTipoPorNombre(nombreSinClone, "Pueblo");
+        CollidersList.Instance.ModificarColorPorNombre(nombreSinClone, color);
+        CollidersList.Instance.ImprimirColliderPorNombre(nombreSinClone);           
         /*if (NetworkManager.Singleton.IsServer)
         {
             PlayerNetwork.Instance.SetPuntajebyId(id, 2);

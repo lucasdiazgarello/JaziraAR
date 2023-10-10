@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class JugarScript : MonoBehaviour
+public class PlayScript : MonoBehaviour
 {
     public GameObject canvasnp;
     public GameObject canvasbp;

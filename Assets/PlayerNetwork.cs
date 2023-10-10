@@ -1171,11 +1171,11 @@ Debug.Log("Recursos ajustados a 7 o menos");
             currentCamino = Instantiate(objetoCamino, posititon, rotation);
             currentCamino.GetComponent<NetworkObject>().Spawn();
             // Obtener el componente ComprobarObjeto del objeto golpeado
-            var nombresinClone = ListaColliders.Instance.RemoverCloneDeNombre(nombreCollider);
+            var nombresinClone = CollidersList.Instance.RemoverCloneDeNombre(nombreCollider);
             Debug.Log("CPC PlayerNetwo" + nombresinClone);
-            ListaColliders.Instance.ModificarTipoPorNombre(nombresinClone, "Camino"); // Aca se debe llamar una serverRpc o como ya es el servidor corriendo no?
-            ListaColliders.Instance.ModificarColorPorNombre(nombresinClone, color);
-            ListaColliders.Instance.ImprimirColliderPorNombre(nombresinClone);
+            CollidersList.Instance.ModificarTipoPorNombre(nombresinClone, "Camino"); // Aca se debe llamar una serverRpc o como ya es el servidor corriendo no?
+            CollidersList.Instance.ModificarColorPorNombre(nombresinClone, color);
+            CollidersList.Instance.ImprimirColliderPorNombre(nombresinClone);
             tipoActual = "Ninguno";
             int  id = GetPlayerByColor(color);
             //Actualizar recursos:
@@ -1228,12 +1228,12 @@ Debug.Log("Recursos ajustados a 7 o menos");
             currentBase.GetComponent<NetworkObject>().Spawn();
             int idBase = currentBase.GetInstanceID();
             // Obtener el componente ComprobarObjeto del objeto golpeado
-            var nombresinClone = ListaColliders.Instance.RemoverCloneDeNombre(nombreCollider);
+            var nombresinClone = CollidersList.Instance.RemoverCloneDeNombre(nombreCollider);
             Debug.Log("CPC PlayerNetwo" + nombresinClone);
-            ListaColliders.Instance.ModificarTipoPorNombre(nombresinClone, "Base"); // Aca se debe llamar una serverRpc o como ya es el servidor corriendo no?
-            ListaColliders.Instance.ModificarColorPorNombre(nombresinClone, color);
-            ListaColliders.Instance.ModificarIdPiezaPorNombre(nombresinClone, idBase);
-            ListaColliders.Instance.ImprimirColliderPorNombre(nombresinClone);
+            CollidersList.Instance.ModificarTipoPorNombre(nombresinClone, "Base"); // Aca se debe llamar una serverRpc o como ya es el servidor corriendo no?
+            CollidersList.Instance.ModificarColorPorNombre(nombresinClone, color);
+            CollidersList.Instance.ModificarIdPiezaPorNombre(nombresinClone, idBase);
+            CollidersList.Instance.ImprimirColliderPorNombre(nombresinClone);
             /*Debug.Log("Va a sumar puntaje");
             SetPuntajebyId(id, 1);
             Debug.Log("Termino SetPuntajebyID");*/
@@ -1329,10 +1329,10 @@ Debug.Log("Recursos ajustados a 7 o menos");
             //PlayerPrefs.SetString(colliderName, "collider");
             currentPueblo = Instantiate(objetoPueblo, posititon, Quaternion.identity);
             currentPueblo.GetComponent<NetworkObject>().Spawn();
-            var nombresinClone = ListaColliders.Instance.RemoverCloneDeNombre(nombreCollider);
+            var nombresinClone = CollidersList.Instance.RemoverCloneDeNombre(nombreCollider);
             Debug.Log("CPC PlayerNetwo" + nombresinClone);
-            int idbase = ListaColliders.Instance.GetIdPiezaPorNombre(nombresinClone);
-            var colorCollider = ListaColliders.Instance.GetColorPorNombre(nombresinClone);
+            int idbase = CollidersList.Instance.GetIdPiezaPorNombre(nombresinClone);
+            var colorCollider = CollidersList.Instance.GetColorPorNombre(nombresinClone);
             Debug.Log("color es : " + color + " y colorcollider es:" + colorCollider);
             if (gameObjectsByIDServer.ContainsKey(idbase) && color == colorCollider)
             {
@@ -1341,9 +1341,9 @@ Debug.Log("Recursos ajustados a 7 o menos");
                 Destroy(baseToDespawn); // Destroy the object if needed
                 gameObjectsByIDServer.Remove(idbase);
             }
-            ListaColliders.Instance.ModificarTipoPorNombre(nombresinClone, "Pueblo"); // Aca se debe llamar una serverRpc o como ya es el servidor corriendo no?
-            ListaColliders.Instance.ModificarColorPorNombre(nombresinClone, color);
-            ListaColliders.Instance.ImprimirColliderPorNombre(nombresinClone);
+            CollidersList.Instance.ModificarTipoPorNombre(nombresinClone, "Pueblo"); // Aca se debe llamar una serverRpc o como ya es el servidor corriendo no?
+            CollidersList.Instance.ModificarColorPorNombre(nombresinClone, color);
+            CollidersList.Instance.ImprimirColliderPorNombre(nombresinClone);
             /*Debug.Log("Va a sumar puntaje");
             SetPuntajebyId(id, 2);
             Debug.Log("Termino SetPuntajebyID");*/
@@ -1863,7 +1863,7 @@ Debug.Log("Recursos ajustados a 7 o menos");
     [ClientRpc]
     public void CargarEscenaFinalClientRpc()
     {
-        SceneManager.LoadScene("EscenaFinal");
+        SceneManager.LoadScene("EscenaFinalScene");
     }
     [ClientRpc]
     public void CargarAbandonarSceneClientRpc()

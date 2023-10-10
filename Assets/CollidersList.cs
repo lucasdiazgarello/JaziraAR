@@ -4,10 +4,10 @@ using Unity.Collections;
 using Unity.Netcode;
 using UnityEngine;
 
-public class ListaColliders : NetworkBehaviour
+public class CollidersList : NetworkBehaviour
 {
-    public NetworkList<ListaColliders.Colliders> listaColliders;
-    public static ListaColliders Instance { get; private set; }
+    public NetworkList<CollidersList.Colliders> listaColliders;
+    public static CollidersList Instance { get; private set; }
     public NetworkVariable<Colliders> listaColls;
     public struct Colliders : INetworkSerializable, IEquatable<Colliders>
     {
@@ -40,7 +40,7 @@ public class ListaColliders : NetworkBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject); // Para mantener el objeto al cambiar de escena
-            Debug.Log("Id de esta instancia de ListaColliders " + this.NetworkObjectId);
+            Debug.Log("Id de esta instancia de CollidersList " + this.NetworkObjectId);
             // Inicializar los jugadores aqu�
             //NetworkList must be initialized in Awake.
             listaColliders = new NetworkList<Colliders>();
@@ -69,7 +69,7 @@ public class ListaColliders : NetworkBehaviour
         }
         else
         {
-            Debug.LogWarning("Multiple instances of ListaColliders detected. Deleting one instance. GameObject: " + gameObject.name);
+            Debug.LogWarning("Multiple instances of CollidersList detected. Deleting one instance. GameObject: " + gameObject.name);
             Destroy(gameObject);
         }
     }
@@ -98,7 +98,7 @@ public class ListaColliders : NetworkBehaviour
     {
         if (IsServer)
         {
-            Debug.Log("OnNetworkSpawn de ListaColliders");
+            Debug.Log("OnNetworkSpawn de CollidersList");
             AgregarCollider("Empty casa1", "Ninguno", "Vacio", 0,"Empty camino1", "Empty camino 3 rotado (4)", "Empty camino rot der (20)");
             AgregarCollider("Empty casa2", "Ninguno", "Vacio", 0, "Empty camino1 (5)", "Empty camino 3 rotado (4)", "Empty camino rot der (4)");
             AgregarCollider("Empty casa3", "Ninguno", "Vacio", 0, "Empty camino1 (1)", "Empty camino 3 rotado", "Empty camino rot der (4)");
@@ -207,7 +207,7 @@ public class ListaColliders : NetworkBehaviour
         }
         else
         {
-            Debug.Log("cliente de OnNetworkSpawn de ListaColliders");
+            Debug.Log("cliente de OnNetworkSpawn de CollidersList");
         }
     }
 

@@ -2367,6 +2367,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: IngameDebugConsole
       objectReference: {fileID: 0}
+    - target: {fileID: 132536, guid: 67117722a812a2e46ab8cb8eafbf5f5e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 11414302, guid: 67117722a812a2e46ab8cb8eafbf5f5e, type: 3}
       propertyPath: m_Value
       value: 1
@@ -3316,7 +3320,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1050106402
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3734,6 +3738,7 @@ MonoBehaviour:
   tipoActual: 0
   confirmBaseButton: {fileID: 0}
   currentTurnIndex: 0
+  todosListos: 0
   maderaCount:
     m_InternalValue: 0
   ladrilloCount:

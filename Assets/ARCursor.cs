@@ -31,7 +31,7 @@ public class ARCursor : NetworkBehaviour
     public bool dicesThrown = false;
     private bool botonPulsado = false;
 
-    public ColocarPieza colocarPieza;
+    //public PlacePiece colocarPieza;
     private GameObject[] colliderPrefabs;
     //public GameObject colliderPrefab; // Agrega esto en la parte superior de tu script
     private Vector3 initialDadoPosition; // Para guardar la posición inicial del dado
@@ -57,7 +57,7 @@ public class ARCursor : NetworkBehaviour
 
             objectToPlace = Resources.Load("TableroCC 2") as GameObject;
             //tirarDadoButton.onClick.AddListener(OnDiceRollButtonPressed);
-            //colocarPieza = GetComponentInChildren<ColocarPieza>();
+            //colocarPieza = GetComponentInChildren<PlacePiece>();
             //playerNetwork = PlayerNetwork.Instance;
             colliderPrefabs = Resources.LoadAll<GameObject>("Colliders");
         }
@@ -74,7 +74,7 @@ public class ARCursor : NetworkBehaviour
             PlayerNetwork.Instance.UpdateResourcesTextServerRpc(idStart);
         }
         //activo colocar pieza por si es esto qeu el cliente no puede colocar
-        foreach (ColocarPieza colocarPieza in GetComponentsInChildren<ColocarPieza>())
+        foreach (PlacePiece colocarPieza in GetComponentsInChildren<PlacePiece>())
         {
             Debug.Log("entro al foreach de colocar pieza");
             colocarPieza.enabled = true;
@@ -211,7 +211,7 @@ public class ARCursor : NetworkBehaviour
         isPlacementModeActive = false;
         confirmButton.gameObject.SetActive(false); // Desactivar el botón de confirmación
         // Activar la colocación de las piezas en los marcadores invisibles
-        /*foreach (ColocarPieza colocarPieza in GetComponentsInChildren<ColocarPieza>())
+        /*foreach (PlacePiece colocarPieza in GetComponentsInChildren<PlacePiece>())
         {
             Debug.Log("entro al foreach de colocar pieza");
             colocarPieza.enabled = true;

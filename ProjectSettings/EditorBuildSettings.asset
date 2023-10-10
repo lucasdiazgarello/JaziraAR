@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Main menu.unity
+    path: Assets/Scenes/Menu de inicio.unity
     guid: 052a2a7d15855c2419cdd82ee752f982
   - enabled: 1
     path: Assets/Scenes/JugarScene.unity
@@ -21,10 +21,10 @@ EditorBuildSettings:
     path: Assets/Scenes/NuevaPartidaScene 1.unity
     guid: f0e8e0f9a18c64849a93e57c2fb438e7
   - enabled: 1
-    path: Assets/Scenes/PlayScene.unity
+    path: Assets/Scenes/JuegoScene.unity
     guid: f571afc58c2aa3749bf3d3fa39542037
   - enabled: 1
-    path: Assets/Scenes/EscenaFinal.unity
+    path: Assets/Scenes/EscenaFinalScene.unity
     guid: 955ccbbd2c3279e42bcd88e79039494a
   - enabled: 1
     path: Assets/Scenes/AbandonarScene.unity

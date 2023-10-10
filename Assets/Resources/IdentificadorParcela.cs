@@ -8,7 +8,7 @@ public class IdentificadorParcela : MonoBehaviour
     //public TipoPieza tipoPieza;
     public List<TipoRecurso> recursosGenerados;
     public List<Collider> collidersParcela;
-    //public ColocarPieza colocarPieza;
+    //public PlacePiece colocarPieza;
 
     [System.Serializable]
     public class TipoRecurso

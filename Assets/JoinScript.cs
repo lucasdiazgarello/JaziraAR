@@ -8,9 +8,9 @@ using Unity.Services.Relay;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Unirse : NetworkBehaviour
+public class JoinScript : NetworkBehaviour
 {
-    public static Unirse Instance { get; private set; } // Instancia Singleton
+    public static JoinScript Instance { get; private set; } // Instancia Singleton
     // Start is called before the first frame update
     public TestRelay relay;
     //private string nombreJugador;

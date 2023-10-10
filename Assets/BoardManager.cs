@@ -179,9 +179,9 @@ public class BoardManager : NetworkBehaviour
                 {
                     int idJugador = 0;
                     Debug.Log("el collider de la parcela se llama " + empty.name);
-                    var tipoCollider = ListaColliders.Instance.GetTipoPorNombre(empty.name).ToString();
+                    var tipoCollider = CollidersList.Instance.GetTipoPorNombre(empty.name).ToString();
                     //OBTENER COLOR DE LA PIEZA COLOCADA EN ESE COLLIDER
-                    var colorCollider = ListaColliders.Instance.GetColorPorNombre(empty.name).ToString();
+                    var colorCollider = CollidersList.Instance.GetColorPorNombre(empty.name).ToString();
                     Debug.Log("tipocollider es " + tipoCollider);
                     Debug.Log("colorcollider es " + colorCollider);
 
@@ -219,9 +219,9 @@ public class BoardManager : NetworkBehaviour
                 {
                     int idJugador = 0;
                     //Debug.Log("el collider de la parcela se llama " + empty.name);
-                    var tipoCollider = ListaColliders.Instance.GetTipoPorNombre(empty.name).ToString();
+                    var tipoCollider = CollidersList.Instance.GetTipoPorNombre(empty.name).ToString();
                     //OBTENER COLOR DE LA PIEZA COLOCADA EN ESE COLLIDER
-                    var colorCollider = ListaColliders.Instance.GetColorPorNombre(empty.name).ToString();
+                    var colorCollider = CollidersList.Instance.GetColorPorNombre(empty.name).ToString();
                     idJugador = PlayerNetwork.Instance.GetPlayerByColor(colorCollider);
                     if (colorCollider != "Vacio")
                     {
@@ -253,9 +253,9 @@ public class BoardManager : NetworkBehaviour
                 {
                     int idJugador = 0;
                     Debug.Log("el collider de la parcela se llama " + empty.name);
-                    var tipoCollider = ListaColliders.Instance.GetTipoPorNombre(empty.name).ToString();
+                    var tipoCollider = CollidersList.Instance.GetTipoPorNombre(empty.name).ToString();
                     //OBTENER COLOR DE LA PIEZA COLOCADA EN ESE COLLIDER
-                    var colorCollider = ListaColliders.Instance.GetColorPorNombre(empty.name).ToString();
+                    var colorCollider = CollidersList.Instance.GetColorPorNombre(empty.name).ToString();
                     idJugador = PlayerNetwork.Instance.GetPlayerByColor(colorCollider);
                     if (colorCollider != "Vacio")
                     {
@@ -566,9 +566,9 @@ public class BoardManager : NetworkBehaviour
             {
                 int idJugador = 0;
                 Debug.Log("el collider de la parcela se llama " + empty.name);
-                var tipoCollider = ListaColliders.Instance.GetTipoPorNombre(empty.name).ToString();
+                var tipoCollider = CollidersList.Instance.GetTipoPorNombre(empty.name).ToString();
                 //OBTENER COLOR DE LA PIEZA COLOCADA EN ESE COLLIDER
-                var colorCollider = ListaColliders.Instance.GetColorPorNombre(empty.name).ToString();
+                var colorCollider = CollidersList.Instance.GetColorPorNombre(empty.name).ToString();
                 Debug.Log("tipocollider es " + tipoCollider);
                 Debug.Log("colorcollider es " + colorCollider);
 
@@ -613,9 +613,9 @@ public class BoardManager : NetworkBehaviour
             {
                 int idJugador = 0;
                 //Debug.Log("el collider de la parcela se llama " + empty.name);
-                var tipoCollider = ListaColliders.Instance.GetTipoPorNombre(empty.name).ToString();
+                var tipoCollider = CollidersList.Instance.GetTipoPorNombre(empty.name).ToString();
                 //OBTENER COLOR DE LA PIEZA COLOCADA EN ESE COLLIDER
-                var colorCollider = ListaColliders.Instance.GetColorPorNombre(empty.name).ToString();
+                var colorCollider = CollidersList.Instance.GetColorPorNombre(empty.name).ToString();
                 //Debug.Log("tipocollider es " + tipoCollider);
                 //Debug.Log("colorcollider es " + colorCollider);
                 idJugador = PlayerNetwork.Instance.GetPlayerByColor(colorCollider);
@@ -656,9 +656,9 @@ public class BoardManager : NetworkBehaviour
             {
                 int idJugador = 0;
                 Debug.Log("el collider de la parcela se llama " + empty.name);
-                var tipoCollider = ListaColliders.Instance.GetTipoPorNombre(empty.name).ToString();
+                var tipoCollider = CollidersList.Instance.GetTipoPorNombre(empty.name).ToString();
                 //OBTENER COLOR DE LA PIEZA COLOCADA EN ESE COLLIDER
-                var colorCollider = ListaColliders.Instance.GetColorPorNombre(empty.name).ToString();
+                var colorCollider = CollidersList.Instance.GetColorPorNombre(empty.name).ToString();
                 //Debug.Log("tipocollider es " + tipoCollider);
                 //Debug.Log("colorcollider es " + colorCollider);
                 idJugador = PlayerNetwork.Instance.GetPlayerByColor(colorCollider);

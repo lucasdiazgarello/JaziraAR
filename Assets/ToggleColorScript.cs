@@ -7,7 +7,7 @@ public class ToggleColorScript : MonoBehaviour
 {
     Toggle m_Toggle;
     //public TestRelay relay;// Asigna esto en el Inspector a la instancia de tu script TestRelay
-    //public Unirse unirse;
+    //public JoinScript unirse;
     private FixedString64Bytes colorNameTemp;
     private bool colorSet = false;
 
@@ -55,13 +55,13 @@ public class ToggleColorScript : MonoBehaviour
         }
 
         // Check if unirse is null
-        if (Unirse.Instance == null)
+        if (JoinScript.Instance == null)
         {
             Debug.LogError("unirse is null. Please assign it in the Inspector.");
         }
         else
         {
-            Unirse.Instance.colorSeleccionado.Value = colorNameTemp;
+            JoinScript.Instance.colorSeleccionado.Value = colorNameTemp;
         }
 
         var playerId = NetworkManager.Singleton.LocalClientId;

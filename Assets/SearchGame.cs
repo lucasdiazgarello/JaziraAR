@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.SceneManagement;
-public class NuevaPartidacontroller : MonoBehaviour
+public class SearchGame : MonoBehaviour
 {
-    //carga la escena que queres que abra al tocar el botón
+    //carga la escena que queres que abra al tocar el boton
     public void LoadGameScene()
     {
-        SceneManager.LoadScene("PlayScene");
+        SceneManager.LoadScene("SampleScene");
     }
 }

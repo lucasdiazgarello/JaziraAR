@@ -4,10 +4,10 @@ using Unity.Collections;
 using Unity.Netcode;
 using UnityEngine;
 
-public class ListaCollidersCaminos : NetworkBehaviour
+public class CollidersListCaminos : NetworkBehaviour
 {
-    public NetworkList<ListaCollidersCaminos.Colliders> listaCollidersCaminos;
-    public static ListaCollidersCaminos Instance { get; private set; }
+    public NetworkList<CollidersListCaminos.Colliders> listaCollidersCaminos;
+    public static CollidersListCaminos Instance { get; private set; }
     public NetworkVariable<Colliders> listaCollsCaminos;
     public struct Colliders : INetworkSerializable, IEquatable<Colliders>
     {
@@ -40,7 +40,7 @@ public class ListaCollidersCaminos : NetworkBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject); // Para mantener el objeto al cambiar de escena
-            Debug.Log("Id de esta instancia de ListaColliders " + this.NetworkObjectId);
+            Debug.Log("Id de esta instancia de CollidersList " + this.NetworkObjectId);
             // Inicializar los jugadores aqu�
             //NetworkList must be initialized in Awake.
             listaCollidersCaminos = new NetworkList<Colliders>();
@@ -69,7 +69,7 @@ public class ListaCollidersCaminos : NetworkBehaviour
         }
         else
         {
-            Debug.LogWarning("Multiple instances of ListaColliders detected. Deleting one instance. GameObject: " + gameObject.name);
+            Debug.LogWarning("Multiple instances of CollidersList detected. Deleting one instance. GameObject: " + gameObject.name);
             Destroy(gameObject);
         }
     }
@@ -98,7 +98,7 @@ public class ListaCollidersCaminos : NetworkBehaviour
     {
         if (IsServer)
         {
-            Debug.Log("OnNetworkSpawn de ListaColliders");
+            Debug.Log("OnNetworkSpawn de CollidersList");
             AgregarColliderCaminos("Empty camino1", false , "Vacio", "Empty camino rot der (20)", "Empty camino 3 rotado (4)", "no", "Empty camino rot der (5)");
             AgregarColliderCaminos("Empty camino1 (1)", false, "Vacio", "Empty camino rot der (4)", "Empty camino 3 rotado", "Empty camino 3 rotado (5)", "Empty camino rot der (1)");
             AgregarColliderCaminos("Empty camino1 (2)", false, "Vacio", "Empty camino rot der ", "Empty camino 3 rotado (2)", "Empty camino 3 rotado (1)", "Empty camino rot der (3)");
@@ -172,7 +172,7 @@ public class ListaCollidersCaminos : NetworkBehaviour
         }
         else
         {
-            Debug.Log("cliente de OnNetworkSpawn de ListaColliders");
+            Debug.Log("cliente de OnNetworkSpawn de CollidersList");
         }
     }
 
@@ -198,38 +198,38 @@ public class ListaCollidersCaminos : NetworkBehaviour
         FixedString64Bytes camino2;
         FixedString64Bytes camino3;
         var si = false;
-        for (int i = 0; i < ListaColliders.Instance.listaColliders.Count; i++)
+        for (int i = 0; i < CollidersList.Instance.listaColliders.Count; i++)
         {
-            if (ListaColliders.Instance.listaColliders[i].nombreCollider.Equals(nombre))
+            if (CollidersList.Instance.listaColliders[i].nombreCollider.Equals(nombre))
             {
                 Debug.Log("Encontre el collider" + nombre + " en la lista");
                 // Encontrado! Cambiemos el tipo
-                 camino1 = ListaColliders.Instance.listaColliders[i].nombreCamino1;
-                 camino2 = ListaColliders.Instance.listaColliders[i].nombreCamino2;
-                 camino3 = ListaColliders.Instance.listaColliders[i].nombreCamino3;
-                for (int j = 0; j < ListaCollidersCaminos.Instance.listaCollidersCaminos.Count; j++)
+                 camino1 = CollidersList.Instance.listaColliders[i].nombreCamino1;
+                 camino2 = CollidersList.Instance.listaColliders[i].nombreCamino2;
+                 camino3 = CollidersList.Instance.listaColliders[i].nombreCamino3;
+                for (int j = 0; j < CollidersListCaminos.Instance.listaCollidersCaminos.Count; j++)
                 {
-                    if (ListaCollidersCaminos.Instance.listaCollidersCaminos[i].nombreCamino1 == camino1)
+                    if (CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreCamino1 == camino1)
                     {
-                        if(ListaCollidersCaminos.Instance.listaCollidersCaminos[i].hayCamino)
+                        if(CollidersListCaminos.Instance.listaCollidersCaminos[i].hayCamino)
                         {
                             si = true;
                         }
 
 
                     }
-                    if (ListaCollidersCaminos.Instance.listaCollidersCaminos[i].nombreCamino1 == camino2)
+                    if (CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreCamino1 == camino2)
                     {
-                        if (ListaCollidersCaminos.Instance.listaCollidersCaminos[i].hayCamino)
+                        if (CollidersListCaminos.Instance.listaCollidersCaminos[i].hayCamino)
                         {
                             si = true;
                         }
 
 
                     }
-                    if (ListaCollidersCaminos.Instance.listaCollidersCaminos[i].nombreCamino1 == camino3)
+                    if (CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreCamino1 == camino3)
                     {
-                        if (ListaCollidersCaminos.Instance.listaCollidersCaminos[i].hayCamino)
+                        if (CollidersListCaminos.Instance.listaCollidersCaminos[i].hayCamino)
                         {
                             si = true;
                         }
