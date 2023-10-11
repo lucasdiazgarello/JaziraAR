@@ -178,16 +178,16 @@ public class CollidersListCaminos : NetworkBehaviour
 
     public void ModificarHayCaminoPorNombre(FixedString64Bytes nombre, bool haycamino)
     {
-        for (int i = 0; i < Instance.listaCollidersCaminos.Count; i++)
+        for (int i = 0; i < CollidersListCaminos.Instance.listaCollidersCaminos.Count; i++)
         {
-            if (listaCollidersCaminos[i].nombreColliderCamino.Equals(nombre))
+            if (CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreColliderCamino.Equals(nombre))
             {
                 Debug.Log("Encontre el camino" + nombre + " en la lista");
                 // Encontrado! Cambiemos el tipo
                 var colliderModificado = listaCollidersCaminos[i]; // Copia el struct
                 colliderModificado.hayCamino = true; // Cambia el tipo
                 Debug.Log("Ahora si hay camino es" + haycamino);
-                listaCollidersCaminos[i] = colliderModificado; // Reemplaza el struct en la lista
+                CollidersListCaminos.Instance.listaCollidersCaminos[i] = colliderModificado; // Reemplaza el struct en la lista
                 return; // Omitir esto si es posible que haya más de una entrada con el mismo nombre
             }
         }
@@ -207,31 +207,40 @@ public class CollidersListCaminos : NetworkBehaviour
                  camino1 = CollidersList.Instance.listaColliders[i].nombreCamino1;
                  camino2 = CollidersList.Instance.listaColliders[i].nombreCamino2;
                  camino3 = CollidersList.Instance.listaColliders[i].nombreCamino3;
+                Debug.Log("los caminos son: " + camino1 + "/" + camino2 + "/" + camino3);
                 for (int j = 0; j < CollidersListCaminos.Instance.listaCollidersCaminos.Count; j++)
                 {
-                    if (CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreCamino1 == camino1)
+                    if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreCamino1 == camino1)
                     {
-                        if(CollidersListCaminos.Instance.listaCollidersCaminos[i].hayCamino)
+                        Debug.Log("Encontre camino1");
+                        if(CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino)
                         {
-                            si = true;
+                            Debug.Log("camino1 tiene camino y se llama "+ camino1);
+                            return(CollidersListCaminos.Instance.VerificarHayOtroCaminoPorNombre(camino1));
                         }
 
 
                     }
-                    if (CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreCamino1 == camino2)
+                    if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreCamino1 == camino2)
                     {
-                        if (CollidersListCaminos.Instance.listaCollidersCaminos[i].hayCamino)
+                        Debug.Log("Encontre camino2");
+
+                        if (CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino)
                         {
-                            si = true;
+                            Debug.Log("camino2 tiene camino y se llama " + camino2);
+                            return (CollidersListCaminos.Instance.VerificarHayOtroCaminoPorNombre(camino2));
                         }
 
 
                     }
-                    if (CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreCamino1 == camino3)
+                    if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreCamino1 == camino3)
                     {
-                        if (CollidersListCaminos.Instance.listaCollidersCaminos[i].hayCamino)
+                        Debug.Log("Encontre camino3");
+
+                        if (CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino)
                         {
-                            si = true;
+                            Debug.Log("camino3 tiene camino y se llama " + camino3);
+                            return (CollidersListCaminos.Instance.VerificarHayOtroCaminoPorNombre(camino3));
                         }
 
 
@@ -245,6 +254,84 @@ public class CollidersListCaminos : NetworkBehaviour
             
         }
         return si;
+    }
+
+    public bool VerificarHayOtroCaminoPorNombre(FixedString64Bytes nombreCamino)
+    {
+
+        
+        for (int i = 0; i < CollidersListCaminos.Instance.listaCollidersCaminos.Count; i++)
+        {
+
+            if (CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreCamino1.Equals(nombreCamino))
+            {
+                Debug.Log("Encontre el camino "+ nombreCamino);
+                var camino1 = CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreCamino1;
+                var camino2 = CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreCamino2;
+                var camino3 = CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreCamino3;
+                var camino4 = CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreCamino4;
+
+                for (int j = 0; j < CollidersListCaminos.Instance.listaCollidersCaminos.Count; j++)
+                {
+                    if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreCamino1.Equals(camino1) && camino1 != nombreCamino)
+                    {
+                        Debug.Log("Encontre el camino " + camino1);
+                        Debug.Log("Tiene Camino? :"+CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino);
+                        if (CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino)
+                        {
+                            Debug.Log("El segundo camino tambien tiene camino");
+                            return true;
+                        }
+                    }
+                }
+                for (int j = 0; j < CollidersListCaminos.Instance.listaCollidersCaminos.Count; j++)
+                {
+                    if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreCamino1.Equals(camino2) && camino2 != nombreCamino)
+                    {
+                        Debug.Log("Encontre el camino " + camino2);
+                        Debug.Log("Tiene Camino? :" + CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino);
+                        if (CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino)
+                        {
+                            Debug.Log("El segundo camino tambien tiene camino");
+                            return true;
+                        }
+
+                    }
+                }
+                for (int j = 0; j < CollidersListCaminos.Instance.listaCollidersCaminos.Count; j++)
+                {
+                    if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreCamino1.Equals(camino3) && camino3 != nombreCamino)
+                    {   
+                        Debug.Log("Encontre el camino " + camino3);
+                        Debug.Log("Tiene Camino? :" + CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino);
+                        if (CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino)
+                        {
+                            Debug.Log("El segundo camino tambien tiene camino");
+                            return true;
+                        }
+
+                    }
+                }
+                for (int j = 0; j < CollidersListCaminos.Instance.listaCollidersCaminos.Count; j++)
+                {
+                    if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreCamino1.Equals(camino4) && camino4 != nombreCamino)
+                    {
+                        Debug.Log("Encontre el camino " + camino4);
+                        Debug.Log("Tiene Camino? :" + CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino);
+                        if (CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino)
+                        {
+                            Debug.Log("El segundo camino tambien tiene camino");
+                            return true;
+                        }
+
+                    }
+                }
+
+
+            }
+        }
+        return false;
+
     }
     /*
     public void ModificarTipoPorNombre(FixedString64Bytes nombre, FixedString64Bytes nuevoTipo)

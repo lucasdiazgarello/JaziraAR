@@ -330,7 +330,8 @@ public class PlacePiece : NetworkBehaviour
             Debug.Log("el prefab base se llama " + currPrefBase);
             var nombrecollider = hit.collider.gameObject.name;
             var nombreSinClone = CollidersList.Instance.RemoverCloneDeNombre(nombrecollider);
-            if (NetworkManager.Singleton.IsServer && CollidersListCaminos.Instance.VerificarHayCaminoPorNombre(nombrecollider))
+            Debug.Log("El nombre de la casa de la que buscare los caminos es:  " + nombreSinClone);
+            if (NetworkManager.Singleton.IsServer && CollidersListCaminos.Instance.VerificarHayCaminoPorNombre(nombreSinClone))
             {
 
                 EjecutarColocarBase(hit, color, currPrefBase);
