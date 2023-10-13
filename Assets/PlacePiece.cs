@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using Unity.Netcode;
+using Unity.Services.Qos;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -331,7 +332,7 @@ public class PlacePiece : NetworkBehaviour
             var nombrecollider = hit.collider.gameObject.name;
             var nombreSinClone = CollidersList.Instance.RemoverCloneDeNombre(nombrecollider);
             Debug.Log("El nombre de la casa de la que buscare los caminos es:  " + nombreSinClone);
-            if (NetworkManager.Singleton.IsServer && CollidersListCaminos.Instance.VerificarHayCaminoPorNombre(nombreSinClone))
+            if (NetworkManager.Singleton.IsServer && !CollidersListCaminos.Instance.VerificarHayCaminoPorNombre(nombreSinClone,color))
             {
 
                 EjecutarColocarBase(hit, color, currPrefBase);
@@ -589,7 +590,7 @@ public class PlacePiece : NetworkBehaviour
         var nombrecollider = hit.collider.gameObject.name;
         var nombreSinClone = CollidersList.Instance.RemoverCloneDeNombre(nombrecollider);
         Debug.Log("nombreSinClone = " + nombreSinClone);
-        CollidersListCaminos.Instance.ModificarHayCaminoPorNombre(nombreSinClone,true);
+        CollidersListCaminos.Instance.ModificarHayCaminoYColorPorNombre(nombreSinClone,color,true);
         CollidersList.Instance.ModificarTipoPorNombre(nombreSinClone, "Camino");
         CollidersList.Instance.ModificarColorPorNombre(nombreSinClone, color);
         CollidersList.Instance.ImprimirColliderPorNombre(nombreSinClone);
