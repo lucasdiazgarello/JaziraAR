@@ -194,7 +194,7 @@ public class PlayerNetwork : NetworkBehaviour
             FixedString64Bytes nombreHost = new FixedString64Bytes(PlayerPrefs.GetString("nomJugador"));
             FixedString64Bytes colorHost = new FixedString64Bytes(PlayerPrefs.GetString("colorJugador"));
             Debug.Log("el jugador con id:" + playerId + "se llama " + nombreHost + " y es el color " + colorHost);
-            AgregarJugador(playerId, nombreHost, 0, false, true, false, 0, 0, 0, 0, 0, colorHost, 2, 2, 0);
+            AgregarJugador(playerId, nombreHost, 0, false, true, false, 30, 30, 30, 30, 30, colorHost, 2, 2, 0);
             Debug.Log("se agrego jugador host");
             ImprimirJugadorPorId(playerId);
             //ImprimirTodosLosJugadores();
@@ -210,7 +210,7 @@ public class PlayerNetwork : NetworkBehaviour
             FixedString64Bytes colorCliente = new FixedString64Bytes(PlayerPrefs.GetString("colorJugador"));
             Debug.Log("el cliente con id:" + playerId + "se llama " + nombreCliente + " y es el color " + colorCliente);
             //AgregarJugador(playerId, nombreCliente, 100, false, true, 2, 10, 10, 10, 10, 10, colorCliente); //EL CLIENTE NO DEBE AGREGARJUGADOR, DEBE MANDAR SU DATA AL HOST
-            AddPlayerServerRpc(playerId, nombreCliente, 0, false, false,false, 0, 0, 0, 0, 0, colorCliente, 2, 2, 0);
+            AddPlayerServerRpc(playerId, nombreCliente, 0, false, false,false, 30, 30, 30, 30, 30, colorCliente, 2, 2, 0);
             Debug.Log("se agrego jugador cliente");
             ImprimirJugadorPorId(playerId);
             //ImprimirTodosLosJugadores();
