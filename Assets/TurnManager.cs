@@ -6,6 +6,7 @@ public class TurnManager : NetworkBehaviour
     public static TurnManager Instance { get; private set; }
     public int CurrentPlayerID { get; private set; }
     private int currentPlayerIndex = 0;
+    public GameObject SumandoRecursosButton;
 
     // Referencia a PlayerNetwork
     //public PlayerNetwork playerNetwork;
@@ -35,6 +36,8 @@ public class TurnManager : NetworkBehaviour
 
     private void Awake()
     {
+
+
         if (Instance == null)
         {
             Instance = this;
@@ -44,6 +47,9 @@ public class TurnManager : NetworkBehaviour
         {
             Destroy(gameObject); // Si ya hay una instancia, destruye esta
         }
+
+        SumandoRecursosButton.SetActive(false);
+
     }
 
     public void AdvanceTurn()

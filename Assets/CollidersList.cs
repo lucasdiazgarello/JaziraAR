@@ -3,12 +3,20 @@ using System.Collections.Generic;
 using Unity.Collections;
 using Unity.Netcode;
 using UnityEngine;
+using static PlayerNetwork;
+using UnityEngine.UIElements;
 
 public class CollidersList : NetworkBehaviour
 {
     public NetworkList<CollidersList.Colliders> listaColliders;
     public static CollidersList Instance { get; private set; }
     public NetworkVariable<Colliders> listaColls;
+    public bool hayCaminoGlobal;
+    Dictionary<int, GameObject> gameObjectsByID = new Dictionary<int, GameObject>();
+    private string tipoActual;
+    private GameObject currentBase;
+
+    Dictionary<int, GameObject> gameObjectsByIDServer = new Dictionary<int, GameObject>();
     public struct Colliders : INetworkSerializable, IEquatable<Colliders>
     {
         public FixedString64Bytes nombreCollider;
@@ -18,6 +26,8 @@ public class CollidersList : NetworkBehaviour
         public FixedString64Bytes nombreCamino1;
         public FixedString64Bytes nombreCamino2;
         public FixedString64Bytes nombreCamino3;
+
+
         public bool Equals(Colliders other)
         {
             return nombreCollider == other.nombreCollider && tipo == other.tipo && color == other.color && idInstancia == other.idInstancia && nombreCamino1 == other.nombreCamino1 && nombreCamino2 == other.nombreCamino2 && nombreCamino3 == other.nombreCamino3;
@@ -279,9 +289,9 @@ public class CollidersList : NetworkBehaviour
         }
     }
     [ServerRpc(RequireOwnership = false)]
-    public void VerificarHayCaminoPorNombreServerRpc(FixedString64Bytes nombre, FixedString64Bytes color)
+    public void VerificarHayCaminoPorNombreServerRpc(FixedString64Bytes nombre, string color,int id, string currentbase, string nombreCollider, Vector3 posititon)
     {
-
+        CollidersList.Instance.hayCaminoGlobal = false;
         for (int i = 0; i < CollidersList.Instance.listaColliders.Count; i++)
         {
             if (CollidersList.Instance.listaColliders[i].nombreCollider.Equals(nombre))
@@ -331,7 +341,111 @@ public class CollidersList : NetworkBehaviour
             }
 
         }
-        //return CollidersListCaminos.Instance.VerificarHayOtroCaminoPorNombre(CollidersListCaminos.Instance.camino1, CollidersListCaminos.Instance.camino2, CollidersListCaminos.Instance.camino3, color, CollidersListCaminos.Instance.camino1si, CollidersListCaminos.Instance.camino2si, CollidersListCaminos.Instance.camino3si);
+
+
+        if(CollidersListCaminos.Instance.VerificarHayOtroCaminoPorNombre(CollidersListCaminos.Instance.camino1, CollidersListCaminos.Instance.camino2, CollidersListCaminos.Instance.camino3, color, CollidersListCaminos.Instance.camino1si, CollidersListCaminos.Instance.camino2si, CollidersListCaminos.Instance.camino3si))
+        {
+            try
+            {
+
+                Debug.Log("Entre a la BaseServerRpc");
+                var objetoBase = Resources.Load(currentbase) as GameObject;
+                Debug.Log("2 preafb base es " + objetoBase.name);
+                //PlayerPrefs.SetString(colliderName, "collider");
+                currentBase = Instantiate(objetoBase, posititon, Quaternion.identity);
+                gameObjectsByIDServer.Add(currentBase.GetInstanceID(), currentBase);
+                currentBase.GetComponent<NetworkObject>().Spawn();
+                int idBase = currentBase.GetInstanceID();
+                // Obtener el componente ComprobarObjeto del objeto golpeado
+                var nombresinClone = CollidersList.Instance.RemoverCloneDeNombre(nombreCollider);
+                Debug.Log("CPC PlayerNetwo" + nombresinClone);
+                CollidersList.Instance.ModificarTipoPorNombre(nombresinClone, "Base"); // Aca se debe llamar una serverRpc o como ya es el servidor corriendo no?
+                CollidersList.Instance.ModificarColorPorNombre(nombresinClone, color);
+                CollidersList.Instance.ModificarIdPiezaPorNombre(nombresinClone, idBase);
+                CollidersList.Instance.ImprimirColliderPorNombre(nombresinClone);
+                /*Debug.Log("Va a sumar puntaje");
+                SetPuntajebyId(id, 1);
+                Debug.Log("Termino SetPuntajebyID");*/
+                tipoActual = "Ninguno";
+                //Actualizar recursos:
+                int indexJugador = -1;
+                bool jugadorEncontrado = false;
+
+                // Búsqueda del jugador en la lista playerData
+                for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+                {
+                    //Debug.Log("La lista Ids es " + playerData[i].jugadorId);
+                    if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
+                    {
+                        jugadorEncontrado = true;
+                        indexJugador = i;
+                        break;
+                    }
+                }
+                if (!jugadorEncontrado)
+                {
+                    Debug.Log("Jugador no encontrado en la lista playerData");
+                    return;
+                }
+                // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
+                PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
+                // Luego de colocar una base, disminuyes el contador y verificas si desactivar el botón.
+                jugadorcopia.cantidadBases = jugadorcopia.cantidadBases - 1;
+                jugadorcopia.puntaje = jugadorcopia.puntaje + 1;
+                PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+                //jugador.cantidadBasess--;
+                Debug.Log("Bases restantes POST: " + PlayerNetwork.Instance.playerData[indexJugador].cantidadPueblos);
+                DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
+                PlayerNetwork.Instance.UpdateCantidadPiezadClientRpc(jugador, jugador.cantidadCaminos, jugador.cantidadBases, jugador.cantidadPueblos, jugador.primerasPiezas);
+                //Actualizar puntajes jugadores
+                PlayerNetwork.DatosJugador datosJugador = default;
+                var posicion = -1;
+
+                DatosJugador juga1 = new DatosJugador();
+                DatosJugador juga2 = new DatosJugador();
+                DatosJugador juga3 = new DatosJugador();
+                DatosJugador juga4 = new DatosJugador();
+
+                // Itera sobre los elementos de playerData para encontrar los datos del jugador
+                for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            juga1 = PlayerNetwork.Instance.playerData[i];
+                            break;
+                        case 1:
+                            juga2 = PlayerNetwork.Instance.playerData[i];
+                            break;
+                        case 2:
+                            juga3 = PlayerNetwork.Instance.playerData[i];
+                            break;
+                        case 3:
+                            juga4 = PlayerNetwork.Instance.playerData[i];
+                            break;
+                    }
+                    if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
+                    {
+                        datosJugador = PlayerNetwork.Instance.playerData[i];
+                        posicion = i;
+                        break;
+                    }
+                }
+                BoardManager.Instance.Puntaje1.text = juga1.puntaje.ToString();
+                BoardManager.Instance.Nombre1.text = juga1.nomJugador.ToString();
+                BoardManager.Instance.Puntaje2.text = juga2.puntaje.ToString();
+                BoardManager.Instance.Nombre2.text = juga2.nomJugador.ToString();
+                BoardManager.Instance.Puntaje3.text = juga3.puntaje.ToString();
+                BoardManager.Instance.Nombre3.text = juga3.nomJugador.ToString();
+                BoardManager.Instance.Puntaje4.text = juga4.puntaje.ToString();
+                BoardManager.Instance.Nombre4.text = juga4.nomJugador.ToString();
+                PlayerNetwork.Instance.UpdatePuntajeTextClientRpc(juga1, juga2, juga3, juga4);
+            }
+            catch (Exception e)
+            {
+                Debug.Log("Error en ColocarBaseServerRpc: " + e);
+            }
+        }
     }
     public FixedString64Bytes GetTipoPorNombre(FixedString64Bytes nombre)
     {

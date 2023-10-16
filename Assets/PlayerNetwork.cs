@@ -15,7 +15,6 @@ using UnityEngine.SceneManagement;
 //using UnityEngine.InputSystem.OSX;
 using UnityEngine.UI;
 using static PlayerNetwork;
-using Unity.VisualScripting;
 
 public class PlayerNetwork : NetworkBehaviour
 {
@@ -25,6 +24,7 @@ public class PlayerNetwork : NetworkBehaviour
     private GameObject comprarCaminoButton;
     private GameObject comprarBaseButton;
     private GameObject comprarPuebloButton;
+
     public string tipoActual;
     public Button confirmBaseButton;
     Dictionary<int, GameObject> gameObjectsByIDServer = new Dictionary<int, GameObject>();
@@ -775,31 +775,50 @@ Debug.Log("Recursos ajustados a 7 o menos");
         {
             if(sumaRecursos > 7)
             {
-                jugadorcopia.maderaCount = jugadorcopia.maderaCount - 1;
-                sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
+                if (jugadorcopia.ovejaCount >= 1)
+                {
+                    jugadorcopia.ovejaCount = jugadorcopia.ovejaCount - 1;
+                    sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
+                }
+
                 if (sumaRecursos > 7)
                 {
-                    jugadorcopia.ladrilloCount = jugadorcopia.ladrilloCount - 1;
-                    sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
+                    if (jugadorcopia.trigoCount >= 1)
+                    {
+                        jugadorcopia.trigoCount = jugadorcopia.trigoCount - 1;
+                        sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
+                    }
+
                     if (sumaRecursos > 7)
                     {
-                        jugadorcopia.ovejaCount = jugadorcopia.ovejaCount - 1;
-                        sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
+                        if (jugadorcopia.piedraCount >= 1)
+                        {
+                            jugadorcopia.piedraCount = jugadorcopia.piedraCount - 1;
+                            sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
+                        }
+
                         if (sumaRecursos > 7)
                         {
-                            jugadorcopia.trigoCount = jugadorcopia.trigoCount - 1;
-                            sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
+                            if (jugadorcopia.ladrilloCount >= 1)
+                            {
+                                jugadorcopia.ladrilloCount = jugadorcopia.ladrilloCount - 1;
+                                sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
+                            }
+
                             if (sumaRecursos > 7)
                             {
-                                jugadorcopia.piedraCount = jugadorcopia.piedraCount - 1;
-                                sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
+                                if (jugadorcopia.maderaCount >= 1)
+                                {
+                                    jugadorcopia.maderaCount = jugadorcopia.piedraCount - 1;
+                                    sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
+                                }
                             }
                         }
                     }
                 }
             }
             sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
-
+        
         }
         PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
         if (PlayerPrefs.GetInt("jugadorId") == id)
@@ -956,6 +975,8 @@ Debug.Log("Recursos ajustados a 7 o menos");
 
     private IEnumerator DarRecursosSecuencialmente()
     {
+        TurnManager.Instance.SumandoRecursosButton.SetActive(true);
+        SumandoRecursosButtonTrueClientRpc();
         yield return StartCoroutine(BoardManager.Instance.ManejoParcelassecu(2));
         yield return StartCoroutine(BoardManager.Instance.ManejoParcelassecu(3));
         yield return StartCoroutine(BoardManager.Instance.ManejoParcelassecu(4));
@@ -966,7 +987,8 @@ Debug.Log("Recursos ajustados a 7 o menos");
         yield return StartCoroutine(BoardManager.Instance.ManejoParcelassecu(10));
         yield return StartCoroutine(BoardManager.Instance.ManejoParcelassecu(11));
         yield return StartCoroutine(BoardManager.Instance.ManejoParcelassecu(12));
-
+        TurnManager.Instance.SumandoRecursosButton.SetActive(false);
+        SumandoRecursosButtonFalseClientRpc();
         PlayerNetwork.Instance.diPiezas = true;
         PlayerNetwork.Instance.ImprimirTodosLosJugadores();
     }
@@ -1074,7 +1096,7 @@ Debug.Log("Recursos ajustados a 7 o menos");
             }
             PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
             int puntajejugador = (jugadorcopia.puntaje);
-            if (puntajejugador == 10)
+            if (puntajejugador == 4)
                 jugadorcopia.gano = true;
                 jugadorcopia.puntaje = puntajejugador;
             PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
@@ -1105,7 +1127,7 @@ Debug.Log("Recursos ajustados a 7 o menos");
         }
         PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
         int puntajejugador = (jugadorcopia.puntaje);
-        if (puntajejugador == 10)
+        if (puntajejugador == 4)
             jugadorcopia.gano = true;
         jugadorcopia.puntaje = puntajejugador;
         PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
@@ -1117,7 +1139,7 @@ Debug.Log("Recursos ajustados a 7 o menos");
         {
             if (playerData[i].gano == true)
             {
-                SceneManager.LoadScene("EscenaFinal");
+                SceneManager.LoadScene("EscenaFinalScene");
                 CargarEscenaFinalClientRpc();
             }
         }      
@@ -1128,11 +1150,10 @@ Debug.Log("Recursos ajustados a 7 o menos");
         Debug.Log("Entre a checkifwon como Cliente");
         for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
         {
-            Debug.Log("Entro al for");
             if (PlayerNetwork.Instance.playerData[i].gano == true)
             {
                 Debug.Log("El jugador ganador es: " + PlayerNetwork.Instance.playerData[i]);
-                SceneManager.LoadScene("EscenaFinal");
+                SceneManager.LoadScene("EscenaFinalScene");
                 PlayerNetwork.Instance.CargarEscenaFinalClientRpc();
             }
         }
@@ -1165,18 +1186,7 @@ Debug.Log("Recursos ajustados a 7 o menos");
     {
         try
         {
-            Debug.Log("Entre a ColocarCaminoServerRpc");
-            var objetoCamino = Resources.Load(currentcamino) as GameObject;
-            Debug.Log("2 preafb base es " + objetoCamino.name);
-            currentCamino = Instantiate(objetoCamino, posititon, rotation);
-            currentCamino.GetComponent<NetworkObject>().Spawn();
-            // Obtener el componente ComprobarObjeto del objeto golpeado
-            var nombresinClone = CollidersList.Instance.RemoverCloneDeNombre(nombreCollider);
-            Debug.Log("CPC PlayerNetwo" + nombresinClone);
-            CollidersList.Instance.ModificarTipoPorNombre(nombresinClone, "Camino"); // Aca se debe llamar una serverRpc o como ya es el servidor corriendo no?
-            CollidersList.Instance.ModificarColorPorNombre(nombresinClone, color);
-            CollidersList.Instance.ImprimirColliderPorNombre(nombresinClone);
-            tipoActual = "Ninguno";
+
             int  id = GetPlayerByColor(color);
             //Actualizar recursos:
             int indexJugador = -1;
@@ -1198,15 +1208,32 @@ Debug.Log("Recursos ajustados a 7 o menos");
                 Debug.Log("Jugador no encontrado en la lista playerData");
                 return;
             }
-            // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
-            PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
-            // Luego de colocar una base, disminuyes el contador y verificas si desactivar el botón.
-            jugadorcopia.cantidadCaminos = jugadorcopia.cantidadCaminos - 1;
-            PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
-            //jugador.cantidadCaminos--;
-            Debug.Log("Caminos restantes POST: " + PlayerNetwork.Instance.playerData[indexJugador].cantidadCaminos);
-            DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
-            UpdateCantidadPiezadClientRpc(jugador, jugador.cantidadCaminos, jugador.cantidadBases, jugador.cantidadPueblos, jugador.primerasPiezas);
+
+            if(PlayerNetwork.Instance.playerData[indexJugador].cantidadCaminos >= 1)
+            {
+                Debug.Log("Entre a ColocarCaminoServerRpc");
+                var objetoCamino = Resources.Load(currentcamino) as GameObject;
+                Debug.Log("2 preafb base es " + objetoCamino.name);
+                currentCamino = Instantiate(objetoCamino, posititon, rotation);
+                currentCamino.GetComponent<NetworkObject>().Spawn();
+                // Obtener el componente ComprobarObjeto del objeto golpeado
+                var nombresinClone = CollidersList.Instance.RemoverCloneDeNombre(nombreCollider);
+                Debug.Log("CPC PlayerNetwo" + nombresinClone);
+                CollidersList.Instance.ModificarTipoPorNombre(nombresinClone, "Camino"); // Aca se debe llamar una serverRpc o como ya es el servidor corriendo no?
+                CollidersList.Instance.ModificarColorPorNombre(nombresinClone, color);
+                CollidersList.Instance.ImprimirColliderPorNombre(nombresinClone);
+                tipoActual = "Ninguno";
+                // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
+                PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
+                // Luego de colocar una base, disminuyes el contador y verificas si desactivar el botón.
+                jugadorcopia.cantidadCaminos = jugadorcopia.cantidadCaminos - 1;
+                PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+                //jugador.cantidadCaminos--;
+                Debug.Log("Caminos restantes POST: " + PlayerNetwork.Instance.playerData[indexJugador].cantidadCaminos);
+                DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
+                UpdateCantidadPiezadClientRpc(jugador, jugador.cantidadCaminos, jugador.cantidadBases, jugador.cantidadPueblos, jugador.primerasPiezas);
+            }
+            
         }
         catch (Exception e)
         {
@@ -1220,25 +1247,7 @@ Debug.Log("Recursos ajustados a 7 o menos");
         try
         {
 
-            Debug.Log("Entre a la BaseServerRpc");
-            var objetoBase = Resources.Load(currentbase) as GameObject;
-            Debug.Log("2 preafb base es " + objetoBase.name);
-            //PlayerPrefs.SetString(colliderName, "collider");
-            currentBase = Instantiate(objetoBase, posititon, Quaternion.identity);
-            gameObjectsByIDServer.Add(currentBase.GetInstanceID(), currentBase);
-            currentBase.GetComponent<NetworkObject>().Spawn();
-            int idBase = currentBase.GetInstanceID();
-            // Obtener el componente ComprobarObjeto del objeto golpeado
-            var nombresinClone = CollidersList.Instance.RemoverCloneDeNombre(nombreCollider);
-            Debug.Log("CPC PlayerNetwo" + nombresinClone);
-            CollidersList.Instance.ModificarTipoPorNombre(nombresinClone, "Base"); // Aca se debe llamar una serverRpc o como ya es el servidor corriendo no?
-            CollidersList.Instance.ModificarColorPorNombre(nombresinClone, color);
-            CollidersList.Instance.ModificarIdPiezaPorNombre(nombresinClone, idBase);
-            CollidersList.Instance.ImprimirColliderPorNombre(nombresinClone);
-            /*Debug.Log("Va a sumar puntaje");
-            SetPuntajebyId(id, 1);
-            Debug.Log("Termino SetPuntajebyID");*/
-            tipoActual = "Ninguno";
+
             //Actualizar recursos:
             int indexJugador = -1;
             bool jugadorEncontrado = false;
@@ -1259,59 +1268,83 @@ Debug.Log("Recursos ajustados a 7 o menos");
                 Debug.Log("Jugador no encontrado en la lista playerData");
                 return;
             }
-            // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
-            PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
-            // Luego de colocar una base, disminuyes el contador y verificas si desactivar el botón.
-            jugadorcopia.cantidadBases = jugadorcopia.cantidadBases - 1;
-            jugadorcopia.puntaje = jugadorcopia.puntaje + 1;
-            PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
-            //jugador.cantidadBasess--;
-            Debug.Log("Bases restantes POST: " + PlayerNetwork.Instance.playerData[indexJugador].cantidadPueblos);
-            DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
-            UpdateCantidadPiezadClientRpc(jugador, jugador.cantidadCaminos, jugador.cantidadBases, jugador.cantidadPueblos, jugador.primerasPiezas);
-            //Actualizar puntajes jugadores
-            PlayerNetwork.DatosJugador datosJugador = default;
-            var posicion = -1;
-            
-            DatosJugador juga1 = new DatosJugador();
-            DatosJugador juga2 = new DatosJugador();
-            DatosJugador juga3 = new DatosJugador();
-            DatosJugador juga4 = new DatosJugador();
-            
-            // Itera sobre los elementos de playerData para encontrar los datos del jugador
-            for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+            if(PlayerNetwork.Instance.playerData[indexJugador].cantidadBases>=1)
             {
-                switch (i)
+                Debug.Log("Entre a la BaseServerRpc");
+                var objetoBase = Resources.Load(currentbase) as GameObject;
+                Debug.Log("2 preafb base es " + objetoBase.name);
+                //PlayerPrefs.SetString(colliderName, "collider");
+                currentBase = Instantiate(objetoBase, posititon, Quaternion.identity);
+                gameObjectsByIDServer.Add(currentBase.GetInstanceID(), currentBase);
+                currentBase.GetComponent<NetworkObject>().Spawn();
+                int idBase = currentBase.GetInstanceID();
+                // Obtener el componente ComprobarObjeto del objeto golpeado
+                var nombresinClone = CollidersList.Instance.RemoverCloneDeNombre(nombreCollider);
+                Debug.Log("CPC PlayerNetwo" + nombresinClone);
+                CollidersList.Instance.ModificarTipoPorNombre(nombresinClone, "Base"); // Aca se debe llamar una serverRpc o como ya es el servidor corriendo no?
+                CollidersList.Instance.ModificarColorPorNombre(nombresinClone, color);
+                CollidersList.Instance.ModificarIdPiezaPorNombre(nombresinClone, idBase);
+                CollidersList.Instance.ImprimirColliderPorNombre(nombresinClone);
+                /*Debug.Log("Va a sumar puntaje");
+                SetPuntajebyId(id, 1);
+                Debug.Log("Termino SetPuntajebyID");*/
+                tipoActual = "Ninguno";
+
+                // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
+                PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
+                // Luego de colocar una base, disminuyes el contador y verificas si desactivar el botón.
+                jugadorcopia.cantidadBases = jugadorcopia.cantidadBases - 1;
+                jugadorcopia.puntaje = jugadorcopia.puntaje + 1;
+                PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+                //jugador.cantidadBasess--;
+                Debug.Log("Bases restantes POST: " + PlayerNetwork.Instance.playerData[indexJugador].cantidadPueblos);
+                DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
+                UpdateCantidadPiezadClientRpc(jugador, jugador.cantidadCaminos, jugador.cantidadBases, jugador.cantidadPueblos, jugador.primerasPiezas);
+                //Actualizar puntajes jugadores
+                PlayerNetwork.DatosJugador datosJugador = default;
+                var posicion = -1;
+
+                DatosJugador juga1 = new DatosJugador();
+                DatosJugador juga2 = new DatosJugador();
+                DatosJugador juga3 = new DatosJugador();
+                DatosJugador juga4 = new DatosJugador();
+
+                // Itera sobre los elementos de playerData para encontrar los datos del jugador
+                for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
                 {
-                    case 0:
-                        juga1 = PlayerNetwork.Instance.playerData[i];
+                    switch (i)
+                    {
+                        case 0:
+                            juga1 = PlayerNetwork.Instance.playerData[i];
+                            break;
+                        case 1:
+                            juga2 = PlayerNetwork.Instance.playerData[i];
+                            break;
+                        case 2:
+                            juga3 = PlayerNetwork.Instance.playerData[i];
+                            break;
+                        case 3:
+                            juga4 = PlayerNetwork.Instance.playerData[i];
+                            break;
+                    }
+                    if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
+                    {
+                        datosJugador = PlayerNetwork.Instance.playerData[i];
+                        posicion = i;
                         break;
-                    case 1:
-                         juga2 = PlayerNetwork.Instance.playerData[i];
-                        break;
-                    case 2:
-                         juga3 = PlayerNetwork.Instance.playerData[i];
-                        break;
-                    case 3:
-                         juga4 = PlayerNetwork.Instance.playerData[i];
-                        break;
+                    }
                 }
-                if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
-                {
-                    datosJugador = PlayerNetwork.Instance.playerData[i];
-                    posicion = i;
-                    break;
-                }
+                BoardManager.Instance.Puntaje1.text = juga1.puntaje.ToString();
+                BoardManager.Instance.Nombre1.text = juga1.nomJugador.ToString();
+                BoardManager.Instance.Puntaje2.text = juga2.puntaje.ToString();
+                BoardManager.Instance.Nombre2.text = juga2.nomJugador.ToString();
+                BoardManager.Instance.Puntaje3.text = juga3.puntaje.ToString();
+                BoardManager.Instance.Nombre3.text = juga3.nomJugador.ToString();
+                BoardManager.Instance.Puntaje4.text = juga4.puntaje.ToString();
+                BoardManager.Instance.Nombre4.text = juga4.nomJugador.ToString();
+                UpdatePuntajeTextClientRpc(juga1, juga2, juga3, juga4);
             }
-            BoardManager.Instance.Puntaje1.text = juga1.puntaje.ToString();
-            BoardManager.Instance.Nombre1.text = juga1.nomJugador.ToString();
-            BoardManager.Instance.Puntaje2.text = juga2.puntaje.ToString();
-            BoardManager.Instance.Nombre2.text = juga2.nomJugador.ToString();
-            BoardManager.Instance.Puntaje3.text = juga3.puntaje.ToString();
-            BoardManager.Instance.Nombre3.text = juga3.nomJugador.ToString();
-            BoardManager.Instance.Puntaje4.text = juga4.puntaje.ToString();
-            BoardManager.Instance.Nombre4.text = juga4.nomJugador.ToString();
-            UpdatePuntajeTextClientRpc(juga1, juga2, juga3, juga4);           
+                
         }
         catch (Exception e)
         {
@@ -1324,32 +1357,7 @@ Debug.Log("Recursos ajustados a 7 o menos");
     {
         try
         {
-            Debug.Log("Entre a la PuebloServerRpc");
-            var objetoPueblo = Resources.Load(currentpueblo) as GameObject;
-            Debug.Log("2 preafb pueblo es " + objetoPueblo.name);
-            //PlayerPrefs.SetString(colliderName, "collider");
-            currentPueblo = Instantiate(objetoPueblo, posititon, Quaternion.identity);
-            currentPueblo.GetComponent<NetworkObject>().Spawn();
-            var nombresinClone = CollidersList.Instance.RemoverCloneDeNombre(nombreCollider);
-            Debug.Log("CPC PlayerNetwo" + nombresinClone);
-            int idbase = CollidersList.Instance.GetIdPiezaPorNombre(nombresinClone);
-            var colorCollider = CollidersList.Instance.GetColorPorNombre(nombresinClone);
-            Debug.Log("color es : " + color + " y colorcollider es:" + colorCollider);
-            if (gameObjectsByIDServer.ContainsKey(idbase) && color == colorCollider)
-            {
-                GameObject baseToDespawn = gameObjectsByIDServer[idbase];
-                baseToDespawn.GetComponent<NetworkObject>().Despawn(); // Despawn using your networking library
-                Destroy(baseToDespawn); // Destroy the object if needed
-                gameObjectsByIDServer.Remove(idbase);
-            }
-            CollidersList.Instance.ModificarTipoPorNombre(nombresinClone, "Pueblo"); // Aca se debe llamar una serverRpc o como ya es el servidor corriendo no?
-            CollidersList.Instance.ModificarColorPorNombre(nombresinClone, color);
-            CollidersList.Instance.ImprimirColliderPorNombre(nombresinClone);
-            /*Debug.Log("Va a sumar puntaje");
-            SetPuntajebyId(id, 2);
-            Debug.Log("Termino SetPuntajebyID");*/
-            tipoActual = "Ninguno";
-            //Actualizar recursos:
+           
             int indexJugador = -1;
             bool jugadorEncontrado = false;
 
@@ -1369,59 +1377,95 @@ Debug.Log("Recursos ajustados a 7 o menos");
                 Debug.Log("Jugador no encontrado en la lista playerData");
                 return;
             }
-            // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
-            PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
-            // Luego de colocar una base, disminuyes el contador y verificas si desactivar el botón.
-            jugadorcopia.cantidadPueblos = jugadorcopia.cantidadPueblos - 1;
-            jugadorcopia.puntaje = jugadorcopia.puntaje + 1;
-            PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
-            //jugador.cantidadPueblos--;
-            Debug.Log("Pueblos restantes POST: " + PlayerNetwork.Instance.playerData[indexJugador].cantidadPueblos);          
-            DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
-            UpdateCantidadPiezadClientRpc(jugador, jugador.cantidadCaminos, jugador.cantidadBases, jugador.cantidadPueblos, jugador.primerasPiezas);
-            //Actualizar puntajes jugadores
-            PlayerNetwork.DatosJugador datosJugador = default;
-            var posicion = -1;
 
-            DatosJugador juga1 = new DatosJugador();
-            DatosJugador juga2 = new DatosJugador();
-            DatosJugador juga3 = new DatosJugador();
-            DatosJugador juga4 = new DatosJugador();
-
-            // Itera sobre los elementos de playerData para encontrar los datos del jugador
-            for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
+            if (PlayerNetwork.Instance.playerData[indexJugador].cantidadPueblos >= 1)
             {
-                switch (i)
+                Debug.Log("Entre a la PuebloServerRpc");
+                var objetoPueblo = Resources.Load(currentpueblo) as GameObject;
+                Debug.Log("2 preafb pueblo es " + objetoPueblo.name);
+                //PlayerPrefs.SetString(colliderName, "collider");
+                currentPueblo = Instantiate(objetoPueblo, posititon, Quaternion.identity);
+                currentPueblo.GetComponent<NetworkObject>().Spawn();
+                var nombresinClone = CollidersList.Instance.RemoverCloneDeNombre(nombreCollider);
+                Debug.Log("CPC PlayerNetwo" + nombresinClone);
+                int idbase = CollidersList.Instance.GetIdPiezaPorNombre(nombresinClone);
+                var colorCollider = CollidersList.Instance.GetColorPorNombre(nombresinClone);
+                Debug.Log("color es : " + color + " y colorcollider es:" + colorCollider);
+                if (gameObjectsByIDServer.ContainsKey(idbase) && color == colorCollider)
                 {
-                    case 0:
-                        juga1 = PlayerNetwork.Instance.playerData[i];
-                        break;
-                    case 1:
-                        juga2 = PlayerNetwork.Instance.playerData[i];
-                        break;
-                    case 2:
-                        juga3 = PlayerNetwork.Instance.playerData[i];
-                        break;
-                    case 3:
-                        juga4 = PlayerNetwork.Instance.playerData[i];
-                        break;
+                    GameObject baseToDespawn = gameObjectsByIDServer[idbase];
+                    baseToDespawn.GetComponent<NetworkObject>().Despawn(); // Despawn using your networking library
+                    Destroy(baseToDespawn); // Destroy the object if needed
+                    gameObjectsByIDServer.Remove(idbase);
                 }
-                if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
+                CollidersList.Instance.ModificarTipoPorNombre(nombresinClone, "Pueblo"); // Aca se debe llamar una serverRpc o como ya es el servidor corriendo no?
+                CollidersList.Instance.ModificarColorPorNombre(nombresinClone, color);
+                CollidersList.Instance.ImprimirColliderPorNombre(nombresinClone);
+                /*Debug.Log("Va a sumar puntaje");
+                SetPuntajebyId(id, 2);
+                Debug.Log("Termino SetPuntajebyID");*/
+                tipoActual = "Ninguno";
+                //Actualizar recursos:
+
+
+
+                // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
+                PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
+                // Luego de colocar una base, disminuyes el contador y verificas si desactivar el botón.
+                jugadorcopia.cantidadPueblos = jugadorcopia.cantidadPueblos - 1;
+                jugadorcopia.puntaje = jugadorcopia.puntaje + 1;
+                PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
+                //jugador.cantidadPueblos--;
+                Debug.Log("Pueblos restantes POST: " + PlayerNetwork.Instance.playerData[indexJugador].cantidadPueblos);
+                DatosJugador jugador = PlayerNetwork.Instance.GetPlayerData(id);
+                UpdateCantidadPiezadClientRpc(jugador, jugador.cantidadCaminos, jugador.cantidadBases, jugador.cantidadPueblos, jugador.primerasPiezas);
+                //Actualizar puntajes jugadores
+                PlayerNetwork.DatosJugador datosJugador = default;
+                var posicion = -1;
+
+                DatosJugador juga1 = new DatosJugador();
+                DatosJugador juga2 = new DatosJugador();
+                DatosJugador juga3 = new DatosJugador();
+                DatosJugador juga4 = new DatosJugador();
+
+                // Itera sobre los elementos de playerData para encontrar los datos del jugador
+                for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
                 {
-                    datosJugador = PlayerNetwork.Instance.playerData[i];
-                    posicion = i;
-                    break;
+                    switch (i)
+                    {
+                        case 0:
+                            juga1 = PlayerNetwork.Instance.playerData[i];
+                            break;
+                        case 1:
+                            juga2 = PlayerNetwork.Instance.playerData[i];
+                            break;
+                        case 2:
+                            juga3 = PlayerNetwork.Instance.playerData[i];
+                            break;
+                        case 3:
+                            juga4 = PlayerNetwork.Instance.playerData[i];
+                            break;
+                    }
+                    if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
+                    {
+                        datosJugador = PlayerNetwork.Instance.playerData[i];
+                        posicion = i;
+                        break;
+                    }
                 }
+                BoardManager.Instance.Puntaje1.text = juga1.puntaje.ToString();
+                BoardManager.Instance.Nombre1.text = juga1.nomJugador.ToString();
+                BoardManager.Instance.Puntaje2.text = juga2.puntaje.ToString();
+                BoardManager.Instance.Nombre2.text = juga2.nomJugador.ToString();
+                BoardManager.Instance.Puntaje3.text = juga3.puntaje.ToString();
+                BoardManager.Instance.Nombre3.text = juga3.nomJugador.ToString();
+                BoardManager.Instance.Puntaje4.text = juga4.puntaje.ToString();
+                BoardManager.Instance.Nombre4.text = juga4.nomJugador.ToString();
+                UpdatePuntajeTextClientRpc(juga1, juga2, juga3, juga4);
             }
-            BoardManager.Instance.Puntaje1.text = juga1.puntaje.ToString();
-            BoardManager.Instance.Nombre1.text = juga1.nomJugador.ToString();
-            BoardManager.Instance.Puntaje2.text = juga2.puntaje.ToString();
-            BoardManager.Instance.Nombre2.text = juga2.nomJugador.ToString();
-            BoardManager.Instance.Puntaje3.text = juga3.puntaje.ToString();
-            BoardManager.Instance.Nombre3.text = juga3.nomJugador.ToString();
-            BoardManager.Instance.Puntaje4.text = juga4.puntaje.ToString();
-            BoardManager.Instance.Nombre4.text = juga4.nomJugador.ToString();
-            UpdatePuntajeTextClientRpc(juga1, juga2, juga3, juga4);       
+
+
+
         }
         catch (Exception e)
         {
@@ -1695,6 +1739,31 @@ Debug.Log("Recursos ajustados a 7 o menos");
     {
         PlayerNetwork.Instance.todosListos = true;
     }
+    [ClientRpc]
+    public void ModificarHayCaminoYColorPorNombreClientRpc(int i, FixedString64Bytes color)
+    {
+        CollidersListCaminos.Instance.camino1 = "iniciado";
+        CollidersListCaminos.Instance.camino2 = "iniciado";
+        CollidersListCaminos.Instance.camino3 = "iniciado";
+        CollidersListCaminos.Instance.camino1si = false;
+        CollidersListCaminos.Instance.camino2si = false;
+        CollidersListCaminos.Instance.camino3si = false;
+
+
+    }
+    [ClientRpc]
+    public void SumandoRecursosButtonFalseClientRpc()
+    {
+        //Debug.Log("Entre a UpdateCantidadPiezadClientRpc");
+        TurnManager.Instance.SumandoRecursosButton.SetActive(false);
+    }
+    [ClientRpc]
+    public void SumandoRecursosButtonTrueClientRpc()
+    {
+        //Debug.Log("Entre a UpdateCantidadPiezadClientRpc");
+        TurnManager.Instance.SumandoRecursosButton.SetActive(true);
+    }
+
 
     [ServerRpc(RequireOwnership = false)]
     public void TirarDadosServerRpc()

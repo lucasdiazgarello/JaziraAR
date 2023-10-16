@@ -143,7 +143,7 @@ public class BoardManager : NetworkBehaviour
                 Debug.Log("Busque parcela 10");
                 parcela = GameObject.Find("Parcela 10 Oveja");
                 if (parcela == null) Debug.Log("parcela vacia");
-                parcela2 = GameObject.Find("Parcela 10 Oveja");
+                parcela2 = GameObject.Find("Parcela 10 Oveja 2");
                 recurso1 = "Oveja";
                 recurso2 = "Oveja";
                 break;
@@ -527,7 +527,7 @@ public class BoardManager : NetworkBehaviour
                 Debug.Log("Busque parcela 10");
                 parcela = GameObject.Find("Parcela 10 Oveja");
                 if (parcela == null) Debug.Log("parcela vacia");
-                parcela2 = GameObject.Find("Parcela 10 Oveja");
+                parcela2 = GameObject.Find("Parcela 10 Oveja 2");
                 recurso1 = "Oveja";
                 recurso2 = "Oveja";
                 break;

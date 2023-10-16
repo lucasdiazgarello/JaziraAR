@@ -332,7 +332,7 @@ public class PlacePiece : NetworkBehaviour
             var nombrecollider = hit.collider.gameObject.name;
             var nombreSinClone = CollidersList.Instance.RemoverCloneDeNombre(nombrecollider);
             Debug.Log("El nombre de la casa de la que buscare los caminos es:  " + nombreSinClone);
-            if (NetworkManager.Singleton.IsServer && CollidersListCaminos.Instance.VerificarHayCaminoPorNombre(nombreSinClone,color))
+            if (NetworkManager.Singleton.IsServer && CollidersListCaminos.Instance.VerificarHayCaminoPorNombre(nombreSinClone, color))
             {
 
                 EjecutarColocarBase(hit, color, currPrefBase);
@@ -392,19 +392,24 @@ public class PlacePiece : NetworkBehaviour
             }
             else // si es un cliente
             {
+                CollidersListCaminos.Instance.camino1si = false;
+                CollidersListCaminos.Instance.camino2si = false;
+                CollidersListCaminos.Instance.camino3si = false;
+                CollidersList.Instance.hayCaminoGlobal = false;
+                CollidersListCaminos.Instance.canttrues = 0;
                 string colliderName = hit.collider.gameObject.name;
                 Debug.Log("colliderName: " + colliderName);
                 var position = hit.collider.gameObject.transform.position;
-                /*if(CollidersList.Instance.VerificarHayCaminoPorNombreServerRpc(nombreSinClone, color))
-                {
-                    PlayerNetwork.Instance.ColocarBaseServerRpc(id, color, currPrefBase, colliderName, position);
-                }*/
+                //CollidersList.Instance.VerificarHayCaminoPorNombreServerRpc(nombreSinClone, color, id, currPrefBase, colliderName, position);
+                PlayerNetwork.Instance.ColocarBaseServerRpc(id, color, currPrefBase, colliderName, position);
+
 
             }
             /*Inicializo las variables que se quedan fijadas entre intentos de colocacion*/
             CollidersListCaminos.Instance.camino1si = false;
             CollidersListCaminos.Instance.camino2si = false;
             CollidersListCaminos.Instance.camino3si = false;
+            CollidersList.Instance.hayCaminoGlobal = false;
             CollidersListCaminos.Instance.canttrues = 0;
             if (PlayerNetwork.Instance.playerData[indexJugador].cantidadBases <= 0)
                 buttonBase.interactable = false;

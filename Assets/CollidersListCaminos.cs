@@ -205,6 +205,8 @@ public class CollidersListCaminos : NetworkBehaviour
         CollidersListCaminos.Instance.camino1si = false;
         CollidersListCaminos.Instance.camino2si = false;
         CollidersListCaminos.Instance.camino3si = false;
+        
+
         for (int i = 0; i < CollidersListCaminos.Instance.listaCollidersCaminos.Count; i++)
         {
             if (CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreColliderCamino.Equals(nombre))
@@ -215,6 +217,7 @@ public class CollidersListCaminos : NetworkBehaviour
                 colliderModificado.hayCamino = true; // Cambia el tipo
                 colliderModificado.color = color;
                 CollidersListCaminos.Instance.listaCollidersCaminos[i] = colliderModificado; // Reemplaza el struct en la lista
+                PlayerNetwork.Instance.ModificarHayCaminoYColorPorNombreClientRpc(i, color);
                 Debug.Log("AHORA HAY CAMINO ES" + CollidersListCaminos.Instance.listaCollidersCaminos[i].hayCamino);
                 return; // Omitir esto si es posible que haya más de una entrada con el mismo nombre
             }
@@ -272,7 +275,15 @@ public class CollidersListCaminos : NetworkBehaviour
             }
 
         }
-        return CollidersListCaminos.Instance.VerificarHayOtroCaminoPorNombre(CollidersListCaminos.Instance.camino1, CollidersListCaminos.Instance.camino2, CollidersListCaminos.Instance.camino3, color, CollidersListCaminos.Instance.camino1si, CollidersListCaminos.Instance.camino2si, CollidersListCaminos.Instance.camino3si);
+        if (PlayerNetwork.Instance.todosListos)
+        {
+            return CollidersListCaminos.Instance.VerificarHayOtroCaminoPorNombre(CollidersListCaminos.Instance.camino1, CollidersListCaminos.Instance.camino2, CollidersListCaminos.Instance.camino3, color, CollidersListCaminos.Instance.camino1si, CollidersListCaminos.Instance.camino2si, CollidersListCaminos.Instance.camino3si);
+
+        }
+        else
+        {
+            return true;
+        }
     }
 
     public bool VerificarHayOtroCaminoPorNombre(FixedString64Bytes nombreCamino1, FixedString64Bytes nombreCamino2, FixedString64Bytes nombreCamino3, FixedString64Bytes color,bool haycamino1,bool haycamino2,bool haycamino3)
