@@ -278,6 +278,61 @@ public class CollidersList : NetworkBehaviour
             }
         }
     }
+    [ServerRpc(RequireOwnership = false)]
+    public void VerificarHayCaminoPorNombreServerRpc(FixedString64Bytes nombre, FixedString64Bytes color)
+    {
+
+        for (int i = 0; i < CollidersList.Instance.listaColliders.Count; i++)
+        {
+            if (CollidersList.Instance.listaColliders[i].nombreCollider.Equals(nombre))
+            {
+                Debug.Log("Encontre el collider" + nombre + " en la lista");
+                // Encontrado! Cambiemos el tipo
+
+                CollidersListCaminos.Instance.camino1 = CollidersList.Instance.listaColliders[i].nombreCamino1;
+                CollidersListCaminos.Instance.camino2 = CollidersList.Instance.listaColliders[i].nombreCamino2;
+                CollidersListCaminos.Instance.camino3 = CollidersList.Instance.listaColliders[i].nombreCamino3;
+            }
+        }
+        //Debug.Log("los caminos son: " + camino1 + "/" + camino2 + "/" + camino3);
+        for (int j = 0; j < CollidersListCaminos.Instance.listaCollidersCaminos.Count; j++)
+        {
+            if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino == CollidersListCaminos.Instance.camino1)
+            {
+                Debug.Log("Encontre camino1");
+                if (CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino)
+                {
+                    Debug.Log("hay camino en camino1");
+                    CollidersListCaminos.Instance.camino1si = true;
+                }
+
+            }
+
+            if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino == CollidersListCaminos.Instance.camino2)
+            {
+                Debug.Log("Encontre camino2");
+                if (CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino)
+                {
+                    Debug.Log("hay camino en camino2");
+                    CollidersListCaminos.Instance.camino2si = true;
+                }
+
+            }
+
+            if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino == CollidersListCaminos.Instance.camino3)
+            {
+                Debug.Log("Encontre camino3");
+                if (CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino)
+                {
+                    Debug.Log("hay camino en camino3");
+                    CollidersListCaminos.Instance.camino3si = true;
+                }
+
+            }
+
+        }
+        //return CollidersListCaminos.Instance.VerificarHayOtroCaminoPorNombre(CollidersListCaminos.Instance.camino1, CollidersListCaminos.Instance.camino2, CollidersListCaminos.Instance.camino3, color, CollidersListCaminos.Instance.camino1si, CollidersListCaminos.Instance.camino2si, CollidersListCaminos.Instance.camino3si);
+    }
     public FixedString64Bytes GetTipoPorNombre(FixedString64Bytes nombre)
     {
         //ImprimirListaColliders();

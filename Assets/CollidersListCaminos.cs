@@ -9,6 +9,26 @@ public class CollidersListCaminos : NetworkBehaviour
     public NetworkList<CollidersListCaminos.Colliders> listaCollidersCaminos;
     public static CollidersListCaminos Instance { get; private set; }
     public NetworkVariable<Colliders> listaCollsCaminos;
+    public FixedString64Bytes camino1 = "";
+    public FixedString64Bytes camino2 = "";
+    public FixedString64Bytes camino3 = "";
+    public FixedString64Bytes camino11 = "";
+    public FixedString64Bytes camino21 = "";
+    public FixedString64Bytes camino31 = "";
+    public FixedString64Bytes camino41 = "";
+    public FixedString64Bytes camino12 = "";
+    public FixedString64Bytes camino22 = "";
+    public FixedString64Bytes camino32 = "";
+    public FixedString64Bytes camino42 = "";
+    public FixedString64Bytes camino13 = "";
+    public FixedString64Bytes camino23 = "";
+    public FixedString64Bytes camino33 = "";
+    public FixedString64Bytes camino43 = "";
+
+    public bool camino1si;
+    public bool camino2si;
+    public bool camino3si;
+    public int canttrues;
     public struct Colliders : INetworkSerializable, IEquatable<Colliders>
     {
         public FixedString64Bytes nombreColliderCamino;
@@ -72,6 +92,7 @@ public class CollidersListCaminos : NetworkBehaviour
             Debug.LogWarning("Multiple instances of CollidersList detected. Deleting one instance. GameObject: " + gameObject.name);
             Destroy(gameObject);
         }
+
     }
     public void AgregarColliderCaminos(FixedString64Bytes nombre, bool hayCamino, FixedString64Bytes color, FixedString64Bytes nombreCamino1, FixedString64Bytes nombreCamino2, FixedString64Bytes nombreCamino3, FixedString64Bytes nombreCamino4)
     {
@@ -178,6 +199,12 @@ public class CollidersListCaminos : NetworkBehaviour
 
     public void ModificarHayCaminoYColorPorNombre(FixedString64Bytes nombre, FixedString64Bytes color)
     {
+        CollidersListCaminos.Instance.camino1 = "iniciado";
+        CollidersListCaminos.Instance.camino2 = "iniciado";
+        CollidersListCaminos.Instance.camino3 = "iniciado";
+        CollidersListCaminos.Instance.camino1si = false;
+        CollidersListCaminos.Instance.camino2si = false;
+        CollidersListCaminos.Instance.camino3si = false;
         for (int i = 0; i < CollidersListCaminos.Instance.listaCollidersCaminos.Count; i++)
         {
             if (CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreColliderCamino.Equals(nombre))
@@ -195,10 +222,7 @@ public class CollidersListCaminos : NetworkBehaviour
     }
     public bool VerificarHayCaminoPorNombre(FixedString64Bytes nombre, FixedString64Bytes color)
     {
-        FixedString64Bytes camino1 = "";
-        FixedString64Bytes camino2 = "";
-        FixedString64Bytes camino3 = "";
-        var si = false;
+
         for (int i = 0; i < CollidersList.Instance.listaColliders.Count; i++)
         {
             if (CollidersList.Instance.listaColliders[i].nombreCollider.Equals(nombre))
@@ -206,197 +230,249 @@ public class CollidersListCaminos : NetworkBehaviour
                 Debug.Log("Encontre el collider" + nombre + " en la lista");
                 // Encontrado! Cambiemos el tipo
 
-                 camino1 = CollidersList.Instance.listaColliders[i].nombreCamino1;
-                 camino2 = CollidersList.Instance.listaColliders[i].nombreCamino2;
-                 camino3 = CollidersList.Instance.listaColliders[i].nombreCamino3;
-
-                Debug.Log("los caminos son: " + camino1 + "/" + camino2 + "/" + camino3);
-                for (int j = 0; j < CollidersListCaminos.Instance.listaCollidersCaminos.Count; j++)
-                {
-                    if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino == camino1 && (CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino))
-                    {
-                        Debug.Log("Encontre camino1");
-                        for (int k = 0; k < CollidersListCaminos.Instance.listaCollidersCaminos.Count; k++)
-                        {
-                            if (CollidersListCaminos.Instance.listaCollidersCaminos[k].nombreColliderCamino == camino2 && !(CollidersListCaminos.Instance.listaCollidersCaminos[k].hayCamino))
-                            {
-                                Debug.Log("Encontre camino2");
-                                for (int l = 0; l < CollidersListCaminos.Instance.listaCollidersCaminos.Count; l++)
-                                {
-                                    if (CollidersListCaminos.Instance.listaCollidersCaminos[l].nombreColliderCamino == camino3 && (CollidersListCaminos.Instance.listaCollidersCaminos[l].hayCamino))
-                                    {
-                                        Debug.Log("Encontre camino3");
-                                        if (VerificarHayOtroCaminoPorNombre(camino1, color, camino2, camino3))
-                                        {
-                                            si = true;
-                                        }
-                                    }
-                                }                                                                 
-                            }
-                        }
-                    }
-                    if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino == camino2 && (CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino))
-                    {
-                        Debug.Log("Encontre camino1");
-                        for (int k = 0; k < CollidersListCaminos.Instance.listaCollidersCaminos.Count; k++)
-                        {
-                            if (CollidersListCaminos.Instance.listaCollidersCaminos[k].nombreColliderCamino == camino1 && !(CollidersListCaminos.Instance.listaCollidersCaminos[k].hayCamino))
-                            {
-                                Debug.Log("Encontre camino2");
-                                for (int l = 0; l < CollidersListCaminos.Instance.listaCollidersCaminos.Count; l++)
-                                {
-                                    if (CollidersListCaminos.Instance.listaCollidersCaminos[l].nombreColliderCamino == camino3 && !(CollidersListCaminos.Instance.listaCollidersCaminos[l].hayCamino))
-                                    {
-                                        Debug.Log("Encontre camino3");
-                                        if (VerificarHayOtroCaminoPorNombre(camino2, color, camino1, camino3))
-                                        {
-                                            si = true;
-                                        }                                      
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino == camino3 && (CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino))
-                    {
-                        Debug.Log("Encontre camino1");
-                        for (int k = 0; k < CollidersListCaminos.Instance.listaCollidersCaminos.Count; k++)
-                        {
-                            if (CollidersListCaminos.Instance.listaCollidersCaminos[k].nombreColliderCamino == camino1 && !(CollidersListCaminos.Instance.listaCollidersCaminos[k].hayCamino))
-                            {
-                                Debug.Log("Encontre camino2");
-                                for (int l = 0; l < CollidersListCaminos.Instance.listaCollidersCaminos.Count; l++)
-                                {
-                                    if (CollidersListCaminos.Instance.listaCollidersCaminos[l].nombreColliderCamino == camino2 && !(CollidersListCaminos.Instance.listaCollidersCaminos[l].hayCamino))
-                                    {
-                                        Debug.Log("Encontre camino3");
-                                        if (VerificarHayOtroCaminoPorNombre(camino3, color, camino1, camino2))
-                                        {
-                                            si = true;
-                                        }                                          
-                                    }
-                                }                              
-                            }
-                        }
-                    }
-                }
+                CollidersListCaminos.Instance.camino1 = CollidersList.Instance.listaColliders[i].nombreCamino1;
+                CollidersListCaminos.Instance.camino2 = CollidersList.Instance.listaColliders[i].nombreCamino2;
+                CollidersListCaminos.Instance.camino3 = CollidersList.Instance.listaColliders[i].nombreCamino3;
             }
-            
         }
-        return si;
+        Debug.Log("los caminos son: " + camino1 + "/" + camino2 + "/" + camino3);
+        for (int j = 0; j < CollidersListCaminos.Instance.listaCollidersCaminos.Count; j++)
+        {
+            if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino == CollidersListCaminos.Instance.camino1)
+            {
+                Debug.Log("Encontre camino1");
+                if (CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino)
+                {
+                    Debug.Log("hay camino en camino1");
+                    CollidersListCaminos.Instance.camino1si = true;
+                }
+
+            }
+
+            if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino == CollidersListCaminos.Instance.camino2)
+            {
+                Debug.Log("Encontre camino2");
+                if (CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino)
+                {
+                    Debug.Log("hay camino en camino2");
+                    CollidersListCaminos.Instance.camino2si = true;
+                }
+
+            }
+
+            if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino == CollidersListCaminos.Instance.camino3)
+            {
+                Debug.Log("Encontre camino3");
+                if (CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino)
+                {
+                    Debug.Log("hay camino en camino3");
+                    CollidersListCaminos.Instance.camino3si = true;
+                }
+
+            }
+
+        }
+        return CollidersListCaminos.Instance.VerificarHayOtroCaminoPorNombre(CollidersListCaminos.Instance.camino1, CollidersListCaminos.Instance.camino2, CollidersListCaminos.Instance.camino3, color, CollidersListCaminos.Instance.camino1si, CollidersListCaminos.Instance.camino2si, CollidersListCaminos.Instance.camino3si);
     }
 
-    public bool VerificarHayOtroCaminoPorNombre(FixedString64Bytes nombreCamino, FixedString64Bytes color, FixedString64Bytes nocamino2, FixedString64Bytes nocamino3)
+    public bool VerificarHayOtroCaminoPorNombre(FixedString64Bytes nombreCamino1, FixedString64Bytes nombreCamino2, FixedString64Bytes nombreCamino3, FixedString64Bytes color,bool haycamino1,bool haycamino2,bool haycamino3)
     {
         bool si = false;
+        CollidersListCaminos.Instance.canttrues = 0;
         Debug.Log("Entre a VerificarHayOtroCaminoPorNombre");
-        FixedString64Bytes camino1 = "";
-        FixedString64Bytes camino2 = "";
-        FixedString64Bytes camino3 = "";
-        FixedString64Bytes camino4 = "";
+
 
         for (int i = 0; i < CollidersListCaminos.Instance.listaCollidersCaminos.Count; i++)
         {
 
-            if (CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreCamino1.Equals(nombreCamino))
+            if (CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreColliderCamino.Equals(nombreCamino1) && CollidersListCaminos.Instance.listaCollidersCaminos[i].color == color && haycamino1)
             {
-                Debug.Log("Encontre el camino "+ nombreCamino);
-                 camino1 = CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreCamino1;
-                 camino2 = CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreCamino2;
-                 camino3 = CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreCamino3;
-                 camino4 = CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreCamino4;
+                Debug.Log("Encontre el camino " + nombreCamino1);
+                CollidersListCaminos.Instance.camino11 = CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreCamino1;
+                CollidersListCaminos.Instance.camino21 = CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreCamino2;
+                CollidersListCaminos.Instance.camino31 = CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreCamino3;
+                CollidersListCaminos.Instance.camino41 = CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreCamino4;
 
                 for (int j = 0; j < CollidersListCaminos.Instance.listaCollidersCaminos.Count; j++)
                 {
-                    if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino.Equals(camino1) && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreCamino1 != nocamino2 && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != nocamino3)
+                    if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino.Equals(CollidersListCaminos.Instance.camino11) && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != nombreCamino2 && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != nombreCamino3 && CollidersListCaminos.Instance.listaCollidersCaminos[i].color == color)
                     {
-                        Debug.Log("Encontre el camino " + camino1);
-                        Debug.Log("Tiene Camino? :"+CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino);
-                        if (CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino)
-                        {
-                            Debug.Log("Paso 11 ");
-                            if((CollidersListCaminos.Instance.listaCollidersCaminos[j].color == color))
-                            {
-                                Debug.Log("Paso 12 ");
-                                //if ((CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != camino1))
-                                //{
-                                    Debug.Log("El segundo camino tambien tiene camino");
-                                    si = true;
-                                //}
-                            }
-                        }
-                    }
-                }
-                for (int j = 0; j < CollidersListCaminos.Instance.listaCollidersCaminos.Count; j++)
-                {
-                    if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino.Equals(camino2) && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreCamino1 != nocamino2 && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != nocamino3)
-                    {
-                        Debug.Log("Encontre el camino " + camino2);
-                        Debug.Log("Tiene Camino? :" + CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino);
-                        if (CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino )
-                        {
-                            Debug.Log("Paso 21 ");
-                            if ((CollidersListCaminos.Instance.listaCollidersCaminos[j].color == color))
-                            {
-                                Debug.Log("Paso 22 ");
-                                //if ((CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != camino2))
-                                //{
-                                    Debug.Log("El segundo camino tambien tiene camino");
-                                    si = true;
-                                //}
-                            }
-                        }
-
-                    }
-                }
-                for (int j = 0; j < CollidersListCaminos.Instance.listaCollidersCaminos.Count; j++)
-                {
-                    if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino.Equals(camino3) && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreCamino1 != nocamino2 && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != nocamino3)
-                    {   
-                        Debug.Log("Encontre el camino " + camino3);
-                        Debug.Log("Tiene Camino? :" + CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino);
-                        if (CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino )
-                        {
-                            Debug.Log("Paso 31 ");
-                            if ((CollidersListCaminos.Instance.listaCollidersCaminos[j].color == color))
-                            {
-                                Debug.Log("Paso 32 ");
-                                //if ((CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != camino3))
-                               // {
-                                    Debug.Log("El segundo camino tambien tiene camino");
-                                    si = true;
-                               // }
-                            }
-                        }
-
-                    }
-                }
-                for (int j = 0; j < CollidersListCaminos.Instance.listaCollidersCaminos.Count; j++)
-                {
-                    if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino.Equals(camino4) && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreCamino1 != nocamino2 && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != nocamino3)
-                    {
-                        Debug.Log("Encontre el camino " + camino4);
+                        Debug.Log("Encontre un camino valido: " + CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino);
                         Debug.Log("Tiene Camino? :" + CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino);
                         if (CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino)
                         {
-                            Debug.Log("Paso 41 ");
-                            if ((CollidersListCaminos.Instance.listaCollidersCaminos[j].color == color))
-                            {
-                                Debug.Log("Paso 42 ");
-                                //if ((CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != camino4))
-                               // {
-                                    Debug.Log("El segundo camino tambien tiene camino");
-                                    si = true;
-                               // }
-                            }
-                        }
+                            si = true;
 
+                        }
+                    }
+                    if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino.Equals(CollidersListCaminos.Instance.camino21) && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != nombreCamino2 && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != nombreCamino3 && CollidersListCaminos.Instance.listaCollidersCaminos[i].color == color)
+                    {
+                        Debug.Log("Encontre un camino valido: " + CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino);
+                        Debug.Log("Tiene Camino? :" + CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino);
+                        if (CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino)
+                        {
+                            si = true;
+
+                        }
+                    }
+                    if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino.Equals(CollidersListCaminos.Instance.camino31) && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != nombreCamino2 && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != nombreCamino3 && CollidersListCaminos.Instance.listaCollidersCaminos[i].color == color)
+                    {
+                        Debug.Log("Encontre un camino valido: " + CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino);
+                        Debug.Log("Tiene Camino? :" + CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino);
+                        if (CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino)
+                        {
+                            si = true;
+
+                        }
+                    }
+                    if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino.Equals(CollidersListCaminos.Instance.camino41) && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != nombreCamino2 && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != nombreCamino3 && CollidersListCaminos.Instance.listaCollidersCaminos[i].color == color)
+                    {
+                        Debug.Log("Encontre un camino valido: " + CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino);
+                        Debug.Log("Tiene Camino? :" + CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino);
+                        if (CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino)
+                        {
+                            si = true;
+
+                        }
                     }
                 }
-
-
             }
         }
+
+        for (int i = 0; i < CollidersListCaminos.Instance.listaCollidersCaminos.Count; i++)
+        {
+
+            if (CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreColliderCamino.Equals(nombreCamino2) && CollidersListCaminos.Instance.listaCollidersCaminos[i].color == color && haycamino2)
+            {
+                Debug.Log("Encontre el camino " + nombreCamino2);
+                CollidersListCaminos.Instance.camino12 = CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreCamino1;
+                CollidersListCaminos.Instance.camino22 = CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreCamino2;
+                CollidersListCaminos.Instance.camino32 = CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreCamino3;
+                CollidersListCaminos.Instance.camino42 = CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreCamino4;
+
+                for (int j = 0; j < CollidersListCaminos.Instance.listaCollidersCaminos.Count; j++)
+                {
+                    if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino.Equals(CollidersListCaminos.Instance.camino12) && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != nombreCamino1 && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != nombreCamino3 && CollidersListCaminos.Instance.listaCollidersCaminos[i].color == color)
+                    {
+                        Debug.Log("Encontre un camino valido: " + CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino);
+                        Debug.Log("Tiene Camino? :" + CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino);
+                        if (CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino)
+                        {
+                            si = true;
+
+                        }
+                    }
+                    if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino.Equals(CollidersListCaminos.Instance.camino22) && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != nombreCamino1 && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != nombreCamino3 && CollidersListCaminos.Instance.listaCollidersCaminos[i].color == color)
+                    {
+                        Debug.Log("Encontre un camino valido: " + CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino);
+                        Debug.Log("Tiene Camino? :" + CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino);
+                        if (CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino)
+                        {
+                            si = true;
+
+                        }
+                    }
+                    if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino.Equals(CollidersListCaminos.Instance.camino32) && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != nombreCamino1 && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != nombreCamino3 && CollidersListCaminos.Instance.listaCollidersCaminos[i].color == color)
+                    {
+                        Debug.Log("Encontre un camino valido: " + CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino);
+                        Debug.Log("Tiene Camino? :" + CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino);
+                        if (CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino)
+                        {
+                            si = true;
+
+                        }
+                    }
+                    if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino.Equals(CollidersListCaminos.Instance.camino42) && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != nombreCamino1 && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != nombreCamino3 && CollidersListCaminos.Instance.listaCollidersCaminos[i].color == color)
+                    {
+                        Debug.Log("Encontre un camino valido: " + CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino);
+                        Debug.Log("Tiene Camino? :" + CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino);
+                        if (CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino)
+                        {
+                            si = true;
+
+                        }
+                    }
+                }
+            }
+        }
+
+        for (int i = 0; i < CollidersListCaminos.Instance.listaCollidersCaminos.Count; i++)
+        {
+
+            if (CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreColliderCamino.Equals(nombreCamino3) && CollidersListCaminos.Instance.listaCollidersCaminos[i].color == color && haycamino3)
+            {
+                Debug.Log("Encontre el camino " + nombreCamino3);
+                CollidersListCaminos.Instance.camino13 = CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreCamino1;
+                CollidersListCaminos.Instance.camino23 = CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreCamino2;
+                CollidersListCaminos.Instance.camino33 = CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreCamino3;
+                CollidersListCaminos.Instance.camino43 = CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreCamino4;
+
+                for (int j = 0; j < CollidersListCaminos.Instance.listaCollidersCaminos.Count; j++)
+                {
+                    if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino.Equals(CollidersListCaminos.Instance.camino13) && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != nombreCamino2 && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != nombreCamino3 && CollidersListCaminos.Instance.listaCollidersCaminos[i].color == color)
+                    {
+                        Debug.Log("Encontre un camino valido: " + CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino);
+                        Debug.Log("Tiene Camino? :" + CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino);
+                        if (CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino)
+                        {
+                            si = true;
+
+                        }
+                    }
+                    if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino.Equals(CollidersListCaminos.Instance.camino23) && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != nombreCamino2 && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != nombreCamino3 && CollidersListCaminos.Instance.listaCollidersCaminos[i].color == color)
+                    {
+                        Debug.Log("Encontre un camino valido: " + CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino);
+                        Debug.Log("Tiene Camino? :" + CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino);
+                        if (CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino)
+                        {
+                            si = true;
+
+                        }
+                    }
+                    if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino.Equals(CollidersListCaminos.Instance.camino33) && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != nombreCamino2 && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != nombreCamino3 && CollidersListCaminos.Instance.listaCollidersCaminos[i].color == color)
+                    {
+                        Debug.Log("Encontre un camino valido: " + CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino);
+                        Debug.Log("Tiene Camino? :" + CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino);
+                        if (CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino)
+                        {
+                            si = true;
+
+                        }
+                    }
+                    if (CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino.Equals(CollidersListCaminos.Instance.camino43) && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != nombreCamino2 && CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino != nombreCamino3 && CollidersListCaminos.Instance.listaCollidersCaminos[i].color == color)
+                    {
+                        Debug.Log("Encontre un camino valido: " + CollidersListCaminos.Instance.listaCollidersCaminos[j].nombreColliderCamino);
+                        Debug.Log("Tiene Camino? :" + CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino);
+                        if (CollidersListCaminos.Instance.listaCollidersCaminos[j].hayCamino)
+                        {
+                            si = true;
+
+                        }
+                    }
+                }
+            }
+        }
+
+        Debug.Log("HAYCAMINOS: "+ haycamino1+ haycamino2+ haycamino3);
+        if (haycamino1)
+        {
+            CollidersListCaminos.Instance.canttrues = CollidersListCaminos.Instance.canttrues + 1;
+        }
+        if (haycamino2)
+        {
+            CollidersListCaminos.Instance.canttrues = CollidersListCaminos.Instance.canttrues + 1;
+        }
+        if (haycamino3)
+        {
+            CollidersListCaminos.Instance.canttrues = CollidersListCaminos.Instance.canttrues + 1;
+        }
+
+        if(CollidersListCaminos.Instance.canttrues >= 2)
+        {
+            si = false;
+            Debug.Log("hay 2 caminos al lado, no se puede poner casa");
+        }
+
         return si;
 
     }

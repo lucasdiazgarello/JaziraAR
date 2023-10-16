@@ -1219,6 +1219,7 @@ Debug.Log("Recursos ajustados a 7 o menos");
     {
         try
         {
+
             Debug.Log("Entre a la BaseServerRpc");
             var objetoBase = Resources.Load(currentbase) as GameObject;
             Debug.Log("2 preafb base es " + objetoBase.name);

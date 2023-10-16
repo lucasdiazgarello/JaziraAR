@@ -26,9 +26,9 @@ public class TestRelay : NetworkBehaviour
     //public string colorSeleccionado;
     public NetworkVariable<FixedString64Bytes> colorSeleccionado = new NetworkVariable<FixedString64Bytes>();
     public Text codigoText;
+    public Button botonJugar;
     private async void Start()
     {
-
         await UnityServices.InitializeAsync();
         AuthenticationService.Instance.SignedIn += () =>
         {
@@ -37,7 +37,7 @@ public class TestRelay : NetworkBehaviour
 
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
         SceneManager.sceneLoaded += OnSceneLoaded;
-
+        botonJugar.interactable = false;
     }
     private List<string> coloresDisponibles = new List<string>() { "Rojo", "Azul", "Violeta", "Naranja" };
     
@@ -72,6 +72,7 @@ public class TestRelay : NetworkBehaviour
             
             Debug.Log("El codigo es:" + joinCode);
             codigoText.text = joinCode;
+            botonJugar.interactable = true;
             Debug.Log("Va a iniciar el host");
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetHostRelayData(
                 allocation.RelayServer.IpV4,

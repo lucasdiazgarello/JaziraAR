@@ -395,8 +395,17 @@ public class PlacePiece : NetworkBehaviour
                 string colliderName = hit.collider.gameObject.name;
                 Debug.Log("colliderName: " + colliderName);
                 var position = hit.collider.gameObject.transform.position;
-                PlayerNetwork.Instance.ColocarBaseServerRpc(id, color, currPrefBase, colliderName, position);
+                /*if(CollidersList.Instance.VerificarHayCaminoPorNombreServerRpc(nombreSinClone, color))
+                {
+                    PlayerNetwork.Instance.ColocarBaseServerRpc(id, color, currPrefBase, colliderName, position);
+                }*/
+
             }
+            /*Inicializo las variables que se quedan fijadas entre intentos de colocacion*/
+            CollidersListCaminos.Instance.camino1si = false;
+            CollidersListCaminos.Instance.camino2si = false;
+            CollidersListCaminos.Instance.camino3si = false;
+            CollidersListCaminos.Instance.canttrues = 0;
             if (PlayerNetwork.Instance.playerData[indexJugador].cantidadBases <= 0)
                 buttonBase.interactable = false;
             // Inclusión de la funcionalidad de ConfirmarBase()
