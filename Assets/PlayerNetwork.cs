@@ -194,7 +194,7 @@ public class PlayerNetwork : NetworkBehaviour
             FixedString64Bytes nombreHost = new FixedString64Bytes(PlayerPrefs.GetString("nomJugador"));
             FixedString64Bytes colorHost = new FixedString64Bytes(PlayerPrefs.GetString("colorJugador"));
             Debug.Log("el jugador con id:" + playerId + "se llama " + nombreHost + " y es el color " + colorHost);
-            AgregarJugador(playerId, nombreHost, 0, false, true, false, 30, 30, 30, 30, 30, colorHost, 2, 2, 0);
+            AgregarJugador(playerId, nombreHost, 0, false, true, false, 0, 0, 0, 0, 0, colorHost, 2, 2, 0);
             Debug.Log("se agrego jugador host");
             ImprimirJugadorPorId(playerId);
             //ImprimirTodosLosJugadores();
@@ -210,7 +210,7 @@ public class PlayerNetwork : NetworkBehaviour
             FixedString64Bytes colorCliente = new FixedString64Bytes(PlayerPrefs.GetString("colorJugador"));
             Debug.Log("el cliente con id:" + playerId + "se llama " + nombreCliente + " y es el color " + colorCliente);
             //AgregarJugador(playerId, nombreCliente, 100, false, true, 2, 10, 10, 10, 10, 10, colorCliente); //EL CLIENTE NO DEBE AGREGARJUGADOR, DEBE MANDAR SU DATA AL HOST
-            AddPlayerServerRpc(playerId, nombreCliente, 0, false, false,false, 30, 30, 30, 30, 30, colorCliente, 2, 2, 0);
+            AddPlayerServerRpc(playerId, nombreCliente, 0, false, false,false, 0, 0, 0, 0, 0, colorCliente, 2, 2, 0);
             Debug.Log("se agrego jugador cliente");
             ImprimirJugadorPorId(playerId);
             //ImprimirTodosLosJugadores();
@@ -771,55 +771,77 @@ Debug.Log("Recursos ajustados a 7 o menos");
         }
         PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
         int sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
-        while(sumaRecursos > 7)
+        /* while(sumaRecursos > 7)
+         {
+             if(sumaRecursos > 7)
+             {
+                 if (jugadorcopia.ovejaCount >= 1)
+                 {
+                     jugadorcopia.ovejaCount = jugadorcopia.ovejaCount - 1;
+                     sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
+                 }
+
+                 if (sumaRecursos > 7)
+                 {
+                     if (jugadorcopia.trigoCount >= 1)
+                     {
+                         jugadorcopia.trigoCount = jugadorcopia.trigoCount - 1;
+                         sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
+                     }
+
+                     if (sumaRecursos > 7)
+                     {
+                         if (jugadorcopia.piedraCount >= 1)
+                         {
+                             jugadorcopia.piedraCount = jugadorcopia.piedraCount - 1;
+                             sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
+                         }
+
+                         if (sumaRecursos > 7)
+                         {
+                             if (jugadorcopia.ladrilloCount >= 1)
+                             {
+                                 jugadorcopia.ladrilloCount = jugadorcopia.ladrilloCount - 1;
+                                 sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
+                             }
+
+                             if (sumaRecursos > 7)
+                             {
+                                 if (jugadorcopia.maderaCount >= 1)
+                                 {
+                                     jugadorcopia.maderaCount = jugadorcopia.piedraCount - 1;
+                                     sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
+                                 }
+                             }
+                         }
+                     }
+                 }
+             }
+             sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
+
+         }*/
+        if (jugadorcopia.maderaCount >= 1)
         {
-            if(sumaRecursos > 7)
-            {
-                if (jugadorcopia.ovejaCount >= 1)
-                {
-                    jugadorcopia.ovejaCount = jugadorcopia.ovejaCount - 1;
-                    sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
-                }
-
-                if (sumaRecursos > 7)
-                {
-                    if (jugadorcopia.trigoCount >= 1)
-                    {
-                        jugadorcopia.trigoCount = jugadorcopia.trigoCount - 1;
-                        sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
-                    }
-
-                    if (sumaRecursos > 7)
-                    {
-                        if (jugadorcopia.piedraCount >= 1)
-                        {
-                            jugadorcopia.piedraCount = jugadorcopia.piedraCount - 1;
-                            sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
-                        }
-
-                        if (sumaRecursos > 7)
-                        {
-                            if (jugadorcopia.ladrilloCount >= 1)
-                            {
-                                jugadorcopia.ladrilloCount = jugadorcopia.ladrilloCount - 1;
-                                sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
-                            }
-
-                            if (sumaRecursos > 7)
-                            {
-                                if (jugadorcopia.maderaCount >= 1)
-                                {
-                                    jugadorcopia.maderaCount = jugadorcopia.piedraCount - 1;
-                                    sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
-        
+            jugadorcopia.maderaCount = 1;
         }
+        if (jugadorcopia.ladrilloCount >= 1)
+        {
+            jugadorcopia.ladrilloCount = 1;
+        }
+        if (jugadorcopia.ovejaCount >= 1)
+        {
+            jugadorcopia.ovejaCount = 1;
+        }
+        if (jugadorcopia.trigoCount >= 1)
+        {
+            jugadorcopia.trigoCount = 1;
+        }
+        if (jugadorcopia.piedraCount >= 1)
+        {
+            jugadorcopia.piedraCount = 1;
+
+        }
+
         PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
         if (PlayerPrefs.GetInt("jugadorId") == id)
         {
@@ -1096,7 +1118,7 @@ Debug.Log("Recursos ajustados a 7 o menos");
             }
             PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
             int puntajejugador = (jugadorcopia.puntaje);
-            if (puntajejugador == 4)
+            if (puntajejugador == 6)
                 jugadorcopia.gano = true;
                 jugadorcopia.puntaje = puntajejugador;
             PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
@@ -1127,7 +1149,7 @@ Debug.Log("Recursos ajustados a 7 o menos");
         }
         PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
         int puntajejugador = (jugadorcopia.puntaje);
-        if (puntajejugador == 4)
+        if (puntajejugador == 6)
             jugadorcopia.gano = true;
         jugadorcopia.puntaje = puntajejugador;
         PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;

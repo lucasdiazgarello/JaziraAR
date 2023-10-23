@@ -111,6 +111,7 @@ public class BuyPiece : NetworkBehaviour
                 //BoardManager.Instance.UpdateResourceTexts(id);
                 Debug.Log("Imprimir jugador por ID post ");
                 PlayerNetwork.Instance.ImprimirJugadorPorId(id);
+                BoardManager.Instance.UpdateResourceTexts(id);
                 colocarPieza.buttonCamino.interactable = true;
             }           
         }

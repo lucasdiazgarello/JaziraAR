@@ -8,6 +8,7 @@ using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using Unity.Services.Authentication;
 using Unity.Services.Core;
+using Unity.Services.Qos;
 using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
 using Unity.VisualScripting;
@@ -94,6 +95,7 @@ public class TestRelay : NetworkBehaviour
             PlayerPrefs.SetString("colorJugador",color);
             Debug.Log("ID NUEVO" + num);
             isRelayCreated = true;
+
         }
         catch (RelayServiceException e)
         {
