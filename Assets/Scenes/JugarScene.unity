@@ -3491,6 +3491,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 178532, guid: 67117722a812a2e46ab8cb8eafbf5f5e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 11414302, guid: 67117722a812a2e46ab8cb8eafbf5f5e, type: 3}
       propertyPath: m_Value
       value: 1
@@ -8377,6 +8381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e0c7dfe8375782468605fc312c53b7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hayCaminoGlobal: 0
 --- !u!114 &1832926848
 MonoBehaviour:
   m_ObjectHideFlags: 0

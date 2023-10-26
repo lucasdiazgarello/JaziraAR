@@ -551,36 +551,54 @@ public class PlacePiece : NetworkBehaviour
                         case 0:
                             juga1 = PlayerNetwork.Instance.playerData[i];
                             Debug.Log("el puntaje del jugador1 es " + juga1.puntaje);
+                            BoardManager.Instance.Puntaje1.text = juga1.puntaje.ToString();
+                            BoardManager.Instance.Nombre1.text = juga1.nomJugador.ToString();
                             break;
                         case 1:
                             juga2 = PlayerNetwork.Instance.playerData[i];
                             Debug.Log("el puntaje del jugador2 es " + juga2.puntaje);
+                            BoardManager.Instance.Puntaje2.text = juga2.puntaje.ToString();
+                            BoardManager.Instance.Nombre2.text = juga2.nomJugador.ToString();
                             break;
                         case 2:
                             juga3 = PlayerNetwork.Instance.playerData[i];
+                            if (juga3.puntaje == 0)
+                            {
+                                BoardManager.Instance.Puntaje3.text = "";
+                                BoardManager.Instance.Nombre3.text = juga3.nomJugador.ToString();
+                            }
+                            else
+                            {
+                                BoardManager.Instance.Puntaje1.text = juga3.puntaje.ToString();
+                                BoardManager.Instance.Nombre1.text = juga3.nomJugador.ToString();
+                            }
                             break;
                         case 3:
                             juga4 = PlayerNetwork.Instance.playerData[i];
+                            if (juga4.puntaje == 0)
+                            {
+                                BoardManager.Instance.Puntaje4.text = "";
+                                BoardManager.Instance.Nombre4.text = juga3.nomJugador.ToString();
+                            }
+                            else
+                            {
+                                BoardManager.Instance.Puntaje4.text = juga3.puntaje.ToString();
+                                BoardManager.Instance.Nombre4.text = juga3.nomJugador.ToString();
+                            }
+
                             break;
                     }
-                    if (PlayerNetwork.Instance.playerData[i].jugadorId == idJugador)
-                    {
-                        datosJugador = PlayerNetwork.Instance.playerData[i];
-                        posicion = i;
-                        break;
-                    }
-                }
-                //Debug.Log("el puntaje del jugador1 es " + juga1.puntaje);
-                //Debug.Log("el puntaje del jugador2 es " + juga2.puntaje);
 
-                BoardManager.Instance.Puntaje1.text = juga1.puntaje.ToString();
-                BoardManager.Instance.Nombre1.text = juga1.nomJugador.ToString();
-                BoardManager.Instance.Puntaje2.text = juga2.puntaje.ToString();
-                BoardManager.Instance.Nombre2.text = juga2.nomJugador.ToString();
-                BoardManager.Instance.Puntaje3.text = juga3.puntaje.ToString();
-                BoardManager.Instance.Nombre3.text = juga3.nomJugador.ToString();
-                BoardManager.Instance.Puntaje4.text = juga4.puntaje.ToString();
-                BoardManager.Instance.Nombre4.text = juga4.nomJugador.ToString();
+                }
+
+                if (juga3.puntaje == 0)
+                {
+                    BoardManager.Instance.Puntaje3.text = "";
+                }
+                if (juga4.puntaje == 0)
+                {
+                    BoardManager.Instance.Puntaje4.text = "";
+                }
                 PlayerNetwork.Instance.UpdatePuntajeTextClientRpc(juga1, juga2, juga3, juga4);
             }
             else // si es un cliente

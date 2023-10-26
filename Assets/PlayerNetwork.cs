@@ -820,25 +820,25 @@ Debug.Log("Recursos ajustados a 7 o menos");
              sumaRecursos = jugadorcopia.maderaCount + jugadorcopia.ladrilloCount + jugadorcopia.ovejaCount + jugadorcopia.trigoCount + jugadorcopia.piedraCount;
 
          }*/
-        if (jugadorcopia.maderaCount >= 1)
+        if (jugadorcopia.maderaCount >= 2)
         {
-            jugadorcopia.maderaCount = 1;
+            jugadorcopia.maderaCount = 2;
         }
-        if (jugadorcopia.ladrilloCount >= 1)
+        if (jugadorcopia.ladrilloCount >= 2)
         {
-            jugadorcopia.ladrilloCount = 1;
+            jugadorcopia.ladrilloCount = 2;
         }
-        if (jugadorcopia.ovejaCount >= 1)
+        if (jugadorcopia.ovejaCount >= 2)
         {
-            jugadorcopia.ovejaCount = 1;
+            jugadorcopia.ovejaCount = 2;
         }
-        if (jugadorcopia.trigoCount >= 1)
+        if (jugadorcopia.trigoCount >= 2)
         {
-            jugadorcopia.trigoCount = 1;
+            jugadorcopia.trigoCount = 2;
         }
-        if (jugadorcopia.piedraCount >= 1)
+        if (jugadorcopia.piedraCount >= 2)
         {
-            jugadorcopia.piedraCount = 1;
+            jugadorcopia.piedraCount = 2;
 
         }
 
@@ -1338,33 +1338,56 @@ Debug.Log("Recursos ajustados a 7 o menos");
                     {
                         case 0:
                             juga1 = PlayerNetwork.Instance.playerData[i];
+                            Debug.Log("el puntaje del jugador1 es " + juga1.puntaje);
+                            BoardManager.Instance.Puntaje1.text = juga1.puntaje.ToString();
+                            BoardManager.Instance.Nombre1.text = juga1.nomJugador.ToString();
                             break;
                         case 1:
                             juga2 = PlayerNetwork.Instance.playerData[i];
+                            Debug.Log("el puntaje del jugador2 es " + juga2.puntaje);
+                            BoardManager.Instance.Puntaje2.text = juga2.puntaje.ToString();
+                            BoardManager.Instance.Nombre2.text = juga2.nomJugador.ToString();
                             break;
                         case 2:
                             juga3 = PlayerNetwork.Instance.playerData[i];
+                            if (juga3.puntaje == 0)
+                            {
+                                BoardManager.Instance.Puntaje3.text = "";
+                                BoardManager.Instance.Nombre3.text = juga3.nomJugador.ToString();
+                            }
+                            else
+                            {
+                                BoardManager.Instance.Puntaje1.text = juga3.puntaje.ToString();
+                                BoardManager.Instance.Nombre1.text = juga3.nomJugador.ToString();
+                            }
                             break;
                         case 3:
                             juga4 = PlayerNetwork.Instance.playerData[i];
+                            if (juga4.puntaje == 0)
+                            {
+                                BoardManager.Instance.Puntaje4.text = "";
+                                BoardManager.Instance.Nombre4.text = juga3.nomJugador.ToString();
+                            }
+                            else
+                            {
+                                BoardManager.Instance.Puntaje4.text = juga3.puntaje.ToString();
+                                BoardManager.Instance.Nombre4.text = juga3.nomJugador.ToString();
+                            }
+
                             break;
                     }
-                    if (PlayerNetwork.Instance.playerData[i].jugadorId == id)
-                    {
-                        datosJugador = PlayerNetwork.Instance.playerData[i];
-                        posicion = i;
-                        break;
-                    }
+
                 }
-                BoardManager.Instance.Puntaje1.text = juga1.puntaje.ToString();
-                BoardManager.Instance.Nombre1.text = juga1.nomJugador.ToString();
-                BoardManager.Instance.Puntaje2.text = juga2.puntaje.ToString();
-                BoardManager.Instance.Nombre2.text = juga2.nomJugador.ToString();
-                BoardManager.Instance.Puntaje3.text = juga3.puntaje.ToString();
-                BoardManager.Instance.Nombre3.text = juga3.nomJugador.ToString();
-                BoardManager.Instance.Puntaje4.text = juga4.puntaje.ToString();
-                BoardManager.Instance.Nombre4.text = juga4.nomJugador.ToString();
-                UpdatePuntajeTextClientRpc(juga1, juga2, juga3, juga4);
+
+                if (juga3.puntaje == 0)
+                {
+                    BoardManager.Instance.Puntaje3.text = "";
+                }
+                if (juga4.puntaje == 0)
+                {
+                    BoardManager.Instance.Puntaje4.text = "";
+                }
+                PlayerNetwork.Instance.UpdatePuntajeTextClientRpc(juga1, juga2, juga3, juga4);
             }
                 
         }
@@ -1674,10 +1697,26 @@ Debug.Log("Recursos ajustados a 7 o menos");
         BoardManager.Instance.Nombre1.text = jugador1.nomJugador.ToString();
         BoardManager.Instance.Puntaje2.text = jugador2.puntaje.ToString();
         BoardManager.Instance.Nombre2.text = jugador2.nomJugador.ToString();
-        BoardManager.Instance.Puntaje3.text = jugador3.puntaje.ToString();
+
         BoardManager.Instance.Nombre3.text = jugador3.nomJugador.ToString();
-        BoardManager.Instance.Puntaje4.text = jugador4.puntaje.ToString();
+
         BoardManager.Instance.Nombre4.text = jugador4.nomJugador.ToString();
+        if (jugador3.puntaje == 0)
+        {
+            BoardManager.Instance.Puntaje3.text = "";
+        }
+        else
+        {
+            BoardManager.Instance.Puntaje3.text = jugador3.puntaje.ToString();
+        }
+        if (jugador4.puntaje == 0)
+        {
+            BoardManager.Instance.Puntaje4.text = "";
+        }
+        else
+        {
+            BoardManager.Instance.Puntaje3.text = jugador3.puntaje.ToString();
+        }
     }
 
     [ClientRpc]
