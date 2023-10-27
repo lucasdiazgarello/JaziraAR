@@ -8,10 +8,9 @@ using static PlayerNetwork;
 public class ScriptFinal : MonoBehaviour
 {
     public Text NombreGanadorText;
-    // Start is called before the first frame update
     void Start()
     {
-        //Buscar el jmjugador que tiene gano en true
+        //Buscar el jugador que tiene gano en true
         for (int i = 0; i < PlayerNetwork.Instance.playerData.Count; i++)
         {
             if (PlayerNetwork.Instance.playerData[i].gano == true)
@@ -21,7 +20,6 @@ public class ScriptFinal : MonoBehaviour
         }       
     }
 
-    // Update is called once per frame
     void Update()
     {
         

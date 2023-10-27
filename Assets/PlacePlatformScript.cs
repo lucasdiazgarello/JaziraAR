@@ -59,9 +59,7 @@ public class PlacePlatformScript : MonoBehaviour
                     // Luego, crear una nueva plataforma y guardarla como currentPlatform
                     Vector3 plataformaPosition = hits[0].pose.position;
                     currentPlatform = Instantiate(plataformaDados, plataformaPosition, Quaternion.identity);
-
-                    // Haz que el dado aparezca por encima de la plataforma
-                    Vector3 dadoOffset = new Vector3(0, dadoDistance, 0);  // Ajusta este valor según sea necesario
+                    Vector3 dadoOffset = new Vector3(0, dadoDistance, 0);  
                     Vector3 dadoPosition = currentPlatform.transform.position + dadoOffset;
 
                     // Primero, eliminar el dado actual si existe
@@ -70,7 +68,6 @@ public class PlacePlatformScript : MonoBehaviour
                         Destroy(currentDado);
                     }
 
-                    // Luego, crear un nuevo dado y guardarlo como currentDado
                     currentDado = Instantiate(dado, dadoPosition, Quaternion.identity);
                 }
             }

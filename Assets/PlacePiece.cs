@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -179,7 +180,6 @@ public class PlacePiece : NetworkBehaviour
                 }
                 // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
                 PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
-                // Aquí es donde actualizarías los recursos del jugador en tu juego.
                 jugadorcopia.primerasPiezas = true;
                 PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
             }
@@ -197,7 +197,7 @@ public class PlacePiece : NetworkBehaviour
             eventData.position = Input.GetTouch(0).position;
             List<RaycastResult> results = new List<RaycastResult>();
             EventSystem.current.RaycastAll(eventData, results);
-            if (results.Count > 0)  // Si hay algún resultado, el toque está sobre un elemento de la interfaz de usuario
+            if (results.Count > 0) 
             {
                 return;
             }          
@@ -279,7 +279,6 @@ public class PlacePiece : NetworkBehaviour
             if (NetworkManager.Singleton.IsServer)
             {
                 EjecutarColocarCamino(hit, color, currPrefCamino);
-                // Luego de colocar un camino, disminuyes el contador y verificas si desactivar el botón.
                 jugadorcopia.cantidadCaminos = jugadorcopia.cantidadCaminos - 1;
                 PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
                 //jugador.cantidadCaminos--;
@@ -373,7 +372,6 @@ public class PlacePiece : NetworkBehaviour
             {
 
                 EjecutarColocarBase(hit, color, currPrefBase);
-                // Luego de colocar una base, disminuyes el contador y verificas si desactivar el botón.
                 jugadorcopia.cantidadBases = jugadorcopia.cantidadBases - 1;
                 jugadorcopia.puntaje = jugadorcopia.puntaje + 1;
                 PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;

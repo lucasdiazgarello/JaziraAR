@@ -41,18 +41,13 @@ public class BoardManager : NetworkBehaviour
         }
         else
         {
-            Destroy(gameObject); // Si ya hay una instancia, destruye esta
+            Destroy(gameObject);
         }
     }
     // Llamar a esta función cuando se tira el dado.
     void Start()
     {
-        // Obtén el ID del jugador desde donde lo tengas almacenado.
-        // En este ejemplo, simplemente lo he establecido como 1.
-        //int currentPlayerID = PlayerPrefs.GetInt("jugadorId");
-        //Instance.UpdateResourceTexts(currentPlayerID);
-        // Actualiza los textos de recursos para el jugador al inicio.
-        //UpdateResourceTexts(jugadorId);
+
     }
     public override void OnNetworkSpawn()
     {
@@ -190,18 +185,18 @@ public class BoardManager : NetworkBehaviour
                     {
                         switch (tipoCollider)
                         {
-                            case "Ninguno":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                            case "Ninguno":  
                                 Debug.Log("Ninguno");
                                 break;
-                            case "Camino":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                            case "Camino":  o
                                 Debug.Log("Camino");
                                 break;
-                            case "Base":    // Aquí se hace uso del tipo enumerado TipoObjeto
+                            case "Base":    
                                 Debug.Log("Sumar a la Base 1 de " + recurso1 + " al id " + idJugador);
                                 PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso1, 1);
                                 Debug.Log("ya sumo recurso " + recurso1);
                                 break;
-                            case "Pueblo":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                            case "Pueblo":  
                                 Debug.Log("Sumar Pueblo 2 de " + recurso1 + " al id " + idJugador);
                                 PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso1, 2);
                                 Debug.Log("ya sumo recurso " + recurso1);
@@ -227,18 +222,18 @@ public class BoardManager : NetworkBehaviour
                     {
                         switch (tipoCollider)
                         {
-                            case "Ninguno":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                            case "Ninguno":  
                                 Debug.Log("Ninguno");
                                 break;
-                            case "Camino":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                            case "Camino":  
                                 Debug.Log("Camino");
                                 break;
-                            case "Base":    // Aquí se hace uso del tipo enumerado TipoObjeto
+                            case "Base":    
                                 Debug.Log("Sumar a la Base 1 de " + recurso1 + " al id " + idJugador);
                                 PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso1, 1);
                                 Debug.Log("ya sumo recurso " + recurso1);
                                 break;
-                            case "Pueblo":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                            case "Pueblo":  
                                 Debug.Log("Sumar Pueblo 2 de " + recurso1 + " al id " + idJugador);
                                 PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso1, 2);
                                 Debug.Log("ya sumo recurso " + recurso1);
@@ -261,18 +256,18 @@ public class BoardManager : NetworkBehaviour
                     {
                         switch (tipoCollider)
                         {
-                            case "Ninguno":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                            case "Ninguno":  
                                 Debug.Log("Ninguno");
                                 break;
-                            case "Camino":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                            case "Camino":  
                                 Debug.Log("Camino");
                                 break;
-                            case "Base":    // Aquí se hace uso del tipo enumerado TipoObjeto
+                            case "Base":    
                                 Debug.Log("Sumar a la Base 1 de " + recurso2 + " al id " + idJugador);
                                 PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso2, 1);
                                 Debug.Log("ya sumo recurso " + recurso2);
                                 break;
-                            case "Pueblo":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                            case "Pueblo":  
                                 Debug.Log("Sumar Pueblo 2 de " + recurso2 + " al id " + idJugador);
                                 PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso2, 2);
                                 Debug.Log("ya sumo recurso " + recurso2);
@@ -309,7 +304,7 @@ public class BoardManager : NetworkBehaviour
         }
         // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
         PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
-        // Aquí es donde actualizarías los recursos del jugador en tu juego.
+   
         jugadorcopia.maderaCount -= 1;
         jugadorcopia.ladrilloCount -= 1;
         PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
@@ -340,7 +335,7 @@ public class BoardManager : NetworkBehaviour
         }
         // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
         PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
-        // Aquí es donde actualizarías los recursos del jugador en tu juego.
+   
         jugadorcopia.maderaCount -= 1;
         jugadorcopia.ladrilloCount -= 1;
         jugadorcopia.trigoCount -= 1;
@@ -373,7 +368,7 @@ public class BoardManager : NetworkBehaviour
         }
         // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
         PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
-        // Aquí es donde actualizarías los recursos del jugador en tu juego.
+   
         jugadorcopia.trigoCount -= 2;
         jugadorcopia.piedraCount -= 3;
 
@@ -577,13 +572,13 @@ public class BoardManager : NetworkBehaviour
                 {
                     switch (tipoCollider)
                     {
-                        case "Ninguno":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                        case "Ninguno":  
                             Debug.Log("Ninguno");
                             break;
-                        case "Camino":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                        case "Camino": 
                             Debug.Log("Camino");
                             break;
-                        case "Base":    // Aquí se hace uso del tipo enumerado TipoObjeto
+                        case "Base":   
                             Debug.Log("Sumar a la Base 1 de " + recurso1 + " al id " + idJugador);
                             PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso1, 1);
                             //UpdateResourceTexts(idJugador);
@@ -591,7 +586,7 @@ public class BoardManager : NetworkBehaviour
                             //PlayerNetwork.Instance.ImprimirJugadorPorId(idJugador);
                             Debug.Log("ya sumo recurso " + recurso1);
                             break;
-                        case "Pueblo":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                        case "Pueblo":  
                             Debug.Log("Sumar Pueblo 2 de " + recurso1 + " al id " + idJugador);
                             //Debug.Log("Id jugador que va a AumentarRecursos " + idJugador);
                             PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso1, 2);
@@ -623,13 +618,13 @@ public class BoardManager : NetworkBehaviour
                 {
                     switch (tipoCollider)
                     {
-                        case "Ninguno":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                        case "Ninguno":  
                             Debug.Log("Ninguno");
                             break;
-                        case "Camino":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                        case "Camino":  
                             Debug.Log("Camino");
                             break;
-                        case "Base":    // Aquí se hace uso del tipo enumerado TipoObjeto
+                        case "Base":    
                             Debug.Log("Sumar a la Base 1 de " + recurso1 + " al id " + idJugador);
                             PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso1, 1);
                             //UpdateResourceTexts(idJugador);
@@ -637,7 +632,7 @@ public class BoardManager : NetworkBehaviour
                             //PlayerNetwork.Instance.ImprimirJugadorPorId(idJugador);
                             Debug.Log("ya sumo recurso " + recurso1);
                             break;
-                        case "Pueblo":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                        case "Pueblo":  
                             Debug.Log("Sumar Pueblo 2 de " + recurso1 + " al id " + idJugador);
                             //Debug.Log("Id jugador que va a AumentarRecursos " + idJugador);
                             PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso1, 2);
@@ -666,13 +661,13 @@ public class BoardManager : NetworkBehaviour
                 {
                     switch (tipoCollider)
                     {
-                        case "Ninguno":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                        case "Ninguno":  
                             Debug.Log("Ninguno");
                             break;
-                        case "Camino":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                        case "Camino":  
                             Debug.Log("Camino");
                             break;
-                        case "Base":    // Aquí se hace uso del tipo enumerado TipoObjeto
+                        case "Base":    
                             Debug.Log("Sumar a la Base 1 de " + recurso2 + " al id " + idJugador);
                             //Debug.Log("Id jugador que va a AumentarRecursos " + idJugador);
                             PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso2, 1);
@@ -681,7 +676,7 @@ public class BoardManager : NetworkBehaviour
                             //PlayerNetwork.Instance.ImprimirJugadorPorId(idJugador);
                             Debug.Log("ya sumo recurso " + recurso2);
                             break;
-                        case "Pueblo":  // Aquí se hace uso del tipo enumerado TipoObjeto
+                        case "Pueblo":  
                             Debug.Log("Sumar Pueblo 2 de " + recurso2 + " al id " + idJugador);
                             //Debug.Log("Id jugador que va a AumentarRecursos " + idJugador);
                             PlayerNetwork.Instance.AumentarRecursos(idJugador, recurso2, 2);

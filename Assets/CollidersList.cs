@@ -51,8 +51,7 @@ public class CollidersList : NetworkBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject); // Para mantener el objeto al cambiar de escena
             Debug.Log("Id de esta instancia de CollidersList " + this.NetworkObjectId);
-            // Inicializar los jugadores aqu�
-            //NetworkList must be initialized in Awake.
+
             listaColliders = new NetworkList<Colliders>();
             if (listaColliders == null)
             {
@@ -63,7 +62,7 @@ public class CollidersList : NetworkBehaviour
                 Debug.Log("La lista listaColliders se ha inicializado correctamente.");
             }
 
-            // Mover inicializaciones aqu�
+
             listaColls = new NetworkVariable<Colliders>(
                 new Colliders
                 {
@@ -79,7 +78,7 @@ public class CollidersList : NetworkBehaviour
         }
         else
         {
-            Debug.LogWarning("Multiple instances of CollidersList detected. Deleting one instance. GameObject: " + gameObject.name);
+            Debug.LogWarning("hay mas de 1 copia de CollidersList" + gameObject.name);
             Destroy(gameObject);
         }
     }
@@ -228,12 +227,12 @@ public class CollidersList : NetworkBehaviour
             if (listaColliders[i].nombreCollider.Equals(nombre))
             {
                 Debug.Log("Encontre a " + nombre + " en la lista");
-                // Encontrado! Cambiemos el tipo
-                var colliderModificado = listaColliders[i]; // Copia el struct
-                colliderModificado.tipo = nuevoTipo; // Cambia el tipo
+    
+                var colliderModificado = listaColliders[i]; 
+                colliderModificado.tipo = nuevoTipo; 
                 Debug.Log("El nuevo tipo es " + nuevoTipo);
-                listaColliders[i] = colliderModificado; // Reemplaza el struct en la lista
-                return; // Omitir esto si es posible que haya más de una entrada con el mismo nombre
+                listaColliders[i] = colliderModificado; 
+                return; 
             }
         }
     }
@@ -245,12 +244,12 @@ public class CollidersList : NetworkBehaviour
             if (listaColliders[i].nombreCollider.Equals(nombre))
             {
                 Debug.Log("Encontre a " + nombre + " en la lista");
-                // Encontrado! Cambiemos el tipo
-                var colliderModificado = listaColliders[i]; // Copia el struct
-                colliderModificado.tipo = nuevoTipo; // Cambia el tipo
+             
+                var colliderModificado = listaColliders[i]; 
+                colliderModificado.tipo = nuevoTipo; 
                 Debug.Log("El nuevo tipo es " + nuevoTipo);
-                listaColliders[i] = colliderModificado; // Reemplaza el struct en la lista
-                return; // Omitir esto si es posible que haya más de una entrada con el mismo nombre
+                listaColliders[i] = colliderModificado; 
+                return; 
             }
         }
     }
@@ -261,12 +260,12 @@ public class CollidersList : NetworkBehaviour
             if (listaColliders[i].nombreCollider.Equals(nombre))
             {
                 Debug.Log("Encontre a " + nombre + " en la lista");
-                // Encontrado! Cambiemos el tipo
-                var colliderModificado = listaColliders[i]; // Copia el struct
-                colliderModificado.color = nuevoColor; // Cambia el tipo
+               
+                var colliderModificado = listaColliders[i]; 
+                colliderModificado.color = nuevoColor; 
                 Debug.Log("El nuevo color es " + nuevoColor);
-                listaColliders[i] = colliderModificado; // Reemplaza el struct en la lista
-                return; // Omitir esto si es posible que haya más de una entrada con el mismo nombre
+                listaColliders[i] = colliderModificado; 
+                return; 
             }
         }
     }
@@ -279,12 +278,12 @@ public class CollidersList : NetworkBehaviour
             if (listaColliders[i].nombreCollider.Equals(nombre))
             {
                 Debug.Log("Encontre a " + nombre + " en la lista");
-                // Encontrado! Cambiemos el tipo
-                var colliderModificado = listaColliders[i]; // Copia el struct
-                colliderModificado.color = nuevoColor; // Cambia el tipo
+                
+                var colliderModificado = listaColliders[i]; 
+                colliderModificado.color = nuevoColor; 
                 Debug.Log("El nuevo Color es " + nuevoColor);
-                listaColliders[i] = colliderModificado; // Reemplaza el struct en la lista
-                return; // Omitir esto si es posible que haya más de una entrada con el mismo nombre
+                listaColliders[i] = colliderModificado; 
+                return; 
             }
         }
     }
@@ -297,7 +296,7 @@ public class CollidersList : NetworkBehaviour
             if (CollidersList.Instance.listaColliders[i].nombreCollider.Equals(nombre))
             {
                 Debug.Log("Encontre el collider" + nombre + " en la lista");
-                // Encontrado! Cambiemos el tipo
+                
 
                 CollidersListCaminos.Instance.camino1 = CollidersList.Instance.listaColliders[i].nombreCamino1;
                 CollidersListCaminos.Instance.camino2 = CollidersList.Instance.listaColliders[i].nombreCamino2;
@@ -389,7 +388,7 @@ public class CollidersList : NetworkBehaviour
                 }
                 // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
                 PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
-                // Luego de colocar una base, disminuyes el contador y verificas si desactivar el botón.
+                
                 jugadorcopia.cantidadBases = jugadorcopia.cantidadBases - 1;
                 jugadorcopia.puntaje = jugadorcopia.puntaje + 1;
                 PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
@@ -492,11 +491,11 @@ public class CollidersList : NetworkBehaviour
             if (listaColliders[i].nombreCollider.Equals(nombre))
             {
                 Debug.Log("Encontre a " + nombre + " en la lista");
-                var colliderModificado = listaColliders[i]; // Copia el struct
-                colliderModificado.idInstancia = nuevoId; // Cambia el tipo
+                var colliderModificado = listaColliders[i]; t
+                colliderModificado.idInstancia = nuevoId; 
                 Debug.Log("El nuevo idInstania es " + nuevoId);
-                listaColliders[i] = colliderModificado; // Reemplaza el struct en la lista
-                return; // Omitir esto si es posible que haya más de una entrada con el mismo nombre
+                listaColliders[i] = colliderModificado; a
+                return;
             }
         }
     }
@@ -544,7 +543,7 @@ public class CollidersList : NetworkBehaviour
                                         $"Tipo: {data.tipo}, " +
                                         $"Color: {data.color}";
                 Debug.Log(datosColliderInfo);
-                return;  // Si solo esperas que haya un Collider con ese nombre, entonces puedes salir del bucle inmediatamente después de imprimirlo.
+                return;  
             }
         }
 

@@ -61,8 +61,8 @@ public class CollidersListCaminos : NetworkBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject); // Para mantener el objeto al cambiar de escena
             Debug.Log("Id de esta instancia de CollidersList " + this.NetworkObjectId);
-            // Inicializar los jugadores aqu�
-            //NetworkList must be initialized in Awake.
+ 
+
             listaCollidersCaminos = new NetworkList<Colliders>();
             if (listaCollidersCaminos == null)
             {
@@ -73,7 +73,7 @@ public class CollidersListCaminos : NetworkBehaviour
                 Debug.Log("La lista listaColliders se ha inicializado correctamente.");
             }
 
-            // Mover inicializaciones aqu�
+
             listaCollsCaminos = new NetworkVariable<Colliders>(
                 new Colliders
                 {
@@ -212,14 +212,14 @@ public class CollidersListCaminos : NetworkBehaviour
             if (CollidersListCaminos.Instance.listaCollidersCaminos[i].nombreColliderCamino.Equals(nombre))
             {
                 Debug.Log("Encontre el camino" + nombre + " en la lista");
-                // Encontrado! Cambiemos el tipo
-                var colliderModificado = listaCollidersCaminos[i]; // Copia el struct
-                colliderModificado.hayCamino = true; // Cambia el tipo
+               
+                var colliderModificado = listaCollidersCaminos[i]; 
+                colliderModificado.hayCamino = true; 
                 colliderModificado.color = color;
-                CollidersListCaminos.Instance.listaCollidersCaminos[i] = colliderModificado; // Reemplaza el struct en la lista
+                CollidersListCaminos.Instance.listaCollidersCaminos[i] = colliderModificado; 
                 PlayerNetwork.Instance.ModificarHayCaminoYColorPorNombreClientRpc(i, color);
                 Debug.Log("AHORA HAY CAMINO ES" + CollidersListCaminos.Instance.listaCollidersCaminos[i].hayCamino);
-                return; // Omitir esto si es posible que haya más de una entrada con el mismo nombre
+                return; 
             }
         }
     }
@@ -231,7 +231,7 @@ public class CollidersListCaminos : NetworkBehaviour
             if (CollidersList.Instance.listaColliders[i].nombreCollider.Equals(nombre))
             {
                 Debug.Log("Encontre el collider" + nombre + " en la lista");
-                // Encontrado! Cambiemos el tipo
+                
 
                 CollidersListCaminos.Instance.camino1 = CollidersList.Instance.listaColliders[i].nombreCamino1;
                 CollidersListCaminos.Instance.camino2 = CollidersList.Instance.listaColliders[i].nombreCamino2;
@@ -487,171 +487,5 @@ public class CollidersListCaminos : NetworkBehaviour
         return si;
 
     }
-    /*
-    public void ModificarTipoPorNombre(FixedString64Bytes nombre, FixedString64Bytes nuevoTipo)
-    {
-        for (int i = 0; i < listaColliders.Count; i++)
-        {
-            if (listaColliders[i].nombreCollider.Equals(nombre))
-            {
-                Debug.Log("Encontre a " + nombre + " en la lista");
-                // Encontrado! Cambiemos el tipo
-                var colliderModificado = listaColliders[i]; // Copia el struct
-                colliderModificado.tipo = nuevoTipo; // Cambia el tipo
-                Debug.Log("El nuevo tipo es " + nuevoTipo);
-                listaColliders[i] = colliderModificado; // Reemplaza el struct en la lista
-                return; // Omitir esto si es posible que haya más de una entrada con el mismo nombre
-            }
-        }
-    }
-    [ServerRpc(RequireOwnership = false)]
-    public void ModificarTipoPorNombreServerRpc(FixedString64Bytes nombre, FixedString64Bytes nuevoTipo)
-    {
-        for (int i = 0; i < listaColliders.Count; i++)
-        {
-            if (listaColliders[i].nombreCollider.Equals(nombre))
-            {
-                Debug.Log("Encontre a " + nombre + " en la lista");
-                // Encontrado! Cambiemos el tipo
-                var colliderModificado = listaColliders[i]; // Copia el struct
-                colliderModificado.tipo = nuevoTipo; // Cambia el tipo
-                Debug.Log("El nuevo tipo es " + nuevoTipo);
-                listaColliders[i] = colliderModificado; // Reemplaza el struct en la lista
-                return; // Omitir esto si es posible que haya más de una entrada con el mismo nombre
-            }
-        }
-    }
-    public void ModificarColorPorNombre(FixedString64Bytes nombre, FixedString64Bytes nuevoColor)
-    {
-        for (int i = 0; i < listaColliders.Count; i++)
-        {
-            if (listaColliders[i].nombreCollider.Equals(nombre))
-            {
-                Debug.Log("Encontre a " + nombre + " en la lista");
-                // Encontrado! Cambiemos el tipo
-                var colliderModificado = listaColliders[i]; // Copia el struct
-                colliderModificado.color = nuevoColor; // Cambia el tipo
-                Debug.Log("El nuevo color es " + nuevoColor);
-                listaColliders[i] = colliderModificado; // Reemplaza el struct en la lista
-                return; // Omitir esto si es posible que haya más de una entrada con el mismo nombre
-            }
-        }
-    }
-    [ServerRpc(RequireOwnership = false)]
-    public void ModificarColorPorNombreServerRpc(FixedString64Bytes nombre, FixedString64Bytes nuevoColor)
-    {
-        for (int i = 0; i < listaColliders.Count; i++)
-        {
-            if (listaColliders[i].nombreCollider.Equals(nombre))
-            {
-                Debug.Log("Encontre a " + nombre + " en la lista");
-                // Encontrado! Cambiemos el tipo
-                var colliderModificado = listaColliders[i]; // Copia el struct
-                colliderModificado.color = nuevoColor; // Cambia el tipo
-                Debug.Log("El nuevo Color es " + nuevoColor);
-                listaColliders[i] = colliderModificado; // Reemplaza el struct en la lista
-                return; // Omitir esto si es posible que haya más de una entrada con el mismo nombre
-            }
-        }
-    }
-    public FixedString64Bytes GetTipoPorNombre(FixedString64Bytes nombre)
-    {
-        //ImprimirListaColliders();
-        foreach (var collider in listaColliders)
-        {
-            //Debug.Log("Estoy buscando a " + nombre + " en la lista");
-            //Debug.Log("Encontre a " + collider.nombreCollider);
-            if (collider.nombreCollider.Equals(nombre))
-            {
-                return collider.tipo;
-            }
-        }
-
-        return new FixedString64Bytes(); // Devuelve una cadena vacía si no se encontró
-    }
-    public void ModificarIdPiezaPorNombre(FixedString64Bytes nombre, int nuevoId)
-    {
-        for (int i = 0; i < listaColliders.Count; i++)
-        {
-            if (listaColliders[i].nombreCollider.Equals(nombre))
-            {
-                Debug.Log("Encontre a " + nombre + " en la lista");
-                var colliderModificado = listaColliders[i]; // Copia el struct
-                colliderModificado.idInstancia = nuevoId; // Cambia el tipo
-                Debug.Log("El nuevo idInstania es " + nuevoId);
-                listaColliders[i] = colliderModificado; // Reemplaza el struct en la lista
-                return; // Omitir esto si es posible que haya más de una entrada con el mismo nombre
-            }
-        }
-    }
-    public FixedString64Bytes GetColorPorNombre(FixedString64Bytes nombre)
-    {
-        //ImprimirListaColliders();
-        foreach (var collider in listaColliders)
-        {
-            //Debug.Log("Estoy buscando a " + nombre + " en la lista");
-            //Debug.Log("Encontre a " + collider.nombreCollider);
-            if (collider.nombreCollider.Equals(nombre))
-            {
-                return collider.color;
-            }
-        }
-        return new FixedString64Bytes(); // Devuelve una cadena vacía si no se encontró
-    }
-    public int GetIdPiezaPorNombre(FixedString64Bytes nombre)
-    {
-        //ImprimirListaColliders();
-        foreach (var collider in listaColliders)
-        {
-            //Debug.Log("Estoy buscando a " + nombre + " en la lista");
-            //Debug.Log("Encontre a " + collider.nombreCollider);
-            if (collider.nombreCollider.Equals(nombre))
-            {
-                return collider.idInstancia;
-            }
-        }
-        return new int(); // no se que int da sino encuentra...
-    }
-    public void ImprimirColliderPorNombre(FixedString64Bytes nombre)
-    {
-        if (listaColliders == null)
-        {
-            Debug.Log("La lista listaColliders no ha sido inicializada.");
-            return;
-        }
-
-        foreach (var data in listaColliders)
-        {
-            if (data.nombreCollider.Equals(nombre))
-            {
-                var datosColliderInfo = $"NombreCollider: {data.nombreCollider}, " +
-                                        $"Tipo: {data.tipo}, " +
-                                        $"Color: {data.color}";
-                Debug.Log(datosColliderInfo);
-                return;  // Si solo esperas que haya un Collider con ese nombre, entonces puedes salir del bucle inmediatamente después de imprimirlo.
-            }
-        }
-
-        Debug.Log($"Collider con nombre {nombre} no encontrado en la lista.");
-    }
-    public void ImprimirListaColliders()
-    {
-        if (listaColliders == null)
-        {
-            Debug.Log("La lista listCollider no ha sido inicializada.");
-            return;
-        }
-
-        Debug.Log("Contenido de la lista listCollider:");
-        foreach (var data in listaColliders)
-        {
-
-            var datosJugadorInfo = $"NombreCollider: {data.nombreCollider}, " +
-                                   $"Tipo: {data.tipo}";
-        }
-    }
-    public string RemoverCloneDeNombre(string input)
-    {
-        return input.Replace("(Clone)", "");
-    }*/
+  
 }

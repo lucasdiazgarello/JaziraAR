@@ -11,7 +11,6 @@ using UnityEngine.UI;
 public class JoinScript : NetworkBehaviour
 {
     public static JoinScript Instance { get; private set; } // Instancia Singleton
-    // Start is called before the first frame update
     public TestRelay relay;
     //private string nombreJugador;
     public InputField nombreJugadorinput;
@@ -37,11 +36,11 @@ public class JoinScript : NetworkBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Esto garantiza que el objeto no se destruirá al cargar una nueva escena
+            DontDestroyOnLoad(gameObject); 
         }
         else
         {
-            Destroy(gameObject); // Si ya hay una instancia, destruye esta
+            Destroy(gameObject); 
         }
     }
 
@@ -50,13 +49,12 @@ public class JoinScript : NetworkBehaviour
         Debug.Log("Entre a Unirme");
         var code = codigo.text.ToString();
         Debug.Log("Codigo: " + code);
-        // Almacena los valores de los campos de entrada en las variables temporales
         nombreTemporal = new FixedString64Bytes(nombreJugadorinput.text);
         colorTemporal = colorSeleccionado.Value;
         //nombreJugador = nombreJugadorinput.text.ToString();
         // Cambia la línea donde estableces el nombreJugador.Value a esta
         //nombreTemporal = new FixedString64Bytes(nombreJugadorinput.text);
-        //nombreJugador.Value = new FixedString64Bytes(nombreJugadorinput.text); //toma el valor del input y lo pone en la variable 
+        //nombreJugador.Value = new FixedString64Bytes(nombreJugadorinput.text);
         Debug.Log("nombre jugador: "+ nombreTemporal.Value);
         Debug.Log("color seleccionado: " + colorSeleccionado.Value);
         Debug.Log("antes de join relay");
@@ -111,7 +109,7 @@ public class JoinScript : NetworkBehaviour
             throw new Exception("No se pudo convertir la cadena a un número entero.");
         }
     }
-    /*public override void OnNetworkSpawn() //Se activará para todos los clientes cuando se cree un objeto en la red
+    /*public override void OnNetworkSpawn() 
     {
         //if (IsOwner)
         if (IsServer)

@@ -10,14 +10,12 @@ public class PlayScript : MonoBehaviour
     public GameObject nuevapartida;
     public GameObject buscarpartida;
 
-    // Start is called before the first frame update
     void Start()
     {
         canvasbp.SetActive(false);
         canvasnp.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         

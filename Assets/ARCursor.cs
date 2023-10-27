@@ -24,7 +24,7 @@ public class ARCursor : NetworkBehaviour
     public bool tableroconfirmado = false;
 
     public GameObject dadoToPlace; // Prefab del dado
-    public float dadoDistance = 0.3f; // Distancia de desplazamiento del dado (en metros)
+    public float dadoDistance = 0.3f; // Distancia de desplazamiento del dado
     public GameObject currentDado; // Dado actualmente en proceso de colocación
     public GameObject currentDado2;
     public Button tirarDadoButton;
@@ -34,7 +34,7 @@ public class ARCursor : NetworkBehaviour
 
     //public PlacePiece colocarPieza;
     private GameObject[] colliderPrefabs;
-    //public GameObject colliderPrefab; // Agrega esto en la parte superior de tu script
+    //public GameObject colliderPrefab; 
     private Vector3 initialDadoPosition; // Para guardar la posición inicial del dado
     public GameObject tableromInstance;
     private int currentPlayerId;
@@ -88,11 +88,10 @@ public class ARCursor : NetworkBehaviour
     {
         while (!TestRelay.Instance.isRelayCreated)
         {
-            yield return null;  // Wait for next frame
+            yield return null;  
         }
         Debug.Log("Termine de esperar");
 
-        // Tu código aquí...
     }
 
     private void Awake()
@@ -104,7 +103,7 @@ public class ARCursor : NetworkBehaviour
         }
         else
         {
-            Destroy(gameObject); // Si ya hay una instancia, destruye esta
+            Destroy(gameObject); 
         }
     }
     void Update()
@@ -127,7 +126,7 @@ public class ARCursor : NetworkBehaviour
                     raycastManager.Raycast(Input.GetTouch(0).position, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
                     if (hits.Count > 0)
                     {
-                        // Primero, eliminar el tablero actual si existe
+                        
                         if (tableromInstance != null)
                         {
                             var networkObject = tableromInstance.GetComponent<NetworkObject>();
@@ -137,7 +136,7 @@ public class ARCursor : NetworkBehaviour
                             }
                         }
                         //Debug.Log("Antes De tableroInstance");
-                        // Luego, crear un nuevo tablero y guardarlo como currentObject
+                        
                         if (objectToPlace == null) Debug.Log("object to place is null");
                         tableromInstance = Instantiate(objectToPlace, hits[0].pose.position, hits[0].pose.rotation);
                         Debug.Log("Nombre de la instancia del tablero" + tableromInstance.name);
@@ -148,7 +147,7 @@ public class ARCursor : NetworkBehaviour
                             GameObject childInstance = Instantiate(colliderPrefab, tableromInstance.transform);
                             if (childInstance == null) Debug.Log("childInstance is null");
                             //Debug.Log("Despues De Instantiate");
-                            // Ajusta su posición/rotación local si es necesario. Esto puede depender de cómo hayas configurado tus prefabs.
+                           
                             childInstance.GetComponent<NetworkObject>().Spawn();
                             //Debug.Log("Despues De Spawn");
                         }
@@ -240,8 +239,7 @@ public class ARCursor : NetworkBehaviour
             {
                 Destroy(plane.gameObject);
             }
-            // Esto también funcionaría:
-            // planeManager.planeDetectionMode = PlaneDetectionMode.None;
+       
         }
         PlayerNetwork.Instance.ImprimirTodosLosJugadores();
     }
@@ -277,7 +275,7 @@ public class ARCursor : NetworkBehaviour
             // Si el dado no existe, crearlo
             if (currentDado == null)
             {
-                // Crear un nuevo dado en la posición por encima del tablero
+                
                 currentDado = Instantiate(dadoToPlace, tableromInstance.transform.position + Vector3.up * dadoDistance + Vector3.right * dadoDistance / 4, Quaternion.identity);
                 currentDado.GetComponent<NetworkObject>().Spawn();
                 DiceNumberTextScript.dice1 = currentDado;
@@ -285,13 +283,13 @@ public class ARCursor : NetworkBehaviour
             }
             else
             {
-                // Si el dado existe, reposicionarlo para el nuevo lanzamiento
+                
                 currentDado.transform.position = tableromInstance.transform.position + Vector3.up * dadoDistance;
             }
 
             if (currentDado2 == null)
             {
-                // Crear un segundo dado al costado del primero
+                
                 currentDado2 = Instantiate(dadoToPlace, tableromInstance.transform.position + Vector3.up * dadoDistance + Vector3.right * dadoDistance / 2, Quaternion.identity);
                 currentDado2.GetComponent<NetworkObject>().Spawn();
                 DiceNumberTextScript.dice2 = currentDado2;
@@ -299,24 +297,24 @@ public class ARCursor : NetworkBehaviour
             }
             else
             {
-                // Si el segundo dado existe, reposicionarlo para el nuevo lanzamiento
+                
                 currentDado2.transform.position = tableromInstance.transform.position + Vector3.up * dadoDistance + Vector3.right * dadoDistance;
             }
 
-            // Obtén el DiceScript del dado actual y lanza el dado
+            
             DiceScript diceScript = currentDado.GetComponent<DiceScript>();
             if (diceScript != null)
             {
                 diceScript.RollDice(currentDado, tableromInstance.transform.position + Vector3.up * dadoDistance);
             }
 
-            // Obtén el DiceScript del segundo dado y lanza el dado
+            
             DiceScript diceScript2 = currentDado2.GetComponent<DiceScript>();
             if (diceScript2 != null)
             {
                 diceScript2.RollDice(currentDado2, tableromInstance.transform.position + Vector3.up * dadoDistance + Vector3.right * dadoDistance / 2);
             }
-            // Ajustar dicesThrown a true luego de lanzar los dados
+            
             dicesThrown = true;
             
             int hostPlayerID = PlayerPrefs.GetInt("jugadorId"); // Este en este caso por ser server esta bien tomar este id asi
@@ -366,7 +364,7 @@ public class ARCursor : NetworkBehaviour
     }
     private void ResetDicePosition()
     {
-        // Restablecer la posición del dado a la inicial
+        
         if (currentDado != null)
         {
             currentDado.transform.position = initialDadoPosition;
@@ -375,7 +373,7 @@ public class ARCursor : NetworkBehaviour
 
     public void RespawnDice()
     {
-        // Restablecer la posición del dado y reactivar su cuerpo rígido
+        
         ResetDicePosition();
         Rigidbody rb = currentDado.GetComponent<Rigidbody>();
         if (rb != null)

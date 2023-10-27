@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro; // Asegúrate de tener esta línea para utilizar TextMeshPro
+using TMPro; 
 using UnityEngine.UI;
 
 public class DiceNumberTextScript : MonoBehaviour
@@ -10,7 +10,7 @@ public class DiceNumberTextScript : MonoBehaviour
     //TextMeshProUGUI text;
     public Text resultadoDado;
     //public static int diceNumber;
-    // Agregar referencias a ambos scripts de los dados
+
     public DiceScript diceScript1;
     public DiceScript diceScript2;
 
@@ -29,7 +29,6 @@ public class DiceNumberTextScript : MonoBehaviour
     public int randomDiceNumber;
     //private int contador = 0;
 
-    // Use this for initialization
     void Start()
     {
         //playernetwork = GameObject.FindObjectOfType<PlayerNetwork>();
@@ -62,13 +61,13 @@ public class DiceNumberTextScript : MonoBehaviour
                 TotalDiceNumber = totalDiceNumber;
                 resultadoDado.text = totalDiceNumber.ToString();
 
-                // Resetea HasJustStopped en ambos scripts de dados
+
                 diceScript1.Dice1HasJustStopped = false;
                 diceScript2.Dice2HasJustStopped = false;
             }
         }
     }*/
-    // Update is called once per frame
+
     /*void Update()
     {
         if (!diceScript1.IsDiceRolling && !diceScript2.IsDiceRolling)

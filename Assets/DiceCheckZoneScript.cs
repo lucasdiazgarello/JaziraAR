@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DiceCheckZoneScript : MonoBehaviour
 {
-    private DiceScript[] diceScripts;  // Almacena las referencias a ambos scripts de los dados
-    // Almacena una referencia al script ARCursor para acceder a dicesThrown
+    private DiceScript[] diceScripts;  
+
     //private ARCursor arCursor;
     Vector3 diceVelocity;
     //private Dictionary<GameObject, bool> hasRegistered = new Dictionary<GameObject, bool>();
@@ -13,17 +13,17 @@ public class DiceCheckZoneScript : MonoBehaviour
 
     void Start()
     {
-        // Obtén la referencia a ARCursor
+        
         //ARCursor.Instance = GameObject.FindObjectOfType<ARCursor>();
     }
 
     void Update()
     {
-        // Solo busca las instancias de DiceScript si los dados han sido lanzados
+       
         if (ARCursor.Instance.dicesThrown)
         {
             diceScripts = GameObject.FindObjectsOfType<DiceScript>();
-            // Verifica si encontró las instancias de DiceScript
+            
             if (diceScripts.Length < 2)
             {
                 Debug.LogWarning("No se encontraron las dos instancias de DiceScript en la escena");
@@ -43,7 +43,7 @@ public class DiceCheckZoneScript : MonoBehaviour
     {
         GameObject obj = col.gameObject;
 
-        // Verifica si el objeto ya ha sido registrado
+        
         if (registeredObjects.Contains(obj))
         {
             return;
@@ -64,7 +64,7 @@ public class DiceCheckZoneScript : MonoBehaviour
 
         GameObject obj = col.gameObject;
 
-        // Remueve el objeto de la lista de registrados antes de realizar cualquier acción
+        
         registeredObjects.Remove(obj);
 
         Vector3 initPosition = col.transform.position;
@@ -75,27 +75,27 @@ public class DiceCheckZoneScript : MonoBehaviour
             switch (col.gameObject.name)
             {
                 case "Side1":
-                    //Debug.Log("Pone un 6 ");
+                   
                     UpdateDiceNumber(col, 6);
                     break;
                 case "Side2":
-                    //Debug.Log("Pone un 5 ");
+                  
                     UpdateDiceNumber(col, 5);
                     break;
                 case "Side3":
-                    //Debug.Log("Pone un 4 ");
+                   
                     UpdateDiceNumber(col, 4);
                     break;
                 case "Side4":
-                    //Debug.Log("Pone un 3 ");
+                    
                     UpdateDiceNumber(col, 3);
                     break;
                 case "Side5":
-                    //Debug.Log("Pone un 2 ");
+                   
                     UpdateDiceNumber(col, 2);
                     break;
                 case "Side6":
-                    //Debug.Log("Pone un 1 ");
+                    
                     UpdateDiceNumber(col, 1);
                     break;
             }

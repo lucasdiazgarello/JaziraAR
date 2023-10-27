@@ -123,7 +123,7 @@ public class DiceScript : MonoBehaviour
     public Vector3 diceVelocity;
     private Vector3 posicion1;
     private Vector3 posicion2;
-    // Almacena una referencia al script ARCursor para acceder a dicesThrown
+
     //private ARCursor arCursor;
 
     // Propiedad pública para verificar si el dado está rodando
@@ -134,7 +134,7 @@ public class DiceScript : MonoBehaviour
 
     public Vector3 Dice1Velocity { get; private set; }
     public Vector3 Dice2Velocity { get; private set; }
-    // Propiedades para verificar si un dado acaba de detenerse
+
     public bool Dice1HasJustStopped;
     public bool Dice2HasJustStopped;
     //private Vector3 dice2Velocity;
@@ -149,7 +149,7 @@ public class DiceScript : MonoBehaviour
         IsDice1Rolling = IsDice2Rolling = true;
 
     }
-    // Método público para lanzar el dado
+
     public void RollDice(GameObject dado, Vector3 initialPosition)
     {
         //Debug.Log("Entró a RollDice");
@@ -162,12 +162,12 @@ public class DiceScript : MonoBehaviour
         if (dado == DiceNumberTextScript.dice1)
         {
             DiceNumberTextScript.diceNumber1 = 0;
-            IsDice1Rolling = true; // Modificación aquí
+            IsDice1Rolling = true; 
         }
         else if (dado == DiceNumberTextScript.dice2)
         {
             DiceNumberTextScript.diceNumber2 = 0;
-            IsDice2Rolling = true; // Modificación aquí
+            IsDice2Rolling = true; 
         }
         Vector3 randomTorque = new Vector3(Random.Range(-50, 50), Random.Range(-50, 50), Random.Range(-50, 50));
         dado.transform.SetPositionAndRotation(initialPosition, Quaternion.identity);

@@ -41,11 +41,11 @@ public class TurnManager : NetworkBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Esto garantiza que el objeto no se destruirá al cargar una nueva escena
+            DontDestroyOnLoad(gameObject); 
         }
         else
         {
-            Destroy(gameObject); // Si ya hay una instancia, destruye esta
+            Destroy(gameObject); 
         }
 
         SumandoRecursosButton.SetActive(false);

@@ -20,7 +20,7 @@ public class PlacePlatformController : MonoBehaviour
         placePlatformButton.gameObject.SetActive(false);
         confirmPlatformButton.gameObject.SetActive(false);
 
-        // Agrega los listeners de los botones
+        // listeners de los botones
         placePlatformButton.onClick.AddListener(ActivatePlacementMode);
         confirmPlatformButton.onClick.AddListener(ConfirmPlatformPlacement);
     }

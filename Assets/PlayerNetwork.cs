@@ -29,7 +29,7 @@ public class PlayerNetwork : NetworkBehaviour
     public Button confirmBaseButton;
     Dictionary<int, GameObject> gameObjectsByIDServer = new Dictionary<int, GameObject>();
     //private bool canPlace = false;
-    public bool IsInitialized { get; private set; } = false; // Añade este campo de estado
+    public bool IsInitialized { get; private set; } = false; 
     public NetworkList<int> playerIDs;
     public int currentTurnIndex = 0;
     public NetworkList<PlayerNetwork.DatosJugador> playerData;
@@ -107,10 +107,8 @@ public class PlayerNetwork : NetworkBehaviour
         {
             Debug.Log("Instancia de PlayerNetwork");
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Para mantener el objeto al cambiar de escena
+            DontDestroyOnLoad(gameObject);
             Debug.Log("Id de esta instancia de PlayerNetwork " + this.NetworkObjectId);
-            // Inicializar los jugadores aqu�
-            //NetworkList must be initialized in Awake.
             playerIDs = new NetworkList<int>();
             playerData = new NetworkList<PlayerNetwork.DatosJugador>();
             if (playerIDs == null)
@@ -130,7 +128,6 @@ public class PlayerNetwork : NetworkBehaviour
             {
                 Debug.Log("La lista playerData se ha inicializado correctamente.");
             }
-            // Mover inicializaciones aqu�
             jugador = new NetworkVariable<DatosJugador>(
                 new DatosJugador
                 {
@@ -215,11 +212,9 @@ public class PlayerNetwork : NetworkBehaviour
             ImprimirJugadorPorId(playerId);
             //ImprimirTodosLosJugadores();
             ARCursor.Instance.EnableRecursos();
-            // Desactivar la detección de planos al confirmar la colocación del tablero
             if (ARCursor.Instance.planeManager)
             {
                 ARCursor.Instance.planeManager.enabled = false;
-                // Y esto eliminará todos los planos existentes
                 foreach (var plane in ARCursor.Instance.planeManager.trackables)
                 {
                     Destroy(plane.gameObject);
@@ -278,13 +273,13 @@ public class PlayerNetwork : NetworkBehaviour
         if (playerIDs == null)
         {
             Debug.Log("La lista de IDs de jugadores es null.");
-            return; // Si la lista es null, no hay nada más que hacer en este método.
+            return; 
         }
 
         if (playerIDs.Count == 0)
         {
             Debug.Log("La lista de IDs de jugadores está vacía.");
-            return; // Si la lista está vacía, no hay nada más que hacer en este método.
+            return; 
         }
 
         Debug.Log("Imprimiendo lista de IDs de jugadores:");
@@ -413,7 +408,7 @@ public class PlayerNetwork : NetworkBehaviour
         else
         {
             Debug.LogError("Jugador no encontrado: " + jugadorId);
-            return default(DatosJugador); // Retorna un DatosJugador por defecto
+            return default(DatosJugador); 
         }
     }
 
@@ -423,28 +418,26 @@ public class PlayerNetwork : NetworkBehaviour
 
 
 
-        if (!IsOwner) // si es cliente
+        if (!IsOwner) 
         {
 
         }
-        else // si es host
+        else 
         {
 
         }
         return;
     }
     
-    // Este es tu nuevo método RPC para agregar un jugador
+    
     [ServerRpc(RequireOwnership = false)]
     public void AddPlayerServerRpc(int jugadorId, FixedString64Bytes nomJugador, int puntaje, bool gano, bool turno, bool primerasPiezas, int maderaCount, int ladrilloCount, int ovejaCount, int piedraCount, int trigoCount, FixedString64Bytes colorJugador, int cantidadCaminos, int cantidadBases, int cantidadPueblos)
     {
         try
         {
             Debug.Log("Entre a AddPlayerServerRpc");
-            // Verificar que solo el host puede ejecutar este código
+            
             if (!IsServer) return;
-
-            // Agrega al jugador a la lista de jugadores
             DatosJugador newPlayer = new DatosJugador();
             newPlayer.jugadorId = jugadorId;
             newPlayer.nomJugador = nomJugador;
@@ -461,7 +454,7 @@ public class PlayerNetwork : NetworkBehaviour
             newPlayer.cantidadCaminos = cantidadCaminos;
             newPlayer.cantidadBases = cantidadBases;
             newPlayer.cantidadPueblos = cantidadPueblos;
-            // ... y puedes agregar los demás valores predeterminados aquí
+            
             Debug.Log("Se va a unir usando AddPlayerServerRpc");
             if (!playerIDs.Contains(jugadorId) && jugadorId != 0)
             {
@@ -480,10 +473,10 @@ public class PlayerNetwork : NetworkBehaviour
     }
 
     [ServerRpc]
-    public void TestServerRpc(FixedString64Bytes nombre, FixedString64Bytes color) //este comunica del cliente al servidor 
+    public void TestServerRpc(FixedString64Bytes nombre, FixedString64Bytes color)  
     {
         Debug.Log("Entre a TestServerRpc ");
-        int myPlayerId = (int)NetworkManager.Singleton.LocalClientId; // Obtén el Id del jugador
+        int myPlayerId = (int)NetworkManager.Singleton.LocalClientId; 
         Debug.Log("Nombre, Color y Id del nuevo jugador " + nombre + color + myPlayerId);
         //AgregarJugador(myPlayerId, nombre, 100, false, true, 2, 10, 10, 10, 10, 10, color);
         ImprimirTodosLosJugadores();
@@ -523,7 +516,7 @@ public class PlayerNetwork : NetworkBehaviour
         }
     }
 
-    // Llamada por el cliente para notificar al servidor que se ha unido
+    
     [ServerRpc]
     public void NotifyServerOfJoinServerRpc()
     {
@@ -531,12 +524,12 @@ public class PlayerNetwork : NetworkBehaviour
     }
 
     [ClientRpc]
-    private void TestClientRpc() //este comunica del servidor al cliente 
+    private void TestClientRpc()  
     {
         Debug.Log("TestClientRpc ");
-        //aca irian las funciones que pasa el puntaje o cantidad de recursos por ejemplo
+        
     }
-    // Esta función necesita ser implementada para buscar los datos del jugador basado en su ID.
+    
     private bool TryObtenerDatosJugadorPorId(int idJugador, out DatosJugador datosJugador)
     {
         // Busca a través de los datos de los jugadores
@@ -1020,7 +1013,7 @@ Debug.Log("Recursos ajustados a 7 o menos");
         Debug.Log("Entre al End Turn");
 
 
-        if (NetworkManager.Singleton.IsServer)  // Asegúrate de que solo el servidor modifique el turno actual.
+        if (NetworkManager.Singleton.IsServer)  
         {
             Debug.Log("Entre al is server de End Turn");
             //ImprimirPlayerIDs();
@@ -1089,7 +1082,6 @@ Debug.Log("Recursos ajustados a 7 o menos");
             }
             // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
             PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
-            // Aquí es donde actualizarías los recursos del jugador en tu juego.
             jugadorcopia.primerasPiezas = true;
             PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
         }
@@ -1185,7 +1177,6 @@ Debug.Log("Recursos ajustados a 7 o menos");
     public void NotifyTurnChangeClientRpc(int newTurnIndex)
     {
         currentTurnIndex = newTurnIndex;
-        // Aquí puedes implementar lógica adicional como mostrar un mensaje indicando quién es el próximo.
         Debug.Log("C - Cambio el turno a " + currentTurnIndex);
         ImprimirPlayerIDs();
     }
@@ -1193,7 +1184,6 @@ Debug.Log("Recursos ajustados a 7 o menos");
     public void NotifyTurnChangeServerRpc(int newTurnIndex)
     {
         currentTurnIndex = newTurnIndex;
-        // Aquí puedes implementar lógica adicional como mostrar un mensaje indicando quién es el próximo.
         Debug.Log("S - Cambio el turno a " + currentTurnIndex);
         ImprimirPlayerIDs();
     }
@@ -1247,7 +1237,6 @@ Debug.Log("Recursos ajustados a 7 o menos");
                 tipoActual = "Ninguno";
                 // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
                 PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
-                // Luego de colocar una base, disminuyes el contador y verificas si desactivar el botón.
                 jugadorcopia.cantidadCaminos = jugadorcopia.cantidadCaminos - 1;
                 PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
                 //jugador.cantidadCaminos--;
@@ -1314,7 +1303,6 @@ Debug.Log("Recursos ajustados a 7 o menos");
 
                 // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
                 PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
-                // Luego de colocar una base, disminuyes el contador y verificas si desactivar el botón.
                 jugadorcopia.cantidadBases = jugadorcopia.cantidadBases - 1;
                 jugadorcopia.puntaje = jugadorcopia.puntaje + 1;
                 PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
@@ -1439,8 +1427,8 @@ Debug.Log("Recursos ajustados a 7 o menos");
                 if (gameObjectsByIDServer.ContainsKey(idbase) && color == colorCollider)
                 {
                     GameObject baseToDespawn = gameObjectsByIDServer[idbase];
-                    baseToDespawn.GetComponent<NetworkObject>().Despawn(); // Despawn using your networking library
-                    Destroy(baseToDespawn); // Destroy the object if needed
+                    baseToDespawn.GetComponent<NetworkObject>().Despawn(); 
+                    Destroy(baseToDespawn); 
                     gameObjectsByIDServer.Remove(idbase);
                 }
                 CollidersList.Instance.ModificarTipoPorNombre(nombresinClone, "Pueblo"); // Aca se debe llamar una serverRpc o como ya es el servidor corriendo no?
@@ -1456,7 +1444,6 @@ Debug.Log("Recursos ajustados a 7 o menos");
 
                 // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
                 PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
-                // Luego de colocar una base, disminuyes el contador y verificas si desactivar el botón.
                 jugadorcopia.cantidadPueblos = jugadorcopia.cantidadPueblos - 1;
                 jugadorcopia.puntaje = jugadorcopia.puntaje + 1;
                 PlayerNetwork.Instance.playerData[indexJugador] = jugadorcopia;
@@ -1547,7 +1534,6 @@ Debug.Log("Recursos ajustados a 7 o menos");
             }
             // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
             PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
-            // Aquí es donde actualizarías los recursos del jugador en tu juego.
             jugadorcopia.cantidadCaminos += 1;
             jugadorcopia.maderaCount -= 1;
             jugadorcopia.ladrilloCount -= 1;           
@@ -1588,7 +1574,6 @@ Debug.Log("Recursos ajustados a 7 o menos");
             }
             // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
             PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
-            // Aquí es donde actualizarías los recursos del jugador en tu juego.
             jugadorcopia.cantidadBases += 1;
             jugadorcopia.maderaCount -= 1;
             jugadorcopia.ladrilloCount -= 1;
@@ -1631,7 +1616,6 @@ Debug.Log("Recursos ajustados a 7 o menos");
             }
             // Crear una copia del jugador, modificarla y luego reemplazar el elemento original
             PlayerNetwork.DatosJugador jugadorcopia = PlayerNetwork.Instance.playerData[indexJugador];
-            // Aquí es donde actualizarías los recursos del jugador en tu juego.
             jugadorcopia.cantidadPueblos += 1;
             jugadorcopia.trigoCount -= 2;
             jugadorcopia.piedraCount -= 3;
@@ -1869,13 +1853,11 @@ Debug.Log("Recursos ajustados a 7 o menos");
             // Si el segundo dado existe, reposicionarlo para el nuevo lanzamiento
             ARCursor.Instance.currentDado2.transform.position = ARCursor.Instance.tableromInstance.transform.position + Vector3.up * ARCursor.Instance.dadoDistance + Vector3.right * ARCursor.Instance.dadoDistance;
         }
-        // Obtén el DiceScript del dado actual y lanza el dado
         DiceScript diceScript = ARCursor.Instance.currentDado.GetComponent<DiceScript>();
         if (diceScript != null)
         {
             diceScript.RollDice(ARCursor.Instance.currentDado, ARCursor.Instance.tableromInstance.transform.position + Vector3.up * ARCursor.Instance.dadoDistance);
         }
-        // Obtén el DiceScript del segundo dado y lanza el dado
         DiceScript diceScript2 = ARCursor.Instance.currentDado2.GetComponent<DiceScript>();
         if (diceScript2 != null)
         {

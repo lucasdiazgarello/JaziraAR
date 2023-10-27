@@ -49,11 +49,11 @@ public class TestRelay : NetworkBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Esto garantiza que el objeto empty que tiene el script no se destruirá al cargar una nueva escena
+            DontDestroyOnLoad(gameObject); 
         }
         else
         {
-            Destroy(gameObject); // Si ya hay una instancia, destruye esta
+            Destroy(gameObject); 
         }
     }
     public async void CreateRelay()
@@ -110,7 +110,6 @@ public class TestRelay : NetworkBehaviour
             Debug.Log("Joining Relay with " + codigo);
             JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(codigo);
             Debug.Log("Debug 1 ");
-            // Check if joinAllocation is not null before attempting to access its properties
             if (joinAllocation != null)
             {
                 Debug.Log("Debug 2 ");

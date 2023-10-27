@@ -7,7 +7,6 @@ using Unity.Services.Authentication;
 
 public class MainMenuController : MonoBehaviour
 {
-    //carga la escena que queres que abra al tocar el boton
     public void LoadGameScene()
     {
         SceneManager.LoadScene("NuevaPartidaScene");
