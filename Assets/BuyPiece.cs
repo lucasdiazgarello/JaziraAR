@@ -25,6 +25,19 @@ public class BuyPiece : NetworkBehaviour
         //primero desactivo botones si no es mi turno
         if (PlayerNetwork.Instance.IsMyTurn(PlayerPrefs.GetInt("jugadorId")))
         {
+            if (!ARCursor.Instance.tableroconfirmado)
+            {
+                comprarCaminoButton.gameObject.SetActive(false);
+                comprarBaseButton.gameObject.SetActive(false);
+                comprarPuebloButton.gameObject.SetActive(false);
+            }
+            else
+            {
+                comprarCaminoButton.gameObject.SetActive(true);
+                comprarBaseButton.gameObject.SetActive(true);
+                comprarPuebloButton.gameObject.SetActive(true);
+            }
+
             if (jugador.maderaCount >= 1 && jugador.ladrilloCount >= 1)
             {
                 comprarCaminoButton.interactable = true;

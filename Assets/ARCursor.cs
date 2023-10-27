@@ -21,6 +21,7 @@ public class ARCursor : NetworkBehaviour
     private GameObject currentObject; // Guarda una referencia al objeto colocado actualmente
     private bool isPlacementModeActive = false; // Para rastrear si el modo de colocación está activo o no
     public bool isBoardPlaced = false; // Para rastrear si el tablero ya ha sido colocado o no
+    public bool tableroconfirmado = false;
 
     public GameObject dadoToPlace; // Prefab del dado
     public float dadoDistance = 0.3f; // Distancia de desplazamiento del dado (en metros)
@@ -158,7 +159,16 @@ public class ARCursor : NetworkBehaviour
                 }
             }
             //Debug.Log("llego y el id es " + PlayerPrefs.GetInt("jugadorId"));
-
+            if (!ARCursor.Instance.tableroconfirmado)
+            {
+                tirarDadoButton.gameObject.SetActive(false);
+                terminarTurnoButton.gameObject.SetActive(false);
+            }
+            else
+            {
+                tirarDadoButton.gameObject.SetActive(true);
+                terminarTurnoButton.gameObject.SetActive(true);
+            }
             if (PlayerNetwork.Instance.IsMyTurn(PlayerPrefs.GetInt("jugadorId")) && !botonPulsado && PlayerNetwork.Instance.todosListos)
             {
                 tirarDadoButton.interactable = true;
@@ -210,6 +220,8 @@ public class ARCursor : NetworkBehaviour
         isBoardPlaced = true;
         isPlacementModeActive = false;
         confirmButton.gameObject.SetActive(false); // Desactivar el botón de confirmación
+        ARCursor.Instance.tableroconfirmado = true;
+        PlayerNetwork.Instance.UpdateTablerocolocadoClientRpc();
         // Activar la colocación de las piezas en los marcadores invisibles
         /*foreach (PlacePiece colocarPieza in GetComponentsInChildren<PlacePiece>())
         {

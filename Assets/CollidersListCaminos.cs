@@ -282,7 +282,7 @@ public class CollidersListCaminos : NetworkBehaviour
         }
         else
         {
-            return true;
+            return (CollidersListCaminos.Instance.camino1si || CollidersListCaminos.Instance.camino2si || CollidersListCaminos.Instance.camino3si);
         }
     }
 

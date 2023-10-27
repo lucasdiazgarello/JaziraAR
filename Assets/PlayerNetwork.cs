@@ -1720,6 +1720,13 @@ Debug.Log("Recursos ajustados a 7 o menos");
     }
 
     [ClientRpc]
+    public void UpdateTablerocolocadoClientRpc()
+    {
+        ARCursor.Instance.tableroconfirmado = true;
+    }
+
+
+    [ClientRpc]
     public void UpdatePuntaje1TextClientRpc(DatosJugador jugador)
     {
         Debug.Log("Entre a UpdatePuntaje1TextClientRpc");

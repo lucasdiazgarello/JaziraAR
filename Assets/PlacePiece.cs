@@ -85,9 +85,35 @@ public class PlacePiece : NetworkBehaviour
         //primero desactivo botones si no es mi turno
         if (PlayerNetwork.Instance.IsMyTurn(PlayerPrefs.GetInt("jugadorId")))
         {
+
+            if (!ARCursor.Instance.tableroconfirmado)
+            {
+                buttonCamino.gameObject.SetActive(false);
+                buttonBase.gameObject.SetActive(false);
+                buttonPueblo.gameObject.SetActive(false);
+                
+            }
+            else
+            {
+                buttonCamino.gameObject.SetActive(true);
+                buttonBase.gameObject.SetActive(true);
+                buttonPueblo.gameObject.SetActive(true);
+            }
+
             if (jugador.cantidadCaminos > 0)
             {
-                buttonCamino.interactable = true;
+                if (NetworkManager.Singleton.IsServer)
+                {
+                    if (ARCursor.Instance.tableroconfirmado)
+                    {
+                        buttonCamino.interactable = true;
+                    }
+                }
+                else
+                {
+                    buttonCamino.interactable = true;
+                }
+
             }
             else
             {
@@ -95,7 +121,18 @@ public class PlacePiece : NetworkBehaviour
             }
             if (jugador.cantidadBases > 0)
             {
-                buttonBase.interactable = true;
+                if (NetworkManager.Singleton.IsServer)
+                {
+                    if(ARCursor.Instance.tableroconfirmado)
+                    {
+                        buttonBase.interactable = true;
+                    }
+                }
+                else
+                {
+                    buttonBase.interactable = true;
+                }
+
             }
             else
             {
