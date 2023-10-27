@@ -491,10 +491,10 @@ public class CollidersList : NetworkBehaviour
             if (listaColliders[i].nombreCollider.Equals(nombre))
             {
                 Debug.Log("Encontre a " + nombre + " en la lista");
-                var colliderModificado = listaColliders[i]; t
+                var colliderModificado = listaColliders[i]; 
                 colliderModificado.idInstancia = nuevoId; 
                 Debug.Log("El nuevo idInstania es " + nuevoId);
-                listaColliders[i] = colliderModificado; a
+                listaColliders[i] = colliderModificado; 
                 return;
             }
         }

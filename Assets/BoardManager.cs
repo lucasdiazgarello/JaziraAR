@@ -188,7 +188,7 @@ public class BoardManager : NetworkBehaviour
                             case "Ninguno":  
                                 Debug.Log("Ninguno");
                                 break;
-                            case "Camino":  o
+                            case "Camino":  
                                 Debug.Log("Camino");
                                 break;
                             case "Base":    
